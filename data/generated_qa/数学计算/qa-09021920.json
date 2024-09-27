@@ -1,0 +1,112 @@
+[
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：1912209409 发送GTP-C路径消息包数量 / 1000",
+            "answer": "{\"答案\": \"1912209.409\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/GTP接口统计/1912209431.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/GTP接口统计/1912209431.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：S1模式EPS附着流程平均时延=117491167 S1模式EPS附着流程时延总和 / 117491113 S1模式附着成功次数",
+            "answer": "{\"答案\": \"117491167 / 117491113\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/S1模式附着/117491169.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/S1模式附着/117491169.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：1929392414 POD内接收请求消息数的平均速率=1929392414/测量周期",
+            "answer": "{\"答案\": \"无法计算，因为测量周期的具体数值未给出\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/平台性能指标/平台性能指标/性能指标/HTTP测量/POD内HTTP统计/1929392444.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/平台性能指标/平台性能指标/性能指标/HTTP测量/POD内HTTP统计/1929392444.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：(117491313 + 117491328) / (117491312 - 117491314 + 117491327 - 117491329) * 100%",
+            "answer": "{\"答案\": \"计算结果需要具体数值，当前公式中的数字为占位符\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/S1模式MME内跟踪区更新/117491410.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/S1模式MME内跟踪区更新/117491410.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：117492620 UNC内LTE到UMTS的切换请求次数 - 117492621 UNC内LTE到UMTS的切换成功次数 - 117492624 UNC内LTE到UMTS的切换失败次数（接入限制） - 117492625 UNC内LTE到UMTS的切换失败次数（Relocation Request Acknowledge超时） - 117492626 UNC内LTE到UMTS的切换失败次数（Relocation Failure） - 117492627 UNC内LTE到UMTS的切换失败次数（Relocation Complete超时）等于多少？",
+            "answer": "{\"答案\": \"117492620 - 117492621 - 117492624 - 117492625 - 117492626 - 117492627\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/Intra UNC LTE和GSM及UMTS互通/117492636.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/Intra UNC LTE和GSM及UMTS互通/117492636.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：117452419 接收会话类消息包数 / 1000=?",
+            "answer": "{\"答案\": \"117452.419\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/GTPC/GTP消息处理/117452457.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/GTPC/GTP消息处理/117452457.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：基于IP地址的GTPC路径报文接收千字节数平均速率=1912209712 基于IP地址的GTPC路径报文接收千字节数 / 测量周期",
+            "answer": "{\"答案\": \"这个问题需要具体的数值才能计算，即1912209712 基于IP地址的GTPC路径报文接收千字节数和测量周期的具体数值\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/指定IP地址的GTPC路径管理报文统计/1912209714.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/指定IP地址的GTPC路径管理报文统计/1912209714.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：1912209413 发送至GGSN的路径消息包字节数 / 1024",
+            "answer": "{\"答案\": \"186757.5\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/GTP接口统计/1912209433.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/GTP接口统计/1912209433.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：1912209422 处理的GTP-C路径消息包数 / 1000=?",
+            "answer": "{\"答案\": \"19122.09422\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/GTP接口统计/1912209434.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/GTPC/GTP接口统计/1912209434.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：117491796 S1模式IMS语音寻呼成功的寻呼总时延 / 117491895 S1模式IMS语音寻呼成功次数 * 10=?",
+            "answer": "{\"答案\": \"此问题需要具体数值才能计算，但公式为：(117491796 / 117491895) * 10\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/S1模式寻呼/117491797.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/S1模式移动管理/S1模式寻呼/117491797.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "question": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：117452420 / 1000=?",
+            "answer": "{\"答案\": \"11745.242\"}"
+        },
+        "path": "UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/GTPC/GTP消息处理/117452458.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/USN性能指标/GTPC/GTP消息处理/117452458.txt",
+        "template": "请计算用户给出的数学问题并使用JSON格式输出答案{{\"答案\":\"\"}}，用户问题为：{question}",
+        "version": "09021920"
+    }
+]

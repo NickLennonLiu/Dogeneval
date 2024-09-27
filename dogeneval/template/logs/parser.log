@@ -1,0 +1,58 @@
+2024-09-19 13:58:34.120 | INFO     | __main__:main:75 - API测试成功通常意味着你的应用程序接口（API）已经按照预期工作，所有测试案例都已通过，没有发现任何错误或异常。这可能包括对各种功能的测试，如数据输入和输出、响应时间、错误处理等。
+
+以下是一个简单的示例，用于表示API测试成功的响应：
+
+```
+{
+  "status": "success",
+  "message": "API Test Successfully"
+}
+```
+
+如果你正在使用某种编程语言或框架进行API测试，你可能会看到类似以下的输出：
+
+```python
+def test_api():
+    response = requests.get('http://example.com/api')
+    assert response.status_code == 200
+    assert response.json()['message'] == 'API Test Successfully'
+    
+# 如果测试通过，没有任何错误输出；如果测试失败，则会抛出断言错误。
+```
+
+总之，"API Test Successfully"表示你的API在测试中表现良好，可以正常运行。如果你有任何具体问题或需要进一步的帮助，请随时告诉我！
+2024-09-19 13:59:02.260 | INFO     | __main__:main:75 - API测试成功意味着你的应用程序接口（API）在测试过程中表现正常，没有遇到任何错误或异常。这通常涉及到一系列预定义的测试用例，包括但不限于验证数据输入、输出、响应时间、错误处理等。
+
+当一个API测试成功时，它表明以下几点：
+1. **功能正确性**：API按照预期执行其功能，返回正确的结果。
+2. **性能**：API在合理的响应时间内完成请求，满足性能要求。
+3. **稳定性**：在不同条件下，API能够稳定运行，没有崩溃或异常退出的情况。
+4. **安全性**：API在处理敏感信息时遵循安全规范，如使用加密传输、限制访问权限等。
+5. **兼容性**：API与不同的系统和环境兼容，能够在多个平台上正常工作。
+
+成功的API测试是软件开发过程中的重要环节，确保了API的质量和可靠性，为最终用户提供良好的体验。如果你正在进行API测试并收到“Test Successfully”的消息，恭喜你！这意味着你的API已经通过了测试阶段，可以进入下一步的部署或生产环境。不过，持续监控和维护API的健康状况也是必要的，以应对未来可能出现的新问题或需求变化。
+2024-09-19 14:04:08.118 | INFO     | __main__:main:76 - content='API Test Successfully' response_metadata={'token_usage': {'completion_tokens': 3, 'prompt_tokens': 13, 'total_tokens': 16}, 'model_name': 'gpt-4', 'system_fingerprint': None, 'prompt_filter_results': [{'prompt_index': 0, 'content_filter_results': {'hate': {'filtered': False, 'severity': 'safe'}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': False, 'severity': 'safe'}}}], 'finish_reason': 'stop', 'logprobs': None, 'content_filter_results': {'hate': {'filtered': False, 'severity': 'safe'}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': False, 'severity': 'safe'}}} id='run-3248ce7a-dc56-4e85-a114-401ec1738768-0' usage_metadata={'input_tokens': 13, 'output_tokens': 3, 'total_tokens': 16}
+2024-09-19 14:04:31.936 | INFO     | __main__:main:76 - API Test Successfully
+2024-09-19 14:07:02.423 | INFO     | __main__:main:77 - API Test Successfully
+2024-09-19 14:10:35.083 | WARNING  | dogeneval.utils.parser:try_parse_json:59 - Expecting ',' delimiter: line 6 column 159 (char 276)
+2024-09-19 14:10:35.085 | WARNING  | dogeneval.utils.parser:try_parse_json:63 - invalid syntax. Perhaps you forgot a comma? (<unknown>, line 6)
+2024-09-19 14:10:35.091 | WARNING  | dogeneval.utils.parser:try_parse_json:67 - Values must be separated by a comma
+2024-09-19 14:10:35.092 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - {
+    "L1": "语义理解",
+    "L2": "文本分类",
+    "L3": "投诉助理",
+    "description": "这种类型的问题要求大模型根据给定的用户问题进行分类，并以JSON格式返回结果。",
+    "template": "请你根据问题现象描述进行分类，类别有【访问白名单地址卡顿/掉线/异常】、【客户特定诉求】、【能访问白名单外地址（不在白名单内还能访问）】、【特定IP/域名/地址访问问题】、【无法上网或网速慢/卡顿/掉线/隧道或策略等问题】、【信号差/弱/不稳定】、【其他】，并以JSON格式输出{"类别":""},用户的问题是:{problem_description}",
+    "fields": [
+        {
+            "name": "problem_description",
+            "description": "用户的问题描述"
+        }
+    ],
+    "examples": [
+        
+    ],
+    "requirements": "答案需要正确分类用户的问题，并以JSON格式返回",
+    "quality_assess": "评估标准主要看答案是否正确地分类了用户的问题，并且是否以正确的JSON格式返回"
+}
+2024-09-19 14:15:17.710 | INFO     | __main__:main:77 - API Test Successfully

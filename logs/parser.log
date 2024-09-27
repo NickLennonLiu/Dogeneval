@@ -1,0 +1,114 @@
+2024-09-13 09:45:12.040 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 09:45:12.321 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 09:46:04.857 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 09:46:05.137 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 09:46:06.166 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 09:46:27.247 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 09:46:27.527 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 09:46:28.684 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 09:48:32.826 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 09:48:33.092 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 09:48:34.147 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 09:49:24.115 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 09:49:24.388 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 09:49:25.797 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 09:49:50.141 | INFO     | __main__:knowledge_extraction:46 - dict_keys(['knowledge_points'])
+2024-09-13 09:50:12.794 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 09:50:13.073 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 09:50:13.942 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 09:50:43.964 | INFO     | __main__:knowledge_extraction:46 - dict_keys(['id', 'title', 'type', 'description', 'content', 'path'])
+2024-09-13 10:00:53.157 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 10:00:53.429 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 10:00:54.630 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:01:41.558 | ERROR    | __main__:knowledge_extraction:65 - Error writing to file: Circular reference detected
+2024-09-13 10:05:15.871 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 10:05:16.156 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 10:05:17.246 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:05:54.689 | INFO     | __main__:knowledge_extraction:23 - Vector DB loaded.
+2024-09-13 10:05:54.973 | INFO     | __main__:knowledge_extraction:26 - API Test Success
+2024-09-13 10:05:56.073 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:08:30.875 | INFO     | __main__:knowledge_extraction:24 - Vector DB loaded.
+2024-09-13 10:08:31.148 | INFO     | __main__:knowledge_extraction:27 - API Test Success
+2024-09-13 10:08:32.815 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:10:04.120 | INFO     | __main__:knowledge_extraction:24 - Vector DB loaded.
+2024-09-13 10:10:04.400 | INFO     | __main__:knowledge_extraction:27 - API Test Success
+2024-09-13 10:10:05.774 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:10:57.486 | INFO     | __main__:knowledge_extraction:24 - Vector DB loaded.
+2024-09-13 10:10:57.780 | INFO     | __main__:knowledge_extraction:27 - API Test Success
+2024-09-13 10:10:59.401 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:22:10.901 | INFO     | __main__:knowledge_extraction:24 - Vector DB loaded.
+2024-09-13 10:22:11.172 | INFO     | __main__:knowledge_extraction:27 - API Test Success
+2024-09-13 10:22:12.657 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:26:37.964 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 529 related docs in 3 parent folders.
+2024-09-13 10:31:39.247 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 508 related docs in 3 parent folders.
+2024-09-13 10:35:41.538 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1508 related docs in 4 parent folders.
+2024-09-13 10:36:14.757 | INFO     | __main__:knowledge_extraction:24 - Vector DB loaded.
+2024-09-13 10:36:15.027 | INFO     | __main__:knowledge_extraction:27 - API Test Success
+2024-09-13 10:36:16.167 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 991 related docs in 3 parent folders.
+2024-09-13 10:37:08.269 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 529 related docs in 3 parent folders.
+2024-09-13 10:38:02.976 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 508 related docs in 3 parent folders.
+2024-09-13 10:39:03.779 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1508 related docs in 4 parent folders.
+2024-09-13 10:39:29.525 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 960 related docs in 4 parent folders.
+2024-09-13 10:40:03.139 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 4960 related docs in 4 parent folders.
+2024-09-13 10:40:58.052 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 464 related docs in 2 parent folders.
+2024-09-13 10:41:48.769 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 820 related docs in 4 parent folders.
+2024-09-13 10:42:25.063 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 753 related docs in 2 parent folders.
+2024-09-13 10:43:46.284 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1748 related docs in 2 parent folders.
+2024-09-13 10:44:23.105 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1249 related docs in 4 parent folders.
+2024-09-13 10:45:58.815 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 379 related docs in 3 parent folders.
+2024-09-13 10:46:50.265 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 379 related docs in 3 parent folders.
+2024-09-13 10:47:53.422 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1951 related docs in 4 parent folders.
+2024-09-13 10:48:41.342 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 946 related docs in 2 parent folders.
+2024-09-13 10:49:34.485 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 946 related docs in 2 parent folders.
+2024-09-13 10:50:32.197 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 290 related docs in 3 parent folders.
+2024-09-13 10:51:13.241 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 4613 related docs in 4 parent folders.
+2024-09-13 10:52:08.645 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1194 related docs in 4 parent folders.
+2024-09-13 10:53:23.144 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1194 related docs in 4 parent folders.
+2024-09-13 10:54:08.940 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1194 related docs in 4 parent folders.
+2024-09-13 10:54:51.836 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1194 related docs in 4 parent folders.
+2024-09-13 10:55:46.963 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1194 related docs in 4 parent folders.
+2024-09-13 10:56:38.705 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 2825 related docs in 4 parent folders.
+2024-09-13 10:57:05.011 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 262 related docs in 2 parent folders.
+2024-09-13 10:58:03.016 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 2625 related docs in 4 parent folders.
+2024-09-13 11:00:35.954 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 262 related docs in 2 parent folders.
+2024-09-13 11:01:19.102 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 323 related docs in 3 parent folders.
+2024-09-13 11:02:10.965 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 2887 related docs in 4 parent folders.
+2024-09-13 11:02:48.336 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 3006 related docs in 3 parent folders.
+2024-09-13 11:03:12.515 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 2852 related docs in 4 parent folders.
+2024-09-13 11:04:07.606 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 3071 related docs in 4 parent folders.
+2024-09-13 11:05:52.000 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 2334 related docs in 4 parent folders.
+2024-09-13 11:06:57.898 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 263 related docs in 1 parent folders.
+2024-09-13 11:07:54.702 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 1165 related docs in 2 parent folders.
+2024-09-13 11:08:22.409 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 263 related docs in 1 parent folders.
+2024-09-13 11:09:17.498 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 212 related docs in 2 parent folders.
+2024-09-13 11:09:50.614 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 138 related docs in 2 parent folders.
+2024-09-13 11:10:16.647 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 509 related docs in 3 parent folders.
+2024-09-13 11:10:51.526 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 7067 related docs in 3 parent folders.
+2024-09-13 11:11:27.332 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 319 related docs in 2 parent folders.
+2024-09-13 11:14:00.386 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 299 related docs in 3 parent folders.
+2024-09-13 11:15:02.974 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 299 related docs in 3 parent folders.
+2024-09-13 11:15:36.810 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 508 related docs in 3 parent folders.
+2024-09-13 11:16:21.027 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 183 related docs in 2 parent folders.
+2024-09-13 11:17:33.579 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 254 related docs in 3 parent folders.
+2024-09-13 11:18:22.543 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 254 related docs in 3 parent folders.
+2024-09-13 11:19:12.561 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 254 related docs in 3 parent folders.
+2024-09-13 11:20:02.885 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 254 related docs in 3 parent folders.
+2024-09-13 11:20:53.346 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 254 related docs in 3 parent folders.
+2024-09-13 11:21:41.041 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 263 related docs in 1 parent folders.
+2024-09-13 11:22:39.680 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 263 related docs in 1 parent folders.
+2024-09-13 11:23:27.627 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 263 related docs in 1 parent folders.
+2024-09-13 11:24:13.269 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 326 related docs in 2 parent folders.
+2024-09-13 11:24:57.811 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 263 related docs in 1 parent folders.
+2024-09-13 11:25:51.236 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 617 related docs in 4 parent folders.
+2024-09-13 11:26:28.784 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 353 related docs in 2 parent folders.
+2024-09-13 11:27:12.292 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 353 related docs in 2 parent folders.
+2024-09-13 11:28:00.571 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 731 related docs in 4 parent folders.
+2024-09-13 11:28:47.600 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 731 related docs in 4 parent folders.
+2024-09-13 11:29:42.466 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 731 related docs in 4 parent folders.
+2024-09-13 11:30:41.450 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 731 related docs in 4 parent folders.
+2024-09-13 11:31:51.647 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 731 related docs in 4 parent folders.
+2024-09-13 11:32:46.311 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 367 related docs in 3 parent folders.
+2024-09-13 11:33:41.649 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 364 related docs in 3 parent folders.
+2024-09-13 11:35:23.081 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 2394 related docs in 3 parent folders.
+2024-09-13 11:36:48.157 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 364 related docs in 3 parent folders.
+2024-09-13 11:37:38.100 | INFO     | qa_vector.similarity_search:get_similar_docs:19 - Found 285 related docs in 3 parent folders.

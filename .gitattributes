@@ -1,0 +1,5 @@
+dogeneval/qa_vector/UNC/index.faiss filter=lfs diff=lfs merge=lfs -text
+data/topic_modelling/hdp_model.model filter=lfs diff=lfs merge=lfs -text
+data/word_ls.pkl filter=lfs diff=lfs merge=lfs -text
+dogeneval/qa_vector/UNC/index.pkl filter=lfs diff=lfs merge=lfs -text
+experiments/doc_analysis/all_headings.json filter=lfs diff=lfs merge=lfs -text

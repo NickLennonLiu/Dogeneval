@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "filename": "/home/junetheriver/codes/qa_generation/huawei/data/UNC_20.9.5/5G基础知识/一望5G/5G Core业务解决方案解读： NRF解决方案/zh-cn_topic_0242280637.txt",
+      "path": "/home/junetheriver/codes/qa_generation/huawei/data/UNC_20.9.5/5G基础知识/一望5G/5G Core业务解决方案解读： NRF解决方案/zh-cn_topic_0242280637.txt",
+      "content": "# 5GC网络自治的背景、挑战和优势\n\n随着网络的演进，网络功能越来越多样，网络复杂度越来越高，对应的网络自治手段也需要适配演进。\n\n通过前面几期的介绍，我们了解到5GC网络做了服务化的解耦，NF（Network Function）/NFS（Network Function Service）更为精细，网络在获得敏捷能力的同时带来了管理复杂度的提高，如果还是依靠4G传统的手工运维方式，网络管理工作量将大的不可估量。5GC网络自治正是在此背景下产生，华为5GC通过NRF解决方案实现网络自治。\n\n5GC网络自治相比4G而言实现了业务快速上线和极简部署，具体优势如下：\n\n**表1** 5G网络相对4G网络优势对比 | 5G网络 | 4G网络  \n---|---|---  \n维护成本 | SBA架构，水平组网免人工规划，可由NRF统一管理分配。 | 4G非SBA架构，某些业务需要根据对端信息进行点对点配置，数据需要人工规划。  \n灵活注册和发现 | NF启动后仅向NRF自动注册，即可实现为网络可知可用。 | 4G网元为网络可用，需在DNS或DRA上增加记录，而DNS/DRA只有静态配置模式，没有自动接口能力，无法实现自发现。  \n自优化 | NRF可实时感知各NF负荷及状态，并动态调整。 | DNS/DRA仅支持静态配置，不支持各网元动态信息获取及调整。  \n  \n网络自治从最初的手工运维到最终的完全自治管理，需要经历不同阶段，当前NRF解决方案处于部分自治网络阶段。未来有条件自治网络及完全自治网络，将会在后面的华为网络自治解决方案中逐渐实现。\n\n**图1** 网络自治演进  \n![](../images/zh-cn_image_0242280755.png)\n\n\n\n\n"
+    },
+    "main_topic": 6,
+    "topic_distribution": [
+      [
+        6,
+        

@@ -1,0 +1,7 @@
+README.md
+setup.py
+DogenEval.egg-info/PKG-INFO
+DogenEval.egg-info/SOURCES.txt
+DogenEval.egg-info/dependency_links.txt
+DogenEval.egg-info/top_level.txt
+dogeneval/__init__.py

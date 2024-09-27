@@ -1,0 +1,38 @@
+2024-09-14 16:29:11.807 | INFO     | __main__:<module>:17 - 任务 abstract_narrative_understanding 被拒绝
+2024-09-14 16:29:19.978 | INFO     | __main__:<module>:17 - 任务 abstract_narrative_understanding 被拒绝
+2024-09-14 16:29:53.099 | INFO     | __main__:<module>:14 - 任务 anachronisms 被接受
+2024-09-14 16:29:53.100 | INFO     | __main__:<module>:15 - {'task_name': 'anachronisms', 'decision': 'accept', 'reason': '这个任务涉及识别时间上的矛盾，即判断给定的陈述是否包含与历史时期不符的元素，这在通信领域的大模型评测中可以作为检验模型对时间序列和历史背景理解的一个方面。', 'category': '语义理解', 'template': '你需要判断以下陈述是否包含与历史时期不符的元素，即是否存在时间上的矛盾。如果存在，则输出Yes，否则输出No。\n\n{statement}', 'fields': [{'name': 'statement', 'type': 'string', 'description': '需要判断是否包含时间矛盾的陈述'}], 'steps': '构建此类任务时，首先需要准备一系列包含或不包含时间矛盾的历史事件描述，然后随机选取正例和反例，确保覆盖不同的历史时期和事件类型，最后将每个描述插入到模板中，形成完整的题目。'}
+2024-09-14 16:31:57.085 | INFO     | __main__:<module>:9 - token_len: 2106
+2024-09-14 16:32:01.415 | INFO     | __main__:<module>:24 - 任务 abstract_narrative_understanding 被拒绝
+2024-09-14 16:32:01.477 | INFO     | __main__:<module>:9 - token_len: 13417
+2024-09-14 16:32:33.287 | INFO     | __main__:<module>:21 - 任务 anachronisms 被接受
+2024-09-14 16:32:33.289 | INFO     | __main__:<module>:22 - {'task_name': 'anachronisms', 'decision': 'accept', 'reason': '该任务属于语义理解和常识推理的范畴，可以通过分析文本中的时间线索和历史事实来判断是否存在时代错误。', 'category': '语义理解', 'template': '分析以下陈述是否包含时代错误，如果存在则输出{{"anachronism":"true"}}，否则输出{{"anachronism":"false"}}：{statement}', 'fields': [{'name': 'statement', 'type': 'string', 'description': '需要分析的陈述'}], 'steps': '构建此类任务时，首先需要收集大量的历史事件、人物、物品和科技发展的时间线作为背景知识库。然后，设计包含潜在时代错误的陈述，通过对比陈述中的时间线索与背景知识库中的信息，判断陈述是否合理。'}
+2024-09-14 16:32:33.419 | INFO     | __main__:<module>:9 - token_len: 41538
+2024-09-14 16:32:33.421 | INFO     | __main__:<module>:12 - 任务 analogical_similarity 的token数超过限制，跳过
+2024-09-14 16:36:17.044 | INFO     | __main__:<module>:9 - token_len: 2106
+2024-09-14 16:36:21.191 | INFO     | __main__:<module>:25 - 任务 abstract_narrative_understanding 被拒绝
+2024-09-14 16:36:21.202 | INFO     | __main__:<module>:9 - token_len: 2184
+2024-09-14 16:36:25.545 | INFO     | __main__:<module>:25 - 任务 anachronisms 被拒绝
+2024-09-14 16:36:25.558 | INFO     | __main__:<module>:9 - token_len: 2254
+2024-09-14 16:36:35.026 | INFO     | __main__:<module>:22 - 任务 analogical_similarity 被接受
+2024-09-14 16:36:35.028 | INFO     | __main__:<module>:23 - {'task_name': 'analogical_similarity', 'decision': 'accept', 'reason': '这个任务符合通信领域大模型评测的范畴，因为它涉及到逻辑推理和语义理解，这两点在通信领域的故障诊断、协议理解和系统设计中非常重要。', 'category': '逻辑推理', 'template': '分析两个事件之间的类比关系，确定类比类型\n\n分析线索：{analysis_clues}\n\n业务知识：{business_knowledge}\n\n推理规则：{reasoning_rules}\n\n你现在的任务是根据提供的事件描述，判断事件间的类比关系类型。回答格式如下：\n类比类型：', 'fields': [{'name': 'analysis_clues', 'type': 'string', 'description': '两个事件的描述'}, {'name': 'business_knowledge', 'type': 'string', 'description': '通信领域相关的业务知识'}, {'name': 'reasoning_rules', 'type': 'string', 'description': '用于判断类比类型的推理规则'}], 'steps': '首先，根据提供的事件描述，利用通信领域的业务知识和推理规则，分析两个事件之间的关系。然后，根据分析结果，判断事件间的类比类型。最后，按照规定的格式输出类比类型。'}
+2024-09-14 16:36:35.039 | INFO     | __main__:<module>:9 - token_len: 2181
+2024-09-14 16:36:44.432 | INFO     | __main__:<module>:22 - 任务 analytic_entailment 被接受
+2024-09-14 16:36:44.434 | INFO     | __main__:<module>:23 - {'task_name': 'analytic_entailment', 'decision': 'accept', 'reason': '此任务涉及逻辑推理，与通信领域大模型评测的逻辑推理能力相契合，可以评估模型在逻辑分析上的表现。', 'category': '逻辑推理', 'template': '你的任务是判断两个句子之间的逻辑关系，即第一个句子是否蕴含第二个句子。如果第一个句子成立，则第二个句子必然成立，这种关系称为蕴含(entailment)；反之则不成立，称为非蕴含(no-entailment)。\n现在请开始回答问题：\n句子1：{sentence1}\n句子2：{sentence2}\n请判断句子1是否蕴含句子2，以JSON格式输出{{"relation":""}}。', 'fields': [{'name': 'sentence1', 'type': 'string', 'description': '第一个句子'}, {'name': 'sentence2', 'type': 'string', 'description': '第二个句子'}], 'steps': '构建此类任务时，首先需要准备一系列句子对，确保涵盖通信领域的常见逻辑关系；然后，针对每一对句子，确定其逻辑关系是蕴含还是非蕴含；最后，将这些句子对和对应的逻辑关系作为输入和目标输出，设计成适合模型训练和测试的数据点。'}
+2024-09-14 16:36:44.444 | INFO     | __main__:<module>:9 - token_len: 2096
+2024-09-14 16:36:50.586 | INFO     | __main__:<module>:22 - 任务 arithmetic 被接受
+2024-09-14 16:36:50.587 | INFO     | __main__:<module>:23 - {'task_name': 'arithmetic', 'decision': 'accept', 'reason': "这个任务属于数学计算能力的范畴,与现有的'数学计算'任务相符", 'category': '数学计算', 'template': '请计算用户给出的数学问题并使用JSON格式输出答案{{"答案":""}},用户问题为：{question}', 'fields': [{'name': 'question', 'type': 'string', 'description': '数学问题,复杂公式用latex格式表示'}], 'steps': '1. 确定数学问题的具体内容和格式.2. 设计问题,确保覆盖四则运算的基本场景.3. 使用设计好的模板创建题目,替换模板中的变量为具体数值或问题描述.4. 检查题目是否符合预期的难度和格式要求.'}
+2024-09-14 16:36:50.596 | INFO     | __main__:<module>:9 - token_len: 2233
+2024-09-14 16:36:55.061 | INFO     | __main__:<module>:25 - 任务 ascii_word_recognition 被拒绝
+2024-09-14 16:36:55.072 | INFO     | __main__:<module>:9 - token_len: 2132
+2024-09-14 16:36:59.050 | INFO     | __main__:<module>:25 - 任务 authorship_verification 被拒绝
+2024-09-14 16:36:59.062 | INFO     | __main__:<module>:9 - token_len: 2145
+2024-09-14 16:37:05.339 | INFO     | __main__:<module>:22 - 任务 auto_categorization 被接受
+2024-09-14 16:37:05.340 | INFO     | __main__:<module>:23 - {'task_name': 'auto_categorization', 'decision': 'accept', 'reason': '这个任务可以归类于语义理解能力，因为它涉及到从给定的例子中提取共同特征并进行分类。', 'category': '语义理解', 'template': '你现在面对的是一个分类任务，你需要根据给定的一组例子，总结出它们所属的广泛类别。你的回答应该以JSON格式输出{{"类别":""}}。给定的例子为：{example_list}', 'fields': [{'name': 'example_list', 'type': 'list', 'description': '一组描述性的例子，用于归纳分类'}], 'steps': '首先，分析提供的例子，找出它们之间的共性；其次，基于这些共性，确定一个广泛的类别；最后，按照模板要求，以JSON格式输出类别。'}
+2024-09-14 16:37:05.351 | INFO     | __main__:<module>:9 - token_len: 2173
+2024-09-14 16:37:13.011 | INFO     | __main__:<module>:22 - 任务 auto_debugging 被接受
+2024-09-14 16:37:13.012 | INFO     | __main__:<module>:23 - {'task_name': 'auto_debugging', 'decision': 'accept', 'reason': "此任务涉及代码理解和执行结果预测，与'代码MML生成'任务虽有区别，但同属代码理解和生成的范畴，同时符合通信领域大模型评测的范畴，特别是当涉及到通信领域的代码理解时", 'category': '代码MML生成', 'template': '你需要根据给定的Python代码片段，预测代码执行后的特定变量状态或结果。现在请开始回答问题：\n代码片段：\n{code_snippet}\n问题：\n{question}', 'fields': [{'name': 'code_snippet', 'type': 'string', 'description': '代码片段'}, {'name': 'question', 'type': 'string', 'description': '关于代码执行后状态的问题'}], 'steps': '构建此类任务时，首先需要选取一段具有代表性的Python代码，代码应包含循环、条件判断等控制流结构。然后设定一个关于代码执行后特定状态的问题，例如变量的值、循环的次数等。最后，根据代码和问题，设计出期望的答案。'}
+2024-09-14 16:37:13.024 | INFO     | __main__:<module>:9 - token_len: 2135
+2024-09-14 16:39:00.731 | INFO     | __main__:<module>:11 - token_len: 2106
+2024-09-14 16:39:05.150 | INFO     | __main__:<module>:11 - token_len: 2184
+2024-09-14 16:39:09.204 | INFO     | __main__:<module>:11 - token_len: 2254
