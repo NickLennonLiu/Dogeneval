@@ -1,4 +1,7 @@
 from openai import OpenAI
+
+from dogeneval.utils.parser import try_parse_json
+
 openai_api_key = "EMPTY"
 
 def get_vllm_model(model_path='/home/junetheriver/models/qwen/Qwen1.5-72B-Chat-AWQ', num_gpu=4):
@@ -33,6 +36,10 @@ class AzureClient:
     def chat(self, prompt):
         response = self.llm.invoke(prompt).content
         return response
+    
+    def chat_json(self, prompt):
+        response = self.llm.invoke(prompt).content
+        return try_parse_json(response)
 
 
 def get_azure_model():
@@ -90,6 +97,16 @@ class OpenAIClient:
     def chat(self, prompt):
         chat_response = self.generate(prompt)
         return chat_response.choices[0].message.content
+    
+    def chat_json(self, prompt):
+        chat_response = self.generate(prompt)
+        return try_parse_json(chat_response.choices[0].message.content)
 
 def get_openai_model():
     return OpenAIClient()
+
+
+if __name__ == "__main__":
+    llm = get_openai_model()
+    from loguru import logger
+    logger.info(llm.chat("Please reply: API test success."))

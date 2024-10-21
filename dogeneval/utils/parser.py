@@ -49,7 +49,8 @@ def remove_json_markdown(text):
         text = text[:-3]
     return text
 
-def try_parse_json(text):
+def try_parse_json(text, return_text_if_failed=False):
+    original_text = text
     text = escape_newlines_in_json_string(text)
     text = remove_json_markdown(text)
     # print(text)
@@ -66,7 +67,7 @@ def try_parse_json(text):
             except Exception as err:
                 logger.warning(err)
                 logger.warning(text)
-                return None
+                return None if not return_text_if_failed else original_text
             
 
 

@@ -1,0 +1,2 @@
+[mongodb]
+mongo_url = "mongodb://admin:opseval@166.111.68.22:57018/"
