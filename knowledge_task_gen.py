@@ -13,7 +13,7 @@ from dogeneval.kp_template_mapping.mapping import map_kp_to_templates
 from dogeneval.template.template_prompt import format_qa_generation_prompt
 
 def load_ktasks():
-    root_path = "/home/junetheriver/codes/qa_generation/huawei/dogeneval/template/ktasks"
+    root_path = "./dogeneval/template/ktasks"
     level1s = ["1_recall", "2_transform", "3_apply"]
     ktasks = []
     require_scene_ktasks = []
@@ -155,7 +155,7 @@ def main():
     llm = llms.get_azure_model()
 
     # load knowledge points
-    kp_file = "/home/junetheriver/codes/qa_generation/huawei/data/knowledge_points/knowledge_points-09131036.xlsx"
+    kp_file = "./data/knowledge_points/knowledge_points-09131036.xlsx"
     df = pd.read_excel(kp_file)
     print(df.columns)
 
