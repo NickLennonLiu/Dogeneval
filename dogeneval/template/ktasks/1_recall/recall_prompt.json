@@ -1,0 +1,44 @@
+[
+    {
+        "task_name": "MultipleChoice",
+        "description": "该题型要求大模型根据题目和选项，选择正确的答案",
+        "system_prompt": "你是核心网运维工程师，请根据题目和选项，选择正确的答案。",
+        "template": "{question}\nA: {A}\nB: {B}\nC: {C}\nD: {D}",
+        "fields": [
+            {
+                "name": "question",
+                "description": "题目"
+            },
+            {
+                "name": "A",
+                "description": "选项A"
+            },
+            {
+                "name": "B",
+                "description": "选项B"
+            },
+            {
+                "name": "C",
+                "description": "选项C"
+            },
+            {
+                "name": "D",
+                "description": "选项D"
+            }
+        ],
+        "output_requirement": "只输出A、B、C、D中的一个字母"
+    },
+    {
+        "task_name": "QuestionAnswering",
+        "description": "该题型要求大模型根据用户关于运维文档提出的问题，给出答案",
+        "system_prompt": "你是核心网运维工程师，请根据用户关于运维文档提出的问题，给出答案",
+        "template": "{question}",
+        "fields": [
+            {
+                "name": "question",
+                "description": "问题"
+            }
+        ],
+        "output_requirement": null
+    }
+]

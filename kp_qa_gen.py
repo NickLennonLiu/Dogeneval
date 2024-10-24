@@ -51,16 +51,21 @@ if __name__ == "__main__":
     llm2 = llms.get_azure_model()
     logger.info(llm2.chat("Please reply: Azure API Test Success!"))
 
-    # Load Q1, A1s
+    # Load Knowledge Points
     kp_file = "/home/junetheriver/codes/qa_generation/huawei/data/knowledge_points/knowledge_points-09131036.xlsx"
     df = pd.read_excel(kp_file)
     print(df.columns)
+
+    # Knowledge Points Filter
+    filter_kp_type = ["处理步骤", "表格", "命令", "具体案例", "代码", "列表", "参数说明", "命令功能", ]
+    df = df[df["类型"].isin(filter_kp_type)]
 
     # Load templates
     # template_file = "/home/junetheriver/codes/qa_generation/huawei/data/templates_v3.json"
     template_file = "/home/junetheriver/codes/qa_generation/huawei/dogeneval/template/templates_1014_v2.json"
     with open(template_file) as f:
         templates = json.load(f)
+
 
     # Start Pipeline
 

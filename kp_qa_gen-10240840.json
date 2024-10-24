@@ -1,0 +1,19 @@
+[
+    {
+        "task": "MultipleChoice",
+        "kp_type": "代码",
+        "kp_title": "展示V$DN_TABLE_INDEX视图的详细Schema定义",
+        "kp_content": "{\n                \"schema_version\":0,\n                \"version\":\"2.0\",\n                \"type\":\"record\",\n                \"name\":\"V$DN_TABLE_INDEX\",\n                \"fields\":[\n                    {\"name\":\"SCHEMA_VERSION\",\"type\":\"uint32\"},\n                    {\"name\":\"NODE_ID\",\"type\":\"uint16\"},\n                    {\"name\":\"WORKER_ID\",\"type\":\"uint8\"},\n                    {\"name\":\"TABLE_ID\",\"type\":\"uint32\"},\n                    {\"name\":\"HT_UNIQUE_HASH_INDEX_COUNT\",\"type\":\"record\",\"array\":true,\"fields\":[\n                       {\"name\":\"NAME\",\"type\":\"string\"},\n                       {\"name\":\"COUNT\",\"type\":\"uint32\"}]\n                     },\n                    {\"name\":\"HT_NON_UNIQUE_HASH_INDEX_COUNT\",\"type\":\"record\",\"array\":true,\"fields\":[\n                       {\"name\":\"NAME\",\"type\":\"string\"},\n                       {\"name\":\"COUNT\",\"type\":\"uint32\"}]\n                     },\n                    {\"name\":\"UNIQUE_GSI_CIDX_COUNT\",\"type\":\"record\",\"array\":true,\"fields\":[\n                       {\"name\":\"NAME\",\"type\":\"string\"},\n                       {\"name\":\"COUNT\",\"type\":\"uint32\"}]\n                     },\n                    {\"name\":\"NON_UNIQUE_GSI_CIDX_COUNT\",\"type\":\"record\",\"array\":true,\"fields\":[\n                       {\"name\":\"NAME\",\"type\":\"string\"},\n                       {\"name\":\"COUNT\",\"type\":\"uint32\"}]\n                     },\n                  {\"name\":\"PARTITION_CIDX_ITEM_COUNT\",\"type\":\"uint32\"},\n                  {\"name\":\"SN_CIDX_ITEM_COUNT\",\"type\":\"uint32\"}],\n                  \"keys\":\n                   [\n                      {\n                         \"node\":\"V$DN_TABLE_INDEX\",\n                         \"name\":\"DN_TABLE_INDEX\",\n                         \"fields\":[\"WORKER_ID\",\"TABLE_ID\"],\n                         \"index\":{\"type\":\"primary\"},\n                         \"constraints\":{\"unique\":true}\n                      }\n                ]\n            }",
+        "template": "你是核心网运维工程师，请根据题目和选项，选择正确的答案。\n\n{question}\nA: {A}\nB: {B}\nC: {C}\nD: {D}\n\n只输出A、B、C、D中的一个字母",
+        "qa_gen_response": "{\n    \"question\": \"在V$DN_TABLE_INDEX视图的详细Schema定义中，哪个字段是唯一的？\",\n    \"A\": \"SCHEMA_VERSION\",\n    \"B\": \"NODE_ID\",\n    \"C\": \"WORKER_ID\",\n    \"D\": \"DN_TABLE_INDEX\",\n    \"answer\": \"D\",\n    \"explanation\": \"从提供的知识点内容中，我们可以看到在\\\"keys\\\"部分，\\\"DN_TABLE_INDEX\\\"字段被定义为唯一的，因此选项D是正确的。\"\n}",
+        "qa_gen_time": 5.872373342514038,
+        "is_zeroshot": true,
+        "require_scene": false,
+        "example": null,
+        "kp_path": "/UNC_20.9.5/OM参考/命令/UNC工程命令/DSP DBSTATS参数补充说明/系统视图/zh-cn_topic_0000001304586261.txt",
+        "Question": "你是核心网运维工程师，请根据题目和选项，选择正确的答案。\n\n在V$DN_TABLE_INDEX视图的详细Schema定义中，哪个字段是唯一的？\nA: SCHEMA_VERSION\nB: NODE_ID\nC: WORKER_ID\nD: DN_TABLE_INDEX\n\n只输出A、B、C、D中的一个字母",
+        "Answer": "D",
+        "error": null,
+        "match": true,
+        "match_reason": "在V$DN_TABLE_INDEX视图的详细Schema定义中，DN_TABLE_INDEX是唯一的，这是由\"constraints\":{\"unique\":true}定义的。因此，模型的回答是正确的。",
+        "_id": 

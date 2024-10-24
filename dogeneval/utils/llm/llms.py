@@ -106,6 +106,10 @@ def get_openai_model():
     return OpenAIClient()
 
 
+def get_chatanywhere_model():
+    raise NotImplementedError
+
+
 if __name__ == "__main__":
     llm = get_openai_model()
     from loguru import logger

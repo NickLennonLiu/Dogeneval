@@ -37,15 +37,22 @@ MAPPING_PROMPT = """你是核心网运维工程师，你的任务是判断产品
 你返回的内容开头不能是```json，直接返回json内容即可。
 """
 
+def form_question_prompt(template_data):
+    prompt = template_data["template"]
+    if template_data["system_prompt"]:
+        prompt = template_data["system_prompt"] + "\n\n" + prompt
+    if template_data["output_requirement"]:
+        prompt += "\n\n" + template_data["output_requirement"]
+    return prompt
 
 def format_template_example(template_data):
-    template = template_data['template']
+    template = form_question_prompt(template_data)
     description = template_data['description']
     fields = template_data['fields']
-    name = f"{template_data['L1']}-{template_data['L2']}-{template_data['L3']}".replace("/", "")
+    name = template_data['task_name']
 
     return json.dumps({
-        "name": name,
+        "task_name": name,
         "description": description,
         "template": template,
         "fields": fields,
@@ -78,6 +85,35 @@ def format_kp_templ_mapping_prompt(kp_title, kp_content, template_list, tem_cnt=
         
         prompts.append(prompt)
     return prompts
+
+def map_kp_to_templates(kp, templates, llm):
+    kp_title = kp["描述"]
+    kp_content = kp["内容"]
+
+    prompts = format_kp_templ_mapping_prompt(kp_title, kp_content, templates, tem_cnt=6)
+    
+    row_json = {}
+
+    for prompt in prompts:
+        max_retries = 3
+        while max_retries > 0:
+            max_retries -= 1
+            try:
+                response = llm.chat_json(prompt)
+                row_json.update(response)
+            except Exception as err:
+                sleep(5)
+                logger.error(err)
+                continue
+            break
+
+    mapped_templates = [
+        template_data for template_data in templates if row_json.get(template_data["task_name"], {}).get("choose", False)
+    ]
+
+    return mapped_templates
+    
+
 
 if __name__ == "__main__":
     template_file = "/home/junetheriver/codes/qa_generation/huawei/dogeneval/template/templates_1014_v2.json"

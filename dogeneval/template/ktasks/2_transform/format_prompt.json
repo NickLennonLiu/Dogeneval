@@ -1,0 +1,139 @@
+[
+    {
+        "task_name": "JsonFormat",
+        "description": "该题型要求大模型将给出的处理步骤转换成json格式的列表",
+        "system_prompt": "你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。",
+        "output_requirement": "注意只回答json，不要回答其它内容",
+        "template": "处理步骤：\n{steps_to_convert}",
+        "fields": [
+            {
+                "name": "steps_to_convert",
+                "description": "待转换的处理步骤"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：\n\n1. 查看活动告警。\n  1. 选择“监控分析 > 告警管理 > 活动告警”。\n  2. 查看活动告警信息。\n  3. 查看告警是否清除。\n     是 => 结束。\n     否 => 请执行步骤2。\n2. 首页查看是否存在“应用ID”为非0的网元。\n   是 =>请执行步骤3。\n   否 =>请执行步骤4。\n3. 从告警定位信息中找出“账号名称”。\n  1. 若“账号名称”为internaluser或emscomm，使用管理员权限在各个“应用ID”不为0的网元下执行SEAOP命令修改该用户密码，查看是否修改成功。\n     是 => 请执行步骤5。\n     否 => 说明此用户为在线用户，执行SEAPWD命令修改，修改后请执行步骤5。\n  2. 若“账号名称”为非internaluser或emscomm，请执行步骤4。\n如果存在多个非0的应用，则需要在多个“应用ID”不为0的网元下执行SEAOP或SEAPWD命令，并保证同一用户密码一致。\n4. 判断告警定位信息中“账号名称”是否为nerestuser。\n   是 => 请参照VNFM对接管理章节。\n   否 => 请执行步骤5。\n5. 选择“安全 > 用户管理”，进入用户管理页面。\n6. 在用户列表里找到对应的应用账号，单击“操作”列的“重置密码”。\n7. 重置应用账号密码后，在活动告警页面，查看该告警是否已清除。\n   是 => 结束。\n   否 => 8\n8. 收集告警信息和节点日志，联系技术支持处理。\n  1. 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\n  2. 收集日志信息：选择“监控分析>运行日志>节点日志收集”，收集Privilege/OM_MGR节点的日志。三方CaaS场景需要进入“监控分析>运行日志>日志下载”页面，选择对应的节点，勾选需要收集的日志，并单击“批量下载”进行节点日志的收集。\"\n",
+                "Answer": "```json\n[\n    {\n        \"step\": 1,\n        \"description\": \"查看活动告警。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.1,\n        \"description\": \"选择“监控分析 > 告警管理 > 活动告警”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.2,\n        \"description\": \"查看活动告警信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.3,\n        \"description\": \"查看告警是否清除。\",\n        \"choice\": \"是 => 结束。否 => 请执行步骤2。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"首页查看是否存在“应用ID”为非0的网元。\",\n        \"choice\": \"是 =>请执行步骤3。否 =>请执行步骤4。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"从告警定位信息中找出“账号名称”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3.1,\n        \"description\": \"若“账号名称”为internaluser或emscomm，使用管理员权限在各个“应用ID”不为0的网元下执行SEAOP命令修改该用户密码，查看是否修改成功。\",\n        \"choice\": \"是 => 请执行步骤5。否 => 说明此用户为在线用户，执行SEAPWD命令修改，修改后请执行步骤5。\"\n    },\n    {\n        \"step\": 3.2,\n        \"description\": \"若“账号名称”为非internaluser或emscomm，请执行步骤4。\",\n        \"choice\": \"如果存在多个非0的应用，则需要在多个“应用ID”不为0的网元下执行SEAOP或SEAPWD命令，并保证同一用户密码一致。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"判断告警定位信息中“账号名称”是否为nerestuser。\",\n        \"choice\": \"是 => 请参照VNFM对接管理章节。否 => 请执行步骤5。\"\n    },\n    {\n        \"step\": 1,\n        \"description\": \"选择“安全 > 用户管理”，进入用户管理页面。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 6,\n        \"description\": \"在用户列表里找到对应的应用账号，单击“操作”列的“重置密码”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 7,\n        \"description\": \"重置应用账号密码后，在活动告警页面，查看该告警是否已清除。\",\n        \"choice\": \"是 => 结束。否 => 8\"\n    },\n    {\n        \"step\": 8,\n        \"description\": \"收集告警信息和节点日志，联系技术支持处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 8.1,\n        \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 8.2,\n        \"description\": \"收集日志信息：选择“监控分析>运行日志>节点日志收集”，收集Privilege/OM_MGR节点的日志。三方CaaS场景需要进入“监控分析>运行日志>日志下载”页面，选择对应的节点，勾选需要收集的日志，并单击“批量下载”进行节点日志的收集。\",\n        \"choice\": \"\"\n    }\n]\n```"
+            },
+            {
+                "Question": "\"你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n以下是一个示例：\n************************************\n例如：\n给出处理步骤为：\n\t1. 首先根据已有的信息，来判断车辆是否正常。   \n\t   是 => 2。\n\t   否 => 3。\n\t2. 骑车去河边，结束后看是否劳累。\n\t   是 => 结束。\n\t   否 => 3。\n\t3. 在河边散步，然后结束。\n\n你需要将上面的处理步骤转换成json格式：\n```\n[\n\t{\n\t\t\"step\": 1,\n\t\t\"description\": \"首先根据已有的信息，来判断车辆是否正常。\",\n\t\t\"choice\": \"是 => 2。否 => 3。\"\n\t},\n\t{\n\t\t\"step\": 2,\n\t\t\"description\": \"骑车去河边，结束后看是否劳累。\",\n\t\t\"choice\": \"是 => 结束。否 => 3。\"\n\t},\n\t{\n\t\t\"step\": 3,\n\t\t\"description\": \"在河边散步，然后结束。\",\n\t\t\"choice\": \"\"\n\t}\n]\n```\n***********************************\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：\n\n1. 根据告警参数中的“探测路径”执行以下操作：\n   主 => 2\n   备 => 3\n2. 在业务网元下通过查询接口信息（DSP IF）的命令，查看对应接口的“主用端口物理状态”是否为“UP”且“主用端口在线环回探测状态”是否为“正常”。\n   是 => 4\n   否 => 5\n3. 在业务网元下通过查询接口信息（DSP IF）的命令，查看对应接口的“备用端口物理状态”是否为“UP”且“备用端口在线环回探测状态”是否为“正常”。\n   是 => 4\n   否 => 5\n4. 在业务网元下使用DSP NDPRB命令查询此虚拟机上端口所连接的承载网网关IPv6信息配置是否正确。\n   是 => 6\n   否 => 5\n5. 重新规划数据，使用RMV NDPRB命令删除IPv6邻居探测，执行ADD NDPRB命令重新配置IPv6邻居探测。再检查告警是否恢复。\n   是 => 处理完毕\n   否 => 6\n6. 使用PING维护命令检查虚拟机与承载网网关之间通信是否正常；命令中“源IPv6地址”为告警参数中的“本端IPv6地址”，“目的IPv6地址”为告警参数中的“对端IPv6地址”。\n   是 => 10\n   否 => 7\n7. 检查IPv6所在虚拟机上的外出网口到承载网网关设备之间的物理连线是否正常，虚拟机位置可由告警参数中的“位置描述”确定，外出网口可由查询接口信息的命令确定。\n   是 => 10\n   否 => 8\n8. 修复外出网口到承载网网关设备之间的物理连线，再检查告警是否恢复。\n   是 => 处理完毕\n   否 => 9\n9. 联系数通工程师，修复该承载网网关，再检查告警是否恢复。\n   是 => 处理完毕\n   否 => 10\n10. 请联系相关技术支持处理。\"\n",
+                "Answer": "```json\n[\n    {\n        \"step\": 1,\n        \"description\": \"根据告警参数中的“探测路径”执行以下操作：\",\n        \"choice\": \"主 => 2。备 => 3。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"在业务网元下通过查询接口信息（DSP IF）的命令，查看对应接口的“主用端口物理状态”是否为“UP”且“主用端口在线环回探测状态”是否为“正常”。\",\n        \"choice\": \"是 => 4。否 => 5。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"在业务网元下通过查询接口信息（DSP IF）的命令，查看对应接口的“备用端口物理状态”是否为“UP”且“备用端口在线环回探测状态”是否为“正常”。\",\n        \"choice\": \"是 => 4。否 => 5。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"在业务网元下使用DSP NDPRB命令查询此虚拟机上端口所连接的承载网网关IPv6信息配置是否正确。\",\n        \"choice\": \"是 => 6。否 => 5。\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"重新规划数据，使用RMV NDPRB命令删除IPv6邻居探测，执行ADD NDPRB命令重新配置IPv6邻居探测。再检查告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。否 => 6。\"\n    },\n    {\n        \"step\": 6,\n        \"description\": \"使用PING维护命令检查虚拟机与承载网网关之间通信是否正常；命令中“源IPv6地址”为告警参数中的“本端IPv6地址”，“目的IPv6地址”为告警参数中的“对端IPv6地址”。\",\n        \"choice\": \"是 => 10。否 => 7。\"\n    },\n    {\n        \"step\": 7,\n        \"description\": \"检查IPv6所在虚拟机上的外出网口到承载网网关设备之间的物理连线是否正常，虚拟机位置可由告警参数中的“位置描述”确定，外出网口可由查询接口信息的命令确定。\",\n        \"choice\": \"是 => 10。否 => 8。\"\n    },\n    {\n        \"step\": 8,\n        \"description\": \"修复外出网口到承载网网关设备之间的物理连线，再检查告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。否 => 9。\"\n    },\n    {\n        \"step\": 9,\n        \"description\": \"联系数通工程师，修复该承载网网关，再检查告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。否 => 10。\"\n    },\n    {\n        \"step\": 10,\n        \"description\": \"请联系相关技术支持处理。\",\n        \"choice\": \"\"\n    }\n]\n```"
+            },
+            {
+                "Question": "\"你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n以下是一个示例：\n************************************\n例如：\n给出处理步骤为：\n\t1. 首先根据已有的信息，来判断车辆是否正常。   \n\t   是 => 2。\n\t   否 => 3。\n\t2. 骑车去河边，结束后看是否劳累。\n\t   是 => 结束。\n\t   否 => 3。\n\t3. 在河边散步，然后结束。\n\n你需要将上面的处理步骤转换成json格式：\n```\n[\n\t{\n\t\t\"step\": 1,\n\t\t\"description\": \"首先根据已有的信息，来判断车辆是否正常。\",\n\t\t\"choice\": \"是 => 2。否 => 3。\"\n\t},\n\t{\n\t\t\"step\": 2,\n\t\t\"description\": \"骑车去河边，结束后看是否劳累。\",\n\t\t\"choice\": \"是 => 结束。否 => 3。\"\n\t},\n\t{\n\t\t\"step\": 3,\n\t\t\"description\": \"在河边散步，然后结束。\",\n\t\t\"choice\": \"\"\n\t}\n]\n```\n***********************************\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：\n\n1. 在OM Portal上选择“监控分析>告警管理>活动告警”。\n2. 查看告警定位信息中的告警原因，并依据告警原因进行处理。\n   主备同步链路中断 => 步骤 3\n   主备数据同步率过低 => 步骤 5\n3. 在OM Portal上选择“监控分析>告警管理>活动告警”，查看是否存在“ASD-126000 GaussDB组件故障”告警。\n   是 => 步骤 4\n   否 => 步骤 6\n4. 请按照ASD-126000 GaussDB组件故障处理步骤处理。\n5. 等待5分钟，在OM Portal上选择“监控分析>告警管理>活动告警”，查看“ASD-126006 GaussDB主备同步异常”告警是否恢复。\n   是 => 结束\n   否 => 步骤 6\n6. 收集告警信息和节点日志，提交相关技术支持处理。\n1. 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\n2. 收集日志信息：选择“监控分析>运行日志>节点日志收集”，收集GaussDB节点在告警上报前半小时的日志。三方CaaS场景需要进入“监控分析>运行日志>日志下载”页面，选择对应的节点，勾选需要收集的日志，并单击“批量下载”进行节点日志的收集。\"\n",
+                "Answer": "```json\n[\n    {\n        \"step\": 1,\n        \"description\": \"在OM Portal上选择“监控分析>告警管理>活动告警”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"查看告警定位信息中的告警原因，并依据告警原因进行处理。\",\n        \"choice\": \"主备同步链路中断 => 步骤 3。主备数据同步率过低 => 步骤 5。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"在OM Portal上选择“监控分析>告警管理>活动告警”，查看是否存在“ASD-126000 GaussDB组件故障”告警。\",\n        \"choice\": \"是 => 步骤 4。否 => 步骤 6。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"请按照ASD-126000 GaussDB组件故障处理步骤处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"等待5分钟，在OM Portal上选择“监控分析>告警管理>活动告警”，查看“ASD-126006 GaussDB主备同步异常”告警是否恢复。\",\n        \"choice\": \"是 => 结束。否 => 步骤 6。\"\n    },\n    {\n        \"step\": 6,\n        \"description\": \"收集告警信息和节点日志，提交相关技术支持处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 7,\n        \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 8,\n        \"description\": \"收集日志信息：选择“监控分析>运行日志>节点日志收集”，收集GaussDB节点在告警上报前半小时的日志。三方CaaS场景需要进入“监控分析>运行日志>日志下载”页面，选择对应的节点，勾选需要收集的日志，并单击“批量下载”进行节点日志的收集。\",\n        \"choice\": \"\"\n    }\n]\n```"
+            }
+        ],
+        "requirements": "答案需要是有效的json格式，且需要准确地表示出原始处理步骤的逻辑和内容",
+        "quality_assess": "评估标准包括答案是否为有效的json格式，是否准确地表示出原始处理步骤的逻辑和内容"
+    },
+    {
+        "task_name": "IssueRewrite",
+        "description": "考察大模型根据给定的改写规则进行文本改写的能力",
+        "system_prompt": "你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整",
+        "template": "<改写规则>：{rewrite_rule}\n\n<用户问题>：{user_question}",
+        "output_requirement": "不用回答用户的问题，返回改写后的用户问题",
+        "fields": [
+            {
+                "name": "rewrite_rule",
+                "description": "给出的改写规则"
+            },
+            {
+                "name": "user_question",
+                "description": "用户提出的问题"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "请根据<改写规则>，将<用户问题>补充完整，不用回答用户的问题\n\n<改写规则>：\n问题前添加”在电信领域中“。\n\n<用户问题>：\nMSISDN是什么？",
+                "Answer": "在电信领域中，MSISDN是什么？"
+            },
+            {
+                "Question": "请根据<改写规则>，将<用户问题>补充完整，不用回答用户的问题\n\n<改写规则>：\n问题前添加”在电信领域中“。\n\n<用户问题>：\nAMF和SMF之间通过什么接口对接？",
+                "Answer": "在电信领域中，AMF和SMF之间通过什么接口对接？"
+            },
+            {
+                "Category": "文本生成-文本改写-其他",
+                "Level1": "文本生成",
+                "Level2": "文本改写",
+                "Field": "其他",
+                "Question": "请根据<改写规则>，将<用户问题>补充完整，不用回答用户的问题\n\n<改写规则>：\n问题前添加”在电信领域中“。\n\n<用户问题>：\nAMF的功能有哪些？",
+                "Answer": "在电信领域中，AMF的功能有哪些？"
+            },
+            {
+                "Category": "文本生成-文本改写-其他",
+                "Level1": "文本生成",
+                "Level2": "文本改写",
+                "Field": "其他",
+                "Question": "请根据<改写规则>，将<用户问题>补充完整，不用回答用户的问题\n\n<改写规则>：\n问题前添加”在电信领域中“。\n\n<用户问题>：\nCSCF告警号450如何处理？",
+                "Answer": "在电信领域中，CSCF告警号450如何处理？"
+            },
+            {
+                "Category": "文本生成-文本改写-其他",
+                "Level1": "文本生成",
+                "Level2": "文本改写",
+                "Field": "其他",
+                "Question": "请根据<改写规则>，将<用户问题>补充完整，不用回答用户的问题\n\n<改写规则>：\n问题前添加”在电信领域中“。\n\n<用户问题>：\n403错误一般何原因导致？",
+                "Answer": "在电信领域中，403错误一般何原因导致？"
+            }
+        ],
+        "requirements": "答案需要严格按照给出的改写规则进行改写，并且答案和问题需要有逻辑关系和关联性",
+        "quality_assess": "评估答案是否按照改写规则进行了改写，以及答案和问题之间的逻辑关系和关联性"
+    },
+    {
+        "task_name": "MMLGenerate",
+        "description": "该题目考察模型根据给定参数生成符合指定格式的业务脚本的能力",
+        "system_prompt": "你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>",
+        "template": "<参数>：\n{params}",
+        "output_requirement": "以START开始END结束写<业务脚本>",
+        "fields": [
+            {
+                "name": "params",
+                "description": "参数内容"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "你是系统工程师，需要根据参数写业务脚本\n\n下面是一个例子：\n参数：\n#步骤获取NS索引：76；DNN名称：CMIOT5GDCDJ1NB.ZJ；SST标识：128-2C7155；客户：某某企业\n业务脚本：\nSTART\nADD PLMNNS: NSIDX=76, PLMNIDX=0, SST=128, SD=\"2C7155\", STATE=ACTIVE, DESC=\"某某企业\";\nADD NFNS: NFTYPE=NfAMF, NSIDX=76, DESC=\"某某企业\";\nADD LOCALNSDNN:SUBRANGE=HOME_USER, SST=128, SD=\"2C7155\", DNN=\"CMIOT5GDCDJ1NB.ZJ\", CORRECTTYPE=DNN_CORRECTION, DNNPLCY=Default_DNN_preferred, DISFAILPLCY=STANDARD_MODEL;\nEND\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：\n#步骤获取NS索引：0；DNN名称：CMNET；SST标识：127-EEEEEE；客户：for eMBB",
+                "Answer": "START\nADD PLMNNS:NSIDX=0, PLMNIDX=0, SST=127, SD=\"EEEEEE\", DESC=\"for eMBB\", STATE=ACTIVE;\nADD NFNS:NFTYPE=NfAMF,NSIDX=0,DESC=\"for eMBB\";\nADD LOCALNSDNN:SUBRANGE=HOME_USER, SST=127, SD=\"EEEEEE\", DNN=\"CMNET\", CORRECTTYPE=DNN_CORRECTION, DNNPLCY=Default_DNN_preferred, DISFAILPLCY=STANDARD_MODEL;\nEND"
+            },
+            {
+                "Question": "你是系统工程师，需要根据参数写业务脚本\n\n下面是一个例子：\n参数：\n#步骤区域组索引：2255，2372；TACGROUP名称：128-XY7155；TAC区域段：12480A-12480E，121423-123068\n业务脚本：\nSTART\nADD TACGROUPINNSSF:INDEX=2255, TACGROUPNAME=\"128-XY7155\", TACSTART=\"12480A\", TACEND=\"12480E\";\nADD TACGROUPINNSSF:INDEX=2372, TACGROUPNAME=\"128-XY7155\", TACSTART=\"121423\", TACEND=\"123068\";\nEND\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：\n#步骤区域组索引：6691，6692，6693，6694，6695，6696，6697，6698，6699，6700；TACGROUP名称：128-2C3248；TAC区域段：127002-127002,127050-12705A,1270B4-1270C1,127118-127129,12717C-127188,1271E0-1271E6,127244-12724B,1272A8-1272BF,12730C-127312,127370-12737B",
+                "Answer": "START\nADD TACGROUPINNSSF: INDEX=6691, TACGROUPNAME=\"128-2C3248\", TACSTART=\"127002\", TACEND=\"127002\";\nADD TACGROUPINNSSF: INDEX=6692, TACGROUPNAME=\"128-2C3248\", TACSTART=\"127050\", TACEND=\"12705A\";\nADD TACGROUPINNSSF: INDEX=6693, TACGROUPNAME=\"128-2C3248\", TACSTART=\"1270B4\", TACEND=\"1270C1\";\nADD TACGROUPINNSSF: INDEX=6694, TACGROUPNAME=\"128-2C3248\", TACSTART=\"127118\", TACEND=\"127129\";\nADD TACGROUPINNSSF: INDEX=6695, TACGROUPNAME=\"128-2C3248\", TACSTART=\"12717C\", TACEND=\"127188\";\nADD TACGROUPINNSSF: INDEX=6696, TACGROUPNAME=\"128-2C3248\", TACSTART=\"1271E0\", TACEND=\"1271E6\";\nADD TACGROUPINNSSF: INDEX=6697, TACGROUPNAME=\"128-2C3248\", TACSTART=\"127244\", TACEND=\"12724B\";\nADD TACGROUPINNSSF: INDEX=6698, TACGROUPNAME=\"128-2C3248\", TACSTART=\"1272A8\", TACEND=\"1272BF\";\nADD TACGROUPINNSSF: INDEX=6699, TACGROUPNAME=\"128-2C3248\", TACSTART=\"12730C\", TACEND=\"127312\";\nADD TACGROUPINNSSF: INDEX=6700, TACGROUPNAME=\"128-2C3248\", TACSTART=\"127370\", TACEND=\"12737B\";\nEND"
+            },
+            {
+                "Question": "你是系统工程师，需要根据参数写业务脚本\n\n下面是一个例子：\n参数：\n#步骤区域组索引：2255，2372；TACGROUP名称：128-XY7155；TAC区域段：12480A-12480E，121423-123068\n业务脚本：\nSTART\nADD TACGROUPINNSSF:INDEX=2255, TACGROUPNAME=\"128-XY7155\", TACSTART=\"12480A\", TACEND=\"12480E\";\nADD TACGROUPINNSSF:INDEX=2372, TACGROUPNAME=\"128-XY7155\", TACSTART=\"121423\", TACEND=\"123068\";\nEND\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：\n#步骤区域组索引：2435；TACGROUP名称：128-2C90A0；TAC区域段：123076-123076",
+                "Answer": "START\nADD TACGROUPINNSSF:INDEX=2435, TACGROUPNAME=\"128-2C90A0\", TACSTART=\"123076\", TACEND=\"123076\";\nEND"
+            },
+            {
+                "Question": "你是系统工程师，需要根据参数写业务脚本\n\n下面是一个例子：\n参数：\n业务编码：1221300104；名称：u_p_cmMTMhNc4s.hn；用户标识：213001041，213001042\n业务脚本：\nSTART\nADD URR: URRNAME=\"1221300104_df_offline\", URRID=213001041, USAGERPTMODE=OFFLINE,OFFMETERINGTYPE=VOLUME;\nADD URR: URRNAME=\"1221300104_df_online\", URRID=213001042, USAGERPTMODE=ONLINE, ONLMETERINGTYPE=VOLUME;\nADD URRGROUP:URRGROUPNAME=\"1221300104_df_ch_p\", UPURRNAME1=\"1221300104_df_offline\", DOWNURRNAME1=\"1221300104_df_offline\", UPURRNAME2=\"1221300104_df_online\", DOWNURRNAME2=\"1221300104_df_online\";\nADD PCCPOLICYGRP:PCCPOLICYGRPNM=\"1221300104_df_pcc_p_g_disable\", PCCACTPROPNAME=\"default_discard\", URRGROUPNAME=\"1221300104_df_ch_p\";\nADD PCCPOLICYGRP:PCCPOLICYGRPNM=\"1221300104_df_pcc_p_g_enable\", URRGROUPNAME=\"1221300104_df_ch_p\";\nADD RULE:RULENAME=\"1221300104disable\", POLICYTYPE=PCC, FILTERINGMODE=FLOWFILTER,FLOWFILTERNAME=\"f_f_df\", PRIORITY=65000, POLICYNAME=\"1221300104_df_pcc_p_g_disable\";\nADD RULE:RULENAME=\"1221300104enable\", POLICYTYPE=PCC, FILTERINGMODE=FLOWFILTER,FLOWFILTERNAME=\"f_f_df\", PRIORITY=65001, POLICYNAME=\"1221300104_df_pcc_p_g_enable\";\nADD RULEBINDING: USERPROFILENAME=\"u_p_cmMTMhNc4s.hn\",RULENAME=\"1221300104enable\";\nADD SPECURRGRPLIST:URRGROUPNAME=\"1221300104_df_ch_p\";\nEND\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：\n业务编码：1221102122；名称：u_p_CMMTM5GLP.ZJ；用户标识：211021221，211021222",
+                "Answer": "START\nADD URR:URRNAME=\"1221102122_df_offline\",URRID=211021221,USAGERPTMODE=OFFLINE,OFFMETERINGTYPE=VOLUME;\nADD URR:URRNAME=\"1221102122_df_online\",URRID=211021222,USAGERPTMODE=ONLINE,ONLMETERINGTYPE=VOLUME;\nADD URRGROUP:URRGROUPNAME=\"1221102122_df_ch_p\",UPURRNAME1=\"1221102122_df_offline\",DOWNURRNAME1=\"1221102122_df_offline\",UPURRNAME2=\"1221102122_df_online\",DOWNURRNAME2=\"1221102122_df_online\";\nADD PCCPOLICYGRP:PCCPOLICYGRPNM=\"1221102122_df_pcc_p_g_disable\",PCCACTPROPNAME=\"default_discard\",URRGROUPNAME=\"1221102122_df_ch_p\";\nADD PCCPOLICYGRP:PCCPOLICYGRPNM=\"1221102122_df_pcc_p_g_enable\",URRGROUPNAME=\"1221102122_df_ch_p\";\nADD RULE:RULENAME=\"1221102122disable\",POLICYTYPE=PCC,FILTERINGMODE=FLOWFILTER,FLOWFILTERNAME=\"f_f_df\",PRIORITY=65000,POLICYNAME=\"1221102122_df_pcc_p_g_disable\";\nADD RULE:RULENAME=\"1221102122enable\",POLICYTYPE=PCC,FILTERINGMODE=FLOWFILTER,FLOWFILTERNAME=\"f_f_df\",PRIORITY=65001,POLICYNAME=\"1221102122_df_pcc_p_g_enable\";\nADD RULEBINDING:USERPROFILENAME=\"u_p_CMMTM5GLP.ZJ\",RULENAME=\"1221102122enable\";\nADD SPECURRGRPLIST:URRGROUPNAME=\"1221102122_df_ch_p\";\nEND"
+            },
+            {
+                "Question": "你是系统工程师，需要根据参数写业务脚本\n\n下面是一个例子：\n参数：\nPOOL名称：CMIOT5GFHADSDZJ；地址段基础编号：0；地址段：11.0.9.0-11.0.9.255\n业务脚本：\nSTART\nADD SECTION: POOLNAME=\"CMIOT5GFHADSDZJ\", SECTIONNUM=0, IPVERSION=IPV4, V4STARTIP=\"11.0.9.0\", V4ENDIP=\"11.0.9.255\";\nEND\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：\nPOOL名称：cmiot5gykxysyzj；地址段基础编号：1；地址段：11.0.120.0-11.0.120.255",
+                "Answer": "START\nADD SECTION: POOLNAME=\"cmiot5gykxysyzj\", SECTIONNUM=1, IPVERSION=IPV4, V4STARTIP=\"11.0.120.0\", V4ENDIP=\"11.0.120.255\";\nEND"
+            }
+        ],
+        "requirements": "模型生成的答案需要严格按照业务脚本的格式，且参数内容需要与问题中的参数一致",
+        "quality_assess": "评估标准主要依据答案是否符合业务脚本的规定格式，以及参数内容是否与问题中的参数一致"
+    },
+    {
+        "task_name": "ParamRegex",
+        "description": "该题目考察模型根据给定参数表格，提取出符合指定格式的正则表达式的能力",
+        "system_prompt": "你是核心网运维工程师，你的任务是根据<参数表格>，提取出符合指定格式的<正则表达式>",
+        "template": "<参数表格>：\n{param_table}",
+        "output_requirement": "返回一个JSON，键为参数，值为正则表达式",
+        "fields": [
+            {
+                "name": "param_table",
+                "description": "参数表格"
+            }
+        ],
+        "examples": [
+            
+        ],
+        "requirements": "答案需要严格按照给定的参数表格格式，且参数和正则表达式需要一一对应",
+        "quality_assess": "评估标准主要依据答案是否符合给定的参数表格格式，以及参数和正则表达式是否一一对应"
+    }
+]

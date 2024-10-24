@@ -1,0 +1,158 @@
+[
+    {
+        "task_name": "ToolSelection",
+        "description": "考察大模型根据工具描述和用户问题选取并使用合适的工具进行故障诊断",
+        "system_prompt": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>",
+        "template": "<工具描述>：{tool_description}\n<用户问题>:\n{user_question}",
+        "output_requirement": null,
+        "fields": [
+            {
+                "name": "tool_description",
+                "description": "包含各个工具的名称、描述、参数和结果的工具描述"
+            },
+            {
+                "name": "user_question",
+                "description": "用户问题"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>\n<工具描述>：\n{\"name\": \"DSP_PAENODE\", \"description\": \"通过微服务实例名称获取微服务所在POD的名称.\", \"arguments\": {\"meid\": \"String 网元ID\", \"cellinstance\": \"String 微服务实例名称\"}, \"results\": \"微服务相关信息\"}\n{\"name\": \"GetInstanceIdByAlarm\", \"description\": \"根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如\\'网元上报了xx告警，请分析告警上报的原因\\'.\", \"arguments\": {\"alarmId\": \"String 告警ID\"}, \"results\": \"String 告警相关信息，包括微服务实例号、端口名称\"}\n{\"name\": \"DSP_POD\", \"description\": \"通过POD名称获取该POD所在NODE的名称. \", \"arguments\": {\"meid\": \"String 网元ID\", \"podName\": \"String POD名称\"}, \"results\": \"POD相关信息\"}\n{\"name\": \"DSP_NODE\", \"description\": \"通过NODE名称获取该NODE所在主机的名称. \", \"arguments\": {\"meid\": \"String 网元ID\", \"nodeName\": \"String NODE名称\"}, \"results\": \"NODE相关信息\"}\n{\"name\": \"GetPhysicSwitchName\", \"description\": \"通过主机名称获取该主机所连接物理交换机的名称. \", \"arguments\": {\"hostName\": \"String 主机名称\"}, \"results\": \"String 物理交换机名称\"}\n{\"name\": \"DSP_MSSPORTPMDDRV\", \"description\": \"获取端口PMD驱动的丢包信息. \", \"arguments\": {\"meid\": \"String 网元ID\", \"celltype\": \"String 微服务类型\", \"cellinstance\": \"String 微服务实例名称\", \"portname\": \"String 端口名称\"}, \"results\": \"端口PMD驱动的丢包信息\"}\n{\"name\": \"GetPhysicSwitchDiscard\", \"description\": \"获取物理交换机的丢包信息. \", \"arguments\": {\"switchName\": \"String 物理交换机名称\"}, \"results\": \"String 物理交换机的丢包信息\"}\n{\"name\": \"GetVswitchDiscard\", \"description\": \"获取虚拟交换机的丢包信息. \", \"arguments\": {\"hostName\": \"String 主机名称\"}, \"results\": \"String 虚拟交换机的丢包信息\"}\n{\"name\": \"GetPhysicNicDiscard\", \"description\": \"获取物理网卡的丢包信息. \", \"arguments\": {\"hostName\": \"String 主机名称\"}, \"results\": \"String 物理网卡的丢包信息\"}\n{\"name\": \"DSP_PAEDISCARD\", \"description\": \"获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.\", \"arguments\": {\"meid\": \"String 网元ID\", \"celltype\": \"String 微服务类型\", \"cellinstance\": \"String 微服务实例名称\"}, \"results\": \"微服务丢包信息\"}\n{\"name\": \"Final Answer\", \"description\": \"回答用户的问题\", \"arguments\": {\"final_answer\": \"String 答案内容\"}}\n\n<用户问题>:\n使用GetInstanceIdByAlarm工具，根据告警ID(100340)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+                "Answer": "{\n  \"name\": \"GetInstanceIdByAlarm\",\n  \"arguments\": { \"alarmId\": \"100340\"}\n}"
+            },
+            {
+                "Question": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>\n<工具描述>：\n{\"name\": \"DSP_PAENODE\", \"description\": \"通过微服务实例名称获取微服务所在POD的名称.\", \"arguments\": {\"meid\": \"String 网元ID\", \"cellinstance\": \"String 微服务实例名称\"}, \"results\": \"微服务相关信息\"}\n{\"name\": \"GetInstanceIdByAlarm\", \"description\": \"根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如\\'网元上报了xx告警，请分析告警上报的原因\\'.\", \"arguments\": {\"alarmId\": \"String 告警ID\"}, \"results\": \"String 告警相关信息，包括微服务实例号、端口名称\"}\n{\"name\": \"DSP_POD\", \"description\": \"通过POD名称获取该POD所在NODE的名称. \", \"arguments\": {\"meid\": \"String 网元ID\", \"podName\": \"String POD名称\"}, \"results\": \"POD相关信息\"}\n{\"name\": \"DSP_NODE\", \"description\": \"通过NODE名称获取该NODE所在主机的名称. \", \"arguments\": {\"meid\": \"String 网元ID\", \"nodeName\": \"String NODE名称\"}, \"results\": \"NODE相关信息\"}\n{\"name\": \"GetPhysicSwitchName\", \"description\": \"通过主机名称获取该主机所连接物理交换机的名称. \", \"arguments\": {\"hostName\": \"String 主机名称\"}, \"results\": \"String 物理交换机名称\"}\n{\"name\": \"DSP_MSSPORTPMDDRV\", \"description\": \"获取端口PMD驱动的丢包信息. \", \"arguments\": {\"meid\": \"String 网元ID\", \"celltype\": \"String 微服务类型\", \"cellinstance\": \"String 微服务实例名称\", \"portname\": \"String 端口名称\"}, \"results\": \"端口PMD驱动的丢包信息\"}\n{\"name\": \"GetPhysicSwitchDiscard\", \"description\": \"获取物理交换机的丢包信息. \", \"arguments\": {\"switchName\": \"String 物理交换机名称\"}, \"results\": \"String 物理交换机的丢包信息\"}\n{\"name\": \"GetVswitchDiscard\", \"description\": \"获取虚拟交换机的丢包信息. \", \"arguments\": {\"hostName\": \"String 主机名称\"}, \"results\": \"String 虚拟交换机的丢包信息\"}\n{\"name\": \"GetPhysicNicDiscard\", \"description\": \"获取物理网卡的丢包信息. \", \"arguments\": {\"hostName\": \"String 主机名称\"}, \"results\": \"String 物理网卡的丢包信息\"}\n{\"name\": \"DSP_PAEDISCARD\", \"description\": \"获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.\", \"arguments\": {\"meid\": \"String 网元ID\", \"celltype\": \"String 微服务类型\", \"cellinstance\": \"String 微服务实例名称\"}, \"results\": \"微服务丢包信息\"}\n{\"name\": \"Final Answer\", \"description\": \"回答用户的问题\", \"arguments\": {\"final_answer\": \"String 答案内容\"}}\n\n<用户问题>:\n使用DSP_NODE工具，通过网元ID为232获取NODE名称为2021--8-88-49-6fb9所在主机的名称，并按照JSON格式输出<用户问题>对应参数的结果",
+                "Answer": "{\n  \"name\": \"DSP_NODE\",\n  \"arguments\": {\n    \"meid\": \"232\",\n    \"nodeName\": \"2021--8-88-49-6fb9\"\n  }\n}"
+            }
+        ],
+        "requirements": "答案需要按照JSON格式输出，且需要根据用户问题选取并使用合适的工具",
+        "quality_assess": "答案是否按照JSON格式输出，是否根据用户问题选取并使用了合适的工具"
+    },
+    {
+        "task_name": "TextClassification",
+        "description": "大模型需要根据提供的用户问题描述进行分类，然后以JSON格式输出分类结果。",
+        "system_prompt": "你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。",
+        "template": "类别：\n{categories}\n\n用户问题:\n{user_problem}",
+        "output_requirement": "以JSON格式输出{{\"类别\":\"\"}}",
+        "fields": [
+            {
+                "name": "categories",
+                "description": "分类类别"
+            },
+            {
+                "name": "user_problem",
+                "description": "用户的问题文本"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "请你根据问题现象描述进行分类，类别有【访问白名单地址卡顿/掉线/异常】、【客户特定诉求】、【能访问白名单外地址（不在白名单内还能访问）】、【特定IP/域名/地址访问问题】、【无法上网或网速慢/卡顿/掉线/隧道或策略等问题】、【信号差/弱/不稳定】、【其他】，并以JSON格式输出{\"类别\":\"\"},用户的问题是:【故障现象】我方联系客户173xxxx8656（由客户经理19852357421提供）得知，1张物联卡首次使用，无法访问已绑定的地址：\nhttps://aicall.komect.com/\nhttps://portal.qiniu.com/rtmp-sc.uni-ubi.com:447 ，提供ICCID：8986xxxxx71092927（核实一致）；\n【故障地点】浙江省杭州市景兴路xxxxxx\n【是否首次使用】是；\n【是否机卡绑定/贴片卡】已机卡绑定、插拔卡；\n【终端设备/制式】4G设备；\n【客户夜间是否配合处理】客户173xxxx8656表示1日18点半以前可配合，2日开始以后随时可配合测试；\n【客户联系方式】客户侧可配合测试者173xxxx8656（由客户经理19852357421提供）\n【客户经理联系方式】198xxxx7421\n【故障号码信息】经HSS核实，故障号码144xxxx002927对应IMSI：460087230002927状态正常，卡类型为USIM卡，开通2、3、4G上网功能，限制2、3G接入，签约APN为CMMTMTZYDTYLL.JS，CS：2024-01-31 13:51。MME：2024-01-31 15:21。业支组回复：144xxxx002927号码策略：\n21000000100000000000000000000051业务流量包外；\n22523000100000000000000000005032业务流量包内；",
+                "Answer": "{\"类别\":\"访问白名单地址卡顿/掉线/异常\"}\n"
+            },
+            {
+                "Question": "请你根据问题现象描述进行分类，类别有【访问白名单地址卡顿/掉线/异常】、【客户特定诉求】、【能访问白名单外地址（不在白名单内还能访问）】、【特定IP/域名/地址访问问题】、【无法上网或网速慢/卡顿/掉线/隧道或策略等问题】、【信号差/弱/不稳定】、【其他】，并以JSON格式输出{\"类别\":\"\"},用户的问题是:【故障现象】我方联系客户15958036068得知，前期可以正常使用，11月30日后出现无法联网的情况，批量卡不能联网，前期报障反馈是鉴权问题，建议销户重入网，客户经理重开后这两张卡还是不能连网，同一个群组内有部分卡可以使用（参考号码1440540523315，1440542143142，1440542143301，1440542144883）。\n【故障地点】河南许昌\n【是否首次使用】否\n【是否机卡绑定/贴片卡】否\n【终端设备/制式】采集设备，使用2G网络\n【客户夜间是否配合处理】是\n【客户联系方式】159xxxx6068\n【客户经理联系方式】136xxxx0410\n【故障号码信息】经HSS核实，号码144xxxx634363、144xxxx635103状态均正常，卡类型为USIM卡，开通2、3、4G上网功能，无限制，签约APN为CMIOT，均无附着。",
+                "Answer": "{\"类别\":\"无法上网或网速慢/卡顿/掉线/隧道或策略等问题\"}\n"
+            },
+            {
+                "Question": "请你根据问题现象描述进行分类，类别有【访问白名单地址卡顿/掉线/异常】、【客户特定诉求】、【能访问白名单外地址（不在白名单内还能访问）】、【特定IP/域名/地址访问问题】、【无法上网或网速慢/卡顿/掉线/隧道或策略等问题】、【信号差/弱/不稳定】、【其他】，并以JSON格式输出{\"类别\":\"\"},用户的问题是:【故障现象】我方联系客户经理13832094343得知，故障数量：1张。故障时间：1月19日。 客户经理反馈客户通过PCC策略开卡两张，号码1441xxxx9337、1441xxxx38放入设备后无法使用，访问IP地址39.108.27.221。烦请协助处理，谢谢。\n【故障地点】河北省邯郸市邯山xxxx\n【是否首次使用】是 \n【是否机卡绑定/贴片卡】是 \n【终端设备/制式】货物装卸设备\n【客户联系方式】未知\n【客户经理联系方式】13xxxx94343\n【故障号码信息】经HSS核实：物联卡号：144xxxx309337，IMSI：46xxxx053009337，状态正常，开通2、3、4G上网功能，2、3G接入限制，签约APN为CMMTMHDTY.HE。CS域附着时间：无，PS域附着时间：无，MME域附着时间：2401170923 。号码144xxxx309337,144xxxx309338人联网禁止，区域限制河北，策略如下：22310000100xxxxxx0000000000005018\n物联卡号：144xxxx309338，IMSI：46xxxx053009338，状态正常，开通2、3、4G上网功能，2、3G接入限制，签约APN为CMMTMHDTY.HE。CS域附着时间：无，PS域附着时间：无，MME域附着时间：无 。",
+                "Answer": "{\"类别\":\"访问白名单地址卡顿/掉线/异常\"}\n"
+            },
+            {
+                "Question": "请你根据问题现象描述进行分类，类别有【访问白名单地址卡顿/掉线/异常】、【客户特定诉求】、【能访问白名单外地址（不在白名单内还能访问）】、【特定IP/域名/地址访问问题】、【无法上网或网速慢/卡顿/掉线/隧道或策略等问题】、【信号差/弱/不稳定】、【其他】，并以JSON格式输出{\"类别\":\"\"},用户的问题是:【故障现象】我方线下联系客户158xxxx582得知：故障数量：2张，31日测试访问白名单地址非常慢，无法正常使用。配合测试联系15xxxx31582。\n【故障地点】天津滨海xxxxxxxx\n【是否首次使用】是\n【是否机卡绑定/贴片卡】机卡绑定\n【终端设备】4G终端\n【故障号码信息】经HSS核实，故障号码144xxxx406351对应IMSI：460048834002486状态正常，开通2、3、4G上网功能，限制2、3G接入，签约APN为CMMTMTJQS.TJ，158xxxx1582CS域附着时间：2024-01-31 14:11，MME域附着时间：2024-01-31 05:34。144xxxx406351状态为停机。\n【客户联系方式】158xxxx1582\n【客户经理联系方式】未知\n【夜间是否可配合测试】否\n业支回复：号码1440683406351人联网禁止，区域限制天津，策略如下：22220000100000000000000000005100\n  鉴于此，烦请贵方协助处理，谢谢！",
+                "Answer": "{\"类别\":\"无法上网或网速慢/卡顿/掉线/隧道或策略等问题\"}\n"
+            },
+            {
+                "Question": "请你根据问题现象描述进行分类，类别有【访问白名单地址卡顿/掉线/异常】、【客户特定诉求】、【能访问白名单外地址（不在白名单内还能访问）】、【特定IP/域名/地址访问问题】、【无法上网或网速慢/卡顿/掉线/隧道或策略等问题】、【信号差/弱/不稳定】、【其他】，并以JSON格式输出{\"类别\":\"\"},用户的问题是:scp回复：业务验证结果如下，CallingNumber:+8618487849446 CalledNumber:+8614860045636，验证时间：20240103194136，Q.850;cause=20;text=“Subscriber absent”，SIP;cause=480，南方hss04报错，鉴于此，请南区HSS核实，谢谢！\n【故障现象】我方线下联系客户131xxxx3495得知，添加5个白名单号码，呼入正常，无声音，呼出无法接通，鉴于此烦请贵方协助处理，请知晓，谢谢。\n【故障地点】浙江省\n【是否首次使用】是\n【是否贴片卡】机卡绑定\n【终端设备/制式】电话手表\n【客户夜间是否配合处理】是/否\n【客户联系方式】131xxxx3495\n【客户经理联系方式】139xxxx5312\n【客户的终端设备是否正确设置了白名单号码】是\n【故障号码信息】经HSS核查，故障号码148xxxx5636，IMSI：46xxxx600413907，状态正常，卡类型USIM卡，开通语音、智能语音、高清语音（APN：IMS），无限制，O-CSI：252，T-CSI：1008，CS域附着时间2024-01-03 02:33:05，PS域附着时间2024-01-02 11:58:01。",
+                "Answer": "{\"类别\":\"访问白名单地址卡顿/掉线/异常\"}\n"
+            }
+        ],
+        "requirements": "答案需要是一个JSON格式的字符串，其中包含一个\"类别\"键，其值为根据用户问题现象描述进行的分类结果",
+        "quality_assess": "答案是否准确地根据用户问题现象描述进行了分类，分类结果是否合理，格式是否正确"
+    },
+    {
+        "task_name": "NextStepSelection",
+        "description": "考察大模型根据给定的步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，生成下一步的所有分支情况的能力。",
+        "system_prompt": "你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数",
+        "template": "已知所有步骤编号和步骤名为\n{step_info}\n已知当前步骤描述为{step_desc}。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。\n已知当前步骤的输出为{step_output}，用于选择下一步分支的参数定义为{param_def}。",
+        "output_requirement": "当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。",
+        "fields": [
+            {
+                "name": "step_info",
+                "description": "所有步骤编号和步骤名"
+            },
+            {
+                "name": "step_desc",
+                "description": "当前步骤描述"
+            },
+            {
+                "name": "step_output",
+                "description": "当前步骤的输出"
+            },
+            {
+                "name": "param_def",
+                "description": "用于选择下一步分支的参数定义"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n\t步骤1：UserCheck0\n\t步骤2：UserCheck1\n\t步骤3：UserCheck2\n\t步骤4：UserCheck3\n\t步骤5：UserCheck4\n\t步骤6：UserCheck5\n\t步骤7：UserCheck6\n\t步骤8：UserCheck7\n\t步骤9：informationCollection8\n\t\t\n已知当前步骤描述为“进行人工操作，检查CloudCG和GSN之间是否有防火墙等。是 => 6。否 => 9。”。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。\n已知当前步骤的输出为UserCheck4Result，用于选择下一步分支的参数定义为{\"result\":\"CloudCG和GSN之间是否有防火墙 ，取值范围{\\\"是\\\"，\\\"否\\\"}\"}。\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，请先分析分支情况。你的输出应该为：",
+                "Answer": "{\n  \"next\": [\n   {\n    \"condition\": \"${UserCheck4Result.result == \\\"是\\\"}\",\n    \"action\": \"UserCheck5\"\n   },\n   {\n    \"condition\": \"${UserCheck4Result.result == \\\"否\\\"}\",\n    \"action\": \"informationCollection8\"\n   }\n  ]\n}"
+            },
+            {
+                "Question": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n\t步骤1：UserCheck0\n\t步骤2：UserCheck1\n\t步骤3：UserCheck2\n\t步骤4：UserCheck3\n\t步骤5：informationCollection4\n\t\t\n已知当前步骤描述为“进行人工操作，依次点开所有应用，单击“应用名称 -> 堆栈名称”查看应用状态是否正常。是 => 步骤 5。否 => 步骤 3。”。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。\n已知当前步骤的输出为UserCheck1Result，用于选择下一步分支的参数定义为{\"result\":\"应用状态，取值范围{\\\"正常\\\"，\\\"异常\\\"}\"}。\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，请先分析分支情况。你的输出应该为：",
+                "Answer": "{\n  \"next\": [\n    {\n      \"condition\": \"${UserCheck1Result.result == \\\"正常\\\"}\",\n      \"action\": \"informationCollection4\"\n    },\n    {\n      \"condition\": \"${UserCheck1Result.result == \\\"异常\\\"}\",\n      \"action\": \"UserCheck2\"\n    }\n  ]\n}"
+            },
+            {
+                "Question": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n\t步骤1：UserCheck0\n\t步骤2：UserCheck1\n\t步骤3：UserCheck2\n\t步骤4：UserCheck3\n\t步骤5：UserCheck4\n\t步骤6：UserCheck5\n\t步骤7：UserCheck6\n\t步骤8：UserCheck7\n\t步骤9：informationCollection8\n\t\t\n已知当前步骤描述为“进行人工操作，根据告警参数“GSN的IP地址”和“GSN的端口”，检查该GSN是否存在，以及端口配置是否正确。是 => 2。否 => 8。”。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。\n已知当前步骤的输出为UserCheck0Result，用于选择下一步分支的参数定义为{\"gsnExist\":\"GSN是否存在，取值范围{\\\"是\\\"，\\\"否\\\"}\"}。\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，请先分析分支情况。你的输出应该为：",
+                "Answer": "{\n  \"next\": [\n   {\n    \"condition\": \"${UserCheck0Result.gsnExist == \\\"是\\\"}\",\n    \"action\": \"UserCheck1\"\n   },\n   {\n    \"condition\": \"${UserCheck0Result.gsnExist == \\\"否\\\"}\",\n    \"action\": \"UserCheck7\"\n   }\n  ]\n}"
+            },
+            {
+                "Question": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n\t步骤1：ConditionalGateway0\n\t步骤2：UserCheck1\n\t步骤3：UserCheck2\n\t步骤4：UserCheck3\n\t步骤5：UserCheck4\n\t步骤6：UserCheck5\n\t步骤7：UserCheck6\n\t步骤8：informationCollection7\n\t\t\n已知当前步骤描述为“进行人工操作，根据OM信息在OM Portal中手动清除告警，然后创建手动备份任务，并启动SFTP远程上传，看是否上传成功。是=>诊断成功，任务结束。否=>步骤 8。”。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。\n已知当前步骤的输出为UserCheck6Result，用于选择下一步分支的参数定义为{\"success\":\"操作结果，，取值范围{\\\"成功\\\"，\\\"失败\\\"}\"}。\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，请先分析分支情况。你的输出应该为：",
+                "Answer": "{\n  \"next\": [\n   {\n    \"condition\": \"${UserCheck6Result.success == \\\"成功\\\"}\",\n    \"action\": \"endNode\"\n   },\n   {\n    \"condition\": \"${UserCheck6Result.success == \\\"失败\\\"}\",\n    \"action\": \"informationCollection7\"\n   }\n  ]\n}"
+            },
+            {
+                "Question": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n\t步骤1：GetAlarmInfo0\n\t步骤2：UserCheck1\n\t步骤3：ConditionalGateway2\n\t步骤4：UserCheck3\n\t步骤5：UserCheck4\n\t步骤6：UserCheck5\n\t步骤7：UserCheck6\n\t步骤8：UserCheck7\n\t步骤9：UserCheck8\n\t步骤10：UserCheck9\n\t步骤11：informationCollection10\n\t\t\n已知当前步骤描述为“进行人工操作，修改鉴权的用户名对应的密码与VNFM上的密码一致，然后查看告警是否清除。是 => 诊断成功，任务结束。否 => 6。”。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。\n已知当前步骤的输出为UserCheck4Result，用于选择下一步分支的参数定义为{\"isAlarmClear\":\"告警是否清除，取值范围{\\\"是\\\"，\\\"否\\\"}\"}。\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，请先分析分支情况。你的输出应该为：",
+                "Answer": "{\n    \"next\": [\n        {\n            \"condition\": \"${UserCheck4Result.isAlarmClear == \\\"是\\\"}\",\n            \"action\": \"endNode\"\n        },\n        {\n            \"condition\": \"${UserCheck4Result.isAlarmClear == \\\"否\\\"}\",\n            \"action\": \"UserCheck5\"\n        }\n    ]\n}"
+            }
+        ],
+        "requirements": "生成的结果需要符合JSON格式，满足题目中给出的所有条件",
+        "quality_assess": "答案是否符合JSON格式，是否满足题目中给出的所有条件"
+    },
+    {
+        "task_name": "AlarmCheck",
+        "description": "该任务需要判断用户问题是否与告警有关",
+        "system_prompt": "你是核心网运维工程师，你的任务是判断用户问题是否和告警有关",
+        "template": "用户问题：{user_question}",
+        "output_requirement": "若用户问题和告警无关，输出{{\"告警问题\":\"否\"}}，若有关，输出{{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"\"}}",
+        "fields": [
+            {
+                "name": "user_question",
+                "description": "用户提出的问题"
+            }
+        ],
+        "examples": [
+            {
+                "Question": "你是核心网运维工程师，你的任务是判断用户问题是否和告警有关。\n用户问题：“{关于目的NF服务不可达告警，它的发生原因是什么？}”\n若用户问题和告警无关，输出{{\"告警问题\":\"否\"}}，若有关，输出{{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"\"}}",
+                "Answer": "{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"目的NF服务不可达\"}"
+            },
+            {
+                "Question": "你是核心网运维工程师，你的任务是判断用户问题是否和告警有关。\n用户问题：“{我想知道目的NF服务不可达告警为何会发生，能否解释一下？}”\n若用户问题和告警无关，输出{{\"告警问题\":\"否\"}}，若有关，输出{{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"\"}}",
+                "Answer": "{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"目的NF服务不可达\"}"
+            },
+            {
+                "Question": "你是核心网运维工程师，你的任务是判断用户问题是否和告警有关。\n用户问题：“{请详细阐述目的NF服务不可达告警发生的具体原因。}”\n若用户问题和告警无关，输出{{\"告警问题\":\"否\"}}，若有关，输出{{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"\"}}",
+                "Answer": "{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"目的NF服务不可达\"}"
+            },
+            {
+                "Question": "你是核心网运维工程师，你的任务是判断用户问题是否和告警有关。\n用户问题：“{能否深入解析目的NF服务不可达告警发生的背后因素？}”\n若用户问题和告警无关，输出{{\"告警问题\":\"否\"}}，若有关，输出{{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"\"}}",
+                "Answer": "{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"目的NF服务不可达\"}"
+            },
+            {
+                "Question": "你是核心网运维工程师，你的任务是判断用户问题是否和告警有关。\n用户问题：“{对于目的NF服务不可达告警的发生，我想了解其背后的原因。}”\n若用户问题和告警无关，输出{{\"告警问题\":\"否\"}}，若有关，输出{{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"\"}}",
+                "Answer": "{\"告警问题\":\"是\",\"网元名称\":\"\",\"告警ID\":\"\",\"告警名称\":\"目的NF服务不可达\"}"
+            }
+        ],
+        "requirements": "答案需要与问题之间存在逻辑关系和关联性，能正确判断用户问题是否与告警相关，并能正确提取出相关参数。",
+        "quality_assess": "答案是否与问题相关，参数提取的准确性"
+    }
+]
