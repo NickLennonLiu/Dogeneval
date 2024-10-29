@@ -1,0 +1,312 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="增加NF实例概述信息（ADD NFPROFILE）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nf_profile_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_nfprofile.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209654146">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加NF实例概述信息（ADD NFPROFILE）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209654146"></a><a name="ZH-CN_MMLREF_0209654146"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">增加NF实例概述信息（ADD NFPROFILE）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209654146__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209654146__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209654146__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209654146__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209654146__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654146" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF、SMF、NSSF、NRF、NCG、SMSF</strong>
+                </p>
+
+                    <p>该命令用于添加NF实例的概述信息。当NF实例向NRF注册时，可以将实例的概述信息带给NRF，为在业务流程中其他NF发现该NF时提供选择信息。配置的本端NFPROFILE类型为向NRF服务订阅时携带的本端网元类型。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209654146__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654146" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                        <ul><li>最多可输入16条记录。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209654146__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209654146" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209654146__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654146" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NFINSTANCENAME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NF实例名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：本参数用于指定NF实例名称。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~50。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<ul><li>本参数的构成字符只能是字母A～Z或a～z、数字0～9、中划线"-"和下划线"_"，例如，AMF_Instance_0。</li><li>本参数来源于ADD NFUUID命令中的“NF实例名称”参数。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NFTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NF类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：本参数用于指定NF类型。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>NfInvalid（NfInvalid）</li><li>NfNRF（NfNRF）</li><li>NfUDM（NfUDM）</li><li>NfAMF（NfAMF）</li><li>NfSMF（NfSMF）</li><li>NfAUSF（NfAUSF）</li><li>NfNEF（NfNEF）</li><li>NfPCF（NfPCF）</li><li>NfSMSF（NfSMSF）</li><li>NfNSSF（NfNSSF）</li><li>NfUDR（NfUDR）</li><li>NfLMF（NfLMF）</li><li>NfGMLC（NfGMLC）</li><li>Nf5G_EIR（Nf5G_EIR）</li><li>NfSEPP（NfSEPP）</li><li>NfUPF（NfUPF）</li><li>NfN3IWF（NfN3IWF）</li><li>NfAF（NfAF）</li><li>NfUDSF（NfUDSF）</li><li>NfBSF（NfBSF）</li><li>NfCHF（NfCHF）</li><li>NfNWDAF（NfNWDAF）</li><li>NfTypeMAX（NfTypeMAX）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NFSTATUS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NF状态</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定NF状态。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“Invalid（Invalid）”：表示当前NF处于无效态，如果配置成该值，NF注册的时候将不携带任何状态给NRF，在NF发现过程中，NRF也不会选择此类NF。</li><li>“Registered（Registered）”：表示当前NF处于注册态。在NF发现过程中，NRF只会选择该状态下的NF。</li><li>“Suspend（Suspend）”：表示当前NF处于挂起态，与NRF之间不再保持心跳，N次心跳超时之后（NRF上可配置，默认为3次），NRF上的此NF的状态即变化成Suspend状态。</li><li>“Undiscoverable（Undiscoverable）”：表示当前NF处于不可被服务发现状态，与NRF之间的还会保持心跳，且心跳消息会携带此状态。当NF处于运维状态下，比如正在进行用户迁移等，不希望在NF发现流程中被选中时，可以置为此状态，迁移完毕后通过该命令对应的MOD命令修改为注册态即可。</li></ul>
+<p> 默认值：Registered</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>HTTPLEIDX</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>http地址实例标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定http地址实例标识。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 该参数已不再使用，请使用ADD SBIAPLE配置HTTP本端实体组标识。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>FQDN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>域名</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定NF域名信息。本参数指定的域名中可以不包含PLMN信息，主要用于本网内的域名查询场景。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~255。不区分大小写。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<ul><li>FQDN由一个或多个LABEL构成，各LABEL间用“.”间隔。</li><li>每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”。</li><li>不能用“-”或者“.”开头和结尾，中间不能出现连续的两个“.”。例如amf1.cluster1.net2.amf.5gc.mnc012.mcc345.3gppnetwork.org。</li><li>此参数对AMF/SMF无效。NF注册时的FQDN只以AMF/SMF配置ADD AMFINFO/ADD SMFINFO的AMF名称/SMF名称为准。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>INTERPLMNFQDN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PLMN间域名</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定PLMN间域名。当NF涉及跨PLMN网络间的NF发现时，需要为NF配置“PLMN间域名”。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~255。不区分大小写。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<ul><li>INTERPLMNFQDN由一个或多个LABEL构成，各LABEL间用“.”间隔。</li><li>每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”。</li><li>不能用“-”或者“.”开头和结尾，中间不能出现连续的两个“.”。例如，amf1.cluster1.net2.amf.5gc.mnc012.mcc345.3gppnetwork.org。</li><li>此参数对AMF/SMF无效。AMF/SMF注册时NFPROFILE中携带的INTERPLMNFQDN只以ADD AMFINFO/ADD SMFINFO中的配置为准。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CAPACITY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>容量</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定NF的相对权重（与其他同类型NF实例相比）。特别地，如果NF容量的绝对值不超过本参数的取值范围，那么本参数可以直接取用容量绝对值。例如AMF可接入的用户数是50000，那么该AMF的容量就可以用50000表示。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~65535。值越大表示容量越大。</p>
+<p> 默认值：100</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PRIORITY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定NF的优先级（与其他同类型NF实例相比）。在NF选择过程中，NF会选择高优先级的NF，如果两个或多个NF的优先级一样，NF则会根据“容量”做进一步的判断。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~65535。值越小优先级越高。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LOAD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>负载</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定NF的负载。NRF可能会将此参数作为NF选择的依据。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~100。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LOCALITY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>位置信息</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定NF的位置描述信息，比如NF所在的地域信息描述等。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~150。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 本参数的构成字符建议是字母A～Z或a～z、数字0～9、中划线“-”、和下划线"_"例如，Shanghai-DataCenter。</p>
+<p> 在中国区组网，该参数建议配置为点分格式：“大区标识.数据中心标识.资源池标识”。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ALLOWEDNFTYPES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>支持的NF类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：本参数用于指定本NF实例向NRF注册完成后，在后续的NF发现流程中能够访问本NF实例的NF类型。如果不配置，表示允许所有类型的NF访问。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>AllowNfINVALID（AllowNfINVALID）</li><li>AllowNfNRF（AllowNfNRF）</li><li>AllowNfUDM（AllowNfUDM）</li><li>AllowNfAMF（AllowNfAMF）</li><li>AllowNfSMF（AllowNfSMF）</li><li>AllowNfAUSF（AllowNfAUSF）</li><li>AllowNfNEF（AllowNfNEF）</li><li>AllowNfPCF（AllowNfPCF）</li><li>AllowNfSMSF（AllowNfSMSF）</li><li>AllowNfNSSF（AllowNfNSSF）</li><li>AllowNfUDR（AllowNfUDR）</li><li>AllowNfLMF（AllowNfLMF）</li><li>AllowNfGMLC（AllowNfGMLC）</li><li>AllowNf5G_EIR（AllowNf5G_EIR）</li><li>AllowNfSEPP（AllowNfSEPP）</li><li>AllowNfUPF（AllowNfUPF）</li><li>AllowNfN3IWF（AllowNfN3IWF）</li><li>AllowNfAF（AllowNfAF）</li><li>AllowNfUDSF（AllowNfUDSF）</li><li>AllowNfBSF（AllowNfBSF）</li><li>AllowNfCHF（AllowNfCHF）</li><li>AllowNfNWDAF（AllowNfNWDAF）</li><li>AllowNfMAX（AllowNfMAX）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209654146__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654146" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>新增1个AMF的NF实例，将其初始状态置为注册态，该NF实例除了要满足本网内的业务外，还要考虑外网（跨PLMN）NF对该NF实例的访问。该NF支持SMF、AUSF、UDM对其进行访问，且将该NF实例优先级设置为1，容量设置为100，脚本如下：</p>
+
+                    <pre class="screen">ADD NFPROFILE: NFINSTANCENAME="AMF_Instance_0", NFTYPE=NfAMF, NFSTATUS=Registered, FQDN="amf1.cluster1.net2.amf.5gc.mnc012.mcc345.3gppnetwork.org", INTERPLMNFQDN="amf1.cluster1.net2.amf.5gc.mnc012.mcc345.3gppnetwork.org", CAPACITY=100, PRIORITY=1, ALLOWEDNFTYPES=AllowNfAUSF-1&amp;AllowNfSMF-1&amp;AllowNfUDM-1;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nf_profile_management.html">NF概述信息管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_nfprofile.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

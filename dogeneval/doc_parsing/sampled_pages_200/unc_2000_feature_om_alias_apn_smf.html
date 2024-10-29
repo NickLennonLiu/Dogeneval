@@ -1,0 +1,275 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="激活别名APN">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Alias_APN_SMF_01.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Alias_APN_SMF_02.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2000_feature_om_Alias_APN__SMF_01.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="GGSN">
+<meta name="network_function" content="PGW-C">
+<meta name="network_function" content="SMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-106203">
+<meta name="Function" content="会话管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0234797880">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>激活别名APN</title>
+</head>
+<body><a name="ZH-CN_OPI_0234797880"></a><a name="ZH-CN_OPI_0234797880"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">激活别名APN</h1>
+<ul><li><a href="#ZH-CN_OPI_0234797880__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0234797880__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0234797880__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0234797880__1.3.4">任务示例</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0234797880__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0234797880" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><ul><li><p>运营商合并和重组时，为了兼容现网中使用相同资源的多个APN，可将某APN的业务映射到另一APN上。</p>
+</li><li><p>网络改建时新规划了APN，为了不影响原规划APN的使用，只需将原规划的APN映射到新规划APN上即可。</p>
+</li></ul>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0234797880__zh-cn_topic_0305599235_p129001729125716">适用于<span>GGSN、</span>PGW-C、SMF。</p>
+</div></div>
+<div class="fignone"><span class="figcap"><b>图1 </b>别名APN获取和映射流程</span><br><span><img class="vsd" src="figure/zh-cn_image_0234797887.png"></span></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0234797880__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0234797880" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li><span>请仔细阅读<a href="../desc/unc_2000_feature_desc_Alias_APN_SMF_02.html">WSFD-106203 别名APN特性概述（适应于GGSN/PGW-C/SMF）</a></span>。</li><li>完成配置APN<a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a>。</li><li>完成加载license（如果有需求，请联系华为技术支持工程师处理）。</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="15.120000000000001%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="22.38%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="13.87%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.64%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="36.99%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="22.38%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>APN名称（APN）</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.87%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>apn5</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.64%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.99%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p><a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a>中的APN名称不能与<a href="../MML/Document/add_apnalias.html"><b><span class="cmdname">ADD APNALIAS</span></b></a>中的别名APN重复。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="5" valign="top" width="15.120000000000001%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../MML/Document/add_apnalias.html"><b><span class="cmdname">ADD APNALIAS</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="22.38%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>用户范围（SUBRANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.87%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>ALL_USER</p>
+</td>
+<td class="cellrowborder" rowspan="5" valign="top" width="11.64%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.99%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>指定用户的范围，取值范围为：</p>
+<ul><li><p>ALL_USER（所有用户）</p>
+</li><li><p>SPECIFIC_NS（指定切片）</p>
+</li></ul>
+<p>当需要查询别名APN配置时，使用<a href="../MML/Document/lst_apnalias.html"><b><span class="cmdname">LST APNALIAS</span></b></a>命令查询。2/3/4G用户直接对所有用户查询。对5G用户，先使用指定切片查询，如果未查询到，再对所有用户查询。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>切片业务类型（SST）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>表示切片的业务类型。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>切片细分标识（SD）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>123123</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>表示根据服务群体，对某类网络业务切片的进一步细分。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>别名APN（ALIASAPN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>apn1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>用于指定别名APN，别名APN不能与<a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a>中配置的APN重复。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>转换APN（CONVERTAPN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>apn5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>用于指定转换后的APN，转换APN必须在<a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a>中已配置，可以<a href="../MML/Document/lst_apn.html"><b><span class="cmdname">LST APN</span></b></a>命令进行查询。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="7" valign="top" width="15.120000000000001%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../MML/Document/lck_apnalias.html"><b><span class="cmdname">LCK APNALIAS</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="22.38%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>用户范围（SUBRANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.87%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>ALL_USER</p>
+</td>
+<td class="cellrowborder" rowspan="7" valign="top" width="11.64%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="7" valign="top" width="36.99%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>对指定别名APN进行锁定操作。</p>
+<p>如果需要手动去活该别名APN下的所有用户时，或者删除别名APN约束时，可以先锁定此别名APN，再批量去激活该别名APN下用户，最后删除别名APN。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>切片业务类型（SST）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>切片细分标识（SD）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>123123</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>别名APN（ALIASAPN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>test1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>转换APN（CONVERTAPN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>apn5</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>锁定别名APN（LOCKED）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>ENABLE</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>APN类型（APNTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>ALIAS_APN</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="4" valign="top" width="15.120000000000001%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../MML/Document/dea_smctx.html"><b><span class="cmdname">DEA SMCTX</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="22.38%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>操作类型（ACTIONTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.87%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>START_DEA</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="11.64%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="36.99%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>基于别名APN批量去激活用户，去激活之前必须通过<a href="../MML/Document/lck_apnalias.html"><b><span class="cmdname">LCK APNALIAS</span></b></a>命令锁定别名APN。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>去活方式（DEATYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>APN</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>APN类型（APNTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>REQUESTED</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>APN（APN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>apn1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../MML/Document/set_deactiverate.html"><b><span class="cmdname">SET DEACTIVERATE</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="22.38%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>去活速率（RATE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.87%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>1000</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.64%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.99%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>配置主动去活用户的速率。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="6" valign="top" width="15.120000000000001%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../MML/Document/rmv_apnalias.html"><b><span class="cmdname">RMV APNALIAS</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="22.38%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>用户范围（SUBRANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.87%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>ALL_USER</p>
+</td>
+<td class="cellrowborder" rowspan="6" valign="top" width="11.64%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="6" valign="top" width="36.99%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><ul><li>当运营商不希望用户使用指定APN别名的时候，需要删除配置的APN别名，该命令可以实现此功能。</li><li>当某个别名APN下还存在用户或会话时，该别名APN不允许直接删除，执行<a href="../MML/Document/rmv_apnalias.html"><b><span class="cmdname">RMV APNALIAS</span></b></a>UNC会拒绝该请求。如果想删除此类别名APN，需要先锁定此别名APN，再批量去激活该别名APN下用户，最后删除别名APN。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>切片业务类型（SST）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>切片细分标识（SD）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>123123</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>别名APN（ALIASAPN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>apn1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>转换APN（CONVERTAPN）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>apn5</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>APN类型（APNTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>ALIAS_APN（别名APN）</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0234797880__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0234797880" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0234797880__zh-cn_topic_0305599235_wintitle201363402192">“MML命令行-UNC”</span>窗口。</span></span></li><li><span><span>打开本特性的License配置开关。</span></span><p><p><a href="../MML/Document/set_licenseswitch.html"><b><span class="cmdname">SET LICENSESWITCH</span></b></a>:</p>
+</p></li><li><span>配置真实APN。</span><p><p><a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a></p>
+</p></li><li><span>配置别名APN和转换APN。</span><p><p><a href="../MML/Document/add_apnalias.html"><b><span class="cmdname">ADD APNALIAS</span></b></a></p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ol type="a"><li><p>一个APN下最多可以配置500个APN别名。</p>
+</li><li><p>系统最多可以配置1000个APN别名。</p>
+</li><li><a href="../MML/Document/add_apnalias.html"><b><span class="cmdname">ADD APNALIAS</span></b></a>中的别名APN不能与<a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a>中已配置的APN相同。</li><li><a href="../MML/Document/add_apnalias.html"><b><span class="cmdname">ADD APNALIAS</span></b></a>中的转换APN必须已经在<a href="../MML/Document/add_apn.html"><b><span class="cmdname">ADD APN</span></b></a>中配置。</li><li><p><a href="../MML/Document/add_apnalias.html"><b><span class="cmdname">ADD APNALIAS</span></b></a>中，别名APN与转换APN为多对一的关系，但是不同的转换APN下不能配置相同的别名APN。对于5G用户，在不同切片下，不同转换APN可以配置相同别名APN。</p>
+</li></ol>
+</div></div>
+</p></li><li><span>删除别名APN配置。</span><p><div class="p"><a href="../MML/Document/rmv_apnalias.html"><b><span class="cmdname">RMV APNALIAS</span></b></a><div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>当某个别名APN下还存在用户或会话时，该别名APN不允许直接删除，执行<a href="../MML/Document/rmv_apnalias.html"><b><span class="cmdname">RMV APNALIAS</span></b></a>UNC会拒绝该请求。如果想删除此类别名APN，需要先锁定此别名APN，再批量去激活该别名APN下用户，最后删除别名APN。</p>
+</div></div>
+</div>
+</p></li></ol>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0234797880__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0234797880" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">任务描述</p></span><p>配置别名APN为"apn1"和"apn2"，转换后的真实APN为“apn5”。</p>
+<span><p class="sectiontitle">脚本</p></span><ol><li><p>开启别名APN功能License。</p>
+<pre class="screen">SET LICENSESWITCH:LICITEM="LKV2AAPN01",SWITCH=ENABLE;</pre>
+</li><li>别名APN名称为“apn1”和“apn2”，配置真实APN为 “apn5”。<pre class="screen">ADD APNALIAS:SUBRANGE=ALL_USER,ALIASAPN="apn1",CONVERTAPN="apn5";</pre>
+<pre class="screen">ADD APNALIAS:SUBRANGE=ALL_USER,ALIASAPN="apn2",CONVERTAPN="apn5";</pre>
+</li></ol>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Alias_APN_SMF_01.html">别名APN（适用于GGSN/PGW-C/SMF）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Alias_APN_SMF_02.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../om/unc_2000_feature_om_Alias_APN__SMF_01.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

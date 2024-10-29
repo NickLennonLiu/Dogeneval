@@ -1,0 +1,226 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="增加对端NF的PLMN范围（ADD PNFPLMNRANGE）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_remote_nf_instance_plmn_range_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_pnfplmnrange.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209651357">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加对端NF的PLMN范围（ADD PNFPLMNRANGE）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209651357"></a><a name="ZH-CN_MMLREF_0209651357"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">增加对端NF的PLMN范围（ADD PNFPLMNRANGE）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209651357__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209651357__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209651357__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209651357__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209651357__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651357" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF、SMF、NSSF、NCG</strong>
+                </p>
+
+                    <p>该命令用于增加本地配置的对端NF实例支持的PLMN范围信息。该命令用于在网络中没有部署NRF，或对端NF没有注册到NRF，或网络中存在NRF但需基于运营商策略本地配置周边NF的场景下，配置对端NF实例相关的信息。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209651357__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651357" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+							<ul><li>当本地没有配置对端NF实例支持的PLMN时，代表此对端NF允许所有PLMN号段范围的用户访问。</li></ul>
+  
+                        <ul><li>最多可输入8192条记录。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209651357__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209651357" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209651357__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651357" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>INDEX</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>索引</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定索引。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~8191。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NFINSTANCEID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NF实例标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定PLMN范围对应的NF实例标识。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~50。NFINSTANCEID参数建议满足以下约束规则：1.如果输入为uuid格式（格式例如：a6a61c6f-0d3a-4221-b1da-424eda3ccf67）只能为A-F、a-f、0-9的字符。2.如果输入不为uuid格式，长度不能超过18且不允许输入只包含0-9和“.”的字符串，例如：1.2.3.4、不允许输入只包含十六进制数（A-F、a-f、0-9）和“:”的字符串，例如：1::2、FBFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 本参数取值与ADD PNFPROFILE命令中的“NF实例标识”参数取值保持一致时，关联关系生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QUERYTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>查询方式</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定PLMN范围的配置号段的方式。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“START_END（START_END）”：号段</li><li>“PATTERN（PATTERN）”：正则表达式</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 推荐使用START_END方式。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RANGESTART</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>起始号段</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QUERYTYPE"配置为"START_END"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定PLMN范围的起始号段。当QUERYTYPE参数设置为START_END模式时有效。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是5~6。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> PLMN的终止号段需要不小于PLMN的起始号段，且结束值和开始值长度需相等。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RANGEEND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>终止号段</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QUERYTYPE"配置为"START_END"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定PLMN范围的终止号段。当QUERYTYPE参数设置为START_END模式时有效。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是5~6。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> PLMN的终止号段需要不小于PLMN的起始号段，且结束值和开始值长度需相等。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PATTERN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>模式</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QUERYTYPE"配置为"PATTERN"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定PLMN范围的具体的号段匹配正则表达式。当QUERYTYPE参数设置为PATTERN模式时有效。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~50。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<ul><li>正则表达式不需要输入起始符^和结束符$，样例如下：1234[5-9]。</li><li>正则表达式中使用"[]"指定匹配的字符范围时，需要满足"[0-9]"的格式，覆盖十进制的字符。</li><li>正则表达式转化后的字符串总长度需要满足5或6。</li></ul>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209651357__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651357" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>增加对端NF的PLMN范围信息，NF实例标识为CHF_Instance_0,查询方式为START_END模式，起始号段为46000，终止号段为46003。</p>
+
+                    <pre class="screen">ADD PNFPLMNRANGE:INDEX=1, NFINSTANCEID="CHF_Instance_0", QUERYTYPE=START_END, RANGESTART="46000",RANGEEND="46003";</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_remote_nf_instance_plmn_range_management.html">对端NF实例PLMN范围管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_pnfplmnrange.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

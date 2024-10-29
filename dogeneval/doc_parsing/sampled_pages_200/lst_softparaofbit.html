@@ -1,0 +1,170 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="查询软件参数表比特位(LST SOFTPARAOFBIT)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_soft_parameter_of_bit.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/set_softparaofbit.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126146184">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询软件参数表比特位(LST SOFTPARAOFBIT)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126146184"></a><a name="ZH-CN_MMLREF_0000001126146184"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">查询软件参数表比特位(LST SOFTPARAOFBIT)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.6.1">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001126146184__1.3.7.1">输出结果说明</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126146184__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>该命令用于查询软件参数表，查询结果以二进制形式输出。同时，该命令也支持查询指定软件参数中某个比特位的值。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">注意事项</a></h4><p>无。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug；monitor-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>DT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>参数类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：软件参数的数据类型。</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“BYTE(单字节类型)”</span></li><li><span class="parmvalue">“DWORD(无符号整数类型)”</span></li><li><span class="parmvalue">“BYTE_EX(扩展单字节类型)”</span></li><li><span class="parmvalue">“DWORD_EX(扩展无符号整数类型)”</span></li><li><span class="parmvalue">“BYTE_EX_B(扩展单字节类型B)”</span></li><li><span class="parmvalue">“DWORD_EX_B(扩展无符号整数类型B)”</span></li></ul>
+</div>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PARANUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>参数索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：软件参数索引。</p>
+<p>取值范围：1~512</p>
+<div class="p">配置原则：<ul><li>当参数类型取值为<span class="parmvalue">“BYTE”</span>时，参数索引的取值范围是<span class="parmvalue">“1~240”</span>。</li><li>当参数类型取值为<span class="parmvalue">“DWORD”</span>时，参数索引的取值范围是<span class="parmvalue">“1~60”</span>。</li><li>当参数类型取值为<span class="parmvalue">“BYTE_EX”</span>时，参数索引的取值范围是<span class="parmvalue">“1~224”</span>。</li><li>当参数类型取值为<span class="parmvalue">“DWORD_EX”</span>时，参数索引的取值范围是<span class="parmvalue">“1~56”</span>。</li><li>当参数类型取值为<span class="parmvalue">“BYTE_EX_B”</span>时，参数索引的取值范围是<span class="parmvalue">“1~464”</span>。</li><li>当参数类型取值为<span class="parmvalue">“DWORD_EX_B”</span>时，参数索引的取值范围是<span class="parmvalue">“1~116”</span>。</li></ul>
+</div>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>POSITION</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>比特位</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：参数比特位的位置。</p>
+<p>取值范围：1~32</p>
+<div class="p">配置原则：<ul><li>对于软件参数，右边的第一位记为比特1。例如，参数值 = 0000 0001，表示比特1的参数值为1。</li><li>当参数类型取值为<span class="parmvalue">“BYTE”</span>，<span class="parmvalue">“BYTE_EX”</span>或<span class="parmvalue">“BYTE_EX_B”</span>时，比特位的取值范围是<span class="parmvalue">“1~8”</span>。</li><li>当参数类型取值为<span class="parmvalue">“DWORD”</span>，<span class="parmvalue">“DWORD_EX”</span>或<span class="parmvalue">“DWORD_EX_B”</span>时，比特位的取值范围是<span class="parmvalue">“1~32”</span>。</li></ul>
+</div>
+<p>默认值：无。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">使用实例</a></h4><p>查询当前参数索引为1，比特位为1的单字节类型软参的设置情况：</p>
+<p><span class="msgph">LST SOFTPARAOFBIT: DT=BYTE, PARANUM=1, POSITION=1;</span></p>
+<pre class="screen">%%LST SOFTPARAOFBIT: DT=BYTE, PARANUM=1, POSITION=1;%%
+
+RETCODE = 0  操作成功。
+查询结果如下
+--------------
+参数类型  =  单字节类型
+参数索引  =  1
+  比特位  =  1
+  参数值  =  0
+(结果个数 = 1)
+---    END
+</pre>
+<p>查询当前参数索引为空，比特位为空的无符号整数类型软参的设置情况：</p>
+<p><span class="msgph">LST SOFTPARAOFBIT: DT=DWORD;</span></p>
+<pre class="screen">%%LST SOFTPARAOFBIT: DT=DWORD;%%
+
+RETCODE = 0  操作成功。
+查询结果如下
+--------------
+ 参数类型                  参数索引                    参数值      
+ 无符号整数类型            1                           0000 0000 0000 0000 0000 0000 0000 0000
+ 无符号整数类型            2                           0000 0000 0000 0000 0000 0000 0000 0000
+ 无符号整数类型            3                           0000 0000 0000 0000 0000 0000 0000 0000
+ ……
+ 无符号整数类型            58                          0000 0000 0000 0000 0000 0000 0000 0000
+ 无符号整数类型            59                          0000 0000 0000 0000 0000 0000 0000 0000
+ 无符号整数类型            60                          0000 0000 0000 0000 0000 0000 0000 0000
+(结果个数 = 60)
+---    END
+</pre>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126146184__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_MMLREF_0000001126146184" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.7.2.1.3.1.1" liSelected="liSelected"><p>输出项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.7.2.1.3.1.2" liSelected="liSelected"><p>输出项解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>参数类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示软件参数的数据类型。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>参数索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示软件参数索引。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>比特位</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示参数比特位的位置。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>参数值</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示软件参数的值。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_soft_parameter_of_bit.html">软件参数比特位
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/set_softparaofbit.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

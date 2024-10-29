@@ -1,0 +1,252 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置IPv6全局配置（SET IPV6GLOBALCONFIG）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_ipv6_global_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_ipv6globalconfig.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134581652">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置IPv6全局配置（SET IPV6GLOBALCONFIG）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134581652"></a><a name="ZH-CN_CONCEPT_0134581652"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">设置IPv6全局配置（SET IPV6GLOBALCONFIG）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134581652__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134581652__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134581652__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134581652__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134581652__1.3.5.1">使用实例</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581652__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134581652" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于设置IPv6全局配置。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581652__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134581652" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>可选参数至少下发一个。</li><li>该命令存在系统初始记录，参数的初始设置值如下表：</li></ul>
+ 
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="center" class="cellrowborder" valign="middle" id="mcps1.3.2.3.1.1.1.1"><p>BUCKETSIZE</p>
+</th>
+
+<th align="center" class="cellrowborder" valign="middle" id="mcps1.3.2.3.1.1.1.2"><p>INTERVAL</p>
+</th>
+
+<th align="center" class="cellrowborder" valign="middle" id="mcps1.3.2.3.1.1.1.3"><p>TIMEOUT</p>
+</th>
+
+<th align="center" class="cellrowborder" valign="middle" id="mcps1.3.2.3.1.1.1.4"><p>BLACKLISTFLAG</p>
+</th>
+
+<th align="center" class="cellrowborder" valign="middle" id="mcps1.3.2.3.1.1.1.5"><p>TOOBIGLIMIT</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" align="center" valign="middle" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>10</p>
+</td>
+
+<td class="cellrowborder" align="center" valign="middle" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>100</p>
+</td>
+
+<td class="cellrowborder" align="center" valign="middle" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>10</p>
+</td>
+
+<td class="cellrowborder" align="center" valign="middle" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>FALSE</p>
+</td>
+
+<td class="cellrowborder" align="center" valign="middle" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>TRUE</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581652__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134581652" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581652__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134581652" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>BUCKETSIZE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ICMPv6差错报文桶深限制</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于指定ICMPv6差错报文的令牌桶可容纳的令牌数。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为1～200。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>INTERVAL</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ICMPv6差错报文速率限制（ms）</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于指定向ICMPv6差错报文令牌桶中放置令牌的间隔时间。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为0～2147483647，单位是毫秒。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>TIMEOUT</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>老化时间（min）</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于配置动态PMTU表项的老化时间。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为10～100，单位是分钟。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>BLACKLISTFLAG</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>允许IPv6黑名单报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示是否允许IPv6黑名单报文向源端回应报文。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：布尔类型，输入格式为“TRUE”或者“FALSE”。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>TOOBIGLIMIT</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>TOO-BIG差错报文限制</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示是否限制TOO-BIG差错报文。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：布尔类型，输入格式为“TRUE”或者“FALSE”。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581652__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134581652" class="sectiontitle2contents">使用实例</a></h4><p>设置IPv6全局配置参数：令牌桶深10，每隔10ms放一次令牌，路径MTU的老化时间为10分钟，允许IPv6黑名单报文向源端回应报文，ICMP报文类型为TOO-BIG报文：</p>
+
+<pre class="codeblock">SET IPV6GLOBALCONFIG:BUCKETSIZE=10,INTERVAL=10,TIMEOUT=10,BLACKLISTFLAG=TRUE,TOOBIGLIMIT=TRUE;</pre>
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_ipv6_global_configuration.html">IPv6全局配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_ipv6globalconfig.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

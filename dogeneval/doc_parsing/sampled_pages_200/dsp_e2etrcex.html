@@ -1,0 +1,256 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="显示端到端用户跟踪(DSP E2ETRCEX)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_om_debugging.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_e2etrcex.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172225553">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示端到端用户跟踪(DSP E2ETRCEX)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172225553"></a><a name="ZH-CN_MMLREF_0000001172225553"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">显示端到端用户跟踪(DSP E2ETRCEX)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.6.1">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001172225553__1.3.7.1">输出结果说明</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172225553__zh-cn_concept_0272842528_b850912308192121">适用网元：MME</strong></span></p>
+<p>该命令用于显示全网跟踪任务信息。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">注意事项</a></h4><p>该命令执行后立即生效。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug；monitor-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RUNAME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>RU名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数表示资源单元名称。</p>
+<p>数据来源：本端规划。</p>
+<p>取值范围：1~63位字符串。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PROCTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>进程类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定所需查询的进程类型。</p>
+<p>数据来源：本端规划。</p>
+<p>取值范围：</p>
+<ul><li>SPP（SPP）</li><li>SGP（SGP）</li><li>OMP（OMP）</li></ul>
+<p>默认值：OMP（OMP）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PROCNO</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>进程号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定所需查询的进程序号</p>
+<p>数据来源：本端规划。</p>
+<p>取值范围：0~31</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>TRCID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>跟踪ID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定需要查询的全网跟踪任务的跟踪参考号。</p>
+<p>数据来源：全网规划。</p>
+<p>取值范围：0~65535</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IMSI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IMSI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定需要查询的全网跟踪任务的IMSI。</p>
+<p>数据来源：全网规划。</p>
+<p>取值范围：1到15位数字。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>MSISDN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>MSISDN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定需要查询的全网跟踪任务的MSISDN。</p>
+<p>数据来源：全网规划。</p>
+<p>取值范围：1到15位数字。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SERVICETYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>VNFC类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：VNFC类型。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：字符串类型，输入长度范围为1～31。数字“0~9”，大写字母“A~Z”，小写字母“a~z”，特殊字符“-”，“_”，其他均为非法字符，并且首字符必须为字母。</p>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数可以通过VNFP上的<a href="lst_vnfc.html"><b><span class="cmdname">LST VNFC</span></b></a>命令查询得到。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">使用实例</a></h4><p>显示全网跟踪任务信息</p>
+<p><span class="msgph">DSP E2ETRCEX: SERVICETYPE="USN_VNFC";</span></p>
+<pre class="screen">%%DSP E2ETRCEX: <span class="msgph">SERVICETYPE="USN_VNFC"</span>;%%
+RETCODE = 0  操作成功。
+
+操作结果如下
+------------------------
+                 RU名称  =  USN_OM_RU_0001
+               进程类型  =  OMP
+                 进程号  =  0
+                 跟踪ID  =  54738
+                 ID类型  =  IMSI
+                   IMSI  =  46000123456789
+                 MSISDN  =  NULL
+               跟踪深度  =  全覆盖跟踪
+           跟踪有效天数  =  1
+           跟踪创建途径  =  U2020/MAE
+                MME接口  =  S1-MME &amp; S3 &amp; S6a &amp; S10 &amp; S11
+                ENB接口  =  S1-MME &amp; X2 &amp; Uu
+                SGW接口  =  S4 &amp; S5 &amp; S8 &amp; S11
+                PGW接口  =  S5 &amp; Gx &amp; S8 &amp; SGi
+               (结果个数 = 1)
+---    END</pre>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225553__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_MMLREF_0000001172225553" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.7.2.1.3.1.1" liSelected="liSelected"><p>输出项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.7.2.1.3.1.2" liSelected="liSelected"><p>输出项解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>RU名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>跟踪任务所在的资源单元名称。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>进程类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>跟踪任务所在的进程类型。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>进程号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>跟踪任务所在的进程号。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>跟踪ID</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>需要查询的全网跟踪任务的跟踪参考号。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>ID类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>创建跟踪时指定的ID类型，表示是通过IMSI还是MSISDN创建的跟踪。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>IMSI</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>创建跟踪时指定的IMSI。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>MSISDN</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>创建跟踪时指定的MSISDN。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>跟踪深度</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示跟踪上报消息的级别。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>跟踪有效天数</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>创建跟踪时指定的跟踪持续的时间。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>跟踪创建途径</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示创建跟踪时，是由U2020/MAE直接通知<span class="keyword"><span id="ZH-CN_MMLREF_0000001172225553__zh-cn_task_0272842530_text1503051056192121">UNC</span></span>来创建，还是由U2020/MAE直接通知HSS，再由HSS通知<span class="keyword"><span id="ZH-CN_MMLREF_0000001172225553__zh-cn_task_0272842530_text1503051056192121_1">UNC</span></span>来创建。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>MME接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示创建跟踪时被选中的MME接口。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>ENB接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示创建跟踪时被选中的ENB接口。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>SGW接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示创建跟踪时被选中的SGW接口。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>PGW接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>表示创建跟踪时被选中的PGW接口。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_om_debugging.html">OM调测
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_e2etrcex.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

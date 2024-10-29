@@ -6,9 +6,9 @@ from loguru import logger
 import time
 
 from dogeneval.utils.llm import llms
-from dogeneval.utils.mongodb import save_result
+from dogeneval.utils.mongodb import save_result, load_results_as_df
 from dogeneval.utils.parser import try_parse_json
-
+from dogeneval.quality_assessment.quality_control import try_answering, check_answer
 from dogeneval.kp_template_mapping.mapping import map_kp_to_templates
 from dogeneval.template.template_prompt import format_qa_generation_prompt
 
@@ -34,39 +34,6 @@ def form_question_prompt(ktask):
         prompt = ktask["system_prompt"] + "\n\n" + prompt
     if ktask["output_requirement"]:
         prompt += "\n\n" + ktask["output_requirement"]
-    return prompt
-
-def form_check_prompt(kp, question, response):
-    prompt = f"""你是一名核心网运维工程师，请你根据给定的知识库内容，判断模型回复是否为给定题目的正确答案。对答案的形式要求可以放宽（如数值型答案可用字符串表示），但需要保证答案的知识正确性。
-
-====================知识库内容====================
-知识点描述：{kp['描述']}
-知识点内容：
-{kp['内容']}
-=============================================
-
-====================题目====================
-{question}
-=============================================
-
-====================模型回复====================
-{response}
-=============================================
-
-请你返回一个json，字段包括match字段和reason字段，match字段表示模型回复是否为给定题目的正确答案，值为true或false；reason字段表示匹配情况的原因，如果match为true，reason字段应为模型回复与给定题目和知识点之间的对应关系，如果match为false，reason字段应为不正确的原因。
-
-参考格式如下：
-{{
-    "match": true,
-    "reason": "模型回复与给定题目和知识点之间的对应关系"
-}}
-{{
-    "match": false,
-    "reason": "不正确的原因"
-}}
-
-你返回的内容开头不能是```json，直接返回json内容即可。
-"""
     return prompt
 
 def construct_qa_and_answer(response, template):
@@ -100,9 +67,9 @@ def gen_qa_and_check(llm,
                      qa_generation_prompt, row, task, 
                      is_zeroshot, require_scene, example, 
                      version_str, pbar):
-    kp_type = row["类型"]
-    kp_title = row["描述"]
-    kp_content = row["内容"]
+    kp_type = row["type"]
+    kp_title = row["description"]
+    kp_content = row["content"]
     
     start_time = time.time()
     response = llm.chat(qa_generation_prompt)
@@ -121,7 +88,7 @@ def gen_qa_and_check(llm,
         "is_zeroshot": is_zeroshot,
         "require_scene": require_scene,
         "example": example,
-        "kp_path": row["路径"]
+        "kp_path": row["path"]
     }
 
     question, answer, error = construct_qa_and_answer(response, template)
@@ -133,14 +100,12 @@ def gen_qa_and_check(llm,
     if error:
         return item, True, None
 
-    def check_answer(row, question, answer):
-        check_prompt = form_check_prompt(row, question, answer)
-        response = llm.chat_json(check_prompt)
-        match = response["match"]
-        reason = response["reason"]
-        return match, reason
-    
-    match, reason = check_answer(row, question, answer)
+    # 尝试让模型作答
+    model_answer = try_answering(row, question, llm)
+    item["Model_Answer"] = model_answer
+
+    # 检查模型作答是否正确
+    match, reason = check_answer(row, question, model_answer, llm)
 
     item["match"] = match
     item["match_reason"] = reason
@@ -155,15 +120,16 @@ def main():
     llm = llms.get_azure_model()
 
     # load knowledge points
-    kp_file = "./data/knowledge_points/knowledge_points-09131036.xlsx"
-    df = pd.read_excel(kp_file)
-    print(df.columns)
+    # kp_file = "./data/knowledge_points/knowledge_points-09131036.xlsx"
+    # df = pd.read_excel(kp_file)
+    # print(df.columns)
+    df = load_results_as_df("knowledge_points-10281449")
 
     # filter kp
-    filter_kp_type = ["处理步骤", "表格", "命令", "具体案例", "代码", "列表", "参数说明", "命令功能", "事实陈述"]
-    df = df[df["类型"].isin(filter_kp_type)]
-    length_thres = 200
-    df = df[df["内容"].str.len() >= length_thres]
+    # filter_kp_type = ["处理步骤", "表格", "命令", "具体案例", "代码", "列表", "参数说明", "命令功能", "事实陈述"]
+    # df = df[df["type"].isin(filter_kp_type)]
+    length_thres = 100
+    df = df[df["content"].str.len() >= length_thres]
     # 打乱
     df = df.sample(frac=1).reset_index(drop=True)
 
@@ -187,16 +153,12 @@ def main():
     with tqdm(total=len(df) * len(ktasks), desc="Processing") as pbar:
         for i, row in df.iterrows():
 
-            if i < 33:
-                pbar.update(len(ktasks))
-                continue
-
             # mapping kp to ktasks
             mapped_templates = map_kp_to_templates(row, ktasks, llm)
 
             # 临时措施，如果匹配得比较多，就不生成选择题和问答题了，而是生成更高级的题目
-            if len(mapped_templates) > 5:
-                mapped_templates = [i for i in mapped_templates if i["task_name"] not in ["QuestionAnswering", "MultipleChoice"]]
+            if len(mapped_templates) > 6:
+                mapped_templates = [i for i in mapped_templates if i["task_name"] not in ["ReadingComprehension", "QuestionAnswering", "MultipleChoice"]]
 
             logger.info(f"Mapped {len(mapped_templates)} templates: {[i['task_name'] for i in mapped_templates]}")
 
@@ -209,7 +171,7 @@ def main():
 
                 # 选择fewshot or zeroshot
                 # 一半概率fewshot，一半概率zeroshot
-                if random.random() < 0.5 and len(task.get("examples", [])): # fewshot
+                if random.random() < 0.6 and len(task.get("examples", [])): # fewshot
                     # 等概率挑选一个example
                     example = random.choice(task["examples"])
                     is_zeroshot = False

@@ -1,0 +1,430 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="显示5G告警详细信息（DSP MASALMDETAIL）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/massivealarm_n_alarm_report_mode.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_masalmrptmode.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001180432526">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示5G告警详细信息（DSP MASALMDETAIL）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001180432526"></a><a name="ZH-CN_MMLREF_0000001180432526"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">显示5G告警详细信息（DSP MASALMDETAIL）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001180432526__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001180432526__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001180432526__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001180432526__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001180432526__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001180432526__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001180432526" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                    <p>该命令用于显示批量告警包含的详细故障信息。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0000001180432526__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001180432526" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>当“告警类型”选择为特定告警时，系统内可能存在许多原始告警，导致该命令返回时间过长，可通过在命令中限定“起始时间”和“结束时间”来减少查询记录数。</li><li>由于批量告警是在原始告警产生后按照一定周期合并的结果，所以原始告警的实际故障时间早于批量告警的产生时间。</li><li>如果批量告警进行了刷新，原始告警和批量告警的时间可能相差很多，因此当根据某条批量告警产生时间作为查询条件时，建议将“批量告警产生时间”作为本命令的“结束时间”。</li></ul>
+
+                      
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001180432526__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001180432526" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0000001180432526__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001180432526" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ALMTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>告警类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定告警类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“HTTP_LINKDOWN（HTTP链路故障）”：表示ALM-100155 HTTP链路故障告警，对应的批量告警为ALM-100311 批量HTTP链路故障。</li><li>“SUMMARY（汇总）”：表示批量告警的汇总信息。</li></ul>
+<p> 默认值：SUMMARY</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SGT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>起始时间</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"ALMTYPE"配置为"HTTP_LINKDOWN"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定待查询的告警的产生时间的起始时间。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：DATE。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>EGT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>结束时间</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"ALMTYPE"配置为"HTTP_LINKDOWN"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定待查询的告警的产生时间的结束时间。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：DATE。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MAXRECORD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>最大记录数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"ALMTYPE"配置为"HTTP_LINKDOWN"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定待查询的告警的最大记录数。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~1000。</p>
+<p> 默认值：1000</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0000001180432526__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001180432526" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                <ul><li>查询系统中，批量告警的汇总信息：
+                            <pre class="screen">%%DSP MASALMDETAIL: ALMTYPE=SUMMARY;%%
+RETCODE = 0  操作成功
+
+结果如下
+------------------------
+告警名称  =  HTTP链路故障
+  告警ID  =  100311
+故障个数  =  100
+文件路径  =  /opt/container/log/5gcore/omb-pod/cell_omp/log/AlarmDetailRecord/CurrentBatchedHttpLinkDown.csv
+(结果个数 = 1)
+
+---    END</pre>
+
+						</li><li>查询系统中，HTTP链路告警信息：
+                            <pre class="screen">%%DSP MASALMDETAIL: ALMTYPE=HTTP_LINKDOWN, SGT=2021&amp;02&amp;26, EGT=2021&amp;02&amp;26, MAXRECORD=1;%%
+RETCODE = 0  操作成功
+
+结果如下
+--------
+      告警名称  =  HTTP链路故障
+        告警ID  =  100155
+      故障时间  =  2021-02-26 10:31:45+08:00
+       POD名称  =  sbim-pod-5648469cd9-crczm
+      进程标识  =  219
+      链路集ID  =  1002
+        链路ID  =  502
+  对端NF实例ID  =  118
+对端NF描述名称  =  PCF_BJ_BJ_TOB_B001
+    对端NF服务  =  PnfService
+    本端NF类型  =  SMF
+    本端IP地址  =  19168.0.0
+    对端IP地址  =  19168.0.1
+    本端端口号  =  0
+      对端端口  =  33
+      协议类型  =  TCP
+      传输协议  =  HTTP
+      告警原因  =  reason: link down reason 0x[0]
+(结果个数 = 1)
+
+---    END</pre>
+
+						</li></ul>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0000001180432526__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001180432526" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>告警名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生批量告警的原始告警的名称。</p>
+<p>取值说明：</p>
+<ul><li>“HTTP_LINKDOWN（HTTP链路故障）”：表示ALM-100155 HTTP链路故障告警，对应的批量告警为ALM-100311 批量HTTP链路故障。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>告警ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生批量告警的原始告警的ID。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>故障个数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生批量告警的故障个数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>文件路径</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生批量告警的告警详细信息文件在omp节点的保存路径。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>故障时间</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的时间。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>POD名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的POD的名称。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>本端端口号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的本端端口号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>进程标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路所在的进程序列号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>链路集ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路所在的链路集ID。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>链路ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路所在的链路ID。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端NF实例ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路所属的对端NF实例IID。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端NF服务</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路所属的对端NF服务名称。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>本端NF类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路所属的本端NF类型。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>本端IP地址</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路的本端IP地址。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端IP地址</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路的对端IP地址。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端端口</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路的对端端口号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>协议类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路使用的协议类型：</p>
+<p>TCP；</p>
+<p>UDP。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>传输协议</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的故障链路支持HTTP还是HTTPS：</p>
+<p>HTTP；</p>
+<p>HTTPS。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>告警原因</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>产生告警的链路故障的原因。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端NF描述名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>指定对端网元名称，比如PCF_BJ_BJ_TOB_B001。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/massivealarm_n_alarm_report_mode.html">告警上报模式
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_masalmrptmode.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

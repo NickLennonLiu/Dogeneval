@@ -1,0 +1,229 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="IPFD-010001 接口管理特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../toctopics/zh-cn_concept_0251020394.html">
+<meta name="DC.Relation" scheme="URI" content="../../toctopics/zh-cn_topic_0251053376.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="IPFD-010001">
+<meta name="Function" content="IP基本功能">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0161317293">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>IPFD-010001 接口管理特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0161317293"></a><a name="ZH-CN_CONCEPT_0161317293"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1"><span><span>IPFD-010001</span></span> <span><span>接口管理</span></span>特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.1.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.2.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.3.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.4.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.5.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.6.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.7.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.8.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.9.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.10.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.11.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0161317293__1.3.12.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents"><span>定义</span></a></h4><p>接口是该设备与网络中的其它设备交换数据并相互作用的部件，分为虚拟物理接口和逻辑接口两类：</p>
+<ul><li>虚拟物理接口是和真实存在的物理接口有映射关系的接口。</li><li>逻辑接口是指能够实现数据交换功能但物理上不存在、需要通过配置建立的接口。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents"><span>客户价值</span></a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.2.1.3.1.2 "><ul><li>虚拟物理接口能映射到真实的物理接口，正确快速传输数据，实现用户正常通信。</li><li>在不增加硬件的情况下，只需要通过配置就可以建立的逻辑接口能够实现数据通信，大大节省运营商的投资。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.2.1.3.1.1 "><p>终端用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.2.1.3.1.2 "><p>用户不感知该特性。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents">应用场景</a></h4><p>作为系统的基本特性，在任何情况下，都必须支持接口管理。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents"><span>可获得性</span></a></h4><p><strong>版本支持</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="53.11%" id="mcps1.3.4.3.1.3.1.1" liSelected="liSelected"><p>产品</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="46.89%" id="mcps1.3.4.3.1.3.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="53.11%" headers="mcps1.3.4.3.1.3.1.1 "><p><span class="keyword">UNC</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="46.89%" headers="mcps1.3.4.3.1.3.1.2 "><p><span class="keyword">20.0.0</span>及后续版本</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents"><span>与其他特性的交互</span></a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents"><span>原理概述</span></a></h4><p>虚拟物理接口是存在于资源中的接口，和真实存在的物理接口有映射关系。对于上层业务来说，等同于物理接口的功能。</p>
+<p><span class="keyword">UNC</span>包含三种类型的虚拟物理接口：</p>
+<ul><li>基础业务端口：用于网元内部资源之间控制面传输，主要承载网元之间以及组件间的管理信息通信；</li><li>PAE间通信端口：用于网元内部资源之间数据面传输，主要承载网元间业务服务实例通信；</li><li>外部连接端口：外联口，用于网元外部数据面传输。目前支持的接口包括以太网接口（Ethernet接口）、千兆以太网接口（GE接口）、25GE接口和100GE接口。</li></ul>
+<p>这三种接口均为三维表示，编号规则为RU编号/0/接口序号，中间的0为固定取值。</p>
+<ul><li>RU编号：为创建资源单元时自动分配， 取值范围是64～65534；</li><li>接口序号：由业务模型决定，一般从基础业务端口开始编号，PAE间通信端口其次，外部连接端口最后。比较常见的是，基础业务端口接口序号为0和1，PAE间通信端口为2和3， 外部连接端口从4开始，一般不超过15。</li></ul>
+<p>可以通过DSP PORT命令查看所有接口类型，接口类型由<strong>网络平面</strong>字段标识。</p>
+<p>如果只查看外联口，可以通过LST INTERFACE查看，其中GigabitEthernet0/0/1为与VNFP通信的管理接口。</p>
+<p>逻辑接口指能够实现数据交换功能但物理上不存在的接口，所以逻辑接口并不需要投入额外的硬件资源，大大节省投资成本。下面介绍如下几种常见的逻辑接口。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>逻辑接口列表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="15.1%" id="mcps1.3.8.10.2.4.1.1" liSelected="liSelected"><p>接口名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.449999999999996%" id="mcps1.3.8.10.2.4.1.2" liSelected="liSelected"><p>应用场景及特性简介</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.449999999999996%" id="mcps1.3.8.10.2.4.1.3" liSelected="liSelected"><p>取值范围及示例</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="15.1%" headers="mcps1.3.8.10.2.4.1.1 "><p>Ethernet/GE子接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.2 "><p>在以太网中，一般使用子接口把本地接口和多个远端接口连接在一起，以节省物理端口资源。如果多个远端接口和本地接口的IP地址都在同一网段，本地接口配置一个主IP地址，就可以满足同时和多个远端接口互通的要求。</p>
+<p>但是，如果本地接口上多个子接口的对端网络处于不同网段，本地接口上只有一个主IP地址就不能满足互通要求了。此时可以在本地接口配置从IP地址或子接口来解决这个问题。但从IP地址相对于子接口有这样一个缺点：从IP地址必须依赖于主IP地址，当主IP地址失效后，从IP地址也同时失效。</p>
+<p>子接口相对配置从IP地址却有一个优点，就是子接口和主接口是相对独立的。所以主接口的IP地址不影响子接口的IP地址。</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.3 "><p>子接口的取值范围为1-4096。</p>
+<p>Ethernet/GE子接口作为虚拟物理接口Ethernet/GE接口的子接口，其接口编号会继承主接口的编号。</p>
+<p>例如：</p>
+<ul><li>Ethernet<span>64/0/2</span>.1即为编号为64的RU中接口编号为2的Ethernet主接口下创建的编号是1的子接口。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.1%" headers="mcps1.3.8.10.2.4.1.1 "><p>Loopback接口（环回接口）</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.2 "><p>环回接口是一种逻辑接口。TCP/IP协议规定，127.0.0.0网段的地址属于环回地址。包含这类地址的接口属于环回接口。<span class="keyword">UNC</span>支持以下两种类型的环回接口：</p>
+<ul><li><p>Loopback接口</p>
+<p>当用户需要一个接口状态永远是Up的接口的IP地址时，可以选择Loopback接口的IP地址。Loopback接口具有以下优点：</p>
+<ul><li><p>Loopback接口一旦被创建，其物理状态和链路协议状态永远是Up。即使该接口上没有配置IP地址。</p>
+</li><li><p>Loopback接口配置IP地址后，就可以对外发布。Loopback接口上可以配置32位掩码的IP地址，以达到节省地址空间的目的。</p>
+</li><li><p>Loopback接口不能封装任何链路层协议。数据链路层也就不存在协商问题，其协议状态永远都是Up。</p>
+</li><li><p>对于目的地址不是本地IP地址，出接口是本地Loopback接口的报文，设备会将其直接丢弃。</p>
+</li></ul>
+<div class="p">由于Loopback接口具备如上优点，Loopback接口常用来提高配置的可靠性。Loopback接口主要有两种应用：<ul><li>Loopback接口的IP地址被指定为报文的源地址，可以提高网络可靠性。</li><li>根据Loopback接口的IP地址控制访问接口和过滤日志等信息，使信息变得简单。</li></ul>
+</div>
+</li><li><p>InLoopback0接口</p>
+<p>系统在启动时，会自动创建一个InLoopback0接口，它是一个特殊而固定的Loopback接口。</p>
+<p>InLoopback0接口使用环回地址127.0.0.1/8接收所有发送给本机的数据包。该接口上的IP地址是不可以改变的，也不通过路由协议对外发布。</p>
+</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.3 "><p>Loopback接口的取值范围为0-2147483647，最多建立1024个。</p>
+<p>Loopback接口的编号是6，此Loopback接口命名为“Loopback6”。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.1%" headers="mcps1.3.8.10.2.4.1.1 "><p>NULL0接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.2 "><p>NULL接口类似于一些操作系统中支持的空设备（null devices），任何发送到该接口的网络数据报文都会被丢弃。系统自动创建一个NULL0接口。</p>
+<p>由于任何到达NULL接口的报文都会被丢弃，可以将需要过滤掉的报文直接发送到NULL0接口，而不必配置访问控制列表。</p>
+<div class="p">由于NULL0接口具备如上所述特性，它主要被用在以下两方面：<ul><li><p>防止路由环路</p>
+<p>NULL0接口最典型的使用是用来防止路由环路。例如，在聚合一组路由时，总是创建一条到NULL0接口的路由。</p>
+</li><li><p>用于过滤流量</p>
+<p>NULL0接口提供了过滤流量的一个可选的方法。可以通过将不想要的报文发送到NULL0接口，避免使用访问控制列表。</p>
+</li></ul>
+</div>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.3 "><p>只有NULL0一种接口。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.1%" headers="mcps1.3.8.10.2.4.1.1 "><p>Tunnel接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.2 "><p>隧道Tunnel是一条虚拟的点对点连接的通路。Tunnel的源地址与目的地址唯一标识了一条隧道，使封装的数据报能够在这条通路上传输，并在这条通路的两端分别对数据报进行封装和解封装。</p>
+<p>GRE（Generic Routing Encapsulation）隧道使用Tunnel接口进行转发。当应用这些类型的隧道时，必须先创建Tunnel接口。</p>
+<p>Tunnel接口的IP地址可以不是公网地址。当IP地址不够用或需要节约IP地址时，可以配置Tunnel接口借用其他接口的IP地址。</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.3 "><p>Tunnel接口编号支持一维格式x和三维格式x/y/z两种形式：一维格式x，整数形式，取值范围是0～4294967295。三维格式x/y/z的取值范围为：x：整数形式，取值范围为0～31；y：整数形式，取值范围为0～15；z：整数形式，取值范围为0～65535。</p>
+<p>Tunnel接口的编号是6，此Tunnel接口命名为“Tunnel6”。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.1%" headers="mcps1.3.8.10.2.4.1.1 "><p>Eth-Trunk接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.2 "><p>Eth-Trunk接口是指由多个以太网口捆绑成的逻辑接口。</p>
+<p>Eth-Trunk成员端口个数应小于10个。</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.3 "><p>Eth-Trunk接口编号为整数形式，取值范围为0～15。</p>
+<p>Eth-Trunk接口的编号是6，此Eth-Trunk接口命名为“Eth-Trunk6”。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.1%" headers="mcps1.3.8.10.2.4.1.1 "><p>Eth-Trunk子接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.2 "><p>Eth-Trunk子接口是指在Eth-Trunk主接口上创建的子接口。子接口和主接口是相对独立的。</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.449999999999996%" headers="mcps1.3.8.10.2.4.1.3 "><p>Eth-Trunk子接口编号为整数形式，取值范围为1～<span>1000000</span>。一个主接口最多可以创建4096个子接口。</p>
+<p>Eth-Trunk6子接口的编号是1，此子接口命名为“Eth-Trunk6.1”。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>离线接口本身是不在位的接口，支持配置业务和协议，但是配置之后不生效。接口在位之后可以生效。</p>
+<div class="note"><img src="../../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>逻辑管理接口（即GigabitEthernet0/0/0）可见，并且有统计计数。</p>
+</div></div>
+<div class="p">如需详细了解接口管理，请阅读如下章节：<ul><li><a href="dc_fenix_nls_ip_ifm_feature_0003.html">控制接口震荡特性</a></li><li><a href="dc_fenix_nls_ip_ifm_feature_0004.html">最大传输单元MTU</a></li></ul>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents">遵循标准</a></h4><p>本特性不涉及标准约束。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0161317293__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0161317293" class="sectiontitle2contents"><span>发布历史</span></a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="27.53724627537246%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.53724627537246%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="44.92550744925508%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="27.53724627537246%" headers="mcps1.3.12.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.53724627537246%" headers="mcps1.3.12.2.1.4.1.2 "><p><span class="keyword">20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="44.92550744925508%" headers="mcps1.3.12.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../toctopics/zh-cn_concept_0251020394.html">IPFD-010001 接口管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../toctopics/zh-cn_topic_0251053376.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

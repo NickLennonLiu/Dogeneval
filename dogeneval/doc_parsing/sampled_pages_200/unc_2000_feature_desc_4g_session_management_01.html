@@ -1,0 +1,389 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-010501 会话管理特性概述（适用于4G）">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_4g_Session_Management.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_4g_Session_Management_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="MME">
+<meta name="network_function" content="PGW-C">
+<meta name="network_function" content="SGW-C">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010501">
+<meta name="Function" content="互操作">
+<meta name="Function" content="会话管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0173595351">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-010501 会话管理特性概述（适用于4G）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0173595351"></a><a name="ZH-CN_CONCEPT_0173595351"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-010501 会话管理特性概述（适用于4G）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0173595351__1.4.13.1">发布历史</a></li></ul><div><p></p>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.1.1"></a><a name="1.4.1.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">适用NF</a></h4><p>MME、SGW-C、PGW-C</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.2.1"></a><a name="1.4.2.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">定义</a></h4><p>会话管理功能是MME的基本功能，是用户与外部PDN建立连接，进行数据业务的基础。MME的会话管理功能包括网络侧发起的会话管理和UE发起的会话管理。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.3.1"></a><a name="1.4.3.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.4.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.4.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.4.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.4.3.2.1.3.1.2 "><p>会话管理功能使运营商得以向授权的用户提供从移动终端到分组数据网络间的数据传输服务，从而丰富其网络业务。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.4.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.4.3.2.1.3.1.2 "><p>通过会话管理功能，用户可以通过移动通信网络，在移动终端和分组数据网络间上传或下载数据。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.4.1"></a><a name="1.4.4.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">应用场景</a></h4><p>当用户需要通过LTE网络接入外部PDN时，需要支持本功能。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.5.1"></a><a name="1.4.5.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="18.740000000000002%" id="mcps1.4.5.3.1.4.1.1" liSelected="liSelected"><p><strong>涉及NF</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="36.14%" id="mcps1.4.5.3.1.4.1.2" liSelected="liSelected"><p><strong>支持版本</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="45.12%" id="mcps1.4.5.3.1.4.1.3" liSelected="liSelected"><p><strong>功能说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><p>支持接入LTE网络功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><ul><li>为UE提供无线资源及承载。</li><li>若UE未携带MME信息，为UE选择MME。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>HSS</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><p>保存用户签约信息，为UE提供QoS等业务相关数据。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>PCRF</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><p>下发会话管理的策略控制功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><ul><li>为UE选择接入的SGW-C/PGW-C。</li><li>和SGW-C/PGW-C配合，为LTE接入用户提供承载建立、删除、更新等会话管理功能。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><ul><li>为UE选择SGW-U/PGW-U。</li><li>为UE选路到相应的外部网络或接收外部网络的数据，根据其目的地址选择EPC网络中的传输通道。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.740000000000002%" headers="mcps1.4.5.3.1.4.1.1 "><p>SGW-U/PGW-U</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.14%" headers="mcps1.4.5.3.1.4.1.2 "><p>UDG <span>20.0.0</span><span>及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.4.5.3.1.4.1.3 "><ul><li>为UE接入外部PDN提供数据转发功能。</li><li>通过S1-U接口和eNodeB互通。和SGW-C/PGW-C配合，为LTE接入用户提供缺省承载建立、删除、更新等会话管理功能。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License</strong><strong>支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.6.1"></a><a name="1.4.6.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.7.1"></a><a name="1.4.7.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.8.1"></a><a name="1.4.8.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.9.1"></a><a name="1.4.9.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">原理概述</a></h4><p><strong>基本概念</strong></p>
+<p>EPC会话管理的对象为EPS承载。每个PDN连接都由EPS承载（EPS Bearer）和IP连接组成。</p>
+<p><strong>PDN连接</strong>：EPS通过E-UTRAN网络和EPC网络，为UE提供了一条UE与PDN之间的IP连接，称为PDN连接。</p>
+<p><strong>EPS承载</strong>：用于唯一标识基于GTP协议的UE和P-GW之间的共同QoS业务流，或唯一标识基于PMIP协议（Proxy Mobile IP Protocol ）的UE和S-GW之间的共同QoS业务流。</p>
+<p><strong>缺省承载</strong>：当UE建立一个到某个PDN的PDN连接时，会建立一个EPS承载，这个承载在PDN连接的过程中不会被释放以提供到该PDN的永久性连接，这个承载被称为缺省承载。缺省承载被删除，PDN连接也将被释放。</p>
+<p><strong>专有承载</strong>：除缺省承载之外的其他连接到相同的PDN的承载称为专有承载。根据不同的QoS需求建立不同的专有承载，比如观看视频、浏览网页等。</p>
+<p>PDN连接、缺省承载、专有承载之间的关系请参照<a href="#ZH-CN_CONCEPT_0173595351__fig1888153314814">图1</a>。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0173595351__fig1888153314814"><a name="ZH-CN_CONCEPT_0173595351__fig1888153314814"></a><a name="fig1888153314814"></a><span class="figcap"><b>图1 </b>PDN连接、缺省承载、专有承载之间的关系</span><br><span><img class="vsd" src="figure/zh-cn_image_0192309308.png"></span></div>
+<ul><li>APN与PDN是一一对应。一个PDN是由一个APN进行代表的，不同的APN，可以连接到不同的PDN。一个终端可以通过多个APN接入到不同的PDN中，PDN中可以有多个服务器（百度、优酷等）。</li><li>同一个APN下可建立多个PDN连接。同一个PDN连接必须建立一个缺省承载且只能建立一个缺省承载，但可以建立多个专有承载。由于无线侧的限制，一个终端最多只能建立11个承载。</li></ul>
+<p><strong>会话管理网络架构演进</strong></p>
+<p>4G网络架构包括非CUPS网络架构和CUPS网络架构。为了向5G的高带宽、多连接、低时延的演进，产生了CUPS网络架构，将S-GW和P-GW的控制面和用户面拆分，用户面下沉到边缘，可降低传输迂回，降低时延，提升用户体验。</p>
+<div class="fignone"><span class="figcap"><b>图2 </b>会话管理网络架构演进</span><br><span><img class="vsd" src="figure/zh-cn_image_0205719375.png"></span></div>
+<p><strong>承载状态管理</strong></p>
+<p>承载的状态分为BEARER CONTEXT INACTIVE和BEARER CONTEXT ACTIVE两种状态，MME中两者之间的转换关系如<a href="#ZH-CN_CONCEPT_0173595351__fig2979124719323">图3</a>所示：</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0173595351__fig2979124719323"><a name="ZH-CN_CONCEPT_0173595351__fig2979124719323"></a><a name="fig2979124719323"></a><span class="figcap"><b>图3 </b>MME中的承载状态</span><br><span><img class="vsd" src="figure/zh-cn_image_0192309309.png"></span></div>
+<ul><li><p>当承载上下文被激活时，MME中承载的状态将由BEARER CONTEXT INACTIVE转化为BEARER CONTEXT ACTIVE。</p>
+</li><li><p>当承载上下文去激活时，MME中承载的状态将由BEARER CONTEXT ACTIVE转化为BEARER CONTEXT INACTIVE。</p>
+</li><li><p>当承载上下文更新时，MME中的承载状态保持为BEARER CONTEXT ACTIVE。</p>
+</li></ul>
+<p><strong>会话管理功能</strong></p>
+<div class="p">会话管理功能包括网络侧发起的会话管理和UE发起的会话管理。由于用户的不同业务的需求，UE侧可以请求专有EPS承载激活流程、EPS承载修改流程或者EPS承载去激活流程，如果网络侧接收UE的请求，网络侧会发起EPS承载激活流程、EPS承载修改流程或者EPS承载去激活流程，网络侧是最终流程的发起端。
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>网络侧发起的会话管理</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="18.528147185281473%" id="mcps1.4.9.19.1.2.4.1.1" liSelected="liSelected"><p>网络侧发起的会话过程</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.757224277572245%" id="mcps1.4.9.19.1.2.4.1.2" liSelected="liSelected"><p>目的</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="53.71462853714629%" id="mcps1.4.9.19.1.2.4.1.3" liSelected="liSelected"><p>触发</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="18.528147185281473%" headers="mcps1.4.9.19.1.2.4.1.1 "><p>专有EPS承载激活</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.757224277572245%" headers="mcps1.4.9.19.1.2.4.1.2 "><p>目的是在UE和EPC之间建立特定QoS和TFT的承载。</p>
+</td>
+<td class="cellrowborder" valign="top" width="53.71462853714629%" headers="mcps1.4.9.19.1.2.4.1.3 "><ul><li>网络侧PGW-C触发。</li><li>UE请求：作为UE请求的承载资源分配流程或UE请求的承载资源修改流程的一部分而触发。<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>TFT（Traffic Flow Template）：一组数据包过滤器的集合，UE使用TFT来决定业务数据流Service Data Flows和无线承载Radio Bearer之间的匹配关系。</p>
+</div></div>
+</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.528147185281473%" headers="mcps1.4.9.19.1.2.4.1.1 "><p>EPS承载修改</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.757224277572245%" headers="mcps1.4.9.19.1.2.4.1.2 "><p>目的是修改EPS承载的QoS和TFT。</p>
+</td>
+<td class="cellrowborder" valign="top" width="53.71462853714629%" headers="mcps1.4.9.19.1.2.4.1.3 "><ul><li>可以由HSS或PGW-C触发。</li><li>UE请求：作为UE请求的承载资源分配流程和UE请求的承载资源修改流程而触发。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.528147185281473%" headers="mcps1.4.9.19.1.2.4.1.1 "><p>EPS承载去激活</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.757224277572245%" headers="mcps1.4.9.19.1.2.4.1.2 "><p>目的是去激活一个EPS承载或者去激活到PDN的所有EPS承载以断开某个PDN连接。</p>
+</td>
+<td class="cellrowborder" valign="top" width="53.71462853714629%" headers="mcps1.4.9.19.1.2.4.1.3 "><ul><li>由MME/eNodeB或PGW-C触发</li><li>UE请求：可以作为UE请求PDN断连或者UE请求的承载资源修改流程而触发。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表2 </b>UE发起的会话管理</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="12.91129112911291%" id="mcps1.4.9.19.2.2.5.1.1" liSelected="liSelected"><p>UE发起的会话管理过程</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="26.762676267626762%" id="mcps1.4.9.19.2.2.5.1.2" liSelected="liSelected"><p>目的</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.271227122712272%" id="mcps1.4.9.19.2.2.5.1.3" liSelected="liSelected"><p>触发</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="48.054805480548055%" id="mcps1.4.9.19.2.2.5.1.4" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="12.91129112911291%" headers="mcps1.4.9.19.2.2.5.1.1 "><p>缺省承载上下文激活</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.762676267626762%" headers="mcps1.4.9.19.2.2.5.1.2 "><p>在UE和EPC之间建立一个缺省的EPS承载上下文。</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.271227122712272%" headers="mcps1.4.9.19.2.2.5.1.3 "><p>由UE发起。</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.054805480548055%" headers="mcps1.4.9.19.2.2.5.1.4 "><p>缺省承载上下文激活过程也是附着流程的一部分，如果附着失败，UE认为缺省上下文激活过程也是失败的。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="12.91129112911291%" headers="mcps1.4.9.19.2.2.5.1.1 "><p>UE请求PDN连接建立</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.762676267626762%" headers="mcps1.4.9.19.2.2.5.1.2 "><p>请求建立到一个PDN的缺省承载。</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.271227122712272%" headers="mcps1.4.9.19.2.2.5.1.3 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.054805480548055%" headers="mcps1.4.9.19.2.2.5.1.4 "><p>此过程或者被包含在附着过程建立第一个缺省承载或者用来建立后续到其他PDN的缺省承载中，以允许UE同时接入多个PDN。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="12.91129112911291%" headers="mcps1.4.9.19.2.2.5.1.1 "><p>UE请求PDN连接断连</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.762676267626762%" headers="mcps1.4.9.19.2.2.5.1.2 "><p>UE请求从PDN断开。</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.271227122712272%" headers="mcps1.4.9.19.2.2.5.1.3 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.054805480548055%" headers="mcps1.4.9.19.2.2.5.1.4 "><p>在此过程中，与此PDN相关的所有EPS承载上下文，包括缺省承载上下文和专有承载上下文，全部被释放掉。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="12.91129112911291%" headers="mcps1.4.9.19.2.2.5.1.1 "><p>UE请求承载资源分配和修改</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.762676267626762%" headers="mcps1.4.9.19.2.2.5.1.2 "><ul><li>UE请求承载资源分配用于UE为新的业务数据流请求分配承载资源。</li><li>UE请求承载资源修改用于UE为已有的业务数据流请求修改承载资源。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="12.271227122712272%" headers="mcps1.4.9.19.2.2.5.1.3 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.054805480548055%" headers="mcps1.4.9.19.2.2.5.1.4 "><p>UE可以向网络侧请求分配或修改一个特定的QoS，也可以向网络侧请求新的GBR承载或修改已有的GBR承载。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>关于GBR的详细信息请参见EPS QoS特性。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>本特性只介绍简单的会话管理流程，具体的流程参见<span>《EPC信令分析》</span>。</p>
+</div></div>
+<p><strong>会话管理流程典型触发场景</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表3 </b>4G用户会话管理流程典型触发场景</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.86%" id="mcps1.4.9.22.2.3.1.1" liSelected="liSelected"><p>涉及流程</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.14%" id="mcps1.4.9.22.2.3.1.2" liSelected="liSelected"><p>触发场景</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.86%" headers="mcps1.4.9.22.2.3.1.1 "><p>缺省承载激活</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.14%" headers="mcps1.4.9.22.2.3.1.2 "><p>4G用户打开手机后，UE侧发起缺省承载，建立PDN连接，此时该用户可以正常上网。PDN连接和缺省承载是同步建立的。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.86%" headers="mcps1.4.9.22.2.3.1.1 "><p>专有承载激活</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.14%" headers="mcps1.4.9.22.2.3.1.2 "><div class="p">专有承载的激活流程均由网络侧发起。<ul><li>如果部署了动态PCC，PCRF向P-GW发送RAR消息触发专有承载建立，消息包含QoS policy。</li><li>如果未部署动态PCC，则P-GW应用本地QoS策略发起专有承载建立流程。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.86%" headers="mcps1.4.9.22.2.3.1.1 "><p>承载更新</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.14%" headers="mcps1.4.9.22.2.3.1.2 "><ul><li>HSS发起的承载更新流程用于修改EPS承载Qos参数，如QCI、ARP或者用于修改UE-AMBR以及APN-AMBR。</li><li>P-GW发起的承载更新流程。<ul><li>由P-GW发起伴随QoS更新的专有承载更新流程用于修改EPS承载QoS参数，如QCI、GBR、MBR或ARP，或用于修改APN-AMBR。例如，PCRF配置FUP服务，为在线用户发起IP-CAN modification(QCI/GBR/MBR/ARP change)流程。</li><li>P-GW可以发起无QoS更新的专有承载更新流程，其与P-GW发起的伴随QoS更新专有承载更新流程没有大的区别，主要的区别是：QoS更新是指EPS  Bearer QoS中的QCI，ARP等的参数更新，QoS不更新是指TFT进行更新，而EPS Bearer  QoS中的QoS参数没有更新。</li></ul>
+</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.86%" headers="mcps1.4.9.22.2.3.1.1 "><p>承载去激活</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.14%" headers="mcps1.4.9.22.2.3.1.2 "><ul><li>eNodeB/MME发起承载去激活，只去激活专有承载。<ul><li><p>当eNodeB向MME发送Bearer Release Request消息，携带EPS Bearer Identity信元。</p>
+</li><li><p>MME通过OAM（Operation, Administration and Maintenance）发起承载去激活流程。</p>
+</li></ul>
+</li><li>P-GW发起承载去激活，这种场景去激活一个专有承载或者去激活某个PDN链接的全部承载。<ul><li><p>发生从3GPP到Non-3GPP的切换。</p>
+</li><li><p>如果在承载生命期内，没有任何数据传输，承载将会被释放。</p>
+</li></ul>
+</li></ul>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>PGW-C发起承载去激活分为UE的最后一个PDN连接去激活和不是UE的最后一个PDN连接去激活两种情况：</p>
+<p>主要的差异点：</p>
+<p>如果网络侧删除最后一条PDN连接时，MME向UE发送Detach Request消息，发起显式分离流程。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.10.1"></a><a name="1.4.10.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.11.1"></a><a name="1.4.11.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">特性规格</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="53%" id="mcps1.4.11.2.1.3.1.1" liSelected="liSelected"><p>规格名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="47%" id="mcps1.4.11.2.1.3.1.2" liSelected="liSelected"><p>规格指标</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="53%" headers="mcps1.4.11.2.1.3.1.1 "><p>每个用户可以激活的最大会话数</p>
+</td>
+<td class="cellrowborder" valign="top" width="47%" headers="mcps1.4.11.2.1.3.1.2 "><p>11</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.12.1"></a><a name="1.4.12.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="15.38153815381538%" id="mcps1.4.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.35153515351535%" id="mcps1.4.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="69.26692669266926%" id="mcps1.4.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="5" valign="top" width="15.38153815381538%" headers="mcps1.4.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.35153515351535%" headers="mcps1.4.12.2.1.4.1.2 "><p>23.214</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.26692669266926%" headers="mcps1.4.12.2.1.4.1.3 "><p>Architecture enhancements for control and user plane separation of EPC nodes</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.1 "><p>29.244</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.2 "><p>Interface between the Control Plane and the User Plane of EPC Nodes</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.1 "><p>23.060</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.2 "><p>General Packet Radio Service (GPRS) Service Description; Stage 2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.1 "><p>24.008</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.2 "><p>Mobile radio interface Layer 3 specification; Core network protocols; Stage 3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.1 "><p>29.060</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.2 "><p>General Packet Radio Service (GPRS); GPRS Tunnelling Protocol (GTP) across the Gn and Gp interface</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0173595351__1.4.13.1"></a><a name="1.4.13.1"></a><a href="#ZH-CN_CONCEPT_0173595351" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="28.332833283328334%" id="mcps1.4.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="31.333133313331334%" id="mcps1.4.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="40.33403340334033%" id="mcps1.4.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="28.332833283328334%" headers="mcps1.4.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="31.333133313331334%" headers="mcps1.4.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="40.33403340334033%" headers="mcps1.4.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_4g_Session_Management.html">会话管理（4G）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_4g_Session_Management_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

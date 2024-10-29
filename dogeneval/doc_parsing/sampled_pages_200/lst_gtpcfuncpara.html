@@ -1,0 +1,440 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="查询GTP-C功能参数（LST GTPCFUNCPARA）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_gtp_c_function_parameters.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/set_gtpcfuncpara.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209651330">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询GTP-C功能参数（LST GTPCFUNCPARA）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209651330"></a><a name="ZH-CN_MMLREF_0209651330"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">查询GTP-C功能参数（LST GTPCFUNCPARA）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209651330__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209651330__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209651330__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209651330__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0209651330__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209651330__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651330" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：SGW-C、PGW-C、AMF、GGSN</strong>
+                </p>
+
+                    <p>该命令用于查询GTP-C功能参数。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209651330__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651330" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                        <p>当SET AMFN26PLCY命令中N26ITFMODE取值为“COMBINE”时，当前命令（除FILTERFAULTSW）无效，请使用命令LST GTPPUB配置。</p>
+  
+                      
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209651330__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209651330" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209651330__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651330" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                <p> 无</p>
+  
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209651330__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651330" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>查询GTP-C功能参数：LST GTPCFUNCPARA:;</p>
+
+                    <pre class="screen">%%LST GTPCFUNCPARA:;%%
+RETCODE = 0  操作成功
+
+结果如下
+--------
+                    V1 Echo请求发送开关  =  打开
+                V1 Echo请求发送间隔(秒)  =  60
+                    V2 Echo请求发送开关  =  打开
+                V2 Echo请求发送间隔(秒)  =  60
+                 Echo消息的重发间隔(秒)  =  3
+                     Echo消息的发送次数  =  5
+                           NTSR功能开关  =  关闭
+                            PRN功能开关  =  关闭
+                          CIOT功能开关  =  关闭
+                       路径断去激活开关  =  打开
+             路径断后发送心跳消息的次数  =  30
+                   本端recovery更新开关  =  打开
+                   对端Recovery处理开关  =  关闭
+                         本端端口号模式  =  非知名端口号模式
+                      UDP校验和检查开关  =  打开
+             过滤故障状态的GTPC路径开关  =  打开
+Bearer Resource Command使用知名源端口号  =  关闭
+  Modify Bearer Command使用知名源端口号  =  关闭
+  Delete Bearer Command使用知名源端口号  =  关闭
+                      路径数过载门限(%)  =  85
+                  路径数过载恢复门限(%)  =  80
+                       发送私有信息开关  =  关闭
+                       私有信息扩展域ID  =  2011
+                               私有信息  =  UNC
+              检查GTP扩展头类型个数上限  =  10
+              检查GTP扩展头列表个数上限  =  100
+              检查GTP扩展头类型长度上限  =  100
+(结果个数 = 1)
+
+---    END</pre>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0209651330__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651330" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>V1 Echo请求发送开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定V1版本的GTP-C路径是否发送Echo请求消息，探测对端通信状态。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>V1 Echo请求发送间隔</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定V1版本的GTP-C路径发送Echo请求消息的时间间隔。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>V2 Echo请求发送开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定V2版本路径是否发送Echo请求消息，探测对端通信状态。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>V2 Echo请求发送间隔</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定V2版本的GTP-C路径发送Echo请求消息的时间间隔。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Echo消息的重发间隔</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于等待一条Echo响应消息的最大时长，超出时长后重发本Echo请求消息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Echo消息的发送次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定发送Echo请求消息的最大尝试次数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NTSR功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定是否支持NTSR（Network Triggered Service Restoration）功能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>PRN功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定是否支持PRN（PGW Restart Notification）功能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>CIOT功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定是否支持CIOT（Cellular Internet Of Things）功能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>路径断去激活开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制当GTP-C路径故障时是否去激活用户上下文。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>路径断后发送心跳消息的探测周期次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制当GTP-C路径故障后再持续故障多少次探测周期之后才去激活用户上下文。探测周期由SET GTPCFUNCPARA命令的V1EI或者V2EI参数控制。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>本端recovery更新开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制GTP-C信令消息中是否携带Recovery信元。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端Recovery处理开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制对端Recovery值变化时，是否去激活用户。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>对端Recovery值来源</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定对端recovery功能所使用的recovery值来源。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>本端端口号模式</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定本端端口号分配模式。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>UDP校验和检查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>开关打开时，支持UDP校验功能，此时发送GTP-C报文需要填写UDP校验和，接收GTP-C报文需要检查UDP校验和，并且校验失败的报文将被丢弃。开关关闭时，不支持UDP校验功能，此时发送GTP-C报文不需要填写UDP校验和，接收GTP-C报文需要检查UDP校验和，并且校验失败的报文将会继续接收，不会被丢弃。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>过滤故障状态的GTPC路径开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于针对DNS解析的IP地址列表，是否根据GTPC路径状态过滤故障状态的对端地址。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Bearer Resource Command使用知名源端口号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制SGW-C将收到的Bearer Resource Command消息透传给PGW-C时，消息中的源端口号是否为知名端口号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Modify Bearer Command使用知名源端口号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制SGW-C将收到的Modify Bearer Command消息透传给PGW-C时，消息中的源端口号是否为知名端口号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Delete Bearer Command使用知名源端口号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制SGW-C将收到的Delete Bearer Command消息透传给PGW-C时，消息中的源端口号是否为知名端口号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>路径数过载门限(%)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数定义了GTP-C路径占用比（当前路径数/系统支持路径数）过载门限，如果当前路径占用比达到或超过此门限值触发告警。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>路径数过载恢复门限(%)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数定义了GTP-C路径占用比（当前路径数/系统支持路径数）过载恢复门限，如果在50秒之内当前路径占用比都小于此门限值则恢复告警。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>发送私有信息开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数指示是否发送私有信息，私有信息包含了运营商或设备商定义的信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>私有信息扩展域ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数指定发送的私有信息的扩展域ID。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>私有信息</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数指定发送的私有信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>检查GTP扩展头类型个数上限</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数定义了检查控制面GTP-C扩展头类型个数上限。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>检查GTP扩展头列表个数上限</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数定义检查用户面GTP-C支持扩展头列表通知长度上限。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>检查GTP扩展头类型长度上限</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数定义了检查控制面GTP-C扩展头类型长度上限，单位：4字节。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>上下文核查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制GTP-C路径从故障到恢复时是否触发上下文核查。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>SGW向PGW发送核查消息开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制GTP-C路径从故障到恢复时是否触发向PGW发送Change Notification Request消息来核查对端上下文是否存在。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>上下文核查消息速率(个/秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制向对端发送核查消息的速率。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>GGSN/PGW-C Proxy路径Echo请求发送开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于设置GGSN/PGW-C Proxy路径Echo请求发送开关。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_gtp_c_function_parameters.html">GTP-C功能参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/set_gtpcfuncpara.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

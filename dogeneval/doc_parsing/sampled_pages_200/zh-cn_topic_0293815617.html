@@ -1,0 +1,910 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Nsmf_PDUSession_UpdateSMContext">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0294225378.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0293815616.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0293815618.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0293815617">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>Nsmf_PDUSession_UpdateSMContext</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0293815617"></a><a name="ZH-CN_TOPIC_0293815617"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">Nsmf_PDUSession_UpdateSMContext</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0293815617__1.3.1.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0293815617__1.3.2.1">服务操作</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0293815617__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0293815617" class="sectiontitle2contents">应用场景</a></h4><p id="ZH-CN_TOPIC_0293815617__p774793142820">在如下流程中用于更新单个SM上下文或提供从UE/RAN接收到的指定PDU会话的N1或N2 SM信息到SMF：</p>
+<ul id="ZH-CN_TOPIC_0293815617__ul41121657143213"><li id="ZH-CN_TOPIC_0293815617__li14112457103220">PDU会话更新</li><li id="ZH-CN_TOPIC_0293815617__li9112115733211">UE或网络侧发起的PDU会话释放</li><li id="ZH-CN_TOPIC_0293815617__li211314572325">基于Xn/N2接口的切换</li><li id="ZH-CN_TOPIC_0293815617__li9112185793217">基于N26接口的EPS到5GS/5GS到EPS的重选/切换</li><li id="ZH-CN_TOPIC_0293815617__li646544663818">伴随I-SMF改变的服务请求</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0293815617__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0293815617" class="sectiontitle2contents">服务操作</a></h4><div class="fignone"><span class="figcap"><b>图1 </b>Nsmf_PDUSession_UpdateSMContext服务操作</span><br><span><img class="vsd" src="../images/zh-cn_image_0294225799.png"></span></div>
+<ol><li>目标NF作为NF服务消费者，向源SMF发送Nsmf_PDUSession_UpdateSMContext Request消息更新SM上下文创建的资源，发送POST请求消息中包含<a href="#ZH-CN_TOPIC_0293815617__table1377472124717">表1</a>的对象。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0293815617__table1377472124717"></a><a name="table1377472124717"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0293815617__table1377472124717" frame="border" border="1" rules="all"><caption><b>表1 </b>SmContextUpdateData数据类型</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.67%" id="mcps1.3.2.3.1.2.2.6.1.1" liSelected="liSelected"><p>信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.940000000000001%" id="mcps1.3.2.3.1.2.2.6.1.2" liSelected="liSelected"><p>呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="9.82%" id="mcps1.3.2.3.1.2.2.6.1.3" liSelected="liSelected"><p>存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="47.5%" id="mcps1.3.2.3.1.2.2.6.1.4" liSelected="liSelected"><p>描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.07%" id="mcps1.3.2.3.1.2.2.6.1.5" liSelected="liSelected"><p>取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>pei</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果UE处于紧急注册状态，且UE处于紧急状态或SUPI未认证，则该IE应出现。</p>
+<p>对于所有其他情况，如果有，该IE将会出现。</p>
+<p>当出现时，它应包含永久设备标识。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180393.html">Pei</a>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>servingNfId</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应包含服务NF的标识符（如，服务AMF）。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180395.html">NfInstanceId</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>smContextStatusUri</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应包含接收短消息上下文状态通知的回调URI。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180356.html">Uri</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>guami</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应包含服务AMF的GUAMI。如果NF服务使用者是AMF ，则应包括它。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180404.html">Guami</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>servingNetwork</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE包含服务核心网运营商PLMN ID。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001136503177.html">PlmnIdNid</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>backupAmfInfo</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果NF服务消费者为AMF，且AMF支持AMF管理，且AMF不支持UDSF，则该IE应包含以下情况：</p>
+<ul><li>与SMF的第一次交互；</li><li>修改BackupAmfInfo。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089841016.html">BackupAmfInfo</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>anType</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应指示PDU会话要关联的接入网类型。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180431.html">AccessType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>ratType</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应该存在，并且指示UE使用的RAT类型。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180432.html">RatType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>presenceInLadn</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果DNN对应的是LADN，则该IE应该出现，应该设置为in或out，以指示UE在LADN服务区内或不在服务区。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180440.html">PresenceState</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>ueLocation</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果有UE的位置信息，该IE应包含UE的位置信息。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0000001136503173.html">UserLocation</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>ueTimeZone</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果有UE时区，该IE将包含UE时区。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180358.html">TimeZone</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>addUeLocation</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>UE的附加位置。</p>
+<p>如果anType指示非3GPP接入且有有效的3GPP接入用户位置信息，则该IE可能存在。</p>
+<p>在目前的情况下，应包括：</p>
+<ul><li>最后一个已知的3GPP接入用户位置；</li><li>表示获取位置信息时的UTC时间。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001136503173.html">UserLocation</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>upCnxState</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE在以下情况下出现，应用于激活PDU会话的用户面连接：</p>
+<p>-在服务请求流程中，涉及I-SMF插入/变更/删除，或V-SMF变更。</p>
+<p>-在注册流程中，如果UE请求激活PDU会话，并涉及I-SMF插入/变更/删除，或V-SMF插入/变更/删除。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476389.html">UpCnxState</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>hoState</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果请求SMF为PDU会话在相应的请求中准备EPS到5GS切换，则该IE应该出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476390.html">HoState</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>toBeSwitched</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在Xn切换流程中如果需要将PDU会话转换成N3隧道终点，则该IE应该出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>取值类型为</p>
+<p>boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>failedToBeSwitched</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在Xn切换流程中如果PDU会话在目标NG-RAN中建立失败，则该IE应该出现。当出现时，取值应为“ture”，代表PDU会话在目标NG-RAN中建立失败。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>取值类型为</p>
+<p>boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n1SmMsg</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应存在并引用N1个SM消息二进制数据，除EPS到5GS空闲模式移动性或切换使用N26之外。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n2SmInfo</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果需要向AN发送N2短消息信息，则该信元必须存在。</p>
+<p>当出现时，该IE将引用N2 SM信息二进制数据。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n2SmInfoType</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果存在n2SmInfo属性，则该IE应出现。</p>
+<p>在n2SmInfo属性中携带的NG AP的SMF相关信元容器的NG AP信元类型。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476398.html">N2SmInfoType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>targetId</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在以下场景中，该IE应出现：</p>
+<ul><li>在基于N26接口的EPS到5GS切换准备期间，当“hoState”IE设置为“PREPARING”时。</li><li>在伴随I-SMF插入/更改/移除的N2接口切换流程中，当“hoState”IE设置为“PREPARING”时。</li></ul>
+<p>当该IE存在时，它应包含标识目标RAN节点ID和TAI的目标ID。在EPS到5GS移的切换中，TAI将在源MME的转发重定位请求中收到。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0306200433.html">NgRanTargetId</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>targetServingNfId</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在伴随AMF改变的N2接口切换准备流程中，当“hoState”IE设置为“PREPARING”时，该IE应出现。</p>
+<p>当该IE存在时，它应包含标识目标NF的标识。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180395.html">NfInstanceId</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>dataForwarding</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在5GS切换到EPS或者在伴随I-SMF插入/改变/移除的N2接口切换流程中，该IE应出现。</p>
+<p>当该IE存在时，它的取值应该按以下原则设置：</p>
+<ul><li>true：建立间接数据转发隧道。</li><li>false（默认）：不需要设置间接数据转发隧道。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>取值类型为</p>
+<p>boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n9ForwardingTunnel</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果UE触发带有I-SMF更改/删除的服务请求流程中，需要在I-UPF缓存下行链路数据包，则该IE应出现。</p>
+<p>当出现时，该IE应携带I-UPF的N9转发通道信息。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307463566.html">TunnelInfo</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n9DlForwardingTnlList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果带有I-SMF更改/删除的基于N2接口的切换流程中，要求在目标I-UPF和源I-UPF/UPF之间建立下行链路间接数据转发通道，则该IE应出现。</p>
+<p>当出现时，该IE应携带I-UPF的N9下行链路间接数据转发通道信息列表。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307463566.html">TunnelInfo</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n9UlForwardingTnlList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果带有I-SMF更改/删除的基于N2接口的切换流程中，要求在目标I-UPF和源I-UPF/UPF之间建立上行链路间接数据转发通道，则该IE应出现。</p>
+<p>当出现时，该IE应携带I-UPF的N9上行链路间接数据转发通道信息列表。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476362.html">IndirectDataForwardingTunnelInfo</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>epsBearerSetup</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在使用N26接口进行5GS到EPS切换时，该IE应该存在。</p>
+<p>当出现时，它将包含EPS承载上下文(s)在EPS中成功建立，如果在EPS中没有成功地为任何PDU会话分配资源，数组应该为空。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476386.html">EpsBearerContainer</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>revokeEbiList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE应用于请求SMF撤销部分EBI。当出现时，它应包含撤销的EBI。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476385.html">EpsBearerId</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>release</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>该IE用于指示网络发起的PDU会话释放请求。</p>
+<p>在P-CSCF恢复过程中、AMF由于PDU会话ID重复而请求PDU会话释放时、AMF由于网络切片不可用请求PDU会话释放时，该IE出现。</p>
+<p>在目前的情况下，应设置为：</p>
+<ul><li>true：需要释放PDU会话；</li><li>false （默认）：不需要释放PDU会话。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>取值类型为</p>
+<p>boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>cause</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>当出现时，该IE应指示请求修改的原因，例如请求去激活PDU会话的用户面连接的NF服务消费者原因。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476394.html">Cause</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>ngApCause</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>当出现时，该IE应指示请求修改的原因，例如请求去激活PDU会话的用户面连接的NGAP原因。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001090000954.html">NgApCause</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>5gMmCauseValue</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在任何网络发起的PDU会话修改过程中，如果AMF收到UE发送的5GMM原因码，则必包含该IE。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180415.html">5GMmCause</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>sNssai</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在EPS到5GS空闲模式移动或N26接口切换时，如果归属PLMN的S-NSSAI派生的服务PLMN的S-NSSAI与创建SM上下文请求中提供的S-NSSAI不同，则该信元必须存在。</p>
+<p>在当前的情况下，它应该包含服务PLMN的S-NSSAI。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001136758645.html">Snssai</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>traceData</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果需要激活、修改或去激活跟踪，则必须包含该IE。</p>
+<p>对于跟踪修改，它应该包含完整的跟踪数据替换。</p>
+<p>对于跟踪去激活，它应该包含空值。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180489.html">TraceData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>epsInterworkingInd</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果在创建PDU会话时已经提供了指示，并且在创建会话或上次更新之后，它的值发生了变化，那么该IE可能会出现。</p>
+<p>当出现时，该IE应指示PDU会话是否可能移动到EPS，以及EPS互操作过程中是否使用N26接口。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476397.html">EpsInterworkingIndication</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>anTypeCanBeChanged</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>在服务请求过程中，该IE应呈现并设置为true，表示与PDU会话关联的接入网类型可以改变。</p>
+<p>在目前的情况下，应设置为：</p>
+<ul><li>true：允许修改PDU会话的接入类型。</li><li>false：不允许修改PDU会话的接入类型（默认）。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>取值类型为</p>
+<p>boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n2SmInfoExt1</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果从AN接收到多个N2 SM信息，则该IE应存在。当存在时，该IE应参考N2 SM信息二进制数据。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>n2SmInfoTypeExt1</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果存在“n2SmInfoExt1”，则该IE应存在。</p>
+<p>当存在时，该IE应指示“n2SmInfoExt1”中携带的NG AP SMF相关IE的NG AP IE类型。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476398.html">N2SmInfoType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>supportedFeatures</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果支持至少一个可选特性，则该IE应该出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180352.html">SupportedFeatures</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>ddnFailureSubs</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>如果UDM订阅或取消订阅DDN故障通知，该IE应出现，用于订阅或取消订阅DDN故障通知。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476373.html">DdnFailureSubs</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p"><span>Nsmf_PDUSession_UpdateSMContext Request消息举例如下所示：</span><pre class="screen">POST /nsmf-pdusession/v1/sm-contexts/2158444586/modify HTTP/2.0
+user-agent: AMF-00000000-0000-0000-0000-000000000011
+content-type: multipart/related; boundary=----Boundary
+host: 10.2.179.13:35292
+content-length: 655
+------Boundary
+Content-Type: application/json
+{
+	"servingNetwork":{
+		"mnc":"99",
+		"mcc":"123"
+	},
+	"n2SmInfo":{
+		"contentId":"n2smInfo"
+	},
+	"anType":"3GPP_ACCESS",
+	"guami":{
+		"plmnId":{
+			"mnc":"99",
+			"mcc":"123"
+		},
+		"amfId":"000041"
+	},
+	"n2SmInfoType":"PDU_RES_SETUP_RSP",
+	"ueLocation":{
+		"nrLocation":{
+			"globalGnbId":{
+				"gNbId":{
+					"bitLength":24,
+					"gNBValue":"920152"
+				},
+				"plmnId":{
+					"mnc":"99",
+					"mcc":"123"
+				}
+			},
+			"ncgi":{
+				"plmnId":{
+					"mnc":"99",
+					"mcc":"123"
+				},
+				"nrCellId":"920110202"
+			},
+			"tai":{
+				"tac":"920102",
+				"plmnId":{
+					"mnc":"99",
+					"mcc":"123"
+				}
+			},
+			"ueLocationTimestamp":"2020-11-30T13:13:18Z"
+		}
+	}
+}
+...
+------Boundary--</pre>
+</div>
+</li><li>源SMF向目标NF返回Nsmf_PDUSession_UpdateSMContext Response响应消息。<ul><li>如果成功，源SMF响应状态码“204 No Content”，或者“200 OK”并且响应的消息体应包含<a href="#ZH-CN_TOPIC_0293815617__table1928181793013">表2</a>的对象。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0293815617__table1928181793013"></a><a name="table1928181793013"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0293815617__table1928181793013" frame="border" border="1" rules="all"><caption><b>表2 </b>SmContextUpdatedData数据类型</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.67%" id="mcps1.3.2.3.2.1.1.2.2.6.1.1" liSelected="liSelected"><p>信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.940000000000001%" id="mcps1.3.2.3.2.1.1.2.2.6.1.2" liSelected="liSelected"><p>呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="9.82%" id="mcps1.3.2.3.2.1.1.2.2.6.1.3" liSelected="liSelected"><p>存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="47.5%" id="mcps1.3.2.3.2.1.1.2.2.6.1.4" liSelected="liSelected"><p>描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.07%" id="mcps1.3.2.3.2.1.1.2.2.6.1.5" liSelected="liSelected"><p>取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>upCnxState</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果请求中要求SMF激活或去激活PDU会话的用户面连接，则该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476373.html">UpCnxState</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>hoState</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果请求SMF准备、执行或取消对相应请求中的PDU会话的切换，该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476390.html">HoState</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>releaseEbiList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果SMF确定部分EBI不需要，则该IE应该出现，当出现时，它应该包含要释放的EBIs。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476385.html">EpsBearerId</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>allocatedEbiList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果消费者NF是AMF且发生系统间移动，则应该出现这个IE，当现在，它应该包含一组分配给PDU会话的EBI到ARP映射。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476352.html">EbiArpMapping</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>modifiedEbiList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果PDU会话修改过程导致已分配EBI的QoS流的ARP改变，则该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476352.html">EbiArpMapping</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>n1SmMsg</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果需要向UE发送N1条短消息信息，则该IE应出现。</p>
+<p>当出现时，该IE应引用N1 SM消息二进制数据。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>n2SmInfo</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果需要向AN发送N2短消息信息，则该信元必须存在。</p>
+<p>当出现时，该IE将引用N2 SM信息二进制数据。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>n2SmInfoType</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果存在n2SmInfo属性，则该IE应出现。</p>
+<p>在n2SmInfo属性中携带的NG AP的SMF相关信元容器的NG AP信元类型。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476398.html">N2SmInfoType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>epsBearerSetup</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>使用N26接口进行EPS到5GS切换时，该IE必须存在。</p>
+<p>当存在时，它将包含成功切换到5GS的EPS承载上下文。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476386.html">EpsBearerContainer</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>dataForwarding</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果该IE在相应的请求中存在，则该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>取值类型为</p>
+<p>boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>n3DlForwardingTnlList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果请求间接数据转发，且相应请求中包含N9下行链路间接数据转发隧道信息，则该IE应出现。</p>
+<p>当存在时，它应携带源I-UPF或源UPF的N3下行链路间接数据转发隧道信息列表。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476362.html">IndirectDataForwardingTunnelInfo</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>n3UlForwardingTnlList</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果请求间接数据转发，且相应请求中包含N9上行链路间接数据转发隧道信息，则该IE应出现。</p>
+<p>当存在时，它应携带源I-UPF或源UPF的N3上行链路间接数据转发隧道信息列表。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476362.html">IndirectDataForwardingTunnelInfo</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>cause</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果由于资源不足而导致用户面连接激活失败，则该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476394.html">Cause</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>supportedFeatures</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>如果支持至少一个可选特性，则该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180352.html">SupportedFeatures</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p"><span>Nsmf_PDUSession_UpdateSMContext Response消息举例如下所示：</span><pre class="screen">HTTP/2.0 204 No Content</pre>
+</div>
+</li><li>如果失败或重定向，源SMF返回“4xx/5xx”的HTTP状态码，并且消息体应包含一个<a href="#ZH-CN_TOPIC_0293815617__table185951934123">表3</a>数据类型的对象。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0293815617__table185951934123"></a><a name="table185951934123"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0293815617__table185951934123" frame="border" border="1" rules="all"><caption><b>表3 </b>SmContextUpdateError数据类型</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.67%" id="mcps1.3.2.3.2.1.2.2.2.6.1.1" liSelected="liSelected"><p>信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.940000000000001%" id="mcps1.3.2.3.2.1.2.2.2.6.1.2" liSelected="liSelected"><p>呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="9.82%" id="mcps1.3.2.3.2.1.2.2.2.6.1.3" liSelected="liSelected"><p>存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="47.5%" id="mcps1.3.2.3.2.1.2.2.2.6.1.4" liSelected="liSelected"><p>描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.07%" id="mcps1.3.2.3.2.1.2.2.2.6.1.5" liSelected="liSelected"><p>取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.1 "><p>error</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.2 "><p>必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.4 "><p>有关错误的更多信息应在“ProblemDetails”数据类型的“cause”属性中提供。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476381.html">ExtProblemDetails</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.1 "><p>n1SmMsg</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.4 "><p>如果请求中接收到N1 SM信息，且SMF能够向UE返回N1 SM信息，则该IE应出现。</p>
+<p>当出现时，应引用N1短消息二进制数据。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.1 "><p>n2SmInfo</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.4 "><p>如果请求中接收到N2 SM信息，且SMF能够向UE返回N1 SM信息，则该IE应出现。</p>
+<p>在伴随I-SMF改变的Xn Handover流程中，如果N2 SM信息需要返回给NG-RAN，则该IE应出现。</p>
+<p>当出现时，应引用N2短消息二进制数据。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0000001089681360.html">RefToBinaryData</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.1 "><p>n2SmInfoType</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.4 "><p>如果存在n2SmInfo属性，则该IE应出现。</p>
+<p>在n2SmInfo属性中携带的NG AP的SMF相关信元容器的NG AP信元类型。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476398.html">N2SmInfoType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.1 "><p>upCnxState</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.4 "><p>如果请求中要求SMF激活或去激活PDU会话的用户面连接，则该IE应出现。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0307476389.html">UpCnxState</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.1 "><p>recoveryTime</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.940000000000001%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.2 "><p>可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.82%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="47.5%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.4 "><p>SMF服务实例启动/重启时的时间戳。</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.07%" headers="mcps1.3.2.3.2.1.2.2.2.6.1.5 "><p>参见数据类型</p>
+<p><a href="zh-cn_topic_0297180338.html">DateTime</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li></ul>
+</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0294225378.html">Nsmf_PDUSession的服务操作
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0293815616.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_topic_0293815618.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

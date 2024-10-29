@@ -1,0 +1,175 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="WSFD-010805 Linux操作系统安全加固">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0248450951.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Flexible_Aut_Based_on_Sub_Group.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010805">
+<meta name="Function" content="安全管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0160374805">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-010805 Linux操作系统安全加固</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0160374805"></a><a name="ZH-CN_TOPIC_0160374805"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-010805 Linux操作系统安全加固</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0160374805__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0160374805__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">适用NF</a></h4><p><span>SGSN、</span>MME、<span>GGSN、</span>SGW-C、PGW-C、AMF、SMF<span>、NRF</span><span>、NSSF</span><span>、SMSF</span></p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">定义</a></h4><p>操作系统安全加固是通过对Linux操作系统的服务、口令配置、文件权限、内核参数等实施安全加固措施，在不影响业务运行的情况下防止黑客入侵的一种机制。操作系统安全是保障网元系统正常运行、用户合法操作的基本要求。如果操作系统存在安全漏洞，则很容易受到黑客和病毒的攻击，引起网络设备业务中断、信息丢失、数据破坏、运行效率低下等问题。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.23%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.77000000000001%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.23%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.77000000000001%" headers="mcps1.3.3.2.1.3.1.2 "><p>提高运营商设备的系统健壮性和安全性，保护系统免于黑客攻击和病毒入侵。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.23%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.77000000000001%" headers="mcps1.3.3.2.1.3.1.2 "><p>提高用户满意度。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">应用场景</a></h4><p>本特性是基本特性，适用于所有场景。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="24.242424242424242%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="37.37373737373737%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="38.38383838383838%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="24.242424242424242%" headers="mcps1.3.5.3.1.4.1.1 "><p>MME、SGW-C、PGW-C、AMF、SMF<span>、NRF</span><span>、NSSF</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="37.37373737373737%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="38.38383838383838%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持Linux操作系统安全加固。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.242424242424242%" headers="mcps1.3.5.3.1.4.1.1 "><p><span>SGSN、</span><span>GGSN</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="37.37373737373737%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="38.38383838383838%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持Linux操作系统安全加固。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.242424242424242%" headers="mcps1.3.5.3.1.4.1.1 "><p>SMSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.37373737373737%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.2及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="38.38383838383838%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持Linux操作系统安全加固。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">原理概述</a></h4><p>Linux操作系统面临的威胁主要有人为攻击和程序化攻击：</p>
+<ul><li><p>人为攻击：人为攻击是目前最主要的威胁，如黑客攻击。黑客利用操作系统或应用程序的漏洞、弱帐号口令以及配置上的缺陷对系统进行攻击，获取系统用户控制权后，对系统上的重要文件、数据进行破坏和盗用，给电信网络业务造成严重威胁。</p>
+</li><li><p>程序化攻击：主要指计算机病毒，包括可执行文件型病毒、蠕虫病毒、脚本病毒、后门程序等。</p>
+</li></ul>
+<p>操作系统自身漏洞、不安全的帐号/口令、不当的配置和操作等都容易使病毒、黑客等入侵Linux操作系统，给系统带来安全危害。</p>
+<ul><li><p>操作系统自身漏洞：通常是由于系统开发过程中程序设计不严密或者由于自身的某些功能缺陷而留下的，包括身份认证、服务漏洞等多个方面。</p>
+</li><li><p>不安全的帐号/口令：很多蠕虫可能带有口令字典和暴力猜测的方法，病毒、黑客的入侵大多是对操作系统控制权的破解和夺取。</p>
+</li><li><p>不当的文件权限配置：文件权限是指对文件的访问权限，包括对文件的读、写、执行等操作。文件权限和文件的共享、保护、保密密切相关。Linux系为保护每个用户的个人文件不受侵犯，提供了文件权限的管理机制。每个Linux的文件/目录，都有3组属性，分别定义为文件或目录的拥有者、用户组和其他人的使用权限。Linux下的文件/目录权限配置不当，会使用户组和其他组的用户对系统中重要文件有可读写、甚至可执行的权限，从而增加文件被黑客恶意查看、篡改、执行以及系统其他用户误操作的风险。</p>
+</li><li><p>使用不安全的网络服务：Linux系统可以提供丰富的网络服务，但任何网络服务都有潜在的不安全因素。例如Telnet服务，不会加密验证会话，用户名和口令以明文形式在网络上传输；同时很多网络服务（如Samba等）本身也存在安全漏洞，如果没有及时安装操作系统补丁，很容易被黑客或病毒所利用，对系统造成破坏。</p>
+</li><li><p>对系统不当的操作：对操作系统进行的不当操作（如直接关闭Linux系统的电源）会引起系统故障、甚至系统崩溃；同时，随意访问来历不明的邮件附件或不知名的网站等，也很可能感染病毒。</p>
+</li></ul>
+<p><span>UNC</span>通过管理层安全、系统层安全和网络层安全三方面，实现操作系统的安全加固，详细请参见<span>《<span>UNC</span>安全原理》</span>&gt;操作系统安全。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">遵循标准</a></h4><p>本特性不涉及标准约束。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0160374805__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0160374805" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>03</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.2</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>更新发布，NCG和SMSF从<span>20.3.2</span>版本开始支持本特性。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>02</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>更新发布，SGSN和GGSN从<span>20.3.0</span>版本开始支持本特性。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0248450951.html">安全管理功能
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Flexible_Aut_Based_on_Sub_Group.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

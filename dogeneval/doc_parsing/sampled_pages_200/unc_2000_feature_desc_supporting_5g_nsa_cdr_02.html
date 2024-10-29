@@ -1,0 +1,238 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-011511 NSA用户数据话单生成和上报特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Supporting_5g_nsa_cdr_01.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2000_feature_desc_Supporting_5g_nsa_cdr_01.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-011511">
+<meta name="Function" content="NSA业务基本功能">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0228784141">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-011511 NSA用户数据话单生成和上报特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0228784141"></a><a name="ZH-CN_CONCEPT_0228784141"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-011511 NSA用户数据话单生成和上报特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.6.1">与其它特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0228784141__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">适用NF</a></h4><p>SGW-C、PGW-C</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">定义</a></h4><p>NSA组网场景下，UNC支持将E-UTRAN上报的5G用户流量单独生成话单，上报给计费网关CG，并进一步将话单传递给计费中心BS。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="38.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="61.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="38.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="61.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>支持5G用户流量离线计费，在4G/5G融合场景下，区分5G用户单独计费。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="38.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="61.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>记录5G用户使用数据业务的详细情况，便于核减消费情况。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">应用场景</a></h4><p>该特性适用于NSA Option3/3a/3x组网以及NSA Option3/3a/3x组网与2/3/4G组网共存场景。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="13.780000000000001%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.459999999999999%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="70.76%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="13.780000000000001%" headers="mcps1.3.5.3.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.459999999999999%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="70.76%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持NSA双连接，即支持DCNR能力。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="13.780000000000001%" headers="mcps1.3.5.3.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.459999999999999%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="70.76%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>接收MME在消息中携带的NR UE Security Capabilities信元。</li><li>支持在消息中携带5G流量统计报告（Secondary RAT Usage Report List）。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="13.780000000000001%" headers="mcps1.3.5.3.1.4.1.1 "><p>gNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.459999999999999%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="70.76%" headers="mcps1.3.5.3.1.4.1.3 "><p>接收MME在消息中携带的NR UE Security Capabilities信元。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="13.780000000000001%" headers="mcps1.3.5.3.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.459999999999999%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="70.76%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持从既有S1消息或者新增的Secondary RAT Data Usage Report消息中解析到Secondary RAT Usage Report List信元后，根据用户的当前流程状态转发5G计费流程统计报告。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="13.780000000000001%" headers="mcps1.3.5.3.1.4.1.1 "><p>SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.459999999999999%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="70.76%" headers="mcps1.3.5.3.1.4.1.3 "><p>按照预先设置的计费规则生成原始话单，发送到CG。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="13.780000000000001%" headers="mcps1.3.5.3.1.4.1.1 "><p>CG</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.459999999999999%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="70.76%" headers="mcps1.3.5.3.1.4.1.3 "><p>对SGW-C/PGW-C发送来的话单进行存储、合并、标准化预处理、增加运营商自定义字段，并将处理后的标准计费数据发送到BS。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License</strong><strong>支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">与其它特性的交互</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="10%" id="mcps1.3.6.2.1.5.1.1" liSelected="liSelected"><p>交互类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="34.25%" id="mcps1.3.6.2.1.5.1.2" liSelected="liSelected"><p>相关特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12%" id="mcps1.3.6.2.1.5.1.3" liSelected="liSelected"><p>控制项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="43.75%" id="mcps1.3.6.2.1.5.1.4" liSelected="liSelected"><p>和其他特性的交互关系</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="10%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="34.25%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2030_feature_desc_Offline_Billing.html">WSFD-011201 支持离线计费</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="12%" headers="mcps1.3.6.2.1.5.1.3 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.75%" headers="mcps1.3.6.2.1.5.1.4 "><p>本特性是离线计费的增强特性，需开启离线计费功能。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">应用限制</a></h4><ul><li><p>SGW-C/PGW-C支持最多与32个CG对接。</p>
+</li><li><p>CG支持的话单版本字段需要与SGW-C/PGW-C的话单版本字段支持能力一致。</p>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">原理概述</a></h4><div class="p">NSA组网场景下，终端能同时建立到eNodeB和gNodeB的无线承载，并且在各自承载上能独立进行上下行的用户数据传输。EPC侧无法区分是4G流量还是5G流量。当需要对5G流量单独计费时，需由gNodeB进行流量统计，并通过接口发给eNodeB。随后eNodeB以承载的粒度向MME上报5G计费流量统计，并由MME转发给SGW-C/PGW-C。SGW-C/PGW-C根据MME上报的5G计费流量统计，生成话单上报到CG。NSA组网场景下5G数据的计费如<a href="#ZH-CN_CONCEPT_0228784141__fig1">图1</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0228784141__fig1"><a name="ZH-CN_CONCEPT_0228784141__fig1"></a><a name="fig1"></a><span class="figcap"><b>图1 </b>NSA组网场景下（以Option3x为例）5G数据的计费示意图</span><br><span><img class="vsd" src="figure/zh-cn_image_0228835441.png"></span></div>
+</div>
+<p>1.gNodeB进行5G流量统计。</p>
+<p>2.gNodeB通过接口发给eNodeB。</p>
+<div class="p">3.eNodeB将消息转发至MME，消息中携带5G计费流量统计报告（Secondary RAT Usage Report List，参见3GPP TS 36413）。eNodeB可以在如下消息中携带5G计费流量统计报告：<ul><li>E-RAB MODIFY RESPONSE</li><li>E-RAB RELEASE RESPONSE</li><li>E-RAB RELEASE INDICATION</li><li>E-RAB MODIFICATION INDICATION</li><li>UE CONTEXT RELEASE REQUEST</li><li>UE CONTEXT RELEASE COMPLETE</li><li>UE CONTEXT SUSPEND REQUEST</li><li>SECONDARY RAT REPORT</li></ul>
+</div>
+<div class="p">4.MME从eNodeB发送来的S1接口消息中解析到Secondary RAT Usage Report List信元后，根据当前的流程状态上报5G计费流量到SGW-C/PGW-C。MME可以在如下消息中携带<b><span class="cmdname">Secondary RAT Usage Data Report</span></b>信元：<ul><li>Create Session Request</li><li>Modify Bearer Request</li><li>Delete Session Request</li><li>Delete Bearer Response</li><li>Delete Bearer Command</li><li>Release Access Bearers Request</li><li>Change Notification Request</li></ul>
+</div>
+<p>5.SGW-C/PGW-C生成话单并上报到CG。SGW-C/PGW-C需配置<a href="../MML/Document/add_cdrfieldtemp.html"><b><span class="cmdname">ADD CDRFIELDTEMP</span></b></a>命令中的<span class="parmname">“RAN-SecondaryRAT-Usage-Report”</span>参数，使话单支持携带RAN-SecondaryRAT-Usage-Report字段。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul><li>5G数据流量需要在SGW-CDR/PGW-CDR话单中区分上下行。</li><li>SGW-C/PGW-C支持R8、R9和R10版本话单。</li><li>SGW-C/PGW-C话单支持携带5G用户扩展QoS字段。</li></ul>
+</div></div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">计费与话单</a></h4><p>话单中携带RAN-SecondaryRAT-Usage-Report字段。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.13%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="10.35%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="73.52%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="4" valign="top" width="16.13%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.35%" headers="mcps1.3.12.2.1.4.1.2 "><p>32.298</p>
+</td>
+<td class="cellrowborder" valign="top" width="73.52%" headers="mcps1.3.12.2.1.4.1.3 "><p>Telecommunication management; Charging management; Charging Data Record (CDR) parameter description</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>32.251</p>
+</td>
+<td class="cellrowborder" align="left" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Telecommunication management; Charging management; Packet Switched (PS) domain charging</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.214</p>
+</td>
+<td class="cellrowborder" align="left" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Architecture enhancements for control and user plane separation of EPC nodes</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.244</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Interface between the Control Plane and the User Plane of EPC Nodes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0228784141__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0228784141" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Supporting_5g_nsa_cdr_01.html">WSFD-011511 NSA用户数据话单生成和上报
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../om/unc_2000_feature_desc_Supporting_5g_nsa_cdr_01.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

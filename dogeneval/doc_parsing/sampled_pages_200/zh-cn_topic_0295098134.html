@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="非SDN和SDN架构差异点">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001369841240.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0295098131.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0295098134">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>非SDN和SDN架构差异点</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0295098134"></a><a name="ZH-CN_TOPIC_0295098134"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">非SDN和SDN架构差异点</h1>
+<div><p><span style="color:#3D3939;">在</span><span style="color:#3D3939;">传统架构下，</span><span style="color:#3D3939;">5GC</span><span style="color:#3D3939;">网元通过在</span>VNF LCM<span style="color:#3D3939;">上传</span><span style="color:#3D3939;">VNFD</span><span style="color:#3D3939;">模板实现网元自动化部署，但业务网络互通仍需要根据网络规划手工配置。存在的主要问题如下</span><span style="color:#3D3939;">：</span></p>
+<ul><li><span style="color:#3D3939;">业务部署不够灵活。当前采用的典型组网为内部</span><span style="color:#3D3939;">VLAN</span><span style="color:#3D3939;">＋三层网关的方式，这种组网的配置和组网强相关，需要预先规划好业务</span><span style="color:#3D3939;">VLAN</span><span style="color:#3D3939;">，并根据实际组网在对应的交换机端口上放通规划好的</span><span style="color:#3D3939;">VLAN</span><span style="color:#3D3939;">，限制了业务部署的灵活性</span><span style="color:#3D3939;">。</span></li><li><span style="color:#3D3939;">无法实现业务部署</span><span style="color:#3D3939;">E2E</span><span style="color:#3D3939;">自动化。随着VNF越来越多</span><span style="color:#3D3939;">，对网络配置的要求越来越复杂，业务网络互通部分仍然采用手工配置，自动化程度差，效率低</span><span style="color:#3D3939;">。</span></li><li><span style="color:#3D3939;">缺少数据中心网络设备统一运维。当前的数据中心网络设备无法提供整体的运维界面。传统网管仅提供基本的告警和拓扑展示，确定业务的实际转发路径，增加了定位问题的难度。</span></li><li><span style="color:#3D3939;">网络存在安全攻击隐患。传统部署模式为业务需要预先规划好业务</span><span style="color:#3D3939;">VLAN</span><span style="color:#3D3939;">，并在所有的交换机接入端口上放通规划好的</span><span style="color:#3D3939;">VLAN</span><span style="color:#3D3939;">，这种方式牺牲了网络的安全性，因为所有的交换机端口加入了业务</span><span style="color:#3D3939;">VLAN</span><span style="color:#3D3939;">，广播风暴、端口安全问题无法避免，如果一个</span><span style="color:#3D3939;">VM</span><span style="color:#3D3939;">的端口出现问题，可能导致整个网络受到攻击</span><span style="color:#3D3939;">。</span></li></ul>
+<p>为了切片等5G业务应用，引入了SDN，通过VXLAN、VPN隔离等技术，构造一个更加智能、灵活、安全的网络。以满足未来业务的快速部署或者切片部署时，通过软件的方式定义一个新网络，提高5G Core网元部署效率，实现敏捷、极简、高效的5G核心网。</p>
+<p><strong>SDN</strong>，即软件定义网络（Software-Defined Networking），其核心技术是将网络设备控制面与数据面分离，具有网络部署方便、网络控制灵活、易扩展等特点。华为NFV&amp;SDN架构方案，包含了几大关键技术：</p>
+<ul><li><span style="color:#3D3939;">采用可扩展的Leaf-spine数据中心组网架构</span>，增加了网络的可靠性。</li><li><span style="color:#3D3939;">基于VXLAN隧道技术</span>实现逻辑网络和物理网络解耦，隔离租户间流量。</li><li>采用NFV+SDN架构<strong>，</strong>引入SDN控制器专门用于管理网络资源<span style="color:#3D3939;">，自动化配置</span><span style="color:#3D3939;">DC</span><span style="color:#3D3939;">内虚拟网络，实现</span><span style="color:#3D3939;">VNF</span><span style="color:#3D3939;">部署和虚拟网络配置联动，提高</span><span style="color:#3D3939;">VNF</span><span style="color:#3D3939;">部署的效率</span><span style="color:#3D3939;">。</span></li></ul>
+<p>如<a href="#ZH-CN_TOPIC_0295098134__fig62051218217">图1</a>中，非SDN架构下，统一入口为VNF LCM/NFVO，通过将VNFD模板上传到VNF LCM/NFVO进行网元部署，物理网络设备（交换机、路由器）的网络需要手工配置，部署网元时规划的VLAN和需要放通的网络等相关的信息需要提前在设备上去手工配置。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>非SDN场景一般使用VNF LCM作为入口，软件包、镜像包、VNFD文件上传到VNF LCM。为了满足向SDN演进，新增非SDN+NFVO场景，软件包、镜像包、VNFD文件也可上传到NFVO。具体差异如<a href="#ZH-CN_TOPIC_0295098134__table31021236201710">表1</a>。</p>
+</div></div>
+<p>SDN架构下，统一入口为NFVO，通过将NSD模板和VNFD模板上传到NFVO，新增SDN控制器实现网络自动化配置，同时NFVO同步VNFD给VNF LCM，并通过触发VNF LCM部署网元。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0295098134__fig62051218217"><a name="ZH-CN_TOPIC_0295098134__fig62051218217"></a><a name="fig62051218217"></a><span class="figcap"><b>图1 </b>非SDN和SDN架构差异点</span><br><span><img class="vsd" src="../images/zh-cn_image_0295098133.png"></span></div>
+
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0295098134__table31021236201710"></a><a name="table31021236201710"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0295098134__table31021236201710" frame="border" border="1" rules="all"><caption><b>表1 </b>非SDN和SDN架构下网元部署关键差异点</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.578542145785423%" id="mcps1.3.10.2.5.1.1" liSelected="liSelected"><p>网元部署关键点</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="23.837616238376164%" id="mcps1.3.10.2.5.1.2" liSelected="liSelected"><p>非SDN（<strong>VNF LCM</strong>）场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="24.52754724527547%" id="mcps1.3.10.2.5.1.3" liSelected="liSelected"><p>非SDN（NFVO）场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="37.056294370562945%" id="mcps1.3.10.2.5.1.4" liSelected="liSelected"><p>SDN场景</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.578542145785423%" headers="mcps1.3.10.2.5.1.1 "><p><strong>统一入口</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="23.837616238376164%" headers="mcps1.3.10.2.5.1.2 "><p><strong>VNF LCM</strong>：统一入口为VNF LCM，<span style="color:#3D3939;">软件包、镜像包、</span><span style="color:#3D3939;">VNFD</span><span style="color:#3D3939;">文件</span><span style="color:#3D3939;">上传到</span>VNF LCM。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.52754724527547%" headers="mcps1.3.10.2.5.1.3 "><p><strong>NFVO</strong>：统一入口为NFVO，<span style="color:#3D3939;">软件包、镜像包、</span><span style="color:#3D3939;">VNFD</span><span style="color:#3D3939;">文件</span><span style="color:#3D3939;">上传到</span><span style="color:#3D3939;">NFVO</span>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.056294370562945%" headers="mcps1.3.10.2.5.1.4 "><p><strong>NFVO</strong>：统一入口为NFVO，<span style="color:#3D3939;">软件包、镜像包、</span><span style="color:#3D3939;">VNFD</span><span style="color:#3D3939;">文件、</span><span style="color:#3D3939;">NSD</span><span style="color:#3D3939;">文件上传到</span><span style="color:#3D3939;">NFVO</span>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.578542145785423%" headers="mcps1.3.10.2.5.1.1 "><p><strong>同步云服务</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="23.837616238376164%" headers="mcps1.3.10.2.5.1.2 "><p><strong>VNF LCM</strong>：VNF LCM南向对接FusionSphere OpenStack，手动同步云服务，调度I层资源。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.52754724527547%" headers="mcps1.3.10.2.5.1.3 "><p><strong>NFVO</strong>：NFVO与VNF LCM对接后可将资源池同步到VNF LCM，VNF LCM不用手工配置与FusionSphere OpenStack的对接。</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.056294370562945%" headers="mcps1.3.10.2.5.1.4 "><p><strong>NFVO</strong>：NFVO与VNF LCM对接后可将资源池同步到VNF LCM，VNF LCM不用手工配置与FusionSphere OpenStack的对接。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.5.1.1 "><p><strong>物理设备上的网络放通</strong></p>
+</td>
+<td class="cellrowborder" colspan="2" valign="top" headers="mcps1.3.10.2.5.1.2 mcps1.3.10.2.5.1.3 "><p><strong>手工配置：</strong></p>
+<ul><li>物理网络设备（交换机、路由器）的网络需要手工配置。</li><li>规划的VLAN需要提前在设备上去手工放通。由于产品虚拟化，无法确定虚拟机的具体位置，在网络放通时，需要放通整个VLAN段。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.5.1.4 "><p><strong>自动化配置</strong>：</p>
+<ul><li>通过SDN控制器自动化配置物理网络设备上的网络。</li><li>SDN控制器会感知虚拟机的具体位置，并根据具体位置去精确放通虚拟机、TOR到DC-GW之间的整个链路 ，虚拟机位置发生变化也可以及时感知并做配置的更改。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.5.1.1 "><p><strong>网元外部逻辑网络</strong></p>
+<p><strong>（如om、srv）</strong></p>
+</td>
+<td class="cellrowborder" colspan="2" valign="top" headers="mcps1.3.10.2.5.1.2 mcps1.3.10.2.5.1.3 "><p><strong>手工配置</strong>：部署网元所需的逻辑网络需要按规划提前在Openstack OM上手工配置。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.5.1.4 "><p><strong>自动化配置</strong>：将部署网元所需网络的相关信息写入NSD文件，下发给NFVO，调用FS，自动创建逻辑网络。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.578542145785423%" headers="mcps1.3.10.2.5.1.1 "><p><strong>网元实例化</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="23.837616238376164%" headers="mcps1.3.10.2.5.1.2 "><p><strong>VNF LCM：</strong>通过将VNFD模板上传到VNF LCM进行VNF部署。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.52754724527547%" headers="mcps1.3.10.2.5.1.3 "><p><strong>NFVO-&gt;VNF LCM：</strong>NFVO同步VNFD给VNF LCM，并通过触发VNF LCM部署VNF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.056294370562945%" headers="mcps1.3.10.2.5.1.4 "><p><strong>NFVO-&gt;VNF LCM：</strong>NFVO解析NSD中关于VNF的定义，同步VNFD给VNF LCM，并通过触发VNF LCM部署VNF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.5.1.1 "><p><strong>网元内部逻辑网络</strong></p>
+<p><strong>（如base、fabric）</strong></p>
+</td>
+<td class="cellrowborder" colspan="2" valign="top" headers="mcps1.3.10.2.5.1.2 mcps1.3.10.2.5.1.3 "><p><strong>VNFD：</strong>通过VNFD在VNF LCM上自动化配置。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.5.1.4 "><p><strong>VNFD：</strong>通过VNFD在VNF LCM上自动化配置。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0000001369841240.html">5G Core SDN部署方案
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0295098131.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

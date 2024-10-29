@@ -1,0 +1,168 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置NF更新方式（SET NFUPDATE）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nf_update_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_nfupdate.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209651782">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置NF更新方式（SET NFUPDATE）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209651782"></a><a name="ZH-CN_MMLREF_0209651782"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置NF更新方式（SET NFUPDATE）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209651782__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209651782__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209651782__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209651782__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209651782__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651782" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF、SMF、NRF、NSSF、SMSF、NCG</strong>
+                </p>
+
+                    <p>该命令用于设置NF信息更新推送到NRF的方式。</p>
+
+				<ul><li>设置Patch更新缓存最大数量为N，如果NF的Patch更新在缓存中累计的次数到达N，则会立即将NF的更新信息推送到NRF，否则，更新信息缓存起来不推送。</li><li>设置Patch更新定时推送任务时长(分钟)为L，Patch更新在缓存中停留L时长后会被推送到NRF，L为0表示不使用定时推送。</li><li>Patch更新缓存限制数量与Patch更新定时推送任务时长(分钟)中任意一个条件满足都会进行Patch更新推送。</li></ul>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209651782__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651782" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>一个Patch更新定时会在推送任务时长(分钟)（CACHETIMERLEN）内生效</li></ul>
+
+                    <ul><li> Patch更新缓存最大数量大于1时，Patch更新定时推送任务时长（分钟）必须大于0。</li><li> Patch更新定时推送任务时长（分钟）大于0时，Patch更新缓存限制数量必须大于1。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">CACHENUM</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">CACHETIMERLEN</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 "><p>5</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209651782__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209651782" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209651782__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651782" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CACHENUM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Patch更新缓存最大数量</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：当Patch更新缓存数量达到该参数表示的值，会向NRF推送缓存的更新请求。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~127。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CACHETIMERLEN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Patch更新缓存定时器时长(分钟)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：Patch更新缓存的定时推送任务会按照该参数表示的时间间隔向NRF推送缓存中的更新信息。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~127，单位是分钟。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209651782__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651782" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>设置NF部分更新方式，NF部分更新数据会先进行缓存，当NF部分更新次数达到5次时，统一向NRF推送；缓存中的NF部分更新数据，10分钟向NRF推送一次。</p>
+
+                    <pre class="screen">SET NFUPDATE: CACHENUM=5, CACHETIMERLEN=10;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nf_update_management.html">NF更新管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_nfupdate.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

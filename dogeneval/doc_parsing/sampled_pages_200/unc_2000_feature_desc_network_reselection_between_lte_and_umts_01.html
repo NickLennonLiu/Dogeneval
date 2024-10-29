@@ -1,0 +1,303 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-104501 LTE和UMTS 网络之间的重选特性概述">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Network_Reselection_Between_LTE_and_UMTS.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Network_Reselection_Between_LTE_and_UMTS_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="feature_id" content="WSFD-104501">
+<meta name="pid_type" content="特性指南">
+<meta name="Function" content="互操作">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0191526822">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-104501 LTE和UMTS 网络之间的重选特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0191526822"></a><a name="ZH-CN_CONCEPT_0191526822"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-104501 LTE和UMTS 网络之间的重选特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0191526822__1.4.13.1">发布历史</a></li></ul><div><p></p>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.1.1"></a><a name="1.4.1.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">适用NF</a></h4><p><span>SGSN、</span><span>GGSN、</span>MME、SGW-C、PGW-C</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.2.1"></a><a name="1.4.2.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">定义</a></h4><ul><li>LTE到UMTS的网络重选<p>UE移动出LTE和UMTS的重叠覆盖区进入单UMTS的覆盖区后，执行小区重选，发起RAU（路由区更新）过程，驻留到UMTS小区。</p>
+</li><li>UMTS到LTE的网络重选<p>UE移动到LTE和UMTS的重叠覆盖区后，LTE具有高优先级，执行小区重选，发起TAU（跟踪区更新）过程，驻留到LTE小区。</p>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.3.1"></a><a name="1.4.3.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.580000000000002%" id="mcps1.4.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.42%" id="mcps1.4.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.580000000000002%" headers="mcps1.4.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.42%" headers="mcps1.4.3.2.1.3.1.2 "><ul><li>对于运营商来说，LTE和UMTS网络之间的重选特性主要受益如下：UE驻留在当前系统，但将要选择驻留另外一个系统时，可以通过路由更新的方式接入新的系统，而不需要进行完整的附着过程，减少了信令交互，减少在空口传递IMSI的几率。</li><li>保护现有UMTS网络投资，便于网络间的平滑演进。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.580000000000002%" headers="mcps1.4.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.42%" headers="mcps1.4.3.2.1.3.1.2 "><ul><li>保证用户在UMTS和LTE网络间漫游。</li><li>良好的用户体验。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.4.1"></a><a name="1.4.4.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">应用场景</a></h4><p>支持LTE和UMTS网络之间的重选，MME和SGSN之间通过Gn接口互通。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.5.1"></a><a name="1.4.5.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.4.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.4.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.4.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>根据无线信号强度选择LTE或UMTS网络。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>RNC</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>协助UE完成在LTE和UMTS网络之间的切换。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>SGSN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>协助UE完成在LTE和UMTS网络之间的切换。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>GGSN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>协助UE完成在LTE和UMTS网络之间的切换。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><ul><li>协助UE完成在LTE和UMTS网络之间的切换。</li><li>完成EPS MM上下文和UMTS MM上下文的相互转换。</li><li>完成EPS承载上下文和UMTS PDP上下文的相互转换。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>协助UE完成在LTE和UMTS网络之间的切换。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>协助UE完成在LTE和UMTS网络之间的切换。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>HLR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>提供LTE和UMTS网络间切换流程所需的供鉴权集、签约数据。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.1 "><p>HSS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.5.3.1.4.1.3 "><p>提供LTE和UMTS网络间切换流程所需的供鉴权集、签约数据。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span>：</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.770000000000003%" id="mcps1.4.5.6.1.4.1.1" liSelected="liSelected"><p>特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25.930000000000003%" id="mcps1.4.5.6.1.4.1.2" liSelected="liSelected"><p>适用NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="57.300000000000004%" id="mcps1.4.5.6.1.4.1.3" liSelected="liSelected"><p>License控制项</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="16.770000000000003%" headers="mcps1.4.5.6.1.4.1.1 "><p>LTE和UMTS 网络之间的重选</p>
+</td>
+<td class="cellrowborder" valign="top" width="25.930000000000003%" headers="mcps1.4.5.6.1.4.1.2 "><p>SGSN/MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="57.300000000000004%" headers="mcps1.4.5.6.1.4.1.3 "><p>82205921 LKV2AUUL02 LTE和UMTS 网络之间的重选</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.5.6.1.4.1.1 "><p>GGSN/SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.5.6.1.4.1.2 "><p>82200BND LKV2NRUL01 LTE和UMTS 网络之间的重选-USM</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.6.1"></a><a name="1.4.6.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.7.1"></a><a name="1.4.7.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.8.1"></a><a name="1.4.8.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">应用限制</a></h4><div class="p">应用本特性有以下限制：<ul><li>为保证网络重选后业务不中断，需要GGSN和PGW-C共建（同一个网元内）。</li><li>为保证鉴权集的一致性，推荐HLR和HSS共建，否则可能会在网络重选过程中多次鉴权，影响切换时延。</li><li>该特性中GTP消息中不支持GTPv0版本。</li></ul>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.9.1"></a><a name="1.4.9.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">原理概述</a></h4><ul><li><a href="#ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_sub3_1"><span><strong>基本概念</strong></span></a></li><li><a href="#ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_sub3_2"><span><strong>系统实现</strong></span></a></li></ul>
+<p><a href="#ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_sub3_1"><span><a name="ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_sub3_1"></a><a name="zh-cn_concept_0130428769_sub3_1"></a><strong>基本概念</strong></span></a></p>
+<ul><li><span>UNC</span>支持LTE到UMTS的网络重选（Inter和Intra）。MME和目标SGSN之间通过Gn接口互通。</li><li><span>UNC</span>支持UMTS到LTE的网络重选（Inter和Intra）。源SGSN和MME之间通过Gn接口互通。</li></ul>
+<p><a href="#ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_sub3_2"><span><a name="ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_sub3_2"></a><a name="zh-cn_concept_0130428769_sub3_2"></a><strong>系统实现</strong></span></a></p>
+<ul><li><p>LTE到UMTS的网络重选</p>
+<p>UE移动出LTE覆盖区同时该地区存在UMTS覆盖时，执行小区重选，发起RAU（路由区更新）过程，驻留到UMTS小区。在此过程中，目标SGSN通过Gn接口向源侧MME发起请求，如果MME能匹配到对应的用户信息，MME将系统保存的移动性管理上下文和承载上下文发送给目的SGSN，其中包括安全参数、QoS参数等信息，配合完成跨接入网类型路由区更新。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_fig_05"><a name="ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_fig_05"></a><a name="zh-cn_concept_0130428769_fig_05"></a><span class="figcap"><b>图1 </b>LTE到UMTS的小区重选基本原理图</span><br><span><img class="vsd" src="figure/zh-cn_image_0192721379.png"></span><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><td valign="top" width="100%"><p>1、UE向SGSN发起RAU请求。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>2、SGSN从MME中获取UE的上下文。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>3、如果上下文中没有安全参数，执行安全模式操作。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>4、SGSN通知PGW-C/GGSN更新上下文信息。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>5、HLR/HSS取消原MME中的位置信息并更新SGSN上的位置信息。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>6、SGSN接受UE的RAU请求，UE完成LTE到UMTS的RAU。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>7、MME通知SGW-C删除原有承载，如果在RAU前存在S1连接，释放该连接。</p>
+</td>
+</tr>
+</table></div>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>Intra重选场景下SGSN和MME融合，所以<a href="#ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_fig_05">图1 LTE到UMTS的小区重选基本原理图</a>中不存在SGSN和MME之间交互的消息，其他消息流程不变。</p>
+</div></div>
+</div>
+</li><li><p>UMTS到LTE的网络重选</p>
+<p>UE移动出UMTS覆盖区同时该地区存在LTE覆盖时，执行小区重选，发起TAU（跟踪区更新）过程，驻留到LTE小区。在此过程中，目的MME通过Gn接口向源侧SGSN发起请求，如果SGSN能匹配到对应的用户信息，SGSN将系统保存的移动性管理上下文和承载上下文发送给目的MME，其中包括安全参数、QoS参数等信息，配合完成跨接入网类型跟踪区更新。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_fig_06"><a name="ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_fig_06"></a><a name="zh-cn_concept_0130428769_fig_06"></a><span class="figcap"><b>图2 </b>UMTS到LTE的小区重选基本原理图</span><br><span><img class="vsd" src="figure/zh-cn_image_0192721384.png"></span><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><td valign="top"><p>1、UE通过eNodeB向MME发送TAU请求。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>2、MME从SGSN获取UE的上下文。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>3、如果上下文中没有安全参数，执行安全模式操作。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>4、MME向SGW-C发送建立承载请求消息，SGW-C创建上下文，并向PGW-C发送更新承载请求消息。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>5、HLR/HSS取消原SGSN中的位置信息并更新MME上的位置信息。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>6、如果在TAU前存在Iu连接，释放该连接。</p>
+</td>
+</tr>
+<tr><td valign="top"><p>7、MME接受UE的TAU请求，UE完成UMTS到LTE的TAU。</p>
+</td>
+</tr>
+</table></div>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>Intra重选场景下SGSN和MME融合，所以<a href="#ZH-CN_CONCEPT_0191526822__zh-cn_concept_0130428769_fig_06">图2 UMTS到LTE的小区重选基本原理图</a>中不存在SGSN和MME之间交互的消息，其他消息流程不变。</p>
+</div></div>
+</div>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.10.1"></a><a name="1.4.10.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.11.1"></a><a name="1.4.11.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.12.1"></a><a name="1.4.12.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr valign="top"><th align="left" class="cellrowborder" valign="top" width="19.23192319231923%" id="mcps1.4.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.58125812581258%" id="mcps1.4.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="68.18681868186817%" id="mcps1.4.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="19.23192319231923%" headers="mcps1.4.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.58125812581258%" headers="mcps1.4.12.2.1.4.1.2 "><p>23.401</p>
+</td>
+<td class="cellrowborder" valign="top" width="68.18681868186817%" headers="mcps1.4.12.2.1.4.1.3 "><p>Generation Partnership Project; Technical Specification Group Services and System Aspects ;General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.1 "><p>23.107</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.12.2.1.4.1.2 "><p>Generation Partnership Project; Technical Specification Group Services and System Aspects; Quality of Service (QoS) concept and architecture</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191526822__1.4.13.1"></a><a name="1.4.13.1"></a><a href="#ZH-CN_CONCEPT_0191526822" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.4.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.4.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.4.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.13.2.1.4.1.2 "><p><span>20.1.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.4.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Network_Reselection_Between_LTE_and_UMTS.html">WSFD-104501 LTE和UMTS 网络之间的重选
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Network_Reselection_Between_LTE_and_UMTS_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

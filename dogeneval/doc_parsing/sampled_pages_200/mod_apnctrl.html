@@ -1,0 +1,236 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="修改APN控制参数配置(MOD APNCTRL)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_apn_based_mm_congestion_co_ging_optimization_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_apnctrl.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_apnctrl.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126305282">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>修改APN控制参数配置(MOD APNCTRL)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126305282"></a><a name="ZH-CN_MMLREF_0000001126305282"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">修改APN控制参数配置(MOD APNCTRL)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126305282__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126305282__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126305282__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305282__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305282__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126305282__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305282__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126305282" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126305282__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>该命令用于修改基于APN的信令拥塞控制和固定终端寻呼优化的控制参数，基于APN的信令拥塞控制的控制参数包括<span class="parmname">“签约APN”</span>、<span class="parmname">“APN优先级”</span>、<span class="parmname">“Backoff Timer分配开关”</span>、<span class="parmname">“附着拒绝原因值”</span>和<span class="parmname">“识别异常附着行为的门限(次/小时)”</span>，固定终端寻呼优化的控制参数包括<span class="parmname">“签约APN”</span>和<span class="parmname">“Ready Timer定时器时长”</span>。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305282__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126305282" class="sectiontitle2contents">注意事项</a></h4><ul><li>此命令执行后立即生效。</li><li>该命令部分参数与相关特性license共同完成该特性的开启，请在设置参数前使用<a href="dsp_license.html"><b><span class="cmdname">DSP LICENSE</span></b></a>命令确认对应特性license是否得到授权，执行<a href="lst_licenseswitch.html"><b><span class="cmdname">LST LICENSESWITCH</span></b></a>命令确认特性开关状态为<span class="parmvalue">“ENABLE(打开)”</span>，具体相关特性请参考参数的说明。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305282__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126305282" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305282__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126305282" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305282__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126305282" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SUBSCRIBEDAPN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>签约APN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定<span class="parmname">“签约APN”</span>，即需要进行APN拥塞控制或寻呼优化的APN，此APN为用户签约的APN。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1~62位字符串</p>
+<p>默认值：无</p>
+<div class="p">配置原则： <ul><li>每条记录中的<span class="parmname">“签约APN”</span>字段不能重复。</li><li><span class="parmname">“签约APN”</span>（APN网络标识地址）由一个或多个LABEL构成，各LABEL间用“.”间隔。每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>APNTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>APN类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定APN的用途类型。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“CONGESTION_CTRL(拥塞控制APN)”</span>：即签约APN应用于基于APN的信令拥塞控制。</li><li><span class="parmvalue">“CALL_OPTIMIZE(固定终端寻呼优化APN)”</span>：即签约APN应用于固定终端寻呼优化。</li><li><span class="parmvalue">“BOTH(Both)”</span>：即签约APN应用于基于APN的信令拥塞控制和固定终端寻呼优化。</li></ul>
+</div>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>APN控制参数配置记录中的<span class="parmname">“APNTYPE （APN类型）”</span>不允许修改，如果希望修改某<span class="parmname">“SUBSCRIBEDAPN（签约APN）”</span>的类型，只能先删除该<span class="parmname">“SUBSCRIBEDAPN（签约APN）”</span>的记录，再重新添加期望类型的该<span class="parmname">“SUBSCRIBEDAPN（签约APN）”</span>的记录。</p>
+</div></div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>当参数设置为<span class="parmvalue">“CONGESTION_CTRL(拥塞控制APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>时，“基于APN的信令拥塞控制”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>206003</span>，License部件编码：LKV2ASCC01）。</li><li>当参数设置为<span class="parmvalue">“CALL_OPTIMIZE(固定终端寻呼优化APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>时，“固定终端寻呼优化”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>206004</span>，License部件编码：LKV2POFT01）。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>APNPRIORITY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>APN优先级</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于指定<span class="parmname">“APN优先级”</span>。当用户终端同时签约多个APN，且这些APN都通过本命令配置了基于APN的信令拥塞控制参数时，则优先对高优先级的APN进行拥塞控制。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CONGESTION_CTRL(拥塞控制APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“HIGH(高)”</span></li><li><span class="parmvalue">“MIDDLE(中)”</span></li><li><span class="parmvalue">“LOW(低)”</span></li><li><span class="parmvalue">“RESERVED1(保留1)”</span></li><li><span class="parmvalue">“RESERVED2(保留2)”</span></li><li><span class="parmvalue">“RESERVED3(保留3)”</span></li><li><span class="parmvalue">“RESERVED4(保留4)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<p>配置原则：建议值为<span class="parmvalue">“LOW(低)”</span>。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>系统当前支持高、中和低三种优先级，其他的为后续版本扩展预留。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>BACKOFFSW</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Backoff Timer分配开关</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于打开或关闭<span class="parmname">“Backoff Timer分配开关”</span>。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CONGESTION_CTRL(拥塞控制APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“OFF(关)”</span></li><li><span class="parmvalue">“ON(开)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则： <ul><li>当该开关开启时，SGSN/MME收到异常终端的附着请求消息后，在附着拒绝消息中分配Backoff Timer。Backoff Timer为UE和网络启动的定时器，在该定时器时间内，UE不允许发起附着流程。如果UE在定时器时间内仍然发起了附着流程，SGSN/MME会拒绝该流程。</li><li>当该开关关闭时，SGSN/MME收到异常终端的附着请求消息后，在附着拒绝消息中不分配Backoff Timer。</li><li>异常终端由<span class="parmname">“ATTACHTHRESH（识别异常附着行为的门限(次/小时)）”</span>配置决定。</li><li>建议值为<span class="parmvalue">“OFF(关)”</span>。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>Backoff Timer的取值范围为11~50分钟，每个用户的定时器时长有差异，便于将用户的重试分散开。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>MINBOT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Back off timer最小值（秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：本参数用于设置Back off timer的最小值，用于计算发给终端的附着拒绝消息中的Back off timer时长。</p>
+<p>前提条件：该参数在<span class="parmvalue">“Backoff Timer分配开关”</span>参数配置为<span class="parmvalue">“ON(开)”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：1～11160</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>MAXBOT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Back off timer最大值（秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：本参数用于设置Back off timer的最大值，用于计算发给终端的附着拒绝消息中的Back off timer时长。</p>
+<p>前提条件：该参数在<span class="parmvalue">“Backoff Timer分配开关”</span>参数配置为<span class="parmvalue">“ON(开)”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：1～11160</p>
+<p>默认值：无</p>
+<p>配置原则：该参数的取值必须大于等于<span class="parmvalue">“Back off timer最小值”</span>的取值。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ATTACHREJCAUSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>附着拒绝原因值</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于指定附着拒绝时携带的原因值。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CONGESTION_CTRL(拥塞控制APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<p>取值范围：<span class="parmvalue">“CONGESTION(拥塞)”</span></p>
+<p>默认值：无</p>
+<p>配置原则：建议值为<span class="parmvalue">“CONGESTION(拥塞)”</span>。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>其他原因值待后续版本扩展。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ATTACHTHRESH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>识别异常附着行为的门限（次/小时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于设置识别异常附着行为的门限，即在一个小时内如果UE的附着次数达到或超过了此参数的值，则认为此用户的附着行为异常。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CONGESTION_CTRL(拥塞控制APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<p>取值范围：2次/小时~1000次/小时</p>
+<p>默认值：无</p>
+<p>配置原则：建议值为<span class="parmvalue">“30”</span>次/小时。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>判定为异常附着的用户，相应的附着消息会被拒绝。</li><li>该参数的配置值涉及到被识别为异常附着的用户数目，如果配置值越小，就有越多的用户被识别为异常附着，并进行信令拥塞控制。实际设置时需要根据运营商网络内APN正常情况下用户的平均附着次数作为参考，避免正常用户被识别为异常附着。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>READYTIMER</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Ready Timer定时器时长（秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于指定GERAN通信中的<span class="parmname">“Ready Timer定时器时长”</span>。 用户终端在<span class="parmname">“Ready Timer定时器时长(秒)”</span>配置的时长后才转入空闲状态。该参数的配置值涉及到BSC和SGSN上资源开销，设置时长越长，BSC和SGSN上要占用越多的资源。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CALL_OPTIMIZE(固定终端寻呼优化APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<div class="p">取值范围：<ul><li>2~63：在Attach Accept/Rau Accept消息中携带给UE的Ready Timer是X/2向上取整，单位：秒。X即2~63之间的取值。</li><li>64~1919：在Attach Accept/Rau Accept消息中携带给UE的Ready Timer是X/60向上取整，单位：分。X即64~1919之间的取值。</li><li>1920~11160：在Attach Accept/Rau Accept消息中携带给UE的Ready Timer是X/360向上取整，单位：6分。X即1920~11160之间的取值。</li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则： <ul><li>本命令配置的<span class="parmname">“Ready Timer定时器时长(秒)”</span>要大于<a href="set_gmm.html"><b><span class="cmdname">SET GMM</span></b></a>命令中的<span class="parmname">“准备定时器(s)”</span>参数的时长。</li><li>根据协议3GPP 48.018的规定：<ul><li>该参数大于等于6秒时，<span class="parmname">“Ready Timer定时器时长”</span>须大于BSS保留PFC的时长定时器（最小值为6秒）。</li><li>该参数小于6秒时，<span class="parmname">“Ready Timer定时器时长”</span>的大小与BSS保留PFC的时长定时器的大小无关。</li></ul>
+</li><li>建议值为<span class="parmvalue">“180”</span>秒。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>T3324</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>T3324定时器时长（秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于指定<span class="parmname">“T3324定时器时长”</span>。如果UE在Attach/RAU Request消息中携带了T3324信元，表明UE支持PSM，SGSN通过Attach/RAU Accept消息，向UE下发T3324信元。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CALL_OPTIMIZE(固定终端寻呼优化APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<p>取值范围：0~11160秒</p>
+<p>默认值：无</p>
+<p>配置原则：</p>
+<div class="p">根据APNNI配置T3324： <ul><li>对于USIM/SIM卡用户，根据签约的APNNI配置该参数。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>T3312</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>T3312定时器时长（分）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于指定<span class="parmname">“T3312定时器时长”</span>。当T3312定时器的长度小于等于186分钟时，不携带T3312 extended value信元，携带必选信元periodic routing area update timer（其值为T3312）；当T3312定时器的长度大于186分钟时，网络侧下发T3312 extended value信元，同时携带必选信元periodic routing area update timer（其值固定为186分钟）。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在<span class="parmvalue">“APN类型”</span>参数配置为<span class="parmvalue">“CALL_OPTIMIZE(固定终端寻呼优化APN)”</span>或<span class="parmvalue">“BOTH(Both)”</span>后生效。</p>
+<p>取值范围：1~18600分</p>
+<p>默认值：无</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305282__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126305282" class="sectiontitle2contents">使用实例</a></h4><p>修改一条<span class="parmname">“签约APN”</span>为<span class="parmvalue">“huawei.com”</span>的APN控制参数配置，<span class="parmname">“签约APN”</span>为<span class="parmvalue">“huawei.com”</span>，<span class="parmname">“APN类型”</span>为<span class="parmvalue">“BOTH(Both)”</span>，<span class="parmname">“Ready Timer定时器时长(秒)”</span>为<span class="parmvalue">“300”</span>:</p>
+<p><span class="msgph">MOD APNCTRL: SUBSCRIBEDAPN="huawei.com", APNTYPE=BOTH, APNPRIORITY=MIDDLE, READYTIMER=300;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_apn_based_mm_congestion_co_ging_optimization_configuration.html">基于APN的MM拥塞控制/流控/寻呼优化配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_apnctrl.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_apnctrl.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

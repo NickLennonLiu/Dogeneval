@@ -1,0 +1,271 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-207004 基于LTE的网络共享（GWCN）特性概述">
+<meta name="DC.subject" content="GWCN">
+<meta name="keywords" content="GWCN">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Network_Share_GWCN_for_LTE.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Network_Share_GWCN_for_LTE_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-207004">
+<meta name="Function" content="MVNO">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0168358158">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-207004 基于LTE的网络共享（GWCN）特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0168358158"></a><a name="ZH-CN_CONCEPT_0168358158"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-207004 基于LTE的网络共享（GWCN）特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0168358158__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">适用NF</a></h4><p>MME</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">定义</a></h4><p>基于LTE的网络共享GWCN（Gateway Core Network），指GW核心网方式的网络共享，即各个运营商不仅共享无线接入网，而且共享核心网的MME设备。本特性需要<span><span>UNC</span></span>支持多HPLMN功能或MVNO功能。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>多个运营商可以共享使用一套接入设备和一套MME设备，从而降低设备成本，有利于节省运营商的投资成本。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>可以自主选择接入运营商，有机会享受差异化服务。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">应用场景</a></h4><p>运营商需要根据自身网络情况，当多个运营商需要共享使用一套接入设备和一套MME设备进行网络运营时需要开启本特性，基于LTE的GWCN网络共享典型组网如<a href="#ZH-CN_CONCEPT_0168358158__fig1">图1</a>所示，其中运营商A、B、C均租用运营商X的接入设备和MME设备进行组网建设。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0168358158__fig1"><a name="ZH-CN_CONCEPT_0168358158__fig1"></a><a name="fig1"></a><span class="figcap"><b>图1 </b>基于LTE的网络共享（GWCN）特性组网图</span><br><span><img class="vsd" src="figure/zh-cn_image_0192166562.png"></span><div class="p">该场景的主要特征如下：<ul><li>共享区域的网络（包括eNodeB和MME）由一个运营商建设，该网络共享给其他几个运营商。如<a href="#ZH-CN_CONCEPT_0168358158__fig1">图1</a>所示，共享网络由运营商Operator X建设，该网络共享给运营商Operator A、Operator B和Operator C。X可以是A、B和C中的任何一个或都不是。</li><li>共享的eNodeB仅需和共享的MME相连，和普通组网没有区别。</li><li>共享的MME需要和多个运营商的其他<term>核心网</term>互连。</li><li>共享的MME完成共享区域内<term>UE</term>的服务请求到相应核心网的路由功能。</li></ul>
+</div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及网元</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及网元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持根据系统广播选择共享PLMN ID。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持E-UTRAN的网络共享。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>支持UE选择的Selected PLMN。</li><li>支持在流程中将所选择的Serving PLMN传递给其它网元。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span><span class="parmvalue">“82207539 LKV2GWCN03 基于LTE的网络共享(GWCN)”</span>。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">与其他特性的交互</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.6.2.1.5.1.1" liSelected="liSelected"><p>交互类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.6.2.1.5.1.2" liSelected="liSelected"><p>相关特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="24.98%" id="mcps1.3.6.2.1.5.1.3" liSelected="liSelected"><p>控制项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25.019999999999996%" id="mcps1.3.6.2.1.5.1.4" liSelected="liSelected"><p>交互说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Multiple_HPLMNs.html">WSFD-104401 支持多HPLMN功能</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="24.98%" headers="mcps1.3.6.2.1.5.1.3 "><p>82205877 LKV2HPLMN02 支持多HPLMN功能</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="25.019999999999996%" headers="mcps1.3.6.2.1.5.1.4 "><p>本特性开启前需要开启特性“WSFD-104401 支持多HPLMN功能”或“WSFD-207006 基于LTE的MVNO”，实现共享MME对应的多个PLMN实现。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.1 "><p><a href="unc_2000_feature_desc_EPC_MVNO.html">WSFD-207006 基于LTE的MVNO</a></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.2 "><p>82207541 LKV2MVNO03 基于LTE的MVNO</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.1 "><p>影响</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Network_Share_MOCN_for_LTE.html">WSFD-207003 基于LTE的网络共享（MOCN）</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="24.98%" headers="mcps1.3.6.2.1.5.1.3 "><p>82205929 LKV2MOCN03 基于LTE的网络共享（MOCN）</p>
+</td>
+<td class="cellrowborder" valign="top" width="25.019999999999996%" headers="mcps1.3.6.2.1.5.1.4 "><p>本特性可以和“WSFD-20703 基于LTE的网络共享（MOCN）”共同部署，因为4G网络下，所有用户都是Supporting用户，可以解析无线网络广播消息中的共享PLMN信息，获取PLMN信息并选择接入的核心网。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">原理概述</a></h4><p><span><strong>相关概念</strong></span></p>
+<ul><li>GWCN：<p>网关核心网。运营商共享eNodeB及MME，共享的核心网设备MME完成共享区域内UE的服务请求到相应核心网的路由功能，共享的核心网与各运营商的其他核心网相连。</p>
+</li><li>Supporting UE：<p>支持网络共享的UE，能够解析共享网络广播系统信息中的共享网络信息，在共享网络里选择一个核心网运营商作为自己的服务运营商。</p>
+</li><li><p>Selected PLMN：</p>
+<p>Supporting UE在共享网络里选择的核心网运营商称为Selected PLMN。</p>
+</li><li><p>Serving PLMN：</p>
+<p>最终为Supporting UE提供服务的核心网运营商称之为Serving PLMN。</p>
+</li></ul>
+<p><span><strong>基于LTE的GWCN网络共享模式下Serving PLMN选择</strong></span></p>
+<p>由于GWCN共享模式下存在多个PLMN，Supporting UE需要选择合适的PLMN进行接入。</p>
+<p>eNodeB在S1 Setup过程中，将eNodeB支持的所有PLMN（共享该eNodeB的运营商）上报给MME。当软参<span class="parmname">“DWORD29”</span> BIT32设置为<span class="parmvalue">“0”</span>时，eNodeB上报的所有的PLMN作为S1接口的寻呼信息。当软参<span class="parmname">“DWORD29”</span> BIT32设置为<span class="parmvalue">“1”</span>时，MME将<strong><a href="../MML/Document/add_mmeid.html">ADD MMEID</a></strong>和<strong><a href="../MML/Document/add_mmeshareplmn.html">ADD MMESHAREPLMN</a></strong>命令配置的PLMN与eNodeB上报PLMN取交集后，此交集中的每个PLMN都生成S1接口的寻呼信息。</p>
+<p>Supporting UE获取共享eNodeB的广播系统信息后解析其中的网络共享信息，获取PLMN信息并选择运营商。eNodeB根据Selected PLMN选择合适的MME，并在发送给MME的消息中携带Selected PLMN。MME根据漫游策略、接入策略控制判断是否允许用户接入：</p>
+<ul><li>允许，则将该Select PLMN作为该UE的Serving PLMN，并在发送给UE的TAI信元中携带Serving PLMN ID。</li><li>不允许，拒绝该用户接入。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">特性规格</a></h4><p>根据3GPP协议，MME最多支持32个运营商共享。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="11" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.2 "><p>23251</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.3 "><p>Network sharing; Architecture and functional description</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23008</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Organization of subscriber data</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23060</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>General Packet Radio Service (GPRS); Service description; Stage 2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23236</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Intra-domain connection of Radio Access Network (RAN) nodes to multiple Core Network (核心网) nodes</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>24007</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Mobile radio interface signalling layer 3; General Aspects</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>24008</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Mobile radio interface Layer 3 specification; Core network protocols; Stage 3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>25401</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>UTRAN overall description</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>25410</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>UTRAN Iu interface: General aspects and principles</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>25413</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>UTRAN Iu interface Radio Access Network Application Part (RANAP) signalling</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29060</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Interworking between a PLMN and the ISDN or PSTN for support of Packet Switched data transmission services</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29018</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>General Packet Radio Service (GPRS); Serving GPRS Support Node (SGSN) - Visitors Location Register (VLR); Gs interface layer 3 specification</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168358158__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0168358158" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Network_Share_GWCN_for_LTE.html">WSFD-207004 基于LTE的网络共享（GWCN）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Network_Share_GWCN_for_LTE_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

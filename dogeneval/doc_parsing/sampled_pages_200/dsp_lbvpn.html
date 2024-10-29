@@ -1,0 +1,159 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="查询CSLB上的VPN信息（DSP LBVPN）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/cslb_vnfc_n_vpn_information.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0129627074">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询CSLB上的VPN信息（DSP LBVPN）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0129627074"></a><a name="ZH-CN_CONCEPT_0129627074"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">查询CSLB上的VPN信息（DSP LBVPN）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0129627074__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0129627074__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0129627074__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0129627074__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0129627074__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0129627074__1.3.6.1">输出结果说明</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129627074__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0129627074" class="sectiontitle2contents">命令功能</a></h4><p>在CSLB上查询业务、CSLB和VNRS根据VPN名称分配的VPN索引。完成VPN配置后，可以通过这个命令检查是否有VPN分配失败。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129627074__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0129627074" class="sectiontitle2contents">注意事项</a></h4><p>无</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129627074__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0129627074" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129627074__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0129627074" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>SRVVNFCID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>业务VNFC ID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定业务VNFC的唯一标识，通过在窗口下执行<b><span class="cmdname">LST NODE</span></b>获得，所得NODEID即为服务VNFC ID。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：整数类型，取值范围为0~4294967295。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>VPNNAME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>VPN名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：业务配置的VPN名称。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：字符串类型，输入长度范围为0~31。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>VPNQUERYMODE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>VPN查询模式</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：设置VPN查询模式。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：枚举类型<ul><li>VALID：查询有效的VPN。</li><li>INVALID：查询无效的VPN。</li><li>ALL：查询所有VPN。</li></ul>
+</div>
+<p>默认值：INVALID</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129627074__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0129627074" class="sectiontitle2contents">使用实例</a></h4><ul><li><p>查询CSLB上的VPN信息。</p>
+<p><samp class="codeph">DSP LBVPN: VPNQUERYMODE=ALL;</samp></p>
+<pre class="codeblock">%%DSP LBVPN: VPNQUERYMODE=ALL;%%
+RETCODE = 0  操作成功
+
+操作结果如下：
+--------------
+业务VNFCID  VPN名称   业务分配的VPN索引  CSLB分配的VPN索引  VNRS分配的VPN索引  
+
+999         _public_  0                  0                  1                  
+2504        _public_  1                  0                  1                  
+129         _public_  1                  0                  1                  
+(结果个数 = 3)
+
+---    END
+</pre>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129627074__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0129627074" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.6.2.1.3.1.1" liSelected="liSelected"><p>输出项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.6.2.1.3.1.2" liSelected="liSelected"><p>输出项解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>业务VNFC ID</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>参数含义：指定业务VNFC的唯一标识。</p>
+<p>取值范围：整数类型，取值范围为0~4294967295。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>VPN名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>参数含义：业务配置的VPN名称。</p>
+<p>取值范围：字符串类型，输入长度范围为0~31。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>业务分配的VPN索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>参数含义：业务根据VPN名称分配的VPN索引。</p>
+<p>取值范围：0~63字符</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>CSLB分配的VPN索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>CSLB根据VPN名称分配的VPN索引，如果为4294967295表示无效值，需要联系业务VNFC查看VPN配置插件返回的错误码定位原因。</p>
+<p>取值范围：0~63字符</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>VNRS分配的VPN索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>VNRS根据VPN名称分配的VPN索引，如果为4294967295表示无效值，检查VNRS上是否配置了这个VPN。</p>
+<p>取值范围：0~63字符</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/cslb_vnfc_n_vpn_information.html">VPN信息
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

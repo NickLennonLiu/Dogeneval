@@ -1,0 +1,145 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="抑制使用PGW FQDN的服务发现">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Nei_Net_Elem_Overload_Protection.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0175601101.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0175601624.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010802">
+<meta name="Function" content="流控">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0318066840">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>抑制使用PGW FQDN的服务发现</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0318066840"></a><a name="ZH-CN_TOPIC_0318066840"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">抑制使用PGW FQDN的服务发现</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0318066840__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0318066840__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">适用NF</a></h4><p>AMF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">定义</a></h4><p>支持抑制使用PGW FQDN的服务发现功能是指4/5G互操作场景下，当短时间内有大量基于某FQDN的SMF信息查询失败时，AMF对使用该FQDN进行的SMF服务发现进行流控，从而避免AMF对NRF造成信令冲击。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="15.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="84.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="15.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="84.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>提高整网接入成功率，减少拥塞或过载的发生，从而提高用户满意度，增加收益。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="84.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>减少了因NRF过载引起的用户不能使用网络的情况，使用户享受更稳定的网络服务。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">应用场景</a></h4><p>4/5G互操作场景。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">可获得性</a></h4><div class="p"><strong>涉及NF</strong>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="13.569999999999999%" id="mcps1.3.5.2.2.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="23.54%" id="mcps1.3.5.2.2.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="62.89%" id="mcps1.3.5.2.2.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="13.569999999999999%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.54%" headers="mcps1.3.5.2.2.1.4.1.2 "><p><span>UNC 20.1.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.89%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>依据配置抑制使用某FQDN查询NRF获得SMF信息。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>License支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">原理概述</a></h4><p>在4/5G互操作场景下，5G签约终端从不同区域入网时，都会选择融合网关。<span style="color:#434343;">融合</span><span style="color:#434343;">SMF+PGW-C</span><span style="color:#434343;">，</span><span style="color:#434343;">在向</span><span style="color:#434343;">NRF</span><span style="color:#434343;">注册时可携带对应</span><span style="color:#434343;">PGW-C</span><span style="color:#434343;">的</span><span style="color:#434343;">FQDN</span><span style="color:#434343;">，</span>在DNS Server内记录中service parameters包含“nc-smf”关键字，例如x-3gpp-pgw:x-s5-gtp+nc-smf。可确保4/5G 切换时网元选择与发现的一致性。</p>
+<div class="fignone"><span class="figcap"><b>图1 </b>SMF+PGW-C经NRF/DNS发现</span><br><span><img class="vsd" src="../images/zh-cn_image_0318074399.png"></span></div>
+<p>5G用户在4G接入再移动到5G时：</p>
+<ol><li>在LTE附着，MME从DNS Server获取到PGW-C FQDN，PDN连接建立到该PGW-C上。</li><li>当该5G用户从LTE网络切换或者重选到5G网络，MME会将PGW-C FQDN传递给AMF。</li><li>AMF根据的PGW-C FQDN向NRF查询到融合的SMF+PGW-C，从将用户承载切到5G。</li></ol>
+<p>如果，一段时间内AMF使用相同的FQDN查询融合的SMF+PGW-C，结果均为失败。为了减少对NRF的冲击，AMF上可以抑制使用该FQDN查询NRF获取融合的SMF+PGW-C。</p>
+<p>具体实现为：</p>
+<ol><li>使用命令“<strong>SET COMMONSOFTPARAOFBIT</strong>”将软参“<strong>DWORD3 BIT23</strong>”值设置为0，开启FQDN黑名单过滤功能。查询失败5次后，FQDN被记录进黑名单，AMF便不再使用该FQDN向NRF查询发现融合的SMF+PGW-C。</li><li>使用命令“<strong>SET COMMONSOFTPARAOFBIT</strong>”将软参“<strong>DWORD3 BIT31</strong>”值设置为0，<ul><li>对于4G到5G的切换流程，如果某个会话所属的PGW-C的FQDN在黑名单中，则AMF不使用此FQDN向NRF查询发现融合的SMF+PGW-C，会话建立失败；如果此次切换中所有会话所属的PGW-C的FQDN都在黑名单中，则切换失败。AMF在老化时间（从第一次查询失败后开始计时的10分钟）内都不使用黑名单中的FQDN向NRF查询发现融合的SMF+PGW-C。</li><li>对于4G到5G的重选流程，如果某个会话所属的PGW-C的FQDN在黑名单中，则AMF不使用此FQDN向NRF查询发现融合的SMF+PGW-C，会话建立失败；但是注册流程成功。AMF在老化时间（从第一次查询失败后开始计时的10分钟）内都不使用黑名单中的FQDN向NRF查询发现融合的SMF+PGW-C。</li></ul>
+</li><li>将命令“<b><span class="cmdname">SET SMFCACHEFUNC</span></b>”中参数<span class="parmname">“SMFCACHESW”</span>和参数<span class="parmname">“INTERWORKSW”</span>设置为<span class="parmvalue">“YES”</span>，控制AMF优先使用本地缓存查询SMF，减少频繁到NRF查询造成对NRF的冲击。</li></ol>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">遵循标准</a></h4><p>本特性不涉及标准约束。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0318066840__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0318066840" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.2.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Nei_Net_Elem_Overload_Protection.html">WSFD-010802 周边网元过载保护
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0175601101.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_topic_0175601624.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

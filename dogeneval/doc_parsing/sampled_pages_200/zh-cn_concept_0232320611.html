@@ -1,0 +1,175 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-010801系统过载控制功能特性概述（适用于NSSF）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0232320610.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0232320612.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="NSSF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010801">
+<meta name="Function" content="流控">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0232320611">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-010801系统过载控制功能特性概述（适用于NSSF）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0232320611"></a><a name="ZH-CN_CONCEPT_0232320611"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1"><span>WSFD-010801</span>系统过载控制功能特性概述（适用于NSSF）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0232320611__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">适用NF</a></h4><p>NSSF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">定义</a></h4><p>在系统过载时，<span>UNC</span>通过控制接入系统的业务量来防止拥塞进一步恶化而造成整系统的瘫痪，从而保证了系统的稳定性和高优先级业务的成功率。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.06%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.94%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.06%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.94%" headers="mcps1.3.3.2.1.3.1.2 "><p>在网络设备高倍过载场景下，提高用户业务的接通率，提升设备承载的有效业务量和网络可靠性。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.06%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.94%" headers="mcps1.3.3.2.1.3.1.2 "><p>在网络设备高倍过载场景下，提高用户业务尤其是高优先级业务（如语音业务）的成功率，提升用户业务体验和满意度。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">应用场景</a></h4><div class="p">造成系统过载的主要原因可分为以下4类，在这些情况下，系统会进行过载流控。<ul><li>整系统或周边网元的供电中断、升级。</li><li>传输供电中断、自然灾害或战争导致传输线路物理中断。</li><li>网络运维，如割接、网络调整等。<p>以上3种场景在恢复后，都会有大量业务重新连接、大量链路重新建立等，此时会对系统造成冲击，造成过载。</p>
+</li><li>大型活动、节假日、促销推送活动等<p>短时间内活跃用户的增多，使数据业务、语音、视频增多，增加系统的负荷。</p>
+</li></ul>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.31%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.4%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="68.28999999999999%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.31%" headers="mcps1.3.5.3.1.4.1.1 "><p>NSSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.4%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="68.28999999999999%" headers="mcps1.3.5.3.1.4.1.3 "><p>根据自身的过载程度来启动相应流控机制，来缓解拥塞状况，保证业务成功率，提高用户体验。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">对系统的影响</a></h4><p>流控会丢弃部分消息，导致部分用户注册过程中，因网络切片选择失败而入网失败。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">原理概述</a></h4><ul><li><strong>基于系统CPU负载，业务流程首消息流控</strong><p><span>UNC</span>根据系统CPU负载，评估系统过载等级，然后根据过载等级，按照业务优先级对业务首消息进行流控。当系统过载等级为中度或重度时，启动流控。流控算法采用WAL算法。</p>
+<p><strong>默认系统过载等级分为：</strong></p>
+<ul><li>轻度过载：CPU占用率大于等于75%，小于80%</li><li>中度过载：CPU占用率大于等于80%，小于85%</li><li>重度过载：CPU占用率大于等于85%，小于100%</li></ul>
+<p><strong>WAL算法</strong></p>
+<p>WAL算法应用在系统过载控制中，是一种基于即时系统CPU占用率来动态调整系统允许通过的最大和最小业务量的流控算法。</p>
+<p>WAL算法的应用使系统CPU资源的使用可控，例如在系统中度过载（CPU占用率大于80%）时，系统通过WAL算法来控制业务消息的数量，使系统CPU占用率保持在75%到80%之间；由于系统CPU占用率是实时波动的，当系统CPU占用率超过80%时，部分消息通过WAL算法会被丢弃，而在系统CPU占用率低于75%的部分则说明此时系统流控力度过猛、丢弃消息过多，需要通过WAL算法减少即时消息丢弃量使CPU占用率提升到75%，来保证业务稳定性。如下图所示：</p>
+<div class="fignone"><span class="figcap"><b>图1 </b>WAL算法效果图</span><br><span><img class="vsd" src="../images/zh-cn_image_0000001091371310.png"></span></div>
+</li></ul>
+<p>除了系统过载时采取的流程首消息流控措施，NSSF还可以针对服务化接口接收消息进行流控。</p>
+<ul><li><strong>服务化接口的接收消息流控</strong><p>当服务化接口存在拥塞风险时，<span>UNC</span>根据配置的服务化接口流控速率阈值，控制接口上接收消息的速率，丢弃超过阈值的消息，返回失败原因值，达到提高整网接入成功率，减少服务化接口拥塞的目的。通过<strong><a href="../MML/Document/add_httpfixedfc.html">ADD HTTPFIXEDFC</a></strong>命令设置整系统收发消息总速率。对于控制的消息，UNC按照<strong><a href="../MML/Document/add_httpfixedfc.html">ADD HTTPFIXEDFC</a></strong>设置的失败原因值回复业务消息。涉及到的接口以及消息类型如<a href="#ZH-CN_CONCEPT_0232320611__table7963184395714">表1</a>所示。</p>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0232320611__table7963184395714"></a><a name="table7963184395714"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0232320611__table7963184395714" frame="border" border="1" rules="all"><caption><b>表1 </b>受控的接口及消息</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="18.581858185818582%" id="mcps1.3.9.4.1.3.2.4.1.1" liSelected="liSelected"><p>接口</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="41.22412241224123%" id="mcps1.3.9.4.1.3.2.4.1.2" liSelected="liSelected"><p>消息类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="40.19401940194019%" id="mcps1.3.9.4.1.3.2.4.1.3" liSelected="liSelected"><p>方向</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="18.581858185818582%" headers="mcps1.3.9.4.1.3.2.4.1.1 "><p>Nnssf</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.22412241224123%" headers="mcps1.3.9.4.1.3.2.4.1.2 "><p>Nnssf_NSSelection_Get  Request</p>
+</td>
+<td class="cellrowborder" valign="top" width="40.19401940194019%" headers="mcps1.3.9.4.1.3.2.4.1.3 "><p>AMF发给NSSF</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.9.4.1.3.2.4.1.1 "><p>Nnssf_NSSAIAvailability_Update Request</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.9.4.1.3.2.4.1.2 "><p>AMF发给NSSF</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li><strong>服务化接口指定消息类型固定速率流控</strong><p>可以通过命令<strong><a href="../MML/Document/set_httpfixedfcmsg.html">SET HTTPFIXEDFCMSG</a></strong>设置服务化接口上接收指定类型消息的固定速率门限，减少其他网元对NSSF的冲击。通过<strong><a href="../MML/Document/set_httpfixedfcmsg.html">SET HTTPFIXEDFCMSG</a></strong>命令中“<strong>MSGTYPE</strong>”参数选择Nnssf接口流控的消息类型，然后通过“<strong>FCSWITCH</strong>”参数为“<strong>ON</strong>”来开启该消息类型的固定速率流控开关，配置参数“<strong>THRESHOLD</strong>”来设定该消息类型流控速率门限。当系统因其他NF向NSSF发送的消息数超出<strong><a href="../MML/Document/set_httpfixedfcmsg.html">SET HTTPFIXEDFCMSG</a></strong>设置的“流控速率门限(个/秒)”阈值而导致被丢弃时，上报<strong><a href="../Alarms/100336.html">ALM-100336 基于消息类型的HTTP接口固定速率流控启控</a>。</strong></p>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">特性规格</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">遵循标准</a></h4><p>本特性不涉及标准约束。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0232320611__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0232320611" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="bottom" width="25.252525252525253%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="21.21212121212121%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="53.535353535353536%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="25.252525252525253%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.21212121212121%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="53.535353535353536%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_concept_0232320610.html">系统过载控制功能（适用于NSSF）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0232320612.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

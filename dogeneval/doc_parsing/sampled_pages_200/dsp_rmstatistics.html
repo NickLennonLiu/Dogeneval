@@ -1,0 +1,240 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="显示IP路由统计（DSP RMSTATISTICS）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_statistics_information_of_ip_routing_table.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134581990">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示IP路由统计（DSP RMSTATISTICS）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134581990"></a><a name="ZH-CN_CONCEPT_0134581990"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">显示IP路由统计（DSP RMSTATISTICS）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134581990__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134581990__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134581990__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134581990__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134581990__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0134581990__1.3.6.1">输出结果说明</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581990__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134581990" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于显示IP路由表的统计信息。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581990__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134581990" class="sectiontitle2contents">注意事项</a></h4><p>无。</p>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581990__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134581990" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581990__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134581990" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ADDRESSFAMILY</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>地址族</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：该参数用于表示路由所属VPN实例的地址族信息。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>ipv4unicast：IPv4单播。</li><li>ipv6unicast：IPv6单播。</li></ul>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VRFNAME</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VPN实例名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示VPN实例的名字。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～31。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：公网需要输入_public_，默认查询所有VPN，不支持空格。</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581990__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134581990" class="sectiontitle2contents">使用实例</a></h4><p>显示IP路由表的统计信息：</p>
+
+<pre class="codeblock">DSP RMSTATISTICS: ADDRESSFAMILY=ipv4unicast;</pre>
+<pre class="screen">
+RETCODE = 0  操作成功
+
+结果如下
+-------------------------
+VPN实例名称          路由协议名字    路由总数    活跃路由数    添加路由数    删除路由数    释放路由数
+
+_public_             直连路由        4           4             4             0             0
+_public_             静态路由        1           1             1             0             0
+_public_             OSPF路由        0           0             0             0             0
+_public_             BGP路由         0           0             0             0             0
+_public_             UNR             0           0             0             0             0
+_public_             无线路由        0           0             0             0             0
+_public_             汇总路由        5           5             5             0             0
+__mpp_vpn_inner__    直连路由        4           4             4             0             0
+__mpp_vpn_inner__    静态路由        0           0             0             0             0
+__mpp_vpn_inner__    OSPF路由        0           0             0             0             0
+__mpp_vpn_inner__    BGP路由         0           0             0             0             0
+__mpp_vpn_inner__    UNR             0           0             0             0             0
+__mpp_vpn_inner__    无线路由        0           0             0             0             0
+__mpp_vpn_inner__    汇总路由        4           4             4             0             0
+(结果个数 = 12)
+---    END</pre>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581990__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0134581990" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.1"><p>输出项名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.2"><p>输出项解释</p>
+</th>
+
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由协议名字</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由协议的名字。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由总数量。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>活跃路由数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示激活路由的数量。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>添加路由数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示增加的路由数量，包含激活和未激活的路由。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>删除路由数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示删除的路由数量。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>释放路由数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示永久删除的路由数目。</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p>其余输出项请参见SET PREFIXLIMIT的参数说明。</p>
+
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_statistics_information_of_ip_routing_table.html">IP路由表统计
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

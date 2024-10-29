@@ -1,0 +1,245 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-106010 指定区域用户位置上报(PRA)（适用于AMF）&amp;WSFD-211003 基于指定区域的策略控制（适用于SMF）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0252745602.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Presence_Reporting_Area_Support_AMF_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="feature_id" content="WSFD-211003">
+<meta name="network_function" content="AMF">
+<meta name="network_function" content="SMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-106010">
+<meta name="Function" content="Qos">
+<meta name="Function" content="智能PCC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0244602387">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-106010 指定区域用户位置上报(PRA)（适用于AMF）&amp;WSFD-211003 基于指定区域的策略控制（适用于SMF）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0244602387"></a><a name="ZH-CN_CONCEPT_0244602387"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-106010 指定区域用户位置上报(PRA)（适用于AMF）&amp;WSFD-211003 基于指定区域的策略控制（适用于SMF）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0244602387__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">适用NF</a></h4><p>AMF、SMF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">定义</a></h4><p>基于指定区域的策略控制特性指基于运营商订阅的PRA（Presence Reporting Area）区域，当用户进入这些区域后，执行不同的服务策略（如特殊计费、套餐、信息推送等），用户通过签约享受相应服务，满足运营商基于位置信息的差异化和定制化需求。当用户进入/离开PRA区域时，核心网会判定用户当前的位置或者状态并上报给上游网元，进行不同的策略控制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="17%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="83%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="17%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="83%" headers="mcps1.3.3.2.1.3.1.2 "><ul><li>当用户在PRA区域时，有针对性的提供业务服务，提升用户体验。</li><li>便于对用户的位置信息进行管理。</li><li>为企业用户制定精确的PRA区域套餐，实现精准运营，提高企业收入，实现企业与运营商的共赢。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="17%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="83%" headers="mcps1.3.3.2.1.3.1.2 "><p>可享受资费便宜的区域套餐等，提升用户体验。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">应用场景</a></h4><div class="p">商场、校园、体育场、地铁沿线等需要向用户提供基于位置的计费优惠、套餐服务时，运营商会部署基于指定区域的策略控制。<div class="fignone"><span class="figcap"><b>图1 </b>应用场景</span><br><span><img class="vsd" src="figure/zh-cn_image_0244602414.png"></span></div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="12.75%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.29%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="59.96%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.5.3.1.4.1.1 "><p>AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.29%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.2及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="59.96%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>AMF支持配置PRA区域，通过跟踪用户在PRA区域内外的移动，向SMF及时上报用户的PRA状态信息。</li><li>AMF支持接收由PCF下发，再由SMF转发的开始、更新和取消PRA订阅消息。</li><li>AMF支持PRA事件订阅和通知功能。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.5.3.1.4.1.1 "><p>PCF</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.29%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="59.96%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>支持下发PRA订阅信息和PRA策略控制请求触发器。</li><li>针对用户位置区域和PRA状态进行不同的策略控制。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.5.3.1.4.1.1 "><p>SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.29%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.2及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="59.96%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>支持将PCF等网元的PRA订阅信息发送给AMF，订阅PRA事件。</li><li>支持将AMF上报的用户的PRA状态发送给PCF等网元。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.5.3.1.4.1.1 "><p>gNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.29%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="59.96%" headers="mcps1.3.5.3.1.4.1.3 "><p>gNodeB支持接收AMF的位置上报请求，当有NCGI(NR Cell Global Identifier)粒度的PRA订阅时，gNodeB上报UE的当前位置给AMF。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">应用限制</a></h4><ul><li>本特性对跨运营商的漫游用户不生效。</li><li>本特性以PDU会话粒度进行订阅，即一个PDU会话只允许订阅一个PRA事件。</li><li>若网络中部分AMF不支持本特性或本特性未开启，当用户进行Inter AMF位置移动，会造成PRA订阅信息的丢失，从而影响PCF等上游网元根据PRA区域开展的各类业务的可靠性。</li><li>从实际应用的角度对于位置订阅、感兴趣区域订阅，在请求中都会携带立即上报标志，以便能第一时间获取用户的当前的大体位置或者状态。当如果订阅请求没有携带立即上报标志，AMF就顺从协议，等到后续移动性流程中再触发事件上报。</li><li>如果PRA区域中定义NCGI粒度的位置区信息，需要AMF通知NG-RAN启动Location Report流程。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">原理概述</a></h4><p>PRA区域由PLMN中的TAI、NCGI和/或gNodeB等类型的区域列表（如trackingAreaListn/ncgiList/globalRanNodeIdList）组成，由PRA ID唯一标识。例如可以配置一个校园为一个PRA区域，以0x800000作为该区域的PRA ID，并将校园所在的位置区列表以TAI/gNodeB/NCGI类型配置到该PRA区域内。在用户进入运营商订阅的PRA区域中，可以享受到不同策略的服务。例如：在商场、校园、某些场馆、地铁沿线等运营商会提供基于位置的计费优惠、套餐服务等。</p>
+<p>PRA可分为核心网预定义PRA（Core Network predefined PRA）和UE专属PRA（UE-dedicated PRA）两种。</p>
+<ol><li>UE专属PRA（UE-dedicated PRA）<p>PRA区域列表来自用户属性定义或由应用功能提供给PCF，由PCF下发。该场景下，PCF下发PRA订阅信息时，需要同时携带PRA ID和PRA区域列表。</p>
+</li><li>核心网预定义PRA（Core Network predefined PRA）<p>PCF下发PRA订阅信息时，不携带PRA区域列表，仅需指定PRA ID，与此PRA ID相关联的PRA区域列表在网络规划时进行预定义，并配置到AMF。在AMF上配置的PRA是核心网预定义PRA。</p>
+</li></ol>
+<div class="p">在事件订阅场景中，订阅者定义的区域范围称为感兴趣区域（Area Of Interest），例如PRA区域。订阅者以此识别被订阅用户是否发生进入或离开指定区域的行为，常见订阅者包括SMF、PCF等。在事件通知场景中，AMF针对UE做进出指定感兴趣区域内的事件的上报，例如用户进入/离开PRA区域列表指定的位置区域时，AMF会判定用户当前的位置或者状态并上报给SMF和PCF，进行不同的策略控制。基于指定区域的策略控制的基本流程<a href="#ZH-CN_CONCEPT_0244602387__fig63491457172810">图2</a>，流程中携带的信息如<a href="#ZH-CN_CONCEPT_0244602387__table13231185516619">表1</a>。<div class="fignone" id="ZH-CN_CONCEPT_0244602387__fig63491457172810"><a name="ZH-CN_CONCEPT_0244602387__fig63491457172810"></a><a name="fig63491457172810"></a><span class="figcap"><b>图2 </b>基于指定区域的策略控制的主要流程</span><br><span><img class="vsd" src="figure/zh-cn_image_0262080696.png"></span></div>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0244602387__table13231185516619"></a><a name="table13231185516619"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0244602387__table13231185516619" frame="border" border="1" rules="all"><caption><b>表1 </b>流程中携带的信息</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="13.100000000000003%" id="mcps1.3.9.5.4.2.5.1.1" liSelected="liSelected"><p>场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.98%" id="mcps1.3.9.5.4.2.5.1.2" liSelected="liSelected"><p>PCF-&gt;SMF携带的信息</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.120000000000005%" id="mcps1.3.9.5.4.2.5.1.3" liSelected="liSelected"><p>SMF-&gt;AMF携带的信息</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="35.800000000000004%" id="mcps1.3.9.5.4.2.5.1.4" liSelected="liSelected"><p>解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="13.100000000000003%" headers="mcps1.3.9.5.4.2.5.1.1 "><p>UE-dedicated PRA</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.98%" headers="mcps1.3.9.5.4.2.5.1.2 "><p><strong>praInfos信元</strong></p>
+<p>（包括praId 、trackingAreaList/ncgiList/globalRanNodeIdList等）</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="33.120000000000005%" headers="mcps1.3.9.5.4.2.5.1.3 "><p>SMF向AMF订阅时携带<strong>AreaList</strong>，包括了一个或多个区域信息（AmfEventArea），AmfEventArea包含presenceInfo，presenceInfo由praId 、presenceState、trackingAreaList/ncgiList/globalRanNodeIdList等组成。</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="35.800000000000004%" headers="mcps1.3.9.5.4.2.5.1.4 "><p><strong>PRA_CH trigger</strong>：PRA策略控制请求触发器，用来激活PRA事件的上报。</p>
+<p><strong>praId</strong>：唯一标识一个PRA区域。</p>
+<p><strong>trackingAreaList</strong>：TAI类型的区域列表。</p>
+<p><strong>ncgiList</strong>：NCGI类型的区域列表。</p>
+<p><strong>globalRanNodeIdList</strong>：gNodeB类型的区域列表。</p>
+<p><strong>PRA区域</strong>：由trackingAreaList、ncgiList、globalRanNodeIdList中的一种或多种组成。</p>
+<p><strong>AmfEventArea</strong>：感兴趣区域，PRA区域为感兴趣区域的一种。</p>
+<p><strong>presenceState</strong>：PRA区域的状态。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.9.5.4.2.5.1.1 "><p><strong>PRA_CH trigger</strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.3.9.5.4.2.5.1.1 "><p>Core Network predefined PRA</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.9.5.4.2.5.1.2 "><p><strong>praInfos信元</strong></p>
+<p>（仅携带praId，trackingAreaList/ncgiList/globalRanNodeIdList为空）</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.3.9.5.4.2.5.1.3 "><p>SMF向AMF订阅时，不用携带AreaList，仅携带<strong>praId</strong>。与此praId关联的PRA区域列表在AMF中通过<a href="../MML/Document/add_ngpra.html"><b><span class="cmdname">ADD NGPRA</span></b></a>和<a href="../MML/Document/add_ngpramem.html"><b><span class="cmdname">ADD NGPRAMEM</span></b></a>命令配置。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.9.5.4.2.5.1.1 "><p><strong>PRA_CH trigger</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.220000000000006%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="29.76%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="37.02%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="33.220000000000006%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.76%" headers="mcps1.3.12.2.1.4.1.2 "><p>29.512</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.02%" headers="mcps1.3.12.2.1.4.1.3 "><p>Session Management Policy Control Service</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.518</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Access and Mobility Management Services</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0244602387__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0244602387" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="24.07%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.900000000000006%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.03%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="24.07%" headers="mcps1.3.13.2.1.4.1.1 "><p>02</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.900000000000006%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.6.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="42.03%" headers="mcps1.3.13.2.1.4.1.3 "><p>第二次发布。</p>
+<p>原WSFD-106010 基于指定区域的策略控制（适用于AMF/SMF）拆分为：</p>
+<ul><li>WSFD-106010 指定区域用户位置上报(PRA)（适用于AMF）</li><li>WSFD-211003 基于指定区域的策略控制（适用于SMF）</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.07%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.900000000000006%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.2</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="42.03%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0252745602.html">5G网络基于指定区域的策略控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Presence_Reporting_Area_Support_AMF_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

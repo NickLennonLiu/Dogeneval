@@ -1,0 +1,239 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="查询PLMN路由（LST NRFPLMNRT）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_plmn_route_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/mod_nrfplmnrt.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209654379">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询PLMN路由（LST NRFPLMNRT）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209654379"></a><a name="ZH-CN_MMLREF_0209654379"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">查询PLMN路由（LST NRFPLMNRT）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209654379__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209654379__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209654379__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209654379__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0209654379__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209654379__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654379" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：NRF</strong>
+                </p>
+
+                    <p>该命令用于查询已配置的PLMN路由信息。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209654379__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654379" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                <p>无</p>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209654379__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209654379" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209654379__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654379" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MCC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>移动国家码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示PLMN路由信息的移动国家码。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度是3。3位十进制数。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MNC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>移动网号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示PLMN路由信息的移动网号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是2~3。2位或者3位十进制数。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NEXTNRFGRPNAME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>归属NRF组名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示当前NRF基于PLMN寻址NF时的下一跳NRF实例组名称，被寻址的NF归属于该NRF实例组。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~64。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 该参数已通过ADD NRFGROUP配置，可通过LST NRFGROUP命令获取。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209654379__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654379" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                <ul><li>查询所有PLMN的路由：
+                            <pre class="screen">LST NRFPLMNRT:;
+%%LST NRFPLMNRT:;%%
+RETCODE = 0  操作成功
+
+结果如下
+--------
+移动国家码  移动网号  归属东西向NRF组名称  
+123         456       L-NRF1          
+123         789       H-NRF1         
+(结果个数 = 2)</pre>
+
+						</li><li>查询移动国家码为123，移动网号为456的PLMN路由：
+                            <pre class="screen">LST NRFPLMNRT: MCC="123", MNC="456";
+%%LST NRFPLMNRT: MCC="123", MNC="456";%%
+RETCODE = 0  操作成功
+
+结果如下
+--------
+         移动国家码  =  123
+           移动网号  =  456
+归属东西向NRF组名称  =  L-NRF1 
+(结果个数 = 1)</pre>
+
+						</li></ul>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0209654379__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209654379" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>移动国家码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示PLMN路由信息的移动国家码。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>移动网号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示PLMN路由信息的移动网号。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>归属NRF组名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示当前NRF基于PLMN寻址NF时的下一跳NRF实例组名称，被寻址的NF归属于该NRF实例组。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_plmn_route_management.html">PLMN路由管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/mod_nrfplmnrt.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="导入环境变量">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-sdn/1_11_FAQ.html">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-sdn/1_7_6_check_mtu.html">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-sdn/1_7_3_fail.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0319024609">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>导入环境变量</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0319024609"></a><a name="ZH-CN_TOPIC_0319024609"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">导入环境变量</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0319024609__1.3.1.1">操作场景</a></li><li><a href="#ZH-CN_TOPIC_0319024609__1.3.2.1">前提条件</a></li><li><a href="#ZH-CN_TOPIC_0319024609__1.3.3.1">操作步骤</a></li></ul><div><div class="section" id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_section1242562185218"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0319024609__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0319024609" class="sectiontitle2contents">操作场景</a></h4><p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p12425172165218">系统在安装完成后，默认打开鉴权模式，在执行CPS及OpenStack命令前，需要先导入环境变量才能操作。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p14425329522">系统提供了导入环境变量的快捷脚本，可直接执行脚本即可。</p>
+</div>
+<div class="section" id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_section1642516218522"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0319024609__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0319024609" class="sectiontitle2contents">前提条件</a></h4><ul id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_ul1942510255213"><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li5425142155211">已完成FusionSphere OpenStack第一台主机的安装。</li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li542519211524">已通过root用户登录主机。</li></ul>
+</div>
+<div class="section" id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_section14181729164216"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0319024609__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0319024609" class="sectiontitle2contents">操作步骤</a></h4><ol id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_ol16425172185215"><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li54252219527"><span id="ZH-CN_TOPIC_0319024609__">执行以下命令，导入环境变量。</span><p><p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p10425429521"><strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b1242516214524">source set_env</strong></p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p742518210527">回显如下类似信息：</p>
+<pre class="screen" id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_screen1042515217523">please choose environment variable which you want to import: 
+(1) openstack environment variable (keystone v3) 
+(2) cps environment variable 
+(3) openstack environment variable legacy (keystone v2) 
+(4) openstack environment variable of cloud_admin (keystone v3) 
+please choose:[1|2|3|4]      </pre>
+</p></li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li19426322521"><span id="ZH-CN_TOPIC_0319024609__">选择鉴权方式。</span><p><p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p134261223523">目前提供四种方式可供用户选择，使用内置DC管理员的Keystone V3鉴权、CPS鉴权、Keystone V2鉴权、使用内置云管理员的Keystone V3鉴权。请根据以下详细介绍按照实际需求选择。</p>
+<ul id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_ul942622105210"><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li1042662115216">使用内置DC管理员的OpenStack Keystone V3鉴权，输入“1”，按“Enter”，并按提示输入“OS_USERNAME”的密码。<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p04260214528"><a name="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li1042662115216"></a><a name="zh-cn_topic_0319022934_li1042662115216"></a>默认密码：“FusionSphere123”。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p184264295218">密码输入成功后如果有<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b2426132175211">cps host-list</strong>和<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b34266255215">nova list</strong>命令的自动回显信息，则表示环境变量导入成功。导入成功后系统使用内置DC管理员的Keystone V3鉴权。可以正常执行CPS命令和OpenStack命令。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p164263215526">在OpenStack的Queens版本中，Keystone命令行接口做了归一化处理，全部封装为OpenStack命令。在Identity service注册为V3路径时，原Keystone命令行在执行tenant/role/service相关命令时会存在兼容性问题。在FusionSphere OpenStack 8.0.0.SPC15 版本全新安装场景下，默认注册的Identity endpoint为V3路径，因此在FusionSphere OpenStack的安装部署完全完成之后，请优先使用Keystone V3鉴权，并使用同等功能的openstack project/role/service命令。</p>
+</li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li11426162175212">使用CPS的鉴权，输入“2”，按“Enter”，并按提示输入“CPS_USERNAME”的用户名和密码。<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p942613215214"><a name="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li11426162175212"></a><a name="zh-cn_topic_0319022934_li11426162175212"></a>用户名：“cps_admin”，默认密码：“FusionSphere123”。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p11426122165211">输入完成后如果有<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b042614245210">cps host-list</strong>命令的自动回显信息，则表示环境变量导入成功。使用CPS鉴权导入环境变量后只能执行CPS相关命令，无法执行OpenStack命令，所以回显信息会在执行完<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b16427628529">nova list</strong>后提示“ERROR...”。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p94275218528">在未完全部署完成FusionSphere OpenStack之前，OpenStack鉴权还未启用，或Keystone鉴权异常时，可使用CPS鉴权。</p>
+</li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li5427126523">使用OpenStack的Keystone V2鉴权，输入“3”，按“Enter”，并按提示输入“OS_USERNAME”的密码。<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p144271725521"><a name="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li5427126523"></a><a name="zh-cn_topic_0319022934_li5427126523"></a>默认密码：“FusionSphere123”。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p1942732155210">密码输入成功后如果有<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b164275210528">cps host-list</strong>和<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b342752115219">nova list</strong>命令的自动回显信息，则表示环境变量导入成功。导入成功后系统使用Keystone V2鉴权。可以正常执行CPS命令和OpenStack命令。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p442712219527">在FusionSphere OpenStack 8.0.0.SPC15 版本全新安装场景下，如果使用此种鉴权方式，原Keystone命令行在执行tenant/role/service相关命令时会存在兼容性问题，将无法执行。为了兼容之前版本的鉴权方式，仍然支持Keystone V2鉴权，建议优先使用Keystone V3鉴权。</p>
+</li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li1842782135210">使用内置云管理员帐号的OpenStack Keystone V3鉴权，输入“4”，按“Enter”，并按提示输入“cloud_admin”（内置的云管理员帐号）的密码。<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p1442711205212"><a name="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li1842782135210"></a><a name="zh-cn_topic_0319022934_li1842782135210"></a>默认密码：“FusionSphere123”。</p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p94270216528">密码输入成功后如果有<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b0427727526">cps host-list</strong>和<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b1642719295218">nova list</strong>命令的自动回显信息，则表示环境变量导入成功。导入成功后系统使用内置云管理员帐号的Keystone V3鉴权。可以正常执行CPS命令和OpenStack命令。</p>
+</li></ul>
+<div class="note" id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_note64276235216"><img src="../../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_ul1542817210521"><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li3428429524">在对接FusionSphere OpenStack OM或ManageOne 运营面的情况下，请使用V3版本的鉴权方式。</li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li842817275214">如果执行的操作需要使用“cloud_admin”帐户权限（例如，使用<strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b1142862175217">PasswordManager</strong>命令重置GaussDB数据库帐户密码），请使用内置云管理员帐号的OpenStack Keystone V3鉴权。</li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li7428429524">如果导入环境变量时选择使用Keystone鉴权，但环境还未部署nova-api，将导致cps host-list回显成功，nova list回显异常，部署nova-api服务后即可正常使用nova相关命令。</li></ul>
+</div></div>
+</p></li><li id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_li174281285216"><span id="ZH-CN_TOPIC_0319024609__">（可选）在多DC场景下，如果每个DC都部署了独立的glance，在每个DC导入环境变量时，还需要执行以下命令，导出该DC的OS_IMAGE_URL。</span><p><p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p24285219520"><strong id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_b34281235211">export OS_IMAGE_URL=https://image.</strong><em id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_i34282214524">azx.dcx.domainname.com:443</em></p>
+<p id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_p64297214524"><em id="ZH-CN_TOPIC_0319024609__zh-cn_topic_0319022934_i242912212529">azx.dcx.domainname.com:443</em>为该DC中设置的glance域名。</p>
+</p></li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../common/software-fs-sdn/1_11_FAQ.html">参考及FAQ
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../common/software-fs-sdn/1_7_6_check_mtu.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../common/software-fs-sdn/1_7_3_fail.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

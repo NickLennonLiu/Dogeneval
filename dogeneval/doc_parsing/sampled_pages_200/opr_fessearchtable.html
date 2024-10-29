@@ -1,0 +1,503 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="模拟触发FES表项搜索（OPR FESSEARCHTABLE）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_simulate_fes_entry_search.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134580801">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>模拟触发FES表项搜索（OPR FESSEARCHTABLE）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134580801"></a><a name="ZH-CN_CONCEPT_0134580801"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">模拟触发FES表项搜索（OPR FESSEARCHTABLE）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134580801__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134580801__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134580801__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134580801__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134580801__1.3.5.1">使用实例</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580801__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134580801" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于模拟FES表项搜索。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580801__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134580801" class="sectiontitle2contents">注意事项</a></h4><p>该命令执行后立即生效。</p>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580801__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134580801" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580801__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134580801" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>TABLEID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>表ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：该参数用来表示表ID。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为1～4294967295。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>IDENTITYFLAG</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>身份标志位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示身份标志位。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>RUNAME：表示输入资源单元名称。</li><li>COMPID：表示输入组件ID。</li></ul>
+
+<p>默认值：无</p>
+
+<p>配置原则：如果不输入该参数，则表示模拟搜索FES表项的全部记录信息。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>RECNUM</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>记录数量</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用来表示记录数量。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为1～50。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：如果不输入该参数，则表示输出所有条目。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>OPERFLAG</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>下发标记位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用来表示下发标记位。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DOWNLOAD：搜索并下发。</li><li>NODOWNLOAD：搜索不下发。</li></ul>
+
+<p>默认值：NODOWNLOAD</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>FILTERFLAG</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>过滤字段标志位</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用来表示过滤字段的标志位。用来指定1-5组过滤条件字段名称和过滤条件字段取值。Parameter为过滤条件字段名称。Parameter Value为过滤条件字段取值。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>NOFILTER：不过滤。</li><li>ONE：过滤一组字段。</li><li>TWO：过滤二组字段。</li><li>THREE：过滤三组字段。</li><li>FOUR：过滤四组字段。</li><li>FIVE：过滤五组字段。</li></ul>
+
+<p>默认值：NOFILTER</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>FIELD</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第一个字段名</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“ONE”、“TWO”、“THREE”、“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第一个字段名。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～15。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>FIELD2</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第二个字段名</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“TWO”、“THREE”、“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第二个字段名。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～15。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>FIELD3</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第三个字段名</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“THREE”、“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第三个字段名。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～15。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>FIELD4</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第四个字段名</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第四个字段名。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～15。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>FIELD5</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第五个字段名</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第五个字段名。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～15。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VALUE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第一个参数值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“ONE”、“TWO”、“THREE”、“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第一个参数值。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VALUE2</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第二个参数值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“TWO”、“THREE”、“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第二个参数值。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VALUE3</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第三个参数值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“THREE”、“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第三个参数值。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VALUE4</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第四个参数值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“FOUR” 或 “FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第四个参数值。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VALUE5</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>第五个参数值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“FILTERFLAG”配置为“FIVE”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示第五个参数值。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>COMPONENTID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>组件ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“IDENTITYFLAG”配置为“COMPID”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示组件ID。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：十六进制整数类型，取值范围为0x0～0xFFFFFFFF。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>RUNAME</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>资源单元名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“IDENTITYFLAG”配置为“RUNAME”时为必选参数。</p>
+
+<p>参数含义：该参数用来表示资源单元名称。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：区分大小写，不支持空格，下发本MML命令前可使用DSP RU查看资源单元信息。</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580801__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134580801" class="sectiontitle2contents">使用实例</a></h4><p>模拟FES表项搜索：</p>
+
+<pre class="codeblock">OPR FESSEARCHTABLE:TABLEID=1082;</pre>
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_simulate_fes_entry_search.html">模拟搜索FES表项
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

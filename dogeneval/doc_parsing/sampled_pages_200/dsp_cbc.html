@@ -1,0 +1,176 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="显示CBC链路状态(DSP CBC)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_cbc_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_cbc.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172226051">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示CBC链路状态(DSP CBC)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172226051"></a><a name="ZH-CN_MMLREF_0000001172226051"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">显示CBC链路状态(DSP CBC)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.6.1">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001172226051__1.3.7.1">输出结果说明</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172226051__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>此命令用于查询CBC下SBc链路的连接状态。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>如果不输入CBC索引号，则显示所有CBC下SBc链路的连接状态。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug；monitor-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CBCIDX</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>CBC索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定待查询的CBC索引。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0~127</p>
+<p>默认值：无</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">使用实例</a></h4><p>输入CBC索引，查询指定的CBC数据：</p>
+<p><span class="msgph">DSP CBC: CBCIDX=0;</span></p>
+<pre class="screen">%%DSP CBC: CBCIDX=0;%%
+RETCODE = 0  操作成功。
+
+输出结果如下：
+-------------------------
+     CBC索引  =  0
+      进程号  =  6
+      RU名称  =  USN_SP_RU_0064
+   IP地址类型  =  IPv4
+    本地地址1  =  10.2.62.20
+    本地地址2  =  255.255.255.255
+   本地端口号  =  29168
+    对端地址1  =  172.27.168.1
+    对端地址2  =  255.255.255.255
+   对端端口号  =  29168
+      VPN名称  =  _public_
+     链路状态  =  正常
+(结果个数 = 1)</pre>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172226051__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_MMLREF_0000001172226051" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.7.2.1.3.1.1" liSelected="liSelected"><p>输出项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.7.2.1.3.1.2" liSelected="liSelected"><p>输出项解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>CBC索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路的索引，该参数用来在系统范围内部唯一标识一条SBc链路。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>进程号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路所在SGP进程的进程号。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>RU名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>查询所在的资源单元名称。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>IP地址类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路IP地址类型。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>本地地址1</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路第一个本地IP地址。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>本地地址2</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路第二个本地IP地址。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>本地端口号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路本地端口号。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>对端地址1</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路第一个对端IP地址。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>对端地址2</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路第二个对端IP地址。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>对端端口号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路对端端口号。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>VPN名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>SBc链路的VPN名称。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.1 "><p>链路状态</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.7.2.1.3.1.2 "><p>查询SBc链路状态的查询结果。</p>
+<div class="p">取值说明：<ul><li><span class="parmvalue">“正常”</span>：表示MME网元与CBC网元间之间的通信在该链路上正常。</li><li><span class="parmvalue">“故障”</span>：表示MME网元与CBC网元间之间的通信在该链路上中断，需要检查网络状况，分析故障原因。详细操作参见SBc链路故障告警处理。</li></ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_cbc_configuration.html">CBC配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_cbc.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

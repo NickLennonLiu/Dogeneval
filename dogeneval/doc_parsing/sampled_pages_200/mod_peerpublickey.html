@@ -1,0 +1,216 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="修改对端公钥（MOD PEERPUBLICKEY）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_public_key_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_peerpublickey.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_peerpublickey.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134581221">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>修改对端公钥（MOD PEERPUBLICKEY）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134581221"></a><a name="ZH-CN_CONCEPT_0134581221"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">修改对端公钥（MOD PEERPUBLICKEY）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134581221__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134581221__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134581221__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134581221__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134581221__1.3.5.1">使用实例</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581221__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134581221" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于修改对端公钥。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581221__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134581221" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>密钥需定期修改否则会有安全风险。</li><li>目前，DSA算法仅支持1024位的密钥，有安全风险，建议使用RSA和ECC更安全的算法。</li></ul>
+ </div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581221__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134581221" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581221__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134581221" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>KEYNAME</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>密钥名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：密钥名称。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>PUBKEYTYPE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>密钥类型</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：密钥类型。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>RSA：RSA公钥。</li><li>DSA：DSA公钥。</li><li>ECC：ECC公钥。</li></ul>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>KEYCODE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>密钥</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：密钥。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～2046。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ENCODETYPE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>编码类型</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“PUBKEYTYPE”配置为“RSA” 或 “DSA”时为可选参数。</p>
+
+<p>参数含义：编码类型。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DER：DER编码。</li><li>PEM：PEM编码。</li><li>OPENSSH：OpenSSH编码。</li></ul>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ECCENCODETYPE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ECC编码类型</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“PUBKEYTYPE”配置为“ECC”时为可选参数。</p>
+
+<p>参数含义：ECC编码类型。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DER：DER编码。</li></ul>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581221__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134581221" class="sectiontitle2contents">使用实例</a></h4><p>修改类型为RSA、名称为rsa1的对端公钥：</p>
+
+<pre class="codeblock">MOD PEERPUBLICKEY:KEYNAME="rsa1",PUBKEYTYPE=RSA,KEYCODE="3082010A0282010100BB7B948B9E1124233E2AEBD29E131FC3D2587AF5B8814485376B32F1AD567D12AFFBC66B05360D80431D3DF573E565B9394C28CE0361F06CB52A4249DD8DCD011BE9C9F4FA19B6F03DCB52EA8D75C6D5B851AD35538854AE7356E6FA9E1943A20A38BE728CE4BF2A4E2E44511595C0D0503300C9F2CC556283A7A060432D07E469A706F3A2C6D13537B546B48AED53F080B0DB9B665143CFB0C665172266B5B460F1CE76C1555FDB90822E80F121007CC52C8A54F8731BC0C35F7A3CAAFA805B12ED5F4D83FB7A15C61F4D7BD9F0494DAEF967A4497359990E284B0AEA323AF4EE05C4968F3281A1C285DE830C5836E929E051FF44BCB85B114A2EBD762A2A8D0203010001";</pre>
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_public_key_configuration.html">公钥配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_peerpublickey.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_peerpublickey.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

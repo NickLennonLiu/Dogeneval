@@ -1,0 +1,191 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="增加当前UPF绑定的IP域（ADD UPIPDOMAIN）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_upf_ip_domain_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_upipdomain.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209652582">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加当前UPF绑定的IP域（ADD UPIPDOMAIN）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209652582"></a><a name="ZH-CN_MMLREF_0209652582"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">增加当前UPF绑定的IP域（ADD UPIPDOMAIN）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209652582__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209652582__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209652582__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209652582__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209652582__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652582" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：PGW-C、SMF</strong>
+                </p>
+
+                    <p>该命令用于将指定UPF绑定到特定的IPDomain，当该UPF给用户分配IP地址时，SMF内部会在此地址前加上该IPDomain前缀，并带给PCF，用于扩展地址池。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209652582__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652582" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+							<ul><li>最多可输入32768条记录。</li></ul>
+  
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209652582__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209652582" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209652582__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652582" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UPNODE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UPF节点标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于表示UPF节点标识。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~36。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 本参数取值与ADD PNFPROFILE命令中的“NF实例标识”参数取值保持一致时，关联关系生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>IPDOMAIN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>IP地址段归属的域</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于表示IP地址段归属的域。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DNNSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>DNN开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于表示DNN开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“ENABLE（使能）”：Dnn配置使能</li><li>“DISABLE（不使能）”：DNN配置不使能</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 若配置UPNODE和IPDomain之间的绑定关系，对所有DNN都生效，此参数应配置为DISABLE。若配置UPNODE和IPDomain之间的绑定关系，只对某些DNN都生效，此参数应配置为ENABLE。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DNN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>数据网络名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"DNNSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示数据网络名称。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~63。可输入的字符有字母、十进制数字、“-”和“.”，并且开头和结尾只能是数字或者字母。不能出现连续两个“.”。字母大小写不敏感。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209652582__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652582" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                <ul><li>增加UPNODE为"upf_instance_1"的UPF与IPDomain的绑定关系：
+                            <pre class="screen">ADD UPIPDOMAIN: UPNODE="upf_instance_1", IPDOMAIN="Domain_0", DNNSWITCH=DISABLE;</pre>
+
+						</li><li>增加UPNODE为"upf_instance_1"的UPF在DNN为"huawei.com"上与IPDomain的绑定关系：
+                            <pre class="screen">ADD UPIPDOMAIN: UPNODE="upf_instance_1", IPDOMAIN="Domain_0", DNNSWITCH=ENABLE, DNN="huawei.com";</pre>
+
+						</li></ul>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_upf_ip_domain_management.html">UPF IP Domain管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_upipdomain.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

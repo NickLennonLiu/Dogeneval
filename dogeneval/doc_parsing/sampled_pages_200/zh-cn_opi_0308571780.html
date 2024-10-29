@@ -1,0 +1,269 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="SMF侧业务配置">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0308571778.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0308571779.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0000001122160708.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0308571780">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>SMF侧业务配置</title>
+</head>
+<body><a name="ZH-CN_OPI_0308571780"></a><a name="ZH-CN_OPI_0308571780"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">SMF侧业务配置</h1>
+<ul><li><a href="#ZH-CN_OPI_0308571780__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0308571780__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0308571780__1.3.3">操作流程</a></li><li><a href="#ZH-CN_OPI_0308571780__1.3.4">操作步骤</a></li><li><a href="#ZH-CN_OPI_0308571780__1.3.5">任务示例</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0308571780__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0308571780" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>根据<a href="zh-cn_topic_0308571777.html">整体方案设计</a>，SMF侧需配置两个预定义规则：</p>
+<ul><li>规则名<span class="parmname">“Predefined1”</span>：关键参数为5QI=5，ARP=2，MFBR=100Mbit/s。</li><li>规则名<span class="parmname">“Predefined2”</span>：关键参数为5QI=5，ARP=2，MFBR=1Mbit/s。</li></ul>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0308571780__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0308571780" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>请仔细阅读UNC特性之<span>《WSFD-109101 PCC基本功能》</span>。</li><li>完成加载License（如果有需求，请联系华为技术支持工程师）。</li><li>已通过学习<a href="zh-cn_topic_0286483633.html">SM策略E2E实现原理</a>、<a href="zh-cn_opi_0000001115813778.html">业务配置方法</a>及<a href="zh-cn_topic_0308571774.html">E2E业务调测</a>了解了SM策略的配置原理及方法。</li></ul>
+<span><p class="sectiontitle">数据</p></span><p>PCF通过预定义规则下发规则标识时，SMF侧需规划<a href="#ZH-CN_OPI_0308571780__table182854220145">表1</a>中的数据。</p>
+
+<div class="tableBorder"><a name="ZH-CN_OPI_0308571780__table182854220145"></a><a name="table182854220145"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0308571780__table182854220145" frame="border" border="1" rules="all"><caption><b>表1 </b>数据规划</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.86%" id="mcps1.3.2.1.2.2.2.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25.09%" id="mcps1.3.2.1.2.2.2.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="18.77%" id="mcps1.3.2.1.2.2.2.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.280000000000001%" id="mcps1.3.2.1.2.2.2.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27%" id="mcps1.3.2.1.2.2.2.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="3" valign="top" width="16.86%" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p><b><span class="cmdname">ADD URR</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>使用量上报规则名称（URRNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.77%" headers="mcps1.3.2.1.2.2.2.6.1.3 "><ul><li>urr_QoS2</li><li>urr_QoS3</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="12.280000000000001%" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27%" headers="mcps1.3.2.1.2.2.2.6.1.5 "><p>存在多条记录时，该参数不能重复。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>URR标识（URRID）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><ul><li>2（对应<span class="parmvalue">“urr_QoS2”</span>）</li><li>3（对应<span class="parmvalue">“urr_QoS3”</span>）</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>与对端协商</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>该参数需要与UPF上的URR标识保持一致。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>使用量上报模式（USAGERPTMODE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>QOS</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>固定取值</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="8" valign="top" width="16.86%" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p><strong>ADD QOSPROP</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>QOSPROPNAME（QoS属性名称）</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.77%" headers="mcps1.3.2.1.2.2.2.6.1.3 "><ul><li>qosprop_5qi5_arp2_100</li><li>qosprop_5qi5_arp2_1</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="12.280000000000001%" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27%" headers="mcps1.3.2.1.2.2.2.6.1.5 "><p>存在多条记录时，不能重复。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>EMPCAP（QoS抢占能力）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>DISABLE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>该业务可以抢占已经分配给其他低优先级业务流的资源时，设置为ENABLE。此处以不抢占为例。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>EMPVUL（QoS被抢占设置）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>ENABLE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>其他高优先级业务不能抢占本业务流的资源时，设置为DISABLE。此处以被抢占为例。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>MBRUPLKVALUE（最大上行比特率）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><ul><li>100000</li><li>1000</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>此处数据仅为举例，请根据业务模型进行规划。</p>
+<p>创建专有QoSFlow/专有承载时，以SMF上此处配置的为准。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>MBRDNLKVALUE（最大下行比特率）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><ul><li>100000</li><li>1000</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>ARPVALUE（分配保留优先级）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>“QOSTYPE”为“QOS_FLOW_PARA”时需要规划。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>FQI（5G QoS标识）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>QOSURRNAME（QoS使用量上报规则名称）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><ul><li>urr_QoS2</li><li>urr_QoS3</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>使用<strong>ADD URR</strong>定义的URRNAME。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="2" valign="top" width="16.86%" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p><strong><b><span class="cmdname">ADD PCCPOLICYGRP</span></b></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>PCC策略组名称（PCCPOLICYGRPNM）</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.77%" headers="mcps1.3.2.1.2.2.2.6.1.3 "><ul><li>pccfuppolicy_100M</li><li>pccfuppolicy_1M</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="12.280000000000001%" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27%" headers="mcps1.3.2.1.2.2.2.6.1.5 "><p>存在多条记录时，该参数不能重复。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>QoS属性名称（QOSPROPNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><ul><li>qosprop_5qi5_arp2_100</li><li>qosprop_5qi5_arp2_1</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>使用<b><span class="cmdname">ADD QOSPROP</span></b>定义的<b><span class="cmdname">QOSPROPNAME</span></b>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="4" valign="top" width="16.86%" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p><strong><b><span class="cmdname">ADD RULE</span></b></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>规则名称（RULENAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.77%" headers="mcps1.3.2.1.2.2.2.6.1.3 "><ul><li>Predefined1</li><li>Predefined2</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="12.280000000000001%" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27%" headers="mcps1.3.2.1.2.2.2.6.1.5 "><p>存在多条数据时，该参数+策略类型不能完全相同。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>策略类型（POLICYTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>PCC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>需根据业务策略选择相应的策略类型。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>全局优先级（PRIORITY）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>10</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>值越小，优先级越高。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>策略名称（POLICYNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><ul><li>pccfuppolicy_100M</li><li>pccfuppolicy_1M</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>使用<strong>ADD PCCPOLICYGRP</strong>定义的<span class="parmname">“PCCPOLICYGRPNM”</span>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0308571780__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0308571780" class="sectiontitle2contents">操作流程</a></h2>
+<div class="Sectionbody"><p>此特性的配置流程图如<a href="#ZH-CN_OPI_0308571780__fig15774181964713">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_OPI_0308571780__fig15774181964713"><a name="ZH-CN_OPI_0308571780__fig15774181964713"></a><a name="fig15774181964713"></a><span class="figcap"><b>图1 </b>UNC（SMF）侧业务配置流程图</span><br><span><img class="vsd" src="../images/zh-cn_image_0000001147787534.png"></span></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0308571780__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0308571780" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span>登录UNC CSP OM Portal，进入“MML命令行-UNC”窗口。</span></li><li><span>开启License。</span><p><p>该步骤为预定义规则（组）场景下的必选配置。执行SET LICENSESWITCH命令设置基于使用量特性对应的License开关。</p>
+<pre class="screen">SET LICENSESWITCH:LICITEM="LKV2FUPSAT01",SWITCH=ENABLE;</pre>
+</p></li><li><span>打开PCC功能开关。</span><p><p>步骤为预定义规则（组）场景下的必选配置。预定义规则（组）场景下，策略下发都涉及PCF网元配置，因此需打开此开关。</p>
+<pre class="screen">SET PCCFUNC: HOMEPCCSWITCH=ENABLE;</pre>
+</p></li><li><span>（条件可选）使能APN PCC开关。</span><p><p>该步骤主要用于使能或关闭指定APN/DNN用户的动态PCC功能。例如当前网络中有两个数据APN，分别为APN1和APN2，可通过配置此命令对APN1与APN2做业务隔离。</p>
+<pre class="screen">SET APNPCCFUNC: APN="cmnet", HOMEPCCSWITCH=ENABLE, ROAMPCCSWITCH=ENABLE, VISITPCCSWITCH=ENABLE;</pre>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>针对多APN组网复杂的场景，建议配置此命令。</p>
+</div></div>
+</p></li><li><span>配置QoS URR。</span><p><p>该步骤为预定义规则（组）场景下的可选配置，只有在基于使用量上报/QoS控制/计费控制场景才需配置，此处根据需求描述需配置QoS URR。</p>
+<pre class="screen">ADD URR:URRNAME="<span style="color:#0000FF;">urr_QoS2</span>", URRID=2, USAGERPTMODE=QOS;
+ADD URR:URRNAME="<span style="color:#0000FF;">urr_QoS3</span>", URRID=3, USAGERPTMODE=QOS;</pre>
+</p></li><li><span>配置QoS参数。</span><p><p>该步骤为预定义规则（组）场景下的可选配置。只有在需要对用户进行带宽控制或建立专有QoS Flow时，才需配置。须配置配额耗尽前、耗尽后两种场景的带宽控制策略。</p>
+<p>//用户从国内接入网络时，即PCF下发预定义规则predefined1场景，此处5QI/ARP取值参考<a href="zh-cn_topic_0308571777.html#ZH-CN_TOPIC_0308571777__section19258165565710">SMF（UNC）侧业务设计</a>规划分别取5和2。</p>
+<pre class="screen">ADD QOSPROP: QOSPROPNAME="<span style="color:#9D3C00;">qosprop_5qi5_arp2</span><span style="color:#9D3C00;">_100</span>", MBRUPLKVALUE=100000, MBRDNLKVALUE=100000, QOSTYPE=QOS_FLOW_PARA, ARPVALUE=2, FQI=5, QOSURRNAME=<span style="color:#0000FF;">"urr_QoS2"</span>;</pre>
+<p>//用户从国外（漫游区）的地方接入网络时，即PCF下发预定义规则predefined2场景，此处5QI/ARP取值参考<a href="zh-cn_topic_0308571777.html#ZH-CN_TOPIC_0308571777__section19258165565710">SMF（UNC）侧业务设计</a>规划分别取5和2。</p>
+<pre class="screen">ADD QOSPROP: QOSPROPNAME="<span style="color:#00B0F0;">qosprop_5qi5_arp2_1</span>", MBRUPLKVALUE=1000, MBRDNLKVALUE=1000, QOSTYPE=QOS_FLOW_PARA, ARPVALUE=2, FQI=5, QOSURRNAME="<span style="color:#0000FF;">urr_QoS3</span>";</pre>
+</p></li><li><span>配置PCC策略组。</span><p><p>该步骤为预定义规则（组）场景下的必选配置。配置PCC策略组的目的是用于关联QoS URR策略。此处“URRGROUPNAME”参数使用ADD URRGROUP定义的“URRGROUPNAME”。</p>
+<p>//用户从国内接入网络时，即PCF下发预定义规则predefined1场景。</p>
+<pre class="screen">ADD PCCPOLICYGRP:PCCPOLICYGRPNM="pccfuppolicy_100M", QOSPROPNAME=<span style="color:#9D3C00;">"qosprop_5qi5_arp2</span><span style="color:#9D3C00;">_1</span><span style="color:#9D3C00;">00</span>";</pre>
+<p>//用户从国外（漫游区）的地方接入网络时，即PCF下发预定义规则predefined2场景。</p>
+<pre class="screen">ADD PCCPOLICYGRP:PCCPOLICYGRPNM="pccfuppolicy_1M", QOSPROPNAME=<span style="color:#00B0F0;">"qosprop_5qi5_arp2_1</span>";</pre>
+</p></li><li><span>配置预定义规则。</span><p><p>该步骤为预定义规则（组）场景下的必选配置。主要用于关联PCC策略组。此处预定义规则名称、数量都须与PCF侧定义的保持一致。</p>
+<pre class="screen">ADD RULE:RULENAME="Predefined1",POLICYTYPE=PCC,PRIORITY=10,POLICYNAME="pccfuppolicy_100M";
+ADD RULE:RULENAME="Predefined2",POLICYTYPE=PCC,PRIORITY=10,POLICYNAME="pccfuppolicy_1M";</pre>
+</p></li></ol>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0308571780__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0308571780" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">任务描述</p></span><p>配置规则<span style="color:#0000FF;">Predefined1</span>、<span style="color:#0000FF;">Predefined2</span>。</p>
+<span><p class="sectiontitle">脚本</p></span><p>业务导入脚本：<a href="../resource/SMF_MML_0000001174051921.txt">SMF MML</a></p>
+<p>业务回退脚本：<a href="../resource/SMF_MML_Deleting_0000001128663400.txt">SMF MML Deleting</a></p>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0308571778.html">E2E业务配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0308571779.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0000001122160708.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

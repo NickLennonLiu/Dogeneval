@@ -1,0 +1,416 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="修改5G PEI策略（MOD NGPEIPLCY）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_pei_policy_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_ngpeiplcy.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_ngpeiplcy.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209652460">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>修改5G PEI策略（MOD NGPEIPLCY）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209652460"></a><a name="ZH-CN_MMLREF_0209652460"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">修改5G PEI策略（MOD NGPEIPLCY）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209652460__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209652460__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209652460__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209652460__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209652460__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652460" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF</strong>
+                </p>
+
+                    <p>该命令用于为指定的用户修改PEI控制策略，如是否从UE获取PEI、是否检查PEI的合法性等。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209652460__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652460" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+							<ul><li>此命令修改所有5G用户的默认IMEI配置，以及指定号段用户的IMEI配置。</li></ul>
+  
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209652460__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209652460" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209652460__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652460" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SUBRANGE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>用户范围</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定用户的范围。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“ALL_USER（所有用户）”：所有用户</li><li>“IMSI_PREFIX（指定IMSI前缀）”：指定IMSI前缀</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>IMSIPRE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>IMSI前缀</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"SUBRANGE"配置为"IMSI_PREFIX"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定IMSI前缀，取值5～15位十进制数字。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是5~15。只允许输入十进制数字（0-9）。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>GETPEIPLCY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PEI获取策略</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指示网络侧是否需要获取用户设备标识。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“NOGET（不获取）”：不获取</li><li>“GETIMEI（获取IMEI）”：获取IMEI</li><li>“GETIMEISV（获取IMEISV）”：获取IMEISV</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 如需要获取用户设备标识，建议配置为“GETIMEISV(获取IMEISV)”，这样当注册流程中存在Security Mode Command消息时，AMF可直接通过该消息向UE获取IMEISV，不需要发送Identity Request消息，减少信令消耗。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CHKPEIPLCY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PEI检查策略</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"GETPEIPLCY"配置为"GETIMEISV、GETIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指示网络侧是否需要检查用户设备标识。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“NOCHK（不检查）”：不检查</li><li>“CHKIMEI（检查IMEI）”：检查IMEI</li><li>“CHKIMEISV（检查IMEISV）”：检查IMEISV</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 当参数设置为“CHKIMEI(检查IMEI)”或“CHKIMEISV(检查IMEISV)”时，“设备标识检查”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-103004 设备标识检查，License部件编码：LKV2EIR02）。</p>
+<p> 当本参数取值为“CHKIMEISV(检查IMEISV)”时，GETPEIPLCY参数的取值必须是“GETIMEISV(获取IMEISV)”。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PROTTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>流程类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定强制进行PEI检查的流程。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“INIT_REG（初始注册）”：表示初始注册流程需要进行PEI检查。</li><li>“MOBL_INTRA_REG（移动性INTRA注册）”：表示移动性INTRA注册流程需要进行PEI检查。</li><li>“MOBL_INTER_REG（移动性INTER注册）”：表示移动性INTER注册需要进行PEI检查。</li><li>“PROD_REG（周期性注册）”：表示周期性注册流程需要进行PEI检查。</li><li>“REG_AFT_INTRAHO（INTRA切换流程后的注册）”：表示INTRA切换后的注册流程需要进行PEI检查。</li><li>“REG_AFT_INTERHO（INTER切换流程后的注册）”：表示INTER切换后的注册流程需要进行PEI检查。</li><li>“IDLE_SYSCHG_REG（空闲态EPS到5GS注册）”：表示空闲态EPS到5GS注册流程需要进行PEI检查。</li><li>“CONN_SYSCHG_REG（连接态EPS到5GS切换后的注册）”：表示连接态EPS到5GS切换后的注册流程需要进行PEI检查。</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 建议在初始注册、移动性Inter注册、Inter切换后的注册、空闲态EPS到5GS注册、连接态EPS到5GS切换后的注册中开启PEI检查功能。</p>
+<p> 如果希望某个流程开启PEI检查功能，则勾选该流程选项。</p>
+<p> 如果希望某个流程不开启PEI检查功能，则去勾选该流程选项。</p>
+<p> 如果希望系统保持某个流程当前设置值，则灰化该流程选项。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PEIACCESS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PEI获取失败是否允许接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"GETPEIPLCY"配置为"GETIMEISV、GETIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指示当获取PEI失败时是否允许用户接入。获取PEI失败包括无响应、返回no identity、返回非法等场景。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CTFLAG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PEI检查超时是否允许接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指示CHECK PEI无响应或CHECK PEI时不存在有效的PEI时是否允许用户接入。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>BALLOW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否允许黑名单用户接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数表示执行CHECK PEI流程后，对于处于黑名单的UE是否允许接入。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>GRALLOW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否允许灰名单用户接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数表示执行CHECK PEI流程后，对于处于灰名单的UE是否允许接入。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>EMERGENCYSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否允许紧急注册用户接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定当紧急注册用户的PEI检查结果为被禁止时，是否允许用户接入。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DISCFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否允许EIR发现失败时接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于表示5G-EIR发现失败时是否允许用户接入。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CHKFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否允许EIR返回失败时接入</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指示5G-EIR PEI检查失败(返回状态码非200 OK)时是否允许用户接入。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：允许接入</li><li>“NO（否）”：不允许接入</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CHKPEITHRESHOLD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PEI检查上限</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定当PEI未改变时，每多少次注册流程UNC发起一次CHECK PEI，以减少和5G-EIR之间的信令交互。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~1023。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> “1/N设备标识检查”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-103006 1/N设备标识检查，License部件编码：LKV21NIMEI01）。</p>
+<p> 当“PEI检查策略”参数为“CHKIMEI（检查IMEI）”或“CHKIMEISV(检查IMEISV)”时，初始注册（首次获取PEI或者PEI改变）或者Inter场景第一次接入系统（移动性Inter注册、Inter切换后的注册、空闲态EPS到5GS注册、连接态EPS到5GS切换后的注册）如果开启PEI检查，则直接发起检查，不受此参数控制。</p>
+<p> “0”表示PEI未改变的注册流程不需要发起PEI检查流程。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RETRYSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否重选EIR</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定当AMF选择某个5G-EIR进行PEI检查时，如果对端返回5xx原因值时，是否重新选择新的5G-EIR再次重试业务请求。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：是</li><li>“NO（否）”：否</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 当本参数取值为“YES”时，一次PEI检查流程中，最多进行一次5G-EIR重选。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>REDIRECTSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>是否支持EIR重定向</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"CHKPEIPLCY"配置为"CHKIMEISV、CHKIMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定当AMF选择某个5G-EIR进行PEI检查时，如果对端返回307临时重定向或308永久重定向时，是否根据重定向指示重新选择新的5G-EIR再次重试业务请求。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“YES（是）”：是</li><li>“NO（否）”：否</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 当本参数取值为“YES”时，一次PEI检查流程中，最多进行一次5G-EIR重定向。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DESC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>描述信息</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数表示对当前PEI控制策略的描述，在运维中起助记的作用。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~32。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 输入单空格将删除该参数已有配置项。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209652460__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652460" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>修改所有5G用户的PEI策略，获取并检查IMEI，如果PEI获取失败允许接入，如果PEI检查超时允许接入，执行如下命令：</p>
+
+                    <pre class="screen">MOD NGPEIPLCY: SUBRANGE=ALL_USER, GETPEIPLCY=GETIMEI, CHKPEIPLCY=CHKIMEI, PEIACCESS=YES, CTFLAG=YES;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_pei_policy_management.html">PEI策略管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_ngpeiplcy.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_ngpeiplcy.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

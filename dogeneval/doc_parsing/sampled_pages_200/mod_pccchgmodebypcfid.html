@@ -1,0 +1,176 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="修改基于PCF的计费策略接口类型（MOD PCCCHGMODEBYPCFID）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_charging_policy_interface_selection.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_pccchgmodebypcfid.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_pccchgmodebypcfid.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0272001551">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>修改基于PCF的计费策略接口类型（MOD PCCCHGMODEBYPCFID）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0272001551"></a><a name="ZH-CN_MMLREF_0272001551"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">修改基于PCF的计费策略接口类型（MOD PCCCHGMODEBYPCFID）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0272001551__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0272001551__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0272001551__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0272001551__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0272001551__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0272001551" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody">
+                        <p>配置基于PCF的计费策略接口类型不当可能导致PCC用户选择错误接口的PCRF/PCF服务器，进而影响用户使用业务，比如用户无法正常激活。</p>
+
+                </div></div>
+
+                <p>
+                    <strong>适用NF：SMF</strong>
+                </p>
+
+                    <p>修改基于PCF的计费策略接口类型。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0272001551__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0272001551" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <p>该命令执行后只对新激活用户生效。</p>
+
+                      
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0272001551__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0272001551" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0272001551__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0272001551" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PCFINSID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PCF实例标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：字符串唯一标识PCF实例。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~63。不支持空格，不区分大小写。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> PCF实例标识在TOPO本地配置，或者由NRF返回。需要整网协商配置。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>POLICYINTF</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>策略接口类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：指定的策略接口类型。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“INHERIT（继承）”：继承ADD APNPOLICYMODE或SET POLICYMODE命令配置。</li><li>“N7（N7接口）”：使用N7接口。</li><li>“Gx（Gx接口）”：使用Gx接口。</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CHGINTF</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>计费接口类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：指定的计费接口类型。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“INHERIT（继承）”：继承ADD APNCHGMODE或SET CHGMODE命令配置。</li><li>“N40（N40接口）”：使用N40接口。</li><li>“GaGy（GaGy接口）”：使用GaGy接口。</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0272001551__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0272001551" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>修改PCF实例标识为pcf1的策略接口类型为Gx</p>
+
+                    <pre class="screen">MOD PCCCHGMODEBYPCFID: PCFINSID="pcf1",POLICYINTF=Gx;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_charging_policy_interface_selection.html">计费策略接口选择
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_pccchgmodebypcfid.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_pccchgmodebypcfid.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

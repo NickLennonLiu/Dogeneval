@@ -1,0 +1,502 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="查询IPv6路由表（DSP ROUTE6）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_ipv6_routing_table.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134581988">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询IPv6路由表（DSP ROUTE6）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134581988"></a><a name="ZH-CN_CONCEPT_0134581988"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">查询IPv6路由表（DSP ROUTE6）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134581988__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134581988__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134581988__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134581988__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134581988__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0134581988__1.3.6.1">输出结果说明</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581988__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134581988" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于显示IPv6路由表，默认显示公网路由和所有VPN路由。</p>
+
+<p>路由表是路由器转发数据包的关键。</p>
+
+<p>路由表中保存了各种路由协议发现的路由，根据来源不同，路由表中的路由通常可以分为链路层协议发现的路由即直连路由、由网络管理员手工配置的静态路由，以及动态路由协议发现的路由。</p>
+
+<p>在路由数目较多时，该命令执行时间较长，且最多查询20万条路由。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581988__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134581988" class="sectiontitle2contents">注意事项</a></h4><p>无。</p>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581988__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134581988" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581988__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134581988" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VRFNAME</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VPN实例名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示路由所属VPN的名字。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～31。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：公网需要输入_public_，默认显示公网和所有VPN下的路由。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>PREFIX</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>路由前缀</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示路由前缀。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：IPv6地址类型。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ADDRESSFAMILY</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>地址族</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示路由所属VPN的地址族。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>ipv6unicast：IPv6单播。</li></ul>
+
+<p>默认值：ipv6unicast</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>MASKLENGTH</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>路由前缀长度</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示IPv6路由的前缀长度。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为0～128。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>PROTOCOLID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>路由协议名字</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示路由协议的名字。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>Direct：直连路由。</li><li>OSPFv3：OSPFv3路由。</li><li>Static：静态路由。</li><li>BGP：BGP路由。</li><li>wlr：无线路由。</li></ul>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ISACTIVE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>路由是否活跃</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示路由是否活跃。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：布尔类型，输入格式为“TRUE”或者“FALSE”。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>ISLONGERMATCH</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>是否应用最长匹配</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于表示是否查询最长匹配能匹配到的所有路由。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：布尔类型，输入格式为“TRUE”或者“FALSE”。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：该参数需和前缀一起使用，不能和前缀长度一起使用。</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581988__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134581988" class="sectiontitle2contents">使用实例</a></h4><p>显示IPv6路由表：</p>
+
+<pre class="codeblock">DSP ROUTE6:;</pre>
+<pre class="screen">
+RETCODE = 0 操作成功。
+
+结果如下
+--------
+   VPN实例名称 = _public_
+      路由前缀 = 2001:DB8::
+  路由前缀长度 = 128
+  路由协议名字 = Static
+    路由下一跳 = ::
+    路由优先级 = 60
+    路由开销值 = 0
+     路由Tag值 = 0
+  路由是否活跃 = TRUE
+  路由接口名字 = NULL0
+    路由生命期 = 00h00m24s
+      路由标识 = 下发FIB
+      路由状态 = 活跃不发布
+路由直连下一跳 = ::
+       路由IID = 0x9F00045A
+路由迭代下一跳 = ::
+    路由进程ID = 0
+      路由标签 = NULL
+    快速重路由 = Primary
+路由收敛优先级 = 极高
+      路由邻居 = 0.0.0.0
+(结果个数 = 1)
+--- END</pre>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581988__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0134581988" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.1"><p>输出项名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.2"><p>输出项解释</p>
+</th>
+
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>VPN实例名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由所属VPN的名字。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由前缀</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由前缀。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由前缀长度</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示IPv6路由的前缀长度。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由协议名字</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由协议的名字。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由下一跳</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的下一跳IP地址。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由优先级</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的优先级。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由开销值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的开销值。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由Tag值</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的tag属性值。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由是否活跃</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由是否活跃。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由接口名字</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的出接口名字。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由生命期</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用来表示路由的存活时间，例如1d01h14m51s，表示1天1小时14分钟51秒。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由标识</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由标志：</p>
+
+<ul><li>下发FIB：表示路由下发到FIB。</li><li>迭代下发FIB：表示迭代路由且下发到FIB。</li><li>迭代：表示迭代路由。</li><li>目的是VPN：路由目的是VPN。</li><li>下发FIB且目的是VPN：路由下发FIB且目的是VPN。</li><li>迭代目的是VPN且下发FIB：迭代目的是VPN且下发FIB。</li><li>迭代且目的是VPN：迭代，目的是VPN。</li><li>下发FIB且是黑洞路由：路由下发FIB且是黑洞路由。</li><li>迭代黑洞路由且下发FIB：迭代路由是黑洞路由且下发FIB。</li><li>迭代黑洞路由：迭代且是黑洞路由。</li><li>黑洞路由且目的是VPN：目的是VPN的黑洞路由。</li><li>路由下发FIB且目的是VPN的黑洞路由：黑洞路由下发FIB且目的是VPN。</li><li>迭代目的是VPN的黑洞路由且下发FIB：迭代目的是VPN的黑洞路由且下发FIB。</li><li>迭代目的是VPN的黑洞路由：迭代目的是VPN的黑洞路由。</li><li>黑洞路由：表示黑洞路由。</li></ul>
+
+</td>
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>该参数用于标示路由的状态：</p>
+
+<ul><li>激活：激活路由。</li><li>无效：无效路由。</li><li>不活跃：非激活路由。</li><li>不发布：不允许发布的路由。</li><li>发布：可以发布的路由。</li><li>迭代：迭代到下一跳及出接口的路由，或者迭代到隧道的路由。</li></ul>
+
+</td>
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由直连下一跳</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的直连下一跳。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由IID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用来表示路由的下一跳分离关键字，用于关联路由前缀和下一跳。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由迭代下一跳</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的迭代下一跳。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由进程ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由所属进程的ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由标签</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的标签。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>快速重路由</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的FRR类型。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由收敛优先级</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用来表示路由的收敛优先级。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>路由邻居</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于表示路由的邻居信息。只有当路由的FRR类型为主路由时，才显示路由邻居信息。</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_ipv6_routing_table.html">IPv6路由表
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

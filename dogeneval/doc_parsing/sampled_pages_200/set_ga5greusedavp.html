@@ -1,0 +1,253 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置5G用户接入时，Ga接口重用字段的填写方式（SET GA5GREUSEDAVP）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_5g_cdr_reuse_field_control.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_ga5greusedavp.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0252071373">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置5G用户接入时，Ga接口重用字段的填写方式（SET GA5GREUSEDAVP）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0252071373"></a><a name="ZH-CN_MMLREF_0252071373"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置5G用户接入时，Ga接口重用字段的填写方式（SET GA5GREUSEDAVP）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0252071373__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0252071373__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0252071373__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0252071373__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0252071373__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0252071373" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：SMF、PGW-C</strong>
+                </p>
+
+                    <p>该命令用于控制Ga接口对接过程中可能产生的不兼容因素。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0252071373__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0252071373" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+							<ul><li>该命令只做话单字段填写控制，不参与计费条件改变判断。</li></ul>
+  
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">RAT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">ULI</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.3">ULIFIXVALUE</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.4">QOS</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.5">QOSFIXVALUE</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.6">SERVINGNODETYPE</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 "><p>REALVALUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 "><p>REALVALUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 "><p>1812f470ffff12f470ffffffff</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 "><p>REALVALUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 "><p>08-4807001e848000195460</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 "><p>REALVALUE</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0252071373__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0252071373" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0252071373__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0252071373" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RAT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>无线接入技术</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：控制用户RAT为NR时，离线话单是否支持通过rATType字段携带用户真实的RAT，取值根据SET/LST NRRATVALUE设置。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>REALVALUE（携带真实用户信息）</li><li>FIXVALUE（携带固定用户信息）</li><li>DISABLE（不携带用户信息）</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ULI</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>用户位置信息</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：控制用户RAT为NR时，离线话单是否支持通过userLocationInformation字段携带用户真实的位置信息。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>REALVALUE（携带真实用户信息）</li><li>FIXVALUE（携带固定用户信息）</li><li>DISABLE（不携带用户信息）</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 5G接入，配置SET GA5GREUSEDAVP，ULI=FIXVALUE时，话单及所有容器携带ULI信息，ULI填写方式不受BIT922软参控制。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ULIFIXVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>用户位置信息固定值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"ULI"配置为"FIXVALUE"时为条件必选参数。</p>
+<p> 参数含义：设置用户RAT为NR时话单中ULI需要填写的固定值。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是12~26。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<ul><li>配置的用户位置信息可以是TAI，或者ECGI，或是同时TAI和ECGI，格式需要符合29274定义。</li><li>前两个字符必须为“18”或“08”或“10”，标识位置类型。整个字符串长度必须为26，12，16。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QOS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>QoS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：控制用户RAT为NR时，离线话单中QoS信息的携带方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>REALVALUE（携带真实用户信息）</li><li>FIXVALUE（携带固定用户信息）</li><li>DISABLE（不携带用户信息）</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QOSFIXVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>QoS固定值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QOS"配置为"FIXVALUE"时为条件必选参数。</p>
+<p> 参数含义：设置用户RAT为NR时话单中QoS需要填写的固定值。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度是23。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<ul><li>配置的用户QoS为R8格式，需要符合29061定义。</li><li>前三个字符必须为“08-”，整个字符串固定长度为23。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SERVINGNODETYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>服务节点类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：控制用户RAT为NR时，离线话单是否支持通过servingNodeType字段携带用户真实的服务节点类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>REALVALUE（携带真实用户信息）</li><li>FIXVALUE（携带固定用户信息）</li><li>DISABLE（不携带用户信息）</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0252071373__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0252071373" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>假设运营商需要Ga接口支持5G用户接入，期望PGW-CDR/SGW-CDR中RAT重用字段携带固定值EUTRAN(6)，可以执行该命令：</p>
+
+                    <pre class="screen">SET GA5GREUSEDAVP: RAT=FIXVALUE;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_5g_cdr_reuse_field_control.html">5G用户话单重用字段控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_ga5greusedavp.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

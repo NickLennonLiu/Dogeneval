@@ -1,0 +1,146 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="扩展QCI/5QI应用">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0310505692.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0311073828.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-109204">
+<meta name="Function" content="QoS">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0311073829">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>扩展QCI/5QI应用</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0311073829"></a><a name="ZH-CN_TOPIC_0311073829"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">扩展QCI/5QI应用</h1>
+<div>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>不同场景中<span>UNC</span>对QCI/5QI的处理方式</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="15.001500150015001%" id="mcps1.3.1.2.4.1.1" liSelected="liSelected"><p>场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="21.772177217721772%" id="mcps1.3.1.2.4.1.2" liSelected="liSelected"><p>QCI来源</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="63.22632263226322%" id="mcps1.3.1.2.4.1.3" liSelected="liSelected"><p>相关流程</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="15.001500150015001%" headers="mcps1.3.1.2.4.1.1 "><p><a href="#ZH-CN_TOPIC_0311073829__fig133414419382">场景1</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="21.772177217721772%" headers="mcps1.3.1.2.4.1.2 "><p>签约QoS</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.22632263226322%" headers="mcps1.3.1.2.4.1.3 "><p><span>UNC</span>从UDM获取签约QoS</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.001500150015001%" headers="mcps1.3.1.2.4.1.1 "><p><a href="#ZH-CN_TOPIC_0311073829__fig18526173196">场景2</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="21.772177217721772%" headers="mcps1.3.1.2.4.1.2 "><p>动态PCC规则</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.22632263226322%" headers="mcps1.3.1.2.4.1.3 "><p><span>UNC</span>从PCF获取动态PCC规则（Npcf_SMPolicyControl_Create Response）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.001500150015001%" headers="mcps1.3.1.2.4.1.1 "><p><a href="#ZH-CN_TOPIC_0311073829__fig13794102919488">场景3</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="21.772177217721772%" headers="mcps1.3.1.2.4.1.2 "><p>签约QoS</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.22632263226322%" headers="mcps1.3.1.2.4.1.3 "><ul><li>用户附着，<span>UNC</span>从MME收到创建会话的请求（Create Session Request）</li><li><span>UNC</span>从MME收到更新缺省承载的请求（Modify Bearer Command）</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.001500150015001%" headers="mcps1.3.1.2.4.1.1 "><p><a href="#ZH-CN_TOPIC_0311073829__fig0801144618316">场景4</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="21.772177217721772%" headers="mcps1.3.1.2.4.1.2 "><p>动态PCC规则</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.22632263226322%" headers="mcps1.3.1.2.4.1.3 "><ul><li><span>UNC</span>从PCF/PCRF获取动态PCC创建缺省承载/专有承载</li><li>动态PCC下，PCF/PCRF主动更新用户缺省承载</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="15.001500150015001%" headers="mcps1.3.1.2.4.1.1 "><p><a href="#ZH-CN_TOPIC_0311073829__fig1163842727">场景5</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="21.772177217721772%" headers="mcps1.3.1.2.4.1.2 "><p>动态PCC规则</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.22632263226322%" headers="mcps1.3.1.2.4.1.3 "><p>对于GPRS/UMTS用户，一次/二次PDP上下文激活/更新流程中，UNC收到PCRF下发的更新PDP消息/CCA应答消息。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fignone" id="ZH-CN_TOPIC_0311073829__fig133414419382"><a name="ZH-CN_TOPIC_0311073829__fig133414419382"></a><a name="fig133414419382"></a><span class="figcap"><b>图1 </b>场景1：<span>UNC</span>从UDM获取签约QoS</span><br><span><img class="vsd" src="../images/zh-cn_image_0313094603.png"></span></div>
+<ol><li><span>5QI如果不在1~255之间，会被<span>UNC</span>认定为不合法，则通过<strong><a href="../MML/Document/set_5gcqoscorrt.html">SET 5GCQOSCORRT</a></strong>进行纠错。</span></li><li><span>当5QI为扩展5QI时，需要打开本特性的License，未开启License则使用<strong><a href="../MML/Document/set_5gcqoscorrt.html">SET 5GCQOSCORRT</a></strong>配置的5QI进行激活。</span></li><li><span>如果是本地用户，则使用该扩展5QI进行接入。针对漫游用户，还需要开启<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>中的“QCICTRLFLAG（用户接入的扩展QCI控制开关）”。</span><p><ul><li>当开关开启，则根据<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>配置扩展5QI和标准5QI的映射关系，将扩展5QI转换成标准5QI进行接入，未配置<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>时使用 <a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置的缺省映射值。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p><span>UNC</span>漫游用户使用扩展QCI接入时，还可以通过软参<a href="../software_smf/bit/bit_1858.html">BIT_1858 控制漫游用户使用扩展QCI接入时UNC是否将扩展QCI按照本地配置映射成为标准的QCI处理</a>。</p>
+<ul><li>值为0时，按照本地配置映射成标准QCI处理。</li><li>值为1时，不按照本地配置映射。</li></ul>
+</div></div>
+</li><li>当开关关闭，则拒绝用户接入。</li></ul>
+</p></li></ol>
+<div class="fignone" id="ZH-CN_TOPIC_0311073829__fig18526173196"><a name="ZH-CN_TOPIC_0311073829__fig18526173196"></a><a name="fig18526173196"></a><span class="figcap"><b>图2 </b>场景2：<span>UNC</span>从PCF获取动态PCC规则</span><br><span><img class="vsd" src="../images/zh-cn_image_0313111851.png"></span></div>
+<ol><li><span>5QI如果不在1~255之间，会被<span>UNC</span>认定为不合法，则通过<strong><a href="../MML/Document/set_5gcqoscorrt.html">SET 5GCQOSCORRT</a></strong>进行纠错。</span></li><li><span>当5QI为扩展5QI时，需要打开本特性的License，未开启License则拒绝用户接入。</span></li><li><span>根据不同用户进行验证：</span><p><ul><li>如果是本地用户，至少满足以下条件之一才允许用户使用该扩展5QI接入，否则拒绝：<ul><li><span>UNC</span>对接的Ga接口/Gy接口/Radius鉴权和计费/N40接口都支持扩展5QI（可通过<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置开关）。</li><li>根据<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>或<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>配置的映射关系将扩展5QI映射为标准5QI，验证PCF下发的资源类型是否与<a href="../MML/Document/add_stdqosid.html"><b><span class="cmdname">ADD STDQOSID</span></b></a>中该标准5QI配置的资源类型一致。</li></ul>
+</li><li>针对漫游用户，还需要开启<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>中的“QCICTRLFLAG（用户接入的扩展QCI控制开关）”。<ul><li>当开关开启，则根据<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>配置扩展5QI和标准5QI的映射关系，将扩展5QI转换成标准5QI进行接入，未配置<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>时使用 <a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置的缺省映射值。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p><span>UNC</span>漫游用户使用扩展QCI接入时，还可以通过软参<a href="../software_smf/bit/bit_1858.html">BIT_1858 控制漫游用户使用扩展QCI接入时UNC是否将扩展QCI按照本地配置映射成为标准的QCI处理</a>。</p>
+<ul><li>值为0时，按照本地配置映射成标准QCI处理。</li><li>值为1时，不按照本地配置映射。</li></ul>
+</div></div>
+</li><li>当开关关闭，则拒绝用户接入。</li></ul>
+</li></ul>
+</p></li></ol>
+<div class="fignone" id="ZH-CN_TOPIC_0311073829__fig13794102919488"><a name="ZH-CN_TOPIC_0311073829__fig13794102919488"></a><a name="fig13794102919488"></a><span class="figcap"><b>图3 </b>场景3：<span>UNC</span>收到MME创建会话的请求（Create Session Request）/更新缺省承载的请求（Modify Bearer Command）</span><br><span><img class="vsd" src="../images/zh-cn_image_0313664771.png"></span></div>
+<ol><li><span>QCI如果不在1~255之间，会被<span>UNC</span>认定为不合法，则通过<a href="../MML/Document/set_defepsqos.html"><b><span class="cmdname">SET DEFEPSQOS</span></b></a>进行纠错。</span></li><li><span>根据QCI的类型进行判断：</span><p><ul><li>当QCI为标准QCI时，如果QCI值为65/66/69/70时，需要开启<a href="zh-cn_concept_0310282603.html">WSFD-102602 LTE一键通（适用于PGW-C/SGW-C）</a>功能，否则拒绝用户接入。</li><li>当QCI为扩展QCI时，需要打开本特性的License，未开启License则使用<a href="../MML/Document/set_defepsqos.html"><b><span class="cmdname">SET DEFEPSQOS</span></b></a>配置的QCI进行激活。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>SGW-C和PGW-C分离场景，可能存在PGW-C有扩展QCI的license但是SGW-C无扩展QCI的license的情况。此情况下SGW-C收到携带扩展QCI的专有承载创建请求时的处理受软参控制：</p>
+<p><a href="../software_smf/bit/bit_0844.html">BIT844 控制SGW-C在无扩展QCI的license时，收到携带扩展QCI的专有承载激活请求是否允许激活成功</a>。</p>
+<ul><li>取值为0时，允许激活成功，使用标准QCI。</li><li>取值为1时，不允许激活。</li></ul>
+</div></div>
+</li></ul>
+</p></li><li><span>如果是本地用户，则使用该扩展QCI进行接入。针对漫游用户，还需要开启<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>中的“QCICTRLFLAG（用户接入的扩展QCI控制开关）”。</span><p><ul><li>当开关开启，则根据<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>配置扩展QCI和标准QCI的映射关系，将扩展QCI转换成标准QCI进行接入，未配置<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>时使用 <a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置的缺省映射值。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p><span>UNC</span>漫游用户使用扩展QCI接入时，还可以通过软参<a href="../software_smf/bit/bit_1858.html">BIT_1858 控制漫游用户使用扩展QCI接入时UNC是否将扩展QCI按照本地配置映射成为标准的QCI处理</a>。</p>
+<ul><li>值为0时，按照本地配置映射成标准QCI处理。</li><li>值为1时，不按照本地配置映射。</li></ul>
+</div></div>
+</li><li>当开关关闭，则拒绝用户接入。</li></ul>
+</p></li></ol>
+<div class="fignone" id="ZH-CN_TOPIC_0311073829__fig0801144618316"><a name="ZH-CN_TOPIC_0311073829__fig0801144618316"></a><a name="fig0801144618316"></a><span class="figcap"><b>图4 </b>场景4：<span>UNC</span>从PCF/PCRF获取动态PCC创建/更新承载</span><br><span><img class="vsd" src="../images/zh-cn_image_0313687404.png"></span></div>
+<ol><li><span>QCI如果不在1~255之间，会被<span>UNC</span>认定为不合法，则通过<a href="../MML/Document/set_defepsqos.html"><b><span class="cmdname">SET DEFEPSQOS</span></b></a>进行纠错。</span></li><li><span>根据QCI的类型进行判断：</span><p><ul><li>当QCI为标准QCI时，如果QCI值为65/66/69/70时，需要开启<a href="zh-cn_concept_0310282603.html">WSFD-102602 LTE一键通（适用于PGW-C/SGW-C）</a>功能，否则拒绝用户接入。</li><li>当QCI为扩展QCI时，需要打开本特性的License，需要打开本特性的License，未开启License则拒绝用户接入。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>SGW-C和PGW-C分离场景，可能存在PGW-C有扩展QCI的license但是SGW-C无扩展QCI的license的情况。此情况下SGW-C收到携带扩展QCI的专有承载创建请求时的处理受软参控制：</p>
+<p><a href="../software_smf/bit/bit_0844.html">BIT844 控制SGW-C在无扩展QCI的license时，收到携带扩展QCI的专有承载激活请求是否允许激活成功</a>。</p>
+<ul><li>取值为0时，允许激活成功，使用标准QCI。</li><li>取值为1时，不允许激活。</li></ul>
+</div></div>
+</li></ul>
+</p></li><li><span>根据不同用户进行验证：</span><p><ul><li>如果是本地用户，至少满足以下条件之一才允许用户使用该扩展QCI接入，否则拒绝：<ul><li><span>UNC</span>对接的Ga接口/Gy接口/Radius鉴权和计费/N40接口都支持扩展QCI（可通过<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置开关）。</li><li>根据<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>或<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>配置的映射关系将扩展QCI映射为标准QCI，验证PCF/PCRF下发的资源类型是否与标准QCI1~9或<a href="../MML/Document/add_stdqosid.html"><b><span class="cmdname">ADD STDQOSID</span></b></a>中标准QCI配置的资源类型一致。</li></ul>
+</li><li>针对漫游用户，还需要开启<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>中的“QCICTRLFLAG（用户接入的扩展QCI控制开关）”。<ul><li>当开关开启，则根据<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>配置扩展QCI和标准QCI的映射关系，将扩展QCI映射为标准QCI进行接入，未配置<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>时使用 <a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置的缺省映射值。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p><span>UNC</span>漫游用户使用扩展QCI接入时，还可以通过软参<a href="../software_smf/bit/bit_1858.html">BIT_1858 控制漫游用户使用扩展QCI接入时UNC是否将扩展QCI按照本地配置映射成为标准的QCI处理</a>。</p>
+<ul><li>值为0时，按照本地配置映射成标准QCI处理。</li><li>值为1时，不按照本地配置映射。</li></ul>
+</div></div>
+</li><li>当开关关闭，则拒绝用户接入。</li></ul>
+</li></ul>
+</p></li></ol>
+<div class="fignone" id="ZH-CN_TOPIC_0311073829__fig1163842727"><a name="ZH-CN_TOPIC_0311073829__fig1163842727"></a><a name="fig1163842727"></a><span class="figcap"><b>图5 </b>场景5：对于GPRS/UMTS用户，一次/二次PDP上下文激活/更新</span><p><span><img class="vsd" src="../images/zh-cn_image_0313688283.png"></span></p>
+</div>
+<ol><li><span>QCI如果不在1~255之间，会被<span>UNC</span>认定为不合法，则通过<a href="../MML/Document/set_defepsqos.html"><b><span class="cmdname">SET DEFEPSQOS</span></b></a>进行纠错。</span></li><li><span>根据QCI的类型进行判断：</span><p><ul><li>当QCI为标准QCI时，如果QCI值为65/66/69/70时，需要开启<a href="zh-cn_concept_0310282603.html">WSFD-102602 LTE一键通（适用于PGW-C/SGW-C）</a>功能，否则拒绝用户接入。</li><li>当QCI为扩展QCI时，需要打开本特性的License，需要打开本特性的License，未开启License则拒绝用户接入。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>SGW-C和PGW-C分离场景，可能存在PGW-C有扩展QCI的license但是SGW-C无扩展QCI的license的情况。此情况下SGW-C收到携带扩展QCI的专有承载创建请求时的处理受软参控制：</p>
+<p><a href="../software_smf/bit/bit_0844.html">BIT844 控制SGW-C在无扩展QCI的license时，收到携带扩展QCI的专有承载激活请求是否允许激活成功</a>。</p>
+<ul><li>取值为0时，允许激活成功，使用标准QCI。</li><li>取值为1时，不允许激活。</li></ul>
+</div></div>
+</li></ul>
+</p></li><li><span>对于GPRS/UMTS用户，<span>UNC</span>需要将扩展QCI映射为Pre-R8 QoS进行处理。</span><p><p>可通过<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>或<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置扩展QCI和标准QCI的映射关系，<a href="../MML/Document/set_epsqci2prer8.html"><b><span class="cmdname">SET EPSQCI2PRER8</span></b></a>命令配置QCI到Pre-R8 QoS映射规则。</p>
+</p></li></ol>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0310505692.html">实现原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0311073828.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

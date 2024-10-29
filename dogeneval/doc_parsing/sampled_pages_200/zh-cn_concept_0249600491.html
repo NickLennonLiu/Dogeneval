@@ -1,0 +1,129 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="容灾可靠性机制">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0239118496.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0249600492.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0249600491">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>容灾可靠性机制</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0249600491"></a><a name="ZH-CN_CONCEPT_0249600491"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">容灾可靠性机制</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0249600491__1.3.3.1">故障场景下的网元的接管机制</a></li></ul><div><p>容灾组网下，UPCF检测到与SMF、AF间链路故障，或者主用FE、BE网元故障时，支持进行容灾切换，并通过会话备份功能，确保业务正常处理不受影响。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>N7会话备份功能解决的故障场景说明</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="24.5%" id="mcps1.3.2.2.3.1.1" liSelected="liSelected"><p>故障场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="75.5%" id="mcps1.3.2.2.3.1.2" liSelected="liSelected"><p>系统如何处理</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="24.5%" headers="mcps1.3.2.2.3.1.1 "><p>对接SMF和AF的容灾组网场景下，<a href="#ZH-CN_CONCEPT_0249600491__li796373392174814">UPCF的N7接口链路故障</a>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="75.5%" headers="mcps1.3.2.2.3.1.2 "><ul><li>主备组网中，当SMF与主用UPCF之间的N7接口链路故障时，容灾UPCF可通过Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update、AAR-Initial三种方式触发恢复N7会话。</li><li>互备组网中，当某个SMF与某个UPCF的N7接口链路故障时，可通过Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update、AAR-Initial三种方式触发恢复N7会话。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.5%" headers="mcps1.3.2.2.3.1.1 "><p>对接SMF和AF的容灾组网场景下，<a href="#ZH-CN_CONCEPT_0249600491__title_02">UPCF的Rx接口链路故障</a>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="75.5%" headers="mcps1.3.2.2.3.1.2 "><ul><li>主备组网中，当AF与主用UPCF之间的Rx接口链路故障时，主用UPCF可以通过心跳链路接收容灾UPCF发的AAR-Initial或AAR-Update消息进行正常处理。</li><li>互备组网中，当AF与某个UPCF之间的Rx接口链路故障时，该UPCF可以通过心跳链路接收对端UPCF转发的AAR-Initial或AAR-Update消息进行正常处理。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.5%" headers="mcps1.3.2.2.3.1.1 "><p>对接SMF和AF的容灾组网场景下，<a href="#ZH-CN_CONCEPT_0249600491__title_03">FE网元故障</a>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="75.5%" headers="mcps1.3.2.2.3.1.2 "><ul><li>主备组网中，当主用UPCF的FE网元故障时，容灾UPCF可通过Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update消息触发恢复N7会话。</li><li>互备组网中，当某个FE网元故障时，将导致该FE与SMF、AF的链路故障，此时另一个正常的FE收到Npcf_SMPolicyControl_Update、AAR-Initial消息后，在本地进行N7会话恢复。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.5%" headers="mcps1.3.2.2.3.1.1 "><p>对接SMF和AF的容灾组网场景下，<a href="#ZH-CN_CONCEPT_0249600491__title_04">UPCF主用站点故障</a>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="75.5%" headers="mcps1.3.2.2.3.1.2 "><ul><li>主备组网中，当主用UPCF站点故障时，容灾UPCF可通过Npcf_SMPolicyControl_Update消息和AAR-Initial消息触发恢复N7会话。</li><li>互备组网中，当主用UPCF站点故障时，将导致与SMF、AF的通信故障，此时容灾局FE切换访问容灾局BE。容灾UPCF收到Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update、AAR-Initial消息后，在本地进行N7会话恢复。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0249600491__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0249600491" class="sectiontitle2contents">故障场景下的网元的接管机制</a></h4><p>SMF与UPCF之间信令消息接收超时，SMF会通过TCP Ping帧持续探测Http链路状态。在链路状态恢复前，会将消息发送到链路状态正常的UPCF。</p>
+<div class="p">当启动了N7会话备份功能时，容灾UPCF可通过Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update、AAR-Initial消息触发恢复N7会话。<ul><li><p>Npcf_SMPolicyControl_Create消息触发N7会话恢复</p>
+<p>容灾UPCF收到Npcf_SMPolicyControl_Create消息后，检测用户是否有备份的N7会话需要恢复。如果有，则进行N7会话恢复。</p>
+</li><li><p>Npcf_SMPolicyControl_Update消息触发N7会话恢复</p>
+<p>容灾UPCF收到Npcf_SMPolicyControl_Update消息后，如果检测到本地无N7会话，则通过Npcf_SMPolicyControl_Update消息中的Session ID从BE中获取用户会话数据进行N7会话恢复。</p>
+</li><li><p>AAR-Initial消息触发N7会话恢复</p>
+<ul><li>无DRA组网中，容灾UPCF收到AAR-Initial消息后，如果检测到本地无N7会话，且到对端UPCF的心跳链路异常，则从BE中获取用户会话数据进行N7会话恢复。如果N7会话标识为对端UPCF处理，且到对端UPCF的心跳链路正常，则通过心跳链路转发AAR消息到对端UPCF进行正常处理。如果N7会话标识为本地UPCF处理，则在本地进行正常处理。</li><li>有DRA组网中，容灾UPCF收到AAR-Initial消息时如果检测到本地无N7会话，且到对端UPCF的心跳链路异常，则直接从BE中获取用户会话数据进行N7会话恢复。如果容灾UPCF收到AAR消息，检测到本地无绑定的Rx会话且心跳链路正常，则转发给对端UPCF进行正常处理。</li><li>容灾UPCF收到的是对端UPCF转发的AAR-Initial消息后，如果检测到本地有N7会话，则正常处理。如果容灾UPCF检测到本地无N7会话，则从BE中获取N7会话数据恢复N7会话，并更新BE中会话处理为本UPCF。</li></ul>
+</li></ul>
+</div>
+<p>容灾UPCF收到AAR/STR消息时，若容灾UPCF检测到与主用UPCF之间的心跳链路异常，则认为主用UPCF网元故障，将在本地处理收到的AAR/STR消息，不再通过心跳链路转发到主用UPCF。</p>
+<div class="p">N7 Session备份功能主要应用于以下场景：<ul><li id="ZH-CN_CONCEPT_0249600491__li796373392174814"><a name="ZH-CN_CONCEPT_0249600491__li796373392174814"></a><a name="li796373392174814"></a><a href="#ZH-CN_CONCEPT_0249600491__li796373392174814">UPCF的N7接口链路故障</a></li><li><a href="#ZH-CN_CONCEPT_0249600491__title_02">UPCF的Rx接口链路故障</a></li><li><a href="#ZH-CN_CONCEPT_0249600491__title_03">FE网元故障</a></li><li><a href="#ZH-CN_CONCEPT_0249600491__title_04">UPCF主用站点故障</a></li></ul>
+</div>
+<p>以下介绍各种故障场景下N7会话的恢复流程。</p>
+<p><strong>UPCF的N7接口链路故障</strong></p>
+<div class="p">当SMF与主用UPCF之间的N7接口链路故障时，容灾UPCF可通过Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update、AAR-Initial三种方式触发恢复N7会话。<ul><li>Npcf_SMPolicyControl_Update消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_02">图1</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_02"><a name="ZH-CN_CONCEPT_0249600491__fig_02"></a><a name="fig_02"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图1 </b>Npcf_SMPolicyControl_Update消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695724.png"></span><ol><li>用户通过UE发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF收到Npcf_SMPolicyControl_Create响应消息，为该PDU会话建立用户面通道。</li><li>SMF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>SMF向容灾UPCF发送Npcf_SMPolicyControl_Update请求消息进行更新会话。</li><li>容灾UPCF收到Npcf_SMPolicyControl_Update请求消息后，检测到本地无N7会话，则根据Session ID从主用局BE中获取用户会话数据进行N7会话恢复，并更新主用局BE中N7会话所在的UPCF为备UPCF。等恢复N7会话后，发送“Delete N7 Session”消息给主用UPCF要求释放N7会话。</li><li>容灾UPCF向SMF发送Npcf_SMPolicyControl_Update响应消息下发相应策略。</li></ol>
+</div></div></div>
+</li><li>Npcf_SMPolicyControl_Create消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_03">图2</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_03"><a name="ZH-CN_CONCEPT_0249600491__fig_03"></a><a name="fig_03"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图2 </b>Npcf_SMPolicyControl_Create消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695720.png"></span><ol><li>用户通过UE向SMF_1发起建立PDU会话请求。</li><li>SMF_1通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息建立PDU会话。</li><li>主用UPCF向SMF_1返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF_1向用户返回PDU会话响应消息。</li><li>SMF_2到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>SMF_2检测到用户的数据流，向容灾UPCF发送Npcf_SMPolicyControl_Create请求消息建立会话。</li><li>容灾UPCF向SMF_2发送Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>同时，容灾UPCF检测到用户有备份的N7会话待恢复，则通过Subscriber ID从主用局BE中获取第一个N7会话数据进行N7会话恢复，并更新主用局BE中N7会话所在的UPCF为容灾UPCF。等恢复N7会话后，通过心跳链路要求主用UPCF释放N7会话。</li><li>容灾UPCF向SMF_1发送Npcf_SMPolicyControl_UpdateNotify Request消息下发更新策略。</li></ol>
+</div></div></div>
+</li><li>AAR-Initial消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_04">图3</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_04"><a name="ZH-CN_CONCEPT_0249600491__fig_04"></a><a name="fig_04"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图3 </b>AAR-Initial消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695721.png"></span><ol><li>用户通过UE向SMF发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息请求建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF向用户返回PDU会话响应消息。</li><li>SMF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>AF向主用UPCF发送AAR-Initial消息。</li><li>主用UPCF处理AAR_I消息时，可以找到绑定的N7会话，继而向SMF发送UpdateNotify消息。</li><li>主用UPCF向SMF发送消息超时，UPCF检测到主FE与SMF故障，链路不可达，转发AAR-Initial到备FE触发恢复处理。</li><li>备UPCF收到AAR-Initial消息后，检测到本地无N7会话，从主用BE中获取用户会话数据进行N7会话恢复，并向SMF发送Npcf_SMPolicyControl_UpdateNotify Request消息下发相应策略。</li><li>SMF收到Npcf_SMPolicyControl_UpdateNotify Request消息后返回Npcf_SMPolicyControl_UpdateNotify Response响应消息给容灾UPCF。</li><li>容灾UPCF通过心跳链路转发AAA-Initial响应消息给主用UPCF。</li><li>主用UPCF收到转发的AAA-Initial消息后，向AF发送AAA-Initial响应消息。</li></ol>
+</div></div></div>
+</li></ul>
+</div>
+<p id="ZH-CN_CONCEPT_0249600491__title_02"><a name="ZH-CN_CONCEPT_0249600491__title_02"></a><a name="title_02"></a><strong>UPCF的Rx接口链路故障</strong></p>
+<div class="p">当AF与主用UPCF之间的Rx接口链路故障时，主用UPCF可以通过心跳链路接收容灾UPCF转发的AAR-Initial或AAR-Update消息进行正常处理。<ul><li>通过心跳链路转发AAR-Initial消息流程，如<a href="#ZH-CN_CONCEPT_0249600491__fig_07">图4</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_07"><a name="ZH-CN_CONCEPT_0249600491__fig_07"></a><a name="fig_07"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图4 </b>通过心跳链路转发AAR-Initial消息流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695725.png"></span><ol><li>用户通过UE向SMF发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息请求建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF向用户返回PDU会话响应消息，。</li><li>AF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>AF向容灾UPCF发送AAR-Initial消息请求建立专有承载。</li><li>容灾UPCF检测到本地无N7会话，且心跳链路正常，通过心跳链路转发AAR-Initial消息到主用UPCF处理。</li><li>主用UPCF收到AAR-Initial消息后，检测到本地有绑定的N7会话，向SMF发送RAR消息下发相应策略。</li><li>SMF收到RAR消息后，向主用UPCF返回RAA响应消息。</li><li>主用UPCF通过心跳链路向容灾UPCF转发AAA-Initial响应消息。</li><li>容灾UPCF收到转发的AAA-Initial消息后，向AF发送AAA-Initial响应消息。</li></ol>
+</div></div></div>
+</li><li>通过心跳链路转发AAR-Update消息流程，如<a href="#ZH-CN_CONCEPT_0249600491__fig_08">图5</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_08"><a name="ZH-CN_CONCEPT_0249600491__fig_08"></a><a name="fig_08"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图5 </b>通过心跳链路转发AAR-Update消息流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695723.png"></span><ol><li>用户通过UE向SMF发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息请求建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF建立默认承载，并向用户返回PDU会话响应消息。</li><li>AF向主用UPCF发送AAR-Initial消息请求建立专有承载会话。</li><li>AF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>AF向容灾UPCF发送AAR-Update消息。</li><li>容灾UPCF检测到本地无Rx会话，且心跳链路正常，通过心跳链路转发AAR-Update消息到主用UPCF处理。</li><li>主用UPCF收到AAR-Update消息后，检测到本地有绑定的N7会话，向SMF发送Npcf_SMPolicyControl_UpdateNotify请求消息下发相应策略。</li><li>SMF收到Npcf_SMPolicyControl_UpdateNotify请求消息后，向主用UPCF返回Npcf_SMPolicyControl_UpdateNotify响应消息。</li><li>主用UPCF通过心跳链路向容灾UPCF转发AAA-Update响应消息。</li><li>容灾UPCF收到转发的AAA-Update消息后，向AF发送AAA-Update响应消息。</li></ol>
+</div></div></div>
+</li></ul>
+</div>
+<p>互备组网中，当AF与某个UPCF之间的Rx接口链路故障时，该UPCF可以通过心跳链路接收对端UPCF转发的AAR-Initial或AAR-Update消息进行正常处理。其处理流程与主备组网相同。</p>
+<p id="ZH-CN_CONCEPT_0249600491__title_03"><a name="ZH-CN_CONCEPT_0249600491__title_03"></a><a name="title_03"></a><strong>FE网元故障</strong></p>
+<div class="p">主备组网中，当主用UPCF的FE网元故障时，容灾UPCF可通过Npcf_SMPolicyControl_Update、和AAR-Initial消息触发恢复N7会话。<ul><li>Npcf_SMPolicyControl_Update消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_09">图6</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_09"><a name="ZH-CN_CONCEPT_0249600491__fig_09"></a><a name="fig_09"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图6 </b>Npcf_SMPolicyControl_Update消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695718.png"></span><ol><li>用户通过UE发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息请求建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF向用户返回PDU会话响应消息。</li><li>主用UPCF的FE网元故障，即SMF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>SMF向容灾UPCF发送Npcf_SMPolicyControl_Update请求消息更新会话。</li><li>容灾UPCF收到Npcf_SMPolicyControl_Update请求消息后，检测到本地无N7会话，且心跳链路故障，则根据Session ID从主用局BE中获取N7会话数据进行N7会话恢复。然后向SMF发送Npcf_SMPolicyControl_Update响应消息下发相应策略。<p>SMF收到Npcf_SMPolicyControl_Update消息后，会更新会话在容灾UPCF的处理。此N7会话的后续Npcf_SMPolicyControl_Update消息，由SMF向容灾UPCF发送。</p>
+</li></ol>
+</div></div></div>
+</li><li>AAR-Initial消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_10">图7</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_10"><a name="ZH-CN_CONCEPT_0249600491__fig_10"></a><a name="fig_10"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图7 </b>AAR-Initial消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695722.png"></span><ol><li>用户通过UE发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息请求建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF建立默认承载，并向用户返回PDU会话响应消息。</li><li>主用UPCF的FE网元故障，即AF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>AF向容灾UPCF发送AAR-Initial消息请求建立专有承载。</li><li>容灾UPCF收到AAR-Initial消息后，检测到本地无N7会话，且心跳链路故障，则根据用户ID或用户IP地址从主用局BE中获取会话数据进行N7会话恢复，然后下发Npcf_SMPolicyControl_UpdateNotify请求消息给SMF建立专有承载。</li><li>SMF建立专有承载后，并向容灾UPCF返回Npcf_SMPolicyControl_UpdateNotify响应消息。</li><li>容灾UPCF向AF发送AAA-Initial响应消息。</li></ol>
+</div></div></div>
+</li></ul>
+</div>
+<p>互备组网中，当某个FE网元故障时，将导致该FE与SMF、AF的链路故障，此时另一个正常的FE收到Npcf_SMPolicyControl_Update、AAR-Initial消息后，在本地进行N7会话恢复。</p>
+<p id="ZH-CN_CONCEPT_0249600491__title_04"><a name="ZH-CN_CONCEPT_0249600491__title_04"></a><a name="title_04"></a><strong>主用UPCF站点故障</strong></p>
+<div class="p">主备组网中，当主用UPCF站点故障时，容灾UPCF可通过Npcf_SMPolicyControl_Update和AAR-Initial消息触发恢复N7会话。<ul><li>Npcf_SMPolicyControl_Update消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_11">图8</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_11"><a name="ZH-CN_CONCEPT_0249600491__fig_11"></a><a name="fig_11"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图8 </b>Npcf_SMPolicyControl_Update消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><br><span><img class="vsd" src="../images/zh-cn_image_0250695726.png"></span><ol><li>用户通过UE发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息请求建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF向用户返回PDU会话响应消息。</li><li>主用UPCF站点故障，即SMF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>SMF向容灾UPCF发送Npcf_SMPolicyControl_Update请求消息更新会话。</li><li>容灾UPCF收到Npcf_SMPolicyControl_Update请求消息后，检测到本地无N7会话，且心跳链路故障，则根据Session ID从主用BE中获取已备份的N7会话数据进行N7会话恢复。然后向SMF发送Npcf_SMPolicyControl_Update响应消息下发相应策略。</li></ol>
+</div></div></div>
+</li><li>AAR-Initial消息触发恢复N7会话，如<a href="#ZH-CN_CONCEPT_0249600491__fig_12">图9</a>所示。<div class="fignone" id="ZH-CN_CONCEPT_0249600491__fig_12"><a name="ZH-CN_CONCEPT_0249600491__fig_12"></a><a name="fig_12"></a><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><span class="figcap"><b>图9 </b>AAR-Initial消息触发恢复N7会话流程</span></div><div class="dropdowncontext"><p><span><img class="vsd" src="../images/zh-cn_image_0250695719.png"></span></p>
+<ol><li>用户通过UE发起建立PDU会话请求。</li><li>SMF通过N7接口向主用UPCF发送Npcf_SMPolicyControl_Create请求消息建立PDU会话。</li><li>主用UPCF向SMF返回Npcf_SMPolicyControl_Create响应消息下发相应策略。</li><li>SMF建立默认承载，并向用户返回PDU会话响应消息。</li><li>主用UPCF站点故障，即AF到主用UPCF的链路故障，切换链路到容灾UPCF。</li><li>AF向容灾UPCF发送AAR-Initial消息请求建立专有承载。</li><li>容灾UPCF收到AAR-Initial消息后，检测到本地无N7会话，且心跳链路故障，则根据用户ID或用户IP地址从主用BE中获取已备份的N7会话数据进行N7会话恢复。然后下发Npcf_SMPolicyControl_UpdateNotify请求消息给SMF建立专有承载。</li><li>SMF建立专有承载后，向容灾UPCF返回Npcf_SMPolicyControl_UpdateNotify响应消息。</li><li>容灾UPCF向AF发送AAA-Initial响应消息。</li></ol>
+</div></div></div>
+</li></ul>
+</div>
+<p>互备组网中，当主用UPCF站点故障时，将导致与SMF、AF的链路故障，此时容灾局FE切换访问容灾局BE。容灾UPCF收到Npcf_SMPolicyControl_Create、Npcf_SMPolicyControl_Update和AAR-Initial消息后，在本地进行N7会话恢复，其处理流程与主备组网相同。</p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_concept_0239118496.html">容灾原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_concept_0249600492.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置5G移动性管理流程控制参数（SET NGMMPROCTRL）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_5g_mm_procedure_control_parameter.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_ngmmproctrl.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209652386">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置5G移动性管理流程控制参数（SET NGMMPROCTRL）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209652386"></a><a name="ZH-CN_MMLREF_0209652386"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置5G移动性管理流程控制参数（SET NGMMPROCTRL）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209652386__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209652386__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209652386__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209652386__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209652386__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652386" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF</strong>
+                </p>
+
+                    <p>在用户接入5G时，AMF可通过此命令控制MM流程进行特殊处理以及特殊场景下指定的原因值下发，以满足运营商实现对现网设备兼容性特殊控制的需求。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209652386__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652386" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>该命令存在系统初始记录，UDMREGALWAYS初始值为NO，UDMDISCALWAYS初始值为YES，其他原因值的初始值均为0。</li><li>配置下发的原因值变化可能会导致相应拒绝类话统指标的变化，并对终端行为产生影响，在配置前评估影响。关于不同原因值的含义及对终端行为的影响请参见协议3GPP TS 24.501。</li><li>相同流程中，对于同一种原因值映射配置，ADD NGCAUSEMAP命令优先级高于SET NGMMPROCTRL。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209652386__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209652386" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209652386__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652386" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PROT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>流程类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定流程类型，根据场景来确认是否需要配置相应的流程。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“AUSF_DISCOVERY（AUSF发现流程）”：AUSF发现流程</li><li>“AIR（获取鉴权集流程）”：获取鉴权集流程</li><li>“AUTHENTICATION（鉴权流程）”：鉴权流程</li><li>“SMC（安全算法协商流程）”：UE和NAS安全算法协商流程</li><li>“CHECK_IMEI（检查IMEI流程）”：检查IMEI流程</li><li>“UDM_DISCOVERY（UDM发现流程）”：UDM发现流程</li><li>“UDM_REGISTRATION（UDM注册流程）”：到UDM注册流程</li><li>“UDM_GET_SUBSCRIBER_DATA（UDM获取签约数据流程）”：从UDM获取签约数据流程</li><li>“UDM_SUBSCIBE（UDM订阅流程）”：向UDM订阅流程</li><li>“PCF_DISCOVERY（PCF发现流程）”：PCF发现流程</li><li>“PCF_POLICY（PCF策略交互流程）”：向PCF创建/更新策略流程</li><li>“OTHER_PROC（其它流程）”：其它流程</li><li>“CAG（CAG限制）”：CAG限制</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUSFDISCNOFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AUSF发现拒绝原因值(Not Found)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUSF_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AUSF发现流程TOPO返回404 Not Found时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUSFDISCFC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AUSF发现拒绝原因值(流控)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUSF_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置注册流程中服务发现AUSF请求因自保流控被丢弃时，系统下发UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUSFDISCOTHER</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AUSF发现拒绝原因值(其他原因)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUSF_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AUSF发现流程TOPO返回404 Not Found以外的失败时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRUSERNOTFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(USER_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回404 Not Found，携带的ProblemDetails为USER_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRSERNETNOAUTH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(SERVING_NETWORK_NOT_AUTHORIZED)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回403 Forbidden，携带的ProblemDetails为SERVING_NETWORK_NOT_AUTHORIZED时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRAUTHREJECTED</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(AUTHENTICATION_REJECTED)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回403 Forbidden，携带的ProblemDetails为AUTHENTICATION_REJECTED时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRINVALIDKEYID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(INVALID_HN_PUBLIC_KEY_IDENTIFIER)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回403 Forbidden，携带的ProblemDetails为INVALID_HN_PUBLIC_KEY_IDENTIFIER时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRCTXNOTFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(CONTEXT_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回404 Not Found，携带的ProblemDetails为CONTEXT_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRINVALIDSCHME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(INVALID_SCHEME_OUTPUT)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回403 Forbidden，携带的ProblemDetails为INVALID_SCHEME_OUTPUT时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRUNSPTSCHEME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(UNSUPPORTED_PROTECTION_SCHEME)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回501 Not Implemented，携带的ProblemDetails为UNSUPPORTED_PROTECTION_SCHEME时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRSUBNOTFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(SUBSCRIPTION_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回404 Not Found，携带的ProblemDetails为SUBSCRIPTION_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRTOOMANY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(Too Many Requests)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回429 Too Many Requests时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRSERVUNABLE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(Service Unavailable)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程AUSF返回503 Service Unavailable时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AIRTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AIR拒绝原因值(超时)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AIR"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AIR流程等待AUSF响应超时时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUTHRESCHKFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Authentication拒绝原因值(RES检查失败)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUTHENTICATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置因鉴权流程RES检查失败而导致拒绝接入时，下发给终端的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUTHMACFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Authentication拒绝原因值(UE返回MAC Failure)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUTHENTICATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置因鉴权流程UE返回MAC failure而导致拒绝接入时，下发给终端的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUTHSYNCHFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Authentication拒绝原因值(UE返回Synch Failure)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUTHENTICATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置因鉴权流程UE返回Synch Failure而导致拒绝接入时，下发给终端的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CHKIMEICHKFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Check IMEI拒绝原因值(IMEI检查失败)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"CHECK_IMEI"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置因IMEI检查失败而导致拒绝接入时，下发给终端的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMDISCNOFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM发现拒绝原因值(Not Found)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM发现流程TOPO返回404 Not Found时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMDISCOTHER</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM发现拒绝原因值(其他原因)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM发现流程TOPO返回404 Not Found以外的失败时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGUSRNOTFD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(USER_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回404 Not Found，携带的ProblemDetails为USER_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGCTXNOTFD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(CONTEXT_NOT_FOUND) </p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回404 Not Found，携带的ProblemDetails为CONTEXT_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+<p> 原因值为1，表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGUNKNOWSUB</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(UNKNOWN_5GS_SUBSCRIPTION)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回403 Forbidden，携带的ProblemDetails为UNKNOWN_5GS_SUBSCRIPTION时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGNOPSSUB</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(NO_PS_SUBSCRIPTION)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回403 Forbidden，携带的ProblemDetails为NO_PS_SUBSCRIPTION时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGROAMNOTAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(ROAMING_NOT_ALLOWED)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回403 Forbidden，携带的ProblemDetails为ROAMING_NOT_ALLOWED时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGACCNOTAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(ACCESS_NOT_ALLOWED)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回403 Forbidden，携带的ProblemDetails为ACCESS_NOT_ALLOWED时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGRATNOTAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(RAT_NOT_ALLOWED)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回403 Forbidden，携带的ProblemDetails为RAT_NOT_ALLOWED时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGREAUTHREQ</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(REAUTHENTICATION_REQUIRED)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回403 Forbidden，携带的ProblemDetails为REAUTHENTICATION_REQUIRED时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGTOOMANY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(Too Many Requests)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回429 Too Many Requests时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGSERVUNABL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(Service Unavailable)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程UDM返回503 Service Unavailable时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM注册拒绝原因值(超时)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM注册流程等待UDM响应超时时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMREGALWAYS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>强制向UDM注册</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_REGISTRATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于表示当UE初始注册到AMF时，AMF不论本地是否存在该UE的上下文信息都强制向UDM发起注册流程。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“NO（否）”：否</li><li>“YES（是）”：是</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 个别运营商在AMF和HSS之间部署IWK实现AMF与HSS的互通，即从AMF的视角，（IWK+HSS）就是UDM；从HSS的视角，（IWK+AMF）就是SGSN/MME。本开关用于解决上述组网场景中的如下问题：当4G网络覆盖不足时，UE会遇到在5G网络和3G网络之间重复注册或附着，比如当UE从3G覆盖区来到5G覆盖区时，UE向AMF发起初始注册；AMF将UE的注册信息通知给UDM（即与IWK互联的HSS）。当UE从5G覆盖区来到3G覆盖区时，UE向SGSN发起附着；SGSN将UE的附着信息通知给HSS，但这时，HSS不会向MME（即与IWK互联的AMF）发送Cancel消息。那么当UE再次从3G回到5G，向AMF发起初始注册的时候，AMF上由于未收到UDM的Cancel消息仍保有该UE的上下文信息，从而不会再向UDM发起注册流程。带来的影响是在UE被叫域选时，网络通过HSS识别到UE附着在3G，进而会导致被叫失败。为了规避上述问题，通过本开关控制每次UE初始注册到AMF时都强制向UDM插入最新注册信息（注：这时HSS会向SGSN发送Cancel），从而确保被叫域选的正确性。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMGETSUBNOUSR</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM获取签约数据拒绝原因值(USER_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据流程UDM返回404 Not Found，携带的ProblemDetails为USER_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMGETSUBNODATA</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM获取签约数据拒绝原因值(DATA_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据流程UDM返回404 Not Found，携带的ProblemDetails为DATA_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMGETNOSUB</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM获取签约数据拒绝原因值(SUBSCRIPTION_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据流程UDM返回404 Not Found，携带的ProblemDetails为SUBSCRIPTION_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMGETTOOMANY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM获取签约数据拒绝原因值(Too Many Requests)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据流程UDM返回429 Too Many Requests时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMGETSERVUNABL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM获取签约数据拒绝原因值(Service Unavailable)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据流程UDM返回503 Service Unavailable时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMGETTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM获取签约数据拒绝原因值(超时)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据流程等待UDM响应超时时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMSUBNOUSR</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM订阅拒绝原因值(USER_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_SUBSCIBE"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM订阅流程UDM返回404 Not Found，携带的ProblemDetails为USER_NOT_FOUND时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMSUBUNSPT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM订阅拒绝原因值(UNSUPPORTED_RESOURCE_URI)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_SUBSCIBE"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM订阅流程UDM返回501 Not Implemented，携带的ProblemDetails为UNSUPPORTED_RESOURCE_URI时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMSUBTOOMANY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM订阅拒绝原因值(Too Many Requests)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_SUBSCIBE"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM订阅流程UDM返回429 Too Many Requests时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMSUBSERVUNABL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM订阅拒绝原因值(Service Unavailable)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_SUBSCIBE"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM订阅流程UDM返回503 Service Unavailable时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#22（Congestion）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMSUBTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UDM订阅拒绝原因值(超时)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_SUBSCIBE"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM订阅流程等待UDM响应超时时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ROAMRST</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>漫游受限拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置因漫游受限而导致拒绝接入时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ACCRST</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>接入限制拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置由于RAT限制或者核心网类型限制而拒绝接入时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AREARST</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>区域限制拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置由于UE当前处于接入限制区域而拒绝接入时，下发给UE的原因值。处在接入限制区域内的UE被禁止注册到5GC。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#15（No suitable cells in tracking area）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SARST</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>服务区域限制拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置由于服务区域限制而拒绝UE的业务流程（如服务请求、PDU会话建立）时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#28 （restricted service area）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NSNOTAVL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>无可用网络切片拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置核心网为UE决策允许的网络切片（Allowed NSSAI）为空时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111 （Protocol error, unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TANSNOTAVL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>TA级网络切片不可用原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置TA级切片不可用导致UE决策允许的网络切片（Allowed NSSAI）为空时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特定原因值，发生该异常时使用本命令中NSNOTAVL参数配置的无可用网络切片拒绝原因值。</p>
+<p> 参数取值非0时，当拒绝切片列表包含TA级拒绝切片时，使用本参数设置的原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMDISCALWAYS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>强制发现UDM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于控制在用户重新接入网络时，不直接使用静态上下文中存储的UDM信息，而是根据UDM的高低优先级和权重，重选UDM，确保选择优先级和权重高的UDM。</p>
+<p>例如当UDM主备部署，在主用UDM故障后，用户注册到备用UDM，并且AMF的用户上下文中记录备用UDM地址信息，存在主用UDM恢复后，用户继续存在于备用UDM中的问题，此时打开本参数开关，可以强制用户重新选择优先级和权重高的UDM。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NO（否）”：否</li><li>“YES（是）”：是</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PCFDISCNOFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PCF发现拒绝原因值(Not Found)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"PCF_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置PCF发现流程返回404 Not Found时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> PCF策略创建/更新失败是否拒绝用户注册受PCF策略交互失败处理措施的开关控制(开关为ADD AMUEPLCYCTRL命令中的AMFAILPLCY和UEFAILPLCY参数)。</p>
+<p> 参数取值为0，该场景不进行异常处理，用户移动性流程正常进行。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PCFDISCOTHER</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PCF发现拒绝原因值(其他原因)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"PCF_DISCOVERY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置PCF发现流程返回404 Not Found以外的失败时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> PCF策略创建/更新失败是否拒绝用户注册受PCF策略交互失败处理措施的开关控制(开关为ADD AMUEPLCYCTRL命令中的AMFAILPLCY和UEFAILPLCY参数)。</p>
+<p> 参数取值为0，该场景不进行异常处理，用户移动性流程正常进行。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PCFPLCYNOFOUND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PCF策略拒绝原因值(RESOURCE_URI_STRUCTURE_NOT_FOUND)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"PCF_POLICY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AMF创建/更新策略时PCF返回404 Not Found，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> PCF策略创建/更新失败是否拒绝用户注册受PCF策略交互失败处理措施的开关控制(开关为ADD AMUEPLCYCTRL命令中的AMFAILPLCY和UEFAILPLCY参数)。</p>
+<p> 参数取值为0，该场景不进行异常处理，用户移动性流程正常进行。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PCFPLCYOTHER</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PCF策略拒绝原因值(其他原因)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"PCF_POLICY"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置AMF创建/更新策略时PCF返回404 Not Found以外的失败时，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> PCF策略创建/更新失败是否拒绝用户注册受PCF策略交互失败处理措施的开关控制(开关为ADD AMUEPLCYCTRL命令中的AMFAILPLCY和UEFAILPLCY参数)。</p>
+<p> 参数取值为0，该场景不进行异常处理，用户移动性流程正常进行。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ODBREJCAUSE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>ODB拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置由于ODB限制接入下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#27（N1 mode not allowed）原因值。</p>
+<p> 原因值为1表示非协议定义原因值，不建议配置。</p>
+<p> 参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UEMSGCHECKFAIL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>终端消息非法拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"OTHER_PROC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置核心网收到终端的消息不符合3GPP标准协议，AMF拒绝用户接入，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时：必选信元校验失败，系统将下发#96 （Invalid mandatory information）原因值；可选信元校验失败，系统将下发#100 （Conditional IE error）原因值；</p>
+<p> 其他场景的消息校验失败，系统将下发#111（Protocol error unspecified）原因值。</p>
+<p> 取值非0时，消息校验失败场景系统将下发该指定原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SMCREJ</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SMC拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"SMC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置SMC流程AMF发送Security Mode Command消息后，UE回复Security Mode Reject，导致NAS安全算法协商失败，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SMCTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SMC超时原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"SMC"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置SMC流程AMF发送Security Mode Command消息后，UE响应超时导致NAS安全算法协商失败，下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CAGREJ</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>CAG拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"CAG"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置注册流程或服务请求流程中，非CAG用户非紧急场景下从CAG基站接入，导致请求被拒绝，AMF下发给UE的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~75，77~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+<p> 协议24501要求#76“Not authorized for this CAG or authorized for CAG cells only”是针对CAG用户使用，针对普通用户不允许使用。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AUTHHTTPOVLD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AUTH HTTP过载拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"AUTHENTICATION"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置鉴权流程因HTTP过载而导致拒绝接入时，下发给终端的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UDMSUBHTTPOVLD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>获取UDM签约数据HTTP过载拒绝原因值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"PROT"配置为"UDM_GET_SUBSCRIBER_DATA"时为条件可选参数。</p>
+<p> 参数含义：该参数用于设置UDM获取签约数据因HTTP过载而导致拒绝接入时，下发给终端的原因值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~111。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 参数取值为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209652386__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652386" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>当鉴权流程RES检查失败下发的缺省原因值不合适，需要修改为#111（Protocol error unspecified）时，执行以下命令：</p>
+
+                    <pre class="screen">SET NGMMPROCTRL: PROT=AUTHENTICATION, AUTHRESCHKFAIL=111;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_5g_mm_procedure_control_parameter.html">5G移动性管理流程控制参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_ngmmproctrl.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

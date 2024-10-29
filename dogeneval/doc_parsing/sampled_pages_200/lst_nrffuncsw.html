@@ -1,0 +1,597 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="查询NRF功能开关（LST NRFFUNCSW）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nrf_function_switch.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/set_nrffuncsw.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209652285">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询NRF功能开关（LST NRFFUNCSW）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209652285"></a><a name="ZH-CN_MMLREF_0209652285"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">查询NRF功能开关（LST NRFFUNCSW）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209652285__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209652285__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209652285__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209652285__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0209652285__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209652285__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652285" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：NRF</strong>
+                </p>
+
+                    <p>该命令用于查询NRF的功能开关。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209652285__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652285" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                <p>无</p>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209652285__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209652285" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209652285__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652285" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                <p> 无</p>
+  
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209652285__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652285" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>查询NRF功能开关：</p>
+
+                    <pre class="screen">LST NRFFUNCSW:;
+%%LST NRFFUNCSW:;%%
+RETCODE = 0  执行成功
+
+结果如下
+--------
+                         NF访问记录开关  =  打开
+                       服务发现记录开关  =  打开
+                       负载变更通知开关  =  打开
+                 NF Profile参数精简开关  =  打开
+       状态通知中NF Profile参数精简开关  =  关闭
+                   服务发现结果过滤开关  =  打开
+                           数据核查开关  =  打开
+                           周期时长(分)  =  1000
+                      AMF可用性增强开关  =  关闭
+                           授权功能开关  =  关闭
+               服务发现结果精确匹配开关  =  关闭
+          跨NRF服务发现结果精确匹配开关  =  打开
+               服务发现结果位置匹配开关  =  打开
+           服务发现结果位置匹配增强开关  =  关闭
+                   号段导入数据可用开关  =  关闭
+                           内部统计开关  =  关闭
+               主备容灾业务消息转发开关  =  关闭
+               号段导入功能数据核查开关  =  关闭
+              Token分配携带PLMN控制开关  =  关闭
+                        NRF增量通知开关  =  关闭
+               通知携带全量配置号段开关  =  关闭
+                   分层转发环路告警开关  =  打开
+           分层转发环境告警恢复时长(秒)  =  1200
+                     管理类消息流控开关  =  打开
+                     发现类消息流控开关  =  打开
+                       号段最长匹配开关  =  关闭
+               号段导入功能密钥核查开关  =  关闭
+                    DNN网络标识匹配开关  =  关闭
+                            Via功能开关  =  打开
+ 服务发现结果过滤UNDISCOVERABLE状态开关  =  打开
+                   号段NF无号段屏蔽开关  =  打开
+               服务发现参数防呆机制开关  =  打开
+             NF心跳类型变更增量通知开关  =  关闭
+                 数组类信元判重校验开关  =  打开
+               服务发现分层转发优化开关  =  打开
+     订阅响应location字段IP类型选择开关  =  打开
+                   服务发现跟踪裁剪开关  =  打开
+                         NF链路探测开关  =  打开
+             NF链路探测故障观察时长(秒)  =  120
+                        BSFINFO裁剪开关  =  打开
+                     心跳不切换接入开关  =  打开
+      NRF支持无主用AMF时重选备份AMF开关  =  打开
+               服务发现结果切片缓存开关  =  打开
+           服务发现结果配置号段缓存开关  =  打开
+		   链路探测协议优选开关  =  关闭
+(结果个数 = 1)
+
+---    END</pre>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0209652285__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652285" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NF访问记录开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF上是否保存NF的访问记录。NF访问记录包括：NF注册、NF订阅、NF服务发现等。打开后可以通过DSP REGNFACCESSREC命令查询各个NF实例最近的部分访问记录。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现记录开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF上是否保存NF的服务发现记录。打开后可以通过DSP DISCREC命令查询各个NF实例最近的部分服务发现记录。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>负载变更通知开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NF负载变更后NRF是否通知已订阅该信息的其他NF。开关打开后，NRF根据NF的订阅信息，将NF的负载变更信息通过订阅接口通知给订阅者。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NF Profile参数精简开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示是否在服务发现结果中只携带一些较关键的NF Profile属性的NF精简数据。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>状态通知中NF Profile参数精简开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示是否在状态通知中只携带NF Profile属性的部分信息。若开关打开，NRF发出的状态通知中的NF Profile的一些属性只携带部分数据信息，这些属性主要包括supi号段、gpsi号段、dnn列表、tai列表等这些量比较大的属性，若这些属性包含多个元素，则精简为一个元素，可避免状态通知报文超大；反之则携带该NF Profile注册的完整属性信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果过滤开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF在服务发现返回结果中是否携带SUSPENDED状态的实例，开关打开时表示不携带SUSPENDED状态，反之则携带。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>数据核查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF数据核查开关。数据核查是核查NRF内存存储的数据和NRF中数据库中存储的数据是否一致，用于支撑问题定位。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>周期时长(分)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NF核查周期的时长。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>AMF可用性增强开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示AMF可用性增强开关。开关打开时符合服务发现条件且有关联TAI区域信息的AMF才会被发现，关闭则没有关联TAI区域信息的AMF也会被发现。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>授权功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示服务发现和订阅流程授权功能开关。如果开关打开，NF服务发现和订阅过程中，NRF会判断服务提供方NF的可访问授权信息。开关关闭，NF服务发现和订阅过程中，NRF不判断服务提供方NF的可访问授权信息，直接根据发现条件进行NF的发现。可访问授权详细请参考“WSFD-111000 NRF基本功能”中的NF/NFS访问授权控制。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果精确匹配开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF本地服务发现（非跨NRF）返回结果中是否只携带匹配上的信元信息，这些信元主要包括supi号段、gpsi号段、dnn列表、tai列表等这些量比较大的信元。开关打开并且服务消费者NF支持增量构建缓存时（可根据LST NFABILITY命令查看已配置的NF的能力，查询不到NF的配置表示该NF默认支持增量构建缓存），服务发现结果NF Profile中只携带匹配的信元信息；反之则携带NF Profile中所有信元信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>跨NRF服务发现结果精确匹配开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF在跨NRF的服务发现返回结果中是否只携带匹配上的信元信息，这些信元主要包括supi号段、gpsi号段、dnn列表、tai列表等这些量比较大的信元。开关打开表示NF Profile中只携带匹配的信元信息，反之则携带NF Profile中所有信元信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果位置匹配开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF在服务发现过程中是否优先使用preferred-locality进行匹配。</p>
+<p>开关打开：服务发现过程中，NRF优先使用包含preferred-locality在内的所有属性进行精确匹配，精确匹配到就返回满足条件的NF Profile；没有精确匹配到，就忽略preferred-locality，返回满足其他条件的NF Profile。</p>
+<p>开关关闭：服务发现过程中，必须精确匹配preferred-locality属性，服务发现只返回精确匹配后的NF Profile。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果位置匹配增强开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示服务发现结果位置匹配增强开关（服务发现结果位置匹配开关打开后，本参数才有效）。</p>
+<p>开关打开：表示服务发现过程中，NRF优先使用包含preferred-locality在内的所有属性进行精确匹配，当精确匹配的结果不唯一（大于1个NF）时直接返回精确匹配后满足条件的NF Profile；精确匹配到的结果唯一（只有1个NF）时，就忽略preferred-locality，同时返回满足其他发现条件的NF Profile。</p>
+<p>开关关闭：服务发现过程由“DISCLOCPREFERSW（服务发现结果位置匹配开关）”参数控制。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>号段导入数据可用开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF使用号段文件导入功能导入的号段数据以及号段路由是否可用。开关打开后NRF可以基于号段文件功能导入的号段数据进行服务发现，或者可以使用导入的号段路由进行分层转发；开关关闭后，即使导入了数据，导入的数据也不可用。号段文件功能可以参考“激活NF发现特性”。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>内部统计开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示内部统计开关。开关打开后开始统计NF访问信息，统计结果从日志中可以查看，开关关闭则不统计。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>主备容灾业务消息转发开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示控制主备灾容业务消息转发开关。开关打开后备NRF上收到的业务消息会转发给主NRF，关闭则不转发。该参数只在“WSFD-114001 NRF主备容灾”特性开启后配置才生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>号段导入功能数据核查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示号段导入功能数据核查开关。当开关打开后启动校验功能，若系统中的数据记录数与号段导入文件中的记录数不一致则上报“ALM-100112号段数据校验告警”。当开关关闭后，关闭校验功能，如果已经有“ALM-100112号段数据校验告警”，则会恢复这些告警。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Token分配携带PLMN控制开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示Token分配携带PLMN控制开关。开关打开时使能Token分配时携带consumerPlmnId、producerPlmnId功能，否则去使能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NRF增量通知开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于控制NF状态变更通知是增量通知还是全量通知。 开关打开，NF patch更新后状态变更通知为增量通知，开关关闭则为全量通知。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>通知携带全量配置号段开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示是否在号段类NF的变更通知中携带全量配置号段。开关打开时，通知报文的NF Profile中追加该NF的全量配置号段；开关关闭时，通知报文的NF Profile中随机追加该NF的一条配置号段。（号段类NF在NRF上的号段配置可通过命令LST NFIMSI、LST NFMSISDN查看）。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>分层转发环路告警开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示分层转发环路告警开关。开关打开后检测到分层转发路由有环路后会上报“ALM-100156 分层转发环路告警”，关闭则不上报告警。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>分层转发环境告警恢复时长(秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示“ALM-100156 分层转发环路告警”的自动恢复时长。当告警持续时长超过该阈值时，该告警自动清除。在告警未清除之前，不会再产生该告警。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>管理类消息流控开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定是否开启针对管理类消息的自保流控功能，开启时如果微服务环境因为计算资源紧张进入流控状态，则流控系统会对管理类信息（注册请求、更新请求、profile查询请求、订阅请求）进行返回失败码或直接丢弃的流控行为，具体的流控响应行为可以参考SET NRFFCPARA。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>发现类消息流控开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定是否开启针对发现类消息的自保流控功能，开启时如果微服务环境因为计算资源紧张进入流控状态，则流控系统会对发现类信息（发现请求、批量检索请求）进行返回失败码或直接丢弃的流控行为，具体的流控响应行为可以参考SET NRFFCPARA。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>号段最长匹配开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NF服务发现过程中，发现号段类NF的号段最长匹配开关。当开关打开时，NRF在号段匹配时会选择与请求方NF携带的号段匹配度最高的NF返回（即选择号段匹配最长的NF返回，号段可以匹配但非最长号段匹配的NF被认为不满足号段发现条件）。开关关闭时，NRF不做号段最长匹配，会将所有符合条件且号段匹配的服务提供方NF都返回。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>号段导入功能密钥核查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示号段导入功能密钥核查开关。当开关打开时，NRF在校验号段导入文件时会校验签名信息，该公钥签名信息可通过ADD SEGFILEPUBKEY添加，私钥信息在号段导入文件中添加。开关关闭时，不做号段导入文件的签名校验。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>DNN网络标识匹配开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示发现参数中携带DNN进行服务发现时匹配DNN NI开关。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现参数防呆机制开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示是否允许只携带TargetNfType参数，不携带其他目的NF的相关参数进行服务发现。开关打开时，表示NRF不允许，服务发现结果返回400(Bad Request);开关关闭时，NRF按照正常的服务发现处理，返回对应的结果。</p>
+<p>例外：当TargetNfType为SMSF时，无论开关打开或关闭，NRF均能正常处理。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>数组类信元判重校验开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>NRF收到NF侧的patch更新请求，会先根据patch进行预更新NF Profile，如果新的NF Profile的下面所列的数组中有重复元素，NRF根据此开关做不同处理。开关打开时，NRF针对NF patch更新返回400响应；开关关闭时，NRF直接返回对应流程结果。</p>
+<p>涉及的数组类信元及对应网元类型有：</p>
+<p>supiRanges（涉及UDR，UDM，AUSF，PCF，SMSF）。</p>
+<p>gpsiRanges（涉及UDR，UDM，PCF，SMSF）。</p>
+<p>supiRangeList（涉及CHF，OCS）。</p>
+<p>gpsiRanges（涉及CHF，OCS）。</p>
+<p>taiList（涉及SMF，AMF）。</p>
+<p>dnnList（涉及PCF，BSF）。</p>
+<p>taiRangeList（涉及SMF，AMF）。</p>
+<p>sNssaiSmfInfoList(涉及SMF)。</p>
+<p>ipv4AddressRanges，ipDomainList，ipv6PrefixRanges，bsfInfoExt（涉及BSF）。</p>
+<p>ipv4Addresses，ipv6Prefixes,ipv4AddrRanges,ipv6PrefixRanges (涉及SCP)。</p>
+<p>sNssais适用于所有类型NF。</p>
+<p>perPlmnSnssaiList适用于所有类型NF。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>Via功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示Via功能开关。打开后支持根据请求消息中http的Via头域进行环路判决，以及转发跨NRF请求时携带via头域。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果UNDISCOVERABLE状态过滤开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF在服务发现返回结果中是否携带UNDISCOVERABLE状态的实例，开关打开时表示不携带UNDISCOVERABLE状态，反之则携带。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>号段NF无号段屏蔽开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF上的号段NF在无号段时是否需要上报告警，该NF是否可以被发现/检索以及该NF发生变更时是否通知已订阅NF的开关。无号段指注册、配置和导入都无号段。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果缓存开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF是否开启服务发现结果缓存功能。开关打开时，NRF会对服务发现结果中目标NF注册时携带的supi号段、gpsi号段、dnn列表、tai列表等这些量比较大的属性进行缓存，减少查询数据库的频率，提高发现性能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现分层转发优化开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示服务发现分层转发优化开关。参数设置为“FUNC_ON”时，服务发现分层转发的响应将由http进程直接转发，不再传递给业务进程处理，避免了http进程和业务进程之间传递响应报文，优化性能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>订阅响应location字段IP类型选择开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示NRF返回的订阅响应头中location字段和通知响应中NfInstanceUri字段的IP地址类型选择开关。参数设置为“FUNC_ON”时，构造订阅响应中location字段和通知响应中NfInstanceUri字段使用订阅消息中callbackUri的IP类型，而非请求源IP类型（假定NF的客户端IP和服务端IP支持的IP类型相同）。该参数对跨PLMN的漫游订阅不生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现跟踪裁剪开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF是否开启服务发现跟踪消息裁剪功能。开关设置为“FUNC_ON”，NRF会对服务发现上报的跟踪消息进行裁剪，只保留跟踪消息前30KB的消息内容；开关设置为“FUNC_OFF”，上报全部跟踪消息内容。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NF链路探测开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于容灾断链期间NRF是否进行NF链路探测开关。开关设置为“FUNC_ON”，当NRF和容灾的另一NRF断链期间，NRF对已经心跳超时的NF进行链路探测，若探测出链路故障，会主动置NF状态为SUSPENDED并触发NF状态变更。该参数只在“WSFD-114002 NRF双活容灾”特性开启后配置才生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NF链路探测故障观察时长(秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示容灾断链时探测出NF链路故障后的观察时长。在观察时长内，若NF链路恢复正常了，NRF会继续探测，不会置NF状态为SUSPENDED；否则，观察期结束，NRF就会置NF状态为SUSPENDED，并触发NF状态变更通知。目的是为了适应NF链路闪断场景。该参数只在“WSFD-114002 NRF双活容灾”特性开启后配置才生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>BSFINFO裁剪开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示当请求NF为AF/DRA时，NRF服务发现和订阅通知流程中是否返回全量BsfInfo的信息。</p>
+<p>开关打开时，在服务发现流程中，如果服务发现请求参数中包含IpDomain、UeIpv4Address、UeIpv6Prefix、dnn中的一种或几种，则NRF在发现结果中只包含匹配上的BsfInfo信息；如果服务发现请求参数不包含上述请求参数，则NRF在发现结果中返回全量的Profile。在订阅通知流程中，如果订阅方为AF/DRA且被订阅方为BSF时，NRF通知中的Profile仅包含IMS DNN所在的BsfInfo；否则返回全量的Profile。</p>
+<p>开关关闭时，在服务发现流程和订阅通知流程中，NRF均返回全量的profile信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>心跳不切换接入开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>在NRF双活组网场景下，该参数用于控制故障恢复后的高优先级NRF刷新主本的策略。</p>
+<p>当开关开启时，高优先级NRF故障恢复后收到的首次消息为心跳消息时，不立即刷新主本数据，待收到注册消息后再进行切换，避免高低优先级NRF主本数据冲突导致数据丢失；</p>
+<p>当开关关闭时，高优先级NRF故障恢复后收到的首次消息为心跳消息时，立即刷新主本数据。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NRF支持无主用AMF时重选备份AMF开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF收到服务发现参数包含Guami的服务发现请求后，在找不到符合发现条件的主用AMF时，是否返回Guami对应AMF的备用AMF。当开关打开时，NRF查找不到匹配条件的AMF，会根据Guami查找匹配条件AMF的备用AMF，若备用AMF查找失败，则返回忽略Guami匹配条件的服务发现结果。当开关关闭时，NRF查找不到匹配条件的AMF，返回忽略Guami匹配条件的发现结果。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果切片缓存开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF是否开启服务发现结果切片缓存功能。开关打开时，NRF会对服务发现结果中snssai，plmnSnssai列表进行缓存，减少查询数据库的频率，提高发现性能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>服务发现结果配置号段缓存开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF是否开启服务发现结果配置号段缓存功能。开关打开时，NRF会对服务发现结果中目标NF通过MML配置支持的supi号段、gpsi号段、RoutingIndicator列表进行缓存，减少查询数据库的频率，提高发现性能。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>链路探测协议优选开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于表示NRF链路探测时通信协议的优选开关。开关设置为“FUNC_ON”，当触发链路探测时（链路探测受NFLNKDETECTSW控制），NRF将优先使用Https通信协议探测目标NF；开关设置为“FUNC_OFF”，当触发链路探测时，NRF将优先使用Http通信协议探测目标NF。该参数只在“WSFD-114002 NRF双活容灾”特性开启后配置才生效。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nrf_function_switch.html">NRF功能开关
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/set_nrffuncsw.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

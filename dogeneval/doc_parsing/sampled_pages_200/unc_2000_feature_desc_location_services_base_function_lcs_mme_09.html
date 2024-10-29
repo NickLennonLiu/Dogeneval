@@ -1,0 +1,258 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="定位方法对比">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Location_Services_base_function_LCS_mme_02.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Location_Services_base_function_LCS_mme_07.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="MME">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-106401">
+<meta name="Function" content="位置业务">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0191808313">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>定位方法对比</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0191808313"></a><a name="ZH-CN_CONCEPT_0191808313"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">定位方法对比</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0191808313__1.3.2.1">协议标准定位方法优劣势对比</a></li><li><a href="#ZH-CN_CONCEPT_0191808313__1.3.3.1">协议标准定位模式</a></li><li><a href="#ZH-CN_CONCEPT_0191808313__1.3.4.1">协议标准定位评价准则</a></li></ul><div><p>本章节描述协议标准定位方法的对比、定位模式和评价准则。</p>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191808313__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0191808313" class="sectiontitle2contents">协议标准定位方法优劣势对比</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>协议标准定位方法</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.919999999999998%" id="mcps1.3.2.2.2.5.1.1" liSelected="liSelected"><p>定位方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="32.76%" id="mcps1.3.2.2.2.5.1.2" liSelected="liSelected"><p>与UMTS定位方法差异</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="23.46%" id="mcps1.3.2.2.2.5.1.3" liSelected="liSelected"><p>优势</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="26.86%" id="mcps1.3.2.2.2.5.1.4" liSelected="liSelected"><p>劣势</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.919999999999998%" headers="mcps1.3.2.2.2.5.1.1 "><p>E-CID</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.76%" headers="mcps1.3.2.2.2.5.1.2 "><p>与UMTS CELLID+RTT定位方法原理一致，不同之处在于E-CID定位方法可提供AoA信息，从而提供更为精确UE地理信息位置。</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.46%" headers="mcps1.3.2.2.2.5.1.3 "><p>定位方法实现简单，无需对网络和UE做较大的改动。</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.86%" headers="mcps1.3.2.2.2.5.1.4 "><p>定位精度相对较低。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.919999999999998%" headers="mcps1.3.2.2.2.5.1.1 "><p>OTDOA</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.76%" headers="mcps1.3.2.2.2.5.1.2 "><p>LTE OTDOA定位方法与UMTS OTDOA定位方法原理一致。</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.46%" headers="mcps1.3.2.2.2.5.1.3 "><p>在郊区和农村，定位精度较高。</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.86%" headers="mcps1.3.2.2.2.5.1.4 "><p>定位精度受环境的影响：在城区，由于高大建筑物较多，定位精度会受到影响。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.919999999999998%" headers="mcps1.3.2.2.2.5.1.1 "><p>A-GPS</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.76%" headers="mcps1.3.2.2.2.5.1.2 "><p>LTE A-GPS定位方法与UMTS A-GPS定位方法原理一致。</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.46%" headers="mcps1.3.2.2.2.5.1.3 "><p>A-GPS定位精度最高。</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.86%" headers="mcps1.3.2.2.2.5.1.4 "><p>室内UE可能接收不到卫星信号而导致该定位方法无法使用。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191808313__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0191808313" class="sectiontitle2contents">协议标准定位模式</a></h4><p>LCS支持两种定位模式，两种定位模式的区别在于由哪个网元进行UE的位置计算：</p>
+<ul><li>基于UE（UE based）模式：位置计算网元是UE。</li><li>UE辅助（UE assisted）模式：又称为基于网络的模式，位置计算网元是E-SMLC。</li></ul>
+<p>定位方法与定位模式的对应关系如<a href="#ZH-CN_CONCEPT_0191808313__tbl07">表2</a>所示。</p>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0191808313__tbl07"></a><a name="tbl07"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0191808313__tbl07" frame="border" border="1" rules="all"><caption><b>表2 </b>定位模式与定位方法的对应关系</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="bottom" width="22.830000000000002%" id="mcps1.3.3.5.2.4.1.1" liSelected="liSelected"><p>定位方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="37.169999999999995%" id="mcps1.3.3.5.2.4.1.2" liSelected="liSelected"><p>是否支持基于UE（UE based）模式</p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="40%" id="mcps1.3.3.5.2.4.1.3" liSelected="liSelected"><p>是否支持UE辅助（UE assisted）模式</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="22.830000000000002%" headers="mcps1.3.3.5.2.4.1.1 "><p>E-CID</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.169999999999995%" headers="mcps1.3.3.5.2.4.1.2 "><p>否</p>
+</td>
+<td class="cellrowborder" valign="top" width="40%" headers="mcps1.3.3.5.2.4.1.3 "><p>是</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.830000000000002%" headers="mcps1.3.3.5.2.4.1.1 "><p>OTDOA</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.169999999999995%" headers="mcps1.3.3.5.2.4.1.2 "><p>否</p>
+</td>
+<td class="cellrowborder" valign="top" width="40%" headers="mcps1.3.3.5.2.4.1.3 "><p>是</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.830000000000002%" headers="mcps1.3.3.5.2.4.1.1 "><p>A-GPS</p>
+</td>
+<td class="cellrowborder" valign="top" width="37.169999999999995%" headers="mcps1.3.3.5.2.4.1.2 "><p>是</p>
+</td>
+<td class="cellrowborder" valign="top" width="40%" headers="mcps1.3.3.5.2.4.1.3 "><p>是（一般默认采用UE辅助模式）</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0191808313__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0191808313" class="sectiontitle2contents">协议标准定位评价准则</a></h4><p>协议标准的定位评价准则主要从<strong>定位水平精度</strong>和<strong>定位响应时间</strong>两方面考虑。</p>
+<p><strong>定位水平精度</strong></p>
+<p>LCS水平定位精度取决于定位方法、定位测量精度和GDOP（Geometric Dilution of Precision）因子三个方面。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表3 </b>不同定位水平精度影响描述</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.321632163216325%" id="mcps1.3.4.5.2.4.1.1" liSelected="liSelected"><p>定位水平精度影响因素</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.8042804280428%" id="mcps1.3.4.5.2.4.1.2" liSelected="liSelected"><p>背景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="40.87408740874087%" id="mcps1.3.4.5.2.4.1.3" liSelected="liSelected"><p>影响</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.321632163216325%" headers="mcps1.3.4.5.2.4.1.1 "><p>定位测量精度</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.8042804280428%" headers="mcps1.3.4.5.2.4.1.2 "><p>定位测量精度是影响定位精度的最主要原因。定位测量精度取决于定位相关测量网元（UE、eNodeB）的测量能力、以及这些网元所处的无线环境。</p>
+</td>
+<td class="cellrowborder" valign="top" width="40.87408740874087%" headers="mcps1.3.4.5.2.4.1.3 "><p>例如：在空旷的环境下，UE一般具有较好的定位测量精度；相反，在遮挡严重、或者室内环境下，由于非可视距、多径传播的影响，UE的定位测量精度会严重下降。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.321632163216325%" headers="mcps1.3.4.5.2.4.1.1 "><p>定位方法</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.8042804280428%" headers="mcps1.3.4.5.2.4.1.2 "><p>在同一环境中，不同的定位方法会有不同的定位精度。通常来说，A-GPS方法具有最高的水平定位精度，OTDOA次之，E-CID方法的水平定位精度最低。</p>
+</td>
+<td class="cellrowborder" valign="top" width="40.87408740874087%" headers="mcps1.3.4.5.2.4.1.3 "><p>不同定位方法对应的定位精度也有例外情况：</p>
+<p>例如，在遮挡比较严重的地区，由于搜索不到足够的卫星信号，A-GPS定位方法往往会失败，或者定位精度很差。这时，E-CID方法可能具有较高的定位精度。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.321632163216325%" headers="mcps1.3.4.5.2.4.1.1 "><p>GDOP因子</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.8042804280428%" headers="mcps1.3.4.5.2.4.1.2 "><p>GDOP是定位计算中的几何精度因子，它由UE与GPS卫星之间的相对位置（A-GPS方法）、或UE与基站之间的相对位置（OTDOA、E-CID方法）来确定。</p>
+</td>
+<td class="cellrowborder" valign="top" width="40.87408740874087%" headers="mcps1.3.4.5.2.4.1.3 "><p>例如：参与定位的几个基站之间的相对位置，成正三角形、或成均匀分布，定位精度会更好；反之，则定位精度将会下降。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="#ZH-CN_CONCEPT_0191808313__tbl08">表4</a>给出了不同定位方法的水平定位精度大致范围。</p>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0191808313__tbl08"></a><a name="tbl08"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0191808313__tbl08" frame="border" border="1" rules="all"><caption><b>表4 </b>各个定位方法的水平精度（单位：m）</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="bottom" width="36%" id="mcps1.3.4.7.2.4.1.1" liSelected="liSelected"><p>定位方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="30%" id="mcps1.3.4.7.2.4.1.2" liSelected="liSelected"><p>概率精度 67%<sup>a</sup></p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="34%" id="mcps1.3.4.7.2.4.1.3" liSelected="liSelected"><p>概率精度 95%<sup>b</sup></p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="36%" headers="mcps1.3.4.7.2.4.1.1 "><p>E-CID</p>
+</td>
+<td class="cellrowborder" valign="top" width="30%" headers="mcps1.3.4.7.2.4.1.2 "><p>90～300</p>
+</td>
+<td class="cellrowborder" valign="top" width="34%" headers="mcps1.3.4.7.2.4.1.3 "><p>180～1000</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="36%" headers="mcps1.3.4.7.2.4.1.1 "><p>OTDOA</p>
+</td>
+<td class="cellrowborder" valign="top" width="30%" headers="mcps1.3.4.7.2.4.1.2 "><p>50～100</p>
+</td>
+<td class="cellrowborder" valign="top" width="34%" headers="mcps1.3.4.7.2.4.1.3 "><p>140～280</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="36%" headers="mcps1.3.4.7.2.4.1.1 "><p>A-GPS</p>
+</td>
+<td class="cellrowborder" valign="top" width="30%" headers="mcps1.3.4.7.2.4.1.2 "><p>15～60</p>
+</td>
+<td class="cellrowborder" valign="top" width="34%" headers="mcps1.3.4.7.2.4.1.3 "><p>40～200</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="36%" headers="mcps1.3.4.7.2.4.1.1 "><p>混合定位方法<sup>c</sup></p>
+</td>
+<td class="cellrowborder" valign="top" width="30%" headers="mcps1.3.4.7.2.4.1.2 "><p>15～50</p>
+</td>
+<td class="cellrowborder" valign="top" width="34%" headers="mcps1.3.4.7.2.4.1.3 "><p>40～150</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="36%" headers="mcps1.3.4.7.2.4.1.1 "><p>FCC的要求<sup>d</sup></p>
+</td>
+<td class="cellrowborder" valign="top" width="30%" headers="mcps1.3.4.7.2.4.1.2 "><p>50</p>
+</td>
+<td class="cellrowborder" valign="top" width="34%" headers="mcps1.3.4.7.2.4.1.3 "><p>150</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" colspan="3" valign="top" headers="mcps1.3.4.7.2.4.1.1 mcps1.3.4.7.2.4.1.2 mcps1.3.4.7.2.4.1.3 "><p>a:“67%”表示统计意义上，67％以上的定位结果都能达到的定位精度。</p>
+<p>b:“95%”表示统计意义上，95％以上的定位结果都能达到的定位精度。</p>
+<p>c：由于任何定位方法都无法在所有无线环境下得到很好的定位精度，因此可以采用混合定位方法，用以获得较精确的定位结果。</p>
+<p>d：混合定位方法的精度最高，可以满足FCC（美国联邦通信委员会）的要求。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>定位响应时间</strong></p>
+<p><a href="#ZH-CN_CONCEPT_0191808313__tbl09">表5</a>给出了各种定位方法在接入网侧的定位响应时间。可以看出，由于需要获取GPS辅助信息，A-GPS定位方法和混合定位方法的响应时间，要长于OTDOA和E-CID定位方法。</p>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0191808313__tbl09"></a><a name="tbl09"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0191808313__tbl09" frame="border" border="1" rules="all"><caption><b>表5 </b>响应时间</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="bottom" width="41%" id="mcps1.3.4.10.2.3.1.1" liSelected="liSelected"><p>定位方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="bottom" width="59%" id="mcps1.3.4.10.2.3.1.2" liSelected="liSelected"><p>响应时间（单位：s）</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="41%" headers="mcps1.3.4.10.2.3.1.1 "><p>E-CID</p>
+</td>
+<td class="cellrowborder" valign="top" width="59%" headers="mcps1.3.4.10.2.3.1.2 "><p>0.1～0.5</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="41%" headers="mcps1.3.4.10.2.3.1.1 "><p>OTDOA</p>
+</td>
+<td class="cellrowborder" valign="top" width="59%" headers="mcps1.3.4.10.2.3.1.2 "><p>0.5～2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="41%" headers="mcps1.3.4.10.2.3.1.1 "><p>A-GPS</p>
+</td>
+<td class="cellrowborder" valign="top" width="59%" headers="mcps1.3.4.10.2.3.1.2 "><p>5～16</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="41%" headers="mcps1.3.4.10.2.3.1.1 "><p>混合定位</p>
+</td>
+<td class="cellrowborder" valign="top" width="59%" headers="mcps1.3.4.10.2.3.1.2 "><p>5～16</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>从以上描述中可以看出，LCS QoS指标中的水平定位精度，以及定位响应时间是互斥关系：定位精度高，就意味着响应时间较长；相反，如果想要定位响应快，则可能需要牺牲一定的定位精度。因此，在考虑定位方法的时候，需要权衡考虑水平精度和响应时间。</p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Location_Services_base_function_LCS_mme_02.html">实现原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Location_Services_base_function_LCS_mme_07.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

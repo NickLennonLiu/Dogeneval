@@ -1,0 +1,254 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加S-GW特性对接配置(ADD SGWCHARACT)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_s_gw_attribute.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_sgwcharact.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126305778">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加S-GW特性对接配置(ADD SGWCHARACT)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126305778"></a><a name="ZH-CN_MMLREF_0000001126305778"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加S-GW特性对接配置(ADD SGWCHARACT)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126305778__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126305778__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126305778__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305778__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305778__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126305778__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305778__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126305778" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126305778__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>该命令用于增加MME与S-GW支持特性的能力交互配置策略。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305778__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126305778" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>该表的最大元组数为128。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305778__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126305778" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305778__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126305778" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305778__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126305778" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RANGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>对端设备范围</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定需要特性能力相互通知的对端设备S-GW范围。</p>
+<p>数据来源：全网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“SPECIFIED(指定S-GW)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“ALL(所有S-GW)”</span>为系统的缺省记录，不允许增加，也不允许删除。</li><li>配置记录的优先级关系：<span class="parmvalue">“SPECIFIED(指定S-GW)”</span> 高于 <span class="parmvalue">“ALL(所有S-GW)”</span>。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IP地址类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定S-GW信令面IP地址类型。</p>
+<p>前提条件：该参数在<span class="parmname">“对端设备范围”</span>参数配置为<span class="parmvalue">“SPECIFIED(指定S-GW)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“IPV4(IPV4)”</span></li><li><span class="parmvalue">“IPV6(IPV6)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IPv4地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定S-GW信令面IPv4地址，系统中可以配置多条<span class="parmvalue">“SPECIFIED(指定S-GW)”</span>的记录，但是IP网段区间不能相同，允许包含关系。当存在包含关系的IP网段记录时，以目标IP地址落入的最小IP网段记录为准。</p>
+<p>前提条件：该参数在<span class="parmname">“IP地址类型”</span>参数配置为<span class="parmvalue">“IPV4(IPV4)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：0.0.0.1~255.255.255.254</p>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>有效的IPv4地址不能为环回地址(127.x.y.z)。</li><li>有效的IPv4地址必须是A、B或者C类地址。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPV4MSK</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IPV4地址掩码</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定对端S-GW的信令面IPv4地址的掩码。</p>
+<p>前提条件：该参数在<span class="parmname">“IP地址类型”</span>参数配置为<span class="parmvalue">“IPV4(IPV4)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：0.0.0.1~255.255.255.255</p>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>输入的掩码要求对应的二进制值1和1之间不允许存在0。例如：<span class="parmvalue">“255.255.0.0”</span>是有效掩码；<span class="parmvalue">“123.123.123.123”</span>是无效掩码。因为123对应的二进制为<span class="parmvalue">“1111011”</span>，1之间存在0。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPV6</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IPv6地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定S-GW信令面IPv6地址，系统中可以配置多条<span class="parmvalue">“SPECIFIED(指定S-GW)”</span>的记录，但是IP网段区间不能相同，允许包含关系。当存在包含关系的IP网段记录时，以目标IP地址落入的最小IP网段记录为准。</p>
+<p>前提条件：该参数在<span class="parmname">“IP地址类型”</span>参数配置为<span class="parmvalue">“IPV6(IPV6)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：::~FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF</p>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>IPv6地址必须是全球单播地址，不能为::、FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF、环回地址(::1)、链路本地地址(FE80::/10)和组播地址(FF00::/8)。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPV6MSK</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IPV6地址前缀长度</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定IPv6地址的子网前缀的长度。</p>
+<p>前提条件：该参数在<span class="parmname">“IP地址类型”</span>参数配置为<span class="parmvalue">“IPV6(IPV6)”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0~128</p>
+<p>默认值：无</p>
+<p>配置原则：0是无效掩码。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>NTSR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>S-GW支持NTSR功能</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置S-GW是否支持NTSR功能。</p>
+<p>数据来源：对端协商</p>
+<div class="p">取值范围：<ul><li>"YES(支持)"</li><li>"NO(不支持)"</li></ul>
+</div>
+<p>默认值：NO(不支持)</p>
+<div class="p">配置原则：<ul><li>“MME链式备份”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>201201</span>，license部件编码：LKV2MCR01）</li><li>参数设置为“支持”时，发送给对应S-GW的Echo Request/Echo Respone消息的“Node Feature”信元中“NTSR”比特设置为1。</li><li>参数设置为“不支持”时，发送给对应S-GW的Echo Request/Echo Respone消息的“Node Feature”信元中“NTSR”比特设置为0。</li><li>当“Node Feature”信元所有bit为0，Echo Request/Echo Respone消息将不携带该信元。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PRN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>S-GW支持PRN功能</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置S-GW是否支持PRN功能。</p>
+<p>数据来源：对端协商</p>
+<div class="p">取值范围：<ul><li>"YES(支持)"</li><li>"NO(不支持)"</li></ul>
+</div>
+<p>默认值：NO(不支持)</p>
+<div class="p">配置原则：<ul><li>“S-GW/P-GW故障下的业务恢复”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>201203</span>，license部件编码：LKV2SRGF01）</li><li>参数设置为“支持”时，发送给对应S-GW的Echo Request/Echo Respone消息的“Node Feature”信元中“PRN”比特设置为1。</li><li>参数设置为“不支持”时，发送给对应S-GW的Echo Request/Echo Respone消息的“Node Feature”信元中“PRN”比特设置为0。</li><li>当“Node Feature”信元所有bit为0，Echo Request/Echo Respone消息将不携带该信元。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>MMEID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>S-GW支持MME ID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置S-GW是否支持MME ID信元。</p>
+<p>数据来源：对端协商</p>
+<div class="p">取值范围：<ul><li>"YES(支持)"</li><li>"NO(不支持)"</li></ul>
+</div>
+<p>默认值：NO(不支持)</p>
+<div class="p">配置原则：<ul><li>“S-GW/P-GW故障下的业务恢复”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>201203</span>，license部件编码：LKV2SRGF01）</li><li>参数设置为“支持”，发送给对应S-GW的Create Session Request/Modify Bearer Request消息携带“MME ID”信元。</li><li>参数设置为“不支持”，发送给对应S-GW的Create Session Request/ModifyBearer Request消息不携带“MME ID”信元。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SECRATRPT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>S-GW支持Secondary RAT Usage Data Report</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定是否在MME发送给对应S-GW的Modify Bearer Request、Delete Session Request、Delete Bearer Response、Delete Bearer Command、Release Access Bearers Request、Change Notification Request等消息中携带“Secondary RAT Usage Data Report”信元。</p>
+<p>数据来源：全网规划</p>
+<div class="p">取值范围：<ul><li>"NO（不支持）"</li><li>"YES（支持）"</li></ul>
+</div>
+<p>默认值："NO（不支持）"</p>
+<p>配置原则：如果对端MME支持Secondary RAT Usage Data Report信元，设置本参数为<span class="parmvalue">“YES（支持）”</span>；否则设置本参数为<span class="parmvalue">“NO（不支持）”</span>。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>“Secondary RAT Usage Data Report”信元用于携带用户的流量使用统计信息，只有开启了<span class="parmvalue">“5G计费流量信息上报”</span>特性才会被使用。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GTPUIPPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>GTPU IP类型选择策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于在MME用户面同时支持IPv4与IPv6地址的场景下，指定与SGW之间的用户面IP地址类型选择策略。</p>
+<p>数据来源：对端协商</p>
+<div class="p">取值范围：<ul><li>IPV4PRE(与SGW之间的用户面IP地址类型优先选择IPv4地址类型)</li><li>IPV6PRE(与SGW之间的用户面IP地址类型优先选择IPv6地址类型)</li><li>GTPCPRE(与SGW之间的用户面IP地址类型优先选择与控制面地址类型相同)</li></ul>
+</div>
+<p>默认值：IPV4PRE</p>
+<div class="p">配置原则：<ul><li>S-GW的S11U地址仅支持IPv4地址，则IP地址类型优先选择IPv4地址类型。</li><li>S-GW的S11U地址仅支持IPv6地址，则IP地址类型优先选择IPv6地址类型。</li><li>S-GW的S11U地址支持IPv4和IPv6地址，则IP地址类型优先选择与控制面地址类型相同的IP。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数仅在<a href="set_smfunc.html"><b><span class="cmdname">SET SMFUNC</span></b></a>中<span class="parmname">“LTEUSERPLCYSW”</span>配置为<span class="parmvalue">“YES”</span>时生效。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULIFORSGW</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>S-GW支持User Location Information For S-GW</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置S-GW是否支持User Location Information For S-GW信元。</p>
+<p>数据来源：对端协商</p>
+<p>取值范围：</p>
+<ul><li>"NO（不支持）"</li><li>"YES（支持）"</li></ul>
+<p>默认值："NO（不支持）"</p>
+<p>配置原则：</p>
+<ul><li>参数设置为“YES(支持)”，发送给对应S-GW的Create Session Request/Modify Bearer Request消息携带该信元。</li><li>参数设置为“NO(不支持)”，发送给对应S-GW的Create Session Request/Modify Bearer Request消息不携带该信元。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>DESC</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>描述</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于描述信息。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0~32位字符串</p>
+<p>默认值：无</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305778__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126305778" class="sectiontitle2contents">使用实例</a></h4><p>该命令用于增加MME与S-GW支持特性的能力交互配置策略，执行如下命令：</p>
+<p><samp class="codeph">ADD SGWCHARACT: RANGE=SPECIFIED, IPT=IPV4, IPV4="192.168.6.7", IPV4MSK="255.255.255.0", NTSR=NO, PRN=NO, MMEID=YES, SECRATRPT=NO, GTPUIPPLCY=IPV4PRE;</samp></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_s_gw_attribute.html">S-GW属性
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_sgwcharact.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

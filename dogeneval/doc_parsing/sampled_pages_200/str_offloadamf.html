@@ -1,0 +1,252 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="启动AMF迁移任务（STR OFFLOADAMF）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_amf_pool_offload.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/stp_offloadamf.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209653235">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>启动AMF迁移任务（STR OFFLOADAMF）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209653235"></a><a name="ZH-CN_MMLREF_0209653235"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">启动AMF迁移任务（STR OFFLOADAMF）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209653235__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209653235__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209653235__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209653235__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209653235__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653235" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF</strong>
+                </p>
+
+                    <p>此命令用于启动AMF的用户迁移任务。</p>
+
+                    <p>当AMF Pool中的某个AMF出现过载、AMF需要进行迁移或升级、网络负载出现不均衡的情况下，可以启动用户迁移任务，能够及时调整网络运行状况，实现资源合理利用，并有效减少用户接入损耗和业务中断。</p>
+
+                    <p>此命令执行后，任务状态变为“迁移中”或“已结束”，迁移类型为“迁移全部用户”、“迁移百分比用户”、“迁移部分用户”的迁移任务可执行“DSP OFFLOADAMF”命令查询AMF迁移任务状态及待迁移用户数和已迁移用户数等进度信息，执行“STP OFFLOADAMF”命令停止AMF迁移任务，迁移任务状态变为“已停止”。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209653235__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653235" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>AMF不支持多个迁移任务并行进行。</li><li>如果有迁移任务状态为“迁移中”，执行此命令不会发起新的任务。</li><li>迁移类型为“迁移全部用户”、“迁移百分比用户”、“迁移部分用户”：如果已迁移用户数已经达到待迁移用户数或AMF当前处于注册态的5G用户数已经为0，则停止迁移任务。</li><li>启动迁移任务时会根据待迁移用户数/速率计算预估迁移时长，预估迁移时长加预留的保护时间（30分钟）后，如果迁移任务还没有停止，就强制停止迁移任务。</li><li>迁移类型为“指定IMSI”：IMSI参数指定所要迁移单个用户的国际移动用户标识，该类型迁移任务不支持“DSP OFFLOADAMF”和“STP OFFLOADAMF”命令，可通过用户跟踪等手段查看迁移进度。</li><li>不支持容灾用户的迁移。如果迁移类型为指定IMSI，若命令执行结果返回“记录不存在”，表示该用户是容灾用户或者该用户在系统中不存在。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209653235__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209653235" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209653235__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653235" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>迁移类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用来指定AMF的迁移类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“ALL（全部用户）”：全部用户</li><li>“PART（部分用户）”：部分用户</li><li>“RATE（百分比用户）”：百分比用户</li><li>“IMSI（指定IMSI）”：指定IMSI</li></ul>
+<p> 默认值：ALL</p>
+<p> 配置原则：</p>
+<p> 具体选择哪种迁移类型由具体的运营场景决定，比如。</p>
+<p> 1）AMF Pool中的某个AMF需要执行升级、退网等操作，需要将该AMF上的所有用户迁移到Pool内其它AMF，则选择“ALL”；</p>
+<p> 2）AMF Pool中的某个AMF过载，需要将该AMF上的部分用户迁移到Pool内的其它AMF，或者AMF Pool中实例化了一个新的AMF，需要将其它AMF上的存量用户迁移一部分到该新AMF，则选择“PART”或者“RATE”；</p>
+<p> 3）测试场景下，运维人员需要将指定IMSI的拨测用户迁移到目标AMF以便进行业务观测，则选择“IMSI”。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>OFFLOADNUM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>迁移总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"TYPE"配置为"PART"时为条件必选参数。</p>
+<p> 参数含义：该参数用来指定AMF迁移用户总数。</p>
+<p>如果输入的数值大于当前系统用户数，则为迁移当前系统用户数。系统用户数可通过DSP NGUSERNUM命令查询。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~17000000。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>OFFLOADRATE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>迁移比率(百分比)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"TYPE"配置为"RATE"时为条件必选参数。</p>
+<p> 参数含义：该参数用来指定AMF待迁移用户数占整系统用户数的比率。</p>
+<p>如果输入100，系统按照“全部用户”处理。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~100，单位是百分比。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>IMSI</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>IMSI</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"TYPE"配置为"IMSI"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定待迁移用户的IMSI。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是5~15。只允许输入十进制数字（0-9）。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RATE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>迁移速率(千/分钟)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"TYPE"配置为"ALL、PART、RATE"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定AMF用户迁移的速率。</p>
+<p>迁移速率的设置需要考虑本AMF，目标AMF、NG-RAN、UDM、PCF等周边NF的负载情况，不宜设置过大，否则可能导致上述NF过载。</p>
+<p>如果不输入，按照每分钟迁移当前系统用户数的1%的速度进行迁移。</p>
+<p>注意，AMF会控制迁移用户的速率不超过该设置值，但由于实现原因，AMF在系统内部分发迁移任务时按照向上取整，故存在实际迁移速率略微超过本设置值的可能。</p>
+<p>实际的最大迁移速度会产生100用户/分钟的误差，即可能会略超出该设置值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~500。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TAMF</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>目标AMF名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定用户需要迁移到的目标AMF的名称。</p>
+<ul><li>如果目标AMF为UNC，则在目标AMF上执行LST AMFINFO查询AMF名称。</li><li>如果不输入，表示不指定目标AMF，相关业务迁出时，系统按照AMF Set中各AMF在NRF中注册的优先级和能力进行目标AMF选择。</li></ul>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~150。可输入的字符有字母、十进制数字、“-”和“.”，并且开头和结尾只能是数字或者字母。字母大小写不敏感。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TAMFIPADDR</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>目标AMF IP信息</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定用户需要迁移到的目标AMF的ApiRoot的IP信息。</p>
+<ul><li>如果目标AMF为UNC，则在目标AMF上执行LST HTTPLE查询Server端是否启用TLS、IP和端口信息。输入项格式为scheme + IP:PORT格式，当“是否启用TLS”为“YES”时，scheme为“https://”，否则为“http://”。以IPv4举例：http://10.2.3.4:3060或者https://10.2.3.4:3060。</li><li>如果不输入，表示不指定目标AMF，相关业务迁出时，系统按照AMF Set中各AMF在NRF中注册的优先级和能力进行目标AMF选择。</li><li>当同时配置“目标AMF名称”和“目标AMF IP信息”时，使用“目标AMF IP信息”作为迁移用户的手段。</li></ul>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~150。可输入的字符有大小写字母、十进制数字、“:”、“.”、“[”、“]”和“/”。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209653235__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653235" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>启动AMF迁移任务，迁移全部用户，但不指定目标AMF，不指定迁移速率，执行如下命令：</p>
+
+                    <pre class="screen">STR OFFLOADAMF: TYPE=ALL;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_amf_pool_offload.html">AMF Pool 迁移控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/stp_offloadamf.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

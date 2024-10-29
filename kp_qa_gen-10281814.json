@@ -1,0 +1,20 @@
+[
+    {
+        "task": "MultipleChoice",
+        "kp_type": "处理步骤",
+        "kp_title": "描述在5G网络中，SMF/PGW-C与CG交互的指定RG和SID的承载数的统计方法，包括其含义、单位、测量点、测量类型及相关说明",
+        "kp_content": "含义：该测量指标用于统计在指定测量周期内SMF/PGW-C与CG交互的指定RG和SID的承载数。单位：个。测量点：当SMF/PGW-C与CG交互时，将承载数按RG和SID累加到该指标。测量类型：当统计周期时间大于采集周期时，取统计周期内最后一个采集周期的值。",
+        "template": "你是核心网运维工程师，请根据题目和选项，选择正确的答案。\n\n{question}\nA: {A}\nB: {B}\nC: {C}\nD: {D}\n\n只输出A、B、C、D中的一个字母",
+        "qa_gen_response": "{\n    \"question\": \"在5G网络中，Ga接口的承载数统计方法的测量点是什么？\",\n    \"A\": \"当SMF/PGW-C与CG交互时，将承载数按RG和SID累加到该指标\",\n    \"B\": \"当SMF/PGW-C与CG交互时，将承载数按RG和SID累减到该指标\",\n    \"C\": \"当SMF/PGW-C与CG无交互时，将承载数按RG和SID累加到该指标\",\n    \"D\": \"当SMF/PGW-C与CG无交互时，将承载数按RG和SID累减到该指标\",\n    \"answer\": \"A\",\n    \"explanation\": \"在5G网络中，Ga接口的承载数统计方法的测量点是：当SMF/PGW-C与CG交互时，将承载数按RG和SID累加到该指标。\"\n}",
+        "qa_gen_time": 14.222843408584595,
+        "is_zeroshot": true,
+        "require_scene": false,
+        "example": null,
+        "kp_path": "OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/Ga接口测量/指定RG和SID的Ga接口测量/1929461615.html",
+        "Question": "你是核心网运维工程师，请根据题目和选项，选择正确的答案。\n\n在5G网络中，Ga接口的承载数统计方法的测量点是什么？\nA: 当SMF/PGW-C与CG交互时，将承载数按RG和SID累加到该指标\nB: 当SMF/PGW-C与CG交互时，将承载数按RG和SID累减到该指标\nC: 当SMF/PGW-C与CG无交互时，将承载数按RG和SID累加到该指标\nD: 当SMF/PGW-C与CG无交互时，将承载数按RG和SID累减到该指标\n\n只输出A、B、C、D中的一个字母",
+        "Answer": "A",
+        "error": null,
+        "Model_Answer": "A",
+        "match": true,
+        "match_reason": "模型回复（A选项）与知识库内容中的‘测量点：当SMF/PGW-C与CG交互时，将承载数按RG和SID累加到该指标’完全对应，因此这是正确的答案。",
+        "_id": 

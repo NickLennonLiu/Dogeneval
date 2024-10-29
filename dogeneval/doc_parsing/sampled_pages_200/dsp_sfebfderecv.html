@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="显示BFD-ERECV表（DSP SFEBFDERECV）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_bfd_recv_table.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/dsp_sfebfdirecv.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134580865">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示BFD-ERECV表（DSP SFEBFDERECV）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134580865"></a><a name="ZH-CN_CONCEPT_0134580865"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">显示BFD-ERECV表（DSP SFEBFDERECV）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134580865__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134580865__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134580865__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134580865__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134580865__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0134580865__1.3.6.1">输出结果说明</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580865__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134580865" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于显示指定资源单元上指定本端描述符的BFD报文出方向接收信息表。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580865__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134580865" class="sectiontitle2contents">注意事项</a></h4><p>该命令仅适用于非NP卡场景和NP卡非加速模式场景。</p>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580865__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134580865" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580865__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134580865" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>LOCALDISCRI</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>本端描述符</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：指定本端描述符。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：整数类型，取值范围为0～65535。</p>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>RUNAME</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>RU名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：指定资源单元名称。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。区分大小写。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：</p>
+
+<ul><li>区分大小写，不支持空格。</li><li>使用DSP RU查看RU名称。</li></ul>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580865__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134580865" class="sectiontitle2contents">使用实例</a></h4><p>显示指定资源单元的BFD-ERECV表项：</p>
+
+<pre class="codeblock">DSP SFEBFDERECV:RUNAME="VNODE_VNRS_VNFC_IPU_0066",LOCALDISCRI=16391;</pre>
+<pre class="screen">
+RETCODE = 0  操作成功                                                
+                                                                                
+结果如下                                                       
+-------------------------                                                       
+           RU名称  =  VNODE_VNRS_VNFC_IPU_0066                                 
+             结果  =   *MyDiscr : 00004007                 Status : 01                                                                 
+                      FirstFlag : 01                           TC : 00                                                   
+                    PacketState : 00                   RemoteDiag : 00                                     
+                     RecPktInfo : 00000000                Counter : 00000001 
+                          Timer : 000000004cf99ac0     EntryIndex : 000000b0                
+                          Valid : 0001                    BfdFlag : 0000                    
+                        BfdType : 0001                  PwdLength : 0000                    
+                         DetNum : 0003                BfdGlbIndex : 00000001  
+                                                                                
+                                                                                
+(结果个数 = 2)                                                         
+---    END</pre>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580865__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0134580865" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.1"><p>输出项名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.2"><p>输出项解释</p>
+</th>
+
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>RU名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>指定资源单元名称。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>结果</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>查询到的指定结果。</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_bfd_recv_table.html">BFD报文接收表
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/dsp_sfebfdirecv.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="显示5G用户资源（DSP NGUSERRESOURCE）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_user_database_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/dsp_ngusernum.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/dsp_ngrdusernum.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001307201321">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示5G用户资源（DSP NGUSERRESOURCE）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001307201321"></a><a name="ZH-CN_MMLREF_0000001307201321"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">显示5G用户资源（DSP NGUSERRESOURCE）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001307201321__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001307201321__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001307201321__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001307201321__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001307201321__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001307201321__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001307201321" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF</strong>
+                </p>
+
+                    <p>该命令用于按条件查询AMF系统内各种用户状态的统计结果。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0000001307201321__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001307201321" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                <p>无</p>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001307201321__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001307201321" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0000001307201321__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001307201321" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MCC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>移动国家码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QUERYTYPE"配置为"SRVPLMN、HOMEPLMN"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定移动国家号码。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度是3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MNC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>移动网号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QUERYTYPE"配置为"SRVPLMN、HOMEPLMN"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定移动网络号码。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是2~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QUERYSCOPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>查询范围</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定查询5G用户资源的范围。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“SUMMARY（汇总信息）”：查询5G用户资源的汇总信息。</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QUERYTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>查询类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定查询类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“BASICUSERNUM（基础用户数）”：查询基础的静态、动态用户数。</li><li>“SRVPLMN（Serving PLMN）”：查询指定Serving PLMN注册的用户数信息。</li><li>“HOMEPLMN（Home PLMN）”：查询指定Home PLMN注册的用户数信息。</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0000001307201321__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001307201321" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>按Srving PLMN查看AMF上的用户数据统计结果，执行如下命令：</p>
+
+                    <pre class="screen">%%DSP NGUSERRESOURCE:QUERYSCOPE=SUMMARY,QUERYTYPE=SRVPLMN,MCC="123",MNC="68";%%
+RETCODE = 0  操作成功
+
+结果如下
+------------------------
+      移动国家码  =  123
+        移动网号  =  68
+      动态用户数  =  1000
+  动态漫游用户数  =  500
+(结果个数 = 1)
+
+---    END</pre>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0000001307201321__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001307201321" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>移动国家码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定移动国家号码。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>移动网号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定移动网络号码。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>动态用户数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于标识系统中处于注册态的用户数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>动态漫游用户数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于标识系统中处于注册态的漫游用户数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>静态用户数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于标识系统中保存的静态MM上下文数量（包含签约数据等）。用户去注册后，用户的签约数据不会马上删除。用户签约数据删除的时间由SET NGMMPARA中“PURGTMR（用户分离后签约数据保留时间）”参数控制，默认设置为24小时。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_user_database_management.html">用户数据库管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/dsp_ngusernum.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/dsp_ngrdusernum.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="调测eMTC基于eNodeB覆盖等级的寻呼">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2110_feature_desc_eMTC_eNodeB_Coverage_Level_Based_Paging.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2110_feature_om_eMTC_eNodeB_Coverage_Level_Based_Paging_01.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2110_feature_desc_eMTC_eNodeB_Coverage_Level_Based_Paging_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-216102">
+<meta name="Function" content="eMTC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0277528849">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>调测eMTC基于eNodeB覆盖等级的寻呼</title>
+</head>
+<body><a name="ZH-CN_OPI_0277528849"></a><a name="ZH-CN_OPI_0277528849"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">调测<span>eMTC基于eNodeB覆盖等级的寻呼</span></h1>
+<ul><li><a href="#ZH-CN_OPI_0277528849__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0277528849__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0277528849__1.3.3">操作步骤</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0277528849__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0277528849" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>本操作指导介绍在运行网络中调测<span>eMTC基于eNodeB覆盖等级的寻呼</span>的操作过程。</p>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0277528849__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0277528849" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li><span>请仔细阅读</span><a href="../desc/unc_2110_feature_desc_eMTC_eNodeB_Coverage_Level_Based_Paging_01.html">WSFD-216102 eMTC基于eNodeB覆盖等级的寻呼特性概述</a>。</li><li>完成<a href="unc_2110_feature_om_eMTC_eNodeB_Coverage_Level_Based_Paging_01.html">激活eMTC基于eNodeB覆盖等级的寻呼</a>。</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_tab1" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row408760662180638"><th align="left" class="cellrowborder" valign="top" width="16.43164316431643%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1527215369180638">类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="20.84208420842084%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1003667892180638">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="21.04210421042104%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p157046019180638">取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="21.04210421042104%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p713828983180638">获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="20.642064206420642%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p480460035180638">说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row63631155153415"><td class="cellrowborder" rowspan="2" valign="top" width="16.43164316431643%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p147131754151912"><a href="../MML/Document/set_licenseswitch.html"><b><span class="cmdname" id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_cmdname1834588125184706">SET LICENSESWITCH</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="20.84208420842084%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p47101454161915">License项（LICITEM）</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p570755441917">LKV2CELP01</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p670445416192">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="20.642064206420642%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p3587134514715">确认license已经打开</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row1561223110533"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p27001654101919">开关（SWITCH）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p176975544198">ENABLE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1069019218491">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row10284134144515"><td class="cellrowborder" valign="top" width="16.43164316431643%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p728510404516"><a href="../MML/Document/set_nbemm.html"><b><span class="cmdname" id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_cmdname1594013604120">SET NBEMM</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="20.84208420842084%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p428618414517">N3413（times）（N3413）</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p172860494517">1</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1054459122116">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.642064206420642%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p192861341451">设置重发寻呼的最大次数</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row1592813414453"><td class="cellrowborder" rowspan="5" valign="top" width="16.43164316431643%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1492818340451"><a href="../MML/Document/add_s1pagingrule.html"><b><span class="cmdname" id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_cmdname13799124684117">ADD S1PAGINGRULE</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="20.84208420842084%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p17928834124520">用户群类型（GRPTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p15928163419456">ALL_USER</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p155511910213">全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="5" valign="top" width="20.642064206420642%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p19298342455">设置精准寻呼动作为邻接eNodeB。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row199291234204511"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p6929134184512">业务类型（SVRTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1692903454510">S11_DOWNLINK</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p856619162115">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row1672039114518"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p073123914511">APN指示（APNIND）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p3731439104511">ALL_APN</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p8577492217">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row373143917454"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1473133914514">寻呼动作组合（ACTGRP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p16737394452">NEIGH_ENODEB-1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p19587194214">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row16929153419459"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p10930634104510">规则描述（DESC）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p693017343455">data</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p20599129142118">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row9743205117467"><td class="cellrowborder" rowspan="2" valign="top" width="16.43164316431643%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p47449515468"><a href="../MML/Document/set_m2mctrl.html"><b><span class="cmdname" id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_cmdname538984242180643">SET M2MCTRL</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="20.84208420842084%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p574475114612">eNodeB覆盖增强检查开关（CHK_ENB_CE_SW）</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p147442513464">OFF</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p76101691216">全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="20.642064206420642%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p17744135164616">设置“eNodeB覆盖增强检查开关”为“OFF(关闭)”</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row45794113474"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1657917119479">查询方式（QUERYOPT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p9579211154714">BYIMSI</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1887575245217">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_row6580411114710"><td class="cellrowborder" valign="top" width="16.43164316431643%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p12580411114712"><a href="../MML/Document/dsp_commmctx.html"><b><span class="cmdname" id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_cmdname176271154219">DSP COMMMCTX</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="20.84208420842084%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p16580161115478">IMSI</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p20580121164716">460036901000001</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.04210421042104%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p10580911104713">测试终端自带</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.642064206420642%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0277528849__zh-cn_opi_0276928326_p1258019113471">观察终端的MM上下文</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span><p class="sectiontitle">工具</p></span><ul><li><span>测试终端</span></li><li><p>OM Portal跟踪</p>
+</li></ul>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0277528849__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0277528849" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ul><div class="HandlingTitled"><p class="sectiontitle">在相关网元均完成本特性的配置后，可以采用以下步骤检查特性工作是否正常：</p>
+<p><ol><li><span>进入<span class="wintitle" id="ZH-CN_OPI_0277528849__zh-cn_topic_0305599235_wintitle1891213344912">“MML命令行-UNC”</span>窗口。</span></li><li>在<span>UNC</span>上<a href="../toctopics/zh-cn_opi_0172467812.html">创建用户跟踪任务</a>，假设终端的IMSI为“460036901000001”。</li><li><p>设置重发寻呼的最大次数<span class="parmname">“N3413”</span>为<span class="parmvalue">“1”</span>。</p>
+<p><a href="../MML/Document/set_emm.html"><b><span class="cmdname">SET EMM</span></b></a>: N3413=1;</p>
+</li><li>设置精准寻呼动作为邻接eNodeB。<p><a href="../MML/Document/add_s1pagingrule.html"><b><span class="cmdname">ADD S1PAGINGRULE</span></b></a>: GRPTYPE=ALL_USER, SVRTYPE=S11_DOWNLINK, APNIND=ALL_APN, ACTGRP=NEIGH_ENODEB-1, DESC="data";</p>
+</li><li>设置“eNodeB覆盖增强检查开关”为“OFF(关闭)”。<p><a href="../MML/Document/set_m2mctrl.html"><b><span class="cmdname">SET M2MCTRL</span></b></a>: CHK_ENB_CE_SW=OFF;</p>
+</li><li>终端在覆盖等级为2的小区下开机通过eNodeB1附着到网络（eNodeB1支持在UE Context Release Complete消息中携带寻呼辅助信息）。</li><li>终端移出eNodeB1到覆盖等级为3的eNodeB2下的小区。</li><li>执行下述命令，观察终端的MM上下文。<p><a href="../MML/Document/dsp_commmctx.html"><b><span class="cmdname">DSP COMMMCTX</span></b></a>: QUERYOPT=BYIMSI, IMSI="460036901000001";</p>
+<pre class="screen">%%DSP COMMMCTX: QUERYOPT=BYIMSI, IMSI="460036901000001";%%
+RETCODE = 0  操作成功
+
+MM上下文信息：
+----------------
+           ............
+
+                        推荐的小区数目  =  2
+                        推荐的小区列表  =  2143650000000; 2143650000005
+                      推荐的eNodeB数目  =  2
+                      推荐的eNodeB列表  =  21436500000; 21436500001
+                        上次驻留的ECGI  =  2143650000005
+                    上次驻留的覆盖等级  =  101F
+           ............
+
+---    END</pre>
+<p>预期结果：观察到<span class="parmvalue">“推荐的小区数目”</span>，<span class="parmvalue">“推荐的小区列表”</span>，<span class="parmvalue">“推荐的eNodeB数目”</span>，<span class="parmvalue">“推荐的eNodeB列表”</span>，<span class="parmvalue">“上次驻留的ECGI”</span>，<span class="parmvalue">“上次驻留的覆盖等级”</span>与eNodeB1通过UE Context Release Complete消息上报的值相同。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>小区的覆盖等级（如上文eNodeB1下的小区覆盖等级2）与eNodeB上报MME的CE level（MME上查询到的101F）之间的关系由eNodeB决定。</p>
+</div></div>
+</li><li><p>网关发起下行数据触发<span>UNC</span>寻呼用户。</p>
+<p>预期结果：<span>UNC</span>下发的寻呼消息中携带了寻呼辅助信息，Paging Attempt Count为1。</p>
+<div class="fignone"><span class="figcap"><b>图1 </b>首次发送的Paging消息</span><p><br><span><img src="figure/zh-cn_image_0000001372626469.png"></span><br></p>
+</div>
+</li><li><p>观察<span>UNC</span>重新下发的寻呼消息。</p>
+<p>预期结果：寻呼消息中寻呼辅助信息的Paging Attempt Count为2。</p>
+<div class="fignone"><span class="figcap"><b>图2 </b>重发的Paging消息</span><p><br><span><img src="figure/zh-cn_image_0000001373026277.png"></span><br></p>
+</div>
+</li></ol>
+</p></div>
+</ul>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2110_feature_desc_eMTC_eNodeB_Coverage_Level_Based_Paging.html">WSFD-216102 eMTC基于eNodeB覆盖等级的寻呼
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../om/unc_2110_feature_om_eMTC_eNodeB_Coverage_Level_Based_Paging_01.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../desc/unc_2110_feature_desc_eMTC_eNodeB_Coverage_Level_Based_Paging_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

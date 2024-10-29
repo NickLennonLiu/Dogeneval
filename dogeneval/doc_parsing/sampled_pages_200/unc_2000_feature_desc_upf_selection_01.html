@@ -1,0 +1,425 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="WSFD-107010 UPF选择特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_UPF_Selection.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_UPF_Selection_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-107010">
+<meta name="Function" content="分布式网络">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0210789013">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-107010 UPF选择特性概述</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0210789013"></a><a name="ZH-CN_TOPIC_0210789013"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-107010 UPF选择特性概述</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0210789013__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0210789013__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">适用NF</a></h4><p>SMF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">定义</a></h4><p>在SMF选择UPF时，例如在PDU会话建立流程中，SMF需要根据UE位置、DNN、S-NSSAI等信息选择UPF，建立与UPF的连接。<span>UNC</span>可以根据用户接入的DNN、切片和位置信息，为用户选择满足指定业务的、地理位置贴近用户的UPF，还可以结合根据DNN映射的DNAI信息、UPF的分流能力、接口能力、是否支持与EPS的互通、UPF的优先级、负载、权重来选择UPF。</p>
+<p>本特性中的UPF是指包含了SGW-U、PGW-U的UPF。UPF选择特性包含如下特性：</p>
+<ul><li>WSFD-107005 GW-U选择</li><li>WSFD-107006 支持基于位置的GW-U选择</li><li>WSFD-107008 支持基于权重的GW-U选择</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><ul><li>满足不同业务场景的差异化部署，为特定用户提供更高质量的业务服务，提升业务竞争力；</li><li>贴近用户部署UPF，缩短业务访问路径，节省骨干网传输资源；</li><li>避免UPF负载不均，可以混合使用不同容量规格的UPF，提高UPF资源利用率，保护投资，节约成本。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>享受低时延业务体验。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">应用场景</a></h4><p>在以下场景可以使用该特性。</p>
+<ul><li>当运营商为用户的某些业务规划部署专用的UPF设备时；</li><li>当运营商将UPF设备部署到贴近用户的地理位置时；</li><li>当多UPF间的负载不均衡时。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.666666666666664%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="23.909090909090907%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.42424242424242%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.2.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>根据用户与UPF信息为用户选择满足条件的UPF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>UPF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p>UDG <span>20.2.0</span>及后续版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>实现用户面功能。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span>“82209917 LKV2USBL01 UPF选择”、“82200BES LKV2GWUS01 GW-U选择”。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">应用限制</a></h4><p>SMF和UPF设备必须同时为HUAWEI设备。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">原理概述</a></h4><p><strong>UPF选择原则</strong></p>
+<p>UPF有多种角色，不同流程中选择不同角色的UPF的原则不同，选择原则之间的关系如<a href="#ZH-CN_TOPIC_0210789013__fig7474112175710">图1</a>所示。选择原则的详细说明如<a href="#ZH-CN_TOPIC_0210789013__table0931712182220">表1</a>所示。不同角色的UPF需要整网规划，且配置不同，详细可以参考UDG产品手册中的初始配置与调测。对于同一用户使用相同DNN建立的PDU会话，SMF可以通过<strong><a href="../MML/Document/set_upselectflag.html">SET UPSELECTFLAG</a></strong>中的<span class="parmname">“AMBRUPFFLAG”</span>控制是否为这些会话优先选择相同的UPF。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0210789013__fig7474112175710"><a name="ZH-CN_TOPIC_0210789013__fig7474112175710"></a><a name="fig7474112175710"></a><span class="figcap"><b>图1 </b>不同角色的UPF选择过程图</span><br><span><img class="vsd" src="figure/zh-cn_image_0218015326.png"></span></div>
+<ul><li>只有基于第一轮基于必选条件选择完成之后，才能根据实际情况，再按之后的优选条件进行进一步选择。第一轮必选条件之间无优先级之分，如果UPF均不满足必选条件，UPF选择失败。</li><li>第二轮选择中可以根据命令<strong><a href="../MML/Document/set_upselectpri.html">SET UPSELECTPRI</a></strong>设置UPF选择的优先级条件，即优先选择合一UPF还是位置区或者S11口。根据<strong><a href="../MML/Document/set_upselectflag.html">SET UPSELECTFLAG</a></strong>中的<span class="parmname">“PRIORITYFLAG”</span>、<strong><a href="../MML/Document/set_apnupselply.html">SET APNUPSELPLY</a></strong>中的<span class="parmname">“COMBINEPRISTG”</span>设置用户位置区、合一的UPF、优先级的选择条件顺序。详细可以参考<a href="#ZH-CN_TOPIC_0210789013__fig662212392201">图2</a>，图中的接入锚点即为I-UPF。</li><li>当前两轮选择后返回结果中有多个UPF满足选择条件时，会根据UPF的权重为用户选择满足条件的UPF。</li><li>在任意一步，如果选择出的UPF唯一，则选择完成。</li></ul>
+<p>选择锚点UPF时根据用户是否支持4/5G互操作选择判断UPF是否支持与EPS的互通为选择条件。选择ULCL/BP UPF和I-UPF时根据配置<strong><a href="../MML/Document/set_upselectflag.html"><b><span class="cmdname">SET UPSELECTFLAG</span></b></a></strong>中<span class="parmname">“N3UPFAPNFLAGCA”</span>的取值判断DNN是否为选择条件。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0210789013__fig662212392201"><a name="ZH-CN_TOPIC_0210789013__fig662212392201"></a><a name="fig662212392201"></a><span class="figcap"><b>图2 </b>UPF选择优选条件间的关系</span><br><span><img class="vsd" src="figure/zh-cn_image_0000001110738798.png"></span></div>
+
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0210789013__table0931712182220"></a><a name="table0931712182220"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0210789013__table0931712182220" frame="border" border="1" rules="all"><caption><b>表1 </b>UPF选择原则</caption><tbody><tr><td class="cellrowborder" valign="top" width="22.96%"><p>选择原则</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>说明</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p>配置命令</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>用户DNN信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上根据网络规划配置对端UPF支持的DNN。用户激活时，UNC从激活请求中获取DNN信息，根据UPF支持的DNN列表选择出符合条件的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfdnn.html"><b><span class="cmdname">ADD PNFDNN</span></b></a></strong></p>
+<p>当4G用户接入EPC网络时，由于SGW-C/PGW-C选择SGW-U/PGW-U时不会将用户切片信息作为选择条件，所以规划对端SGW-U/PGW-U的<strong><a href="../MML/Document/add_pnfdnn.html">ADD PNFDNN</a></strong>配置时，建议</p>
+<p>将<span class="parmname">“PNFNSINDEX”</span>的取值保持默认值<span class="parmvalue">“0”</span>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>用户切片信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上根据网络规划配置对端UPF支持的服务切片信息。用户激活时，UNC从激活请求中获取切片信息，根据UPF支持的服务切片列表选择出符合条件的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfns.html"><b><span class="cmdname">ADD PNFNS</span></b></a></strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>DNAI信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上根据网络规划配置对端UPF支持的DNAI。用户激活时，UNC从激活请求中获取DNN信息，映射获取DNAI信息，根据UPF支持的DNAI列表选择出符合条件的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfdnai.html">ADD PNFDNAI</a></strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>UPF的位置特征和分流能力</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上根据网络规划配置对端UPF的位置特征和分流能力。根据网络规划和业务需求，选择满足条件的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_upnode.html"><b><span class="cmdname">ADD UPNODE</span></b></a></strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>UPF的接口能力</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC根据UPF上报的接口能力，选择满足条件的UPF。例如当需要选择一个连接DN网络的UPF时，则UPF的接口能力需要支持N6接口。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>UPF是否支持与EPS的互通</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上根据网络规划配置对端UPF是否支持与EPS的互通。用户激活时，UNC从激活请求中获取用户是否支持4/5G互操作，选择支持与EPS互通的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfupfinfo.html"><b><span class="cmdname">ADD PNFUPFINFO</span></b></a></strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>用户位置区信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上配置位置区名称以及覆盖该位置区的UPF设备ID列表。用户激活时，UNC从激活请求中获取用户位置信息，从而获取用户所属的位置区名称，选择支持此位置区的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfprofile.html"><b><span class="cmdname">ADD PNFPROFILE</span></b></a></strong></p>
+<p><strong><a href="../MML/Document/add_pnfsmfserarea.html"><b><span class="cmdname">ADD PNFSMFSERAREA</span></b></a></strong></p>
+<p><strong><a href="../MML/Document/add_uparea.html">ADD UPAREA</a></strong></p>
+<p><strong><a href="../MML/Document/add_upareabindn2tai.html"><b><span class="cmdname">ADD UPAREABINDN2TAI</span></b></a></strong></p>
+<p><strong><a href="../MML/Document/add_locbindarea.html"><b><span class="cmdname">ADD LOCBINDAREA</span></b></a></strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>S11接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上配置UPF与S11接口的绑定关系。在5/2/3G切换到4G场景SGW-C发生改变的场景下，SGW-C如果不能获取到用户的位置信息User Location Information（ULI）时，根据S11接口信息为用户选择满足条件的SGW-U。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_upbinds11.html"><b><span class="cmdname">ADD UPBINDS11</span></b></a></strong></p>
+<p>如果ULI信元为空，可以通过设置<strong><a href="../MML/Document/set_upselectflag.html">SET UPSELECTFLAG</a></strong>中的<span class="parmname">“ULISGWFLAG”</span>来控制SGW-C进行SGW-U选择时，优先使用可用的ULI For SGW信元进行选择还是使用S11接口进行选择。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>合一的UPF</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC根据网络规划节约流量，减少信令传输时延，可以选择合一的UPF，包括SGW-U/PGW-U合一部署的UPF、主锚点和I-UPF合一部署的UPF、辅锚点和分流节点合一部署的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>优先级</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上配置各UPF设备ID列表及优先级。根据网络规划和业务需求，选择优先级更高的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfprofile.html">ADD PNFPROFILE</a></strong></p>
+<p><strong><a href="../MML/Document/add_pnfdnn.html">ADD PNFDNN</a></strong></p>
+<p><strong><a href="../MML/Document/add_pnfdnai.html">ADD PNFDNAI</a></strong></p>
+<p><strong><a href="../MML/Document/add_pnfsmfserarea.html">ADD PNFSMFSERAREA</a></strong></p>
+<p><strong><a href="../MML/Document/add_pnftairange.html">ADD PNFTAIRANGE</a></strong></p>
+<p><strong><a href="../MML/Document/add_pnftai.html">ADD PNFTAI</a></strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>负载</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>SMF根据UPF在偶联消息中上报的信息判断UPF的负载情况，优先选择负载低的UPF。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/set_uploadbalance.html">SET UPLOADBALANCE</a></strong></p>
+<p>控制UNC是否支持处理UPF上报的负载信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="22.96%"><p>权重</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.38%"><p>UNC上配置各UPF设备ID列表及设备权重。权重大小代表UPF的容量大小。当有多个UPF满足选择条件时，UNC根据保存的UPF权重选择UPF。权重越大，被选中的概率越大。</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.66%"><p><strong><a href="../MML/Document/add_pnfprofile.html"><b><span class="cmdname">ADD PNFPROFILE</span></b></a></strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>UPF选择示例</strong></p>
+<div class="p">假设某SMF下共配置8个主锚点UPF，如<a href="#ZH-CN_TOPIC_0210789013__table8622448195311">表2</a>所示。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0210789013__table8622448195311"></a><a name="table8622448195311"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0210789013__table8622448195311" frame="border" border="1" rules="all"><caption><b>表2 </b>SMF下的UPF属性</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="11.899999999999997%" id="mcps1.3.9.10.2.2.7.1.1" liSelected="liSelected"><p>UPF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="22.149999999999995%" id="mcps1.3.9.10.2.2.7.1.2" liSelected="liSelected"><p>DNN</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="20.119999999999994%" id="mcps1.3.9.10.2.2.7.1.3" liSelected="liSelected"><p>切片</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="10.859999999999998%" id="mcps1.3.9.10.2.2.7.1.4" liSelected="liSelected"><p>合一UPF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.519999999999996%" id="mcps1.3.9.10.2.2.7.1.5" liSelected="liSelected"><p>位置区</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.449999999999998%" id="mcps1.3.9.10.2.2.7.1.6" liSelected="liSelected"><p>权重</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn1、dnn2、dnn3</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=1，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>是</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0000-0x0009</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>6</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn1、dnn2、dnn3</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=1，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>是</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0005-0x00bb</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>5</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn1、dnn3、dnn4</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=1，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>否</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0000-0x00cc</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn1、dnn2、dnn3</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=1，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>是</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0000-0x0005</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF5</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn2、dnn3、dnn4</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=1，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>是</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0000-0x0005</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF6</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn4、dnn5、dnn6</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=2，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>否</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0000-0x0005</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF7</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn4、dnn5、dnn6</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=2，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>否</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x0000-0x0077</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.899999999999997%" headers="mcps1.3.9.10.2.2.7.1.1 "><p>UPF8</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.149999999999995%" headers="mcps1.3.9.10.2.2.7.1.2 "><p>dnn4、dnn8、dnn9</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.119999999999994%" headers="mcps1.3.9.10.2.2.7.1.3 "><p>SST=2，SD=010101</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.859999999999998%" headers="mcps1.3.9.10.2.2.7.1.4 "><p>否</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.519999999999996%" headers="mcps1.3.9.10.2.2.7.1.5 "><p>0x00aa-0x00ff</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.449999999999998%" headers="mcps1.3.9.10.2.2.7.1.6 "><p>2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>UNC上保持命令<strong><a href="../MML/Document/set_upselectpri.html"><b><span class="cmdname">SET UPSELECTPRI</span></b></a></strong>的初始记录值，<span class="parmname">“第一优先级”</span>为<span class="parmvalue">“COMBINED（合一的UPF）”</span>，<span class="parmname">“第二优先级”</span>为<span class="parmvalue">“LOCS11PRIORITY(位置区或S11口优先级)”</span>。当根据第一优先级选择到满足条件的UPF时，会再根据第二优先级选择。保持命令<strong><a href="../MML/Document/set_upselectflag.html">SET UPSELECTFLAG</a></strong>的<span class="parmname">“PRIORITYFLAG”</span>开关保持初始记录值<span class="parmvalue">“DISABLE”</span>，不考虑优先级配置。</p>
+<div class="p">当UE1、UE2使用DNN、切片从不同的位置接入时，根据UPF选择原则进行UPF选择的过程如<a href="#ZH-CN_TOPIC_0210789013__fig119486141004">图3</a>所示。<div class="fignone" id="ZH-CN_TOPIC_0210789013__fig119486141004"><a name="ZH-CN_TOPIC_0210789013__fig119486141004"></a><a name="fig119486141004"></a><span class="figcap"><b>图3 </b>UPF选择过程示例</span><br><span><img class="vsd" src="figure/zh-cn_image_0220731074.png"></span></div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="18.18%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="18.18%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="63.63999999999999%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="18.18%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.18%" headers="mcps1.3.12.2.1.4.1.2 "><p>29.501</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.63999999999999%" headers="mcps1.3.12.2.1.4.1.3 "><p>System Architecture for the 5G System</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0210789013__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0210789013" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>04</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.9.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>支持根据ULI For SGW信元进行SGW-U选择。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>03</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.6.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>支持根据负载与优先级选择UPF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>02</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.2</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>支持根据DNAI选择UPF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.2.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_UPF_Selection.html">WSFD-107010 UPF选择
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_UPF_Selection_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

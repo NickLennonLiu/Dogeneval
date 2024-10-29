@@ -1,0 +1,210 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="CSP高危操作（基于OM Portal）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001369521344.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001280954745.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0171668478">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>CSP高危操作（基于OM Portal）</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0171668478"></a><a name="ZH-CN_TOPIC_0171668478"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">CSP高危操作（基于OM Portal）</h1>
+<div><p>本节列出了可能影响业务或损坏设备的操作以及规避建议，请在操作中按照要求执行，以规避潜在风险或使负面影响降到最低。风险等级界定如下：</p>
+<ul><li>高：该类操作不当会导致全局业务异常。</li><li>中：该类操作不当会导致部分业务中断或异常，或者影响所有服务的操作维护。</li><li>低：该类操作不当会导致某些业务、指标受损或者下降，或影响部分服务的操作维护。</li></ul>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>高危操作列表</caption><thead align="left"><tr><th align="left" class="cellrowborder" colspan="2" valign="top" id="mcps1.3.3.2.6.1.1" liSelected="liSelected"><p><strong>高危操作描述</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.3.2.6.1.2" liSelected="liSelected"><p><strong>风险等级</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.3.2.6.1.3" liSelected="liSelected"><p><strong>风险描述</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.3.2.6.1.4" liSelected="liSelected"><p><strong>规避/恢复措施</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>应用管理&gt;应用升级</p>
+<p>应用管理&gt;灰度升级</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>结束观察期</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>结束观察期后系统将无法回退。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>应用管理&gt;备份恢复</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>系统恢复</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>系统数据会被恢复到备份时状态。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="4" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>应用管理&gt;应用License</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>失效License</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>License失效后，虽然License有宽限期，但宽限期结束后，将影响业务。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>重新申请License，加载并激活新的License文件。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>激活License</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>中</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.2 "><p>激活文件变更后，License文件的控制项的个数和控制项的值可能减少，可能影响业务。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.3 "><p>重新激活原有的License文件。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>启动紧急License</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>中</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.2 "><p>License启动紧急后，进入为期7天的紧急状态，紧急状态结束后，可能影响业务。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.3 "><p>无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>停止紧急License</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>中</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.2 "><p>License停止紧急后，控制项的值会恢复到启动紧急前的值，可能影响业务。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.3 "><p>无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>安全&gt;证书管理</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>证书应用场景关联</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>根证书、设备证书、私钥、私钥密码如果不配套或者不正确会导致使用证书管理的服务通信异常。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>重新关联正确的根证书、设备证书、私钥、私钥密码。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="3" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>系统&gt;SNMP管理</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>重置SNMP密码</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>重置SNMP用户的密码信息会导致正在对接的网管等断连。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>在网管等设备上将对接的密码修改为重置后的密码。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>重置SNMP协议</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.2 "><p>重置SNMP用户的协议信息会导致正在对接的网管等断连。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.3 "><p>在网管等设备上将对接的协议修改为重置后的协议。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>删除用户</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.1 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.2 "><p>删除SNMP用户会导致正在对接的网管等断连。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.6.1.3 "><p>重新添加对应的用户。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>系统&gt;VNFM对接管理</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>修改VNFM密码</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>中</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>密码错误会导致对接VNFM异常。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>修改密码为正确密码。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>应用配置&gt;服务治理</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>复位服务</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>单实例和主备实例场景下，复位服务实例会导致复位期间该服务承载的业务受损。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>复位成功后自愈。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>安全&gt;用户管理</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>重置emscomm密码</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>重置该用户的密码信息会导致正在对接的网管断连。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>在网管设备上将对接的密码修改为重置后的密码。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.51854814518548%" headers="mcps1.3.3.2.6.1.1 "><p>安全 &gt; 安全策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.938806119388062%" headers="mcps1.3.3.2.6.1.1 "><p>访问控制策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.16918308169183%" headers="mcps1.3.3.2.6.1.2 "><p>高</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.4957504249575%" headers="mcps1.3.3.2.6.1.3 "><p>增加/修改/删除访问控制策略会导致网络中断，需严格按照网设数据进行配置。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.87771222877712%" headers="mcps1.3.3.2.6.1.4 "><p>无。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0000001369521344.html">UNC高危操作
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0000001280954745.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

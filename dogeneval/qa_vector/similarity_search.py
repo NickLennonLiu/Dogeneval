@@ -1,4 +1,4 @@
-from load_document import get_parent_layer, load_documents, get_content
+from dogeneval.utils.load_document import get_parent_layer, load_documents, get_content
 from loguru import logger
 import random
 

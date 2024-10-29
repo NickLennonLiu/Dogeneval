@@ -1,0 +1,69 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="上传密钥文件到FusionStage">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-nfvo-no-sdn/1_3_Installing_VNF.html">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-nfvo-no-sdn/1_5_VNFD_Reference.html">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-nfvo-no-sdn/1_2_3_config_fusionstage.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0000001115818596">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>上传密钥文件到FusionStage</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0000001115818596"></a><a name="ZH-CN_TOPIC_0000001115818596"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">上传密钥文件到FusionStage</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0000001115818596__1.3.1.1">操作场景</a></li><li><a href="#ZH-CN_TOPIC_0000001115818596__1.3.2.1">必备事项</a></li><li><a href="#ZH-CN_TOPIC_0000001115818596__1.3.3.1">操作步骤</a></li></ul><div><div class="section" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_sec1"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001115818596__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0000001115818596" class="sectiontitle2contents">操作场景</a></h4><p id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p209968432158">部署VNF前，需在FusionStage上传密钥文件，让各容器从该密钥文件读取数字证书，实现数字证书的统一管理。</p>
+</div>
+<div class="section" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_section31325032115352"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001115818596__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0000001115818596" class="sectiontitle2contents">必备事项</a></h4><p id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p1926571416115352"><strong id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_b127359246115352">前提条件</strong></p>
+<p id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p8558105120292">已登录FusionStage。</p>
+<p id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p492247339115352"><strong id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_b1094018329115352">数据</strong></p>
+<div class="p" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p175511625192218">已获取密钥文件（即inner-comm-cert.yaml文件），有两种方式获取密钥文件：<ul id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ul179441827132913"><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li4614123162011"><strong id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_b176881837132012">商用证书</strong>：客户申请，包括：CA根证书（信任证书）、公钥证书（包括中间CA证书）、私钥、私钥口令、证书吊销列表（CRL）。使用客户申请的证书时，需要校验证书的有效性，将非pem格式的证书文件转换为pem格式，并生成Secret文件（即inner-comm-cert.yaml文件），详细操作请参见《安全配置》 &gt; 安全加固 &gt; 更新证书 &gt; 更新<span id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ph1090964952020"><span>UNC</span></span>内部服务证书。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li17806123154516"><strong id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_b115751819121811">华为证书</strong>：<span id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ph106305238180"><span>UNC</span></span>随软件提供华为证书，获取路径：<a href="https://support.huawei.com" target="_blank" rel="noopener noreferrer">https://support.huawei.com</a> &gt; 技术支持 &gt; 产品软件 &gt; 云核心网 &gt; Mobile Packet Core &gt; 5G Packet Core &gt; <span id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ph842454451715"><span>UNC</span></span>。选择使用的<span id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ph46010671910"><span>UNC</span></span>版本， 从“软件”列表中获取并解压缩<strong id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_b1974154734512"><span><span>UNC</span></span></strong><strong id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_b697512474457">_<span style="color:#0000FF;">Preset</span>_<span style="color:#0000FF;">Certificates</span>.zip</strong><em id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_i15807202324512">，</em>从解压缩后的文件中获取Secret文件（即inner-comm-cert.yaml文件）。<div class="caution" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_note395213365516"><span class="cautiontitle"><img src="../../public_sys-resources/caution_3.0-zh-cn.png"> </span><div class="cautionbody"><ul id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ul77018445577"><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li1270184415572">华为证书仅用于部署阶段为设备接入客户网络建立初始安全通道，华为不对证书的安全性做承诺与保证。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li6701174435713">对于将华为证书作为业务证书使用而导致的安全风险和安全事件，由客户自行处置并承担后果。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li179115199517">该yaml文件包含三份证书内容，其中华为公司CA根证书有效期截止到2041年11月，二级CA证书有效期截止到2041年10月，TLS公钥证书有效期截止到2033年2月。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li127021144175714">华为证书过期后，使用华为证书的业务会中断。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li13702194435718">华为建议客户通过部署PKI系统对现网设备、软件签发证书并做好证书的生命周期管理（为保证安全性推荐使用短有效期的证书）。</li></ul>
+</div></div>
+</li></ul>
+</div>
+</div>
+<div class="section" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_section511377201115352"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001115818596__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0000001115818596" class="sectiontitle2contents">操作步骤</a></h4><ol id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ol1556494575115352"><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li616013298111">登录FusionStage OM Portal。<ol type="a" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_ol11564172991113"><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li1369142491218">IPv4单栈场景登录地址：https://<em id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_i8369182491210">IP</em><em id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_i2036932416127">地址</em>:31943，其中IP地址为PaaSOM-1节点的外部网络平面（External_Plane）的IPv4格式的浮动IP。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li1663810422129">混合部署场景仅支持使用IPv6登录，IPv6登录地址：https://<em id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_i18684243181211">[IP地址]</em>:31943，其中IP地址为PaaSOM-1节点的外部网络平面（External_Plane）的IPv6格式的浮动IP。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li10564629141119">输入用户名和密码。<p id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p1756412296111"><a name="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li10564629141119"></a><a name="zh-cn_topic_0267759258_zh-cn_topic_0212811110_li10564629141119"></a>系统默认的用户名和密码是“admin/Changeme_123”，如果已修改客户端用户名和密码，请使用新设置的用户名和密码登录。</p>
+</li></ol>
+</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li629411465287"><p id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_p7294184614282"><a name="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li629411465287"></a><a name="zh-cn_topic_0267759258_zh-cn_topic_0212811110_li629411465287"></a>在菜单栏右侧单击<span><img id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_image13282946112811" src="../software-fs/figure/zh-cn_image_0212819571.png"></span>，切换为需要上传密钥的项目，该项目承载了<span><span>UNC</span></span>。</p>
+</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li17111513102914">在主菜单选择“应用管理 &gt; 应用配置 &gt; Secret”。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li6841313144812">单击“创建Secret”。<div class="fignone" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_fig1375815505308"><span class="figcap"><b>图1 </b>创建Secret</span><br><span><img class="vsd" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_image116116296315" src="../software-fs/figure/zh-cn_image_0267039026.png"></span></div>
+</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li10392759194818">单击<span class="uicontrol" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_uicontrol107397155399">“上传文件”</span>。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li1497592815316">单击“选择文件”，上传密钥文件。</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li151711030172918">单击<span class="uicontrol" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_uicontrol1672163710392">“创建”</span>。<div class="fignone" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_fig66681610113114"><span class="figcap"><b>图2 </b>上传密钥文件</span><br><span><img class="vsd" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_image1213053443111" src="../software-fs/figure/zh-cn_image_0267039047.png"></span></div>
+</li><li id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_li15688195219329">返回<span class="menucascade" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_menucascade820811517449">“<span class="uicontrol" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_uicontrol152098524410">Secret</span>”</span>界面，确认已上传密钥文件。<div class="fignone" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_fig1437513183112"><span class="figcap"><b>图3 </b>确认已上传密钥文件</span><br><span><img class="vsd" id="ZH-CN_TOPIC_0000001115818596__zh-cn_topic_0267759258_zh-cn_topic_0212811110_image1950133915319" src="../software-fs/figure/zh-cn_image_0267039045.png"></span></div>
+</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../common/software-fs-nfvo-no-sdn/1_3_Installing_VNF.html">安装单个UNC
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../common/software-fs-nfvo-no-sdn/1_5_VNFD_Reference.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../common/software-fs-nfvo-no-sdn/1_2_3_config_fusionstage.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

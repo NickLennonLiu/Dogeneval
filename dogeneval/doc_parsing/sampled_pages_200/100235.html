@@ -1,0 +1,177 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="alarmref">
+<meta name="DC.Title" content="ALM-100235 AMF配置更新请求失败">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0245555653.html">
+<meta name="DC.Relation" scheme="URI" content="../Alarms/100251.html">
+<meta name="DC.Relation" scheme="URI" content="../Alarms/100288.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_ALARMREF_0267455968">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>ALM-100235 AMF配置更新请求失败</title>
+</head>
+<body><a name="ZH-CN_ALARMREF_0267455968"></a><a name="ZH-CN_ALARMREF_0267455968"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">ALM-100235 AMF配置更新请求失败</h1>
+<ul><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.1">告警解释</a></li><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.2">告警属性</a></li><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.3">告警参数</a></li><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.4">对系统的影响</a></li><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.5">可能原因</a></li><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.6">处理步骤</a></li><li><a href="#ZH-CN_ALARMREF_0267455968__1.3.7">参考信息</a></li></ul><div><div class="alarmdesc"><a name="ZH-CN_ALARMREF_0267455968__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">告警解释</a></h2>
+<div class="alarmdescbody"><p><strong>适用NF</strong></p>
+<p>AMF</p>
+<ul><li>告警触发机制<p><span>在<span class="wintitle" id="ZH-CN_ALARMREF_0267455968__zh-cn_topic_0305599235_wintitle98901638917">“MML命令行-UNC”</span>窗口执行命令</span><b><span class="cmdname">MOD AMFINFO</span></b>更新AMF配置，AMF通知NG-RAN，当未收到NG-RAN的响应，或者收到NG-RAN响应配置更新失败时，产生此告警。</p>
+<p>判断响应时长是通过<strong>ADD NGAPPARA</strong>中<span class="parmname">“AMF Configuration Update消息超时定时器”</span>设置。</p>
+</li><li>告警恢复机制<p><span>在<span class="wintitle" id="ZH-CN_ALARMREF_0267455968__zh-cn_topic_0305599235_wintitle98901638917_1">“MML命令行-UNC”</span>窗口执行命令</span><b><span class="cmdname">MOD AMFINFO</span></b>更新AMF配置，AMF重新通知NG-RAN，NG-RAN响应成功时，或者NG-RAN重新建链后，该告警恢复。</p>
+</li></ul>
+</div></div>
+<div class="alarmattrs"><a name="ZH-CN_ALARMREF_0267455968__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">告警属性</a></h2>
+<div class="alarmattrsbody"><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.2.1.1.1">告警ID</th>
+<th valign="bottom" align="left" id="mcps1.3.2.1.1.2">告警级别</th>
+<th valign="bottom" align="left" id="mcps1.3.2.1.1.3">可自动清除</th>
+</tr>
+<tr><td valign="top" headers="mcps1.3.2.1.1.1"><p>100235</p>
+</td>
+<td valign="top" headers="mcps1.3.2.1.1.2"><p>次要告警</p>
+</td>
+<td valign="top" headers="mcps1.3.2.1.1.3"><p>是</p>
+</td>
+</tr>
+</table></div>
+</div></div>
+<div class="alarmparameters"><a name="ZH-CN_ALARMREF_0267455968__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">告警参数</a></h2>
+<div class="alarmparametersbody"><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.3.1.1">参数名称</th>
+<th valign="bottom" align="left" id="mcps1.3.3.1.2">参数含义</th>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>移动国家码</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN的移动国家码。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>移动网号</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN的移动网号。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>NG-RAN节点类型</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN的类型，取值如下：</p>
+<ul><li><p>"gNB/gNB"（代表类型为“Gnb”）</p>
+</li><li><p>"ng-eNB/Macro ng-eNB"（代表类型为“Macro ng-eNB”）</p>
+</li><li><p>"ng-eNB/Short ng-eNB"（代表类型为“Short ng-eNB”）</p>
+</li><li><p>"ng-eNB/Long ng-eNB"（代表类型为“Long ng-eNB”）</p>
+</li><li><p>"N3IWF/N3IWF"（代表类型为“N3Iwf”）</p>
+</li></ul>
+<p>注：目前不支持“N3Iwf”。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>NG-RAN节点标识</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN节点标识。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>NG-RAN节点名称</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN节点名称。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>本端IP地址列表</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>AMF侧的IP地址列表。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>本端端口号列表</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>AMF侧的端口号列表。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>NG-RAN IP地址列表</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN的IP地址列表。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>NG-RAN端口号列表</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>NG-RAN的端口号列表。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>S-NSSAI</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>网络切片标识信息。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>告警原因</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示产生告警的原因值。具体原因值如下：</p>
+<ul><li><p>"Timeout": NG-RAN无响应。</p>
+</li><li><p>"NG-RAN Response Failure" : NG-RAN响应配置更新请求失败。</p>
+</li><li>"Internal Error": 内部错误。</li></ul>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>POD名称</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>产生告警的POD的名称。</p>
+</td>
+</tr>
+</table></div>
+</div></div>
+<div class="impactonsystem"><a name="ZH-CN_ALARMREF_0267455968__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">对系统的影响</a></h2>
+<div class="impactonsystembody"><p>"AMF名称"、"相对容量"、"GUAMI列表"、"PLMN列表"、"TNL偶联列表"这些配置无法发给NG-RAN，会导致NG-RAN端保存的AMF配置信息跟AMF的实际配置不一致，对系统可能会造成如下影响：</p>
+<ul><li>AMF名称更新失败时，可能会导致NG-RAN查找对应的AMF失败，影响用户接入。</li><li>相对容量配置更新失败时，可能会导致Pool内各个AMF之间的用户均衡性分布不符合预期的容量配置。</li><li>GUAMI列表更新失败时，可能会导致NG-RAN根据5G-GUTI为用户选择AMF时，选择错误。</li><li>PLMN列表更新失败时，可能会导致NG-RAN为用户选择的AMF可能不支持该PLMN，导致用户接入失败。</li><li>TNL偶联列表更新失败时，可能会导致多偶联建立失败。</li></ul>
+</div></div>
+<div class="possiblecauses"><a name="ZH-CN_ALARMREF_0267455968__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">可能原因</a></h2>
+<div class="alarmpossbody"><ul><li>传输网络故障。</li></ul>
+<ul><li>NG-RAN异常。</li></ul>
+</div></div>
+<div class="alarmhanding"><a name="ZH-CN_ALARMREF_0267455968__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">处理步骤</a></h2><div class="alarmhandlingbody"><div class="alarmhandling-titled"><ul><div class="HandlingTitled"><p class="sectiontitle"><span style="color:#009DD9;">排查传输网络故障</span></p>
+<div class="dropdowncontext"><ol type="1" start="1"><li><span>在“MML命令行-UNC”窗口执行命令<b><span class="cmdname">DSP NGAPLINK</span></b>查询NGAP链路状态，输入参数为移动国家码、移动网号、NG-RAN节点类型和NG-RAN节点标识。</span><p><ul><li id="ZH-CN_ALARMREF_0267455968__li4735135011533"><a name="ZH-CN_ALARMREF_0267455968__li4735135011533"></a><a name="li4735135011533"></a>正常 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__substep178701201262">步骤2</a></li><li>故障 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd593818412252">步骤3</a></li><li>接入中 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__li4735135011533">2</a></li><li>查询不到响应记录 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd593818412252">步骤3</a></li></ul>
+</p></li><li id="ZH-CN_ALARMREF_0267455968__substep178701201262"><a name="ZH-CN_ALARMREF_0267455968__substep178701201262"></a><a name="substep178701201262"></a><span id="ZH-CN_ALARMREF_0267455968__">等待1分钟后检查本告警是否已清除。</span><p><ul><li>是 =&gt; 处理完毕。</li><li>否 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd9164183143715">步骤4</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd593818412252"></a><a name="cmd593818412252"></a>在“MML命令行-UNC”窗口执行命令<b><span class="cmdname">PING</span></b>，输入对端NG-RAN地址，和相应的本地IP地址，检查IP层链路是否连通。本地IP地址可咨询NG-RAN维护人员。</span><p><ul><li>IP层链路通 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd266131284020">步骤6</a></li><li>IP层链路不通 =&gt; 针对“<a href="../toctopics/zh-cn_trbcase_0194407854.html">IP链路故障</a>”进行故障定位。</li></ul>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle"><span style="color:#009DD9;">排查是否NG-RAN异常</span></p>
+<div class="dropdowncontext"><ol type="1" start="4"><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd9164183143715"></a><a name="cmd9164183143715"></a>建立N2接口跟踪，输入NG-RAN的标识为告警参数中的NG-RAN节点标识，重新修改AMF配置以触发AMF配置更新。观查N2接口跟踪是否有NG-RAN对AMF配置更新请求的响应。</span><p><ul><li>NG-RAN响应配置更新失败或无响应 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd266131284020">步骤6</a></li><li>NG-RAN配置更新成功 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd8217475105">步骤5</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd8217475105"></a><a name="cmd8217475105"></a>等待1分钟后检查本告警是否已清除。</span><p><ul><li>是 =&gt; 处理完毕。</li><li>否 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd1928863418558">步骤10</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd266131284020"></a><a name="cmd266131284020"></a>与NG-RAN维护人员确认：NG-RAN侧是否进行了关闭链路或关闭端口的操作。</span><p><ul><li>是 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd748892495513">步骤7</a></li><li>否 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd1048817241555">步骤8</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd748892495513"></a><a name="cmd748892495513"></a>在NG-RAN侧激活端口并重新发起建链请求，观察告警是否清除。</span><p><ul><li>是 =&gt; 处理完毕。</li><li>否 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd1928863418558">步骤10</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd1048817241555"></a><a name="cmd1048817241555"></a>与NG-RAN维护人员确认：NG-RAN侧是否存在导致端口或链路故障的异常告警。</span><p><ul><li>是 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd5288103420555">步骤9</a></li><li>否 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd1928863418558">步骤10</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd5288103420555"></a><a name="cmd5288103420555"></a>由NG-RAN维护人员按照NG-RAN告警帮助排查NG-RAN故障，观察告警是否清除。</span><p><ul><li>是 =&gt; 处理完毕。</li><li>否 =&gt; <a href="#ZH-CN_ALARMREF_0267455968__cmd1928863418558">步骤10</a></li></ul>
+</p></li><li><span><a name="ZH-CN_ALARMREF_0267455968__cmd1928863418558"></a><a name="cmd1928863418558"></a>请联系华为技术支持。</span></li></ol></div>
+</div>
+</ul></div>
+</div></div>
+<div class="relatedinformation"><a name="ZH-CN_ALARMREF_0267455968__1.3.7"></a><a name="1.3.7"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0267455968" class="sectiontitle2contents">参考信息</a></h2>
+<div class="relatedinformationbody"><p>无。</p>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0245555653.html">AMF
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../Alarms/100251.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../Alarms/100288.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

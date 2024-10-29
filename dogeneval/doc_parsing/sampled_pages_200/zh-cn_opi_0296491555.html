@@ -1,0 +1,328 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="异常处理：双活NRF回退到主备NRF场景">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0296491553.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0296491555">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>异常处理：双活NRF回退到主备NRF场景</title>
+</head>
+<body><a name="ZH-CN_OPI_0296491555"></a><a name="ZH-CN_OPI_0296491555"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">异常处理：双活NRF回退到主备NRF场景</h1>
+<ul><li><a href="#ZH-CN_OPI_0296491555__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0296491555__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0296491555__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0296491555__1.3.4">任务示例</a></li></ul><div id="OPIbody1606728142897"><div class="Section" id="ZH-CN_OPI_0296491555__OPIAscenarios10044878172748"><a name="ZH-CN_OPI_0296491555__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0296491555" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p id="ZH-CN_OPI_0296491555__p17286152952115">主备改造双活后，双活NRF不能正常处理业务，也无法规避故障问题，希望通过回退到原主备NRF的场景来保证NRF可以继续提供正常业务。</p>
+<p id="ZH-CN_OPI_0296491555__p32870293219">本操作指导介绍在运行网络中将现网原有主备改造后的双活NRF，回退为NRF主备容灾的操作过程。</p>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0296491555__OPICprerequisites19764978172748"><a name="ZH-CN_OPI_0296491555__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0296491555" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0296491555__OPIAconditions1565898172748">前提条件</p></span><ul id="ZH-CN_OPI_0296491555__ul096732303420"><li id="ZH-CN_OPI_0296491555__li3984031123415">已完成<a href="zh-cn_opi_0296491553.html">主备NRF改造双活NRF场景</a>。</li><li id="ZH-CN_OPI_0296491555__li1762315455537">双活容灾组中的“容灾实例标识”为“0”的NRF必须回退为原主（ACTIVE），“容灾实例标识”为“1”的NRF必须回退为原备（STANDBY）（通过命令<strong id="ZH-CN_OPI_0296491555__b117321045014"><a href="../MML/Document/add_grlinstance.html">ADD GRLINSTANCE</a></strong>配置）。</li><li id="ZH-CN_OPI_0296491555__zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_li183715123118"><p id="ZH-CN_OPI_0296491555__zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_p683945118313"><a name="ZH-CN_OPI_0296491555__zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_li183715123118"></a><a name="zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_li183715123118"></a>已按照自身组网完成两个NRF之间的路由配置，对于IPv4组网，各配置场景请参考“初始配置与调测”中自动部署<a href="../installation/ce_ugw_190016_10.html">配置动态路由OSPF+BFD组网（IPv4）</a>、<a href="../installation/ce_ugw_190016_12.html">配置静态路由+BFD组网（IPv4）</a>、<a href="../installation/5g_com_init_comm_009.html">配置BGP over OSPF/静态路由+BFD（IPv4）</a>或手动部署<a href="../installation/cn_20_1_3a22.html">配置动态路由OSPF+BFD组网（IPv4）</a>、<a href="../installation/cn_20_1_3a23.html">配置静态路由+BFD组网（IPv4）</a>、<a href="../installation/5g_com_init_comm_011.html">配置BGP over OSPF/静态路由+BFD（IPv4）</a>。</p>
+</li><li id="ZH-CN_OPI_0296491555__zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_li837512954111652"><p id="ZH-CN_OPI_0296491555__zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_p1472395440111652"><a name="ZH-CN_OPI_0296491555__zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_li837512954111652"></a><a name="zh-cn_opi_0173937848_zh-cn_opi_0170106573_zh-cn_opi_0168634192_li837512954111652"></a>已按照自身组网完成两个NRF之间的路由配置，对于IPv6组网，各配置场景请参考“初始配置与调测”中自动部署<a href="../installation/ce_ugw_190016_11.html">配置动态路由OSPFv3+BFD组网（IPv6）</a>、<a href="../installation/ce_ugw_190016_13.html">配置静态路由+BFD组网（IPv6）</a>、<a href="../installation/5g_com_init_comm_010.html">配置BGP over OSPFv3/静态路由+BFD（IPv6）</a>或手动部署<a href="../installation/cu_ugw_010016_061_ipv6.html">配置动态路由OSPFv3+BFD组网（IPv6）</a>、<a href="../installation/cu_ugw_010016_062_ipv6.html">配置静态路由+BFD组网（IPv6）</a>、<a href="../installation/5g_com_init_comm_012.html">配置BGP over OSPFv3/静态路由+BFD（IPv6）</a>。</p>
+</li></ul>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0296491555__OPIBdata11383252172748">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0296491555__table194451258145117" frame="border" border="1" rules="all"><caption><b>表1 </b>需要准备的数据</caption><thead align="left"><tr id="ZH-CN_OPI_0296491555__row11446145825117"><th align="left" class="cellrowborder" valign="top" width="14.600000000000001%" id="mcps1.3.2.1.2.1.2.6.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0296491555__p64465582510">类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.760000000000002%" id="mcps1.3.2.1.2.1.2.6.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0296491555__p34461158115111">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="28.590000000000003%" id="mcps1.3.2.1.2.1.2.6.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0296491555__p744675875111">取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.700000000000003%" id="mcps1.3.2.1.2.1.2.6.1.4" liSelected="liSelected"><p id="ZH-CN_OPI_0296491555__p19446958145110">获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="32.35000000000001%" id="mcps1.3.2.1.2.1.2.6.1.5" liSelected="liSelected"><p id="ZH-CN_OPI_0296491555__p1544617581514">说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0296491555__row1446205813518"><td class="cellrowborder" rowspan="2" valign="top" width="14.600000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p144464581511"><strong id="ZH-CN_OPI_0296491555__b24435281012"><a href="../MML/Document/add_grlinstance.html">ADD GRLINSTANCE</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p1446205818512">容灾实例标识(GRINSTID)</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><ul id="ZH-CN_OPI_0296491555__ul15795112015151"><li id="ZH-CN_OPI_0296491555__li127951820141517">1</li><li id="ZH-CN_OPI_0296491555__li11600322131514">2</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p13446195835120">全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="32.35000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><ul id="ZH-CN_OPI_0296491555__ul324711385720"><li id="ZH-CN_OPI_0296491555__li1724761314572">同一容灾组中两个NRF容灾实例标识、默认运行模式禁止相同。</li><li id="ZH-CN_OPI_0296491555__li411531555717">主用NRF配置为ACTIVE，备用NRF配置为STANDBY。</li></ul>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row1019854879"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p172214541974">默认运行模式(DFTMODE)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><ul id="ZH-CN_OPI_0296491555__ul359815541230"><li id="ZH-CN_OPI_0296491555__li3421455192317">ACTIVE</li><li id="ZH-CN_OPI_0296491555__li1918045910234">STANDBY</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p192251332173916">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row344775815514"><td class="cellrowborder" rowspan="6" valign="top" width="14.600000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p15170205312396"><strong id="ZH-CN_OPI_0296491555__b124801285117"><a href="../MML/Document/add_grgroup.html">ADD GRGROUP</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p222681123514">容灾组标识(GRGROUPID)</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p7665103333515">1</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p1226718593386">全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="32.35000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0296491555__p13798890417">主备NRF要求GRGROUPID配置一致。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row1699955814514"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p37961717528">容灾组名称(GRGROUPNAME)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p266013330356">grGroup1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p418416447114">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row81221743193512"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p91231343183515">本端容灾实例标识(LGRINSTID)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p71237431359">0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p57641910163916">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row680293919351"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p980363913510">对端容灾实例标识(PGRINSTID)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p1180319399359">1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p9772161011396">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row2168193117364"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p3168123113361">对端容灾控制通道IP地址版本号(IPVERSION)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p13168113133617">IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p117801010193919">全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p618951651512">对端容灾控制通道地址为对端登录OM Portal的IP地址。（对应一级容灾通道）</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row89074278369"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p16908162793617">对端容灾控制通道IPv4地址(PGRCIP)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p19282139582">10.3.1.2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p20789810183920">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row475341064619"><td class="cellrowborder" rowspan="5" valign="top" width="14.600000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p771812116117"><strong id="ZH-CN_OPI_0296491555__b243263191517"><a href="../MML/Document/add_grdciinfo.html">ADD GRDCIINFO</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p147531710184611">容灾组标识(GRGROUPID)</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p575317106466">1</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p2022224115520">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.35000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0296491555__p11754171014465">容灾组标识已通过<strong id="ZH-CN_OPI_0296491555__b1043374825611"><a href="../MML/Document/add_grgroup.html">ADD GRGROUP</a></strong>配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row1129144204719"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p31302042134712">IP版本（IPVERSION）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p813020425471">IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p1085044655213">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p10567101872214">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row11761039114711"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p817783984717">本端DC通信IPv4地址（LDCIP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p9177193984711">10.5.5.1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p462811468545">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p1827019138482">此IP地址为NRF本端规划的DC通信的IP地址。（对应数据备份通道）</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row107531435174713"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p7753735154720">对端DC通信IPv4地址（PDCIP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p5753143518474">10.5.5.2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p16971917185515">与对端协商</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p5567318202214">此IP地址为对端NRF规划的DC通信的IP地址。（对应数据备份通道）</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row31152076496"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p9116137164917">VPN实例名称（VPNINSTANCE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p51163717497">DCI_VPN</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p691117205513">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p4567191872213">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row14351184511620"><td class="cellrowborder" rowspan="6" valign="top" width="14.600000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p1580381471"><strong id="ZH-CN_OPI_0296491555__b188031719720"><a href="../MML/Document/add_nrfgrfwdaddr.html">ADD NRFGRFWDADDR</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p208779171289">对端NRF名称（PEERNRFNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><ul id="ZH-CN_OPI_0296491555__ul12407203151110"><li id="ZH-CN_OPI_0296491555__li114071631171116">NRF0001</li><li id="ZH-CN_OPI_0296491555__li19407531181117">NRF0002</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p33059155015">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.35000000000001%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><ul id="ZH-CN_OPI_0296491555__ul319994321220"><li id="ZH-CN_OPI_0296491555__li1219910433123">主NRF：NRF0001</li><li id="ZH-CN_OPI_0296491555__li192001043181214">备NRF：NRF0002</li></ul>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row271205924916"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p14854127115012">对端NRF实例标识（PEERNRFINSTID）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><ul id="ZH-CN_OPI_0296491555__ul1290616218539"><li id="ZH-CN_OPI_0296491555__li1090622105318">65e4567-e89b-12d3-a456-426655440012</li><li id="ZH-CN_OPI_0296491555__li987619245531">12e3456-e89b-12d3-a456-420033220124</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p554149155019">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><ul id="ZH-CN_OPI_0296491555__ul201826126549"><li id="ZH-CN_OPI_0296491555__li10182111235420">主NRF：65e4567-e89b-12d3-a456-426655440012</li><li id="ZH-CN_OPI_0296491555__li918219121549">备NRF：12e3456-e89b-12d3-a456-420033220124</li></ul>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row97521716810"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p0385118171118">IP类型（IPTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p27531271816">IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p335895716915">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p18753147983">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row71061654812"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p1890815431588">IPV4地址（IPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><ul id="ZH-CN_OPI_0296491555__ul199351958201115"><li id="ZH-CN_OPI_0296491555__li1445632016123">172.16.0.7</li><li id="ZH-CN_OPI_0296491555__li169351958131112">172.26.0.7</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p23709579911">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p779205414917">此IP地址为各自NRF的HTTP本端端点地址。（对应业务转发通道）</p>
+<ul id="ZH-CN_OPI_0296491555__ul134286585123"><li id="ZH-CN_OPI_0296491555__li1742825814121">主NRF：172.16.0.7</li><li id="ZH-CN_OPI_0296491555__li842816589121">备NRF：172.26.0.7</li></ul>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row51331233912"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p4133031596">端口（PORT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p2013312318917">10380</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p1038016571897">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p1713319314910">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0296491555__row102646591280"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0296491555__p1726411591086">是否支持TLS（TLS）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0296491555__p1926419592813">TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0296491555__p1675474161020">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0296491555__p6264185916817">-</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0296491555__OPIEworkSteps11508030172748"><a name="ZH-CN_OPI_0296491555__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0296491555" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol id="ZH-CN_OPI_0296491555__steps7726332172748"><li id="ZH-CN_OPI_0296491555__step633810534316"><span id="ZH-CN_OPI_0296491555__cmd18338175393118">NRF1和NRF2上分别执行解除NRF的双活容灾配置。</span><ol type="a" id="ZH-CN_OPI_0296491555__substeps103478217118"><li id="ZH-CN_OPI_0296491555__substep14894191751218"><span id="ZH-CN_OPI_0296491555__cmd108941917111210"><span>进入<span class="wintitle" id="ZH-CN_OPI_0296491555__wintitle68601043181315">“MML命令行-UNC”</span>窗口。</span></span></li><li id="ZH-CN_OPI_0296491555__substep378965983216"><span id="ZH-CN_OPI_0296491555__cmd1178965943217">关闭双活NRF容灾特性的License配置开关。</span><p><p id="ZH-CN_OPI_0296491555__p99182103334"><strong id="ZH-CN_OPI_0296491555__b878914597326"><a href="../MML/Document/set_licenseswitch.html">SET LICENSESWITCH</a></strong></p>
+</p></li><li id="ZH-CN_OPI_0296491555__substep0640141193313"><span id="ZH-CN_OPI_0296491555__cmd1564031203318">删除双活NRF容灾实例通信地址信息。</span><p><p id="ZH-CN_OPI_0296491555__p1678238152516"><strong id="ZH-CN_OPI_0296491555__b1067893819251"><a href="../MML/Document/rmv_drcomm.html">RMV DRCOMM</a></strong></p>
+</p></li><li id="ZH-CN_OPI_0296491555__substep720213406320"><span id="ZH-CN_OPI_0296491555__cmd62021140173214">删除双活容灾实例。</span><p><p id="ZH-CN_OPI_0296491555__p11267512342"><strong id="ZH-CN_OPI_0296491555__b9634104516261"><a href="../MML/Document/rmv_drinst.html">RMV DRINST</a></strong></p>
+</p></li><li id="ZH-CN_OPI_0296491555__substep19808131572710"><span id="ZH-CN_OPI_0296491555__cmd1280816158271">查询容灾配置信息，确保容灾配置信息已删除。</span><p><p id="ZH-CN_OPI_0296491555__p340653710279"><strong id="ZH-CN_OPI_0296491555__b040633712720"><a href="../MML/Document/dsp_drinfo.html">DSP DRINFO</a></strong></p>
+<div class="note" id="ZH-CN_OPI_0296491555__note12444715124919"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0296491555__p17444131517493">查询结果中，如果<span class="parmname" id="ZH-CN_OPI_0296491555__parmname1365081915507">“数据备份状态”</span> 为 <span class="parmvalue" id="ZH-CN_OPI_0296491555__parmvalue4759192915506">“容灾配置表已删除”</span>，表示容灾配置信息已删除；如果<span class="parmname" id="ZH-CN_OPI_0296491555__parmname15791115835013">“数据备份状态”</span> 为  <span class="parmvalue" id="ZH-CN_OPI_0296491555__parmvalue343834655119">“ 容灾配置表仍然存在”</span>，表示容灾配置信息正在删除，请1分钟后再次执行此命令，如果连续5次查询都是配置信息正在删除，说明系统异常，请联系华为技术支持。</p>
+</div></div>
+</p></li></ol>
+</li><li id="ZH-CN_OPI_0296491555__step1962714179476"><span id="ZH-CN_OPI_0296491555__cmd062751794714">NRF1和NRF2上分别执行配置成主备NRF容灾。</span><p><ol type="a" id="ZH-CN_OPI_0296491555__ol136261150113010"><li id="ZH-CN_OPI_0296491555__li8951810315">配置容灾实例。<p id="ZH-CN_OPI_0296491555__p168053173110"><a name="ZH-CN_OPI_0296491555__li8951810315"></a><a name="li8951810315"></a><strong id="ZH-CN_OPI_0296491555__b7340205814306"><a href="../MML/Document/add_grlinstance.html">ADD GRLINSTANCE</a></strong></p>
+</li><li id="ZH-CN_OPI_0296491555__li458324183118">配置容灾组（包含了容灾通道配置）。<p id="ZH-CN_OPI_0296491555__p696019419316"><a name="ZH-CN_OPI_0296491555__li458324183118"></a><a name="li458324183118"></a><strong id="ZH-CN_OPI_0296491555__b477810599307"><a href="../MML/Document/add_grgroup.html">ADD GRGROUP</a></strong></p>
+</li><li id="ZH-CN_OPI_0296491555__li279416723110">配置DC通信通道信息，用于主备数据同步。<p id="ZH-CN_OPI_0296491555__p1020651191919"><a name="ZH-CN_OPI_0296491555__li279416723110"></a><a name="li279416723110"></a><strong id="ZH-CN_OPI_0296491555__b18206311161913"><a href="../MML/Document/add_grdciinfo.html">ADD GRDCIINFO</a></strong></p>
+</li><li id="ZH-CN_OPI_0296491555__li571623113214">激活主备容灾特性License。<p id="ZH-CN_OPI_0296491555__p75459413215"><a name="ZH-CN_OPI_0296491555__li571623113214"></a><a name="li571623113214"></a><strong id="ZH-CN_OPI_0296491555__b1717454144518"><a href="../MML/Document/set_licenseswitch.html">SET LICENSESWITCH</a></strong></p>
+</li><li id="ZH-CN_OPI_0296491555__li59231716191617">打开主备容灾业务消息转发开关，新建主备转发通道地址，用于主备间数据转发。<p id="ZH-CN_OPI_0296491555__p14573505399"><a name="ZH-CN_OPI_0296491555__li59231716191617"></a><a name="li59231716191617"></a><strong id="ZH-CN_OPI_0296491555__b1117010531574"><a href="../MML/Document/set_nrffuncsw.html">SET NRFFUNCSW</a></strong></p>
+<p id="ZH-CN_OPI_0296491555__p11907164293615"><strong id="ZH-CN_OPI_0296491555__b7245144245818"><a href="../MML/Document/add_nrfgrfwdaddr.html">ADD NRFGRFWDADDR</a></strong></p>
+</li></ol>
+</p></li><li id="ZH-CN_OPI_0296491555__step16431312153413"><span id="ZH-CN_OPI_0296491555__cmd44311120348">复位NRF2，触发NRF间的批量备份。</span><p><p id="ZH-CN_OPI_0296491555__p58985213461"><strong id="ZH-CN_OPI_0296491555__b6539185411370"><a href="../MML/Document/rst_nodebatch.html">RST NODEBATCH</a></strong></p>
+</p></li></ol>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0296491555__OPIGexample23979164172748"><a name="ZH-CN_OPI_0296491555__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0296491555" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0296491555__OPIAintroduction33492446172748">任务描述</p></span><ul id="ZH-CN_OPI_0296491555__ul1525954125813"><li id="ZH-CN_OPI_0296491555__li3259164135817">已完成的主备NRF改造成双活NRF的信息如下：<p id="ZH-CN_OPI_0296491555__p731665125716"><a name="ZH-CN_OPI_0296491555__li3259164135817"></a><a name="li3259164135817"></a>原主备NRF容灾，需要改造成双活NRF容灾，NRF信息如下：</p>
+<p id="ZH-CN_OPI_0296491555__p1192451011152">原配置主NRF：容灾组grGroup1中标识为1的容灾实例nrf1，主NRF的容灾通道地址为10.3.1.1<strong id="ZH-CN_OPI_0296491555__b12212153161117">，对端</strong>地址为172.26.0.7（业务转发通道），主NRF的DC通信通道地址（数据备份通道）为10.5.5.1。</p>
+<p id="ZH-CN_OPI_0296491555__p482818395170">原配置备NRF：容灾组grGroup1中标识为2的容灾实例nrf2，备NRF的容灾通道地址为10.3.1.2<strong id="ZH-CN_OPI_0296491555__b203292281217">，</strong><strong id="ZH-CN_OPI_0296491555__b10924349152210">对端</strong>地址为172.16.0.7（业务转发通道），备NRF的DC通信通道地址（数据备份通道）为10.5.5.2。</p>
+<p id="ZH-CN_OPI_0296491555__p58079247409">改造成NRF组成双活容灾组，对应信息如下：</p>
+<p id="ZH-CN_OPI_0296491555__p14807124124020">原配置主NRF&#8594;NRF1：容灾实例标识为0，用于数据同步的通信IP地址为10.5.5.1。</p>
+<p id="ZH-CN_OPI_0296491555__p148071248401">原配置备NRF&#8594;NRF2：容灾实例标识为1，用于数据同步的通信IP地址为10.5.5.2。</p>
+</li><li id="ZH-CN_OPI_0296491555__li192593417586"><strong id="ZH-CN_OPI_0296491555__b1483818361581">现在需要将改造后的双活NRF回退到主备NRF时，需要执行如下脚本。</strong></li></ul>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0296491555__OPIBscripts31952838172748">脚本</p></span><pre class="screen" id="ZH-CN_OPI_0296491555__screen14589625141414"><strong id="ZH-CN_OPI_0296491555__b164359584141">//配置NRF1。</strong>
+//关闭双活NRF容灾特性的License配置开关。
+SET LICENSESWITCH: LICITEM=" LKV2DLNRR01", SWITCH=DISABLE;
+
+//删除双活NRF容灾实例通信地址信息。
+RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4="10.5.5.2";
+RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4="10.5.5.1";
+
+//删除双活容灾实例。
+RMV DRINST: DRINSTID=0; 
+
+//查询容灾配置信息，确保容灾配置信息已删除。如果“数据备份状态” 为 “容灾配置表已删除”，表示容灾配置信息已删除；如果“数据备份状态” 为  “ 容灾配置表仍然存在”，表示容灾配置信息正在删除，请1分钟后再次执行此命令，如果连续5次查询都是配置信息正在删除，说明系统异常，请联系华为技术支持。
+DSP DRINFO: PEERDRINSTID=1; 
+
+<strong id="ZH-CN_OPI_0296491555__b675513981516">//配置NRF2。</strong>
+//关闭双活NRF容灾特性的License配置开关。
+SET LICENSESWITCH: LICITEM=" LKV2DLNRR01", SWITCH=DISABLE;
+
+//删除双活NRF容灾实例通信地址信息。
+RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4="10.5.5.1";
+RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4="10.5.5.2";
+
+//删除双活容灾实例。
+RMV DRINST: DRINSTID=1; 
+
+//查询容灾配置信息，确保容灾配置信息已删除。如果“数据备份状态” 为 “容灾配置表已删除”，表示容灾配置信息已删除；如果“数据备份状态” 为  “ 容灾配置表仍然存在”，表示容灾配置信息正在删除，请1分钟后再次执行此命令，如果连续5次查询都是配置信息正在删除，说明系统异常，请联系华为技术支持。
+DSP DRINFO: PEERDRINSTID=0; 
+
+<strong id="ZH-CN_OPI_0296491555__b17451228181516">//配置NRF1为配置主NRF。</strong>
+//配置本地容灾实例。
+ADD GRLINSTANCE: GRINSTID=1, DFTMODE=ACTIVE;
+//配置容灾组信息。
+ADD GRGROUP: GRGROUPID=1, GRGROUPNAME="grGroup1", LGRINSTID=1, PGRINSTID=2, IPVERSION=IPV4, PGRCIP="10.3.1.2"; 
+//配置DC通信通道信息。
+ADD GRDCIINFO: GRGROUPID=1, IPVERSION=IPV4, LDCIP="10.5.5.1", PDCIP="10.5.5.2", VPNINSTANCE="DCI_VPN";
+//打开主备容灾的License配置开关，适用于NRF。
+SET LICENSESWITCH: LICITEM="LKV2ASNRR01", SWITCH=ENABLE;
+//打开主备容灾业务消息转发开关。
+SET NRFFUNCSW: NRFGRFWDFUNSW=FUNC_ON; 
+//配置对端NRF地址用于业务转发。
+ADD NRFGRFWDADDR: PEERNRFNAME="NRF0002", PEERNRFINSTID="12e3456-e89b-12d3-a456-420033220124", IPTYPE=IPV4, IPV4="172.26.0.7", PORT=10380, TLS=TRUE;
+
+<strong id="ZH-CN_OPI_0296491555__b155707363153">//配置NRF2为配置备NRF。</strong>
+//配置本地容灾实例。
+ADD GRLINSTANCE: GRINSTID=2, DFTMODE=STANDBY;
+//配置容灾组信息。
+ADD GRGROUP: GRGROUPID=1, GRGROUPNAME="grGroup1", LGRINSTID=2, PGRINSTID=1, IPVERSION=IPV4, PGRCIP="10.3.1.1"; 
+//配置DC通信通道信息。
+ADD GRDCIINFO: GRGROUPID=1, IPVERSION=IPV4, LDCIP="10.5.5.2", PDCIP="10.5.5.1", VPNINSTANCE="DCI_VPN";
+//打开主备容灾的License配置开关，适用于NRF。
+SET LICENSESWITCH: LICITEM="LKV2ASNRR01", SWITCH=ENABLE;
+//打开主备容灾业务消息转发开关。
+SET NRFFUNCSW:NRFGRFWDFUNSW=FUNC_ON; 
+//配置对端NRF地址。
+ADD NRFGRFWDADDR: PEERNRFNAME="NRF0001", PEERNRFINSTID="65e4567-e89b-12d3-a456-426655440012", IPTYPE=IPV4, IPV4="172.16.0.7", PORT=10380, TLS=TRUE;
+
+<strong id="ZH-CN_OPI_0296491555__b104361045181516">//配置NRF2。</strong>
+//复位NRF2，触发NRF间的批量备份。
+RST NODEBATCH: APPID=0;</pre>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_opi_0296491553.html">主备NRF改造双活NRF场景
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

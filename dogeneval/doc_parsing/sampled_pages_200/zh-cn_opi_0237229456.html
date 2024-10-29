@@ -1,0 +1,73 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="检查系统运行状态">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0233967797.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0233967803.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0232606471.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0237229456">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>检查系统运行状态</title>
+</head>
+<body><a name="ZH-CN_OPI_0237229456"></a><a name="ZH-CN_OPI_0237229456"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">检查系统运行状态</h1>
+<ul><li><a href="#ZH-CN_OPI_0237229456__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0237229456__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0237229456__1.3.3">操作步骤</a></li></ul><div id="OPIbody1586430021427"><div class="Section" id="ZH-CN_OPI_0237229456__OPIAscenarios10044878172748"><a name="ZH-CN_OPI_0237229456__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0237229456" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p id="ZH-CN_OPI_0237229456__p1345628112519">检查资源单元的状态，确保设备运行正常。</p>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0237229456__OPICprerequisites19764978172748"><a name="ZH-CN_OPI_0237229456__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0237229456" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0237229456__OPIAconditions1565898172748">前提条件</p></span><p id="ZH-CN_OPI_0237229456__p46462109318"><a name="ZH-CN_OPI_0237229456__OPIAconditions1565898172748"></a><a name="OPIAconditions1565898172748"></a>已经登录OM Portal，或者<span>已登录U2020<span>，或者登录MAE并进入Access子系统。</span></span></p>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0237229456__OPIBdata11383252172748">数据</p></span><p id="ZH-CN_OPI_0237229456__p15694172063110"><a name="ZH-CN_OPI_0237229456__OPIBdata11383252172748"></a><a name="OPIBdata11383252172748"></a>该操作无需准备数据。</p>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0237229456__OPIEworkSteps11508030172748"><a name="ZH-CN_OPI_0237229456__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0237229456" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol id="ZH-CN_OPI_0237229456__steps7726332172748"><li id="ZH-CN_OPI_0237229456__step145011121112720"><span id="ZH-CN_OPI_0237229456__cmd450119216277">通过执行<strong id="ZH-CN_OPI_0237229456__b95021221162712"><a href="../MML/Document/dsp_pod.html">DSP POD</a></strong>命令查询当前系统中Pod运行情况。</span><p><p id="ZH-CN_OPI_0237229456__p529393817294">预期结果：“Pod状态”为“Running”。</p>
+<p id="ZH-CN_OPI_0237229456__p192931638122915">异常结果：“Pod状态”为其他值。请在FusionStage上查看是否存在本VNF项目的告警并处理。如果告警处理完毕后，状态仍然不符合预期，请收集相关信息并联系华为技术支持处理。</p>
+</p></li><li id="ZH-CN_OPI_0237229456__step12604651453"><a name="ZH-CN_OPI_0237229456__step12604651453"></a><a name="step12604651453"></a><span id="ZH-CN_OPI_0237229456__cmd13604651051">通过执行<strong id="ZH-CN_OPI_0237229456__b12860151019264"><a href="../MML/Document/lst_vnfc.html">LST VNFC</a></strong>命令查询当前系统的所包含的VNFC实例，记录系统中每个VNFC实例的“管理代理标识”。</span></li><li id="ZH-CN_OPI_0237229456__step16770021191914"><span id="ZH-CN_OPI_0237229456__cmd17770821121912">针对步骤<a href="#ZH-CN_OPI_0237229456__step12604651453">2</a>中查询到的每个VNFC实例（VNFP除外），分别执行<strong id="ZH-CN_OPI_0237229456__b65413314342"><a href="../MML/Document/dsp_ru.html">DSP RU</a></strong>和<strong id="ZH-CN_OPI_0237229456__b105308385618"><a href="../MML/Document/dsp_servicerustate.html">DSP SERVICERUSTATE</a></strong>命令查看资源单元（RU）运行情况。其中“SERVICEINSTANCE”参数为步骤<a href="#ZH-CN_OPI_0237229456__step12604651453">2</a>中记录的“管理代理标识”。</span><p><p id="ZH-CN_OPI_0237229456__p8770142121917">预期结果：“运行状态”或“RU的状态”为“正常”。</p>
+<p id="ZH-CN_OPI_0237229456__p867944413010">异常结果：“运行状态”或“RU的状态”为其他值。请查看是否存在RU相关告警并处理。如果告警处理完毕后，状态仍然不符合预期，请收集相关信息并联系华为技术支持处理。</p>
+</p></li><li id="ZH-CN_OPI_0237229456__step1176563815116"><span id="ZH-CN_OPI_0237229456__cmd27655381111">针对步骤<a href="#ZH-CN_OPI_0237229456__step12604651453">2</a>中查询到的每个VNFC实例，分别执行<strong id="ZH-CN_OPI_0237229456__b976519388115"><a href="../MML/Document/dsp_processinfo.html">DSP PROCESSINFO</a></strong>查看其进程状态。其中“SERVICEINSTANCE”参数为<a href="#ZH-CN_OPI_0237229456__step12604651453">2</a>中记录的“管理代理标识”。</span><p><p id="ZH-CN_OPI_0237229456__p87651938118">预期结果：“进程状态”为“NORMAL”。</p>
+<p id="ZH-CN_OPI_0237229456__p1076543816116">异常结果：“运行状态”为“ABNORMAL”。请查看是否存在进程相关告警并处理。如果告警处理完毕后，状态仍然不符合预期，请收集相关信息并联系华为技术支持处理。</p>
+</p></li><li id="ZH-CN_OPI_0237229456__step1170723611312"><span id="ZH-CN_OPI_0237229456__cmd187072362133">通过<strong id="ZH-CN_OPI_0237229456__b6118114320"><a href="../MML/Document/dsp_cellstat.html">DSP CELLSTAT</a></strong>命令查询当前系统中所有微服务进程的状态。</span><p><p id="ZH-CN_OPI_0237229456__p352813183415">命令执行脚本参考：DSP CELLSTAT: OBJECT=VNF;</p>
+<p id="ZH-CN_OPI_0237229456__p12441838103719">预期结果：“未就绪进程数”和“故障进程数”均为0。</p>
+<p id="ZH-CN_OPI_0237229456__p4774123416357">异常结果：“未就绪进程数”或“故障进程数”不为0。此时，请按以下步骤进行处理：</p>
+</p><ol type="a" id="ZH-CN_OPI_0237229456__substeps10403124817422"><li id="ZH-CN_OPI_0237229456__substep34031748184210"><a name="ZH-CN_OPI_0237229456__substep34031748184210"></a><a name="substep34031748184210"></a><span id="ZH-CN_OPI_0237229456__cmd12403154815425">通过<strong id="ZH-CN_OPI_0237229456__b62261684315"><a href="../MML/Document/dsp_cellstat.html">DSP CELLSTAT</a></strong>命令查询当前系统中存在未就绪进程或故障进程的POD对象，并记录其Pod名称。</span><p><p id="ZH-CN_OPI_0237229456__p87336316451">命令执行脚本参考：DSP CELLSTAT: OBJECT=PODTYPE;</p>
+</p></li><li id="ZH-CN_OPI_0237229456__substep111321541124719"><span id="ZH-CN_OPI_0237229456__cmd613218411472">针对存在未就绪进程或故障进程的POD对象，依次通过<strong id="ZH-CN_OPI_0237229456__b1578014486473"><a href="../MML/Document/dsp_cellinfo.html">DSP CELLINFO</a></strong>命令查询进程故障原因。</span><p><p id="ZH-CN_OPI_0237229456__p719681319492">命令执行脚本参考：DSP CELLINFO: OBJECT=PODNAME, PODNAME="xxx"; //xxx为<a href="#ZH-CN_OPI_0237229456__substep34031748184210">步骤 5.a</a>查询到的Pod名称。</p>
+</p></li><li id="ZH-CN_OPI_0237229456__substep3283161411517"><span id="ZH-CN_OPI_0237229456__cmd11283914155112">保存上述MML执行结果信息，联系华为技术支持处理。</span></li></ol>
+</li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0233967797.html">日维护
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0233967803.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0232606471.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

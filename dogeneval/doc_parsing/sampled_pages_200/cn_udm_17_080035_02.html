@@ -1,0 +1,171 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="PCSCFRESTORATION（Nudm_UECM_PcscfRestoration3GPPAccessNotify）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../../udm/reference/signal_analysis/cn_udm_17_100011.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0297207965">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script>
+<title>PCSCFRESTORATION（Nudm_UECM_PcscfRestoration3GPPAccessNotify）</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0297207965"></a><a name="ZH-CN_TOPIC_0297207965"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">PCSCFRESTORATION（Nudm_UECM_PcscfRestoration3GPPAccessNotify）</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0297207965__1.3.1.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0297207965__1.3.2.1">服务操作</a></li></ul><div><div class="section" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_section1855453511452"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0297207965__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0297207965" class="sectiontitle2contents">应用场景</a></h4><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p19876185117291">该消息用于3GPP 29503协议中的UDM initiated P-CSCF-Restoration流程中，指UDM发起P-CSCF故障恢复业务。</p>
+</div>
+<div class="section" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_section21458318464"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0297207965__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0297207965" class="sectiontitle2contents">服务操作</a></h4><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p923113178231">UDM initiated P-CSCF-Restoration的操作流程如<a href="#ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_fig1951451765611">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_fig1951451765611"><a name="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_fig1951451765611"></a><a name="zh-cn_topic_0201755918_fig1951451765611"></a><span class="figcap"><b>图1 </b>操作流程</span><br><span><img id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_image85153171563" src="figure/zh-cn_image_0315508861.png"></span></div>
+<ol id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_ol11936314104617"><li id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_li1493781414612">UDM发送PCSCFRESTORATION_REQ（网管消息跟踪显示为：Nudm_UECM_PcscfRestoration3GPPAccessNotify Request）请求消息到NF服务消费者（例如，AMF或SMF）需要进行P-CSCF故障恢复，请求方法为POST。请求消息中携带UDM在注册中收到的P-CSCF故障恢复的回调URI和<a href="#ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_table17797123412186">PcscfRestorationNotification</a>数据。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_table17797123412186"></a><a name="zh-cn_topic_0201755918_table17797123412186"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_table17797123412186" frame="border" border="1" rules="all"><caption><b>表1 </b>PcscfRestorationNotification数据类型</caption><thead align="left"><tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_row197971342181"><th align="left" class="cellrowborder" valign="top" width="17.24%" id="mcps1.3.2.4.1.2.2.6.1.1" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p479783414180">信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="7.739999999999999%" id="mcps1.3.2.4.1.2.2.6.1.2" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p079713461820">呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="6.959999999999999%" id="mcps1.3.2.4.1.2.2.6.1.3" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p177983341187">存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.1%" id="mcps1.3.2.4.1.2.2.6.1.4" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p7798634151819">描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="40.96%" id="mcps1.3.2.4.1.2.2.6.1.5" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p9605135624714">取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_row10798163413186"><td class="cellrowborder" valign="top" width="17.24%" headers="mcps1.3.2.4.1.2.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p379454771813">supi</p>
+</td>
+<td class="cellrowborder" valign="top" width="7.739999999999999%" headers="mcps1.3.2.4.1.2.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p879873418180">必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="6.959999999999999%" headers="mcps1.3.2.4.1.2.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p2236195814194">1</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.3.2.4.1.2.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p31006910573">故障P-CSCF服务的SUPI。</p>
+</td>
+<td class="cellrowborder" valign="top" width="40.96%" headers="mcps1.3.2.4.1.2.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p19606105617474">参见数据类型Supi</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p1855040162216">PCSCFRESTORATION_REQ消息举例如下所示：</p>
+<pre class="screen" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_screen112841314171914">POST /nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access
+Content-Type: application/json;charset=UTF-8
+{ 
+    "supi": "imsi-46001123456",
+}</pre>
+</li><li id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_li1717614183488">NF服务消费者向UDM返回PCSCFRESTORATION_RSP（网管消息跟踪显示为：Nudm_UECM_PcscfRestoration3GPPAccessNotify Response）响应消息。<ul id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_ul10983337105013"><li id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_li498416374504">如果请求成功，NF服务消费者发送<span class="parmvalue" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_parmvalue14797419508">“204 No Content”</span>响应。<p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_p938811111153">PCSCFRESTORATION_RSP消息举例如下所示：</p>
+<pre class="screen" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_screen136181410334">HTTP/2 204 No Content</pre>
+</li><li id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_li1990095018502">如果请求失败，则返回错误对应的HTTP状态码，并在响应消息体中返回对应的附加错误信息。
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_table729935625613" frame="border" border="1" rules="all"><caption><b>表2 </b>ProblemDetails数据类型</caption><thead align="left"><tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row207921455219"><th align="left" class="cellrowborder" valign="top" width="15.790000000000001%" id="mcps1.3.2.4.2.1.2.1.2.6.1.1" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p5792645625">信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.75%" id="mcps1.3.2.4.2.1.2.1.2.6.1.2" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p07921045725">呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.74%" id="mcps1.3.2.4.2.1.2.1.2.6.1.3" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1679284510212">存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="29.68%" id="mcps1.3.2.4.2.1.2.1.2.6.1.4" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p14792345823">描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="30.04%" id="mcps1.3.2.4.2.1.2.1.2.6.1.5" liSelected="liSelected"><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p12491311144912">取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row13792124518211"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1036365219419">type</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1784612557412">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.74%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p73636521447">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p4766202620589">标识问题类型的URI引用，参见协议IETF RFC 3986。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p115017111499">参见数据类型Uri</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row279212453216"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p16363752545">title</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p784613553414">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.74%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p183646525410">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1876410261588">对问题类型的简短的、可读的总结。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p165010114491">取值类型为string</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row1479312453211"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p10364652649">status</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p168465551145">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.74%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p936410523413">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p8763142613589">表示出现此问题的HTTP状态代码。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1050181116492">取值类型为integer</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row579334517217"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p13644521144">detail</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p68468551046">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.74%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p193641521043">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1876215267583">针对问题发生情况的解释。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p165011112498">取值类型为string</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row103336461846"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p12364185214417">instance</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p084745510412">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.74%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p736445211418">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p876142610582">表示问题的特定发生的URI引用。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p7501211144916">参见数据类型Uri</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_row033316461647"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p836465214416">cause</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.75%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p128475558416">条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.74%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1736416521448">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p18759142620582">机器可读应用程序错误原因，并提供与应用程序相关的错误信息。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.4.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0297207965__zh-cn_topic_0201755918_zh-cn_topic_0198945013_p1650811134917">取值类型为string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li></ul>
+</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../../udm/reference/signal_analysis/cn_udm_17_100011.html">Nudm_UEContextManagement_P-CSCF-RestorationNotification
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

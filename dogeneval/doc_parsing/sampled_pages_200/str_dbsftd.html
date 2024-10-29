@@ -1,0 +1,260 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="发送CSDB的软件调试命令(STR DBSFTD)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/csdb_vnfc_n_software_debug_management.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0180429701">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>发送CSDB的软件调试命令(STR DBSFTD)</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0180429701"></a><a name="ZH-CN_CONCEPT_0180429701"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">发送CSDB的软件调试命令(STR DBSFTD)</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0180429701__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0180429701__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0180429701__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0180429701__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0180429701__1.3.5.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0180429701__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0180429701" class="sectiontitle2contents">命令功能</a></h4><p>该命令为专家维护命令，用于向主机发送软件调试命令。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0180429701__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0180429701" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令需要慎重使用，必须在华为技术支持人员的指导下操作。</li><li>不同的模块有不同的软调名称，不同的软调名称也有不同的参数，如果软调名称和参数输入不准确，不会出现错误提示。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0180429701__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0180429701" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0180429701__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0180429701" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>INSTANCEID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>子实例标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：必选参数。</p>
+<p>参数含义：该参数用于指定唯一一个子实例，可以通过<a href="dsp_dbinstance.html"><b><span class="cmdname">DSP DBINSTANCE</span></b></a>命令查询获取。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：1～100。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>CSTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>客户端服务端类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：必选参数。</p>
+<p>参数含义：该参数用于指定是客户端还是服务端。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“CLIENT”</span>：向客户端发送软调命令。</li><li><span class="parmvalue">“SERVER”</span>：向服务端发送软调命令。</li></ul>
+</div>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>VNFCID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>虚拟化网络功能组件标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数。</p>
+<p>参数含义：该参数用于指定客户端进程所在的VNFC标识，可以通过<a href="dsp_dbplugin.html"><b><span class="cmdname">DSP DBPLUGIN</span></b></a>命令查询获取。</p>
+<p>前提条件：该参数在<span class="parmname">“CSTYPE”</span>参数设置为<span class="parmvalue">“CLIENT”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0～4294967295。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>PLUGINID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>插件标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数。</p>
+<p>参数含义：该参数用于指定客户端进程指定的插件标识，可以通过<a href="dsp_dbplugin.html"><b><span class="cmdname">DSP DBPLUGIN</span></b></a>命令查询获取。</p>
+<p>前提条件：该参数在<span class="parmname">“CSTYPE”</span>参数设置为<span class="parmvalue">“CLIENT”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0～4294967295。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>RUNAME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>资源单元名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数。</p>
+<p>参数含义：该参数用于指定服务端进程所在的资源单元名称，可以通过<b><span class="cmdname">LST SERVICERUSTATE</span></b>命令查询获取。</p>
+<p>前提条件：该参数在<span class="parmname">“CSTYPE”</span>参数设置为<span class="parmvalue">“SERVER”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：不超过63个英文字符。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>NODETYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>节点类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数。</p>
+<p>参数含义：该参数用于指定服务端进程的类型。</p>
+<p>前提条件：该参数在<span class="parmname">“CSTYPE”</span>参数设置为<span class="parmvalue">“SERVER”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“CONTROL”</span>：向控制节点（PRP进程）发送软调命令。</li><li><span class="parmvalue">“STORAGE”</span>：向存储节点（DNP进程）发送软调命令。</li></ul>
+</div>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>NODENO</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>同类进程实例号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数。</p>
+<p>参数含义：该参数用于指定同类型进程在资源单元内的排序序号，从0开始排序。</p>
+<p>前提条件：该参数在<span class="parmname">“CSTYPE”</span>参数设置为<span class="parmvalue">“SERVER”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0～63。</p>
+<p>默认值：无。</p>
+<div class="p">配置原则：<ul><li>如果<span class="parmname">“节点类型”</span>是<span class="parmvalue">“CONTROL”</span>，本参数的值应为<span class="parmvalue">“0”</span>。</li><li>如果<span class="parmname">“节点类型”</span>是<span class="parmvalue">“STORAGE”</span>，本参数的值必须小于STORAGE节点数的最大值。</li><li>不输入该参数可对指定类型的所有节点生效。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>SFNAME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>软件调试名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：必选参数。</p>
+<p>参数含义：该参数用于指定软调函数的名称。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：不超过63个英文字符。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>PARA1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>参数1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定软件调试命令下发的参数1。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：不超过63个英文字符。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>PARA2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>参数2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定软件调试命令下发的参数2。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：不超过63个英文字符。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>PARA3</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>参数3</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定软件调试命令下发的参数3。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：不超过63个英文字符。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p>PARA4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p>参数4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数。</p>
+<p>参数含义：该参数用于指定软件调试命令下发的参数4。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：不超过63个英文字符。</p>
+<p>默认值：无。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0180429701__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0180429701" class="sectiontitle2contents">使用实例</a></h4><div class="p">目前可执行的软调函数：<ol><li>CSDB插件快速恢复数据：<div class="p">该软调用来触发CSDB插件向服务侧快速恢复生产者数据。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“QUICK_RECOVERY”</span>。</li><li><span class="parmname">“参数1”</span>、<span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以恢复子实例8的生产者数据举例：<samp class="codeph">STR DBSFTD: INSTANCEID=8, CSTYPE=CLIENT, VNFCID=4, SFNAME="QUICK_RECOVERY";</samp></p>
+</li><li>设置内存申请类型：<div class="p">该软调用来设置GMDB内存申请类型。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SET_MALLOC_TYPE”</span>。</li><li><span class="parmname">“参数1”</span>为申请内存类型。0表示使用jemalloc的内存管理，0为默认值。1表示使用jemalloc并带内存泄漏检查的内存管理。2表示使用适配的内存管理。</li><li><span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以设置GMDB内存申请类型为jemalloc并带内存泄漏检查的内存管理举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SET_MALLOC_TYPE", PARA1="1";</samp></p>
+</li><li>显示进程状态信息：<div class="p">该软调用来显示进程状态信息。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“PROCSTATUS”</span>。</li><li><span class="parmname">“参数1”</span>、<span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以查询子实例7的实例的进程状态信息举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="PROCSTATUS";</samp></p>
+</li><li>清除流控信息表状态统计：<div class="p">该软调用来把流控信息表状态统计项清零。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“FLOWCTRL_STATS_CLEAR”</span>。</li><li><span class="parmname">“参数1”</span>、<span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以清除子实例7的实例流控信息表状态统计举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=<samp class="codeph">CLIENT</samp>, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="FLOWCTRL_STATS_CLEAR";</samp></p>
+</li><li>设置允许超过流控阈值的最大次数：<div class="p">该软调用来设置允许超过流控阈值的最大次数。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“FLOWCTRL_SET_MAX_CYC”</span>。</li><li><span class="parmname">“参数1”</span>为设置流控允许超过阈值的最大次数。</li><li><span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以子实例ID为7的实例允许超过流控阈值最大次数为10举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=CLIENT, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="FLOWCTRL_SET_MAX_CYC",<samp class="codeph">PARA1="10</samp>";</samp></p>
+</li><li>配置插件侧和服务侧核查开关：<div class="p">该软调用来设置插件侧和服务侧核查开关。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“PLUGIN_CHECK_SWITCH”</span>。</li><li><span class="parmname">“参数1”</span>为核查类型。0为插件侧快速核查。1为插件侧慢速核查。2为服务侧核查消息开关。3为三个同时控制。</li><li><span class="parmname">“参数2”</span>为核查开关状态。0为关闭。其他值为打开。</li><li><span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7的实例设置插件侧慢速核查开关为关闭举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=CLIENT, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="PLUGIN_CHECK_SWITCH",<samp class="codeph">PARA1="1</samp>"<samp class="codeph">,<samp class="codeph">PARA2="0</samp>"</samp>;</samp></p>
+</li><li>设置检查函数执行开关：<div class="p">该软调用来设置检查函数执行开关。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“PLUGIN_CHECK_FUNC_EXE”</span>。</li><li><span class="parmname">“参数1”</span>为设置对象类型。0为设置检查开关。1为设置最大执行时间。</li><li><span class="parmname">“参数2”</span>为核查开关状态。设置检查开关时0为关闭，其他值为打开。设置最大执行时间时单位为秒。</li><li><span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7的实例设置检查开关为关闭举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=CLIENT, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="PLUGIN_CHECK_FUNC_EXE",<samp class="codeph">PARA1="0</samp>"<samp class="codeph">,<samp class="codeph">PARA2="0</samp>"</samp>;</samp></p>
+</li><li>设置插件侧输出PID开关：<div class="p">该软调用来设置插件侧是否需要输出PID。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“PLUGIN_PRINT_PID”</span>。</li><li><span class="parmname">“参数1”</span>为插件PID输出开关。0为不输出。1为输出。</li><li><span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7的实例设置PID输出开关为关闭举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=CLIENT, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="PLUGIN_PRINT_PID",<samp class="codeph">PARA1="0</samp>";</samp></p>
+</li><li>设置插件侧数据面日志打印开关：<div class="p">该软调用来设置插件侧是否需要输出数据面日志。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“PLUGIN_SMART_LOG”</span>。</li><li><span class="parmname">“参数1”</span>为数据面日志输出开关。0为不输出。1为输出。</li><li><span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7的实例设置数据面日志输出开关为关闭举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=CLIENT, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="PLUGIN_SMART_LOG",<samp class="codeph">PARA1="0</samp>";</samp></p>
+</li><li>SRVO服务状态核查：<div class="p">该软调用来手工触发一次SRVO的服务状态核查。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SERVICE_RESUME”</span>。</li><li><span class="parmname">“参数1”</span>为子实例ID。</li><li><span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以触发子实例7的实例的SRVO服务状态核查举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SERVICE_RESUME", PARA1="7";</samp></p>
+</li><li>修改服务侧副本个数：<div class="p">该软调用来修改服务侧副本个数。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SM_SET_REP”</span>。</li><li><span class="parmname">“参数1”</span>为集群ID。</li><li><span class="parmname">“参数2”</span>为副本个数。</li><li><span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以子实例7集群ID为1的实例配置副本个数为2举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_SET_REP", PARA1="1"<samp class="codeph">, PARA2="2"</samp>;</samp></p>
+</li><li>触发反亲和性修复：<div class="p">该软调用来触发反亲和性修复。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SM_ANTI_AFFINITY_REPAIR”</span>。</li><li><span class="parmname">“参数1”</span>、<span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7的实例触发反亲和性修复举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_ANTI_AFFINITY_REPAIR";</samp></p>
+</li><li>设置数据均衡模式：<div class="p">该软调用来设置数据均衡模式。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SM_SET_GMDB_DATA_REBALANCE”</span>。</li><li><span class="parmname">“参数1”</span>为集群ID。</li><li><span class="parmname">“参数2”</span>为数据均衡模式。“RU_ID”表示设置当前集群为RU_ID数据均衡模式。“HOST_ID”表示设置当前集群为HOST_ID数据均衡模式。</li><li><span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7集群ID为1的实例RU_ID数据均衡模式举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_SET_GMDB_DATA_REBALANCE", PARA1="1"<samp class="codeph">, PARA2="RU_ID"</samp>;</samp></p>
+</li><li>修改墓碑表字段值：<div class="p">该软调用来设置墓碑表中延迟删除启动与关闭和延迟删除时间字段的值。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SM_SET_GMDB_CONFIG_TABLE_TOMBSTONE”</span>。</li><li><span class="parmname">“参数1”</span>为集群ID。</li><li><span class="parmname">“参数2”</span>为TombstoneTable表的字段修改值。取值格式为“table:&lt;table_id&gt;;flag:&lt;delay_delete_flag&gt;;time:&lt;delay_delete_time&gt;”。<ul><li>table_id指定表id，对所有表操作可使用all。</li><li>delay_delete_flag指定是否开启延迟删除功能，0为关闭，1为开启。可缺省，表示维持原值不变。</li><li>delay_delete_time设置延迟删除时间，单位为秒，范围0~31536000。可缺省，表示维持原值不变。</li></ul>
+</li><li><span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7集群ID为1的实例开启表id为1000的数据表延迟删除功能举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_SET_GMDB_CONFIG_TABLE_TOMBSTONE", PARA1="1"<samp class="codeph">, PARA2="table:&lt;1000&gt;;flag:&lt;1&gt;;"</samp>;</samp></p>
+</li><li>持久化参数配置：<div class="p">该软调用来配置持久化参数。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SM_SET_PERSIST_PARA”</span>。</li><li><span class="parmname">“参数1”</span>为集群ID。</li><li><span class="parmname">“参数2”</span>为持久化参数类型。</li><li><span class="parmname">“参数3”</span>为持久化参数值。</li><li><span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以配置子实例7集群ID为1持久化参数类型为PERSIST_HLV_SCAN_NUM且扫描数为100的实例举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_SET_PERSIST_PARA", PARA1="1"<samp class="codeph">, PARA2="PERSIST_HLV_SCAN_NUM",PARA3="100"</samp>;</samp></p>
+</li><li>CSDB修改集群ID构造模式：<div class="p">该软调用来修改双活容灾场景下集群ID构造模式。该软调函数入参说明：<ul><li><span class="parmname">“软件调试名称”</span>固定为<span class="parmvalue">“SM_SET_TRANSVERSION”</span>。</li><li><span class="parmname">“参数1”</span>为控制参数，取值范围为0~1，模式0采用BIT方式构造集群ID；模式1采用偏移量方式构造集群ID。</li><li><span class="parmname">“参数2”</span>、<span class="parmname">“参数3”</span>、<span class="parmname">“参数4”</span>为空。</li></ul>
+</div>
+<p>以使用BIT方式构造ClusterId举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_SET_TRANSVERSION", PARA1="0";</samp></p>
+<p>以使用偏移量方式构造ClusterId举例：<samp class="codeph">STR DBSFTD: INSTANCEID=7, CSTYPE=SERVER, RUNAME="CSDB_SD_RU_0064", NODETYPE=CONTROL, SFNAME="SM_SET_TRANSVERSION", PARA1="1";</samp></p>
+</li></ol>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/csdb_vnfc_n_software_debug_management.html">软件调试管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

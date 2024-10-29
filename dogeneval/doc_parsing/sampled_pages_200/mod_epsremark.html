@@ -1,0 +1,797 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="修改EPS QoS到TOS/DSCP的映射规则（MOD EPSREMARK）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_mapping_from_eps_qos_to_tos_dscp_parameters.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_epsremark.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_epsremark.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209652198">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>修改EPS QoS到TOS/DSCP的映射规则（MOD EPSREMARK）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209652198"></a><a name="ZH-CN_MMLREF_0209652198"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">修改EPS QoS到TOS/DSCP的映射规则（MOD EPSREMARK）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209652198__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209652198__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209652198__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209652198__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209652198__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652198" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：SGW-C、PGW-C</strong>
+                </p>
+
+                    <p>该命令用来修改在SAE架构下，QoS参数到IP报头中的DSCP（区别服务编码点）/TOS（服务类型）的映射规则，用户的数据将根据映射得到的DSCP（区别服务编码点）/TOS（服务类型）中的参数值进行转发。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209652198__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652198" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>命令执行后只对新接入用户生效。</li></ul>
+
+                    <ul><li>UNC支持将用户在会话激活或者更新过程中协商的QoS参数映射为IP报文头中的TOS（服务类型）域或者DSCP（区别服务编码点），这样用户的数据报文在传送过程中，UNC将映射出的TOS或者DSCP填写到用户数据报文的IP头中，该IP报文在传送过程将根据TOS或者DSCP编码获得不同的处理优先级，从而满足服务质量的要求。</li><li>RFC2597推荐的BE编码点：000000；RFC2598推荐的EF编码点：101110。</li><li>当DSCP的参数值为AF时，如果配置了AF-CLASS和DROP-PRECEDENCE的参数值，则请参照RFC2597推荐的AFij编码点。i表示类别，j表示丢弃优先级，j值越高，则丢弃优先级越高。</li><li>用户可以根据不同的应用结合差异化服务，给不同用户类型、业务类型给用户配置不同的DSCP值。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209652198__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209652198" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209652198__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652198" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QOSPROFILENAME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>QoS Profile名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数指定QoS Profile的名称。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> QOSPROFILENAME字段值必须先在QOSPROFILE或QOSGLOBAL对象中添加成功，可以通过LST QOSPROFILE或LST QOSGLOBAL命令查询。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QCI</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>QCI</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数表示QoS流量级别。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ARPPL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>ARP的优先级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数表示ARP的优先级别。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~15。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<ul><li>0：General，通用用户。如果某业务级别各个优先级的用户都没有配置DSCP，则用General配置的值。</li><li>1~15：用户的优先级，其中1的优先级最高。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>REMARKTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>标记类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于表示映射到DSCP或者TOS。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DSCP（映射到Dscp）</li><li>TOS（映射到TOS）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"REMARKTYPE"配置为"DSCP"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"DSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>AFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"DSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TOSVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>TOS值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"REMARKTYPE"配置为"TOS"时为条件必选参数。</p>
+<p> 参数含义：该参数表示映射到TOS的值，分别对应IP优先级的8个队列ID，优先值高的报文先于优先值低的报文发送。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~7。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"DSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S1UDSCPSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>S1-U DSCP配置开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示S1-U接口DSCP配置开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DISABLE（不使能）</li><li>ENABLE（使能）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S1UDSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>S1-U DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S1UDSCPSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示S1U DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S1UAFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>S1-U AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S1UDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示S1U接口AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S1UAFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>S1-U AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S1UDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示S1U接口AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S1UDSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>S1-U DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S1UDSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的S1U接口DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5SDSCPSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S5 DSCP配置开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示SGW S5接口DSCP配置开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DISABLE（不使能）</li><li>ENABLE（使能）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5SDSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S5 DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5SDSCPSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示SGW S5 DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5SAFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S5 AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5SDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示SGW S5接口AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5SAFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S5 AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5SDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示SGW S5接口AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5SDSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S5 DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5SDSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的SGW S5接口DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5PDSCPSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S5 DSCP配置开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示PGW S5接口DSCP配置开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DISABLE（不使能）</li><li>ENABLE（使能）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5PDSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S5 DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5PDSCPSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示PGW S5 DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5PAFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S5 AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5PDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示PGW S5接口AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5PAFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S5 AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5PDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示PGW S5接口AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S5PDSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S5 DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S5PDSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的PGW S5接口DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8SDSCPSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S8 DSCP配置开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示SGW S8接口DSCP配置开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DISABLE（不使能）</li><li>ENABLE（使能）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8SDSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S8 DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8SDSCPSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示SGW S8 DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8SAFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S8 AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8SDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示SGW S8接口AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8SAFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S8 AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8SDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示SGW S8接口AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8SDSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>SGW S8 DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8SDSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的SGW S8接口DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8PDSCPSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S8 DSCP配置开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示PGW S8接口DSCP配置开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DISABLE（不使能）</li><li>ENABLE（使能）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8PDSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S8 DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8PDSCPSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示PGW S8 DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8PAFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S8 AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8PDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示PGW S8接口AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8PAFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S8 AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8PDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示PGW S8接口AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>S8PDSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW S8 DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"S8PDSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的PGW S8接口DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SGIDSCPSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW SGi DSCP配置开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示PGW SGi接口DSCP配置开关。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>DISABLE（不使能）</li><li>ENABLE（使能）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SGIDSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW SGi DSCP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"SGIDSCPSWITCH"配置为"ENABLE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示PGW SGi DSCP。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>EF（对应的DSCP的值为101110）</li><li>AF（对应的DSCP的值由参数AfClass和AfDropPres界定）</li><li>BE（对应的DSCP的值为000000）</li><li>CS6（对应的DSCP的值为110000）</li><li>CS7（对应的DSCP的值为111000）</li><li>DSCP_VALUE（映射的DSCP值）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SGIAFCLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW SGi AF级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"SGIDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示PGW SGi接口AF队列序号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~4。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SGIAFDROPPREC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW SGi AF丢弃优先级</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"SGIDSCP"配置为"AF"时为条件必选参数。</p>
+<p> 参数含义：该参数表示PGW SGi接口AF丢弃优先级。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SGIDSCPVALUE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PGW SGi DSCP值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"SGIDSCP"配置为"DSCP_VALUE"时为条件必选参数。</p>
+<p> 参数含义：该参数用于表示映射的PGW SGi接口DSCP值。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209652198__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652198" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>修改EpsRemark配置，执行MOD EPSREMARK，修改Qos Profile名称为“qosprofile1”，QCI为“1”，ArpPl为“15”的Eps Remark配置参数Remark type为“DSCP”，DSCP为“EF”：</p>
+
+                    <pre class="screen">MOD EPSREMARK: QOSPROFILENAME="qosprofile1", QCI=1, ARPPL=15, REMARKTYPE=DSCP, DSCP=EF;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_mapping_from_eps_qos_to_tos_dscp_parameters.html">EPS Qos映射ToS/DSCP
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_epsremark.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_epsremark.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

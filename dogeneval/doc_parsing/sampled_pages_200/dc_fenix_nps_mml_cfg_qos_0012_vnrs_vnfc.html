@@ -1,0 +1,92 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="调测DSCP到VLAN优先级的映射（VNRS）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../fenix/dc_fenix_nps_mml_cfg_qos_0007_vnrs_vnfc.html">
+<meta name="DC.Relation" scheme="URI" content="../fenix/dc_fenix_nps_mml_cfg_qos_0011_vnrs_vnfc.html">
+<meta name="DC.Relation" scheme="URI" content="../fenix/dc_fenix_nps_mml_cfg_qos_0013_vnrs_vnfc.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="IPFD-012001">
+<meta name="Function" content="IP基本功能">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0254212717">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>调测DSCP到VLAN优先级的映射（VNRS）</title>
+</head>
+<body><a name="ZH-CN_OPI_0254212717"></a><a name="ZH-CN_OPI_0254212717"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">调测DSCP到VLAN优先级的映射<span>（VNRS）</span></h1>
+<ul><li><a href="#ZH-CN_OPI_0254212717__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0254212717__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0254212717__1.3.3">操作步骤</a></li></ul><div><div class="Section" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPIAscenarios2121985687201622"><a name="ZH-CN_OPI_0254212717__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0254212717" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><ul id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_ul1587929022201622"><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_li606065341201622">用于DSCP到VLAN优先级的映射是否正常运行。</li><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_li553079434201622">用于修改DSCP到VLAN优先级的映射。</li></ul>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPICprerequisites790803687201622"><a name="ZH-CN_OPI_0254212717__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0254212717" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPIAconditions790488941201622">前提条件</p></span><ul id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_ul1413791045201622"><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_li2052813143201622">操作人员已经登录网络管理系统NMS（Network Management System）。</li><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_li693022647201622">硬件安装已经完成。</li></ul>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPIBdata1014660310201622">数据</p></span><p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p164337965519"><a name="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPIBdata1014660310201622"></a><a name="zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPIBdata1014660310201622"></a>无</p>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_OPIEworkSteps580841110201622"><a name="ZH-CN_OPI_0254212717__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0254212717" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_steps1872651952201622"><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_step1563502783201622"><span id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_cmd1181369189201622">查询DSCP到VLAN优先级的映射。</span><p><p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p698413499595">在<span class="wintitle" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_task_0272838552_wintitle501926505100344">“MML命令行-UNC”</span>窗口上执行：</p>
+<p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p115563379201622"><a href="../MML/Document/lst_dscpmap.html"><b><span class="cmdname" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_cmdname566958074201622">LST DSCPMAP</span></b></a>:;</p>
+<ul id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_ul377625316201622"><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_li1746986978201622"><strong id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_b1213717462201622">预期结果：</strong>查询结果与配置结果一致。<pre class="screen" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_screen1993397395201622">LST DSCPMAP:
+RETCODE = 0  操作成功
+
+结果如下
+-------------------------
+DSCP值   优先级类型   优先级数值 
+ 62      exp          5 
+ 63      8021p        7 
+(结果个数 = 2)
+---    END</pre>
+<p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p1369525303201622"><strong id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_b882038975201622">异常结果：</strong>查询不到配置信息，请重新配置。</p>
+</li></ul>
+</p></li><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_step591981408201622"><span id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_cmd139787705201622">修改DSCP到VLAN优先级的映射。</span><p><p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p42613480173">在<span class="wintitle" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_task_0272838552_wintitle501926505100344_1">“MML命令行-UNC”</span>窗口上执行：</p>
+<p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p1259818320201622"><a href="../MML/Document/mod_dscpmap.html"><b><span class="cmdname" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_cmdname590643075201622">MOD DSCPMAP</span></b></a>: DSCP=62, TYPE=8021p, VALUE=5;</p>
+<ul id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_ul2120941125201622"><li id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_li782497237201622"><strong id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_b241208031201622">预期结果：</strong>查询结果与修改结果一致。<pre class="screen" id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_screen2104071326201622">LST DSCPMAP:
+RETCODE = 0  操作成功
+
+结果如下
+-------------------------
+    DSCP值 = 62
+优先级类型 = exp
+  先级数值 = 5
+(结果个数 = 1)
+---    END</pre>
+<p id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_p1110734657201622"><strong id="ZH-CN_OPI_0254212717__zh-cn_opi_0213119476_zh-cn_opi_0134584224_b42036828201622">异常结果：</strong>查询不到配置信息，请重新配置。</p>
+</li></ul>
+</p></li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../fenix/dc_fenix_nps_mml_cfg_qos_0007_vnrs_vnfc.html">简单流分类配置（VNRS）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../fenix/dc_fenix_nps_mml_cfg_qos_0011_vnrs_vnfc.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../fenix/dc_fenix_nps_mml_cfg_qos_0013_vnrs_vnfc.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

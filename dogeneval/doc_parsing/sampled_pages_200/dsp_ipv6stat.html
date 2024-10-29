@@ -1,0 +1,418 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="查询IPv6统计计数（DSP IPV6STAT）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_ipv6_statistics.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rtr_ipv6stat.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134581675">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询IPv6统计计数（DSP IPV6STAT）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134581675"></a><a name="ZH-CN_CONCEPT_0134581675"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">查询IPv6统计计数（DSP IPV6STAT）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134581675__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134581675__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134581675__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134581675__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134581675__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0134581675__1.3.6.1">输出结果说明</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581675__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134581675" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于显示IPv6报文统计计数。</p>
+
+<p>若不指定IFNAME参数时，则显示所有接口的IPv6报文统计计数。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581675__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134581675" class="sectiontitle2contents">注意事项</a></h4><p>该命令执行后立即生效。</p>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581675__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134581675" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581675__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134581675" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>IFNAME</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>接口名</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：该参数用于显示接口名 。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：请使用LST INTERFACE命令查看可用接口。</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581675__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134581675" class="sectiontitle2contents">使用实例</a></h4><p>显示IPv6报文统计计数：</p>
+
+<pre class="codeblock">DSP IPV6STAT:IFNAME="Ethernet65/0/8";</pre>
+<pre class="screen">
+RETCODE = 0  操作成功
+
+结果如下
+-------------------------
+                 发送报文总数 = 0
+             本地发送报文总数 = 0
+     使用Raw Socket发送的报文 = 0
+       分片成功的IPv6报文总数 = 0
+       分片失败的IPv6报文总数 = 0
+                   转发报文数 = 0
+               丢弃的发送报文 = 0
+                       分片数 = 0
+                 发送组播报文 = 0
+                 接收报文总数 = 0
+               收到组播报文数 = 0
+         跳数超出限制报文总数 = 0
+               收到的超大报文 = 0
+             收到地址错误报文 = 0
+ 实际长度过小而丢弃的报文总数 = 0
+           收到的分片报文总数 = 0
+             重组超时报文总数 = 0
+           收到的本地主机报文 = 0
+             收到的头错误报文 = 0
+           收到的路由错误报文 = 0
+           收到的协议错误报文 = 0
+           收到的选项错误报文 = 0
+             重组成功报文总数 = 0
+         收到的逐跳选项头报文 = 0
+         收到的目的选项头报文 = 0
+           收到的带路由头报文 = 0
+       配置过滤规则丢弃报文数 = 0
+(返回结果 = 1)
+---    END</pre>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134581675__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0134581675" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.1"><p>输出项名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.2"><p>输出项解释</p>
+</th>
+
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>发送报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示发送报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>本地发送报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示本地发送报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>使用Raw Socket发送的报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示使用Raw Socket发送的报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>分片成功的IPv6报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示分片成功的IPv6报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>分片失败的IPv6报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示分片失败的IPv6报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>转发报文数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示转发报文数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>丢弃的发送报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示丢弃的发送报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>分片数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示分片数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>发送组播报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示发送组播报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>接收报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示接收报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到组播报文数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到组播报文数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>跳数超出限制报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示跳数超出限制报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的超大报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的超大报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到地址错误报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到地址错误报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>实际长度过小而丢弃的报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示实际长度过小而丢弃的报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的分片报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的分片报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>重组超时报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示重组超时报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的本地主机报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的本地主机报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的头错误报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的头错误报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的路由错误报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的路由错误报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的协议错误报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的协议错误报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的选项错误报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示收到的选项错误报文。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>重组成功报文总数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示重组成功报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的逐跳选项头报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示带逐跳选项头部的报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的目的选项头报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示带目的选项头部的报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>收到的带路由头报文</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示带路由头部的报文总数。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>配置过滤规则丢弃报文数</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>用于显示丢弃报文。</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_ipv6_statistics.html">IPv6统计计数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rtr_ipv6stat.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

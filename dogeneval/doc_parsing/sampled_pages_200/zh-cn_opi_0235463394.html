@@ -1,0 +1,257 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="USM随机用户跟踪">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0171693950.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0175190101.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0000001147936960.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0235463394">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>USM随机用户跟踪</title>
+</head>
+<body><a name="ZH-CN_OPI_0235463394"></a><a name="ZH-CN_OPI_0235463394"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">USM随机用户跟踪</h1>
+<ul><li><a href="#ZH-CN_OPI_0235463394__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0235463394__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0235463394__1.3.3">操作步骤</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0235463394__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0235463394" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><ul><li><p>系统运行出现故障需要进行随机用户跟踪定位排除故障。</p>
+</li><li><p>维护人员调试设备运行情况。</p>
+</li></ul>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul><li>整系统只支持下发一个USM随机用户跟踪任务。</li><li>设备出口跟踪中能够显示消息，不代表跟踪到的消息一定从本设备向外发送成功，请关注系统其他异常告警和性能统计。</li><li><p>跟踪功能主要用于保障网络运营和服务、检测通信传输中的故障和错误，该功能涉及使用个人用户标识和用户通信内容。建议您只有在所适用法律法规允许的目的和范围内方可启用相应的功能。在使用用户通信内容的过程中，您应采取足够的措施以确保用户的通信内容受到严格保护。</p>
+</li><li><p>操作员在现场使用跟踪功能时，消息跟踪中的IMSI、IP地址等信息仍然是用户的真实信息，是未被加密的。</p>
+</li><li>如果在话务忙时启动随机用户跟踪功能，那么功能匹配消息量也会相应增多，并且如果设置的“同时跟踪的用户数”过多的话将导致跟踪消息量较大增加系统开销，从而影响系统性能。</li></ul>
+</div></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0235463394__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0235463394" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>具备管理员权限的操作员已经登录OM Portal。</li><li><p>维护人员具有用户消息跟踪权限。</p>
+</li><li><p>有用户业务激活。</p>
+</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>定位参数说明</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="21.23787621237876%" id="mcps1.3.2.1.2.1.2.5.1.1" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.10828917108289%" id="mcps1.3.2.1.2.1.2.5.1.2" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.5982401759824%" id="mcps1.3.2.1.2.1.2.5.1.3" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="44.05559444055594%" id="mcps1.3.2.1.2.1.2.5.1.4" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.1.2.5.1.1 "><p>接口类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.1.2.5.1.2 "><p>S11(SPGW-C)</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.1.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.1.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.1.2.5.1.1 "><p>流程类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.1.2.5.1.2 "><p>S11/S5/SS8-Default Bearer Activation</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.1.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.1.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.1.2.5.1.1 "><p>协议原因值</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.1.2.5.1.2 "><p>S11/S5/S8 GTPV2 System failure</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.1.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.1.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.1.2.5.1.1 "><p>APN</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.1.2.5.1.2 "><p>huawei.com</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.1.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.1.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.1.2.5.1.1 "><p>SNSSAI</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.1.2.5.1.2 "><p>1-111111</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.1.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.1.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表2 </b>过滤参数说明</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="21.23787621237876%" id="mcps1.3.2.1.2.2.2.5.1.1" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.10828917108289%" id="mcps1.3.2.1.2.2.2.5.1.2" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.5982401759824%" id="mcps1.3.2.1.2.2.2.5.1.3" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="44.05559444055594%" id="mcps1.3.2.1.2.2.2.5.1.4" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.2.2.5.1.1 "><p>用户切换时长</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.2.2.5.1.2 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.2.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.2.2.5.1.4 "><p>单位为分钟</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.23787621237876%" headers="mcps1.3.2.1.2.2.2.5.1.1 "><p>同时上报的最大用户数</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.10828917108289%" headers="mcps1.3.2.1.2.2.2.5.1.2 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.5982401759824%" headers="mcps1.3.2.1.2.2.2.5.1.3 "><p>根据具体跟踪任务获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.05559444055594%" headers="mcps1.3.2.1.2.2.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0235463394__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0235463394" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span>进入跟踪操作界面：登录OM Portal，在OM Portal主界面依次选择<span class="parmname">“监控分析”</span>-&gt;<span class="parmname">“消息跟踪”</span>，进入跟踪导航树界面，如<a href="#ZH-CN_OPI_0235463394__fig1244964615810">图1 消息跟踪操作界面</a>所示。</span><p><div class="fignone" id="ZH-CN_OPI_0235463394__fig1244964615810"><a name="ZH-CN_OPI_0235463394__fig1244964615810"></a><a name="fig1244964615810"></a><span class="figcap"><b>图1 </b>消息跟踪操作界面</span><br><span><img src="../images/zh-cn_image_0241441812.png"></span></div>
+</p></li><li><span>输入用户跟踪任务参数：在左侧跟踪导航树界面选择<span class="parmname">“UNC”</span> -&gt;<span class="parmname">“用户跟踪”</span> -&gt; <span class="parmname">“USM随机用户跟踪”</span>后，单击<span class="parmname">“添加”</span>，进入用户跟踪任务创建的界面，依次输入<span class="parmname">“任务名称”</span>、<span class="parmname">“跟踪时长”</span>、<span class="parmname">“定位条件”</span>、和<span class="parmname">“过滤条件”</span>参数，如<a href="#ZH-CN_OPI_0235463394__fig3422310182219">图2 随机用户跟踪参数配置对话框</a>所示。</span><p><div class="fignone" id="ZH-CN_OPI_0235463394__fig3422310182219"><a name="ZH-CN_OPI_0235463394__fig3422310182219"></a><a name="fig3422310182219"></a><span class="figcap"><b>图2 </b>随机用户跟踪参数配置对话框</span><br><span><img src="../images/zh-cn_image_0241430419.png"></span></div>
+<p>参数说明如<a href="zh-cn_opi_0175190101.html#ZH-CN_OPI_0175190101__table568645974018">表3</a>所示。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表3 </b>随机用户跟踪参数配置说明</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="9.73%" id="mcps1.3.3.1.2.2.3.2.5.1.1" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.919999999999998%" id="mcps1.3.3.1.2.2.3.2.5.1.2" liSelected="liSelected"><p>参数说明</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50.870000000000005%" id="mcps1.3.3.1.2.2.3.2.5.1.3" liSelected="liSelected"><p>取值范围</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.48%" id="mcps1.3.3.1.2.2.3.2.5.1.4" liSelected="liSelected"><p>默认值</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>任务名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于指定该次跟踪任务的名称。</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>跟踪时长</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于指定该次跟踪任务的时长。</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>1分钟~720小时59分钟</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>1（小时）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>接口类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于选择接入类型作为随机用户跟踪筛选条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><ul><li>ALL</li><li>S11(SPGW-C)</li><li>S11(SGW-C)</li><li>S5/S8(SGW-C)</li><li>S5/S8(PGW-C)</li><li>Gn/Gp(GGSN)</li><li>N1NAS(SMF)</li><li>NGAP(SMF)</li><li>N11(SMF)</li><li>N16a(SMF)</li><li>N11(I-SMF)</li><li>N16a(I-SMF)</li><li>N11(V-SMF)</li><li>N16(V-SMF)</li><li>N16(H-SMF)</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>流程类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于选择流程类型作为随机用户跟踪筛选条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>取值范围取决于接口类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>协议原因值</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于选择协议原因值作为随机用户跟踪筛选条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>取值范围取决于接口类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>APN</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于选择APN作为随机用户跟踪筛选条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>字符串</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>SNSSAI</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于选择SNSSAI作为随机用户跟踪筛选条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>字符串，格式为SST-SD</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>连续跟踪时长</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于设置某个用户被跟踪的时间长度，到达用户切换时长后，系统会随机挑选另一个用户进行跟踪。</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>1&#8211;1440（分钟）</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>2（分钟）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="9.73%" headers="mcps1.3.3.1.2.2.3.2.5.1.1 "><p>跟踪用户数</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.919999999999998%" headers="mcps1.3.3.1.2.2.3.2.5.1.2 "><p>用于设置当前跟踪任务能够同时跟踪的最大的用户数量。</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.870000000000005%" headers="mcps1.3.3.1.2.2.3.2.5.1.3 "><p>1&#8211;10（个）</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.48%" headers="mcps1.3.3.1.2.2.3.2.5.1.4 "><p>1（个）</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p></li><li><span>单击<span class="parmname">“确定”</span>，启动跟踪任务。</span></li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0171693950.html">创建用户跟踪
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0175190101.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0000001147936960.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

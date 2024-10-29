@@ -1,0 +1,366 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="查询5G多时区参数（LST NGTZLST）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_5g_multiple_time_zones_parameter.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/mod_ngtzlst.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001372273645">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询5G多时区参数（LST NGTZLST）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001372273645"></a><a name="ZH-CN_MMLREF_0000001372273645"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">查询5G多时区参数（LST NGTZLST）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001372273645__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001372273645__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001372273645__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001372273645__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001372273645__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001372273645__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001372273645" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF</strong>
+                </p>
+
+                    <p>该命令用于查询位置区对应的时区和夏令时信息。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0000001372273645__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001372273645" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                <p>无</p>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001372273645__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001372273645" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0000001372273645__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001372273645" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TZID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>时区标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定待增加时区的索引信息。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~24。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TZONE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>时区</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定设备所处时区。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>E0000（GMT+00:00）</li><li>E0100（GMT+01:00）</li><li>E0200（GMT+02:00）</li><li>E0300（GMT+03:00）</li><li>E0330（GMT+03:30）</li><li>E0400（GMT+04:00）</li><li>E0430（GMT+04:30）</li><li>E0500（GMT+05:00）</li><li>E0530（GMT+05:30）</li><li>E0545（GMT+05:45）</li><li>E0600（GMT+06:00）</li><li>E0630（GMT+06:30）</li><li>E0700（GMT+07:00）</li><li>E0800（GMT+08:00）</li><li>E0845（GMT+08:45）</li><li>E0900（GMT+09:00）</li><li>E0930（GMT+09:30）</li><li>E1000（GMT+10:00）</li><li>E1030（GMT+10:30）</li><li>E1100（GMT+11:00）</li><li>E1130（GMT+11:30）</li><li>E1200（GMT+12:00）</li><li>E1245（GMT+12:45）</li><li>E1300（GMT+13:00）</li><li>E1400（GMT+14:00）</li><li>W0100（GMT-01:00）</li><li>W0200（GMT-02:00）</li><li>W0300（GMT-03:00）</li><li>W0330（GMT-03:30）</li><li>W0400（GMT-04:00）</li><li>W0430（GMT-04:30）</li><li>W0500（GMT-05:00）</li><li>W0600（GMT-06:00）</li><li>W0700（GMT-07:00）</li><li>W0800（GMT-08:00）</li><li>W0900（GMT-09:00）</li><li>W0930（GMT-09:30）</li><li>W1000（GMT-10:00）</li><li>W1100（GMT-11:00）</li><li>W1200（GMT-12:00）</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 选择列表包括GMT+TIME和GMT-TIME两种形式，“+”代表进入东时区，“-”代表进入西时区。例如：GMT+14:00代表进入东时区后，时区与世界标准时区提前14小时；GMT-01:00代表进入西时区后，时区与世界标准时区延缓1小时。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0000001372273645__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001372273645" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                <ul><li>查询所有的时区和夏令时配置信息，执行如下命令：
+                            <pre class="screen">%%LST NGTZLST:;%%
+RETCODE = 0  操作成功。
+
+输出结果如下
+--------------
+ 时区标识  时区描述  时区       是否实行夏令时  开始日期输入方式  开始月份  开始日  第几个星期(开始)  开始星期  开始时间  结束日期输入方式  结束月份  结束日  第几个星期(结束)  结束星期  结束时间  时间偏移量(小时)
+
+ 1         NULL      GMT+00:00  否              日期方式          NULL      0       第一个            星期日    00:00:00  日期方式          NULL      0       第一个            星期日    00:00:00  0            
+ 2         NULL      GMT+04:30  是              星期方式          3月       0       第三个            星期三    14:42:00  星期方式          4月       0       第三个            星期六    02:51:00  1               
+(结果个数 = 2)
+
+---    END</pre>
+
+						</li><li>查询单条时区和夏令时配置信息，执行如下命令：
+                            <pre class="screen">%%LST NGTZLST: TZID=2;%%
+RETCODE = 0  操作成功。
+
+输出结果如下
+--------------
+        时区标识  =  2
+        时区描述  =  NULL
+            时区  =  GMT+04:30
+  是否实行夏令时  =  是
+开始日期输入方式  =  星期方式
+        开始月份  =  3月
+          开始日  =  0
+第几个星期(开始)  =  第三个
+        开始星期  =  星期三
+        开始时间  =  14:42:00
+结束日期输入方式  =  星期方式
+        结束月份  =  4月
+          结束日  =  0
+第几个星期(结束)  =  第三个
+        结束星期  =  星期六
+        结束时间  =  02:51:00
+时间偏移量(小时)  =  1
+(结果个数 = 1)
+
+---    END</pre>
+
+						</li></ul>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0000001372273645__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001372273645" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>时区标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定待增加时区的索引信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>时区描述</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于描述时区信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>时区</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定设备所处时区。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>是否实行夏令时</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定是否实行夏令时。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>开始日期输入方式</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定夏令时开始日期的输入方式。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>开始月份</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定开始实施夏令时的具体月份值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>开始日</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定夏令时的开始日。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>第几个星期(开始)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定开始实施夏令时的星期值在夏令时开始月中为第几个。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>开始星期</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定开始实施夏令时的具体星期值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>开始时间</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定开始实施夏令时的具体时间，该时间为非夏令时时间，输入格式为“HH&amp;MM&amp;SS”，“HH”代表时，“MM”代表分，“SS”代表秒。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>结束日期输入方式</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定夏令时结束日期的输入方式。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>结束月份</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定结束实施夏令时的具体月份值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>结束日</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定夏令时的结束日。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>第几个星期(结束)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定结束实施夏令时的星期值在夏令时结束月中为第几个。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>结束星期</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定结束实施夏令时的具体星期值。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>结束时间</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定结束实施夏令时的具体时间，该时间为非夏令时时间，输入格式为“HH&amp;MM&amp;SS”，“HH”代表时，“MM”代表分，“SS”代表秒。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>时间偏移量(小时)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定夏令时相对于标准时的时间偏移量。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_5g_multiple_time_zones_parameter.html">5G多时区参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/mod_ngtzlst.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

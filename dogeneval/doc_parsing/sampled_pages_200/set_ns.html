@@ -1,0 +1,215 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置NS参数(SET NS)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_ns_parameter.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_ns.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172225703">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置NS参数(SET NS)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172225703"></a><a name="ZH-CN_MMLREF_0000001172225703"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置NS参数(SET NS)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172225703__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172225703__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172225703__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172225703__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172225703__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172225703__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225703__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172225703" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172225703__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>该命令用于设置NS层系统参数。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225703__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172225703" class="sectiontitle2contents">注意事项</a></h4><ul><li>系统初次运行时，会执行系统初始设置值。</li><li>该命令执行后立即生效。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225703__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172225703" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225703__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172225703" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225703__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172225703" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>BLOCKTMR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Block定时器（s）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1s~120s</p>
+<p>系统初始设置值：10s</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>BLOCKRTYNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Block重试次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1~6</p>
+<p>系统初始设置值：3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>UNBLOCKRTYNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Unblock重试次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1~6</p>
+<p>系统初始设置值：3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RSTTMR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>复位定时器（s）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1s~120s</p>
+<p>系统初始设置值：10s</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RSTRTYNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>复位重试次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1~6</p>
+<p>系统初始设置值：3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>TSTTMR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>测试定时器（s）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定测试过程的定时器时长。在GSM 08.16中，定义为Tns-test。当Tns-test超时时，BSS或SGSN发送NS-ALIVE PDU到检测的NSVC链路上，启动Tns-alive定时器等待NS-ALIVE-ACK PDU ，当收到响应的NS-ALIVE-ACK PDU消息时停止Tns-alive定时器，并重新启动Tns-test定时器。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1s~60s</p>
+<p>系统初始设置值：30s</p>
+<div class="p">配置原则：<ul><li>在非OSPF组网下，建议值为30s。</li><li>在OSPF组网下，建议值为60s。现OSPF双平面的切换时间约为40s，必须满足IPNSVC链路探测的时间大于OSPF双平面切换的时间，才能保证OSPF切换时IPNSVC链路不发生故障。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ALIVERTYNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Alive重试次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定Alive过程失败的重试次数。在GSM 08.16中，定义为NS-ALIVE-RETRIES。在Tns-alive定时器超时之前没有收到NS-ALIVE-ACK PDU消息，重新启动测试过程的最大次数。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：5~15</p>
+<p>系统初始设置值：10</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PROVTMR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Prov定时器</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定GB OVER IP动态配置过程的定时器时长。在GSM 08.16中，定义为Tsns-prov。当SGSN发起动态配置流程时，它同时会启动一个定时器Tsns-prov。当Tsns-prov超时时，SGSN重新发起对应的流程，直到重发次数超过参数PROVRTYNUM定义的值。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1s~10s</p>
+<p>系统初始设置值：5s</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PROVRTYNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Prov重试次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定GB OVER IP动态配置过程重试次数。在GSM 08.16中，定义为SNS-PROV-RETRIES。在Tsns-prov定时器超时之前没有收到对应动态配置流程的ACK消息，重新发起该动态配置流程的最大次数。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1~6</p>
+<p>系统初始设置值：3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>NSERPTRT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>自动配置的NSE的上报速率（个/秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0~100</p>
+<p>系统初始设置值：5</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>上报速率过快可能导致各个业务框的小区数目不均衡，建议使用系统初始设置值。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>NSEFTDELLEN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>自动配置的NSE的故障删除时长（分钟）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：对于自动上报的动态over IP的NSE，如果该NSE下的所有IPNSVC链路中断后，开始计时，计时时长超过本参数的配置，则对应的NSE、小区、2G寻呼表、本端IP端点、对端IP端点、IPNSVC都将被自动删除。计时过程中，如果该NSE下的任意一条IPNSVC链路恢复正常，则停止计时。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0~10800</p>
+<p>系统初始设置值：0</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>若本参数设置为0，则自动上报的动态over IP的NSE，其IPNSVC故障之后，该NSE以及其对应的小区、寻呼表、本端IP端点、对端IP端点、IPNSVC，将不会被自动删除。当<span class="parmname">“自动配置的NSE的故障删除时长（分钟）”</span>配置为其他值时，自动配置的NSE故障后经过计时时长后删除，其中1~4按照最短时长5分钟来处理。</li><li>本参数修改之后，对后续发生故障的自动上报的动态over IP的NSE生效。</li><li>可以在割接之前，在割出NSE的SGSN上，将本参数修改到一个较小的值，这样该NSE被割接到其它SGSN之后，原有SGSN可以迅速的自动删除该NSE相关的信息，完成自动割接的相关处理。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ATNSEDIS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>自动配置的NSE的分布策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为保留参数，暂未实现。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“GB_IP_DISTRIBUTE(仅分布在有Gb IP出口的框)”</span></li><li><span class="parmvalue">“SYSTEM_DISTRIBUTE(整系统分布)”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“GB_IP_DISTRIBUTE(仅分布在有Gb IP出口的框)”</span></p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>针对业务框只部署3G业务出口而无Gb IP出口的情况，建议将本开关设置为<span class="parmvalue">“GB_IP_DISTRIBUTE(仅分布在有Gb IP出口的框)”</span>。SGSN不会将自动配置的NSE以及其小区分布在这些3G业务框，可以减少2G业务在框间的转发。</li><li>使用<span class="parmvalue">“SYSTEM_DISTRIBUTE(整系统分布)”</span>的方式，可达到2G的负荷在各个业务框间负荷分担。</li><li>该配置修改后，对后续自动配置的NSE生效，配置修改之前已经上报的NSE，不会改变其所在业务框。</li></ul>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225703__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172225703" class="sectiontitle2contents">使用实例</a></h4><p>设置NS参数，使BLOCK定时器为60s：</p>
+<p><span class="msgph">SET NS: BLOCKTMR=60;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_ns_parameter.html">NS参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_ns.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

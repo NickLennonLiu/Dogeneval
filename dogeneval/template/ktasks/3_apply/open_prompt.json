@@ -3,7 +3,7 @@
         "task_name": "ReadingComprehension",
         "description": "考察大模型的阅读理解能力以及对特定问题的答案抽取能力",
         "system_prompt": "请根据下面出的一段话回答<用户问题>",
-        "template": "{context}\n<用户问题>：{user_question}",
+        "template": "<上下文>：\n{context}\n\n<用户问题>：\n{user_question}",
         "output_requirement": "输出格式为json格式{{\"答案\"：\"\"}}",
         "fields": [
             {
@@ -12,7 +12,7 @@
             },
             {
                 "name": "user_question",
-                "description": "一个业务或运维场景，描述用户的问题"
+                "description": "用户问题，包含场景的描述以及需要解决的问题"
             }
         ],
         "examples": [
@@ -73,12 +73,12 @@
         "task_name": "LogicAnalysis",
         "description": "考察大模型在运维和业务场景中的逻辑推理能力",
         "system_prompt": "你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。",
-        "template": "输入信息：{input_info}\n业务知识：{business_knowledge}\n推理规则：{inference_rule}",
+        "template": "<输入信息>：\n{input_info}\n\n<业务知识>：\n{business_knowledge}\n\n<推理规则>：\n{inference_rule}",
         "output_requirement": "你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段",
         "fields": [
             {
                 "name": "input_info",
-                "description": "需要进行分析的输入信息"
+                "description": "需要进行分析的输入信息，包含场景的描述以及需要解决的问题"
             },
             {
                 "name": "business_knowledge",

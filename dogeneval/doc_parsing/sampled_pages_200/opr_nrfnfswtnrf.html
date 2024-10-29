@@ -1,0 +1,179 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="操作指示NF切换NRF（OPR NRFNFSWTNRF）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nf_information_update.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/clr_nrfrefreshnf.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/dsp_nrfnfswtnrf.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001189132374">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>操作指示NF切换NRF（OPR NRFNFSWTNRF）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001189132374"></a><a name="ZH-CN_MMLREF_0000001189132374"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">操作指示NF切换NRF（OPR NRFNFSWTNRF）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001189132374__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001189132374__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001189132374__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001189132374__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001189132374__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001189132374" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody">
+                        <p>执行该命令后会导致该NF实例注册或心跳请求短时间接收504响应，请谨慎操作。</p>
+
+                </div></div>
+
+                <p>
+                    <strong>适用NF：NRF</strong>
+                </p>
+
+                    <p>该命令用于NRF双活场景下指示NF切换到另外容灾的NRF上注册。</p>
+
+                    <p>执行完该命令后，NRF会对NF限定次数的心跳和全量更新请求进行正常处理后返回504，或从下一次收到NF心跳或全量更新请求后的1分钟内对心跳和全量更新请求进行正常处理后返回504。</p>
+
+                    <p>此命令执行结果通过DSP NRFNFSWTNRF命令查询。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0000001189132374__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001189132374" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>执行该命令后，该功能会在一定时间段内生效，在NF下一周期心跳请求还未到达NRF期间，如果进程复位该命令将不会生效。</li><li>需要在NF当前接入的NRF（通过DSP REGNFINSTANCE命令查询）上执行该命令，否则命令无法生效。</li><li>该命令仅用于指示NF的切换，最终是否切换依赖NF的行为。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001189132374__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001189132374" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0000001189132374__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001189132374" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NFINSTANCEID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NF实例标识</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数表示待指示切换的NF实例标识。不输入代表所有从本NRF接入的NF都收到切换指示。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~36。该参数只能由字母（A-Z或者a-z）、数字（0-9）、中划线（-）组成。不区分大小写。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RSPTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>响应类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示NRF对NF的心跳和全量更新请求的响应方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“DIRECT_504（直接回复504）”：NRF收到NF的心跳请求和全量更新后直接回复504（Gateway Time-out）响应。</li><li>“TIMEOUT_504（超时回复504）”：NRF收到NF的心跳请求和全量更新后，超时回复504（Gateway Time-out）响应，其中超时时间可通过LST HTTPCONF的“服务端接收HTTP响应消息超时时间(s)”参数查看。</li></ul>
+<p> 默认值：DIRECT_504</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RSPNUM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>响应次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示NRF对NF的心跳和全量更新请求进行正常处理后返回504的限定次数。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是3~10。</p>
+<p> 默认值：4</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0000001189132374__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001189132374" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>执行NF实例标识为"123e4567-e89b-12d3-a456-426655440000"的NF切换NRF。</p>
+
+                    <pre class="screen">OPR NRFNFSWTNRF: NFINSTANCEID="123e4567-e89b-12d3-a456-426655440000";</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nf_information_update.html">NF信息刷新
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/clr_nrfrefreshnf.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/dsp_nrfnfswtnrf.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

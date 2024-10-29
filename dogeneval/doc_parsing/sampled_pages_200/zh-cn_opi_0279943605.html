@@ -1,0 +1,108 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="调测基于接入点策略控制">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0279067210.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0279067211.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0279067215.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-109108">
+<meta name="Function" content="Qos">
+<meta name="Function" content="智能PCC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0279943605">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>调测基于接入点策略控制</title>
+</head>
+<body><a name="ZH-CN_OPI_0279943605"></a><a name="ZH-CN_OPI_0279943605"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">调测基于接入点策略控制</h1>
+<ul><li><a href="#ZH-CN_OPI_0279943605__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0279943605__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0279943605__1.3.3">操作步骤</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0279943605__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0279943605" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>当运营商期望根据用户接入点采取差异化策略（基于用户的IP地址+Port）时，可以配置基于接入点策略控制。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0279943605__zh-cn_topic_0305599235_p11200619115717">适用于PGW-C。</p>
+</div></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0279943605__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0279943605" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>请仔细阅读<a href="zh-cn_topic_0279067211.html">WSFD-109108 基于接入点策略控制特性概述</a>。</li><li>已完成<a href="../desc/unc_2000_feature_desc_Basic_PCC_Function.html">WSFD-109101 PCC基本功能</a>。</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.2%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.470000000000002%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.010000000000002%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.27%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="32.05%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.2%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>用户信息查询</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.470000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IMSI号码(IMSI)</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.010000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>460000123456789</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.27%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>测试终端自带</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.05%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.2%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>测试终端使用的APN</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.470000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>APN名称（APN）</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.010000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>huawei.com</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.27%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.05%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>用户激活使用的APN，可以使用命令<a href="../MML/Document/lst_apn.html"><b><span class="cmdname">LST APN</span></b></a>进行查询。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0279943605__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0279943605" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0279943605__zh-cn_topic_0305599235_wintitle1891213344912">“MML命令行-UNC”</span>窗口。</span></span></li><li><span>执行<a href="../MML/Document/lst_licenseswitch.html"><b><span class="cmdname">LST LICENSESWITCH</span></b></a>命令，查询License配置开关是否已打开。</span><p><ul><li>如果“SWITCH”为“ENABLE”，请执行<a href="#ZH-CN_OPI_0279943605__step080520399015">步骤 3</a>。</li><li>如果“SWITCH”为“DISABLE”，则执行<a href="../MML/Document/set_licenseswitch.html"><b><span class="cmdname">SET LICENSESWITCH</span></b></a>命令打开本特性对应的License配置开关。</li></ul>
+</p></li><li id="ZH-CN_OPI_0279943605__step080520399015"><a name="ZH-CN_OPI_0279943605__step080520399015"></a><a name="step080520399015"></a><span id="ZH-CN_OPI_0279943605__">创建用户跟踪任务，消息类型选择N4、Gx和N7。</span></li><li><span>测试终端使用APN“huawei.com”发起接入网络请求。</span></li><li><span>执行<strong><a href="../MML/Document/dsp_pdusession.html">DSP PDUSESSION</a></strong>命令，通过测试终端的IMSI查看测试终端是否激活成功。</span><p><ul><li>激活成功且<span class="parmname">“用户IP地址”</span>与规划值一致，请记录用户IP（IP1），然后执行<a href="#ZH-CN_OPI_0279943605__step4667203213400">步骤 6</a>。</li><li>激活失败，请调测基本会话接入功能。</li></ul>
+</p></li><li id="ZH-CN_OPI_0279943605__step4667203213400"><a name="ZH-CN_OPI_0279943605__step4667203213400"></a><a name="step4667203213400"></a><span id="ZH-CN_OPI_0279943605__">用户关机，然后再开机。</span></li><li><span>根据Gx/N7接口跟踪报文，检查PGW-C是否向PCRF上报Event-Trigger信元，取值为UE_LOCAL_IP_ADDRESS_CHANGE(43)，携带用户IP和Port信息。</span><p><ul><li>是，调测结束。</li><li>否，请执行<a href="#ZH-CN_OPI_0279943605__step18619510103416">步骤 8</a>。</li></ul>
+</p></li><li id="ZH-CN_OPI_0279943605__step18619510103416"><a name="ZH-CN_OPI_0279943605__step18619510103416"></a><a name="step18619510103416"></a><span id="ZH-CN_OPI_0279943605__">请联系华为技术支持工程师。</span><ol type="a"><li><span>重新执行上述步骤并保存报文。</span></li><li><span>执行<a href="../MML/Document/exp_mml.html"><b><span class="cmdname">EXP MML</span></b></a>命令将当前配置数据导出为MML脚本文件并保存。</span></li><li><span>收集并保存上述所有查询信息。</span></li><li><span>收集归纳所有信息并联系华为技术支持解决。</span></li></ol>
+</li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0279067210.html">WSFD-109108 基于接入点策略控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0279067211.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_topic_0279067215.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

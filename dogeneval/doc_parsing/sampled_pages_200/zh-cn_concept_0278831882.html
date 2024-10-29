@@ -1,0 +1,92 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="NAS信令加密和完整性保护流程（适用于5G）">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5G_Cip_and_Inte_Pro_for_NAS_Sig.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5G_Cip_and_Inte_Pro_for_NAS_Sig_01.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2000_feature_om_5G_Cip_and_Inte_Pro_for_NAS_Sig.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="AMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010303">
+<meta name="Function" content="安全">
+<meta name="Function" content="安全管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0278831882">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>NAS信令加密和完整性保护流程（适用于5G）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0278831882"></a><a name="ZH-CN_CONCEPT_0278831882"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">NAS信令加密和完整性保护流程（适用于5G）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0278831882__1.4.1.1">业务场景</a></li><li><a href="#ZH-CN_CONCEPT_0278831882__1.4.2.1">信令流程</a></li></ul><div><p></p>
+<div class="section" id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_section4998132914117"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0278831882__1.4.1.1"></a><a name="1.4.1.1"></a><a href="#ZH-CN_CONCEPT_0278831882" class="sectiontitle2contents">业务场景</a></h4><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p12952103764211">UE和网络完成鉴权流程后，通过NAS信令加密和完整性保护流程协商后续通信过程中信令加密和完整性保护所使用的安全算法和密钥。NAS安全算法协商完成后，AMF与UE之间的NAS消息都会进行加密和完整性保护，提高网络的安全性。</p>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_section14147151710413"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0278831882__1.4.2.1"></a><a name="1.4.2.1"></a><a href="#ZH-CN_CONCEPT_0278831882" class="sectiontitle2contents">信令流程</a></h4><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_lines2589145719140">AMF与UE之间的NAS信令加密和完整性保护流程如<a href="#ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_fig1270074461511">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_fig1270074461511"><a name="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_fig1270074461511"></a><a name="zh-cn_concept_0276784772_fig1270074461511"></a><span class="figcap"><b>图1 </b>NAS信令加密和完整性保护流程</span><br><span><img class="vsd" id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_image841312582111" src="../images/zh-cn_image_0276785078.png"></span></div>
+<ol id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_ol6743117101610"><li id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_li1242853518163">AMF结合配置的算法优先级和UE在初始NAS消息中上报的安全能力，选择保护算法、计算密钥，并启动完整性保护。</li><li id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_li1461184141614">AMF向UE发送<a href="zh-cn_topic_0276784934.html">Security mode command</a>消息，该消息中包含的关键信元如<a href="#ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_table208001131914">表1</a>所示。该消息已经通过选择的完整性保护算法进行了完整性保护。如果K<sub id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_sub1641910511165">AMF</sub>有更新，则AMF会在该消息中携带Additional 5G security information信元请求UE重新推衍K<sub id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_sub10314192710284">AMF</sub>。如果初始NAS消息经过保护但未通过完整性检查、或者AMF无法解密完整的初始NAS消息，则AMF会在该消息中携带Additional 5G security information信元，请求UE重新发送完整初始NAS消息。
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_table208001131914"></a><a name="zh-cn_concept_0276784772_table208001131914"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_table208001131914" frame="border" border="1" rules="all"><caption><b>表1 </b>Security Mode Command消息中包含的关键信元</caption><thead align="left"><tr id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_row680013519"><th align="left" class="cellrowborder" valign="top" width="62.83%" id="mcps1.4.2.4.2.5.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p580116320116">关键信元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="37.169999999999995%" id="mcps1.4.2.4.2.5.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p148013319112">信元解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_row13801173717"><td class="cellrowborder" valign="top" width="62.83%" headers="mcps1.4.2.4.2.5.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p080118313115"><span><img id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_image66415617210" src="../images/zh-cn_image_0276783820.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="37.169999999999995%" headers="mcps1.4.2.4.2.5.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p208016318116">网络选择的保护算法。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_row1080118313117"><td class="cellrowborder" valign="top" width="62.83%" headers="mcps1.4.2.4.2.5.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p98011932117"><span><img id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_image298812412416" src="../images/zh-cn_image_0276785465.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="37.169999999999995%" headers="mcps1.4.2.4.2.5.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p11801631916">网络侧分配的NAS秘钥集标识，用于识别K<sub id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_sub3531172167">AMF</sub>和鉴权成功后产生的安全上下文。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_row138011532120"><td class="cellrowborder" valign="top" width="62.83%" headers="mcps1.4.2.4.2.5.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p18011336113"><span><img id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_image17316499125" src="../images/zh-cn_image_0276783834.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="37.169999999999995%" headers="mcps1.4.2.4.2.5.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p8801831016">AMF返回的UE安全能力，UE用以判断是否被攻击者篡改过。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_li1483547101611">AMF启动上行信令解密功能。</li><li id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_li11122155341619">UE收到<a href="zh-cn_topic_0276784934.html">Security mode command</a>消息后，对该消息进行完整性校验。校验通过后，比较AMF返回的UE安全能力是否与自身保存的安全能力匹配。如果匹配，则UE启动加密和完整性保护。如果AMF发送的<a href="zh-cn_topic_0276784934.html">Security mode command</a>消息中要求UE重新推衍K<sub id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_sub5976124510311">AMF</sub>，则UE将重新推衍K<sub id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_sub242316513169">AMF</sub>。</li><li id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_li1913216663711">UE向AMF发送<a href="zh-cn_topic_0276784268.html">Security mode complete</a>消息，该消息已经经过了加密和完整性保护，如下图所示。如果AMF在<a href="zh-cn_topic_0276784934.html">Security mode command</a>消息中携带了请求完整初始NAS消息的标志，或者UE发送的初始NAS消息未经过保护，那么<a href="zh-cn_topic_0276784268.html">Security mode complete</a>消息将携带包含完整初始NAS消息的NAS message container。<p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_p1117121110377"><span><img id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_image13150103614185" src="../images/zh-cn_image_0276785507.png"></span></p>
+</li><li id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_li52829316174">AMF收到<a href="zh-cn_topic_0276784268.html">Security mode complete</a>消息后对其进行完整性校验和解密，并开始对下行信令进行加密。</li></ol>
+<p id="ZH-CN_CONCEPT_0278831882__zh-cn_concept_0276784772_lines1793191511715">NAS信令加密和完整性保护流程成功之后，AMF对所有发送的NAS消息进行加密和完整性保护，对所有接收到的NAS消息进行完整性校验和解密。</p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_5G_Cip_and_Inte_Pro_for_NAS_Sig.html">NAS信令加密与完整性保护（5G）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_5G_Cip_and_Inte_Pro_for_NAS_Sig_01.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../om/unc_2000_feature_om_5G_Cip_and_Inte_Pro_for_NAS_Sig.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

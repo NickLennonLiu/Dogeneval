@@ -1,0 +1,312 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加Gb模式用户安全参数（ADD GBAUTHCIPH）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_gb_mode_user_security_parameter.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_gbauthciph.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126145642">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加Gb模式用户安全参数（ADD GBAUTHCIPH）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126145642"></a><a name="ZH-CN_MMLREF_0000001126145642"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加Gb模式用户安全参数（ADD GBAUTHCIPH）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126145642__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126145642__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126145642__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126145642__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126145642__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126145642__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145642__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126145642" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126145642__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>该命令用于增加2G鉴权加密的配置。<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121">UNC</span></span>可以结合运营商的配置要求和协议规范决定是否使用鉴权加密。针对SGSN节点可能遇到的所有需要鉴权的流程，<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_1">UNC</span></span>均设置了开关加以控制，运营商可以通过配置决定这些流程是否需要鉴权。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145642__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126145642" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>指定号段的用户群采用对应的安全配置参数，未指定的用户群采用默认的安全配置参数。</li><li>此命令最大记录数为1024。</li><li>该命令部分参数与相关特性license共同完成该特性的开启，请在设置参数前使用<a href="dsp_license.html"><b><span class="cmdname">DSP LICENSE</span></b></a>命令确认对应特性license是否得到授权，执行<a href="lst_licenseswitch.html"><b><span class="cmdname">LST LICENSESWITCH</span></b></a>命令确认特性开关状态为<span class="parmvalue">“ENABLE(打开)”</span>，具体相关特性请参考参数的说明。</li><li>系统中缺省生成一条记录用于控制所有用户的安全策略，配置导出时通过将IMSI前缀取值设置成ALL_USER来表示缺省记录。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145642__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126145642" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145642__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126145642" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145642__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126145642" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IMSIPRE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IMSI前缀</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于系统根据指定用户的IMSI进行匹配，从而区分不同的用户群。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：5～15位十进制数字字符串，或字符串<span class="parmvalue">“ALL_USER”</span></p>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>按照IMSI最长匹配进行查询，相同IMSI前缀只能配置一条记录。</li><li>IMSI前缀的匹配方式采取由前向后的最长匹配，即若用户可以匹配到多个用户群，则使用IMSI前缀最长的用户群配置。</li><li>当IMSIPRE为字符串“ALL_USER”时，可以对<span class="parmname">“SUBRANGE（用户范围）”</span>为<span class="parmvalue">“ALL_USER（所有用户）”</span>的记录进行修改。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SECPLC</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>安全策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定采取的安全策略。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NEVER（不鉴权不保护）”</span></li><li><span class="parmvalue">“AUTHONLY（只鉴权）”</span></li><li><span class="parmvalue">“AUTHANDPROTECTED（鉴权并保护）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“AUTHANDPROTECTED（鉴权并保护）”</span></p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“NEVER（不鉴权不保护）”</span>，表示不启用安全功能。</li><li><span class="parmvalue">“AUTHONLY（只鉴权）”</span>，表示只鉴权不进行加密算法和完整性算法的检查。</li><li><span class="parmvalue">“AUTHANDPROTECTED（鉴权并保护）”</span>，表示同时开启鉴权和保护功能。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHEVENT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>鉴权事件</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定设置哪些流程属于灵活鉴权事件。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>时，该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“PROD_RAU（周期RAU）”</span></li><li><span class="parmvalue">“SMS_MT（短消息MT）”</span></li><li><span class="parmvalue">“SMS_MO（短消息MO）”</span></li><li><span class="parmvalue">“DETACH（分离）”</span></li><li><span class="parmvalue">“INTER_RAU（INTER位置更新）”</span></li><li><span class="parmvalue">“INTRA_RAU（INTRA位置更新）”</span></li><li><span class="parmvalue">“PTMSI_ATTACH（PTMSI附着）”</span></li><li><span class="parmvalue">“IMSI_ATTACH（IMSI附着）”</span></li><li><span class="parmvalue">“PTMSI_SIG_NOMATCH（PTMSI签名不匹配）”</span></li><li><span class="parmvalue">“PTMSI_SIG_NOSIG（不带PTMSI签名）”</span></li><li><span class="parmvalue">“SM_PDP（PDP激活）”</span></li><li><span class="parmvalue">“SM_DEA_PDP（PDP去激活）”</span></li><li><span class="parmvalue">“LCS（位置业务LCS）”</span></li><li><span class="parmvalue">“SYSTEM_CHANGE_INTRA_RAU（系统间切换类型的INTRA位置更新）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“INTER_RAU-1”</span>、<span class="parmvalue">“PTMSI_ATTACH-1”</span>、<span class="parmvalue">“IMSI_ATTACH-1”</span>、<span class="parmvalue">“PTMSI_SIG_NOMATCH-1”</span>、<span class="parmvalue">“PTMSI_SIG_NOSIG-1”</span>、<span class="parmvalue">“SYSTEM_CHANGE_INTRA_RAU-1”</span></p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>“IMSI_ATTACH-1”：表示此流程属于灵活鉴权事件，其他参数取值相同。</li><li>“IMSI_ATTACH-0”：表示此流程不属于灵活鉴权事件，其他参数取值相同。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>鉴权集重用次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定鉴权集采取的安全策略超时，再次使用原来的鉴权集的次数。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0～255</p>
+<p>默认值：0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHPERIOD</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>鉴权周期</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定用户注册时间达到设定的值后，将在鉴权事件中发起鉴权。</p>
+<div class="p">前提条件：<ul><li>只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</li><li>该参数配置受License控制，在激活相应License项(基于用户群的灵活鉴权)后，配置才能生效。</li></ul>
+</div>
+<p>数据来源：本端规划</p>
+<p>取值范围：0～24小时</p>
+<p>默认值：24</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>若取值为“0”，表示不启用周期鉴权功能。该参数单位为小时。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHEVENTTHRESHOLD</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>鉴权事件上限</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定对<span class="parmname">“鉴权事件”</span>不鉴权的次数上限。当指定<span class="parmname">“鉴权事件”</span>计数达到上限时，将在对应的流程中进行一次鉴权。</p>
+<div class="p">前提条件：<ul><li>只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</li><li>该参数配置受License控制，在激活相应License项(基于用户群的灵活鉴权)后，配置才能生效。</li></ul>
+</div>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～1023</p>
+<p>默认值：1</p>
+<div class="p">配置原则：<ul><li>取值为<span class="parmvalue">“0”</span>，表示不启用该项功能，所有的可选鉴权流程都不触发。</li><li>取值为<span class="parmvalue">“1”</span>，表示每次<span class="parmname">“鉴权事件”</span>中配置的可选鉴权事件发生都会触发鉴权流程。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ATTSAUTH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>是否支持附着流程的二次鉴权功能</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_2">UNC</span></span>网元是否启用附着流程的二次鉴权功能。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span></li><li><span class="parmvalue">“YES（是）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NO（否）”</span>。</p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“NO（否）”</span>，表示<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_3">UNC</span></span>网元不启用附着流程中一次鉴权失败后进行二次鉴权的功能。</li><li><span class="parmvalue">“YES（是）”</span>，表示<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_4">UNC</span></span>网元启用附着流程中一次鉴权失败后进行二次鉴权的功能。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RAUSAUTH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>是否支持路由更新流程的二次鉴权功能</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_5">UNC</span></span>网元是否启用路由更新流程的二次鉴权功能。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span></li><li><span class="parmvalue">“YES（是）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NO（否）”</span></p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“NO（否）”</span>，表示<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_6">UNC</span></span>网元不启用路由更新流程中一次鉴权失败后进行二次鉴权的功能。</li><li><span class="parmvalue">“YES（是）”</span>，表示<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_7">UNC</span></span>网元启用路由更新流程中一次鉴权失败后进行二次鉴权的功能。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHSETV2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>是否支持V2取鉴权集功能</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数指示<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145642__zh-cn_task_0272842530_text1503051056192121_8">UNC</span></span>网元取鉴权集时是否首选使用MAP协议版本为V2。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span>：表示首选使用MAP协议版本为V3。</li><li><span class="parmvalue">“YES（是）”</span>：表示首选使用MAP协议版本为V2。</li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NO（否）”</span></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHSETSNUMBER</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>鉴权集数量</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定向HLR请求的数量。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1～5</p>
+<p>默认值：5</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>系统支持每个用户最多持有5组鉴权集数，因此建议配置“预先取鉴权集门限值”与该参数之和不大于5，若大于5，每次取满5组鉴权集为止，即每次取的鉴权集数实际为5减去“预先取鉴权集门限值”。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PREGETAUTHSETS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>是否预取鉴权集</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定是否在鉴权集使用完时主动发起预取鉴权集流程。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span></li><li><span class="parmvalue">“YES（是）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“YES（是）”</span></p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“NO（否）”</span>，表示不需要预取鉴权集。</li><li><span class="parmvalue">“YES（是）”</span>，表示需要预取鉴权集。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GETAUTHADVTH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>预先取鉴权集门限值</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定系统中最少持有的鉴权集。当系统检测到系统内鉴权集数小于等于该数，会自动向HLR获取鉴权集，获取数为“鉴权集数量”配置的值。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划。</p>
+<p>取值范围：0～4</p>
+<p>默认值：0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CAFTIMES</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>用户鉴权失败次数临界值</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定在清除用户鉴权失败记录的临界值内，允许用户鉴权失败的最大次数。如果用户鉴权失败次数超过该临界值，则触发鉴权事件告警。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHONLY”</span>或<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：3～20</p>
+<p>默认值：3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CIPHALG</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>加密算法</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定网络侧支持的加密算法。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“GEA_3（GEA_3）”</span></li><li><span class="parmvalue">“GEA_2（GEA_2）”</span></li><li><span class="parmvalue">“GEA_1（GEA_1）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“GEA_3（GEA_3）”</span>、<span class="parmvalue">“GEA_2（GEA_2）”</span>、<span class="parmvalue">“GEA_1（GEA_1）”</span></p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li><span class="parmvalue">“GEA_1”</span>、<span class="parmvalue">“GEA_2”</span>和<span class="parmvalue">“GEA_3”</span>三种算法，可以选其一，也可以选两种或全选。</li><li>当参数设置为<span class="parmvalue">“GEA_1（GEA_1）”</span>时，“支持GPRS加密功能：GEA-1(仅用于Gb模式)”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>103001</span>，License项：LKV2GEA102）。</li><li>当参数设置为<span class="parmvalue">“GEA_2（GEA_2）”</span>时，“支持GPRS加密功能：GEA-2(仅用于Gb模式)”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>103002</span>，License项：LKV2GEA202）。</li><li>当参数设置为<span class="parmvalue">“GEA_3（GEA_3）”</span>时，“支持GPRS加密功能：GEA-3(仅用于Gb模式)”特性的相关license授权并开启后，此参数配置才生效（特性编号：WSFD-<span>103003</span>，License项：LKV2GEA302）。</li><li>当参数设置为<span class="parmvalue">“GEA_1（GEA_1）”</span>时为不安全加密算法，存在安全风险，请谨慎设置。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>NCIPH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>版本协商失败允许不加密</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定网络与用户协商加密版本失败后，是否允许用户不加密接入网络。也用于指示在已配置加密License的情况下，网络侧协商加密版本失败后是否允许用户不加密接入网络，如果网络允许不加密，则用户可以无需加密接入网络，否则网络将拒绝用户的接入。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHANDPROTECTED”</span>该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span></li><li><span class="parmvalue">“YES（是）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“YES（是）”</span></p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>如果LICENSE不支持加密，则该参数无效。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>XIDRESET</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Rau Accept无响应后是否启用XID Reset流程</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指示加密功能启用时，如果手机对Intra Rau Accept没有响应，则SGSN再次收到手机的Intra Rau Request后，是否发起XID Reset流程。 如果设置为是，则SGSN会发起XID RESET流程。</p>
+<p>前提条件：只有<span class="parmname">“安全策略”</span>为<span class="parmvalue">“AUTHANDPROTECTED”</span>时，该参数才有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span></li><li><span class="parmvalue">“YES（是）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NO（否）”</span></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IDRQ</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>强制身份识别</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定是否强制获取用户身份标识。对于2G使用PTMSI附着，控制是否发送IDENTITY REQUEST消息。</p>
+<p>在启用“WSFD-<span>207001</span> 网络共享（MOCN）”特性的情况下，附着请求层二消息UL-UNITDATA携带了IMSI，则本参数配置不生效，即系统不会发送IDENTITY REQUEST消息。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO（否）”</span></li><li><span class="parmvalue">“YES（是）”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NO（否）”</span></p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“NO（否）”</span>，表示系统信任曾经保存的IMSI，不再强制发起Identity流程获取用户的IMSI。</li><li><span class="parmvalue">“YES（是）”</span>，表示系统不信任以前曾经保存的用户IMSI，当MS发起以PTMSI为标识的Attach流程时，系统需要强制通过Identity流程重新获取用户的IMSI。</li></ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145642__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126145642" class="sectiontitle2contents">使用实例</a></h4><p>增加IMSI前缀为"123456＂的用户2G鉴权加密配置，加密算法选择GEA1：</p>
+<p><span class="msgph">ADD GBAUTHCIPH: IMSIPRE="123456", SECPLC=AUTHANDPROTECTED, CIPHALG=GEA_1-1;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_gb_mode_user_security_parameter.html">Gb模式用户安全参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_gbauthciph.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

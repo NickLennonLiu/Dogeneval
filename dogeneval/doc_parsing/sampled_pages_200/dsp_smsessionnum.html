@@ -1,0 +1,754 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="显示会话管理的会话上下文数（DSP SMSESSIONNUM）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_query_the_number_of_session_contexts.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209652085">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示会话管理的会话上下文数（DSP SMSESSIONNUM）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209652085"></a><a name="ZH-CN_MMLREF_0209652085"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">显示会话管理的会话上下文数（DSP SMSESSIONNUM）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209652085__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209652085__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209652085__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209652085__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0209652085__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209652085__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652085" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：SGW-C、PGW-C、SMF、GGSN</strong>
+                </p>
+
+                    <p>该命令用于查看SMF/PGW-C/SGW-C/GGSN-C的会话上下文数。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209652085__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652085" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                        <p>“查询分类”参数不输入时，表示查询汇总的信息。</p>
+  
+                      
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209652085__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209652085" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209652085__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652085" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QRY_SCOPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>查询范围</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定查询会话上下文的范围。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“SUMMARY（汇总信息）”：查询汇总信息。以汇总方式呈现。</li><li>“ALL_POD_INFO（所有POD信息）”：查询所有POD信息。以POD粒度呈现。</li><li>“SPECIFIED_POD_INFO（指定POD信息）”：查询指定POD信息。</li></ul>
+<p> 默认值：SUMMARY</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QRY_CLASS</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>查询分类</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定查询会话上下文的类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“APN（APN）”：查询使用该APN激活的当前在线会话上下文数。</li><li>“IMS（IMS）”：查询当前在线的IMS会话的会话上下文数。</li><li>“RAT（无线接入类型）”：查询不同无线接入类型的会话上下文数目。</li><li>“UPF（UPF）”：查询使用该UPF激活的当前在线会话上下文数。</li><li>“SNSSAI（SNSSAI）”：查询使用该切片的5G会话上下文数。</li><li>“SSC1_MODE（SSC1模式）”：查询SSC1模式用户的5G会话上下文数。</li><li>“SSC2_MODE（SSC2模式）”：查询SSC2模式用户的5G会话上下文数。</li><li>“SSC3_MODE（SSC3模式）”：查询SSC3模式用户的5G会话上下文数。</li><li>“ULCL（上行分类）”：查询ULCL会话用户的5G会话上下文数。</li><li>“IPV6_MULTIHOMING（IPv6多出口）”：查询IPv6多出口会话用户的5G会话上下文数。</li><li>“NSA（NSA）”：非独立组网，指以现有的LTE无线接入和核心网作为移动性管理和覆盖的锚点，新增5G接入的组网方式。</li><li>“UEIPALLOCBYUPF（UPF分配UE地址）”：查询UPF分配UE地址的会话上下文数。</li><li>“UEIPALLOCBYSUBS（签约数据指定UE地址）”：查询签约数据指定UE地址的会话上下文数。</li><li>“UEIPALLOCBYLOCAL（本地分配UE地址）”：查询本地分配UE地址的会话上下文数。</li><li>“CHG_OFFLINE（离线计费）”：查询离线计费的会话上下文数。</li><li>“CHG_ONLINE（在线计费）”：查询在线计费的会话上下文数。</li><li>“CHG_FBC（内容计费）”：查询内容计费的会话上下文数。</li><li>“DYNC_PCC（动态PCC）”：查询动态PCC的会话上下文数。</li><li>“LOCAL_PCC（本地PCC）”：查询本地PCC的会话上下文数。</li><li>“CHG_CONVERGED（融合计费）”：查询融合计费的会话上下文数。</li><li>“L2TP（L2TP）”：查询当前在线的L2TP用户的会话上下文数。</li><li>“SUMMARY（汇总信息）”：查询所有类型的汇总会话上下文数。</li><li>“LOCREPORT（位置订阅）”：查询开启实时位置订阅功能的会话上下文数。</li><li>“PRA（PRA）”：查询开启PRA功能的会话上下文数。</li><li>“NGLAN（NGLAN）”：查询开启5G LAN功能的上下文会话数。</li><li>“TRAFFIC_DIST_APN（专网分流APN）”：查询使用该专网分流APN的5G会话上下文数。</li><li>“NW5GNSA（5G NSA 网络）”：查询具备5G能力的上下文数及使用了5G网络的上下文数。</li><li>“UDMBYPASS（UDM全故障）”：查询当前处于UDM全故障状态的5G会话上下文数。</li></ul>
+<p> 默认值：SUMMARY</p>
+<p> 配置原则：</p>
+<p> 本参数不输入时，表示查询汇总的信息。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RAT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>无线接入类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_CLASS"配置为"RAT"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定需要查询会话上下文数的无线接入类型。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“UTRAN（UTRAN）”：通用陆地无线接入网。</li><li>“GERAN（GERAN）”：GSM/EDGE无线接入网。</li><li>“EUTRAN（EUTRAN）”：演进型通用陆地无线接入网。</li><li>“NGRAN（NGRAN）”：5G无线接入网。</li><li>“EUTRAN_NB_IOT（EUTRAN-NB-IOT）”：演进型通用陆地无线接入网-窄带物联网。</li><li>“WLAN（WLAN）”：无线局域网</li><li>“LTE_M（LTE_M）”：演进的高速包数据网络</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UPF_NAME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UPF名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_CLASS"配置为"UPF"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定需要查询会话上下文数的UPF名称。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SST</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>切片/服务类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_CLASS"配置为"SNSSAI"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定需要查询会话上下文数的切片/服务类型。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>POD_ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>POD名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_SCOPE"配置为"SPECIFIED_POD_INFO"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定需要查询会话上下文数的POD名称。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>切片区分码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_CLASS"配置为"SNSSAI"时为条件可选参数。</p>
+<p> 参数含义：本参数用于指定需要查询会话上下文数的切片区分码。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~8。只能由数字（0-9），字母（A-F、a-f）组成。字母大小写不敏感。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>APN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>APN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_CLASS"配置为"APN"时为条件必选参数。</p>
+<p> 参数含义：该参数用于指定需要查询会话上下文的APN。使用用户请求的APN对应的上报属性中“上报给话统的APN名”参数的取值，即在SET APNREPORTATTR命令中设置的该APN的PERFORMANCE的取值，指定使用用户请求的APN还是真实的APN进行统计。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SELECTEDDNN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>选择的APN</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"QRY_CLASS"配置为"TRAFFIC_DIST_APN"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定需要查询会话上下文的选择APN。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~63。</p>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209652085__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652085" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>当希望查询整系统的会话上下文数量时，使用如下命令：</p>
+
+                    <pre class="screen">%%DSP SMSESSIONNUM: QRY_SCOPE=SUMMARY, QRY_CLASS=SUMMARY;%%
+RETCODE = 0  操作成功
+
+结果如下
+--------
+                                  查询分类  =  汇总信息
+           GGSN-C上激活的GTPv1会话上下文数  =  0
+            PGW-C上激活的GTPv2会话上下文数  =  0
+            SGW-C上激活的GTPv2会话上下文数  =  0
+          S/PGW-C上激活的GTPv2会话上下文数  =  0
+     N16/N16a接口SMF上激活的SA会话上下文数  =  0
+         I-SMF/V-SMF上激活的SA会话上下文数  =  0
+          N11接口SMF上激活的SA会话上下文数  =  0
+ N11接口MultiDNN SMF上激活的SA会话上下文数  =  0
+      MultiDNN I-SMF上激活的SA会话上下文数  =  0
+                       GTPv2会话上下文总数  =  0
+                          SA会话上下文总数  =  0
+                           PRA会话上下文数  =  0
+在GGSN-C上激活的信令代理用户会话上下文总数  =  0
+ 在PGW-C上激活的信令代理用户会话上下文总数  =  0
+(结果个数 = 1)
+
+---    END</pre>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0209652085__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209652085" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>查询范围</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定查询会话上下文的范围。</p>
+<p>取值说明：</p>
+<ul><li>“SUMMARY（汇总信息）”：查询汇总信息。以汇总方式呈现。</li><li>“ALL_POD_INFO（所有POD信息）”：查询所有POD信息。以POD粒度呈现。</li><li>“SPECIFIED_POD_INFO（指定POD信息）”：查询指定POD信息。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>查询分类</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定查询会话上下文的类型。</p>
+<p>取值说明：</p>
+<ul><li>“APN（APN）”：查询使用该APN激活的当前在线会话上下文数。</li><li>“IMS（IMS）”：查询当前在线的IMS会话的会话上下文数。</li><li>“RAT（无线接入类型）”：查询不同无线接入类型的会话上下文数目。</li><li>“UPF（UPF）”：查询使用该UPF激活的当前在线会话上下文数。</li><li>“SNSSAI（SNSSAI）”：查询使用该切片的5G会话上下文数。</li><li>“SSC1_MODE（SSC1模式）”：查询SSC1模式用户的5G会话上下文数。</li><li>“SSC2_MODE（SSC2模式）”：查询SSC2模式用户的5G会话上下文数。</li><li>“SSC3_MODE（SSC3模式）”：查询SSC3模式用户的5G会话上下文数。</li><li>“ULCL（上行分类）”：查询ULCL会话用户的5G会话上下文数。</li><li>“IPV6_MULTIHOMING（IPv6多出口）”：查询IPv6多出口会话用户的5G会话上下文数。</li><li>“NSA（NSA）”：非独立组网，指以现有的LTE无线接入和核心网作为移动性管理和覆盖的锚点，新增5G接入的组网方式。</li><li>“UEIPALLOCBYUPF（UPF分配UE地址）”：查询UPF分配UE地址的会话上下文数。</li><li>“UEIPALLOCBYSUBS（签约数据指定UE地址）”：查询签约数据指定UE地址的会话上下文数。</li><li>“UEIPALLOCBYLOCAL（本地分配UE地址）”：查询本地分配UE地址的会话上下文数。</li><li>“CHG_OFFLINE（离线计费）”：查询离线计费的会话上下文数。</li><li>“CHG_ONLINE（在线计费）”：查询在线计费的会话上下文数。</li><li>“CHG_FBC（内容计费）”：查询内容计费的会话上下文数。</li><li>“DYNC_PCC（动态PCC）”：查询动态PCC的会话上下文数。</li><li>“LOCAL_PCC（本地PCC）”：查询本地PCC的会话上下文数。</li><li>“CHG_CONVERGED（融合计费）”：查询融合计费的会话上下文数。</li><li>“L2TP（L2TP）”：查询当前在线的L2TP用户的会话上下文数。</li><li>“SUMMARY（汇总信息）”：查询所有类型的汇总会话上下文数。</li><li>“LOCREPORT（位置订阅）”：查询开启实时位置订阅功能的会话上下文数。</li><li>“PRA（PRA）”：查询开启PRA功能的会话上下文数。</li><li>“NGLAN（NGLAN）”：查询开启5G LAN功能的上下文会话数。</li><li>“TRAFFIC_DIST_APN（专网分流APN）”：查询使用该专网分流APN的5G会话上下文数。</li><li>“NW5GNSA（5G NSA 网络）”：查询具备5G能力的上下文数及使用了5G网络的上下文数。</li><li>“UDMBYPASS（UDM全故障）”：查询当前处于UDM全故障状态的5G会话上下文数。</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>无线接入类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定需要查询会话上下文数的无线接入类型。</p>
+<p>取值说明：</p>
+<ul><li>“UTRAN（UTRAN）”：通用陆地无线接入网。</li><li>“GERAN（GERAN）”：GSM/EDGE无线接入网。</li><li>“EUTRAN（EUTRAN）”：演进型通用陆地无线接入网。</li><li>“NGRAN（NGRAN）”：5G无线接入网。</li><li>“EUTRAN_NB_IOT（EUTRAN-NB-IOT）”：演进型通用陆地无线接入网-窄带物联网。</li><li>“WLAN（WLAN）”：无线局域网</li><li>“LTE_M（LTE_M）”：演进的高速包数据网络</li></ul>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>UPF名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定需要查询会话上下文数的UPF名称。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>切片/服务类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定需要查询会话上下文数的切片/服务类型。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>POD名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定需要查询会话上下文数的POD名称。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>切片区分码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>本参数用于指定需要查询会话上下文数的切片区分码。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>GGSN-C上激活的GTPv1会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统GGSN-C形态激活的GTPv1会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>PGW-C上激活的GTPv2会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用独立PGW-C的GTPv2会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>SGW-C上激活的GTPv2会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用独立SGW-C的GTPv2会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>S/PGW-C上激活的GTPv2会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用SGW-C/PGW-C合一的GTPv2会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>N16/N16a接口SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用N16/N16a接口SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>I-SMF/V-SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用独立I-SMF/V-SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>N11接口SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用N11接口SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>GTPv2会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统GTPv2会话上下文总数，等于“PGW-C上激活的GTPv2会话上下文数”、“SGW-C上激活的GTPv2会话上下文数”、“S/PGW-C上激活的GTPv2会话上下文数”之和。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>SA会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统SA会话上下文总数，等于“N16/N16a接口SMF上激活的SA会话上下文数”、“I-SMF/V-SMF上激活的SA会话上下文数”、“N11接口SMF上激活的SA会话上下文数”、“N11接口MultiDNN SMF上激活的SA会话上下文数”、“MultiDNN I-SMF上激活的SA会话上下文数”之和。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的GTPv1会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的GGSN-C形态激活的GTPv1会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的PGW-C上激活的GTPv2会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用独立PGW-C的GTPv2会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的SGW-C上激活的GTPv2会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用独立SGW-C的GTPv2会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的S/PGW-C上激活的GTPv2会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用SGW-C/PGW-C合一的GTPv2会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的N16/N16a接口SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用N16/N16a接口SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的I-SMF/V-SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用独立I-SMF/V-SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的N11接口SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用N11接口SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的GTPv2会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的GTPv2会话上下文总数，等于“指定查询条件的PGW上激活的GTPv2会话上下文数”、“指定查询条件的SGW上激活的GTPv2会话上下文数”、“指定查询条件的S/PGW上激活的GTPv2会话上下文数”之和。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的SA会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的SA会话上下文总数，等于“指定查询条件的N16/N16a接口SMF上激活的SA会话上下文数”、“指定查询条件的I-SMF/V-SMF上激活的SA会话上下文数”、“指定查询条件的N11接口SMF上激活的SA会话上下文数”、“指定查询条件的MultiDNN I-SMF上激活的SA会话上下文数”、“指定查询条件的N11接口MultiDNN SMF上激活的SA会话上下文数”之和。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>N11接口SMF上Parking APN激活的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户使用N11接口SMF的Parking APN激活上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>N16接口SMF上Parking APN激活的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户使用N16/N16a接口的Parking APN激活上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>在GGSN-C上激活的信令代理用户会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示在GGSN-C上激活的信令代理用户承载上下文总数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>在PGW-C上激活的信令代理用户会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示在PGW-C上激活的信令代理用户会话上下文总数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的在GGSN-C上激活的信令代理用户会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的在GGSN-C上激活的信令代理用户会话上下文总数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的在PGW-C上激活的信令代理用户会话上下文总数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的在PGW-C上激活的信令代理用户会话上下文总数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>SGW-C上激活的5G会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示SGW-C上激活的5G会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>PGW-C上激活的5G会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示PGW-C上激活的5G会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>S/PGW-C上激活的5G会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示S/PGW-C上激活的5G会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>SGW-C上报过5G流量的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示SGW-C上报过5G流量的会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>PGW-C上报过5G流量的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示PGW-C上报过5G流量的会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>S/PGW-C上报过5G流量的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示S/PGW上报过5G流量的会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的SGW-C上激活的5G会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的SGW-C上激活的5G会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的PGW-C上激活的5G会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的PGW-C上激活的5G会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的S/PGW-C上激活的5G会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的S/PGW-C上激活的5G会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的SGW-C上报过5G流量的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的SGW-C上报过5G流量的会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的PGW-C上报过5G流量的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的PGW-C上报过5G流量的会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的S/PGW-C上报过5G流量的会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示指定查询条件的S/PGW-C上报过5G流量的会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>POD版本号信息</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定POD版本号。非灰度升级期间，该参数不显示。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>N11接口MultiDNN SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用MultiDNN N11接口SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的N11接口MultiDNN SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用MultiDNN N11接口SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>MultiDNN I-SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示系统用户激活使用MultiDNN I-SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>指定查询条件的MultiDNN I-SMF上激活的SA会话上下文数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数表示满足查询条件的用户激活使用MultiDNN I-SMF的SA会话上下文数。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_query_the_number_of_session_contexts.html">查询会话上下文数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

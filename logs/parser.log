@@ -3158,3 +3158,1090 @@
 2024-10-24 12:48:14.387 | INFO     | __main__:main:201 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension']
 2024-10-24 12:49:32.733 | INFO     | __main__:main:201 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
 2024-10-24 12:50:42.948 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting property name enclosed in double quotes: line 4 column 46 (char 83)
+2024-10-28 11:38:51.572 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 11:39:22.694 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 11:40:04.773 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 11:40:43.619 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 11:41:54.662 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: '路径'
+2024-10-28 11:43:04.374 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 11:43:51.238 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'JsonFormat', 'ToolSelection', 'TextClassification', 'ReadingComprehension']
+2024-10-28 11:44:58.827 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: '描述'
+2024-10-28 11:46:10.348 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: '描述'
+2024-10-28 11:47:18.499 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: '描述'
+2024-10-28 12:03:32.354 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 12:03:48.998 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:03:56.511 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting value: line 1 column 1 (char 0)
+2024-10-28 12:03:56.512 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - invalid character '，' (U+FF0C) (<unknown>, line 2)
+2024-10-28 12:03:56.513 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - Can not decode value starting with character '='
+2024-10-28 12:03:56.514 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - ====================
+你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+一号多卡的基本功能介绍请参考[WSFD-106008 一号多卡功能](unc_2000_feature_desc_Multi_IMSI.html)。VoLTE一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程会失败，影响用户语音呼叫的连续性。本特性中Additional MSISDN信元解决上述问题，支持一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时语音呼叫的连续性。一号多卡用户（各种终端的IMSI号码不同，MSISDN相同）接入核心网，Additional MSISDN信元应用于S6a接口的ULR/ULA，IDR/IDA和DSR/DSA消息中。
+指令：
+请提取"特性名称, 解决的问题, 支持的网络类型, 相关接口"共4个信息
+
+所有信息的默认值都为空字符串，以json格式输出
+====================
+{
+    "input_text": "一号多卡的基本功能介绍请参考[WSFD-106008 一号多卡功能](unc_2000_feature_desc_Multi_IMSI.html)。VoLTE一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程会失败，影响用户语音呼叫的连续性。本特性中Additional MSISDN信元解决上述问题，支持一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时语音呼叫的连续性。一号多卡用户（各种终端的IMSI号码不同，MSISDN相同）接入核心网，Additional MSISDN信元应用于S6a接口的ULR/ULA，IDR/IDA和DSR/DSA消息中。",
+    "extract_fields": "特性名称, 解决的问题, 支持的网络类型, 相关接口",
+    "field_count": "4",
+    "answer": {
+        "特性名称": "Additional MSISDN信元",
+        "解决的问题": "不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程失败，影响用户语音呼叫的连续性",
+        "支持的网络类型": "LTE, GSM, UMTS",
+        "相关接口": "S6a接口的ULR/ULA, IDR/IDA和DSR/DSA消息"
+    },
+    "explanation": "特性名称为'Additional MSISDN信元'，该特性解决的问题为'不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程失败，影响用户语音呼叫的连续性'。支持的网络类型包括'LTE, GSM, UMTS'，相关接口为'S6a接口的ULR/ULA, IDR/IDA和DSR/DSA消息'。"
+}
+====================
+2024-10-28 12:03:56.514 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: ====================
+你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+一号多卡的基本功能介绍请参考[WSFD-106008 一号多卡功能](unc_2000_feature_desc_Multi_IMSI.html)。VoLTE一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程会失败，影响用户语音呼叫的连续性。本特性中Additional MSISDN信元解决上述问题，支持一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时语音呼叫的连续性。一号多卡用户（各种终端的IMSI号码不同，MSISDN相同）接入核心网，Additional MSISDN信元应用于S6a接口的ULR/ULA，IDR/IDA和DSR/DSA消息中。
+指令：
+请提取"特性名称, 解决的问题, 支持的网络类型, 相关接口"共4个信息
+
+所有信息的默认值都为空字符串，以json格式输出
+====================
+{
+    "input_text": "一号多卡的基本功能介绍请参考[WSFD-106008 一号多卡功能](unc_2000_feature_desc_Multi_IMSI.html)。VoLTE一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程会失败，影响用户语音呼叫的连续性。本特性中Additional MSISDN信元解决上述问题，支持一号多卡用户不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时语音呼叫的连续性。一号多卡用户（各种终端的IMSI号码不同，MSISDN相同）接入核心网，Additional MSISDN信元应用于S6a接口的ULR/ULA，IDR/IDA和DSR/DSA消息中。",
+    "extract_fields": "特性名称, 解决的问题, 支持的网络类型, 相关接口",
+    "field_count": "4",
+    "answer": {
+        "特性名称": "Additional MSISDN信元",
+        "解决的问题": "不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程失败，影响用户语音呼叫的连续性",
+        "支持的网络类型": "LTE, GSM, UMTS",
+        "相关接口": "S6a接口的ULR/ULA, IDR/IDA和DSR/DSA消息"
+    },
+    "explanation": "特性名称为'Additional MSISDN信元'，该特性解决的问题为'不同卡在LTE网络切换至GSM/UMTS网络进行语音业务时，SRVCC流程失败，影响用户语音呼叫的连续性'。支持的网络类型包括'LTE, GSM, UMTS'，相关接口为'S6a接口的ULR/ULA, IDR/IDA和DSR/DSA消息'。"
+}
+====================
+2024-10-28 12:04:56.575 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 12:05:07.527 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 12:05:49.262 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:07:15.287 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: check_answer() missing 1 required positional argument: 'llm'
+2024-10-28 12:07:48.702 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 12:08:30.433 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:10:47.365 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:11:32.460 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'param_table'
+2024-10-28 12:12:32.477 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 12:13:58.704 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:18:50.107 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'TextSummary', 'IssueRewrite', 'ToolSelection', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:21:52.797 | INFO     | __main__:main:163 - Mapped 8 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'ToolSelection', 'TextClassification', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:24:20.989 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting ',' delimiter: line 2 column 41 (char 42)
+2024-10-28 12:24:20.991 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - malformed node or string on line 2: <ast.BinOp object at 0x1482a570d8a0>
+2024-10-28 12:24:21.006 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - Spaces may not appear between a +/- number sign and the digits
+2024-10-28 12:24:21.006 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "step_info": "步骤1：OpenMobileData0\n"+
+        "步骤2：CheckUNC1\n"+
+        "步骤3：ConditionalGateway2\n"+
+        "步骤4：KeepUserSession3\n"+
+        "步骤5：QueryUNC4\n"+
+        "步骤6：CheckUPF5\n"+
+        "步骤7：CheckUserExperience6\n"+
+        "步骤8：informationCollection7",
+    "step_desc": "打开终端“移动数据网络”，检查UNC（SMF）本地规则名是否在UNC（SMF）侧已成功激活。是 => 4。否 => 2。保持用户会话在线，继续查询UNC（SMF）激活的规则中QoS参数是否与本地配置一致。是 => 6。否 => 4。检查UPF用户QoS上下文，（非必选）检查终端业务实际体验与原始需求保持一致。是 => 诊断成功，任务结束。否 => 8。",
+    "step_output": "CheckUPF5Result",
+    "param_def": "{\"isQoSContextCorrect\":\"UPF用户QoS上下文是否正确，取值范围{\"是\"，\"否\"}\", \"isUserExperienceConsistent\":\"终端业务实际体验与原始需求是否保持一致，取值范围{\"是\"，\"否\"}}",
+    "answer": "{\n"+
+        "\"next\": [\n"+
+            "{\n"+
+                "\"condition\": \"${CheckUPF5Result.isQoSContextCorrect == \\\"是\\\"}\",\n"+
+                "\"action\": \"endNode\"\n"+
+            "},\n"+
+            "{\n"+
+                "\"condition\": \"${CheckUPF5Result.isQoSContextCorrect == \\\"否\\\"}\",\n"+
+                "\"action\": \"informationCollection7\"\n"+
+            "}\n"+
+        "]\n"+
+    "}",
+    "explanation": "在当前步骤中，我们需要根据两个参数决定下一步的动作，分别是UPF用户QoS上下文是否正确（isQoSContextCorrect）和终端业务实际体验与原始需求是否保持一致（isUserExperienceConsistent）。如果UPF用户QoS上下文正确，那么就可以结束诊断；如果不正确，那么需要进行信息收集。这就是我们的答案中分支条件和相应动作的来源。"
+}
+2024-10-28 12:24:21.006 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "step_info": 
+        "步骤1：OpenMobileData0\n"+
+        "步骤2：CheckUNC1\n"+
+        "步骤3：ConditionalGateway2\n"+
+        "步骤4：KeepUserSession3\n"+
+        "步骤5：QueryUNC4\n"+
+        "步骤6：CheckUPF5\n"+
+        "步骤7：CheckUserExperience6\n"+
+        "步骤8：informationCollection7",
+    "step_desc": "打开终端“移动数据网络”，检查UNC（SMF）本地规则名是否在UNC（SMF）侧已成功激活。是 => 4。否 => 2。保持用户会话在线，继续查询UNC（SMF）激活的规则中QoS参数是否与本地配置一致。是 => 6。否 => 4。检查UPF用户QoS上下文，（非必选）检查终端业务实际体验与原始需求保持一致。是 => 诊断成功，任务结束。否 => 8。",
+    "step_output": "CheckUPF5Result",
+    "param_def": "{\"isQoSContextCorrect\":\"UPF用户QoS上下文是否正确，取值范围{\"是\"，\"否\"}\", \"isUserExperienceConsistent\":\"终端业务实际体验与原始需求是否保持一致，取值范围{\"是\"，\"否\"}}",
+    "answer": 
+    "{\n"+
+        "\"next\": [\n"+
+            "{\n"+
+                "\"condition\": \"${CheckUPF5Result.isQoSContextCorrect == \\\"是\\\"}\",\n"+
+                "\"action\": \"endNode\"\n"+
+            "},\n"+
+            "{\n"+
+                "\"condition\": \"${CheckUPF5Result.isQoSContextCorrect == \\\"否\\\"}\",\n"+
+                "\"action\": \"informationCollection7\"\n"+
+            "}\n"+
+        "]\n"+
+    "}",
+    "explanation": "在当前步骤中，我们需要根据两个参数决定下一步的动作，分别是UPF用户QoS上下文是否正确（isQoSContextCorrect）和终端业务实际体验与原始需求是否保持一致（isUserExperienceConsistent）。如果UPF用户QoS上下文正确，那么就可以结束诊断；如果不正确，那么需要进行信息收集。这就是我们的答案中分支条件和相应动作的来源。"
+}
+2024-10-28 12:25:21.033 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 12:27:07.014 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:29:25.639 | INFO     | __main__:main:163 - Mapped 7 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'TextClassification', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:32:44.433 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:34:46.252 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:37:49.699 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'TextClassification', 'NextStepSelection', 'ReadingComprehension']
+2024-10-28 12:40:17.819 | INFO     | __main__:main:163 - Mapped 7 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:42:27.370 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting property name enclosed in double quotes: line 3 column 9 (char 30)
+2024-10-28 12:43:14.990 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'ToolSelection', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:45:42.243 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:47:45.196 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:50:41.389 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:52:51.085 | INFO     | __main__:main:163 - Mapped 8 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'ToolSelection', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 12:56:31.064 | INFO     | __main__:main:163 - Mapped 9 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'AlarmCheck', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 13:00:10.468 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'ToolSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 13:02:14.345 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'ToolSelection', 'ReadingComprehension']
+2024-10-28 18:02:22.194 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 18:03:16.495 | INFO     | __main__:main:163 - Mapped 7 templates: ['QuestionAnswering', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 18:04:05.021 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 18:05:12.963 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 18:08:48.099 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 18:11:59.311 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-28 18:13:39.405 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 18:14:26.916 | INFO     | __main__:main:141 - Loaded 16 ktasks
+2024-10-28 18:15:30.417 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 18:18:45.631 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 18:21:08.068 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'JsonFormat', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 18:24:37.549 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 18:29:09.516 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-28 18:32:03.007 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ToolSelection', 'NextStepSelection', 'AlarmCheck', 'ReadingComprehension']
+2024-10-28 18:35:44.496 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-28 18:40:16.193 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 18:43:50.134 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 18:47:12.382 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'TextClassification', 'LogicAnalysis']
+2024-10-28 18:51:26.796 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 18:54:15.383 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 18:57:19.693 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'ToolSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-28 19:01:42.012 | INFO     | __main__:main:163 - Mapped 3 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension']
+2024-10-28 19:03:15.731 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 19:06:16.325 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 19:09:10.163 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 19:13:15.318 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 19:17:01.613 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-28 19:20:10.096 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 19:22:56.408 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-28 19:25:26.603 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 19:27:44.463 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 19:29:54.313 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'IssueRewrite', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 19:34:41.813 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 19:38:20.817 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 19:40:10.417 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 19:42:39.682 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 19:45:51.680 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'IssueRewrite', 'MMLGenerate', 'ReadingComprehension']
+2024-10-28 19:48:40.819 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 19:52:50.894 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ToolSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 19:56:26.397 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 19:59:12.877 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 20:03:39.479 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 20:06:44.682 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 20:10:28.693 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 20:13:28.125 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'MMLGenerate', 'TextClassification', 'LogicAnalysis']
+2024-10-28 20:16:45.946 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 20:20:00.781 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 20:23:41.354 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 20:27:59.556 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'AlarmCheck', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 20:31:41.096 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-28 20:35:22.144 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-28 20:38:42.311 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 20:40:41.367 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 20:43:47.729 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 20:47:10.799 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'AlarmCheck', 'ReadingComprehension']
+2024-10-28 20:49:47.342 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 20:55:10.282 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 21:00:06.247 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'IssueRewrite', 'ToolSelection', 'TextClassification', 'LogicAnalysis']
+2024-10-28 21:03:51.599 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 21:06:39.651 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 21:09:48.246 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 21:11:49.888 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'ParamRegex', 'AlarmCheck', 'LogicAnalysis']
+2024-10-28 21:12:12.041 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 4 column 67 (char 554)
+2024-10-28 21:12:12.042 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 4) (<unknown>, line 4)
+2024-10-28 21:12:12.051 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-28 21:12:12.051 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "user_question": "当前的场景为基于PSHO的5G到4G网络切换流程，Handover Required消息中的关键信元为5GS到EPS网络的切换，原因值为IMS语音业务导致的切换，targetID需为Global eNB ID。Handover Command消息中的关键信元为5GS到EPS网络的切换，Qos Flow标识QFI为1，目标无线给源无线的信息为E-UTRAN给NG RAN的信息。",
+    "param_description": "\n    <名称>：curScenario\n    <描述>：当前正在处理的工单场景\n    <类型>：string\n\n    <名称>：handoverRequiredElement\n    <描述>：Handover Required消息中的关键信元\n    <类型>：string\n\n    <名称>：handoverCommandElement\n    <描述>：Handover Command消息中的关键信元\n    <类型>：string\n    ",
+    "answer": "{\n        \"curScenario\": \"基于PSHO的5G到4G网络切换流程\",
+        \"handoverRequiredElement\": \"5GS到EPS网络的切换, IMS语音业务导致的切换, Global eNB ID\",
+        \"handoverCommandElement\": \"5GS到EPS网络的切换, QFI为1, E-UTRAN给NG RAN的信息\"
+    }",
+    "explanation": "通过解析用户问题，我们可以找出用户问题中包含的关键参数信息。比如当前的场景（curScenario），Handover Required消息中的关键信元（handoverRequiredElement）以及Handover Command消息中的关键信元（handoverCommandElement）。然后将这些参数信息输出为JSON格式。"
+}
+2024-10-28 21:12:12.051 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "user_question": "当前的场景为基于PSHO的5G到4G网络切换流程，Handover Required消息中的关键信元为5GS到EPS网络的切换，原因值为IMS语音业务导致的切换，targetID需为Global eNB ID。Handover Command消息中的关键信元为5GS到EPS网络的切换，Qos Flow标识QFI为1，目标无线给源无线的信息为E-UTRAN给NG RAN的信息。",
+    "param_description": "
+    <名称>：curScenario
+    <描述>：当前正在处理的工单场景
+    <类型>：string
+
+    <名称>：handoverRequiredElement
+    <描述>：Handover Required消息中的关键信元
+    <类型>：string
+
+    <名称>：handoverCommandElement
+    <描述>：Handover Command消息中的关键信元
+    <类型>：string
+    ",
+    "answer": "{
+        \"curScenario\": \"基于PSHO的5G到4G网络切换流程\",
+        \"handoverRequiredElement\": \"5GS到EPS网络的切换, IMS语音业务导致的切换, Global eNB ID\",
+        \"handoverCommandElement\": \"5GS到EPS网络的切换, QFI为1, E-UTRAN给NG RAN的信息\"
+    }",
+    "explanation": "通过解析用户问题，我们可以找出用户问题中包含的关键参数信息。比如当前的场景（curScenario），Handover Required消息中的关键信元（handoverRequiredElement）以及Handover Command消息中的关键信元（handoverCommandElement）。然后将这些参数信息输出为JSON格式。"
+}
+2024-10-28 21:13:12.111 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 21:16:26.859 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 21:19:21.830 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 21:23:48.825 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'JsonFormat', 'ParamRegex', 'LogicAnalysis']
+2024-10-28 21:26:20.283 | INFO     | __main__:main:163 - Mapped 7 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 21:32:00.330 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'TextClassification', 'LogicAnalysis']
+2024-10-28 21:35:38.404 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 21:37:31.688 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 21:40:46.376 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ToolSelection', 'ReadingComprehension']
+2024-10-28 21:43:36.802 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-28 21:46:10.776 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 21:49:28.100 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 21:53:19.758 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension']
+2024-10-28 21:55:12.613 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension']
+2024-10-28 21:57:26.536 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 21:59:39.479 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'JsonFormat', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 22:02:06.977 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 22:04:11.006 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 22:06:44.595 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'JsonFormat', 'ToolSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 22:10:06.576 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 22:12:41.637 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension']
+2024-10-28 22:14:45.718 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 22:17:44.830 | INFO     | __main__:main:163 - Mapped 7 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'AlarmCheck', 'LogicAnalysis']
+2024-10-28 22:21:03.631 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 22:23:58.461 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'LogicAnalysis']
+2024-10-28 22:26:15.152 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 22:30:58.316 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'MMLGenerate', 'ToolSelection', 'LogicAnalysis']
+2024-10-28 22:33:25.261 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 22:36:20.052 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 22:38:14.774 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ToolSelection', 'ReadingComprehension']
+2024-10-28 22:40:23.669 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension']
+2024-10-28 22:42:58.736 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'JsonFormat', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 22:45:15.150 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 22:47:29.818 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 22:49:45.545 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 22:53:04.803 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'TextClassification', 'LogicAnalysis']
+2024-10-28 22:56:46.314 | INFO     | __main__:main:163 - Mapped 3 templates: ['QuestionAnswering', 'InformationExtraction', 'ReadingComprehension']
+2024-10-28 22:58:20.304 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamRegex', 'NextStepSelection', 'MathCalculation', 'LogicAnalysis']
+2024-10-28 23:01:07.224 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 23:03:51.931 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting ',' delimiter: line 12 column 54 (char 386)
+2024-10-28 23:03:51.933 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - invalid syntax. Perhaps you forgot a comma? (<unknown>, line 12)
+2024-10-28 23:03:51.945 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - Values must be separated by a comma
+2024-10-28 23:03:51.945 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "MultipleChoice": {
+        "choose": true,
+        "reason": "我们可以设计出关于AMF和SMF配置PCF脚本的多选题，例如选择正确的脚本步骤，或者选择哪种配置属于AMF或SMF的配置。"
+    },
+    "QuestionAnswering": {
+        "choose": true,
+        "reason": "知识点中关于AMF和SMF到PCF的配置脚本的详细信息可以用来生成回答用户关于运维文档的问题，例如“AMF配置到PCF脚本的步骤是什么？”"
+    },
+    "ParamExtract": {
+        "choose": true,
+        "reason": "用户可能会提问需要提取的参数值，例如：在AMF配置到PCF脚本中，"NFINSTANCEID"的值是什么？这样的问题可以通过参数提取题型来生成。"
+    },
+    "InformationExtraction": {
+        "choose": true,
+        "reason": "从脚本中可以提取出各种参数和值，例如NFINSTANCEID, NFTYPE, NFSTATUS, IPADDRESSTYPE, IPV6ADDRESS1等，可以设计题目让模型进行信息抽取。"
+    },
+    "TextSummary": {
+        "choose": false,
+        "reason": "这个知识点是关于配置脚本的，而不是一段需要总结的故事或者事件，所以不适合生成总结题型的题目。"
+    },
+    "JsonFormat": {
+        "choose": true,
+        "reason": "配置脚本中的步骤和参数可以被转换成json格式的列表，例如将AMF配置到PCF的步骤转换成json格式的列表。"
+    }
+}
+2024-10-28 23:03:56.951 | ERROR    | dogeneval.kp_template_mapping.mapping:map_kp_to_templates:106 - 'NoneType' object is not iterable
+2024-10-28 23:04:37.342 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate']
+2024-10-28 23:09:52.605 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'MMLGenerate', 'ReadingComprehension']
+2024-10-28 23:12:27.879 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 23:15:55.655 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'IssueRewrite', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 23:18:55.390 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 23:20:54.812 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'ParamRegex', 'AlarmCheck']
+2024-10-28 23:22:11.540 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid \escape: line 12 column 18 (char 271)
+2024-10-28 23:23:53.038 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 23:26:00.724 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-28 23:27:06.518 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-28 23:28:06.579 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 23:28:37.356 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-28 23:29:37.417 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 23:30:02.681 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-28 23:31:02.743 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-28 23:33:35.591 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 23:38:05.865 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'IssueRewrite', 'TextClassification', 'LogicAnalysis']
+2024-10-28 23:40:20.084 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 23:42:51.447 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 23:44:40.158 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 23:47:33.784 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-28 23:49:52.712 | INFO     | __main__:main:163 - Mapped 5 templates: ['QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension']
+2024-10-28 23:51:45.795 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'TextClassification', 'AlarmCheck', 'LogicAnalysis']
+2024-10-28 23:53:50.658 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'LogicAnalysis']
+2024-10-28 23:55:51.535 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-28 23:58:17.493 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-28 23:59:17.840 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-29 00:00:17.901 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 00:03:13.519 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 00:05:22.734 | INFO     | __main__:main:163 - Mapped 3 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension']
+2024-10-29 00:06:39.307 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension']
+2024-10-29 00:08:47.710 | INFO     | __main__:main:163 - Mapped 3 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension']
+2024-10-29 00:10:24.707 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 00:15:22.660 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 00:17:54.365 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 00:20:07.230 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 00:22:09.924 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 00:24:13.393 | INFO     | __main__:main:163 - Mapped 6 templates: ['QuestionAnswering', 'InformationExtraction', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 00:26:53.046 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension']
+2024-10-29 00:28:55.874 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 00:31:19.750 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 00:35:24.160 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 00:38:12.855 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 00:40:52.031 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'ToolSelection', 'LogicAnalysis']
+2024-10-29 00:43:42.714 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 00:46:00.288 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 00:48:27.173 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 00:51:18.050 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'ReadingComprehension']
+2024-10-29 00:53:28.310 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'JsonFormat', 'IssueRewrite', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 00:56:49.050 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 00:59:02.619 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'JsonFormat', 'ToolSelection', 'TextClassification', 'NextStepSelection']
+2024-10-29 01:02:26.109 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'ParamRegex', 'TextClassification', 'LogicAnalysis']
+2024-10-29 01:03:13.406 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'param_table'
+2024-10-29 01:04:13.457 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 01:06:15.359 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 01:06:49.432 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 5 column 72 (char 699)
+2024-10-29 01:06:49.433 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 5) (<unknown>, line 5)
+2024-10-29 01:06:49.440 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 01:06:49.441 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "input_text": "***********************************\n【参数说明】\n参数标识：IPTYPE，参数名称：IP地址类型，参数说明：本参数用于增加指定Sdup接口的业务IP地址类型，数据来源：全网规划，取值范围：TPTADDR_TYPE_IPV4(IPV4)、TPTADDR_TYPE_IPV6(IPV6)，默认值：无。\n参数标识：LEIPV4，参数名称：IPv4地址，参数说明：本参数用于增加指定Sdup接口的业务IPv4地址，前提条件：该参数在“IP地址类型”参数配置为“TPTADDR_TYPE_IPV4(IPV4)”后生效，数据来源：全网规划，取值范围：0.0.0.0~255.255.255.255，默认值：无。\n参数标识：LEIPV6，参数名称：IPv6地址，参数说明：本参数用于增加指定Sdup接口的业务IPv6地址，前提条件：该参数在“IP地址类型”参数配置为“TPTADDR_TYPE_IPV6(IPV6)”后生效，数据来源：全网规划，取值范围：::~FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF，默认值：无。***********************************",
+    "extract_fields": "参数标识、参数名称、参数说明、数据来源、取值范围、默认值",
+    "field_count": "6",
+    "answer": "{\n      \"参数标识\": [\"IPTYPE\", \"LEIPV4\", \"LEIPV6\"],
+      \"参数名称\": [\"IP地址类型\", \"IPv4地址\", \"IPv6地址\"],
+      \"参数说明\": [\"本参数用于增加指定Sdup接口的业务IP地址类型\", \"本参数用于增加指定Sdup接口的业务IPv4地址\", \"本参数用于增加指定Sdup接口的业务IPv6地址\"],
+      \"数据来源\": [\"全网规划\", \"全网规划\", \"全网规划\"],
+      \"取值范围\": [\"TPTADDR_TYPE_IPV4(IPV4)、TPTADDR_TYPE_IPV6(IPV6)\", \"0.0.0.0~255.255.255.255\", \"::~FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF\"],
+      \"默认值\": [\"无\", \"无\", \"无\"]
+    }",
+    "explanation": "根据给定的输入文本，我们可以提取出对应的参数标识、参数名称、参数说明、数据来源、取值范围和默认值。这些信息都可以从文本中直接获取。"
+}
+2024-10-29 01:06:49.441 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "input_text": "***********************************\n【参数说明】\n参数标识：IPTYPE，参数名称：IP地址类型，参数说明：本参数用于增加指定Sdup接口的业务IP地址类型，数据来源：全网规划，取值范围：TPTADDR_TYPE_IPV4(IPV4)、TPTADDR_TYPE_IPV6(IPV6)，默认值：无。\n参数标识：LEIPV4，参数名称：IPv4地址，参数说明：本参数用于增加指定Sdup接口的业务IPv4地址，前提条件：该参数在“IP地址类型”参数配置为“TPTADDR_TYPE_IPV4(IPV4)”后生效，数据来源：全网规划，取值范围：0.0.0.0~255.255.255.255，默认值：无。\n参数标识：LEIPV6，参数名称：IPv6地址，参数说明：本参数用于增加指定Sdup接口的业务IPv6地址，前提条件：该参数在“IP地址类型”参数配置为“TPTADDR_TYPE_IPV6(IPV6)”后生效，数据来源：全网规划，取值范围：::~FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF，默认值：无。***********************************",
+    "extract_fields": "参数标识、参数名称、参数说明、数据来源、取值范围、默认值",
+    "field_count": "6",
+    "answer": 
+    "{
+      \"参数标识\": [\"IPTYPE\", \"LEIPV4\", \"LEIPV6\"],
+      \"参数名称\": [\"IP地址类型\", \"IPv4地址\", \"IPv6地址\"],
+      \"参数说明\": [\"本参数用于增加指定Sdup接口的业务IP地址类型\", \"本参数用于增加指定Sdup接口的业务IPv4地址\", \"本参数用于增加指定Sdup接口的业务IPv6地址\"],
+      \"数据来源\": [\"全网规划\", \"全网规划\", \"全网规划\"],
+      \"取值范围\": [\"TPTADDR_TYPE_IPV4(IPV4)、TPTADDR_TYPE_IPV6(IPV6)\", \"0.0.0.0~255.255.255.255\", \"::~FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF\"],
+      \"默认值\": [\"无\", \"无\", \"无\"]
+    }",
+    "explanation": "根据给定的输入文本，我们可以提取出对应的参数标识、参数名称、参数说明、数据来源、取值范围和默认值。这些信息都可以从文本中直接获取。"
+}
+2024-10-29 01:07:49.473 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 01:10:37.377 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 01:12:35.996 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 01:15:00.641 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 01:17:01.349 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 01:19:36.504 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 01:21:25.404 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 01:24:22.298 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 01:27:31.321 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 01:29:39.283 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'TextClassification', 'ReadingComprehension']
+2024-10-29 01:31:45.356 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 01:34:32.288 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'TextClassification']
+2024-10-29 01:36:52.881 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ParamRegex', 'TextClassification', 'LogicAnalysis']
+2024-10-29 01:39:02.570 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 01:41:22.217 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 01:43:55.371 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 01:45:37.653 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'TextClassification', 'LogicAnalysis']
+2024-10-29 01:48:50.922 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 01:51:46.692 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 01:54:07.593 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 01:56:35.237 | INFO     | __main__:main:163 - Mapped 5 templates: ['QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'TextClassification', 'ReadingComprehension']
+2024-10-29 01:58:44.285 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'ToolSelection']
+2024-10-29 02:01:48.299 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'TextClassification', 'LogicAnalysis']
+2024-10-29 02:04:19.023 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'JsonFormat', 'MMLGenerate', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 02:07:22.335 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 02:09:01.261 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension']
+2024-10-29 02:10:43.435 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 02:12:54.270 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'AlarmCheck', 'ReadingComprehension']
+2024-10-29 02:15:22.416 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 02:16:24.563 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 3 column 54 (char 628)
+2024-10-29 02:16:24.564 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 3) (<unknown>, line 3)
+2024-10-29 02:16:24.571 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 02:16:24.571 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "param_table": "参数标识 | 参数名称 | 参数说明\n\n    MMEX | MME索引 | 可选必选说明：必选参数 参数含义：该参数用于指定一个MME实体， 在全局范围内唯一。 数据来源：本端规划 取值范围：0～2000。 默认值：无\n\n    MMEM | MME名称 | 可选必选说明：可选参数 参数含义：该参数于用于指定与本局对接的MME的地址，MME号码长度为10~12位，编码格式为：MCC＋MNC＋MMEGI＋MMEC，例如，一个典型的MME号码为：“46000800101”。 数据来源：整网规划 取值范围：字符串类型，输入长度范围为0~255 默认值：无\n\n    POOLGRPID | MME POOL标识 | 可选必选说明：可选参数 参数含义：该参数用于指定MME归属的MME POOL群组，该参数只有在MME为POOL组网时有效。取值为255时表示不归属任何的POOL群组。 数据来源：整网规划 取值范围：0～255 默认值：无\n\n    MMECAPACITY | MME容量权重 | 可选必选说明：可选参数 参数含义：用于指定MME在所属POOL群组中的容量权重，该参数仅在“MME POOL标识”为非255时有效。 数据来源：本端规划 取值范围：0～100 默认值：无",
+    "answer": "{\n\n        \"MMEX\": \"[0-2000]\",\n
+        \"MMEM\": \".{0,255}\",\n
+        \"POOLGRPID\": \"[0-255]\",\n
+        \"MMECAPACITY\": \"[0-100]\"\n
+    }",
+    "explanation": "根据参数表格，MMEX的取值范围是0-2000，所以正则表达式是[0-2000]；MMEM的取值范围是0-255个字符，所以正则表达式是.{0,255}；POOLGRPID的取值范围是0-255，所以正则表达式是[0-255]；MMECAPACITY的取值范围是0-100，所以正则表达式是[0-100]。"
+}
+2024-10-29 02:16:24.572 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "param_table": 
+    "参数标识 | 参数名称 | 参数说明\n
+    MMEX | MME索引 | 可选必选说明：必选参数 参数含义：该参数用于指定一个MME实体， 在全局范围内唯一。 数据来源：本端规划 取值范围：0～2000。 默认值：无\n
+    MMEM | MME名称 | 可选必选说明：可选参数 参数含义：该参数于用于指定与本局对接的MME的地址，MME号码长度为10~12位，编码格式为：MCC＋MNC＋MMEGI＋MMEC，例如，一个典型的MME号码为：“46000800101”。 数据来源：整网规划 取值范围：字符串类型，输入长度范围为0~255 默认值：无\n
+    POOLGRPID | MME POOL标识 | 可选必选说明：可选参数 参数含义：该参数用于指定MME归属的MME POOL群组，该参数只有在MME为POOL组网时有效。取值为255时表示不归属任何的POOL群组。 数据来源：整网规划 取值范围：0～255 默认值：无\n
+    MMECAPACITY | MME容量权重 | 可选必选说明：可选参数 参数含义：用于指定MME在所属POOL群组中的容量权重，该参数仅在“MME POOL标识”为非255时有效。 数据来源：本端规划 取值范围：0～100 默认值：无",
+    "answer": 
+    "{\n
+        \"MMEX\": \"[0-2000]\",\n
+        \"MMEM\": \".{0,255}\",\n
+        \"POOLGRPID\": \"[0-255]\",\n
+        \"MMECAPACITY\": \"[0-100]\"\n
+    }",
+    "explanation": 
+    "根据参数表格，MMEX的取值范围是0-2000，所以正则表达式是[0-2000]；MMEM的取值范围是0-255个字符，所以正则表达式是.{0,255}；POOLGRPID的取值范围是0-255，所以正则表达式是[0-255]；MMECAPACITY的取值范围是0-100，所以正则表达式是[0-100]。"
+}
+2024-10-29 02:17:24.632 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 02:18:52.773 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 02:21:14.607 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'ToolSelection', 'LogicAnalysis']
+2024-10-29 02:24:26.989 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 02:26:27.260 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 02:28:03.630 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 02:30:06.233 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'MMLGenerate', 'ToolSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 02:32:48.197 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 02:34:51.318 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 02:36:49.261 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 02:40:44.646 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 02:42:26.327 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 02:43:15.815 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'param_table'
+2024-10-29 02:44:15.876 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 02:45:32.424 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 02:49:17.434 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 02:52:01.949 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'MMLGenerate', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 02:53:30.915 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 02:56:05.091 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 02:59:47.333 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex']
+2024-10-29 03:01:50.801 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:04:51.785 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex']
+2024-10-29 03:06:09.805 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'param_table'
+2024-10-29 03:07:09.866 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 03:08:03.698 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'AlarmCheck']
+2024-10-29 03:09:31.269 | INFO     | __main__:main:163 - Mapped 6 templates: ['TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 03:12:42.042 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting ',' delimiter: line 8 column 134 (char 333)
+2024-10-29 03:12:42.044 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - invalid syntax. Perhaps you forgot a comma? (<unknown>, line 8)
+2024-10-29 03:12:42.054 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - Values must be separated by a comma
+2024-10-29 03:12:42.054 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "IssueRewrite": {
+        "choose": false,
+        "reason": "该知识点主要描述了如何在UNC上运行网络中调测M2M长周期性定时器的具体步骤，没有明确的改写规则和用户问题，所以无法生成IssueRewrite类型的题目。"
+    },
+    "MMLGenerate": {
+        "choose": true,
+        "reason": "该知识点中包含了具体的MML命令（DSP COMMMCTX: QUERYOPT=BYIMSI, IMSI=\"460036500000002\";），可以用来生成MMLGenerate类型的题目，例如根据给定的参数（IMSI="460036500000002"）编写相应的MML命令。"
+    },
+    "ParamRegex": {
+        "choose": false,
+        "reason": "该知识点描述了如何在UNC上运行网络中调测M2M长周期性定时器的具体步骤，没有提供参数表格，因此无法生成ParamRegex类型的题目。"
+    },
+    "ToolSelection": {
+        "choose": false,
+        "reason": "该知识点主要描述了如何在UNC上运行网络中调测M2M长周期性定时器的具体步骤，没有提供工具描述或用户问题，因此无法生成ToolSelection类型的题目。"
+    },
+    "TextClassification": {
+        "choose": false,
+        "reason": "该知识点主要描述了如何在UNC上运行网络中调测M2M长周期性定时器的具体步骤，没有提供分类类别或用户问题，因此无法生成TextClassification类型的题目。"
+    },
+    "NextStepSelection": {
+        "choose": true,
+        "reason": "该知识点描述了调测过程中的具体步骤和预期结果，可以用来生成NextStepSelection类型的题目，例如根据当前步骤和输出选择下一步的分支。"
+    }
+}
+2024-10-29 03:12:47.059 | ERROR    | dogeneval.kp_template_mapping.mapping:map_kp_to_templates:106 - 'NoneType' object is not iterable
+2024-10-29 03:13:10.966 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection']
+2024-10-29 03:16:23.411 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 03:18:36.353 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:20:45.802 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:23:39.182 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:25:45.864 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 03:27:53.469 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:30:11.903 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 03:31:55.415 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid \escape: line 3 column 74 (char 94)
+2024-10-29 03:31:55.418 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - malformed node or string on line 2: <ast.Name object at 0x1493bc29c5b0>
+2024-10-29 03:32:59.447 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'AlarmCheck', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:35:49.817 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:38:46.117 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 03:39:52.517 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'steps_to_convert'
+2024-10-29 03:40:52.578 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 03:42:41.503 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'MMLGenerate', 'TextClassification', 'LogicAnalysis']
+2024-10-29 03:44:28.144 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 03:45:48.771 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension']
+2024-10-29 03:47:19.791 | INFO     | __main__:main:163 - Mapped 4 templates: ['JsonFormat', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 03:50:48.276 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 03:54:22.740 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 03:57:13.026 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 03:59:48.394 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'LogicAnalysis']
+2024-10-29 04:02:16.134 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ParamRegex', 'TextClassification', 'ReadingComprehension']
+2024-10-29 04:02:56.093 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-29 04:03:56.125 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 04:06:01.859 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex']
+2024-10-29 04:07:51.915 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid \escape: line 3 column 40 (char 1114)
+2024-10-29 04:09:07.225 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 04:10:32.622 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 04:12:56.077 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 04:16:11.364 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 04:18:02.670 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ToolSelection', 'TextClassification', 'ReadingComprehension']
+2024-10-29 04:20:33.458 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 04:23:13.293 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'TextSummary', 'ReadingComprehension']
+2024-10-29 04:25:13.741 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate']
+2024-10-29 04:27:07.998 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'ReadingComprehension']
+2024-10-29 04:29:38.670 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate']
+2024-10-29 04:32:12.150 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension']
+2024-10-29 04:33:40.126 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 04:34:41.243 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid \escape: line 9 column 30 (char 182)
+2024-10-29 04:36:32.761 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 04:38:39.632 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 04:40:53.330 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 04:43:07.561 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'ParamRegex']
+2024-10-29 04:45:29.701 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'LogicAnalysis']
+2024-10-29 04:48:13.313 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 04:50:30.730 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 04:52:33.649 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 04:54:48.493 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 04:56:52.199 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 05:00:25.860 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ToolSelection', 'ReadingComprehension']
+2024-10-29 05:02:36.978 | INFO     | __main__:main:163 - Mapped 8 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 05:06:43.146 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 05:09:13.766 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'TextClassification', 'ReadingComprehension']
+2024-10-29 05:11:28.805 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'TextClassification']
+2024-10-29 05:13:14.174 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'ReadingComprehension']
+2024-10-29 05:15:23.807 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 05:18:08.311 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 05:19:23.887 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Extra data: line 5 column 81 (char 436)
+2024-10-29 05:19:23.887 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 5) (<unknown>, line 5)
+2024-10-29 05:19:23.894 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - Unexpected text after end of JSON value
+2024-10-29 05:19:23.894 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "step_info": "步骤1：AMFFindSMF\n步骤2：AMFSendInfoToMME\n步骤3：MMESendQueryToDNSServer\n步骤4：MMEReceivePGWCInfo\n步骤5：ConditionalGateway\n步骤6：MMESendInfoToSGW",
+    "step_desc": "从AMF开始，查询并发现可用的SMF，然后将PGW FQDN和PGW-C S5接口地址传递给MME。MME接收到信息后，向DNS Server发起查询，获取PGW-C的拓扑信息，从而选择和PGW-C最近的SGW-C。是 => 诊断成功，任务结束。否 => 6。",
+    "step_output": "MMEReceivePGWCInfoResult",
+    "param_def": "{\"isPGWCInfoReceived\":\"MME是否接收到PGW-C的信息，取值范围{\"是\"，\"否\"}"}",
+    "answer": "{\n    \"next\": [\n        {\n            \"condition\": \"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"是\\\"}\",\n            \"action\": \"endNode\"\n        },\n        {\n            \"condition\": \"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"否\\\"}\",\n            \"action\": \"MMESendInfoToSGW\"\n        }\n    ]\n}",
+    "explanation": "在当前步骤描述中，我们可以看到，如果MME接收到PGW-C的信息，则诊断成功，任务结束，这对应了条件\"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"是\\\"}\"，并且下一步的action是\"endNode\"。如果MME没有接收到PGW-C的信息，则需要向SGW发送信息，这对应了条件\"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"否\\\"}\"，并且下一步的action是\"MMESendInfoToSGW\"。"
+}
+2024-10-29 05:19:23.894 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "step_info": "步骤1：AMFFindSMF\n步骤2：AMFSendInfoToMME\n步骤3：MMESendQueryToDNSServer\n步骤4：MMEReceivePGWCInfo\n步骤5：ConditionalGateway\n步骤6：MMESendInfoToSGW",
+    "step_desc": "从AMF开始，查询并发现可用的SMF，然后将PGW FQDN和PGW-C S5接口地址传递给MME。MME接收到信息后，向DNS Server发起查询，获取PGW-C的拓扑信息，从而选择和PGW-C最近的SGW-C。是 => 诊断成功，任务结束。否 => 6。",
+    "step_output": "MMEReceivePGWCInfoResult",
+    "param_def": "{\"isPGWCInfoReceived\":\"MME是否接收到PGW-C的信息，取值范围{\"是\"，\"否\"}"}",
+    "answer": "{\n    \"next\": [\n        {\n            \"condition\": \"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"是\\\"}\",\n            \"action\": \"endNode\"\n        },\n        {\n            \"condition\": \"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"否\\\"}\",\n            \"action\": \"MMESendInfoToSGW\"\n        }\n    ]\n}",
+    "explanation": "在当前步骤描述中，我们可以看到，如果MME接收到PGW-C的信息，则诊断成功，任务结束，这对应了条件\"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"是\\\"}\"，并且下一步的action是\"endNode\"。如果MME没有接收到PGW-C的信息，则需要向SGW发送信息，这对应了条件\"${MMEReceivePGWCInfoResult.isPGWCInfoReceived == \\\"否\\\"}\"，并且下一步的action是\"MMESendInfoToSGW\"。"
+}
+2024-10-29 05:20:23.954 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 05:21:59.891 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 05:24:18.602 | INFO     | __main__:main:163 - Mapped 4 templates: ['TextSummary', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 05:26:33.782 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 05:28:58.576 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ToolSelection', 'ReadingComprehension']
+2024-10-29 05:30:57.768 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension']
+2024-10-29 05:32:27.381 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'IssueRewrite', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 05:34:51.736 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 05:37:00.283 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 05:38:42.502 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'AlarmCheck', 'ReadingComprehension']
+2024-10-29 05:40:15.910 | INFO     | __main__:main:163 - Mapped 4 templates: ['MMLGenerate', 'ParamRegex', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 05:42:27.466 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'LogicAnalysis']
+2024-10-29 05:46:37.245 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 05:48:55.699 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 05:51:16.637 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ToolSelection', 'LogicAnalysis']
+2024-10-29 05:53:45.169 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'TextClassification', 'LogicAnalysis']
+2024-10-29 05:53:55.473 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 4 column 56 (char 370)
+2024-10-29 05:53:55.474 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 4) (<unknown>, line 4)
+2024-10-29 05:53:55.482 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 05:53:55.482 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "user_question": "目前我们正在处理一个GERAN网络接入的工单，工单编号为20240425192139655，涉及到的网元名称为GnGp-SGSN，其配置的索引值为1549。",
+    "param_description": "\n<名称>：curScenario\n<描述>: 当前正在处理的工单场景\n<类型>: string\n\n<名称>：jobId\n<描述>: 工单编号\n<类型>: string\n\n<名称>：neName\n<描述>: 网元名称\n<类型>: string\n\n<名称>：neIndex\n<描述>: 当前网元配置的索引值\n<类型>: integer",
+    "answer": "\n{\n    \"curScenario\": \"GERAN网络接入\",
+    \"jobId\": \"20240425192139655\",
+    \"neName\": \"GnGp-SGSN\",
+    \"neIndex\": 1549
+}",
+    "explanation": "通过对用户问题的解析，我们可以提取出工单场景、工单编号、网元名称和网元配置的索引值。这些信息分别对应参数描述中的curScenario、jobId、neName和neIndex，其值分别为\"GERAN网络接入\"、\"20240425192139655\"、\"GnGp-SGSN\"和1549。"
+}
+2024-10-29 05:53:55.483 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "user_question": "目前我们正在处理一个GERAN网络接入的工单，工单编号为20240425192139655，涉及到的网元名称为GnGp-SGSN，其配置的索引值为1549。",
+    "param_description": "
+<名称>：curScenario
+<描述>: 当前正在处理的工单场景
+<类型>: string
+
+<名称>：jobId
+<描述>: 工单编号
+<类型>: string
+
+<名称>：neName
+<描述>: 网元名称
+<类型>: string
+
+<名称>：neIndex
+<描述>: 当前网元配置的索引值
+<类型>: integer",
+    "answer": "
+{
+    \"curScenario\": \"GERAN网络接入\",
+    \"jobId\": \"20240425192139655\",
+    \"neName\": \"GnGp-SGSN\",
+    \"neIndex\": 1549
+}",
+    "explanation": "通过对用户问题的解析，我们可以提取出工单场景、工单编号、网元名称和网元配置的索引值。这些信息分别对应参数描述中的curScenario、jobId、neName和neIndex，其值分别为\"GERAN网络接入\"、\"20240425192139655\"、\"GnGp-SGSN\"和1549。"
+}
+2024-10-29 05:54:55.543 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 05:56:19.964 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-29 05:57:20.025 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 05:57:40.138 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'user_content'
+2024-10-29 05:58:40.146 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 06:00:26.774 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension']
+2024-10-29 06:01:51.937 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 06:04:21.101 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 06:06:26.368 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 06:08:48.262 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 06:11:18.340 | INFO     | __main__:main:163 - Mapped 6 templates: ['ParamExtract', 'InformationExtraction', 'IssueRewrite', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 06:12:28.319 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'param_table'
+2024-10-29 06:13:28.338 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 06:15:03.863 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 06:17:01.218 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 06:19:24.649 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 06:22:27.418 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 06:25:42.200 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension']
+2024-10-29 06:27:20.372 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 06:29:29.631 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 06:32:10.696 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 06:34:16.079 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ToolSelection', 'ReadingComprehension']
+2024-10-29 06:36:50.595 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'AlarmCheck', 'ReadingComprehension']
+2024-10-29 06:38:33.281 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'ParamExtract', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 06:40:47.328 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 06:43:29.172 | INFO     | __main__:main:163 - Mapped 6 templates: ['QuestionAnswering', 'ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 06:45:23.778 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 06:47:14.121 | INFO     | __main__:main:163 - Mapped 6 templates: ['TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 06:50:23.842 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'TextClassification', 'LogicAnalysis']
+2024-10-29 06:53:02.327 | INFO     | __main__:main:163 - Mapped 7 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'IssueRewrite', 'ParamRegex', 'TextClassification', 'LogicAnalysis']
+2024-10-29 06:55:56.828 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 06:58:50.670 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'ToolSelection', 'TextClassification', 'AlarmCheck']
+2024-10-29 07:00:38.237 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 07:03:15.123 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 07:06:21.968 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 07:06:40.062 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting ',' delimiter: line 10 column 80 (char 642)
+2024-10-29 07:06:40.064 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - invalid character '，' (U+FF0C) (<unknown>, line 10)
+2024-10-29 07:06:40.075 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - Values must be separated by a comma
+2024-10-29 07:06:40.075 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "input_text": "该命令执行后立即生效。相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠。此配置涉及位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02），请在设置参数前使用DSP LICENSE命令确认对应特性license是否得到授权，执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”。",    
+    "extract_fields": "命令执行时机，GMLC选择策略组规则，涉及的特性，确认特性license的方法，确认特性开关的方法",
+    "field_count": "5",
+    "answer": {
+        "命令执行时机": "执行后立即生效",
+        "GMLC选择策略组规则": "相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠",
+        "涉及的特性": "位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02）",
+        "确认特性license的方法": "使用DSP LICENSE命令确认对应特性license是否得到授权",
+        "确认特性开关的方法": "执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”\n    },\n    "explanation": "通过阅读输入文本，我们可以找到所有需要提取的信息。命令执行时机在'该命令执行后立即生效'，GMLC选择策略组规则在'相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠'，涉及的特性在'此配置涉及位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02）'，确认特性license的方法在'请在设置参数前使用DSP LICENSE命令确认对应特性license是否得到授权'，确认特性开关的方法在'执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”'"
+}
+2024-10-29 07:06:40.075 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "input_text": "该命令执行后立即生效。相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠。此配置涉及位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02），请在设置参数前使用DSP LICENSE命令确认对应特性license是否得到授权，执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”。",    
+    "extract_fields": "命令执行时机，GMLC选择策略组规则，涉及的特性，确认特性license的方法，确认特性开关的方法",
+    "field_count": "5",
+    "answer": {
+        "命令执行时机": "执行后立即生效",
+        "GMLC选择策略组规则": "相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠",
+        "涉及的特性": "位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02）",
+        "确认特性license的方法": "使用DSP LICENSE命令确认对应特性license是否得到授权",
+        "确认特性开关的方法": "执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”
+    },
+    "explanation": "通过阅读输入文本，我们可以找到所有需要提取的信息。命令执行时机在'该命令执行后立即生效'，GMLC选择策略组规则在'相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠'，涉及的特性在'此配置涉及位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02）'，确认特性license的方法在'请在设置参数前使用DSP LICENSE命令确认对应特性license是否得到授权'，确认特性开关的方法在'执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”'"
+}
+2024-10-29 07:07:40.119 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 07:09:41.432 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextClassification', 'ReadingComprehension']
+2024-10-29 07:11:36.028 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'NextStepSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:14:13.908 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension']
+2024-10-29 07:16:06.876 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ToolSelection', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:18:44.118 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 07:19:36.078 | ERROR    | __main__:construct_qa_and_answer:58 - KeyError in response: 'param_table'
+2024-10-29 07:20:36.098 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 07:20:56.185 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid \escape: line 3 column 78 (char 98)
+2024-10-29 07:20:56.187 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - malformed node or string on line 2: <ast.Name object at 0x1493bc270e20>
+2024-10-29 07:21:52.331 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 07:25:09.861 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 07:27:40.977 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:30:06.978 | INFO     | __main__:main:163 - Mapped 4 templates: ['QuestionAnswering', 'InformationExtraction', 'TextSummary', 'ReadingComprehension']
+2024-10-29 07:32:04.978 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 07:33:45.610 | INFO     | __main__:main:163 - Mapped 4 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension']
+2024-10-29 07:35:06.674 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:37:43.936 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 07:40:50.347 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension']
+2024-10-29 07:42:47.637 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:45:31.980 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:47:46.382 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 07:49:37.446 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 07:51:32.064 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'JsonFormat', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 07:52:55.334 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Expecting value: line 1 column 1 (char 0)
+2024-10-29 07:52:55.334 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - invalid character '：' (U+FF1A) (<unknown>, line 1)
+2024-10-29 07:52:55.336 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - The input is gibberish, is the Unicode encoding correct?
+2024-10-29 07:52:55.336 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - 你生成的问题和答案如下：
+
+问题：
+====================
+你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+
+1. 发送PATCH请求到/nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access。
+2. 设置Content-Type为application/json;charset=UTF-8。
+3. 在请求体中，添加Amf3GppAccessRegistrationModification对象。
+4. 在Amf3GppAccessRegistrationModification对象中，添加guami对象，包括plmnId和amfId。
+5. 在Amf3GppAccessRegistrationModification对象中，添加purgeFlag，设置为"FALSE"。
+6. 在Amf3GppAccessRegistrationModification对象中，添加pei，设置为"imei-01234567890123"。
+7. 在Amf3GppAccessRegistrationModification对象中，添加imsVoPS，设置为"HOMOGENEOUS_SUPPORT"。
+
+注意只回答json，不要回答其它内容。
+
+答案：
+====================
+```json
+[
+    {
+        "step": 1,
+        "description": "发送PATCH请求到/nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access。",
+        "choice": ""
+    },
+    {
+        "step": 2,
+        "description": "设置Content-Type为application/json;charset=UTF-8。",
+        "choice": ""
+    },
+    {
+        "step": 3,
+        "description": "在请求体中，添加Amf3GppAccessRegistrationModification对象。",
+        "choice": ""
+    },
+    {
+        "step": 4,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加guami对象，包括plmnId和amfId。",
+        "choice": ""
+    },
+    {
+        "step": 5,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加purgeFlag，设置为\"FALSE\"。",
+        "choice": ""
+    },
+    {
+        "step": 6,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加pei，设置为\"imei-01234567890123\"。",
+        "choice": ""
+    },
+    {
+        "step": 7,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加imsVoPS，设置为\"HOMOGENEOUS_SUPPORT\"。",
+        "choice": ""
+    }
+]
+```
+解析：
+====================
+这个问题考察的是如何将处理步骤转换为JSON格式。这里的处理步骤是发送一个PATCH请求到指定的URL，并在请求体中添加指定的信息。每个步骤都被转换为一个JSON对象，其中包含步骤的序号、步骤的描述以及可能的选项（如果有的话）。
+2024-10-29 07:52:55.336 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: 你生成的问题和答案如下：
+
+问题：
+====================
+你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+
+1. 发送PATCH请求到/nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access。
+2. 设置Content-Type为application/json;charset=UTF-8。
+3. 在请求体中，添加Amf3GppAccessRegistrationModification对象。
+4. 在Amf3GppAccessRegistrationModification对象中，添加guami对象，包括plmnId和amfId。
+5. 在Amf3GppAccessRegistrationModification对象中，添加purgeFlag，设置为"FALSE"。
+6. 在Amf3GppAccessRegistrationModification对象中，添加pei，设置为"imei-01234567890123"。
+7. 在Amf3GppAccessRegistrationModification对象中，添加imsVoPS，设置为"HOMOGENEOUS_SUPPORT"。
+
+注意只回答json，不要回答其它内容。
+
+答案：
+====================
+```json
+[
+    {
+        "step": 1,
+        "description": "发送PATCH请求到/nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access。",
+        "choice": ""
+    },
+    {
+        "step": 2,
+        "description": "设置Content-Type为application/json;charset=UTF-8。",
+        "choice": ""
+    },
+    {
+        "step": 3,
+        "description": "在请求体中，添加Amf3GppAccessRegistrationModification对象。",
+        "choice": ""
+    },
+    {
+        "step": 4,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加guami对象，包括plmnId和amfId。",
+        "choice": ""
+    },
+    {
+        "step": 5,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加purgeFlag，设置为\"FALSE\"。",
+        "choice": ""
+    },
+    {
+        "step": 6,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加pei，设置为\"imei-01234567890123\"。",
+        "choice": ""
+    },
+    {
+        "step": 7,
+        "description": "在Amf3GppAccessRegistrationModification对象中，添加imsVoPS，设置为\"HOMOGENEOUS_SUPPORT\"。",
+        "choice": ""
+    }
+]
+```
+解析：
+====================
+这个问题考察的是如何将处理步骤转换为JSON格式。这里的处理步骤是发送一个PATCH请求到指定的URL，并在请求体中添加指定的信息。每个步骤都被转换为一个JSON对象，其中包含步骤的序号、步骤的描述以及可能的选项（如果有的话）。
+2024-10-29 07:53:55.393 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 07:56:02.699 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'TextClassification', 'LogicAnalysis']
+2024-10-29 07:59:05.757 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 08:02:04.041 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextSummary', 'MMLGenerate', 'ParamRegex']
+2024-10-29 08:02:43.301 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid \escape: line 6 column 108 (char 1071)
+2024-10-29 08:04:27.807 | INFO     | __main__:main:163 - Mapped 3 templates: ['QuestionAnswering', 'TextClassification', 'ReadingComprehension']
+2024-10-29 08:05:46.648 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'AlarmCheck', 'ReadingComprehension']
+2024-10-29 08:07:50.557 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 08:09:51.905 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 08:11:53.108 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 08:14:20.831 | INFO     | __main__:main:163 - Mapped 7 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'IssueRewrite', 'MMLGenerate', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 08:17:08.667 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 10 column 38 (char 685)
+2024-10-29 08:17:08.669 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 10) (<unknown>, line 10)
+2024-10-29 08:17:08.677 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 08:17:08.677 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "step_info": "步骤1：MSBootUp\n\n    步骤2：MSActivatePDP\n\n    步骤3：CheckQoSParam\n\n    步骤4：MMLCommandExec\n\n    步骤5：CheckUserAttachSuccess\n\n    步骤6：CheckPDPSuccess\n\n    步骤7：CheckQoSSpeed\n",
+    
+    "step_desc": "请先执行MSBootUp步骤，如果结果为成功，执行MSActivatePDP步骤，否则，诊断结束。MSActivatePDP步骤成功后，执行CheckQoSParam步骤。CheckQoSParam步骤成功后，执行MMLCommandExec步骤。MMLCommandExec步骤成功后，执行CheckUserAttachSuccess步骤。CheckUserAttachSuccess步骤成功后，执行CheckPDPSuccess步骤。CheckPDPSuccess步骤成功后，执行CheckQoSSpeed步骤。CheckQoSSpeed步骤成功后，诊断结束。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。",
+
+    "step_output": "CheckQoSSpeedResult",
+
+    "param_def": "{\"isSuccess\":\"步骤是否成功，取值范围{\"是\"，\"否\"}\"}",
+
+    "answer": "{\n        \"next\": [
+            {
+                \"condition\": \"${CheckQoSSpeedResult.isSuccess == \\\"是\\\"}\",
+                \"action\": \"endNode\"
+            },
+            {
+                \"condition\": \"${CheckQoSSpeedResult.isSuccess == \\\"否\\\"}\",
+                \"action\": \"MSBootUp\"
+            }
+        ]
+    }",
+
+    "explanation": "根据题目的描述，我们可以知道，如果CheckQoSSpeed步骤成功，那么诊断结束，所以当CheckQoSSpeedResult.isSuccess为是时，我们选择endNode。反之，如果CheckQoSSpeed步骤失败，那么我们需要重新开始诊断，即执行MSBootUp步骤，所以当CheckQoSSpeedResult.isSuccess为否时，我们选择MSBootUp。"
+}
+2024-10-29 08:17:08.677 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "step_info": 
+    "步骤1：MSBootUp\n
+    步骤2：MSActivatePDP\n
+    步骤3：CheckQoSParam\n
+    步骤4：MMLCommandExec\n
+    步骤5：CheckUserAttachSuccess\n
+    步骤6：CheckPDPSuccess\n
+    步骤7：CheckQoSSpeed\n",
+    
+    "step_desc": "请先执行MSBootUp步骤，如果结果为成功，执行MSActivatePDP步骤，否则，诊断结束。MSActivatePDP步骤成功后，执行CheckQoSParam步骤。CheckQoSParam步骤成功后，执行MMLCommandExec步骤。MMLCommandExec步骤成功后，执行CheckUserAttachSuccess步骤。CheckUserAttachSuccess步骤成功后，执行CheckPDPSuccess步骤。CheckPDPSuccess步骤成功后，执行CheckQoSSpeed步骤。CheckQoSSpeed步骤成功后，诊断结束。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。",
+
+    "step_output": "CheckQoSSpeedResult",
+
+    "param_def": "{\"isSuccess\":\"步骤是否成功，取值范围{\"是\"，\"否\"}\"}",
+
+    "answer": "{
+        \"next\": [
+            {
+                \"condition\": \"${CheckQoSSpeedResult.isSuccess == \\\"是\\\"}\",
+                \"action\": \"endNode\"
+            },
+            {
+                \"condition\": \"${CheckQoSSpeedResult.isSuccess == \\\"否\\\"}\",
+                \"action\": \"MSBootUp\"
+            }
+        ]
+    }",
+
+    "explanation": "根据题目的描述，我们可以知道，如果CheckQoSSpeed步骤成功，那么诊断结束，所以当CheckQoSSpeedResult.isSuccess为是时，我们选择endNode。反之，如果CheckQoSSpeed步骤失败，那么我们需要重新开始诊断，即执行MSBootUp步骤，所以当CheckQoSSpeedResult.isSuccess为否时，我们选择MSBootUp。"
+}
+2024-10-29 08:18:08.737 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 08:18:25.968 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 2 column 35 (char 36)
+2024-10-29 08:18:25.969 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 6) (<unknown>, line 6)
+2024-10-29 08:18:25.976 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 08:18:25.976 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "step_info": "步骤1：UserBootup\n	步骤2：SendAttachRequest\n	步骤3：SendPDPActivationRequest\n	步骤4：CheckQoSParameters\n	步骤5：End",   
+    "step_desc": "开始步骤是用户MS开机，然后发起附着请求，并发送PDP激活请求。最后查询QoS参数并结束。每个步骤的结果决定了下一步的动作。是 => 诊断成功，任务结束。否 => 进行下一步操作。", 
+    "step_output": "CheckQoSParametersResult",
+    "param_def": "{\"isPDPActivationSuccessful\":\"PDP激活是否成功，取值范围{\"是\"，\"否\"}\", \"isAttachSuccessful\":\"附着是否成功，取值范围{\"是\"，\"否\"}}",
+    "answer": "{\n        \"next\": [
+            {
+                \"condition\": \"${CheckQoSParametersResult.isPDPActivationSuccessful == \\\"是\\\" && CheckQoSParametersResult.isAttachSuccessful == \\\"是\\\"}\",
+                \"action\": \"endNode\"
+            },
+            {
+                \"condition\": \"${CheckQoSParametersResult.isPDPActivationSuccessful == \\\"否\\\" || CheckQoSParametersResult.isAttachSuccessful == \\\"否\\\"}\",
+                \"action\": \"UserBootup\"
+            }
+        ]
+    }",
+    "explanation": "根据题目描述，我们可以知道，当PDP激活和附着都成功时，就可以结束诊断，所以第一个条件的action为endNode。如果PDP激活或者附着任一步骤失败，就需要重新开始从用户开机步骤，所以第二个条件的action为UserBootup。"
+}
+2024-10-29 08:18:25.976 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "step_info": 
+	"步骤1：UserBootup
+	步骤2：SendAttachRequest
+	步骤3：SendPDPActivationRequest
+	步骤4：CheckQoSParameters
+	步骤5：End",   
+    "step_desc": "开始步骤是用户MS开机，然后发起附着请求，并发送PDP激活请求。最后查询QoS参数并结束。每个步骤的结果决定了下一步的动作。是 => 诊断成功，任务结束。否 => 进行下一步操作。", 
+    "step_output": "CheckQoSParametersResult",
+    "param_def": "{\"isPDPActivationSuccessful\":\"PDP激活是否成功，取值范围{\"是\"，\"否\"}\", \"isAttachSuccessful\":\"附着是否成功，取值范围{\"是\"，\"否\"}}",
+    "answer": 
+	"{
+        \"next\": [
+            {
+                \"condition\": \"${CheckQoSParametersResult.isPDPActivationSuccessful == \\\"是\\\" && CheckQoSParametersResult.isAttachSuccessful == \\\"是\\\"}\",
+                \"action\": \"endNode\"
+            },
+            {
+                \"condition\": \"${CheckQoSParametersResult.isPDPActivationSuccessful == \\\"否\\\" || CheckQoSParametersResult.isAttachSuccessful == \\\"否\\\"}\",
+                \"action\": \"UserBootup\"
+            }
+        ]
+    }",
+    "explanation": "根据题目描述，我们可以知道，当PDP激活和附着都成功时，就可以结束诊断，所以第一个条件的action为endNode。如果PDP激活或者附着任一步骤失败，就需要重新开始从用户开机步骤，所以第二个条件的action为UserBootup。"
+}
+2024-10-29 08:19:26.037 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 08:20:50.682 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'ToolSelection', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 08:23:30.430 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'ToolSelection', 'LogicAnalysis']
+2024-10-29 08:26:52.239 | INFO     | __main__:main:163 - Mapped 5 templates: ['TextSummary', 'ToolSelection', 'TextClassification', 'AlarmCheck', 'LogicAnalysis']
+2024-10-29 08:27:25.640 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 2 column 191 (char 192)
+2024-10-29 08:27:25.641 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 2) (<unknown>, line 2)
+2024-10-29 08:27:25.651 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 08:27:25.651 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "tool_description": "[{\"name\": \"GetAttachRejectCount\", \"description\": \"获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数.\", \"arguments\": {\"bssId\": \"String BSS ID\"}, \"results\": \"附着拒绝次数\"},
+    {\"name\": \"GetProtocolError\", \"description\": \"获取SGSN下发附着拒绝消息（Attach Reject）的原因.\", \"arguments\": {\"sgsnId\": \"String SGSN ID\"}, \"results\": \"附着拒绝消息原因\"},
+    {\"name\": \"Final Answer\", \"description\": \"回答用户的问题\", \"arguments\": {\"final_answer\": \"String 答案内容\"}}]",
+    
+    "user_question": "使用GetAttachRejectCount工具，获取BSS ID为123的特定范围内由于Ge接口未知错误导致联合附着拒绝的次数，同时使用GetProtocolError工具，获取SGSN ID为456下发的附着拒绝消息的原因。",
+
+    "answer": "{\"name\": \"GetAttachRejectCount\", \"arguments\": {\"bssId\": \"123\"}}, {\"name\": \"GetProtocolError\", \"arguments\": {\"sgsnId\": \"456\"}}",
+
+    "explanation": "通过GetAttachRejectCount工具，我们可以获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数。通过GetProtocolError工具，我们可以获取SGSN下发附着拒绝消息的原因。这两个工具可以帮助我们更好地理解并解决用户问题。"
+}
+2024-10-29 08:27:25.653 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "tool_description": 
+    "[{\"name\": \"GetAttachRejectCount\", \"description\": \"获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数.\", \"arguments\": {\"bssId\": \"String BSS ID\"}, \"results\": \"附着拒绝次数\"},
+    {\"name\": \"GetProtocolError\", \"description\": \"获取SGSN下发附着拒绝消息（Attach Reject）的原因.\", \"arguments\": {\"sgsnId\": \"String SGSN ID\"}, \"results\": \"附着拒绝消息原因\"},
+    {\"name\": \"Final Answer\", \"description\": \"回答用户的问题\", \"arguments\": {\"final_answer\": \"String 答案内容\"}}]",
+    
+    "user_question": "使用GetAttachRejectCount工具，获取BSS ID为123的特定范围内由于Ge接口未知错误导致联合附着拒绝的次数，同时使用GetProtocolError工具，获取SGSN ID为456下发的附着拒绝消息的原因。",
+
+    "answer": "{\"name\": \"GetAttachRejectCount\", \"arguments\": {\"bssId\": \"123\"}}, {\"name\": \"GetProtocolError\", \"arguments\": {\"sgsnId\": \"456\"}}",
+
+    "explanation": "通过GetAttachRejectCount工具，我们可以获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数。通过GetProtocolError工具，我们可以获取SGSN下发附着拒绝消息的原因。这两个工具可以帮助我们更好地理解并解决用户问题。"
+}
+2024-10-29 08:28:25.662 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 08:28:41.919 | WARNING  | dogeneval.utils.parser:try_parse_json:60 - Invalid control character at: line 2 column 77 (char 78)
+2024-10-29 08:28:41.922 | WARNING  | dogeneval.utils.parser:try_parse_json:64 - unterminated string literal (detected at line 2) (<unknown>, line 2)
+2024-10-29 08:28:41.929 | WARNING  | dogeneval.utils.parser:try_parse_json:68 - ('Line terminator characters must be escaped inside string literals', 'U+000A')
+2024-10-29 08:28:41.929 | WARNING  | dogeneval.utils.parser:try_parse_json:69 - {
+    "tool_description": "[\n      {\n        \"name\": \"GetAttachReject\", 
+        \"description\": \"获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数.\", 
+        \"arguments\": {\"bssId\": \"String BSS标识\"}, 
+        \"results\": \"联合附着拒绝次数和相关信息\"
+      }, 
+      {
+        \"name\": \"GetProtocolError\", 
+        \"description\": \"获取\"Protocol error, unspecified\"的具体错误信息.\", 
+        \"arguments\": {\"errorId\": \"String 错误ID\"}, 
+        \"results\": \"具体错误信息\"
+      }, 
+      {
+        \"name\": \"Final Answer\", 
+        \"description\": \"回答用户的问题\", 
+        \"arguments\": {\"final_answer\": \"String 答案内容\"}
+      }
+    ]",
+    "user_question": "使用GetAttachReject工具，通过BSS标识为\"BSS-123\"获取由于Ge接口未知错误导致联合附着拒绝的次数，并使用GetProtocolError工具获取\"Protocol error, unspecified\"的具体错误信息。然后，将结果以JSON格式输出。",
+    "answer": "{\n      \"GetAttachReject\": {
+        \"bssId\": \"BSS-123\"
+      },
+      \"GetProtocolError\": {
+        \"errorId\": \"Protocol error, unspecified\"
+      }
+    }",
+    "explanation": "首先，使用GetAttachReject工具和BSS标识为\"BSS-123\"作为参数，可以获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数。然后，使用GetProtocolError工具和\"Protocol error, unspecified\"作为参数，可以获取具体的错误信息。"
+}
+2024-10-29 08:28:41.930 | INFO     | __main__:construct_qa_and_answer:46 - Failed to parse response: {
+    "tool_description": "[
+      {
+        \"name\": \"GetAttachReject\", 
+        \"description\": \"获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数.\", 
+        \"arguments\": {\"bssId\": \"String BSS标识\"}, 
+        \"results\": \"联合附着拒绝次数和相关信息\"
+      }, 
+      {
+        \"name\": \"GetProtocolError\", 
+        \"description\": \"获取\"Protocol error, unspecified\"的具体错误信息.\", 
+        \"arguments\": {\"errorId\": \"String 错误ID\"}, 
+        \"results\": \"具体错误信息\"
+      }, 
+      {
+        \"name\": \"Final Answer\", 
+        \"description\": \"回答用户的问题\", 
+        \"arguments\": {\"final_answer\": \"String 答案内容\"}
+      }
+    ]",
+    "user_question": "使用GetAttachReject工具，通过BSS标识为\"BSS-123\"获取由于Ge接口未知错误导致联合附着拒绝的次数，并使用GetProtocolError工具获取\"Protocol error, unspecified\"的具体错误信息。然后，将结果以JSON格式输出。",
+    "answer": "{
+      \"GetAttachReject\": {
+        \"bssId\": \"BSS-123\"
+      },
+      \"GetProtocolError\": {
+        \"errorId\": \"Protocol error, unspecified\"
+      }
+    }",
+    "explanation": "首先，使用GetAttachReject工具和BSS标识为\"BSS-123\"作为参数，可以获取特定BSS范围内由于Ge接口未知错误导致联合附着拒绝的次数。然后，使用GetProtocolError工具和\"Protocol error, unspecified\"作为参数，可以获取具体的错误信息。"
+}
+2024-10-29 08:29:41.992 | ERROR    | __main__:main:202 - Error in gen_qa_and_check: not enough values to unpack (expected 4, got 3)
+2024-10-29 08:31:31.276 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'TextSummary', 'NextStepSelection', 'ReadingComprehension']
+2024-10-29 08:33:49.621 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 08:36:15.190 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'MathCalculation', 'LogicAnalysis']
+2024-10-29 08:38:38.496 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 08:41:02.524 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex', 'LogicAnalysis']
+2024-10-29 08:43:11.754 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 08:45:41.854 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'InformationExtraction', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 08:48:04.603 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'MMLGenerate', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 08:50:35.487 | INFO     | __main__:main:163 - Mapped 5 templates: ['MultipleChoice', 'QuestionAnswering', 'MMLGenerate', 'ParamRegex', 'ReadingComprehension']
+2024-10-29 08:53:06.476 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'IssueRewrite', 'TextClassification', 'LogicAnalysis']
+2024-10-29 08:55:15.483 | INFO     | __main__:main:163 - Mapped 5 templates: ['ParamExtract', 'InformationExtraction', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 08:57:50.933 | INFO     | __main__:main:163 - Mapped 6 templates: ['MultipleChoice', 'QuestionAnswering', 'TextSummary', 'TextClassification', 'ReadingComprehension', 'LogicAnalysis']
+2024-10-29 09:00:58.548 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 09:02:50.288 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'ParamRegex']
+2024-10-29 09:05:47.867 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'NextStepSelection']
+2024-10-29 09:07:16.394 | INFO     | __main__:main:163 - Mapped 4 templates: ['ParamExtract', 'InformationExtraction', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 09:08:55.934 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate', 'LogicAnalysis']
+2024-10-29 09:11:44.083 | INFO     | __main__:main:163 - Mapped 4 templates: ['InformationExtraction', 'TextSummary', 'JsonFormat', 'MMLGenerate']
+2024-10-29 09:14:00.483 | INFO     | __main__:main:163 - Mapped 5 templates: ['InformationExtraction', 'TextSummary', 'TextClassification', 'NextStepSelection', 'LogicAnalysis']
+2024-10-29 09:16:52.082 | INFO     | __main__:main:163 - Mapped 6 templates: ['InformationExtraction', 'TextSummary', 'MMLGenerate', 'NextStepSelection', 'AlarmCheck', 'LogicAnalysis']

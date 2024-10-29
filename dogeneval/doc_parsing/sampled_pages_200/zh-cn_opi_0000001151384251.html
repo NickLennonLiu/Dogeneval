@@ -1,0 +1,321 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="NRF解决方案属性检查与校验可靠性配置实例">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0296805277.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0296805279.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0000001151384251">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>NRF解决方案属性检查与校验可靠性配置实例</title>
+</head>
+<body><a name="ZH-CN_OPI_0000001151384251"></a><a name="ZH-CN_OPI_0000001151384251"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">NRF解决方案属性检查与校验可靠性配置实例</h1>
+<ul><li><a href="#ZH-CN_OPI_0000001151384251__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0000001151384251__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0000001151384251__1.3.3">操作步骤</a></li></ul><div><div class="Section" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_OPIAscenarios10044878172748"><a name="ZH-CN_OPI_0000001151384251__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001151384251" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1022794620510">为了避免NF的异常操作影响到NRF设备安全及5G Core业务，NRF支持对NF进行白名单和校验控制：符合NRF白名单的NF才允许注册/更新；NF进行上述服务化流程时，对应参数校验通过的NF才能完成对应的服务化流程。</p>
+<p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p81795613917">为了避免号段类NF的号段配置错误影响到5G Core业务，NRF支持对NF Profile的属性冲突核验，对于存在号段冲突的情况可以查询或提示告警。</p>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_OPICprerequisites19764978172748"><a name="ZH-CN_OPI_0000001151384251__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001151384251" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_OPIAconditions1565898172748">前提条件</p></span><ul id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_ul1313718193720"><li id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_li931963417379"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_p6330153414372"><a name="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_li931963417379"></a><a name="zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_li931963417379"></a>具备管理员权限的操作人员已经登录华为操作维护系统（登录U2020/MAE客户端或登录OM Portal）。</p>
+</li><li id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_li127372141674">完成加载License。</li></ul>
+<ul id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_ul56243234516"><li id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_zh-cn_opi_0173937848_zh-cn_opi_0170106573_li1362442312514">NRF解决方案基本功能在NF侧和NRF侧均已配置完成，详细参考<a href="zh-cn_opi_0296396904.html">NRF解决方案基本功能配置实例（NF注册/更新/去注册、NF订阅/通知）</a>。</li></ul>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_OPIBdata11383252172748">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_table49918369528" frame="border" border="1" rules="all"><caption><b>表1 </b>需要准备的数据</caption><thead align="left"><tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row299153612520"><th align="left" class="cellrowborder" valign="top" width="16.259999999999998%" id="mcps1.3.2.1.2.1.2.6.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p5991936175220">类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.12%" id="mcps1.3.2.1.2.1.2.6.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p4991163619528">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.43%" id="mcps1.3.2.1.2.1.2.6.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p12991336105219">取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="13.3%" id="mcps1.3.2.1.2.1.2.6.1.4" liSelected="liSelected"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p9991203645217">获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="31.89%" id="mcps1.3.2.1.2.1.2.6.1.5" liSelected="liSelected"><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1999123615215">说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row13991036145210"><td class="cellrowborder" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p861215558529"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b126684818335"><a href="../MML/Document/set_nrfwhitelistsw.html">SET NRFWHITELISTSW</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p9611855115211">NF白名单开关（NFWHITELISTSW）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1398164983316">FUNC_ON</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p11274175563317">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p399214365522">启用NF白名单接入控制功能。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row2992136165212"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p460518556523"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b766810819337"><a href="../MML/Document/add_nrfwhitelist.html">ADD NRFWHITELIST</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p160445515525">NF实例标识（NFINSTANCEID）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p460345555213">88888888-4444-1234-5678-123456789ABC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p43661206335">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row1799363611524"><td class="cellrowborder" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1860611914508"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b1266815819336"><span><a href="../MML/Document/set_nfnrfmgmtpara.html">SET NFNRFMGMTPARA</a></span></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1602115585217">NF参数检查开关（NFPROFILECHKSW）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p176011255155218">AMF_TAI</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p19761942133613">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="3" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p12413115313552">AMF和NRF上分别开启对AMF Profile的参数校验，AMF注册/更新时，必须携带TAI List或TAI Range中的一个参数，确保NF注册数据有意义。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row1799343645219"><td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p760715917508"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b146690814336"><a href="../MML/Document/set_nrftakepararule.html">SET NRFTAKEPARARULE</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1159711555521">网元类型（NFTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1359610553528">AMF</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p799217336389">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row17994836205210"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p259515555220">NF无TAI处理开关（NOTAISW）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p14594165520527">FUNC_ON</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p189941036195220">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row8994163615217"><td class="cellrowborder" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p10609119165014"><span><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b166695873310"><a href="../MML/Document/set_nrfpatupdidxsw.html">SET NRFPATUPDIDXSW</a></strong></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1259215550520">禁止PATCH更新携带下标开关（PATUPDWITHIDXSW）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p781551093512">FUNC_ON</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p158171353154019">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p4251641997">NRF处理携带array下标的部分更新流程为更新失败，避免NF和NRF间对array下标处理不一致而影响业务。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row4995143613524"><td class="cellrowborder" rowspan="2" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p561059105011"><span><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b18669382331"><a href="../MML/Document/set_nrfdiscpararule.html">SET NRFDISCPARARULE</a></strong></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p859025511528">网元类型（NFTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p158885514529">AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p58221153154020">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p13280348114">目标为AMF的服务发现，发现参数除基本发现参数及NF Type外，必须携带其他发现参数，否则服务发现失败。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row11901134212408"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p6901124284011">发现参数防呆规则（DISCPARA）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1690124217404">TARGETNFTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1782615334019">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row179951836185212"><td class="cellrowborder" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1477213351102"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b103347110101"><a href="../MML/Document/opr_nrfnfattrvry.html">OPR NRFNFATTRVRY</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1958735517521">NF实例标识（NFINSTANCEID）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1985226141511">88888888-4444-1234-5678-123456789ABC</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p6995836105214">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="5" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p10583152818129">NRF上打开AMF的NF Profile的属性冲突人工核验。</p>
+<p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p73901237112017">对本NRF管理的AMF间TAI属性进行核验，选择NF实例标识中大区省份信息起始位置为4信息长度为3的部分，可以通过<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b2659850202118"><a href="../MML/Document/dsp_nrfnfattrvry.html">DSP NRFNFATTRVRY</a></strong>查看核验结果。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row25376482119"><td class="cellrowborder" rowspan="3" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p11537144813117"><span><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b8670198103312"><a href="../MML/Document/set_nrfdiscpararule.html">SET NRFVERIFYPARA</a></strong></span></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1537148171118">起始位置（START）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p16537174816116">4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p13446195835120">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row7287818151914"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p72871188192">长度（LENGTH）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p2028716189194">3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p178385221241">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row336943015196"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p193697303198">NF间冲突核验属性（VRYLOCALATTR）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p111085701616">TAI</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p14850627162412">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row81911310141617"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1919241010162"><span><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b166706853317"><a href="../MML/Document/dsp_nrfnfattrvry.html">DSP NRFNFATTRVRY</a></strong></span></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p10771139142412">NF实例标识（NFINSTANCEID）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p77719393244">88888888-4444-1234-5678-123456789ABC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p194621315163115">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row132091039201310"><td class="cellrowborder" rowspan="5" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p4209839101313"><span><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b36716819335"><a href="../MML/Document/set_nrfdiscverify.html">SET NRFDISCVERIFY</a></strong></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p220918392132">服务发现NF属性冲突核验开关（DISCVRYFSW）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p4615131313314">FUNC_ON</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p94061536113210">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="6" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p699914475139">AMF和NRF上分别打开NF Profile的属性冲突自动核验，如果存在属性冲突，会上报对应的告警。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row1638013711303"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1254182923016">起始位置（START）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p2541829203018">4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p56656412328">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row98791927133018"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1654132943018">长度（LENGTH）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p75411829103012">3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p18135742203215">全网规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row919943943013"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p121991939173011">NF间冲突核验属性（DISCLOCALATTR）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p619963913014">TAI</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p10304103717323">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row174441236163119"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p15444193633112">NF和跨NRF路由数据冲突核验属性（DISCINTERATTR）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p5975203191612">TAI</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1680917378323">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row2053913916147"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p5539739181419"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b250818509380"><a href="../MML/Document/set_nfdiscplcy.html">SET NFDISCPLCY</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p35395391148">NF实例标识冲突核查开关（NFIDCHECK）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p17539133918148">ON</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p484062013910">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row134470564181"><td class="cellrowborder" rowspan="3" valign="top" width="16.259999999999998%" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p044785615182"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b193053527361"><a href="../MML/Document/set_nrfbigpkgpara.html">SET NRFBIGPKGPARA</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="11.12%" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1447156131814">单NF的最大号段数量（MAXREGSEGNUM）</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.43%" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p744715567183">20000</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p126401230104312">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="31.89%" headers="mcps1.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p713209131916">AMF和NRF上分别设置最大包处理能力，保证网络稳定性，避免超大包影响网络带宽。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row1263414615426"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p763414467428">服务发现返回的最大号段数（MAXDISCSEGNUM）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1063454664213">40000</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p116461430154312">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row568514442421"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p9686124484218">最大报文长度(KByte)（MAXPKGSIZE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p176864448425">200</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p165193054319">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_row1616775921810"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p197701219162812"><strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b19305145211369"><a href="../MML/Document/set_nfdiscplcy.html">SET NFDISCPLCY</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1716795921815">最大有效负载(千字节)（MAXPLDSIZE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p1516765961816">160</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_p6693103811313">本端规划</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_OPIEworkSteps11508030172748"><a name="ZH-CN_OPI_0000001151384251__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001151384251" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ul id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_steps-titled5427156145317"><div class="HandlingTitled" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_step867314185410"><p class="sectiontitle" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_cmd8673131125417">任务场景1：属性冲突检查等可靠性功能。为了确保NF Profile正确性，避免NF由于属性配置错误导致NF间存在属性冲突，AMF和NRF侧进行如下可靠性配置：</p>
+<p><pre class="screen" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_screen52429159543"><span style="color:#932320;">//</span><span style="color:#932320;">打开属性冲突检查相关License。</span>
+SET LICENSESWITCH: LICITEM="LKV2NFACV01", SWITCH=ENABLE;
+
+<span style="color:#932320;">//白名单接入控制功能。</span>
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b42582050143713">NRF侧</strong>打开NF白名单接入控制功能。NRF将处理白名单内NF的注册、更新及心跳，未在白名单内的NF将无法正常注册、更新以及维持到NRF的心跳。
+SET NRFWHITELISTSW: NFWHITELISTSW=FUNC_ON;
+//AMF侧人工检验NF Profile符合规范后，<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b8679952163712">NRF侧</strong>将此AMF的InstanceID：88888888-4444-1234-5678-123456789ABC加入到白名单内，确保可以到NRF上注册/更新。 
+ADD NRFWHITELIST: NFINSTANCEID="88888888-4444-1234-5678-123456789ABC";
+
+<span style="color:#932320;">//AMF注册必须携带TAI List或TAI Range中的一个参数，避免NRF认为不带TAI相关信息的AMF支持所有TAI而选错AMF。</span>
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b1560719544357">AMF侧</strong>检查此规则。
+SET NFNRFMGMTPARA: NFPROFILECHKSW=AMF_TAI-1;
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b660810541354">NRF侧</strong>检查此规则。
+SET NRFTAKEPARARULE: NFTYPE=AMF, NOTAISW=FUNC_ON;
+
+<span style="color:#932320;">//</span><strong style="color:#932320;" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b181781417381">NRF侧</strong><span style="color:#932320;">处理携带array下标的部分更新流程为更新失败，避免NF和NRF间对array下标处理不一致而影响业务。</span>
+SET NRFPATUPDIDXSW: PATUPDWITHIDXSW=FUNC_ON;
+
+<span style="color:#932320;">//</span><strong style="color:#932320;" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b6143113617417">NRF侧</strong><span style="color:#932320;">配置，目标为AMF的服务发现，发现参数除基本发现参数及NF Type外，必须携带其他发现参数，否则服务发现失败。</span>
+SET NRFDISCPARARULE: NFTYPE=AMF, DISCPARA=TARGETNFTYPE-1;
+
+<span style="color:#932320;">//对AMF的NF Profile的属性冲突进行人工核验。</span>
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b12570204962820">NRF侧</strong>对本NRF管理的AMF间TAI属性进行核验，选择NF实例标识中大区省份信息起始位置为4信息长度为3的部分。
+OPR NRFNFATTRVRY: NFINSTANCEID="88888888-4444-1234-5678-123456789ABC"; 
+SET NRFVERIFYPARA: START=4, LENGTH=3, VRYLOCALATTR=TAI-1;
+//可以通过<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b33561523192611">DSP NRFNFATTRVRY</strong>查看核验结果。
+DSP NRFNFATTRVRY: NFINSTANCEID="88888888-4444-1234-5678-123456789ABC";
+
+<span style="color:#932320;">//对AMF的NF Profile的属性冲突进行自动核验。</span>
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b05111011203310">NRF侧</strong>对本NRF管理服务发现结果的NF进行核验，选择NF实例标识中大区省份信息起始位置为4信息长度为3的部分，如果存在NF与当前NF的实现大区省份信息不一致会核验上报告警。对于跨NRF路由属性冲突也进行核验，如果本NRF服务发现结果有匹配的AMF，跨NRF寻址路由也有符合的NF，则会核验上报告警。
+SET NRFDISCVERIFY: DISCVRYFSW=FUNC_ON, START=4, LENGTH=3, DISCLOCALATTR=TAI-1, DISCINTERATTR=TAI-1;
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b11135203417417">AMF侧</strong>打开NF实例标识冲突核查开关。AMF在本地缓存中匹配成功的NF存在大区/省份标识不同，则上报告警。
+SET NFDISCPLCY: NFIDCHECK=ON;</pre>
+</p></div>
+<div class="HandlingTitled" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_step209191811913"><p class="sectiontitle" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_cmd18913188917">任务场景2：为了避免NF和NRF间传递大包影响网络带宽，NF和NRF侧设置各自的最大包处理能力。</p>
+<p><pre class="screen" id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_screen11578101918105"><span style="color:#932320;">//AMF和NRF上分别设置最大包处理能力，保证网络稳定性，避免超大包影响网络带宽。</span>
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b5450191213461">NRF侧</strong>配置支持单NF的最大号段数量20000，服务发现返回的最大号段数40000，最大报文长度200千字节。
+SET NRFBIGPKGPARA: MAXREGSEGNUM=20000, MAXDISCSEGNUM=40000, MAXPKGSIZE=200;
+//<strong id="ZH-CN_OPI_0000001151384251__zh-cn_opi_0000001103927298_b2823121864611">AMF侧</strong>设置最大有效负载，在服务发现过程中带给NRF，告知返回NF profile的最大字节数为160千字节。
+SET NFDISCPLCY: MAXPLDSIZE=160;</pre>
+</p></div>
+</ul>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0296805277.html">NRF单层非容灾组网
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0296805279.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

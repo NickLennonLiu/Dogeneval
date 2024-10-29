@@ -109,12 +109,15 @@ Q2_NO_CHECK_ZEROSHOT_WITH_SCENE_PROMPT = """你是核心网运维工程师，你
 """
 
 
-def format_kp_context(kp_title, kp_content):
+def format_kp_context(kp_title, kp_description, kp_content):
     """
     构建 生成Q2 Prompt 中的知识点内容
     """
     return f"""知识点标题：
 {kp_title}
+====================
+知识点描述：
+{kp_description}
 ====================
 知识点内容：
 {kp_content}"""
@@ -146,7 +149,7 @@ def format_qa_generation_prompt(template, kp, is_zeroshot: bool, require_scene: 
     """
 
     json_example = format_json_example(template["fields"])
-    context = format_kp_context(kp["描述"], kp["内容"])
+    context = format_kp_context(kp["title"], kp["description"], kp["content"])
 
     if is_zeroshot:
         if require_scene:

@@ -1,0 +1,211 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="PDU会话修改">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5g_Session_Management_03.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5g_Session_Management_04.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5g_Session_Management_06.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="AMF">
+<meta name="network_function" content="SMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010501">
+<meta name="Function" content="互操作">
+<meta name="Function" content="会话管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0278831490">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>PDU会话修改</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0278831490"></a><a name="ZH-CN_CONCEPT_0278831490"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">PDU会话修改</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0278831490__1.3.1.1">业务场景</a></li><li><a href="#ZH-CN_CONCEPT_0278831490__1.3.2.1">信令流程</a></li></ul><div><div class="section" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_section194431513584"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0278831490__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0278831490" class="sectiontitle2contents">业务场景</a></h4><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p208039434385">在UE能力变更、QoS参数有修改等场景下，UE和网络侧都可以发起PDU会话修改流程。</p>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_section10541134153715"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0278831490__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0278831490" class="sectiontitle2contents">信令流程</a></h4><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p5669522121519">伴随QoS更新触发的PDU会话修改流程有如下几种场景：</p>
+<ul id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_ul16401055184415"><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li32245549818"><a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p153451044131713">UE发起PDU会话修改</a></li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li9441655154410"><a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p817212327159">SMF发起PDU会话修改</a></li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li6503164314712"><a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p2260714181214">AN发起PDU会话修改</a></li></ul>
+<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p153451044131713"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p153451044131713"></a><a name="zh-cn_concept_0276785242_p153451044131713"></a><strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b175312043135120">UE发起PDU会话修改流程</strong>如<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig111241825203116">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig111241825203116"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig111241825203116"></a><a name="zh-cn_concept_0276785242_fig111241825203116"></a><span class="figcap"><b>图1 </b>UE发起PDU会话修改流程</span><br><span><img class="vsd" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image51011625113416" src="../images/zh-cn_image_0276785152.png"></span></div>
+<ol id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_ol12153912101214"><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li1942923191611">发送PDU会话修改请求。<ol type="a" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_ol6822125416818"><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li108223547810">当UE由于业务改变需要更新QoS时，(R)AN将UE请求的<a href="../toctopics/zh-cn_topic_0276785035.html">PDU Session Modification Request</a>转发至AMF，消息中包含PDU session ID、 Requested QoS等信息。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li71979125919">AMF收到该消息后，向SMF发送<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a>更新UE SM上下文。<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p8723132124418"><span><img id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image172372111449" src="../images/zh-cn_image_0276783949.png"></span></p>
+</li></ol>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li31534126127"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li31534126127"></a><a name="zh-cn_concept_0276785242_li31534126127"></a><strong>可选：</strong>SMF发送<a href="../toctopics/zh-cn_topic_0295421692.html">Npcf_SMPolicyControl_Update</a> Request消息给PCF，向PCF上报订阅事件及相关信息。PCF根据SMF上报的会话数据和本地的用户签约数据重新进行策略判断，生成新的规则，通过<a href="../toctopics/zh-cn_topic_0295421692.html">Npcf_SMPolicyControl_Update</a> Response消息将新的规则下发给SMF。如果没有部署动态PCC，SMF可以通过本地策略来决定是否改变QoS。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li84885911126"><strong>可选：</strong>SMF通过<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a> Response响应AMF，携带的信息包括发送给(R)AN的N2 SM Information，发送给UE的N1 SM Container（PDU Session Modification Command），通知(R)AN和UE需要更新的QoS信息。<pre class="screen" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_screen353013012565">HTTP/2.0 200 OK
+content-type: multipart/related; boundary=----Boundary
+content-length: 415
+------Boundary
+Content-Type: application/json
+{<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b817915147575">"n1SmMsg":{"contentId":"n1msg"}</strong>,<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b11961721155718">"n2SmInfo":{"contentId":"n2msg"}</strong>,<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b1722202475713">"n2SmInfoType":"PDU_RES_MOD_REQ"</strong>}
+------Boundary
+Content-Type: application/vnd.3gpp.5gnas
+......</pre>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_table1756515575577" frame="border" border="1" rules="all"><caption><b>表1 </b>Nsmf_PDUSession_UpdateSMContext Response消息中的关键信元</caption><thead align="left"><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row11565125735717"><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.6.3.3.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p18441327595">关键信元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.6.3.3.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1456695716576">信元解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row4566135745713"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.3.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1566657185718">"n1SmMsg":{"contentId":"n1msg"}</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.3.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p12685171206">指示发送给UE的N1 SM Container。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row19566457125718"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.3.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p165661657155713">"n2SmInfo":{"contentId":"n2msg"}</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.3.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p6940644013">指示送给(R)AN的N2 SM Information。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row05666571573"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.3.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1056612571574">"n2SmInfoType":"PDU_RES_MOD_REQ"</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.3.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p17566125719579">指示N2 SM Information的类型为PDU会话修改请求。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li16779353101311"><strong>可选：</strong>AMF向(R)AN发送PDU Session Resource Modify Request，请求中包含从SMF获得的N2 SM Information、N1 SM Container（PDU Session Modification Command）。<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p373715375416"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li16779353101311"></a><a name="zh-cn_concept_0276785242_li16779353101311"></a><span><img id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image1453216234238" src="../images/zh-cn_image_0276785349.png"></span></p>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li184151417544"><strong>可选：</strong>(R)AN与UE发起信令交互，将SMF需要发送给UE的PDU session ID、N1 SM Container（PDU Session Modification Command）消息转发至UE，请求UE更新QoS信息。<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p205837389544"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li184151417544"></a><a name="zh-cn_concept_0276785242_li184151417544"></a><span><img id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image136799543920" src="../images/zh-cn_image_0276785029.png"></span></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_table18688124124910" frame="border" border="1" rules="all"><caption><b>表2 </b>PDU Session Modification Command消息中的关键信元</caption><thead align="left"><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row76891124154916"><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.6.5.2.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p768932484917">关键信元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.6.5.2.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p6689724164916">信元解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row146897246493"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.5.2.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p19951807">Authorized QoS rules</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.5.2.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p125731171063">指示UE使用的一组QoS规则。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row9689162420491"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.5.2.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p42167482">Mapped EPS bearer contexts</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.5.2.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p568920246493">指示PDU会话对应的EPS上下文集合。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row0689122454915"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.5.2.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p807473">Authorized QoS flow descriptions</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.5.2.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p63341639">指示UE使用的QoS流描述集合，每个QoS流描述包含一组参数的集合。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li6461990145"><strong>可选：</strong>(R)AN向AMF发送PDU Session Resource Modify Response，包含N2 SM Information。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li1850613234145"><strong>可选：</strong>AMF通过<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a> Request把从(R)AN获得的N2 SM Information转发给SMF，通知SMF (R)AN已经更新QoS信息。SMF发送<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a> Response。<pre class="screen" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_screen517519221095">POST /nsmf-pdusession/v1/sm-contexts/2152857630/modify HTTP/2.0
+user-agent: AMF
+content-type: multipart/related; boundary=----Boundary
+host: 5gcore.huawei.com
+content-length: 507
+------Boundary
+Content-Type: application/json
+{"guami":{"plmnId":{"mcc":"460","mnc":"03"},"amfId":"000041"},"servingNetwork":{"mcc":"460","mnc":"03"},"anType":"3GPP_ACCESS","ueLocation":{"nrLocation":{"tai":{"plmnId":{"mcc":"460","mnc":"03"},"tac":"410101"},"ncgi":{"plmnId":{"mcc":"460","mnc":"03"},"nrCellId":"410110201"}}},<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b99489528108">"n2SmInfo":{"contentId":"n2smInfo"},"n2SmInfoType":"PDU_RES_MOD_RSP"}</strong><strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b18528155619105">  //</strong><strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b19545923161019">"n2SmInfo"、"n2SmInfoType":</strong><strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b185515454101">分别指示N2 SM Information和信息类型为PDU会话修改请求。</strong>
+------Boundary
+......</pre>
+<div class="note" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_note125371917152617"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p35377179262">当PDU会话修改流程只需要在UPF上执行相关操作时，步骤3~7以及8~12不会发生，只需要更新N4会话相关信息。</p>
+</div></div>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li133358257143"><strong>可选：</strong>当N4会话有修改时，SMF通过<a href="../toctopics/zh-cn_concept_0000001132686661.html">PFCP Session Modification Request</a>(N4 Session Modification Request)消息更新N4会话，将更新的QoS信息通知PDU会话修改流程涉及的UPF，关键信元如<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig8612125015713">图2</a>所示；UPF发送<a href="../toctopics/zh-cn_concept_0000001086008994.html">PFCP Session Modification Response</a>(N4 Session Modification Response)进行响应。<div class="fignone" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig8612125015713"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig8612125015713"></a><a name="zh-cn_concept_0276785242_fig8612125015713"></a><span class="figcap"><b>图2 </b>PFCP Session Modification Request消息中的关键信元</span><br><span><img id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image51743277127" src="../images/zh-cn_image_0276783764.png"></span></div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_table1617919351101" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row218023517020"><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.6.8.5.1.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p16180435203">关键信元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.6.8.5.1.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p141801358011">信元解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row418017355019"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.8.5.1.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p98837289912">FAR ID</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.8.5.1.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1341518013103">指示PFCP会话配置的FAR标识。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row19180935707"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.8.5.1.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p55531435193">Apply Action</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.8.5.1.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p645803151016">指示对数据包适用的动作。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row4181835608"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.8.5.1.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p6696184116911">Update Forwarding Parameters</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.6.8.5.1.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p51811359011">指示Apply Action为请求转发更新数据包，包含更新的用户面功能需要应用的转发指令。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li41191711204718"><strong>可选：</strong>UE向(R)AN发送包含PDU session ID、<a href="../toctopics/zh-cn_topic_0276785362.html">PDU Session Modification Complete</a>的NAS消息，确认接受PDU会话修改。<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1626172431816"><span><img id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image161391646151415" src="../images/zh-cn_image_0276783909.png"></span></p>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li3496041171210"><strong>可选：</strong>(R)AN将接收的NAS消息转发至AMF。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li16958163161411"><strong>可选：</strong>AMF通过<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a> Request将从(R)AN获得的<a href="../toctopics/zh-cn_topic_0276785362.html">PDU Session Modification Complete</a>等信息发送至SMF，通知SMF UE已经更新QoS信息。SMF发送<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a> Response。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li27691147151217"><strong>可选：</strong>当N4会话有修改时，SMF通过<a href="../toctopics/zh-cn_concept_0000001132686661.html">PFCP Session Modification Request</a>(N4 Session Modification Request)消息更新N4会话，将更新的QoS信息通知PDU会话修改流程涉及的UPF；UPF发送<a href="../toctopics/zh-cn_concept_0000001086008994.html">PFCP Session Modification Response</a>(N4 Session Modification Response)进行响应。<div class="note" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_note17559315183416"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p65658155341">6~8可能发生在9~12之前，(R)AN与UE发送响应的时间顺序不确定。</p>
+</div></div>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li1679510416438"><strong>可选：</strong>如果SMF在步骤<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li31534126127">2</a>中与PCF进行了交互，SMF将发送<a href="../toctopics/zh-cn_topic_0295421692.html">Npcf_SMPolicyControl_Update</a> Request消息给PCF，向PCF上报订阅事件及相关信息。PCF根据SMF上报的会话数据和本地的用户签约数据重新进行策略判断，生成新的规则，通过<a href="../toctopics/zh-cn_topic_0295421692.html">Npcf_SMPolicyControl_Update</a> Response消息将新的规则下发给SMF。</li></ol>
+<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p817212327159"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p817212327159"></a><a name="zh-cn_concept_0276785242_p817212327159"></a><strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b14451135811151">SMF请求PDU会话修改</strong>如<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig3663175112618">图3</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig3663175112618"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig3663175112618"></a><a name="zh-cn_concept_0276785242_fig3663175112618"></a><span class="figcap"><b>图3 </b>SMF请求PDU会话修改流程</span><br><span><img class="vsd" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image247411581227" src="../images/zh-cn_image_0276785492.png"></span></div>
+<ol id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_ol65571222141611"><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li4330181464515">如下场景可以触发SMF请求PDU会话修改流程：<ul id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_ul13563102816457"><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li23262048112615">PCF识别本地配置策略有修改，通过<a href="../toctopics/zh-cn_topic_0295421693.html">Npcf_SMPolicyControl_UpdateNotify</a>消息流程将策略修改信息通知SMF发起PDU会话修改。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li3314111083118">UDM识别本地配置策略有修改，通过Nudm_SDM_Notification更新SMF的订阅数据，消息中包含SUPI、Session Management Subscription Data信息，SMF更新数据后发送ACK，发起PDU会话修改。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li125631628174517">本地配置的QoS策略发生变化，SMF发起PDU会话修改。</li></ul>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li106611769233"><strong>可选：</strong>在UDM请求SMF发起PDU会话修改场景下，SMF发起<a href="../toctopics/zh-cn_topic_0295421692.html">Npcf_SMPolicyControl_Update</a>消息流程向PCF上报订阅事件。如果没有部署动态PCC，SMF可以通过本地策略来决定是否改变QoS。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li167331657162312"><strong>可选：</strong>SMF通过<a href="../toctopics/zh-cn_topic_0290888657.html">Namf_Communication_N1N2MessageTransfer</a>响应AMF，携带的信息包括发送给(R)AN的N2 SM Information，发送给UE的N1 SM Container，通知(R)AN和UE需要更新的QoS信息。<pre class="screen" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_screen167691213160">POST /namf-comm/v1/ue-contexts/imsi-460031100100001/n1-n2-messages HTTP/2.0
+user-agent: SMF
+content-type: multipart/related; boundary=----Boundary
+host: amf1.cluster1.net2.amf.5gc.mnc003.mcc460.3gppnetwork.org
+content-length: 649
+------Boundary
+Content-Type: application/json
+{<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b26142034191711">"n1MessageContainer"</strong>:{"n1MessageClass":"SM","n1MessageContent":{"contentId":"n1msg"}},<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b2186153861715">"n2InfoContainer"</strong>:{"n2InformationClass":"SM","smInfo":{"pduSessionId":5,"n2InfoContent":{"ngapMessageType":47,<strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b163033483175">"ngapIeType":"PDU_RES_MOD_REQ"</strong>,"ngapData":{"contentId":"n2msg"}}}},"pduSessionId":5}
+------Boundary
+......</pre>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_table19205144020127" frame="border" border="1" rules="all"><caption><b>表3 </b>Namf_Communication_N1N2MessageTransfer消息中的关键信元</caption><thead align="left"><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row142056404121"><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.9.3.3.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1206240101217">关键信元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.2.9.3.3.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1820674091215">信元解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row4206114051211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.9.3.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p878334991815">"n1MessageContainer"</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.9.3.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p9357122331912">指示发送给UE的N1 SM Container。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row162062401124"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.9.3.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p730295801819">"n2InfoContainer"</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.9.3.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p1635712310193">指示送给(R)AN的N2 SM Information。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_row1206540181218"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.9.3.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p78849431911">"ngapIeType":"PDU_RES_MOD_REQ"</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.2.9.3.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p935712321911">指示N2 SM Information的类型为PDU会话修改请求。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li182513475276"><strong>可选：</strong>后续流程与<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p153451044131713">UE发起PDU会话修改流程</a>中的步骤4~13一致。</li></ol>
+<p id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p2260714181214"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p2260714181214"></a><a name="zh-cn_concept_0276785242_p2260714181214"></a><strong id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_b297018585610">AN发起PDU会话修改流程</strong>如<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig11552923979">图4</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig11552923979"><a name="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_fig11552923979"></a><a name="zh-cn_concept_0276785242_fig11552923979"></a><span class="figcap"><b>图4 </b>AN请求PDU会话修改流程</span><br><span><img class="vsd" id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_image2088516231840" src="../images/zh-cn_image_0276785441.png"></span></div>
+<ol id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_ol351418487816"><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li1713196113414">(R)AN识别现有QoS不能满足业务要求，向AMF发送N2 Message，消息中包含PDU Session ID、N2 SM Information，AMF向SMF发送<a href="../toctopics/zh-cn_topic_0293815617.html">Nsmf_PDUSession_UpdateSMContext</a> Request，携带N2 SM Information，通知SMF发起PDU会话修改。</li><li id="ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_li351712481185">后续流程与<a href="#ZH-CN_CONCEPT_0278831490__zh-cn_concept_0276785242_p153451044131713">UE发起PDU会话修改流程</a>中的2~13相同。</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_5g_Session_Management_03.html">实现原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_5g_Session_Management_04.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../desc/unc_2000_feature_desc_5g_Session_Management_06.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

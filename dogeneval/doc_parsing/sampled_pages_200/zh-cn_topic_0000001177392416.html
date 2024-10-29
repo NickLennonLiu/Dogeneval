@@ -1,0 +1,187 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="维护PAM策略">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001221314107.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001177550972.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0000001177392416">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>维护PAM策略</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0000001177392416"></a><a name="ZH-CN_TOPIC_0000001177392416"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">维护PAM策略</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0000001177392416__1.3.3.1">口令复杂度维护</a></li><li><a href="#ZH-CN_TOPIC_0000001177392416__1.3.7.1">口令复杂度维护操作说明</a></li><li><a href="#ZH-CN_TOPIC_0000001177392416__1.3.8.1">登录出错阈值维护</a></li><li><a href="#ZH-CN_TOPIC_0000001177392416__1.3.9.1">登录出错阈值维护操作说明</a></li><li><a href="#ZH-CN_TOPIC_0000001177392416__1.3.10.1">su权限维护</a></li></ul><div><p>本系统使用Linux-PAM实现用户的身份鉴别、口令复杂度控制、登录阈值设置等。PAM主要是由一组共享库文件（在/lib64/security/目录下）和一些配置文件（在/etc/pam.d/目录下）组成的。</p>
+<p>系统管理员可以根据维护需要对PAM策略进行修改。</p>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001177392416__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0000001177392416" class="sectiontitle2contents">口令复杂度维护</a></h4><p>系统默认的设置口令复杂度参见《设置口令复杂度》。</p>
+</div>
+<p>用户在设置root账户口令或者新创建账户口令时，强烈建议按照密码复杂度要求设置。根据维护需要，系统管理员通过修改/etc/pam.d/system-auth和/etc/pam.d/password-auth的pam_pwquality.so和pam_pwhistory.so配置来重新设置口令复杂度，但是如果关闭复杂度配置会导致安全风险。修改策略根据实际情况谨慎决策，建议用户使用EulerOS如下默认配置：</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>pam_pwquality.so配置项说明</caption><thead align="left"><tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_r8edfe8abd35f49d897d7c4670df2b502"><th align="left" class="cellrowborder" valign="top" width="45.16%" id="mcps1.3.5.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ac5232996683645c8b230a4443a5c15f3"><strong id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_aeabdd56884db480dba8b1150f4c4dc2e">配置项</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="54.84%" id="mcps1.3.5.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ae4b610fbb7da42c898910c01f8d71ef6"><strong id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a5d0771124baa4e17a16689eec54912ea">说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_row9464111182319"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_p104651513232">difok=2</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_p184651016237">口令新旧差异至少有2个字符。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ra79fa7c8175a4eeb89338dc9dc451b72"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a6d81d83bdf2f4e33a46c61f37cdbb2e1">minlen=14</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a0df5dfa3aa6e4cc29df0a4b5d0f1f7be">口令长度至少包含14个字符。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_r2b145b865fbd4636a38b9b30a22b2e3d"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a5ce011a0f2364568b2c6aeadd312cb13">minclass=4</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ada0b80bbdb4548ea87d5937460fc6516">口令至少包含大写字母、小写字母、数字和特殊字符中的任意4种。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_re1d8dc0050bb481bacd5498db80c8f56"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a593bbc0c1cdc4d5eb887888fd3328b8b">ucredit=-1</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_abb48fea257ae4dfe94c9d76d99e75583">口令应包含至少一个大写字母。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_r11d9cef366ba429b97ee502cf04f3bba"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_aa797bdf0169947e995d34767d2931c50">lcredit=-1</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ac4dd548642d749b49aca088667d28cf4">口令应包含至少一个小写字母。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_r9ce17c478daf49578007bc39ec404c95"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a81a8b13887ef4390aaa048d83c45d7cf">dcredit=-1</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_af357ab3ed39049138f62f99a1b6051a5">口令应包含至少一个数字。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_rc512a671fcbb49d48c7bc61d8802fc2f"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a6615d76582424561a93c1928ae80711c">ocredit=-1</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a1b91f95491f84b2c90ee29c5f1a7e85d">口令应包含至少一个特殊字符。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_r0201c3845f644b53a7059a1512b2f0fd"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a8bf8413ea7774e1fa7ee620fefb4829c">retry=3</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ab206bbb864784601a2a15a6748aa30a2">每次修改最多可以尝试3次。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_rcde6bee869c7481db5354c6158d3f68f"><td class="cellrowborder" valign="top" width="45.16%" headers="mcps1.3.5.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_afa524bbbe5f44126b5d28dffcec0334d">enforce_for_root</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.84%" headers="mcps1.3.5.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a62bfce2284624a139333f357044f5e2e">本设置对root账户同样有效。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表2 </b>pam_pwhistory.so配置项说明</caption><thead align="left"><tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_rbe13b4824bee44ee81b0f4ece084d97b"><th align="left" class="cellrowborder" valign="top" width="44.79%" id="mcps1.3.6.2.3.1.1" liSelected="liSelected"><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_aadff6c215f204c0cb67db810ca76dd8e"><strong id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a23d6db654ab8474fa8a0c1c6b8298d52">配置项</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="55.21%" id="mcps1.3.6.2.3.1.2" liSelected="liSelected"><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ae9fa114b2f7f4d24b96669b5c42ea565"><strong id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_adbe710df865b40ccbc934d237beb3bb5">说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_rf5030cad5de14fa3ad6bf3aaabfedda0"><td class="cellrowborder" valign="top" width="44.79%" headers="mcps1.3.6.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_af80b0542a3114e7ead41683195bed01b">remember=5</p>
+</td>
+<td class="cellrowborder" valign="top" width="55.21%" headers="mcps1.3.6.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_abeadd7188e2e4c3a815b691d426a26eb">口令不能修改为过去5次使用过的旧口令。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_r3c2496b4d7534909990892a0717f247f"><td class="cellrowborder" valign="top" width="44.79%" headers="mcps1.3.6.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_a31be1d876ea14c07a743269b120fda98">enforce_for_root</p>
+</td>
+<td class="cellrowborder" valign="top" width="55.21%" headers="mcps1.3.6.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222687007_zh-cn_topic_0000001092818510_ae9cae8395fb749a0bbf4b816f4aa0175">本设置对root账户同样有效。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001177392416__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0000001177392416" class="sectiontitle2contents">口令复杂度维护操作说明</a></h4><p>以修改口令长度为例，操作步骤如下：</p>
+<ol><li><span>修改/etc/pam.d/system-auth和/etc/pam.d/password-auth文件的pam_pwquality.so后的minlen字段的值，如下：</span><p><pre class="screen">minlen=14</pre>
+<p>口令长度至少为14位。</p>
+</p></li><li><span>保存并退出/etc/pam.d/system-auth和/etc/pam.d/password-auth文件。</span></li></ol>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001177392416__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0000001177392416" class="sectiontitle2contents">登录出错阈值维护</a></h4><p>根据维护需要，系统管理员通过修改/etc/pam.d/system-auth和/etc/pam.d/password-auth的pam_faillock.so配置来重新设置登录出错阈值，pam_faillock.so配置项如下。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表3 </b>pam_faillock.so配置项说明</caption><thead align="left"><tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_r5ddcdf2378624d3ebe741051c18afc98"><th align="left" class="cellrowborder" valign="top" width="30.06%" id="mcps1.3.8.3.2.3.1.1" liSelected="liSelected"><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_afd85f3cac36449f4ad45185e9d41b3ed"><strong id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a76060080173d47fcbf53dab772f51360">配置项</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="69.94%" id="mcps1.3.8.3.2.3.1.2" liSelected="liSelected"><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a1ec9687c5a6c4bd0bdfddae099040a39"><strong id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a667b4c19bd204850843fefc273046732">说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_r55be22dedbd741629751c2d9d410d701"><td class="cellrowborder" valign="top" width="30.06%" headers="mcps1.3.8.3.2.3.1.1 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_acd32b0827cf145d58071658671854d46">authfail</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.94%" headers="mcps1.3.8.3.2.3.1.2 "><p style="color:#000000;" id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a8de3bf60f7164d5c8aa30cbdf5ce6ce9">捕获用户登录失败的事件。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_rf575e68bddd54388b9a88e56b09126d7"><td class="cellrowborder" valign="top" width="30.06%" headers="mcps1.3.8.3.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_aae18622a5c5446ca9a2a2a8ec0edd6ed">deny=5</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.94%" headers="mcps1.3.8.3.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a217dbebb77344c43aa921976ca1c74bc">用户连续登录失败次数超过5次即被锁定。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_re82220969a0946b4a078d1cd9baf8ea7"><td class="cellrowborder" valign="top" width="30.06%" headers="mcps1.3.8.3.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_adf5753021b26408d8530ec8546507d09">unlock_time=900</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.94%" headers="mcps1.3.8.3.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a247ada1f1cec40a1bcce330826f1b7d6">普通用户自动解锁时间为900秒（即15分钟）。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_rd644bdea6d374265b1ba8407b48afc97"><td class="cellrowborder" valign="top" width="30.06%" headers="mcps1.3.8.3.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a534a8148efc14ec3a3c6c8525634d594">even_deny_root</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.94%" headers="mcps1.3.8.3.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_zh-cn_topic_0000001139815743_a100ff1c5a82b45658e87637f2d144d92">同样限制root账户。</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_row242218102817"><td class="cellrowborder" valign="top" width="30.06%" headers="mcps1.3.8.3.2.3.1.1 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_p18431718162812">silent</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.94%" headers="mcps1.3.8.3.2.3.1.2 "><p id="ZH-CN_TOPIC_0000001177392416__zh-cn_topic_0000001222565515_p34311184282">隐藏失败具体原因。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>系统管理员在登录系统后可以通过执行“faillock --user <em>XXXX</em> --reset”命令来清空用户登录出错的次数记录（XXXX是对应的用户名）。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001177392416__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0000001177392416" class="sectiontitle2contents">登录出错阈值维护操作说明</a></h4><ul><li>口令输错次数记录清空操作步骤如下：<ol><li>使用root用户登录系统。</li><li>执行如下命令，清除口令输错次数记录。也可以清除指定用户的错误次数记录。<pre class="screen">faillock --user <em>XXXX</em> --reset</pre>
+</li></ol>
+</li></ul>
+<ul><li>修改出错阈值的操作步骤如下：<ol><li>修改/etc/pam.d/system-auth和/etc/pam.d/password-auth文件的pam_faillock.so后的deny字段的值。</li><li>保存并退出/etc/pam.d/system-auth和/etc/pam.d/password-auth文件。</li></ol>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0000001177392416__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0000001177392416" class="sectiontitle2contents">su权限维护</a></h4><p>系统默认只允许root和wheel群组的用户使用su命令，限制其他用户使用su命令。</p>
+<p>根据维护需要，系统管理员可以授予、回收其他用户使用su命令的权限，操作如下：</p>
+<ul><li>查看当前具有su权限的用户。<pre class="screen">cat /etc/group | grep wheel | cut -d : -f 4</pre>
+<p>各用户间以“,”分隔。</p>
+</li><li>授予su权限。<pre class="screen">groupmems -g wheel -a <em>user</em></pre>
+<p>user为允许使用su命令的用户。</p>
+</li><li>回收su权限。<pre class="screen">groupmems -g wheel -d <em>user</em></pre>
+</li></ul>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0000001221314107.html">认证与授权维护
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0000001177550972.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

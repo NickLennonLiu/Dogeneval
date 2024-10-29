@@ -1,0 +1,192 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置NRF订阅参数（SET NRFSUBPARA）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nrf_subscription_parameters.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_nrfsubthreshold.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_nrfsubpara.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0304284726">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置NRF订阅参数（SET NRFSUBPARA）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0304284726"></a><a name="ZH-CN_MMLREF_0304284726"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置NRF订阅参数（SET NRFSUBPARA）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0304284726__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0304284726__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0304284726__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0304284726__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0304284726__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0304284726" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：NRF</strong>
+                </p>
+
+                    <p>该命令用于设置NRF订阅参数。用于控制订阅记录的删除和通知发送。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0304284726__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0304284726" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+							<ul><li>主备或双活组网的场景下，如果需要配置此命令，则两个NRF上均需执行此命令，且配置参数一致。</li></ul>
+  
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">SUBAGEREDTM</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">SUBVALIDREDTMSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.3">SUBVALIDREDTM</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>10</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>SWITCH_OFF</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0304284726__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0304284726" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0304284726__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0304284726" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SUBAGEREDTM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>订阅记录老化宽限时长(秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置订阅记录老化宽限时长。在订阅到达有效期后，再经过该参数设置的时长后，订阅数据会被删除。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是10~604800，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SUBVALIDREDTMSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>订阅记录有效宽限开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置订阅记录有效宽限开关。当该参数设置为SWITCH_ON时，表示开关打开，对于已超过订阅有效期，但超期时长在“订阅记录有效宽限时长”之内的记录，依然算有效订阅记录，如果有相关联的NF变更，会根据该订阅记录发送通知。（当订阅记录被老化后，不会发送通知。）。</p>
+<p>当该参数设置为SWITCH_OFF时，表示开关关闭，对于已超过订阅有效期的订阅记录，如果有相关联的NF变更，不会根据该订阅记录发送通知。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>SWITCH_ON（开启）</li><li>SWITCH_OFF（关闭）</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SUBVALIDREDTM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>订阅记录有效宽限时长(秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"SUBVALIDREDTMSW"配置为"SWITCH_ON"时为条件可选参数。</p>
+<p> 参数含义：该参数表示订阅有效冗余时长。当“订阅记录有效宽限开关”设置为SWITCH_ON时，该参数配置才生效。对于已超过订阅有效期，但超期时长在该参数之内的记录，依然算有效订阅记录，如果有相关联的NF变更，会根据该订阅记录发送通知。（当订阅记录被老化后，不会发送通知。）。</p>
+<p>当该参数设置为0时，表示订阅记录一直有效，可以发送对应通知，直到老化。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~604800，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0304284726__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0304284726" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>当运营商不使用默认配置，需要修改订阅老化时长并延长订阅有效时长，执行此命令。
+1.当订阅记录超过有效期60s后才会老化，并且在订阅超过有效期30s内依然发通知。</p>
+
+                    <pre class="screen">SET NRFSUBPARA:  SUBAGEREDTM=60,  SUBVALIDREDTMSW=SWITCH_ON,  SUBVALIDREDTM=30;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nrf_subscription_parameters.html">NRF订阅参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_nrfsubthreshold.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_nrfsubpara.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

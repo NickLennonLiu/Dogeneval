@@ -87,8 +87,8 @@ def format_kp_templ_mapping_prompt(kp_title, kp_content, template_list, tem_cnt=
     return prompts
 
 def map_kp_to_templates(kp, templates, llm):
-    kp_title = kp["描述"]
-    kp_content = kp["内容"]
+    kp_title = kp["description"]
+    kp_content = kp["content"]
 
     prompts = format_kp_templ_mapping_prompt(kp_title, kp_content, templates, tem_cnt=6)
     
@@ -133,8 +133,8 @@ if __name__ == "__main__":
     results = []
 
     for i, row in tqdm(df.iterrows(), total=len(df)):
-        kp_title = row["描述"]
-        kp_content = row["内容"]
+        kp_title = row["description"]
+        kp_content = row["content"]
 
         row_json = eval(row.to_json())
 

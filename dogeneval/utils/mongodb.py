@@ -4,7 +4,7 @@
 
 import pymongo
 from pymongo import MongoClient
-
+import pandas as pd
 
 
 def load_mongodb_client():
@@ -29,3 +29,16 @@ def load_results(collection_name):
         documents.append(document)
 
     return documents
+
+def load_results_as_df(collection_name):
+    documents = load_results(collection_name)
+    df = pd.DataFrame(documents)
+    return df
+
+def export_collection_to_excel(collection_name, file_path):
+    df = load_results_as_df(collection_name)
+    df.to_excel(file_path, index=False)
+
+
+if __name__ == "__main__":
+    export_collection_to_excel("QA_GEN-10281814", "qa_gen_10281814.xlsx")

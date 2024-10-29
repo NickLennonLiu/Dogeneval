@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置统一HTR功能(SET UNIHTR)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_unified_htr_flowctrl_function_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_unihtr.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126305954">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置统一HTR功能(SET UNIHTR)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126305954"></a><a name="ZH-CN_MMLREF_0000001126305954"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置统一HTR功能(SET UNIHTR)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126305954__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126305954__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126305954__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305954__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305954__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126305954__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305954__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126305954" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126305954__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>此命令用于设置统一HTR（Hard to Reach）流控功能的相关参数。当由于系统升级或复位导致S11/S4、S6a/S6d、S13/Gf、SGs接口出现拥塞时，可以通过开启此流控功能来保护与这些接口相连的周边网元免于拥塞。 统一HTR流控功能是指<span class="keyword"><span id="ZH-CN_MMLREF_0000001126305954__zh-cn_task_0272842530_text1503051056192121">UNC</span></span>系统（MME）的周边网元存在过载风险时，<span class="keyword"><span id="ZH-CN_MMLREF_0000001126305954__zh-cn_task_0272842530_text1503051056192121_1">UNC</span></span>系统能够基于周边网元返回成功应答数的周期变化自动调节Attach、Inter TAU、Inter RAU（S6d接口）、Inter RAT Intra USN TAU、Inter RAT Intra USN RAU流程的处理速率，从而控制向周边网元发送的请求数，达到保护周边网元的目的。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305954__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126305954" class="sectiontitle2contents">注意事项</a></h4><ul><li>系统初次运行时，会执行系统初始设置值。</li><li>此命令执行后立即生效。</li><li>“统一HTR流控”功能优先级高于“固定速率流控”。启用“统一HTR流控”功能后，即<span class="parmname">“OFFICESWITCH（局向流控开关）”</span>取值为<span class="parmvalue">“ON”</span>时，“固定速率流控”功能失效。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305954__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126305954" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305954__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126305954" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305954__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126305954" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>OFFICESWITCH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>局向流控开关</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置统一HTR局向的流控功能是否开启。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“ON（开启）”</span></li><li><span class="parmvalue">“OFF（关闭）”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“ON （开启）”</span></p>
+<div class="p">配置原则：<ul><li>ON（开启）：当系统升级或复位时，如果UE在较短时间内触发的接入请求速率过大可能导致周边网元拥塞（比如：DRA/HSS，OCS/PCRF），需要开启此流控功能。</li><li>OFF（关闭）：当系统用户量较小，或者周边网元（比如：DRA/HSS，OCS/PCRF）处理能力非常强时，可以关闭此流控功能。一般情况下不建议关闭此流控功能。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INITFCTHDPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>流控速率配置策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：参数用于设置统一HTR局向的<span class="parmname">“初始启控速率”</span>和<span class="parmname">“最大流控速率”</span>的获取策略。</p>
+<p>前提条件：该参数在"局向流控开关"参数配置为<span class="parmvalue">“ON（开启）”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“DEFAULT（系统缺省值）”</span></li><li><span class="parmvalue">“SPECIFIC（自定义值）”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“DEFAULT（系统缺省值）”</span></p>
+<div class="p">配置原则：<ul><li>DEFAULT（系统缺省值）：当不明确周边网元的处理能力时，建议选择此配置值。系统将基于每SPP进程承载的缺省用户数来设置一个缺省值作为<span class="parmvalue">“初始启控速率”</span>；系统缺省值为每SPP进程50个/秒，可使用<a href="dsp_htrofcinfo.html"><b><span class="cmdname">DSP HTROFCINFO</span></b></a>命令查询<span class="parmvalue">“初始启控速率”</span>的实时值；如果系统经历过一次统一HTR流控启控和解控过程，并且解控时的业务请求速率大于每SPP进程50个/秒，那么系统自动将<span class="parmvalue">“初始启控速率”</span>调整为解控时业务请求速率，并维持其2小时生命周期，超出生命周期后将自动调整为每SPP进程50个/秒。<span class="parmname">“最大流控速率”</span>的系统缺省值为<span class="parmname">“初始启控速率”</span>的2倍，具体含义请参考<span class="parmname">“最大流控速率”</span>的参数描述。</li><li>SPECIFIC(自定义值)：当明确周边网元的处理能力或者系统缺省值不合理时，通过选择此项来设置<span class="parmvalue">“初始启控速率”</span>和<span class="parmname">“最大流控速率”</span>的值。设置方法请参考<span class="parmvalue">“初始启控速率”</span>和<span class="parmname">“最大流控速率”</span>的参数描述。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INITFCTHD</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>初始启控速率（个/秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：用于指定统一HTR局向流控功能整系统流控速率的最小值。当统一HTR流控功能开启后，如果UE触发的“注册请求”速率超过此阈值，系统将基于周边网元每周期返回的应答成功量来控制系统将要处理的“注册请求”数，以此来减少向周边网元发送的请求数。 注册请求指UE发起的Attach请求、Inter TAU请求、Inter RAU（S6d接口）请求、Intra TAU(GERAN/UTRAN-&gt;LTE)请求和Intra RAU(LTE-&gt;GERAN/UTRAN S6d接口)请求。</p>
+<p>前提条件：该参数在<span class="parmname">“流控速率配置策略”</span>参数配置为<span class="parmvalue">“SPECIFIC（自定义值）”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：200~1000000</p>
+<p>系统初始设置值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>由于系统初始设置的<span class="parmvalue">“初始启控速率”</span>阈值并不是基于每个局点实际情况计算的，每次新建局点时，都需要基于局点当前的实际用户数和期望的接入时长来重新计算<span class="parmvalue">“初始启控速率”</span>阈值。</li><li>建议根据实际用户数和期望时长来配置此参数，即<span class="parmvalue">“初始启控速率（个/秒）”</span>为：实际用户数 / 接入时长。例如：系统当前实际注册用户数为80万，需要在1800秒内接入所有用户，那么初始启控速率需要设置为：800,000个 / 1800秒 = 445(个/秒)。</li><li>如果通过上面公式计算的值与周边网元的处理能力存在较大的区别，那么请以周边网元中处理能力最弱的为基准来设置“初始启控速率”；下面假设HSS是周边网元中处理能力最弱的为例来说明“初始启控速率”的设置：假如HSS的每秒能够处理S6a/S6d接口请求数为900个/秒，一般一个“注册请求”会向HSS发送一次取鉴权集请求和位置更新请求，那么对应的<span class="parmvalue">“初始启控速率”</span>：900(个/秒) / 2 = 450(个/秒)。</li><li>系统设置的<span class="parmvalue">“初始启控速率”</span>缺省值为每SPP进程50个/秒，具体值请使用<a href="dsp_htrofcinfo.html"><b><span class="cmdname">DSP HTROFCINFO</span></b></a>命令查询。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>MAXFCTHD</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>最大流控速率（个/秒）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：用于指定统一HTR局向流控功能整系统流控速率的最大值。当统一HTR局向流控功能向周边网元发送的请求数达到此阈值时，流控速率将不再增加。</p>
+<p>前提条件：该参数在<span class="parmname">“流控速率配置策略”</span>参数配置为<span class="parmvalue">“SPECIFIC（自定义值）”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：200~1000000</p>
+<p>系统初始设置值：无</p>
+<div class="p">配置原则：<ul><li><span class="parmname">“最大流控速率”</span>取值需大于等于<span class="parmname">“初始启控速率”</span>的取值。<span class="parmname">“最大流控速率”</span>一般设置为<span class="parmname">“初始启控速率”</span>的两倍。</li><li>当<span class="parmname">“最大流控速率”</span>取值等于<span class="parmname">“初始启控速率”</span>的取值时，统一HTR局向流控效果相当于固定速率流控功能。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SUCCPERCENT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>流控恢复阈值（%）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于设置统一HTR流控恢复阈值。当UE的接入流程的端到端成功率高于该参数且没有消息再被流控时，统一HTR流控功能将会被解除。</p>
+<p>前提条件：该参数在<span class="parmvalue">“局向流控开关”</span>参数配置为<span class="parmvalue">“ON（开启）”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0~100</p>
+<p>系统初始设置值：85</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305954__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126305954" class="sectiontitle2contents">使用实例</a></h4><p>当系统复位时，当前实际注册用户数为80万，需要在1800秒内接入所有用户，那么初始启控速率需要设置为：800,000个 / 1800秒 = 445(个/秒)，最大流控速率需要设置为：445（个/秒）*2 = 890(个/秒)，运行以下命令：</p>
+<p><span class="msgph">SET UNIHTR: OFFICESWITCH=ON, INITFCTHDPLCY=SPECIFIC, INITFCTHD=445, MAXFCTHD=890;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_unified_htr_flowctrl_function_management.html">统一HTR流控功能管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_unihtr.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="PDU建立流程中的Qos协商">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0000001212599686.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0000001212759668.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-104511">
+<meta name="Function" content="N26">
+<meta name="Function" content="互操作">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0000001257199565">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>PDU建立流程中的Qos协商</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0000001257199565"></a><a name="ZH-CN_CONCEPT_0000001257199565"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">PDU建立流程中的Qos协商</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0000001257199565__1.3.1.1">信令流程</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001257199565__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0000001257199565" class="sectiontitle2contents">信令流程</a></h4><p>在漫游场景下，UE发起PDU会话过程中，拜访地会对UE的QoS进行控制。具体流程如<a href="#ZH-CN_CONCEPT_0000001257199565__fig12396154812520">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0000001257199565__fig12396154812520"><a name="ZH-CN_CONCEPT_0000001257199565__fig12396154812520"></a><a name="fig12396154812520"></a><span class="figcap"><b>图1 </b>漫游场景下PDU会话建立流程</span><br><span><img class="vsd" src="../images/zh-cn_image_0000001292023586.png"></span></div>
+<p>下文中仅描述PDU会话建立场景下拜访地对拜访用户进行QoS控制的步骤，其他步骤与PDU会话建立场景一致，请参考<a href="zh-cn_concept_0276785043.html">PDU会话建立</a>中对应的描述。</p>
+<ol><li>步骤6：V-SMF向H-SMF发送Nsmf_PDUSession_Create Request消息，通过VplmnQos信元传递由<a href="../MML/Document/add_vsmfdftqosctrl.html"><b><span class="cmdname">ADD VSMFDFTQOSCTRL</span></b></a>命令配置的Default QoS Flow参数。
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>VplmnQos信元携带的QoS相关信元</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.87%" id="mcps1.3.1.5.1.2.2.6.1.1" liSelected="liSelected"><p>信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.27%" id="mcps1.3.1.5.1.2.2.6.1.2" liSelected="liSelected"><p>数据类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="9.32%" id="mcps1.3.1.5.1.2.2.6.1.3" liSelected="liSelected"><p>呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="9.4%" id="mcps1.3.1.5.1.2.2.6.1.4" liSelected="liSelected"><p>存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="51.13999999999999%" id="mcps1.3.1.5.1.2.2.6.1.5" liSelected="liSelected"><p>描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>5qi</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>5Qi</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该IE应包含QoS流的5QI（5G QoS Identifier）。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>arp</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>Arp</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该IE应包含分配给QoS流的ARP（Allocation and Retention Priority ）。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>sessionAmbr</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>Ambr</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该UE指示用户的PDU会话的保证的会话AMBR。该IE应包含授权给PDU会话的Session AMBR。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>maxFbrDl</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>BitRate</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该IE应包含下行最大比特率。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>maxFbrUl</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>BitRate</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该IE应包含上行最大比特率。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>guaFbrDl</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>BitRate</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该IE应包含下行保证比特率。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.87%" headers="mcps1.3.1.5.1.2.2.6.1.1 "><p>guaFbrUl</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.27%" headers="mcps1.3.1.5.1.2.2.6.1.2 "><p>BitRate</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.32%" headers="mcps1.3.1.5.1.2.2.6.1.3 "><p>O</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.4%" headers="mcps1.3.1.5.1.2.2.6.1.4 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.13999999999999%" headers="mcps1.3.1.5.1.2.2.6.1.5 "><p>该IE应包含上行保证比特率。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li>步骤9a：H-SMF向H-PCF发送Npcf_SMPolicyControl_Create Request消息，携带VplmnQos信元。</li><li>步骤9b：H-PCF收到VplmnQos信元携带的QoS参数之后，经过跟本地签约的QoS参数和VplmnQos协商之后，通过Npcf_SMPolicyControl_Create Response消息的sessRules、pccRules信元向H-SMF正式下发QoS参数。</li><li>步骤13：H-SMF将此QoS参数通过Nsmf_PDUSession_Create Response消息的sessionAmbr、qosFlowsSetupList信元传递给V-SMF。</li><li>步骤15/16：V-SMF收到H-SMF返回的Qos参数后，与本地配置的Default QoS Flow参数比较，如果5qi/arp与本地配置的一致，且sessionAmbr/maxFbrDl/maxFbrUl/guaFbrDl/guaFbrUl低于本地配置的值，则QoS协商成功，V-SMF向V-AMF发送Namf_Communication_N1N2MessageTransfer消息，V-AMF向UE返回PDU Session Establishment Accept消息，PDU会话建立成功；否则认为QoS协商失败，V-AMF向UE返回PDU Session Establishment Reject消息，PDU会话建立失败。</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_concept_0000001212599686.html">实现原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_concept_0000001212759668.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

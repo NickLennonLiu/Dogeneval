@@ -1,0 +1,549 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置Gb模式移动性管理流程控制参数(SET GMMPROCTRL)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_mm_procedure_control_parameter_in_gb_mode.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_gmmproctrl.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172345113">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置Gb模式移动性管理流程控制参数(SET GMMPROCTRL)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172345113"></a><a name="ZH-CN_MMLREF_0000001172345113"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置Gb模式移动性管理流程控制参数(SET GMMPROCTRL)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172345113__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172345113__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172345113__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172345113__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172345113__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172345113__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345113__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172345113" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172345113__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>在用户接入Gb模式时，<span class="keyword"><span id="ZH-CN_MMLREF_0000001172345113__zh-cn_task_0272842530_text1503051056192121">UNC</span></span>可通过此命令控制MM流程进行特殊处理以及特殊场景下指定的原因值下发，以满足运营商实现对现网设备兼容性特殊控制的需求。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345113__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172345113" class="sectiontitle2contents">注意事项</a></h4><ul><li>系统初次运行时，会执行系统初始设置值。</li><li>此命令执行后立即生效。</li><li>配置下发的原因值可能会对终端行为产生影响，在配置前评估影响。关于不同原因值的含义及对终端行为的影响请参见协议3GPP TS 24.008。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345113__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172345113" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345113__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172345113" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345113__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172345113" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>PROT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>流程类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定流程类型，要根据场景来配置相应的流程。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ATTACH(附着流程)”</span></li><li><span class="parmvalue">“INTRA_RAU(USN内路由区域更新流程)”</span></li><li><span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span></li><li><span class="parmvalue">“UPDATE_LOCATION(位置更新流程)”</span></li><li><span class="parmvalue">“AIR(获取鉴权集流程)”</span></li><li><span class="parmvalue">“AUTHENTICATION(鉴权流程)”</span></li><li><span class="parmvalue">“CHECK_IMEI(检查IMEI流程)”</span></li><li><span class="parmvalue">“PAGING(寻呼流程)”</span></li><li><span class="parmvalue">“CANCEL_LOCATION(位置取消流程)”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“ATTACH(附着流程)”</span></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRIMSIGTERR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（IMSIGT错误）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因IMSIGT错误而导致ULR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION(位置更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRSCCPGTERR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（SCCPGT错误）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因SCCPGT错误而导致ULR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION(位置更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRLINKERR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（链路异常）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因链路异常而导致ULR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION(位置更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#17（Network failure）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRHLRHSSTMOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（HLR/HSS超时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因HLR/HSS设备超时而导致ULR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION(位置更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRHLRHSSREJ</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（HLR/HSS拒绝）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因HLR/HSS设备拒绝而导致ULR流程失败时，下发给终端的原因值。HLR/HSS拒绝原因值有多种，SGSN根据映射规则将HLR/HSS发送的Update-Location-Answer消息中携带的原因值转换为在Attach/RAU Reject消息中的GMM Cause发送给UE。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION(位置更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～127</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数取值为非0值，则它必须为<a href="add_causegrp.html"><b><span class="cmdname">ADD CAUSEGRP</span></b></a>中已经存在的CAUSEGRPID（原因值组标识）值，并需要在<a href="add_causemap.html"><b><span class="cmdname">ADD CAUSEMAP</span></b></a>中根据HSS不同的拒绝原因值配置具体的原因值映射规则。这样就会改变此参数所控制的异常场景中下发给终端的原因值，从而导致UE行为的变化。</li><li><p>参数取值为0表示不使用特殊指定原因值。<span class="keyword"><span id="ZH-CN_MMLREF_0000001172345113__zh-cn_task_0272842530_text1503051056192121_1">UNC</span></span>系统使用如下原因值映射：</p>
+<p>Gr接口原因值映射规则如下：</p>
+<ul><li>#1(Unknown Subscriber) &#8212;&gt; #7(GPRS services not allowed)；</li><li>#8(Roaming Not Allowed) &#8212;&gt; #14(GPRS services not allowed in this plmn)；</li><li>其它 &#8212;&gt; #111(Protocol error，unspecified)。</li></ul>
+<p>S6d接口原因值映射规则如下：</p>
+<ul><li>#5001(DIAMETER_ERROR_USER_UNKNOWN) &#8212;&gt; #15 (No suitable cells in location area)；</li><li>#5420(DIAMETER_ERROR_UNKNOWN_EPS_SUBSCRIPTION)，without Error Diagnostic，or with Error Diagnostic of GPRS_DATA_SUBSCRIBED &#8212;&gt; #15 (No suitable cells in location area)；</li><li>#5420(DIAMETER_ERROR_UNKNOWN_EPS_SUBSCRIPTION)，with Error Diagnostic of NO_GPRS_DATA_SUBSCRIBED &#8212;&gt; #7(GPRS services not allowed)；</li><li>#5004(DIAMETER_ERROR_ROAMING_NOT_ALLOWED)，without Error Diagnostic，or with Error Diagnostic of ODB_VPLMN_APN &#8212;&gt; #11(PLMN not allowed)；</li><li>#5004(DIAMETER_ERROR_ROAMING_NOT_ALLOWED)，with Error Diagnostic of ODB_ALL_APN or ODB_HPLMN_APN &#8212;&gt; #14(GPRS services not allowed in this PLMN)；</li><li>#5421(DIAMETER_ERROR_RAT_NOT_ALLOWED) &#8212;&gt; #15 (No suitable cells in location area)；</li><li>#4181(DIAMETER_AUTHENTICATION_DATA_UNAVAILABLE) &#8212;&gt; #7(GPRS services not allowed)；</li><li>其他 &#8212;&gt; #17 (Network failure)。</li></ul>
+</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRREJIMSIUNKNOWN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（Diagnose为IMSI Unknown）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数仅用于设置HLR/HSS返回原因值“Unknown Subscriber”，并且Diagnose为“IMSI Unknown”导致ULR（UPDATE_LOCATION）失败时，下发给终端的原因值。此配置的生效优先级高于ULRHLRHSSREJ（ULR拒绝原因值（HLR/HSS拒绝））的配置。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION（位置更新流程）”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数取值为0，表示不使用特殊指定原因值，如果发生该场景的失败，将由参数ULRHLRHSSREJ配置的原因值控制发送给终端，如果ULRHLRHSSREJ也未配置指定的原因值，将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>非0值，则此失败场景，将使用本参数设置的原因值发送给终端。另外，使用非0值，发送给终端的原因值会发生变化，导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULRREJSUBUNKNOWN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>ULR拒绝原因值（Diagnose为Subscription Unknown）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>该参数仅用于设置HLR/HSS返回原因值“Unknown Subscriber”，并且Diagnose为“GPRS or EPS Subscription Unknown”导致ULR（UPDATE_LOCATION）失败时，下发给终端的原因值。此配置的生效优先级高于ULRHLRHSSREJ（ULR拒绝原因值（HLR/HSS拒绝））的配置。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“UPDATE_LOCATION（位置更新流程）”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用指定的特殊原因值，如果发生该场景的失败，将由参数ULRHLRHSSREJ配置的原因值控制发送给终端，如果ULRHLRHSSREJ也未配置指定的原因值，将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>非0值，则此失败场景，将使用本参数设置的原因值发送给终端。另外，使用非0值，发送给终端的原因值会发生变化，导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRIMSIGTERR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（IMSIGT错误）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因IMSIGT错误而导致AIR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRSCCPGTERR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（SCCPGT错误）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因SCCPGT错误而导致AIR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRLINKERR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（链路异常）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因链路异常导致AIR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#17（Network failure）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRHLRHSSTMOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（HLR/HSS超时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因HLR/HSS设备超时导致AIR流程失败时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRHLRHSSREJ</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（HLR/HSS拒绝）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置HLR/HSS设备拒绝导致AIR流程失败时，下发给终端的原因值。HLR/HSS拒绝原因值有多种，SGSN根据映射规则将HLR/HSS发送的Authentication-Information-Answer消息中携带的原因值转换为在Attach/RAU Reject消息中的GMM Cause发送给UE。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～127</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数取值为非0值，则它必须为<a href="add_causegrp.html"><b><span class="cmdname">ADD CAUSEGRP</span></b></a>中已经存在的CAUSEGRPID（原因值组标识）值，并需要在<a href="add_causemap.html"><b><span class="cmdname">ADD CAUSEMAP</span></b></a>中根据HSS不同的拒绝原因值配置具体的原因值映射规则。这样就会改变此参数所控制的异常场景中下发给终端的原因值，从而导致UE行为的变化。</li><li><p>参数取值为0表示不使用特殊指定原因值。<span class="keyword"><span id="ZH-CN_MMLREF_0000001172345113__zh-cn_task_0272842530_text1503051056192121_2">UNC</span></span>系统使用如下原因值映射：</p>
+<p>Gr接口原因值映射规则如下：</p>
+<ul><li>#1(Unknown Subscriber) &#8212;&gt; #7(GPRS services not allowed)；</li><li>#9(Illegal MS) &#8212;&gt; #7(GPRS services not allowed in this PLMN)；</li><li>其它 &#8212;&gt; #111(Protocol error，unspecified)。</li></ul>
+<p>S6d接口原因值映射规则如下：</p>
+<ul><li>#5001(DIAMETER_ERROR_USER_UNKNOWN) &#8212;&gt; #15 (No suitable cells in location area)；</li><li>#5420(DIAMETER_ERROR_UNKNOWN_EPS_SUBSCRIPTION)，without Error Diagnostic，or with Error Diagnostic of GPRS_DATA_SUBSCRIBED &#8212;&gt; #15 (No suitable cells in location area)；</li><li>#5420(DIAMETER_ERROR_UNKNOWN_EPS_SUBSCRIPTION)，with Error Diagnostic of NO_GPRS_DATA_SUBSCRIBED &#8212;&gt; #7(GPRS services not allowed)；</li><li>#5004(DIAMETER_ERROR_ROAMING_NOT_ALLOWED)，without Error Diagnostic，or with Error Diagnostic of ODB_VPLMN_APN &#8212;&gt; #11(PLMN not allowed)；</li><li>#5004(DIAMETER_ERROR_ROAMING_NOT_ALLOWED)，with Error Diagnostic of ODB_ALL_APN or ODB_HPLMN_APN &#8212;&gt; #14(GPRS services not allowed in this PLMN)；</li><li>#5421(DIAMETER_ERROR_RAT_NOT_ALLOWED) &#8212;&gt; #15 (No suitable cells in location area)；</li><li>#4181(DIAMETER_AUTHENTICATION_DATA_UNAVAILABLE) &#8212;&gt; #7(GPRS services not allowed)；</li><li>其他 &#8212;&gt; #17 (Network failure)。</li></ul>
+</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRREJIMSIUNKNOWN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（Diagnose为IMSI Unknown）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数仅用于设置HLR/HSS返回原因值“Unknown Subscriber”，并且Diagnose为“IMSI Unknown”导致AIR（Authentication Information Request）失败时，下发给终端的原因值。此配置的生效优先级高于AIRHLRHSSREJ（AIR拒绝原因值（HLR/HSS拒绝））的配置。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，如果发生该场景的失败，将由参数AIRHLRHSSREJ配置的原因值控制发送给终端，如果AIRHLRHSSREJ也未配置指定的原因值，将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>非0值，则此失败场景，将使用本参数设置的原因值发送给终端。另外，使用非0值，发送给终端的原因值会发生变化，导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AIRREJSUBUNKNOWN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>AIR拒绝原因值（Diagnose为Subscription Unknown）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数仅用于设置HLR/HSS返回原因值“Unknown Subscriber”，并且Diagnose为“GPRS or EPS Subscription Unknown”导致AIR（Authentication Information Request）失败时，下发给终端的原因值。此配置的生效优先级高于AIRHLRHSSREJ（AIR拒绝原因值（HLR/HSS拒绝））的配置。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AIR(获取鉴权集流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，如果发生该场景的失败，将由参数AIRHLRHSSREJ配置的原因值控制发送给终端，如果AIRHLRHSSREJ也未配置指定的原因值，将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>非0值，则此失败场景，将使用本参数设置的原因值发送给终端。另外，使用非0值，发送给终端的原因值会发生变化，导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ATTACHROAMRST</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Attach拒绝原因值（漫游受限）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因漫游受限而导致附着流程拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“ATTACH(附着流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#14(GPRS services not allowed in this PLMN)原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTRARAUIDTYTMOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Intra RAU拒绝原因值（Identity超时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因Identity超时而导致Intra路由区域更新流程拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTRA_RAU(USN内路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#10（Implicitly detach）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTERRAUSGSNTMOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Inter RAU拒绝原因值（SGSN超时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因SGSN设备超时而导致Inter路由区域更新流程拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#10（Implicitly detach）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTERRAUROAMRST</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Inter RAU拒绝原因值（漫游受限）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因漫游受限而导致Inter路由区域更新流程拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#14(GPRS services not allowed in this PLMN)原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTERRAUIDTYTMOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Inter RAU拒绝原因值（Identity超时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因Identity超时而导致Inter路由区域更新流程拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#10（Implicitly detach）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTERRAUDNSFAIL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Inter RAU拒绝原因值（DNS解析失败）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因DNS解析失败而导致Inter路由区域更新流程拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#9（Ms identity cannot be derived by the network）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHRESCHKFAIL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Authentication拒绝原因值（鉴权检查失败）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因鉴权检查失败而导致Authentication拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AUTHENTICATION(鉴权流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHUETMOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Authentication拒绝原因值（UE 超时）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因UE响应超时而导致Authentication拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AUTHENTICATION(鉴权流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#111（Protocol error unspecified）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHMACFAIL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Authentication拒绝原因值（UE返回MAC Failure）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因UE返回MAC failure而导致Authentication拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AUTHENTICATION(鉴权流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AUTHSYNCHFAIL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Authentication拒绝原因值（UE返回Synch failure）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因UE返回Synch failure而导致Authentication拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“AUTHENTICATION(鉴权流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHKIMEICHKFAIL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Check IMEI拒绝原因值（IMEI检查失败）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置因IMEI检查失败而导致Check IMEI拒绝接入时，下发给终端的原因值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“CHECK_IMEI(检查IMEI流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0～111</p>
+<p>系统初始设置值：0</p>
+<div class="p">配置原则：<ul><li>参数设置为0，表示不使用特殊指定原因值，发生该异常时系统将下发#7（GPRS services not allowed）原因值。</li><li>原因值为1表示非协议定义原因值，不建议配置。</li><li>参数修改为非0值，可能会改变此参数所控制的异常场景中下发给终端的拒绝原因值，从而导致相应拒绝类话统指标的变化。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>STOPPAGING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>寻呼失败后停止寻呼</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于控制SGSN首轮寻呼失败后，是否再次发起寻呼流程。首轮寻呼失败是指寻呼重尝试次数达到命令（<a href="set_gmm.html"><b><span class="cmdname">SET GMM</span></b></a>）的参数<span class="parmname">“N3313”</span>指定的寻呼重试次数。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“PAGING(寻呼流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO(否)”</span></li><li><span class="parmvalue">“YES(是)”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“NO(否)”</span></p>
+<div class="p">配置原则：<ul><li>取值为<span class="parmvalue">“NO(否)”</span>，表示不停止寻呼，即当用户处于STANDBY状态时，SGSN收到下行数据都会发起寻呼流程。</li><li>取值为<span class="parmvalue">“YES(是)”</span>，表示停止寻呼，即SGSN首轮寻呼失败，收到下行数据不触发寻呼，除非用户发送上行消息。参数设置为<span class="parmvalue">“YES(是)”</span>可提高寻呼的成功率。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RLSIMD</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>立即释放资源</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定在SGSN间路由区域更新流程中，老侧SGSN何时释放承载资源。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmname">“T3_TIMER_EXPIRES(T3定时器超时)”</span>：T3定时器超时后立即释放承载资源。</li><li><span class="parmname">“CANCEL_LOCATION_REQUEST(Cancel Location Request)”</span>：收到Cancel Location Request后立即释放承载资源。</li><li><span class="parmname">“SGSN_CONTEXT_ACK（SGSN Context Ack）”</span>：收到SGSN Context Ack后立即释放承载资源。</li></ul>
+</div>
+<p>系统初始设置值：“T3 TIMER EXPIRES(T3定时器超时)”</p>
+<div class="p">配置原则：<ul><li>参数设置为“T3 TIMER EXPIRES(T3定时器超时)”，老侧SGSN将在T3定时器超时后立即释放承载资源，具体时长取自SET GMM里T3参数的配置。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>DETACHCAUSE_CLR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>分离请求原因值</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：HLR/HSS由于欠费等原因注销某用户，发送Cancel Location（原因值为Subscription Withdrawn）给SGSN。SGSN会针对该用户发起分离流程，发送Detach Request消息给UE，本参数控制是否在Detach Request消息中携带Cause信元，以及携带的Cause信元取值。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“CANCEL_LOCATION(位置取消流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0~111</p>
+<p>系统初始设置值：7</p>
+<div class="p">配置原则：<ul><li>参数取值为0，给UE发送的Detach Request消息不携带Cause信元。</li><li>参数取值1~111，给UE发送的Detach Request消息携带Cause信元，信元的取值为本参数取值。</li><li>推荐设置原因值为7 GPRS services not allowed。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>不同的原因值可能会导致UE的行为发生变化。推荐值7表示GPRS services not allowed，UE收到该原因值的Detach request，可能需要UE开关机才可以重新尝试附着网络，如果修改为非推荐值，例如111，未签约的UE将一直尝试重新附着，会增加核心网设备的负荷。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IMSIATTACHFORCEULR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IMSI Attach流程强制发送ULR消息</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数控制UE携带IMSI作为身份标识发起附着流程，并且SGSN和HLR之间为Gr口时，控制SGSN是否强制发送Update Location Request消息。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“ATTACH(附着流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO(否)”</span></li><li><span class="parmvalue">“YES(是)”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“NO(否)”</span></p>
+<div class="p">配置原则：<ul><li>“NO(否)”：该参数指示以IMSI为身份标识的附着流程中在SGSN已经存在签约数据时无需发送Update Location Request消息。</li><li>“YES(是)”：该参数指示以IMSI为身份标识的附着流程中发送ULR消息。主要为了避免HLR和SGSN之间的用户位置信息不一致，从而导致诸如用户无法分离等问题。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>以IMSI为身份标识的附着流程强制发送Update location request消息可能导致Gr口信令增加。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTERRATATTACHFORCEULR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Inter RAT Attach流程强制发送ULR消息</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数控制UE携带P-TMSI作为身份标识，并通过P-TMSI判断为Inter RAT类型的附着流程时，控制SGSN是否强制发送Update Location Request消息。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“ATTACH(附着流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO(否)”</span></li><li><span class="parmvalue">“YES(是)”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“NO(否)”</span></p>
+<div class="p">配置原则：<ul><li>“NO(否)”：该参数指示以PTMSI为身份标识的附着流程中在SGSN已经存在签约数据时无需发送Update Location Request消息。</li><li>“YES(是)”：该参数指示以PTMSI为身份标识的附着流程中发送ULR消息。主要为了避免HLR和SGSN之间的用户位置信息不一致，从而导致诸如用户无法分离等问题。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>以P-TMSI为身份标识的附着流程强制发送Update location request消息可能导致SGSN和HLR之间信令增加。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTERRATRAUFORCEULR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>Inter RAT RAU流程强制发送ULR消息</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数控制UE发起的Inter RAT的RAU流程时，控制SGSN是否强制发送Update Location Request消息。</p>
+<p>前提条件：该参数在<span class="parmname">“流程类型”</span>参数配置为<span class="parmvalue">“INTER_RAU(USN间路由区域更新流程)”</span>后生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO(否)”</span></li><li><span class="parmvalue">“YES(是)”</span></li></ul>
+</div>
+<p>系统初始设置值：<span class="parmvalue">“NO(否)”</span></p>
+<div class="p">配置原则：<ul><li>“NO(否)”：该参数指示以Inter RAT类型的RAU流程中在SGSN已经存在签约数据时无需发送Update Location Request消息。</li><li>“YES(是)”：该参数指示以Inter RAT类型的RAU流程中发送Update Location Request消息。主要为了避免HLR和SGSN之间的用户位置信息不一致，从而导致诸如用户无法分离等问题。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>Inter RAT RAU流程强制发送Update location request可能导致SGSN和HLR之间信令增加。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345113__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172345113" class="sectiontitle2contents">使用实例</a></h4><p>当下发的缺省原因值导致位置更新流程异常时，设置<span class="parmname">“PROT（流程类型）”</span>为<span class="parmvalue">“UPDATE_LOCATION（位置更新流程）”</span>，<span class="parmname">“ULR拒绝原因值（IMSIGT错误）”</span>为<span class="parmvalue">“2”</span>，<span class="parmname">“ULR拒绝原因值（SCCPGT错误）”</span>为<span class="parmvalue">“2”</span>，<span class="parmvalue">“ULR拒绝原因值（链路异常）”</span>为<span class="parmvalue">“10”</span>，<span class="parmname">“ULR拒绝原因值（HLR/HSS超时）”</span>为<span class="parmvalue">“20”</span>的Gb模式移动性管理流程控制参数：</p>
+<p><span class="msgph">SET GMMPROCTRL: PROT=UPDATE_LOCATION, ULRIMSIGTERR=2, ULRSCCPGTERR=2, ULRLINKERR=10, ULRHLRHSSTMOUT=20;</span></p>
+<p>当需要修改参数<span class="parmvalue">“ ULR拒绝原因值（HLR/HSS拒绝）”</span>或<span class="parmvalue">“ AIR拒绝原因值（HLR/HSS拒绝）”</span>为非<span class="parmvalue">“0”</span>值时，则需要配置对应的原因值映射规则，以<span class="parmvalue">“ ULR拒绝原因值（HLR/HSS拒绝）”</span>为例，下面配置<span class="parmvalue">“原因值组标识”</span>为<span class="parmvalue">“1”</span>的映射规则，将原始原因值<span class="parmvalue">“1”</span>转换成<span class="parmvalue">“目标原因值”</span>为<span class="parmvalue">“7”</span>，配置顺序如下：</p>
+<p><span class="msgph">ADD CAUSEGRP: CAUSEGRPID=1, CAUSEGRPNM="GB-ULR-HLRHSS-REJ";</span></p>
+<p><span class="msgph">ADD CAUSEMAP: CAUSEGRPID=1, CAUSERANGE=SPECIAL, BGCAUSE=1, EDCAUSE=1, TCAUSE=7;</span></p>
+<p><span class="msgph">SET GMMPROCTRL: PROT=UPDATE_LOCATION, ULRHLRHSSREJ=1;</span></p>
+<div class="note"><img src="../../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>用户输入的ULRHLRHSSREJ或AIRHLRHSSREJ必须在CAUSEGRP（原因值映射组）中存在，否则执行失败。</p>
+</div></div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_mm_procedure_control_parameter_in_gb_mode.html">Gb模式MM流程控制参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_gmmproctrl.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

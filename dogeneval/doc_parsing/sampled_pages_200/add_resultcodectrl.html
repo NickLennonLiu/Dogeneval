@@ -1,0 +1,552 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加返回码控制（ADD RESULTCODECTRL）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_result_code_control.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_resultcodectrl.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0209897084">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加返回码控制（ADD RESULTCODECTRL）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0209897084"></a><a name="ZH-CN_CONCEPT_0209897084"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">增加返回码控制（ADD RESULTCODECTRL）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0209897084__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0209897084__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0209897084__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0209897084__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0209897084__1.3.5.1">使用实例</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0209897084__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0209897084" class="sectiontitle2contents">命令功能</a></h4><p><strong>适用NF：PGW-C、SMF</strong></p>
+
+<p>此命令用来配置当UNC收到指定结果码信息后执行何种操作。例如关闭动态PCC功能、执行缺省动作、执行宕机备份等。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0209897084__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0209897084" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>该命令最大记录数为2100。</li><li>对于Gx接口的回滚策略，当SET FHBYPASS的GXERRRC参数配置为ENABLE时，SET FHBYPASS命令优先级高于此命令。</li><li>直连组网模式下，当DirectInitAct、DirectUpdAct、DirectTerminAct配置为Invalid时，则取InitAction、UpdateAction、TerminAction的配置。</li><li>当PCCTEMPLATE配置为“global”时，表示全局配置，最多能配置100条记录；当PCCTEMPLATE配置为指定PCC模板时，表示该PCC模板下的配置，最多能配置20条记录。</li></ul>
+ </div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0209897084__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0209897084" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0209897084__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0209897084" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>PCCTEMPLATE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>PCC模板名称</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：该参数用于设置该返回码所绑定的PCC模板。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：</p>
+
+<ul><li>如果配置为“global”则表示全局配置。</li><li>如果配置为非“global”，则必须是已经通过ADD PCCTEMPLATE配置过的PCC模板名称。</li></ul>
+ 
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>INTFTYPE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>接口类型</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：接口类型。</p>
+
+<p>数据来源：对端协商</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>INTFTYPE_N7：N7接口类型。</li><li>INTFTYPE_GX：Gx接口类型。</li></ul>
+
+<p>默认值：无</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>N7RESULTCODEVAL</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>N7返回码</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“INTFTYPE”配置为“INTFTYPE_N7”时为必选参数。</p>
+
+<p>参数含义：N7返回码。</p>
+
+<p>数据来源：对端协商</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～3。300-599或者3xx-5xx，不区分大小写。其中xx代表一个范围，例如3xx代表300~399。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：</p>
+
+<ul><li>超时返回码504不受该配置控制，而是执行一次failover操作，若failover失败则根据APN/DNN绑定的PCCTEMPLATE或全局用户PCCFAILACTION相关配置获取失败动作。其中，APN/DNN绑定的PCCTEMPLATE配置优先级高。</li><li>配置的单个的返回码落在一个范围内时，单个的优先级高。</li></ul>
+ 
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>VENDORID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>设备提供商标识</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“INTFTYPE”配置为“INTFTYPE_GX”时为必选参数。</p>
+
+<p>参数含义：设备提供商标识。</p>
+
+<p>数据来源：全网规划</p>
+
+<p>取值范围：整数类型，取值范围为0～65535。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>GXRESULTCODEVAL</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>Gx返回码</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件必选参数</p>
+
+<p>前提条件：该参数在“INTFTYPE”配置为“INTFTYPE_GX”时为必选参数。</p>
+
+<p>参数含义：返回码。</p>
+
+<p>数据来源：对端协商</p>
+
+<p>取值范围：字符串类型，输入长度范围为1～4。1000-9999，1xxx-9xxx，不区分大小写。其中xxxx代表一个范围，例如1xxx代表1000~1999。配置的单个的返回码落在一个范围内时，单个的优先级高。</p>
+
+<p>默认值：无</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>INITACTION</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>Initial流程处理动作</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：控制创建响应消息中携带该返回码的行为。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DEFAULT：缺省动作。</li><li>FAILOVER：宕机备份。</li><li>TERMINATE：去活会话。</li><li>LOCALPCC：回滚为本地PCC用户使用本地策略。</li><li>INHERIT：继承全局动作。</li></ul>
+
+<p>默认值：无</p>
+
+<p>配置原则：</p>
+
+<ul><li>当PCCTEMPLATE配置为“global”时，默认值为DEFAULT。当PCCTEMPLATE配置为指定PCC模板时，默认值为INHERIT。</li><li>当此参数配置为DEFAULT时，UNC在收到PCRF/PCF的消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，将执行缺省此参数，即按接收到的RESULTCODEVAL做具体处理，例如激活时收到此RESULTCODEVAL激活失败、更新时收到此RESULTCODEVAL去活承载等，详细此参数可参考SET PCCFAILACTION命令的使用指南。</li><li>当此参数配置为FAILOVER时，UNC在收到PCRF/PCF/DRA的消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，将执行宕机备份此参数，一次创建、创建响应消息交互过程中，failover此参数最多执行一次，详细信息请参考Gx Failover功能/N7 Failover功能开关。非直连组网模式下，该参数配置为FAILOVER无效，按照SET PCCFAILACTION命令配置处理。</li><li>当此参数配置为TERMINATE时，UNC在收到PCRF/PCF/DRA的消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，将会话去活。</li><li>当此参数配置为LOCALPCC时，UNC在收到PCRF/PCF/DRA的创建响应消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，执行回滚为本地PCC功能的此参数，用户转换为本地PCC用户。使用本地策略，但可以通过业务触发专有承载创建；当用户使用简化user-profile时，R7协议Gx接口场景按default配置处理，R8及以上协议场景按INHERIT_PCC配置处理。如果回滚时没有可用的本地策略，将会话去活。</li></ul>
+ 
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>INITHOLDTMSW</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>Initial流程回滚后使能Holding-Time</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“INITACTION”配置为“LOCALPCC”时为可选参数。</p>
+
+<p>参数含义：该参数用于设置创建响应控制的行为生效时是否根据holding-time设置时长保活用户，并在holding-time超时后去活用户。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DISABLE：不使能。</li><li>ENABLE：使能。</li></ul>
+
+<p>默认值：DISABLE</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>UPDATEACTION</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>Update流程处理动作</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：控制更新响应消息中携带该返回码的行为。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>FAILOVER：宕机备份。</li><li>TERMINATE：去活会话。</li><li>LOCALPCC：回滚为本地PCC用户使用本地策略。</li><li>INHERIT_PCC：回滚为本地PCC用户继续使用PCRF/PCF策略。</li><li>CONTINUE：继续Gx/PCF会话。</li><li>INHERIT：继承全局动作。</li></ul>
+
+<p>默认值：无</p>
+
+<p>配置原则：</p>
+
+<ul><li>当PCCTEMPLATE配置为“global”时，默认值为CONTINUE。当PCCTEMPLATE配置为指定PCC模板时，默认值为INHERIT。</li><li>当此参数配置为FAILOVER时，UNC在收到PCRF/PCF/DRA的消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，将执行宕机备份此参数，一次更新请求、更新响应消息交互过程中，failover此参数最多执行一次，详细信息请参考Gx Failover功能/N7 Failover功能开关。非直连组网模式下，该参数配置为FAILOVER无效，按照SET PCCFAILACTION命令配置处理。</li><li>当此参数配置为TERMINATE时，UNC在收到PCRF/PCF/DRA的消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，将会话去活。</li><li>当此参数配置为LOCALPCC时，UNC在收到PCRF/PCF/DRA的更新响应消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，执行回滚为本地PCC功能的此参数，用户转换为本地PCC用户。使用本地策略，但可以通过业务触发专有承载创建；当用户使用简化user-profile时，R7协议Gx接口场景按default配置处理，R8及以上协议场景按INHERIT_PCC配置处理。如果回滚时没有可用的本地策略，将会话去活。</li><li>当此参数配置为INHERIT_PCC时，UNC在收到PCRF/PCF/DRA的更新响应消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，执行回滚为本地PCC功能的此参数，用户转换为本地PCC用户。使用PCRF/PCF下发的策略但不再与PCRF/PCF进行信令交互。</li><li>当此参数配置为CONTINUE时，UNC在收到PCRF/PCF/DRA的更新响应消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，使用PCRF/PCF下发的策略并继续与PCRF/PCF进行信令交互。</li></ul>
+ 
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>UPDHOLDTMSW</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>Update流程回滚后使能Holding-Time</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“UPDATEACTION”配置为“LOCALPCC” 或 “INHERIT_PCC”时为可选参数。</p>
+
+<p>参数含义：该参数用于设置更新响应控制的行为生效时是否根据holding-time设置时长保活用户，并在holding-time超时后去活用户。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DISABLE：不使能。</li><li>ENABLE：使能。</li></ul>
+
+<p>默认值：DISABLE</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>TERMINACTION</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>Terminate流程处理动作</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：控制删除响应消息中携带该返回码的行为。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DEFAULT：缺省动作。</li><li>FAILOVER：宕机备份。</li><li>INHERIT：继承全局动作。</li></ul>
+
+<p>默认值：无</p>
+
+<p>配置原则：</p>
+
+<ul><li>当PCCTEMPLATE配置为“global”时，默认值为DEFAULT。当PCCTEMPLATE配置为指定PCC模板时，默认值为INHERIT。</li><li>当此参数配置为DEFAULT时，去活用户。</li><li>当此参数配置为FAILOVER时，UNC在收到PCRF/PCF/DRA的消息（携带的VENDORID和RESULTCODEVAL分别为前面指定的值）后，将执行宕机备份此参数，一次删除请求、删除响应消息交互过程中，failover此参数最多执行一次，详细信息请参考Gx Failover功能/N7 Failover功能开关。非直连组网模式下，该参数配置为FAILOVER无效，继续执行去活操作。</li></ul>
+ 
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>DIRECTINITACT</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>直连对端Initial流程处理动作</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：控制直连对端创建响应消息中携带该返回码的行为。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DEFAULT：缺省动作，激活失败。</li><li>FAILOVER：宕机备份。</li><li>TERMINATE：去活会话。</li><li>LOCALPCC：回滚为本地PCC用户使用本地策略。</li><li>FAILOVERALL：全部用户执行宕机备份动作。</li><li>INVALID：执行参数INITACTION配置的动作。</li></ul>
+
+<p>默认值：INVALID</p>
+
+<p>配置原则：当此参数配置为INVALID时，在查询返回码控制时显示为NULL。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>DIRECTUPDACT</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>直连对端Update流程处理动作</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：控制直连对端更新响应消息中携带该返回码的行为。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>FAILOVER：宕机备份。</li><li>TERMINATE：去活会话。</li><li>LOCALPCC：回滚为本地PCC用户使用本地策略。</li><li>INHERIT_PCC：回滚为本地PCC用户继续使用Gx/PCF策略。</li><li>CONTINUE：继续Gx/PCF会话。</li><li>FAILOVERALL：全部用户执行宕机备份动作。</li><li>INVALID：执行参数UPDATEACTION配置的动作。</li></ul>
+
+<p>默认值：INVALID</p>
+
+<p>配置原则：当此参数配置为INVALID时，在查询返回码控制时显示为NULL。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>DIRECTTERMINACT</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>直连对端Terminate流程处理动作</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：可选参数</p>
+
+<p>参数含义：控制直连对端删除响应消息中携带该返回码的行为。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DEFAULT：缺省动作，去活。</li><li>FAILOVER：宕机备份。</li><li>FAILOVERALL：全部用户执行宕机备份动作。</li><li>INVALID：执行参数TERMINACTION配置的动作。</li></ul>
+
+<p>默认值：INVALID</p>
+
+<p>配置原则：当此参数配置为INVALID时，在查询返回码控制时显示为NULL。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>DIRECTINITHTSW</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>直连对端Initial流程回滚后使能Holding-Time</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“DIRECTINITACT”配置为“LOCALPCC”时为可选参数。</p>
+
+<p>参数含义：该参数用于设置直连对端创建响应控制的行为生效时是否根据holding-time设置时长保活用户，并在holding-time超时后去活用户。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DISABLE：不使能。</li><li>ENABLE：使能。</li></ul>
+
+<p>默认值：DISABLE</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>DIRECTUPDHTSW</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>直连对端Update流程回滚后使能Holding-Time</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“DIRECTUPDACT”配置为“INHERIT_PCC” 或 “LOCALPCC”时为可选参数。</p>
+
+<p>参数含义：该参数用于设置直连对端更新响应控制的行为生效时是否根据holding-time设置时长保活用户，并在holding-time超时后去活用户。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DISABLE：不使能。</li><li>ENABLE：使能。</li></ul>
+
+<p>默认值：DISABLE</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>REACTREQ</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>重新激活请求</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“UPDATEACTION”配置为“TERMINATE”时为可选参数。</p>
+
+<p>参数含义：该参数用于指示当用户因异常结果码被去活时，UNC是否通知用户重新激活。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DISABLE：不使能。</li><li>ENABLE：使能。</li><li>DEFAULT：缺省取值，对5002结果码其作用等同于ENABLE，对非5002结果码其作用等同于DISABLE。</li></ul>
+
+<p>默认值：DEFAULT</p>
+
+<p>配置原则：该参数配置为ENABLE，或配置为DEFAULT且结果码为5002，仅在ADD/MOD APN命令的REACWITHDEL参数配置打开时，发给左侧的去活消息才会携带重新激活标识。</p>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>DIRECTREACTREQ</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>直连对端重激活请求</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：条件可选参数</p>
+
+<p>前提条件：该参数在“DIRECTUPDACT”配置为“TERMINATE”时为可选参数。</p>
+
+<p>参数含义：该参数用于指示当用户因直连对端的异常结果码被去活时，UNC是否通知用户重新激活。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>DISABLE：不使能。</li><li>ENABLE：使能。</li><li>DEFAULT：缺省取值，对5002结果码其作用等同于ENABLE，对非5002结果码其作用等同于DISABLE。</li></ul>
+
+<p>默认值：DEFAULT</p>
+
+<p>配置原则：无</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0209897084__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0209897084" class="sectiontitle2contents">使用实例</a></h4><ul><li><p>添加全局RESULTCODECTRL返回码控制信息，对更新响应消息中“VENDORID”为0，“RESULTCODEVAL”为“5xxx”的消息执行FAILOVER动作：</p>
+
+<pre class="codeblock">ADD RESULTCODECTRL:PCCTEMPLATE="global",INTFTYPE=INTFTYPE_GX,VENDORID=0,GXRESULTCODEVAL="5xxx",INITACTION=DEFAULT,UPDATEACTION=FAILOVER;</pre>
+</li><li><p>为PCC模板“pcctemplate”添加RESULTCODECTRL返回码控制信息，对创建响应消息中“VENDORID”为10415，“RESULTCODEVAL”为“5140”的消息执行LOCALPCC动作：</p>
+
+<pre class="codeblock">ADD RESULTCODECTRL:PCCTEMPLATE="pcctemplate",INTFTYPE=INTFTYPE_GX,VENDORID=10415,GXRESULTCODEVAL="5140",INITACTION=LOCALPCC,UPDATEACTION=LOCALPCC;</pre>
+</li></ul>
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_result_code_control.html">返回码控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_resultcodectrl.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

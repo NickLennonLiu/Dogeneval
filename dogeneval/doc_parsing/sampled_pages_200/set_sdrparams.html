@@ -1,0 +1,246 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置SDR参数（SET SDRPARAMS）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/sdrs_n_tcp_switch_control.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_sdrparams.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209587912">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置SDR参数（SET SDRPARAMS）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209587912"></a><a name="ZH-CN_MMLREF_0209587912"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置SDR参数（SET SDRPARAMS）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209587912__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209587912__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209587912__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209587912__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209587912__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209587912" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody">
+                        <p>该命令是高危命令，操作不当可能会导致业务受损，请谨慎使用并联系华为技术支持协助操作。</p>
+
+                </div></div>
+
+                    <p>该命令用于设置SDR服务的相关参数。SDR主要功能是为微服务间提供分布式透明通信。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209587912__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209587912" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>SDR参数ID为0的功能该版本不支持。</li><li>SDR参数ID为4的功能，其对应的PARAVALUE1表示Fabric平面可靠传输的校验和开关。修改PARAVALUE1的值后，请全量复位POD。</li><li>默认使用系统初始值，如需修改，请联系华为技术支持协助操作。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">PARAID</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">PARAVALUE1</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.3">PARAVALUE2</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>6</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>10</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>7</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209587912__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209587912" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209587912__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209587912" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PARAID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>参数ID</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定SDR命令标识。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~7。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PARAVALUE1</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>第一个参数值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于SDR命令。</p>
+<p>当SDR参数ID为0时，该参数值用于SDR可靠传输开关控制，0表示关闭base和fabric可靠传输开关，1表示只开启可靠base传输开关，2表示只开启可靠fabric传输开关，3表示开启base和fabric可靠传输开关。</p>
+<p>当SDR参数ID为1时，该参数值用于Fabric链路的故障检测（告警）和业务隔离能力功能开关，0表示关闭，1表示开启。</p>
+<p>当SDR参数ID为2时，该参数值用于DTP功能开关，0表示关闭，1表示开启。</p>
+<p>当SDR参数ID为3时，该参数值用于SDRS内多线程消息处理转组件线程消息处理功能开关，0表示关闭，1表示开启。</p>
+<p>当SDR参数ID为4时，该参数值用于Fabric可靠传输校验和开关，0表示关闭，1表示开启。</p>
+<p>当SDR参数ID为5时，该参数值用于SDR话统数据上报开关，0表示关闭，1表示开启。</p>
+<p>当SDR参数ID为6时，该参数值用于SDRS与SDRC之间的策略核查开关，0表示关闭，1表示开启。</p>
+<p>当SDR参数ID为7时，该参数值用于SDR pbuf流控功能开关，0表示关闭，1表示开启。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~4294967295。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PARAVALUE2</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>第二个参数值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于SDR命令值扩展，类型是字符串。当SDR参数ID为6时，该参数值用于表示SDRS与SDRC之间的策略核查周期，单位为分钟。</p>
+<p>当SDR参数ID为7时，该参数值用于表示pbuf流控功能起控阈值和pbuf使用率刷新周期，刷新周期单位为毫秒。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~256。当PARAID的取值为6且PARAVALUE1取值为1时，请按照无符号整数类型的数值进行输入，有效数值范围1~4294967295，输入其他内容则该命令不生效。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 当PARAID的取值为6且PARAVALUE1取值为1时，该参数为必选，若不输入，则该命令不生效。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209587912__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209587912" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>通过如下命令开启SDRS与SDRC之间的策略核查功能：</p>
+
+                    <pre class="screen">SET SDRPARAMS: PARAID=6, PARAVALUE1=1, PARAVALUE2="10";</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/sdrs_n_tcp_switch_control.html">TCP开关控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_sdrparams.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

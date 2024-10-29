@@ -1,0 +1,127 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="SMF侧业务配置">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0308571771.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0308571772.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0313928809.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0313928808">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>SMF侧业务配置</title>
+</head>
+<body><a name="ZH-CN_OPI_0313928808"></a><a name="ZH-CN_OPI_0313928808"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">SMF侧业务配置</h1>
+<ul><li><a href="#ZH-CN_OPI_0313928808__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0313928808__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0313928808__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0313928808__1.3.4">任务示例</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0313928808__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0313928808" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>PCF通过ADC功能感知到特定视频应用数据流，并为该特定应用数据流提供QoS保证等时，需要在SMF上配置ADC基本功能。</p>
+<p>UPF检测应用数据流（应用数据流通过L3/4、L7或L3/4+L7识别）时，通过SMF上报给PCF。</p>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0313928808__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0313928808" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>请仔细阅读SMF（UNC）特性之<span>《WSFD-109102 ADC基本功能》</span>。</li><li>完成加载License（如果有需求，请联系华为技术支持工程师）。</li><li>已通过学习<a href="zh-cn_topic_0286483633.html">SM策略E2E实现原理</a>、<a href="zh-cn_opi_0000001115813778.html">业务配置方法</a>及<a href="zh-cn_topic_0308571774.html">E2E业务调测</a>了解了SM策略的配置原理及方法。</li></ul>
+<span><p class="sectiontitle">数据</p></span><p>PCF通过动态规则下发appId时，必须规划<a href="#ZH-CN_OPI_0313928808__table182854220145">表1</a>中的数据。</p>
+
+<div class="tableBorder"><a name="ZH-CN_OPI_0313928808__table182854220145"></a><a name="table182854220145"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0313928808__table182854220145" frame="border" border="1" rules="all"><caption><b>表1 </b>数据规划（PCF通过动态规则下发appId）</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.86%" id="mcps1.3.2.1.2.2.2.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25.09%" id="mcps1.3.2.1.2.2.2.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.27%" id="mcps1.3.2.1.2.2.2.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.78%" id="mcps1.3.2.1.2.2.2.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27%" id="mcps1.3.2.1.2.2.2.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.86%" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p><b><span class="cmdname">ADD FLOWFILTER</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.27%" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>flow_ADC</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.78%" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27%" headers="mcps1.3.2.1.2.2.2.6.1.5 "><p>不同流过滤器之间，该参数不能重复。</p>
+<p>SMF、UPF、PCF三个网元上的该参数必须一致，否则无法正常上报。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="2" valign="top" width="16.86%" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p><b><span class="cmdname">ADD ADCPARA</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.27%" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>flow_ADC</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.78%" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="27%" headers="mcps1.3.2.1.2.2.2.6.1.5 "><p>使用<b><span class="cmdname">ADD FLOWFILTER</span></b>命令定义的流过滤器名称。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.1 "><p>流信息上报开关（FLOWINFORPT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.2 "><p>ENABLE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.2.2.6.1.4 "><p>PCF需要获取流信息时，设置为<span class="parmvalue">“ENABLE”</span>。默认取值是<span class="parmvalue">“DISABLE”</span>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0313928808__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0313928808" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span>打开PCC基本功能的License配置开关。</span><p><pre class="screen">SET LICENSESWITCH:LICITEM="LKV3W9SPCC11", SWITCH=ENABLE;</pre>
+</p></li><li><span>使能SMF的全局缺省的PCC开关。</span><p><pre class="screen">SET PCCFUNC:HOMEPCCSWITCH=ENABLE,ROAMPCCSWITCH=ENABLE,VISITPCCSWITCH=ENABLE,N7FAILOVERSW=ENABLE;</pre>
+</p></li><li><span>使能APN PCC开关。（条件可选）</span><p><p>该步骤主要用于使能或关闭指定APN/DNN用户的动态PCC功能。例如当前网络中有两个数据APN，分别为APN1和APN2，可通过配置此命令对APN1与APN2做业务隔离。</p>
+<pre class="screen">SET APNPCCFUNC: APN="cmnet", HOMEPCCSWITCH=ENABLE, ROAMPCCSWITCH=ENABLE, VISITPCCSWITCH=ENABLE;</pre>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>针对多APN组网复杂的场景，建议配置此命令。</p>
+</div></div>
+</p></li><li><span>打开ADC基本功能的License配置开关。</span><p><pre class="screen">SET LICENSESWITCH:LICITEM="LKV2BADCF01",SWITCH=ENABLE;</pre>
+</p></li><li><span><a name="ZH-CN_OPI_0313928808__cmd1569865514531"></a><a name="cmd1569865514531"></a>PCF通过动态规则下发appId时，请执行本步骤。</span><ol type="a"><li><span>配置ADC业务使用的appId。</span><p><pre class="screen">ADD FLOWFILTER:FLOWFILTERNAME="flow_ADC";</pre>
+</p></li><li><span>配置ADC参数。</span><p><pre class="screen">ADD ADCPARA: FLOWFILTERNAME="flow_ADC",FLOWINFORPT=ENABLE;</pre>
+</p></li></ol>
+<p><div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>存在多个appId时，请多次执行<a href="#ZH-CN_OPI_0313928808__cmd1569865514531">5</a>。</p>
+</div></div>
+</p></li></ol>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0313928808__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0313928808" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">任务描述</p></span><p>配置ADC业务流并开启检测开关。</p>
+<span><p class="sectiontitle">脚本</p></span><p>业务导入脚本：<a href="../resource/SMF_MML.txt">SMF MML</a></p>
+<p>业务回退脚本：<a href="../resource/SMF_MML_Deleting.txt">SMF_MML_Deleting</a></p>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0308571771.html">E2E业务配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0308571772.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0313928809.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

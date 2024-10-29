@@ -1,0 +1,259 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加运营商紧急呼叫功能配置（ADD EMGCFG）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_emergency_function_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/mod_emgcfg.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126305316">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加运营商紧急呼叫功能配置（ADD EMGCFG）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126305316"></a><a name="ZH-CN_MMLREF_0000001126305316"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加运营商紧急呼叫功能配置（ADD EMGCFG）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126305316__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126305316__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126305316__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305316__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305316__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126305316__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305316__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126305316" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126305316__zh-cn_concept_0272842528_b850912308192121">适用网元：MME</strong></span></p>
+<p>该命令用于增加指定MNO/MVNO对应的紧急呼叫配置数据。运营商需要使用紧急呼叫业务时，通过此命令配置对应MNO或MVNO下的紧急呼叫的策略、紧急业务的APN和QoS相关配置。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305316__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126305316" class="sectiontitle2contents">注意事项</a></h4><ul><li>此命令执行后立即生效。</li><li>此命令最大记录数为192。</li><li>UE发起紧急Attach或者紧急PDN连接请求的时候，是不会携带APN的，需要由此命令配置对应的紧急APN、紧急承载对应的QoS、APN AMBR。</li><li>此配置涉及VoLTE紧急呼叫特性（特性编号：WSFD-<span>102101</span>，License项：LKV2VLEC01），执行命令请使用<a href="dsp_license.html"><b><span class="cmdname">DSP LICENSE</span></b></a>命令确认对应特性license是否得到授权，执行<a href="lst_licenseswitch.html"><b><span class="cmdname">LST LICENSESWITCH</span></b></a>命令确认特性开关状态为<span class="parmvalue">“ENABLE(打开)”</span>。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305316__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126305316" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305316__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126305316" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305316__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126305316" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>NOID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>运营商标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定运营商标识。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围： 0～64，128～254</p>
+<p>默认值： 无</p>
+<div class="p">配置原则：<ul><li>若该参数需要配置为0或128～254之间的值时，请先在<a href="add_mno.html"><b><span class="cmdname">ADD MNO</span></b></a>中配置取值相同的<span class="parmname">“MNOID”</span>参数。</li><li>若该参数需要配置为1～64之间的值时，须先在<a href="add_mvno.html"><b><span class="cmdname">ADD MVNO</span></b></a>中配置取值相同的<span class="parmname">“MVNOID”</span>参数。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>EMGMODE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急承载创建模式</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置紧急承载创建模式。</p>
+<p>数据来源：运营商规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“VALIDUE（Valid UE only）”</span></li><li><span class="parmvalue">“AUTHUE（Only UEs that are authenticated are allowed）”</span></li><li><span class="parmvalue">“IMSIUE（IMSI required, authenticated optional）”</span></li><li><span class="parmvalue">“ALLUE（All UE are allowed）”</span></li></ul>
+</div>
+<p>默认值： <span class="parmvalue">“AUTHUE（Only UEs that are authenticated are allowed）”</span></p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li><span class="parmvalue">“VALIDUE（Valid UE only）”</span>：鉴权通过且签约数据正常且接入限制也通过的UE才可以使用紧急呼叫业务。</li><li><span class="parmvalue">“AUTHUE（Only UEs that are authenticated are allowed）”</span>：鉴权通过的UE就可以使用紧急呼叫业务。</li><li><span class="parmvalue">“IMSIUE（IMSI required, authenticated optional）”</span>：有USIM卡的UE就可以使用紧急呼叫业务。<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>为了提高切换成功率，建议MME开启获取IMEI信息功能。<a href="add_s1imeicfg.html"><b><span class="cmdname">ADD S1IMEICFG</span></b></a></p>
+</div></div>
+</li><li><span class="parmvalue">“ALLUE（All UE are allowed）”</span>：所有UE包括无USIM卡的都可以使用紧急呼叫业务。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>EMGAPN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急APN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于设置紧急PDN连接创建时使用的APN，需要运营商保证全网规划一致，包括MME、P-GW、PCRF等设备。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围： 长度1～62的字符</p>
+<p>默认值： 无</p>
+<div class="p">配置原则：<ul><li>字符串中不能出现*。</li><li>紧急APN由一个或多个LABEL构成，各LABEL间用“.”间隔。</li><li>每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ULAPNAMBR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急APN的上行APN AMBR速率（kbit/s）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置紧急APN的上行APN AMBR速率。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：1～256000</p>
+<p>默认值：500</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数只影响默认紧急承载，用于IMS信令的传输。紧急语音是通过紧急专有承载，是GBR类型承载，其QoS由P-GW确定，跟此参数无关。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>DLAPNAMBR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急APN的下行APN AMBR速率（kbit/s）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于设置紧急APN的下行APN AMBR速率。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：1～256000</p>
+<p>默认值：500</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数只影响默认紧急承载，用于IMS信令的传输。紧急语音是通过紧急专有承载，是GBR类型承载，其QoS由P-GW确定，跟此参数无关。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>QCI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急承载的QCI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数控制紧急默认承载的QCI，协议规定IMS的信令承载推荐的QCI是5。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：5～9</p>
+<p>默认值：5</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ARPPRL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急ARP优先级级别</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于设置紧急承载的ARP，该参数应该全网规划一致，包括eNodeB、MME、P-GW。eNodeB主要依赖ARP来确定是紧急承载，并针对紧急承载忽略接入限制等处理。ARP包括Priority Level、Pre-emption Capability、Pre-emption Vulnerability参数。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：1～15</p>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>1为最高等级</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ARPPCI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急ARP的Pre-emption Capability</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于设置紧急ARP的Pre-emption Capability参数，该参数在无线侧使用，表示在资源拥塞的情况下，本承载是否可以抢占其它承载。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：<span class="parmvalue">“NO（否）”</span>，<span class="parmvalue">“YES（是）”</span></p>
+<p>默认值： 无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ARPPVI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急ARP的Pre-emption Vulnerability</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于设置紧急ARP的Pre-emption Vulnerability参数，该参数在无线侧使用，表示在资源拥塞的情况下，本承载是否可以被其它更高优先级的承载抢占。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围： <span class="parmvalue">“NO（否）”</span>，<span class="parmvalue">“YES（是）”</span></p>
+<p>默认值： 无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>EMGPGWIDTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>紧急P-GW标识类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定紧急P-GW标识类型。</p>
+<p>数据来源：运营商规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“FQDN(FQDN)”</span></li><li><span class="parmvalue">“IP_ADDRESS(IP地址)”</span></li><li><span class="parmvalue">“NULL(关闭)”</span></li></ul>
+</div>
+<p>默认值： NULL(关闭)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>FQDN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>FQDN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于标识由RAI、TAI、APN等构建的域名，用来进行网元查询。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：1~255位字符串</p>
+<p>默认值：无</p>
+<p>前提条件：该参数在<span class="parmname">“EMGPGWIDTYPE”</span>设置为<span class="parmvalue">“FQDN(FQDN)”</span>时有效。</p>
+<p>配置原则：利用构建的FQDN可以查询SGSN、S-GW、P-GW、IWS等网元。其中构建域名的信元组成如下：</p>
+<ul><li>S-GW(TAI)：TAC-LB&lt;TAC-LOW-BYTE&gt;.TAC-HB&lt;TAC-HIGH-BYTE&gt;.TAC.EPC.MNC&lt;MNC&gt;.MCC&lt;MCC&gt;.3GPPNETWORK.ORG。例如：TAC-LB01.TAC-HB71.TAC.EPC.MNC123.MCC123.3GPPNETWORK.ORG。</li><li>P-GW(APN): &lt;APNNI&gt;.APN.EPC.MNC&lt;MNC&gt;.MCC&lt;MCC&gt;.3GPPNETWORK.ORG。例如：HUAWEI1.COM.APN.EPC.MNC123.MCC123.3GPPNETWORK.ORG。</li></ul>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>该参数只能由字母（A-Z或者a-z）、数字（0-9）、连字符（-）和点（.）组成。</li><li>&lt;TAC-LOW-BYTE&gt;，&lt;TAC-HIGH-BYTE&gt;为2位十六进制数。</li><li>&lt;MNC&gt;，&lt;MCC&gt;为3位十进制数 ，&lt;CELL ID&gt;为4位十进制数。</li><li>如果&lt;&gt;（除了&lt;APNNI&gt;）中的内容不足相应的位数，前面以“0”补齐。</li><li>FQDN不能以“.”开始，也不能以“.”结束。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IP地址类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定IP地址类型。</p>
+<p>前提条件：该参数在<span class="parmname">“EMGPGWIDTYPE”</span>设置为<span class="parmvalue">“IP_ADDRESS(IP)”</span>时有效。</p>
+<p>数据来源：运营商规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ADDR_TYPE_IPV4(IPV4地址)”</span></li><li><span class="parmvalue">“ADDR_TYPE_IPV6(IPV6地址)”</span></li></ul>
+</div>
+<p>默认值： 无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPV4ADDR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IPV4地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定紧急P-GW标识的IPV4地址。</p>
+<p>前提条件：该参数在<span class="parmname">“IPTYPE”</span>设置为<span class="parmvalue">“ADDR_TYPE_IPV4(IPV4地址)”</span>时有效。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：0.0.0.1～255.255.255.254</p>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>“0.0.0.0”和“255.255.255.255”是无效的IP地址。</p>
+</div></div>
+<div class="p">配置原则：<ul><li>IPv4地址不能为0.0.0.0、255.255.255.255和0.x.y.z。</li><li>IPv4地址不能为组播地址（如：224.x.y.z）和环回地址(如：127.x.y.z)。</li><li>IPv4地址必须是A、B或者C类地址。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPV6ADDR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IPV6地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定紧急P-GW标识的IPV6地址。</p>
+<p>前提条件：该参数在<span class="parmname">“IPTYPE”</span>设置为</p>
+<p><span class="parmvalue">“ADDR_TYPE_IPV6(IPV6地址)”</span>时有效。</p>
+<p>数据来源：运营商规划</p>
+<p>取值范围：::～FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF</p>
+<p>默认值：无</p>
+<p>配置原则：IPv6地址必须是全球单播地址，不能为::、FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF、环回地址(::1)、链路本地地址(FE80::/10)和组播地址(FF00::/8)。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305316__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126305316" class="sectiontitle2contents">使用实例</a></h4><p>增加一条运营商紧急呼叫功能的配置，<span class="parmname">“运营商标识”</span>为<span class="parmvalue">“0”</span>，<span class="parmname">“紧急承载创建模式”</span>为<span class="parmvalue">“AUTHUE”</span>，<span class="parmname">“紧急APN”</span>为<span class="parmvalue">“1”</span>，<span class="parmname">“紧急APN的上行APN AMBR速率（kbit/s）”</span>为<span class="parmvalue">“20000”</span>，<span class="parmname">“紧急APN的下行APN AMBR速率（kbit/s）”</span>为<span class="parmvalue">“40000”</span>，<span class="parmname">“紧急承载的QCI”</span>为<span class="parmvalue">“5”</span>，<span class="parmname">“紧急ARP优先级级别”</span>为<span class="parmvalue">“1”</span>，<span class="parmname">“紧急ARP的Pre-emption Capability”</span>不可以抢占其他承载，<span class="parmname">“紧急ARP的Pre-emption Vulnerability”</span>不可以被其他更高优先级承载抢占：</p>
+<p><span class="msgph">ADD EMGCFG: NOID=0, EMGMODE=AUTHUE, EMGAPN="1", ULAPNAMBR=20000, DLAPNAMBR=40000, QCI=5, ARPPRL=1, ARPPCI=NO, ARPPVI=NO;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_emergency_function_configuration.html">紧急呼叫功能配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/mod_emgcfg.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

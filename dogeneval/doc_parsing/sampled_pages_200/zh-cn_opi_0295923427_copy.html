@@ -1,0 +1,179 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="调测话单缓存功能">
+<meta name="product" content="">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2030_feature_om_Offline_Billing_08.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0295923534.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0295923381.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0295923588.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0295923534.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0295923381.html">
+<meta name="prodname" content="">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-011201">
+<meta name="Function" content="计费">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-011201">
+<meta name="Function" content="计费">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0295923427">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>调测话单缓存功能</title>
+</head>
+<body><a name="ZH-CN_OPI_0295923427"></a><a name="ZH-CN_OPI_0295923427"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">调测话单缓存功能</h1>
+<ul><li><a href="#ZH-CN_OPI_0295923427__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0295923427__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0295923427__1.3.3">操作流程</a></li><li><a href="#ZH-CN_OPI_0295923427__1.3.4">操作步骤</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0295923427__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0295923427" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>当运营商部署了离线计费业务，需要调测GGSN/SGW-C/PGW-C的话单缓存功能。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>适用于SGW-C、PGW-C<span>、GGSN</span>。</p>
+</div></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0295923427__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0295923427" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li><span>请仔细阅读</span><a href="zh-cn_topic_0287165686.html">Ga/Gy接口离线/在线计费</a>。</li><li>完成<a href="zh-cn_opi_0295923479.html">配置到CG的数据（GGSN/SGW-C/PGW-C）</a>。</li><li>完成<a href="zh-cn_opi_0295923448.html">配置话单可选功能（GGSN/SGW-C/PGW-C）</a>。</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.081408140814084%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.18191819181918%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.311531153115313%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.731673167316732%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="34.69346934693469%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="4" valign="top" width="14.081408140814084%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>CG信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.18191819181918%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>CG IPv4地址（IPADDR）</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.311531153115313%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>192.168.0.3</p>
+<p>192.168.1.3</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.731673167316732%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="34.69346934693469%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p><b><span class="cmdname">ADD CG</span></b></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>等级（PRIORITY）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>0</p>
+<p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>已配置数据中获取</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>话单类型（CDRTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>R7</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>已配置数据中获取</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>CG端口号（PORT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>3386</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>已配置数据中获取</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="4" valign="top" width="14.081408140814084%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>Gaif逻辑接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.18191819181918%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>逻辑接口名称（NAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.311531153115313%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>gaif1/0/0</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.731673167316732%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="34.69346934693469%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p><b><span class="cmdname">ADD LOGICINF</span></b></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>逻辑接口的IP版本（IPVERSION）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>本端规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>逻辑接口的IPv4地址1（IPV4ADDRESS1）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>192.168.10.63</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>已配置数据中获取</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>VPN实例名（VPNINSTANCE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>vpn_ga</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>已配置数据中获取</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span><p class="sectiontitle">工具</p></span><ul><li>测试终端</li><li>CG客户端工具</li></ul>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0295923427__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0295923427" class="sectiontitle2contents">操作流程</a></h2>
+<div class="Sectionbody"><ol><li>激活用户，进行业务并生成话单。</li><li>断开与CG的连接。</li><li>继续生成话单，去激活用户。</li><li>一段时间后有话单缓存到硬盘上，恢复与CG的连接，检查话单缓存功能是否正常。</li></ol>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0295923427__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0295923427" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span>激活用户，测试终端使用<strong>apn-test</strong> APN接入网络，访问业务。</span><ul><li>如果测试终端成功接入网络，请执行<a href="#ZH-CN_OPI_0295923427__step30-1">步骤 2</a>。</li><li>如果测试终端无法接入网络，请调测<span>UNC</span>的接入功能。</li></ul>
+</li><li id="ZH-CN_OPI_0295923427__step30-1"><a name="ZH-CN_OPI_0295923427__step30-1"></a><a name="step30-1"></a><span id="ZH-CN_OPI_0295923427__">通过在GGSN/SGW-C/PGW-C上删除到CG的路由的方式断开与CG的连接，1分钟后执行<b><span class="cmdname">DSP CGSTATUS</span></b>命令查看对应的CG状态是否为abnormal。</span><p><div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>如果不产生话单数据时，使用echo消息维护链路，一般需要3～4分钟才检测到链路abnormal状态（默认消息发送间隔是1分钟，重发次数是3次）。</p>
+</div></div>
+<pre class="screen">DSP CGSTATUS:;
+
+CG Status
+-------------------------
+POD名称            Ga IP地址          CG IP地址          CG端口号           CG类型       CG状态  
+uncpod-0        192.168.10.63       192.168.0.3           3386              R7        abnormal   
+uncpod-0        192.168.10.63       192.168.1.3           3386              R7        abnormal   
+                                                       ......
+(结果个数 = 7)
+---    END</pre>
+</p><ul><li>如果<strong>CG状态</strong>为<strong>abnormal</strong>，执行<a href="#ZH-CN_OPI_0295923427__stp2">步骤 3</a>。</li><li>如果<strong>CG状态</strong>为<strong>normal</strong>，请继续等1分钟，再查看CG的状态。</li></ul>
+</li><li id="ZH-CN_OPI_0295923427__stp2"><a name="ZH-CN_OPI_0295923427__stp2"></a><a name="stp2"></a><span id="ZH-CN_OPI_0295923427__">用户访问业务的过程中，通过去激活业务或者达到流量阈值、时间阈值等方式生成话单，或者通过<b><span class="cmdname">FOC GENERATECDR</span></b>命令强制产生话单，然后去激活用户。3分钟后通过命令<b><span class="cmdname">/opt/container/stg/sm4gcm/charge1/CG Group ID/CDR Version/GaIP/xxx/xxx.cdr</span></b>查看该目录下话单文件在硬盘上的缓存情况，并记录下对应版本缓存的话单个数。</span><ul><li>如果硬盘上缓存的话单数为0，请执行<a href="#ZH-CN_OPI_0295923427__step1829245425110">步骤 6</a>。</li><li>如果硬盘上缓存的话单数不为0，请继续执行<a href="#ZH-CN_OPI_0295923427__stp3">步骤 4</a>。</li></ul>
+</li><li id="ZH-CN_OPI_0295923427__stp3"><a name="ZH-CN_OPI_0295923427__stp3"></a><a name="stp3"></a><span id="ZH-CN_OPI_0295923427__">恢复CG与GGSN/SGW-C/PGW-C的路由，1分钟后通过命令<b><span class="cmdname">DSP CGSTATUS</span></b>查看CG的状态是否是normal。</span><ul><li>如果<strong>CG状态</strong>为<strong>normal</strong>，则继续执行<a href="#ZH-CN_OPI_0295923427__stp4">步骤 5</a>。</li><li>如果<strong>CG状态</strong>为<strong>abnormal</strong>，请参考<a href="zh-cn_opi_0295923534.html">调测到CG的数据</a>调测CG链路。</li></ul>
+</li><li id="ZH-CN_OPI_0295923427__stp4"><a name="ZH-CN_OPI_0295923427__stp4"></a><a name="stp4"></a><span id="ZH-CN_OPI_0295923427__">3分钟后通过命令<b><span class="cmdname">/opt/container/stg/sm4gcm/charge1/CG Group ID/CDR Version/GaIP/xxx/xxx.cdr</span></b>查看话单在硬盘上的缓存情况。</span><ul><li>如果硬盘上缓存的话单数为0，表明话单缓存功能正常，调测任务结束。</li><li>如果硬盘上缓存的话单数没变，请执行<a href="#ZH-CN_OPI_0295923427__step1829245425110">步骤 6</a>。</li></ul>
+</li><li id="ZH-CN_OPI_0295923427__step1829245425110"><a name="ZH-CN_OPI_0295923427__step1829245425110"></a><a name="step1829245425110"></a><span id="ZH-CN_OPI_0295923427__">收集信息并寻求技术支持。</span><ol type="a"><li><span>执行<b><span class="cmdname">EXP MML</span></b>命令将当前配置数据导出为MML脚本文件并保存。</span></li><li><span>收集并保存上述所有查询信息。</span></li><li><span>收集归纳所有信息并联系华为技术支持解决。</span></li></ol>
+</li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../om/unc_2030_feature_om_Offline_Billing_08.html">调测离线计费
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0295923534.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0295923381.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

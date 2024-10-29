@@ -1,0 +1,207 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="显示系统软件信息（DSP ACSPACKAGE）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/common_vnfc_n_version.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/dsp_package.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/set_chkpkginterval.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0233085177">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>显示系统软件信息（DSP ACSPACKAGE）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0233085177"></a><a name="ZH-CN_CONCEPT_0233085177"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">显示系统软件信息（DSP ACSPACKAGE）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0233085177__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0233085177__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0233085177__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0233085177__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0233085177__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0233085177__1.3.6.1">输出结果说明</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0233085177__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0233085177" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于显示系统软件包的信息，如软件包类型、版本号和运行状态等。</p>
+<p>本命令只适用于ACS服务，其他微服务请使用DSP PACKAGE命令。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0233085177__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0233085177" class="sectiontitle2contents">注意事项</a></h4><p>无。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0233085177__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0233085177" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0233085177__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0233085177" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.333333333333336%" id="mcps1.3.4.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.333333333333336%" id="mcps1.3.4.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.333333333333336%" id="mcps1.3.4.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>PACKAGETYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>包类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于表示包类型。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：枚举类型。</p>
+<ul><li>Version：软件版本包，包括基础版本包、冷补丁、热补丁等几种。</li><li>RiskCheckPackage：风险排查包。</li><li>AppPackage：App软件包。</li></ul>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>VERSIONTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>版本类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于表示版本类型。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：枚举类型。</p>
+<ul><li>BaseSoftware：包含网元或APP运行所需所有软件的全版本。</li><li>ColdPatch：为网元或APP运行所需的部分软件，为对基础版本的补充，冷补丁不能独立运行，冷补丁升级往往会中断业务。</li><li>HotPatch：为对基础版本或冷补丁的热补充，热补丁不能独立运行，热补丁升级不中断业务。</li></ul>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>VERSIONID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>版本号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于表示版本号。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：字符串类型，输入长度范围为1～31。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>APPTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>版本应用类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于表示版本应用类型。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：字符串类型，输入长度范围为1～63。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>VERSIONSTATUS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>版本状态</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于表示版本状态。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：枚举类型。</p>
+<ul><li>Ready：软件包已准备好，可用。</li><li>Prepared：软件包处于加载状态。</li><li>Running：软件包处于运行状态。</li><li>RunningAndPrepared：软件包处于运行和已加载状态。</li></ul>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>CPUARCHTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>CPU架构类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：CPU架构类型。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：枚举类型。</p>
+<ul><li>X86：CPU架构类型是X86。</li><li>ARM：CPU架构类型是ARM。</li><li>Any：不区分CPU架构类型。</li></ul>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.1 "><p>BASEVERSIONID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.2 "><p>基础包版本号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于描述基础版本号。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：字符串类型，输入长度范围为1～31。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0233085177__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0233085177" class="sectiontitle2contents">使用实例</a></h4><p>显示系统软件包：</p>
+<pre class="codeblock">DSP ACSPACKAGE:;</pre>
+<pre class="screen">RETCODE = 0  操作成功
+
+结果如下
+-------------------------
+包类型           版本类型         版本号                   版本应用类型             版本状态           CPU架构类型           基础版本号
+版本包           基础版本         V100R018C20B270          BaseApp                  运行               X86                   V100R018C20B270
+版本包           基础版本         V100R018C20              GuestOS                  运行&amp;已加载        X86                   V100R018C20B270
+风险排查包       基础版本         V100R018C20CHK           BaseApp                  可用               X86                   V100R018C20B270
+App软件包        热补丁           V100R018C20B050          PAEDP                    已加载             X86                   V100R018C20B270
+(结果个数 = 4)
+---    END</pre>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0233085177__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0233085177" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.6.2.1.3.1.1" liSelected="liSelected"><p>输出项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.6.2.1.3.1.2" liSelected="liSelected"><p>输出项解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>包类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>表示包的类型，包括版本包，风险排查包和App软件包。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>版本类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>表示版本类型，包括基础版本、冷补丁、热补丁。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>版本号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>表示软件包的版本号。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>版本应用类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>表示版本应用类型。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>版本状态</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>表示版本状态，包括可用、已加载、运行和运行&amp;已加载。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p>基础版本号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p>表示软件包的基础版本号。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/common_vnfc_n_version.html">版本信息
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/dsp_package.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/set_chkpkginterval.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="调测基于累计流量的策略控制">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0229056167.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0229056190.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0229056192.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-109104">
+<meta name="Function" content="Qos">
+<meta name="Function" content="智能PCC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0229056191">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>调测基于累计流量的策略控制</title>
+</head>
+<body><a name="ZH-CN_OPI_0229056191"></a><a name="ZH-CN_OPI_0229056191"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">调测基于累计流量的策略控制</h1>
+<ul><li><a href="#ZH-CN_OPI_0229056191__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0229056191__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0229056191__1.3.3">操作步骤</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0229056191__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0229056191" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>当运营商部署了基于累计流量的策略控制功能时，需要调测该功能，以确保该功能可以正常使用。</p>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0229056191__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0229056191" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>请仔细阅读<a href="zh-cn_topic_0229056167.html">WSFD-109104 基于累计流量的策略控制</a>。</li><li>请仔细阅读<a href="../desc/unc_2000_feature_desc_Basic_PCC_Function.html">WSFD-109101 PCC基本功能</a>。</li><li>完成<a href="zh-cn_opi_0229056190.html">激活基于累计流量的策略控制</a>。</li><li>通过N7接口进行交互时，已完成<a href="../om/unc_2000_feature_om_Basic_PCC_Function.html">激活PCC基本功能</a>。</li><li>通过Gx接口进行交互时，已完成<a href="zh-cn_opi_0229056159.html">激活PCC基本功能</a>。</li><li>N4/Gx/N7镜像接口已安装第三方抓包工具。</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.2%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.470000000000002%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.010000000000002%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.27%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="32.05%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.2%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>用户信息查询</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.470000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IMSI号码(IMSI)</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.010000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>460000123456789</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.27%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>测试终端自带</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.05%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.2%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>测试终端使用的APN</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.470000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>APN名称（APN）</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.010000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>apn-test</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.27%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.05%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>用户激活使用的APN，可以使用命令<a href="../MML/Document/lst_apn.html"><b><span class="cmdname">LST APN</span></b></a>进行查询。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0229056191__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0229056191" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0229056191__zh-cn_topic_0305599235_wintitle1891213344912">“MML命令行-UNC”</span>窗口。</span></span></li><li><span>执行<a href="../MML/Document/lst_licenseswitch.html"><b><span class="cmdname">LST LICENSESWITCH</span></b></a>命令，查询License配置开关是否已打开。</span><p><ul><li>如果“SWITCH”为“ENABLE”，请执行<a href="#ZH-CN_OPI_0229056191__step080520399015">步骤 3</a>。</li><li>如果“SWITCH”为“DISABLE”，则执行<a href="../MML/Document/set_licenseswitch.html"><b><span class="cmdname">SET LICENSESWITCH</span></b></a>命令打开本特性对应的License配置开关。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step080520399015"><a name="ZH-CN_OPI_0229056191__step080520399015"></a><a name="step080520399015"></a><span id="ZH-CN_OPI_0229056191__">创建用户跟踪任务，消息类型选择N4、Gx和N7。</span></li><li id="ZH-CN_OPI_0229056191__step16255151355620"><a name="ZH-CN_OPI_0229056191__step16255151355620"></a><a name="step16255151355620"></a><span id="ZH-CN_OPI_0229056191__">测试终端使用“apn-test”接入网络，用户访问业务，并进行在线视频或者FTP电影下载。</span></li><li><span>查看用户跟踪中的CCA-I/Npcf_SMPolicyControl_Create Response(201 Created)消息，检查PCRF/PCF是否下发该用户的正确的Session级流量监控信息。</span><p><ul><li>如果PCRF/PCF下发的“Usage-Monitoring-Information”/“UsageMonitoringData”与规划值一致，则表示规则下发正确，请继续执行<a href="#ZH-CN_OPI_0229056191__step1531132631">步骤 6</a>。</li><li>如果PCRF/PCF下发的“Usage-Monitoring-Information”/“UsageMonitoringData”与规划值不一致，请联系PCRF/PCF技术支持检查PCRF/PCF上的规则配置。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step1531132631"><a name="ZH-CN_OPI_0229056191__step1531132631"></a><a name="step1531132631"></a><span id="ZH-CN_OPI_0229056191__">使用测试终端继续进行在线视频或者FTP电影下载业务，并查看镜像接口的抓包信息。</span></li><li><span>通过第三方抓包工具的统计功能计算已经使用的流量是否达到流量阈值的80%。</span><p><p>此处以已经使用的流量达到流量阈值的80%进行上报为例，实际请以局点配置为准。</p>
+</p><p><ul><li>未达到PCRF/PCF下发的流量阈值的80%，请返回<a href="#ZH-CN_OPI_0229056191__step1531132631">步骤 6</a>继续进行业务。</li><li>已经超过PCRF/PCF下发的流量阈值的80%，请执行<a href="#ZH-CN_OPI_0229056191__step1837342413811">步骤 8</a>。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step1837342413811"><a name="ZH-CN_OPI_0229056191__step1837342413811"></a><a name="step1837342413811"></a><span id="ZH-CN_OPI_0229056191__">查看<span>UNC</span>发起的CCR-U消息中是否携带Usage-Monitoring-Information AVP/查看<span>UNC</span>发起的Npcf_SMPolicyControl_Update Request（POST）消息中是否携带accuUsageReports，且上报的流量与下发的阈值的80%接近相等。</span><p><ul><li>是，请执行<a href="#ZH-CN_OPI_0229056191__step191619113131">步骤 10</a>。</li><li>否，请执行<a href="#ZH-CN_OPI_0229056191__step201043716131">步骤 9</a>。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step201043716131"><a name="ZH-CN_OPI_0229056191__step201043716131"></a><a name="step201043716131"></a><span id="ZH-CN_OPI_0229056191__">执行<a href="../MML/Document/lst_apnpccfunc.html"><b><span class="cmdname">LST APNPCCFUNC</span></b></a>命令，检查指定DNN下是否开启PCC功能。</span><p><ul><li>是，请执行<a href="#ZH-CN_OPI_0229056191__step114691314193316">步骤 13</a>。</li><li>否，请参考<a href="../om/unc_2000_feature_om_Basic_PCC_Function.html">激活PCC基本功能</a>（N7）/<a href="zh-cn_opi_0229056159.html">激活PCC基本功能</a>（Gx）重新配置，并再次执行<a href="#ZH-CN_OPI_0229056191__step16255151355620">步骤 4</a>。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step191619113131"><a name="ZH-CN_OPI_0229056191__step191619113131"></a><a name="step191619113131"></a><span id="ZH-CN_OPI_0229056191__">查看测试终端是否收到短信提醒（提醒已经使用了多少G流量）。</span><p><ul><li>是，请执行<a href="#ZH-CN_OPI_0229056191__step79359514201">步骤 11</a>。</li><li>否，请联系PCRF/PCF技术支持检查PCRF/PCF上的规则配置。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step79359514201"><a name="ZH-CN_OPI_0229056191__step79359514201"></a><a name="step79359514201"></a><span id="ZH-CN_OPI_0229056191__">测试终端继续使用业务，并通过第三方抓包工具的统计功能计算已经使用的流量是否达到流量阈值的100%。</span><p><ul><li>未达到PCRF/PCF下的流量阈值的100%，请继续进行业务。</li><li>已经超过PCRF/PCF下发的流量阈值的100%，请执行<a href="#ZH-CN_OPI_0229056191__step83481080202">步骤 12</a>。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step83481080202"><a name="ZH-CN_OPI_0229056191__step83481080202"></a><a name="step83481080202"></a><span id="ZH-CN_OPI_0229056191__">查看CCR-U消息中的QoS-Information AVP和Default-EPS-Bearer-QoS AVP/查看Npcf_SMPolicyControl_Update Response（200 OK）消息中的QoSData，检查MBR、AMBR是否降为设置的QoS带宽。</span><p><ul><li>是，调测结束。</li><li>如果带宽与规划值不一致，请联系PCRF/PCF技术支持检查PCRF/PCF上的规则配置。</li><li>如果PCRF/PCF未下发QoS-Information AVP和Default-EPS-Bearer-QoS AVP或QoSData，请执行<a href="#ZH-CN_OPI_0229056191__step114691314193316">步骤 13</a>。</li></ul>
+</p></li><li id="ZH-CN_OPI_0229056191__step114691314193316"><a name="ZH-CN_OPI_0229056191__step114691314193316"></a><a name="step114691314193316"></a><span id="ZH-CN_OPI_0229056191__">请联系华为技术支持工程师。</span><ol type="a"><li><span><span>在镜像接口或服务器上开启抓包工具，执行调测流程</span>并保存报文。</span></li><li><span>执行<a href="../MML/Document/exp_mml.html"><b><span class="cmdname">EXP MML</span></b></a>命令将当前配置数据导出为MML脚本文件并保存。</span></li><li><span>收集并保存上述所有查询信息。</span></li><li><span>收集归纳所有信息并联系华为技术支持解决。</span></li></ol>
+</li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0229056167.html">WSFD-109104 基于累计流量的策略控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0229056190.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_topic_0229056192.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="通过命令代理执行调试命令（OPR DBGCMDPRXY）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/pfp_n_debug_commands.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0129626981">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>通过命令代理执行调试命令（OPR DBGCMDPRXY）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0129626981"></a><a name="ZH-CN_CONCEPT_0129626981"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">通过命令代理执行调试命令（OPR DBGCMDPRXY）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0129626981__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0129626981__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0129626981__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0129626981__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0129626981__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0129626981__1.3.6.1">输出结果说明</a></li></ul><div id="conbody1606492435174149"><div class="section" id="ZH-CN_CONCEPT_0129626981__section1221122048174149"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129626981__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0129626981" class="sectiontitle2contents">命令功能</a></h4><p id="ZH-CN_CONCEPT_0129626981__p1113467758174149">该命令用于在APP VNFC上执行调试命令。完整的调试命令在“CMDMSG（调试命令字符串）”参数中下发，调试命令的详细帮助可通过如下步骤获取：</p>
+<p id="ZH-CN_CONCEPT_0129626981__p120367100174149">1、执行本命令，在“CMDMSG（调试命令字符串）”中输入“$”获取可执行的所有调试命令。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p213046066174149">2、执行本命令，在“CMDMSG（调试命令字符串）”中输入要执行的调试命令、空格和“$”，显示调试命令的第一关键字。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p631882058174149">3、执行本命令，在“CMDMSG（调试命令字符串）”中输入要执行的调试命令、第一关键字、空格和“$”，显示调试命令的第二关键字。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p594148346174149">4、依次类推，直到显示调试命令的所有关键字。</p>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0129626981__section882564414174149"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129626981__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0129626981" class="sectiontitle2contents">注意事项</a></h4><ul id="ZH-CN_CONCEPT_0129626981__ul855430126174149"><li id="ZH-CN_CONCEPT_0129626981__li1471176632174149">该命令不支持输入“？”，将其取代为“$”。</li><li id="ZH-CN_CONCEPT_0129626981__li60481365174149">该命令用于收集定位信息，需要谨慎执行，请在华为工程师指导下执行。</li></ul>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0129626981__section2910273155"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129626981__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0129626981" class="sectiontitle2contents">操作用户权限</a></h4><p id="ZH-CN_CONCEPT_0129626981__p149182781518">G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0129626981__section1575554065174149"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129626981__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0129626981" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0129626981__table1975726453174149" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_CONCEPT_0129626981__row943214053174149"><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0129626981__p893241843174149">参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0129626981__p282383311174149">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.4.2.1.4.1.3" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0129626981__p1810608764174149">参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0129626981__row895425698174149"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry1635245997174149p0">RUNAME</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p id="ZH-CN_CONCEPT_0129626981__entry926259815174149p0">RU名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p id="ZH-CN_CONCEPT_0129626981__p741181928174149">可选必选说明：必选参数。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p903677215174149">参数含义：指定RU的名称。可通过<b><span class="cmdname" id="ZH-CN_CONCEPT_0129626981__cmdname121282341174149">DSP RU</span></b>命令查询获取，对应“RU名称”表项。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p747051339174149">数据来源：本端规划</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1635202851174149">取值范围：字符串类型，长度范围1～63。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p399301897174149">默认值：无。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0129626981__row1581264277174149"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry1001549738174149p0">SGID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p id="ZH-CN_CONCEPT_0129626981__entry1021861010174149p0">SG进程ID号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p id="ZH-CN_CONCEPT_0129626981__p94337091174149">可选必选说明：必选参数。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p622771535174149">参数含义：指定RU上的进程ID号。可通过<b><span class="cmdname" id="ZH-CN_CONCEPT_0129626981__cmdname17377108161917">DSP PROCESSXXX</span></b> （XXX表示CSLB等服务，例如CSLB的命令为DSP PROCESSCSLB，CSDB的命令为DSP PROCESSCSDB）命令查询获取，对应“进程在Ru上的实例ID”表项。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p517298860174149">数据来源：本端规划</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1832622631174149">取值范围：整数类型，取值范围为0～128。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p822163950174149">默认值：无。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0129626981__row279611312174149"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry1117311597174149p0">CMDMSG</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p id="ZH-CN_CONCEPT_0129626981__entry522766498174149p0">调试命令字符串</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p id="ZH-CN_CONCEPT_0129626981__p585961503174149">可选必选说明：必选参数。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p89475487174149">参数含义：调试命令字符串，沿用console的所有命令。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1402333934174149">数据来源：本端规划</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1968093325174149">取值范围：字符串类型，长度范围1～255。该字符串支持空格和“$”，“$”用于代替console命令中的“?”，以输出帮助信息。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1782045551174149">默认值：无。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0129626981__row398844294015"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.1 "><p id="ZH-CN_CONCEPT_0129626981__p64651329195537">SERVICEINSTANCE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.2 "><p id="ZH-CN_CONCEPT_0129626981__p599968481195537">服务实例</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.4.2.1.4.1.3 "><p id="ZH-CN_CONCEPT_0129626981__p843681194195537">可选必选说明：必选参数</p>
+<p id="ZH-CN_CONCEPT_0129626981__p336608480195537">参数含义：该参数表示大颗粒服务实例名称。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1995942622195537">数据来源：本端规划</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1628977459195537">取值范围：字符串类型，通过LST VNFC命令获取。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1915416414195537">默认值：无</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1010767300195537">配置原则：只能填写通过LST VNFC命令查询到的管理代理标识，不支持对"VNFC类型名称"为VNFP、VNRS_VNFC、ACS、IPSEC_VNFC的RU状态查询。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0129626981__section50524841174149"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129626981__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0129626981" class="sectiontitle2contents">使用实例</a></h4><p id="ZH-CN_CONCEPT_0129626981__p1637795207174149">查询RU名称为CSLB_OM_RU_0001的SMU进程上的当前全局时间信息：</p>
+<pre class="codeblock" id="ZH-CN_CONCEPT_0129626981__codeblock2062140717174149">OPR DBGCMDPRXY: RUNAME="CSLB_OM_RU_0001",SGID=0,CMDMSG="tick show now"<span>,SERVICEINSTANCE="CSLB_VNFC_999"</span>;</pre>
+<pre class="screen" id="ZH-CN_CONCEPT_0129626981__screen1114614471138">RETCODE = 0  操作成功.
+
+结果如下
+-------------------------
+                       RU名称  =  CSLB_OM_RU_0001
+                   SG进程ID号  =  0
+               调试命令字符串  =  tick show now
+     调试命令执行结果返回信息  =  
+	TICK show:
+	               Date = 2016-03-28_1.
+	               Time = 18:01:36:961.
+	    MillSecFrom1970 = 1459188096961(ms).
+	               Tick = 19833809(ms).
+	                    
+(结果个数 = 1)
+---    END</pre>
+</div>
+<div class="section" id="ZH-CN_CONCEPT_0129626981__section98630377174149"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0129626981__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0129626981" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0129626981__table907761821174149" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_CONCEPT_0129626981__row1037466642174149"><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.6.2.1.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0129626981__p633527414174149">输出项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.6.2.1.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0129626981__p17655908174149">输出项解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0129626981__row892877047174149"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry1817161766174149p0">RU名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p id="ZH-CN_CONCEPT_0129626981__p1507851527174149">输入的RU名称。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1524446485174149">字符串类型，长度为：1～63。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0129626981__row978154223174149"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry2053675953174149p0">SG进程ID号</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p id="ZH-CN_CONCEPT_0129626981__p1656709412174149">输入的进程逻辑ID。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1396821111174149">取值范围：整数类型，取值范围为0～128。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0129626981__row1790161696174149"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry1955196181174149p0">调试命令字符串</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p id="ZH-CN_CONCEPT_0129626981__p755644156174149">输入的调试命令。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p1940358124174149">字符串类型，长度为：1～255。</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0129626981__row1183986269174149"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.1 "><p id="ZH-CN_CONCEPT_0129626981__entry34660036174149p0">调试命令执行结果返回信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.6.2.1.3.1.2 "><p id="ZH-CN_CONCEPT_0129626981__p180112678174149">调试命令的执行结果信息。</p>
+<p id="ZH-CN_CONCEPT_0129626981__p602717741174149">字符串类型，长度为：1～1048575。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/pfp_n_debug_commands.html">调试命令
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

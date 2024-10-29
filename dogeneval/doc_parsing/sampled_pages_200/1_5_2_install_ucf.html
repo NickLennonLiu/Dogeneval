@@ -1,0 +1,198 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="安装UCF服务">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-nfvo-no-sdn/1_5_0_Install_optional_service.html">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-nfvo-no-sdn/1_5_1_Install_gtp.html">
+<meta name="DC.Relation" scheme="URI" content="../../common/software-fs-nfvo-no-sdn/1_5_2_Install_ipsec.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0000001115975924">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>安装UCF服务</title>
+</head>
+<body><a name="ZH-CN_OPI_0000001115975924"></a><a name="ZH-CN_OPI_0000001115975924"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">安装UCF服务</h1>
+<ul><li><a href="#ZH-CN_OPI_0000001115975924__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0000001115975924__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0000001115975924__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0000001115975924__1.3.4">任务示例</a></li><li><a href="#ZH-CN_OPI_0000001115975924__1.3.5">附加信息</a></li></ul><div><div class="Section" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIAscenarios10044878172748"><a name="ZH-CN_OPI_0000001115975924__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001115975924" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p8739152614596">CHR（Call History Record）即呼叫历史记录，CHR功能指UNC将移动性管理和会话管理等业务流程和信令事件的CHR记录通过UCF(Unified Collector Function)上报给高性能或低性能CHR服务器，用于对用户进行客户投诉处理、网络实时监控、网络运行状态分析、精细化运维和用户业务故障定位等应用。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p196160514813">仅当UNC网元需要部署CHR功能，才需要安装UCF服务。</p>
+<div class="p" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1040651318294">安装UCF服务场景：<ul id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ul1911353813107"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li17893738111018"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b18893183811105">场景一</strong><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b189041732123820">（静态上线）</strong>：UNC网元和UCF服务<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1089393861016">同时实例化</strong>。实例化UNC<span style="color:#0000FF;">前</span>填写如下VNFD参数。<ul id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ul1892982181616"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li658917413386">配置NF：“Function Set List”添加“<span style="color:#0000FF;">UCF</span>”。例如，添加后为"AMF/MME/SGSN/GB/<span style="color:#0000FF;">UCF</span>"。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li192218254612">配置VM：基于X86虚拟机PBU_P-U。基于ARM虚拟机PBU_P-U_ARM_Num。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li16406121253816">配置Pod：“UCF_CTRL_Instance_Num”，“UCF_EXEC_Instance_Num”。</li></ul>
+</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li189411384109"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b28949381103">场景二</strong><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b12916556153714">（动态上线）</strong>：<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1789412384100">先</strong>实例化UNC，<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b18943386102">然后</strong>再参考本章节，动态上线UCF服务。</li></ul>
+</div>
+<p style="color:#0000FF;" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p12449152820216">如<a href="1_2_1_deploy_tool.html#ZH-CN_TOPIC_0000001162495847">VNF软件安装工具说明</a>，<span>MAE-VNF LCM/U2020 VNF LCM</span>的界面菜单相似，安装网元的操作步骤相似。本文以MAE-VNF  LCM为例说明VNF安装过程。</p>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPICprerequisites19764978172748"><a name="ZH-CN_OPI_0000001115975924__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001115975924" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIAconditions1565898172748">前提条件</p></span><ul id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li1"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li49141413131818">已经实例化<span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ph1985719211144"><span>UNC</span></span>。已经<a href="../../toctopics/zh-cn_opi_0243008495.html#ZH-CN_OPI_0243008495">安装后检查</a>，<span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ph658211104388"><span>UNC</span></span>正常工作。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li135795421095">UCF服务依赖的软件包为<span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ph1649982013367"><span><span><span>UNC</span></span></span>_xx.x.x_<span style="color:#0000FF;">DockerSF</span>_X86.zip</span>或<span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ph773224315379"><span><span><span>UNC</span></span></span>_xx.x.x_<span style="color:#0000FF;">DockerSF</span>_ARM.zip</span>。在安装UNC时已经上传本软件包，因此无需再次上传软件包。</li></ul>
+<div class="notice" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ca1"><span class="noticetitle"><img src="../../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody"><ul id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ul13861181412293"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li1754914552910">当系统进行动态上下线操作期间，不允许再同时进行扩缩容操作。同理，当系统进行扩缩容期间，不允许再进行动态上下线操作。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li168611147291">上下线本服务时，不能同时上下线其他部件。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li524715556209">当动态上线一个服务的任务失败；必须先动态下线此服务，再重新触发动态上线任务。如果是动态下线失败，只能继续重新触发动态下线任务。</li></ul>
+</div></div>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIBdata11383252172748">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_table1948532104115353" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row682080188115353"><th align="left" class="cellrowborder" valign="top" width="16.37%" id="mcps1.3.2.1.2.1.1.5.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p465120984115353">类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="18.7%" id="mcps1.3.2.1.2.1.1.5.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1443032872115353">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="51.239999999999995%" id="mcps1.3.2.1.2.1.1.5.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p241965377115353">取值样例/说明</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="13.69%" id="mcps1.3.2.1.2.1.1.5.1.4" liSelected="liSelected"><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p176001622115353">获取方法</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row1457250091115353"><td class="cellrowborder" rowspan="4" valign="top" width="16.37%" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1135581815115353">UNC OM Portal帐户</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.7%" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p929961408115353">IP地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.239999999999995%" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p515591850115353">192.168.1.1</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p018403873019">操作维护接口IP，即“VNFD模板”中的<span class="parmname" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_parmname101841038203017">“MNG_IP”</span>或<span class="parmname" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_parmname318423863019">“MNG_IPv6”</span>参数。</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.69%" headers="mcps1.3.2.1.2.1.1.5.1.4 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p45430610115353">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row679961149115353"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p150860716115353">端口号</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p634508439115353">31943</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p11752158132916">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row1341858960115353"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1741807243115353">用户名</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1690433607115353">admin</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1514121214419">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row1074900015115353"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p346863811115353">密码</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1448736234115353">Changeme_123</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p2010601504419">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row139319614566"><td class="cellrowborder" valign="top" width="16.37%" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p10964104562">软件包</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.7%" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p29651010560">UCF软件包</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.239999999999995%" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1196151095610"><span><span><span><span>UNC</span></span></span>_xx.x.x_<span style="color:#0000FF;">DockerSF</span>_X86.zip</span>或<span><span><span><span>UNC</span></span></span>_xx.x.x_<span style="color:#0000FF;">DockerSF</span>_ARM.zip</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="13.69%" headers="mcps1.3.2.1.2.1.1.5.1.4 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p19791015568">固定取值</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row267469016115353"><td class="cellrowborder" rowspan="3" valign="top" width="16.37%" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p565195101911">特性使能</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p133827101844">OPR FEATUREENABLE</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.7%" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1893135162">Pod实例个数列表</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p444499585115353">（PODINSTANCENUM）</p>
+</td>
+<td class="cellrowborder" valign="top" width="51.239999999999995%" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p199412476512">ucfctrl-pod:2/ucfexec-pod:2</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p56131350163017">pod类型:上线的pod个数，用/分割。不能带空格。</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.69%" headers="mcps1.3.2.1.2.1.1.5.1.4 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1170111817443">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row15877233145218"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p14821958145112">扩展属性</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p15901224135113">（EXTENDEDATTR）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p115021022115118">保持空白，无需填写。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p14221430155112">固定取值</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_row43661224115418"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.1 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1277910481861">FUNCTIONSETNAME</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p11302189719">（网络功能集名称）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.2 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p207794481262">UCF</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.5.1.3 "><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p17151120161817">固定取值</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIEworkSteps11508030172748"><a name="ZH-CN_OPI_0000001115975924__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001115975924" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_steps7726332172748"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step1758520197287"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_cmd859412506131">动态上线本服务前，必须根据客户的业务容量和设备现状进行严格的<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_b8840112620426">扩容评估</strong>。</span><p><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_p1760872632911">确保上线服务所需的I层资源、License资源、各类网络资源（如外联口网络）是充足的，如果不充足，则要<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_b11666124610436">先扩容这些资源</strong>，然后<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_b36191051184313">再上线本服务</strong>。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_p10420104153312">由华为网设工程师进行网络设计，规划计算资源、存储资源、网络资源。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_p595101542512">将规划数据合入《NFV LLD文档》，作为后续操作的输入。</p>
+<ul id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_ul17539281884"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_li155319282819"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_b1451022318292">计算资源</strong>：承载虚拟机的主机（服务器）、主机组、虚拟机名称、虚拟机个数、容器名称、容器个数。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_li75410281583"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_b92191625112913">存储资源</strong>：承载本服务的磁盘空间。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_li13531628588"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_b58261826102915">网络资源</strong>：承载虚拟机的网络。承载容器的网络。承载业务的物理网口、业务网络。例如虚拟机的Base网络、容器Base网络、外联口网络、外联口Subport。</li></ul>
+</p></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step85851819192817"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_cmd4166171317197">参考<span>《<a href="https://support.huawei.com/carrier/idpRedirect?redirect=https%253A%252F%252Fsupport.huawei.com%252Fcarrier%252Fnavi%253Fcoltype%253Dcase%2523col%253Dknowledge%2526path%253D1556518228267%252F1559806009846%252F1559806482535%252FPBI1-22609865%2526kbDT%253DDT-TG" target="_blank" rel="noopener noreferrer">UNC基于LCM的扩缩容指导</a>》或《<a href="https://support.huawei.com/carrier/idpRedirect?redirect=https%253A%252F%252Fsupport.huawei.com%252Fcarrier%252Fnavi%253Fcoltype%253Dcase%2523col%253Dknowledge%2526path%253D1556518228267%252F1559806009846%252F1559806482535%252FPBI1-22609865%2526kbDT%253DDT-TG" target="_blank" rel="noopener noreferrer">UNC基于NFVO的扩缩容指导</a>》</span>，完成扩容操作，扩容出计算资源、存储资源、网络资源。</span><p><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0229119982_p639612261321">由华为工程师登录华为Support网站，在技术支持&gt;知识库&gt;云核心网&gt;Mobile Packet Core&gt;5G Packet Core&gt;UNC&gt;技术指导，中搜索《UNC基于NFVO的扩缩容指导》《UNC基于LCM的扩缩容指导》。</p>
+</p></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step683531175118"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_cmd138353155116"><a href="../../toctopics/zh-cn_topic_0000001157058267.html#ZH-CN_TOPIC_0000001157058267">登录UNC OM Portal</a>。</span></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step13485824161711"><a name="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step13485824161711"></a><a name="zh-cn_opi_0252091480_step13485824161711"></a><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_cmd13485724191720">执行命令，查询出：UNC网元支持的FunctionSet的名字，已经实例化完成的Pod类型和Pod个数，是否支持动态上下线。</span><p><pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen204928583225"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b2068317122313">DSP FUNCTIONSETINFO</strong>:;</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p198162545517">回显为“动态上线下开关=是”。</p>
+</p></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step18926915112312"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_cmd1292613156238">执行命令，动态上线UCF Pod。</span><p><pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen119289311371"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b83211199401">OPR FEATUREENABLE</strong>: PODINSTANCENUM="ucfctrl-pod:pod个数/ucfexec-pod:pod个数", FUNCTIONSETNAME="UCF";</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1761514511348">（1）无需配置“EXTENDEDATTR(扩展属性)”参数。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p184954517254">（2）参数“FunctionSet”填写为“UCF”。</p>
+<div class="p" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p440611372811">（3）参数“PODINSTANCENUM”填写为网设规划值，例如：pod1:num1/pod2:num2/pod3:num3<ul id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ul346265818332"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li1713612393420">如果<a href="#ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step13485824161711">4</a>所查到的原Pod数<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1661621220344">为0</strong>；则需要将该Pod填写为规划值，执本命令后，将会实例化此Pod。</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li121305913515">如果<a href="#ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step13485824161711">4</a>所查到的原Pod数为<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b13631016173419">非0</strong>；则说明<span style="color:#0000FF;">该Pod已实例化完毕</span>，<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b896410146449">不允许</strong>填写该Pod的数值。<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p191311047163117">当pod个数为<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b15531276273">非0</strong>，且<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1161903415303">不等于规划值</strong>，请参考《<a href="https://support.huawei.com/carrier/idpRedirect?redirect=https%253A%252F%252Fsupport.huawei.com%252Fcarrier%252Fnavi%253Fcoltype%253Dcase%2523col%253Dknowledge%2526path%253D1556518228267%252F1559806009846%252F1559806482535%252FPBI1-22609865%2526kbDT%253DDT-TG" target="_blank" rel="noopener noreferrer">UNC基于LCM的扩缩容指导</a>》，<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1157113143272">在VNF LCM上扩容</strong>pod个数为规划值</p>
+</li></ul>
+</div>
+</p></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step1422822312411"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_cmd16228323342">执行命令，确认已经成功实例化UCF Pod。</span><p><pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen086952815378"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b174915115404">DSP FEATUREOPRHIST</strong>:;</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p924118243311">回显为“处理结果=处理成功”。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen6845172019372"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1577717432110">DSP POD</strong>: MEID="<span style="color:#0000FF;">网元ID</span>", TYPE=byType, PODTYPE="ucfctrl-pod";
+<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b1679112216217">DSP POD</strong>: MEID="<span style="color:#0000FF;">网元ID</span>", TYPE=byType, PODTYPE="ucfexec-pod";</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p18233201418428">回显pod个数和规划一致，且“Pod状态”为“Running”。</p>
+</p></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0237229456_step1170723611312"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0237229456_cmd187072362133">执行命令，查询进程的状态。</span><p><pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen772614371965"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b865245111917">DSP CELLSTAT</strong>: OBJECT=PODTYPE, PODTYPE="ucfctrl-pod";
+<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b192751011201919">DSP CELLSTAT</strong>: OBJECT=PODTYPE, PODTYPE="ucfexec-pod";</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_zh-cn_opi_0237229456_p12441838103719">预期结果：“未就绪进程数”和“故障进程数”均为0。</p>
+</p></li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_step13699126172414"><span id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_cmd26991266248">执行命令，确认已经安装UCF服务。</span><p><pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen1875380162517">DSP FUNCTIONSETSTAT:;</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p137536010252">回显为</p>
+<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen18349185619248"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b193491556142413">FunctionSet  status</strong>
+UCF          online</pre>
+</p></li></ol>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIGexample5831229132013"><a name="ZH-CN_OPI_0000001115975924__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001115975924" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIAintroduction148212902017">任务描述</p></span><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p154713303305"><a name="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIAintroduction148212902017"></a><a name="zh-cn_opi_0252091480_OPIAintroduction148212902017"></a><span><span>UNC</span></span>实例化时，已采用网元类型为AMF的VNFD模板，已在<span>MAE-VNF LCM/U2020 VNF LCM</span>上传<span><span><span><span>UNC</span></span></span>_xx.x.x_<span style="color:#0000FF;">DockerSF</span>_X86.zip</span>或<span><span><span><span>UNC</span></span></span>_xx.x.x_<span style="color:#0000FF;">DockerSF</span>_ARM.zip</span>软件包。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p72716286412">已经参考<span>《<a href="https://support.huawei.com/carrier/idpRedirect?redirect=https%253A%252F%252Fsupport.huawei.com%252Fcarrier%252Fnavi%253Fcoltype%253Dcase%2523col%253Dknowledge%2526path%253D1556518228267%252F1559806009846%252F1559806482535%252FPBI1-22609865%2526kbDT%253DDT-TG" target="_blank" rel="noopener noreferrer">UNC基于LCM的扩缩容指导</a>》或《<a href="https://support.huawei.com/carrier/idpRedirect?redirect=https%253A%252F%252Fsupport.huawei.com%252Fcarrier%252Fnavi%253Fcoltype%253Dcase%2523col%253Dknowledge%2526path%253D1556518228267%252F1559806009846%252F1559806482535%252FPBI1-22609865%2526kbDT%253DDT-TG" target="_blank" rel="noopener noreferrer">UNC基于NFVO的扩缩容指导</a>》</span>扩容好计算资源、存储资源、网络资源。例如已在VNF LCM或NFVO上扩容出UCF服务自身VM（PBU_P-U）。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p14622143820209">在上述场景中动态上线UCF服务。</p>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIBscripts18311292207">脚本</p></span><ol id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_ol3244192802118"><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li1866494510345">执行命令，查询UNC网元支持的FunctionSet的名字，以及对应的Pod类型列表。<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen1053822116200">DSP FUNCTIONSETINFO:;</pre>
+</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li1045110347219">执行命令，动态上线UCF pod。<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen393912380218">OPR FEATUREENABLE: PODINSTANCENUM="ucfctrl-pod:<span style="color:#0000FF;">2</span>/ucfexec-pod:<span style="color:#0000FF;">2</span>", FUNCTIONSETNAME="UCF";</pre>
+</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li1224402852114">执行命令，确认已经成功实例化UCF Pod。<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen72681750112117">DSP FEATUREOPRHIST:;</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p1245234003411">回显为“处理结果=处理成功”。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen392116210463">DSP POD: MEID="<span style="color:#0000FF;">0</span>", TYPE=byType, PODTYPE="ucfctrl-pod";
+DSP POD: MEID="<span style="color:#0000FF;">0</span>", TYPE=byType, PODTYPE="ucfexec-pod";</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p188631868457">回显pod个数和规划一致，且“Pod状态”为“Running”。</p>
+</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li4854153110124">执行命令，查询进程的状态。<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen5853031181214">DSP CELLSTAT: OBJECT=PODTYPE, PODTYPE="ucfctrl-pod";
+DSP CELLSTAT: OBJECT=PODTYPE, PODTYPE="ucfexec-pod";</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p13435115581211">预期结果：“未就绪进程数”和“故障进程数”均为0。</p>
+</li><li id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_li722914517278">执行命令，确认已经安装UCF服务。<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen387132718286"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b198711527172814">DSP FUNCTIONSETSTAT</strong>:;</pre>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p187219272285">回显为</p>
+<pre class="screen" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_screen129216082619"><strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b09212004263">FunctionSet  status</strong>
+UCF          online</pre>
+</li></ol>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIHadditInfo42111417155619"><a name="ZH-CN_OPI_0000001115975924__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001115975924" class="sectiontitle2contents">附加信息</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIArelatedTask521120171564">相关任务</p></span><p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p5728163220456"><a name="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_OPIArelatedTask521120171564"></a><a name="zh-cn_opi_0252091480_OPIArelatedTask521120171564"></a>动态上线UCF服务后，需激活<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b18752165044417">WSFD-202001 CHR功能</strong>，请参考《UNC特性指南》的<strong id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_b472753224513">激活CHR功能</strong>章节。</p>
+<p id="ZH-CN_OPI_0000001115975924__zh-cn_opi_0252091480_p174019323289"><a href="1_7_1_Terminating_ucf.html#ZH-CN_OPI_0000001162499125">卸载UCF服务</a>。</p>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../common/software-fs-nfvo-no-sdn/1_5_0_Install_optional_service.html">安装可选服务
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../common/software-fs-nfvo-no-sdn/1_5_1_Install_gtp.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../common/software-fs-nfvo-no-sdn/1_5_2_Install_ipsec.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

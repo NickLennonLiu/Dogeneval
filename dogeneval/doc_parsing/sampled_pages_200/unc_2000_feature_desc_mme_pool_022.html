@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="WSFD-104101 MME Pool特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_mme_pool_011.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_mme_pool_033.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="Function" content="容灾">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0245935188">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-104101 MME Pool特性概述</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0245935188"></a><a name="ZH-CN_TOPIC_0245935188"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1"><span>WSFD-104101</span> <span>MME Pool</span>特性概述</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0245935188__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0245935188__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">适用NF</a></h4><p>MME</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">定义</a></h4><p>MME Pool特性是多个MME同时为相同的无线区域服务（MME Pool区），Pool内MME与Pool区内所有eNodeB互联，Pool内MME之间实现资源共享，业务负荷分担。UE接入哪个MME与eNodeB的负荷均衡策略有关，因此eNodeB需感知MME的设备状态。如果探测到MME不可用，需要及时调整负荷均衡策略，将新接入业务请求消息分配给其它正常状态的MME。另外，eNodeB需获取MME的负荷权重，结合负荷权重来为UE选择接入的MME。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p><span>运营商</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><ul><li>可利用现网迁移能力实现新建设备割接扩容或回退，实现平滑的网络扩缩容，降低运营商操作复杂度。</li><li>设备间资源共享，提高网络资源利用率，减少投资。</li><li>峰值话务为多个设备分担，避免了对网络的冲击，减少信令负荷，降低运营商运维成本。</li><li>设备间的容灾和备份提高了网络可靠性，提升运营商品牌。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>用户不感知该特性。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">应用场景</a></h4><p>当组网内所有MME与所有eNodeB互联时，为了防止UE接入不可用MME，或MME负荷不均衡，可以采用MME Pool组网。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>接受并保存MME下发的GUTI（globally unique temporary identity）信息。</li><li>在接入请求消息中携带GUTI信息。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>根据MME下发的容量信息，将初次接入的UE路由到对应的MME。</li><li>根据UE携带的GUTI信息，将UE路由到对应的MME。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.1 "><p><span>MME</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>向所连接的eNodeB下发自身的容量信息。</li><li>向UE下发包含自身标识的GUTI信息。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span>“82205875 LKV2POOL02 MME Pool”。</p>
+<p>本特性加载License后即可使用。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">原理概述</a></h4><p><strong>MME Pool组网</strong></p>
+<p>如<a href="#ZH-CN_TOPIC_0245935188__fig1">图1</a>所示，一组MME可以构成一个MME Pool，MME Pool服务的区域就称为MME Pool Area。从TA的角度看，如果一个或多个TA从属于某一个MME Pool，则这些TA的所有的业务区即构成MME Pool Area，MME Pool Area内的用户由MME Pool中的MME共同服务。在LTE-EPC标准制定过程中已经考虑到了MME Pool的功能，所以MME的网元标识最初就包含了Pool所需的信息。</p>
+<p>MME Pool与非Pool的组网从网络拓扑方面而言并没有太大的区别。但在路由的策略上，MME Pool要求Pool区内的所有MME和eNodeB间路由均可达。<a href="#ZH-CN_TOPIC_0245935188__fig1">图1</a>中连线表示逻辑互连关系，并非物理连接。</p>
+<p>在MME Pool中通过<a href="../MML/Document/add_mmecapbyta.html">ADD MMECAPBYTA</a>配置基于跟踪区的MME相对权重，可以使MME根据eNodeB所属的TA下发不同的MME能力，以“CAP”参数标识。用户从eNodeB接入时，会根据连接的MME Pool中的所有MME的能力进行选择，选择最短拓扑路径的MME，保证接入的时延最短。如最短拓扑路径的MME或其链路异常，eNodeB会检测到与MME链路异常，并为其用户选择其他MME接入，保证业务的容灾可靠性。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0245935188__fig1"><a name="ZH-CN_TOPIC_0245935188__fig1"></a><a name="fig1"></a><span class="figcap"><b>图1 </b>MME Pool和MME Pool Area示意图</span><br><span><img class="vsd" src="figure/zh-cn_image_0245935207.png"></span></div>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul><li>要求eNodeB支持S1 Flex功能。</li><li>为使MME可以寻呼到用户，要求MME Pool Area中包含完整的TA（Tracking Area）。当多个MME Pool Area有重叠时，这些Pool中的每个MME对应的GUMMEI不重复。TA List规划时，Pool内也需要包含完整的TA List。</li><li>不支持一个MME属于多个Pool。</li></ul>
+</div></div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">特性规格</a></h4><div class="p">如果考虑MME Pool容灾功能，则需要在每个MME上为Pool中其他MME预留一部分资源。如每个MME需要预留1/N的资源，N为Pool中MME的数量。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>一个MME Pool中最大支持256个MME，但如果使用<span>U2020</span>/MAE进行MME Pool的集中网管，则一个MME Pool中最大支持32个MME。</p>
+</div></div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="3" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.2 "><p>23.401</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.3 "><p>Technical Specification Group Services and System Aspects ;General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>36.413</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Technical Specification Group Radio Access Network; Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.236</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Intra-domain connection of Radio Access Network (RAN) nodes to multiple Core Network (CN) nodes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245935188__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0245935188" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_mme_pool_011.html">WSFD-104101 MME Pool
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_mme_pool_033.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

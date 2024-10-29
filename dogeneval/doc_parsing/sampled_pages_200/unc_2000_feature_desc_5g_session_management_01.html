@@ -1,0 +1,204 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="WSFD-010501 会话管理特性概述（适用于5G）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5g_Session_Management.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5g_Session_Management_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="AMF">
+<meta name="network_function" content="SMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010501">
+<meta name="Function" content="互操作">
+<meta name="Function" content="会话管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0248483833">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-010501 会话管理特性概述（适用于5G）</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0248483833"></a><a name="ZH-CN_TOPIC_0248483833"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-010501 会话管理特性概述（适用于5G）</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0248483833__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0248483833__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">适用NF</a></h4><p>AMF、SMF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">定义</a></h4><p>会话管理功能是<span>SMF的基本功能，</span>是用户与外部DN（ Data Network）建立连接，进行数据业务的基础。<span>SMF的</span>会话管理功能包括网络侧发起的会话管理和UE发起的会话管理。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>会话管理功能使运营商得以向授权的用户提供从移动终端到数据网络间的数据传输服务，从而丰富其网络业务。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>通过会话管理功能，用户可以通过移动通信网络，享受DN侧提供的数据业务。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">应用场景</a></h4><p>适用于5G用户接入5G网络，访问5G业务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.666666666666664%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="23.909090909090907%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.42424242424242%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>提供接入控制和移动性管理功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>为UE会话提供支持。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>RAN</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>提供空口接入技术，支持UE接入5G网络。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p><span>UE</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持5G RAN的接入。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>UPF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>为会话建立提供用户面支持。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>PCF</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>下发会话管理的策略控制功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.666666666666664%" headers="mcps1.3.5.3.1.4.1.1 "><p>UDM</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.909090909090907%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.42424242424242%" headers="mcps1.3.5.3.1.4.1.3 "><p>负责签约数据注册、订阅和下发功能。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+<p>本特性无需配置即可使用。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">应用限制</a></h4><p>本特性无应用限制。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">原理概述</a></h4><p>5G核心网支持PDU连接业务，即在UE和DNN所标识的数据网络之间提供PDU交换的服务。PDU连接业务通过UE请求建立的PDU会话来支持。PDU会话的创建、修改、释放通过UE和SMF之间的NAS信令交换实现。如下介绍会话管理相关流程的主要应用场景，流程详情请查看5G Core信令分析手册。</p>
+<p>会话管理的业务流程包括：</p>
+<ul><li>PDU会话建立：在UE需要与外部网络进行业务交互、从4G PDN连接切换到5G PDU会话等场景下，UE会发起本流程。本流程包括UE的IP地址分配、UPF选择、PCC策略获取以及该UE接入外部网络的权限检查等。PDU会话建立完成之后，上层的数据包即可通过5G网络发送。</li><li><p>PDU会话修改：在UE和网络之间交换的一个或多个QoS参数被修改、UE能力变更等场景下，UE或者网络侧会发起本流程更新QoS参数。</p>
+</li><li>PDU会话释放：在UE不再需要相关业务、PCF、SMF本地配置释放策略等场景下，UE或者网络侧会发起本流程释放该会话相关的资源。</li></ul>
+<p>为避免用户使用同一DNN建立过多的PDU会话数量消耗系统资源，可通过<strong><a href="../MML/Document/set_smpductrl.html">SET SMPDUCTRL</a></strong>设置单个DNN支持的最大PDU会话数量。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="15.72%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="39.54%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="44.74%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="15.72%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="39.54%" headers="mcps1.3.12.2.1.4.1.2 "><p>23.502</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.74%" headers="mcps1.3.12.2.1.4.1.3 "><p>System Architecture for the 5G System;Stage 2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0248483833__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0248483833" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_5g_Session_Management.html">会话管理（5G）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_5g_Session_Management_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

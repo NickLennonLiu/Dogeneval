@@ -1,0 +1,401 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置接口DSCP配置（SET DSCP）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_interface_dscp_management000.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_dscp.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0251174294">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置接口DSCP配置（SET DSCP）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0251174294"></a><a name="ZH-CN_CONCEPT_0251174294"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置接口DSCP配置（SET DSCP）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.1.1">术语解释</a></li><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.2.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.3.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.4.1">本地用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.5.1">网管用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.6.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0251174294__1.3.7.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">术语解释</a></h4><p>DSCP：差异服务代码点（Differentiated Services Code Point）。根据Diff-Serv（Differentiated Service）的QoS分类标准，在每个数据包IP头部的服务类别TOS标识字节中，利用已使用的6比特和未使用的2比特字节，通过编码值来区分优先级。DSCP是“IP优先”和“服务类型”字段的组合。为了利用只支持“IP优先”的旧路由器，会使用DSCP值，因为DSCP值与“IP优先”字段兼容。每一个DSCP编码值都被映射到一个已定义的PHB（Per-Hop-Behavior）标识码。通过键入DSCP值，终端设备可对流量进行标识。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于设置NCG对外网元接口发送IP包时的DSCP值。</p>
+<p>有关DSCP的内容请参见RFC2474。DSCP总共分成了4类：Class Selector(CS)、Expedited Forwarding(EF)、Assured Forwarding(AF)和Best Effort(BE)。CS（类选择器）的DSCP值后三位为0，EF（加速转发）的DSCP值为101110(46)，AF（确保转发）的DSCP值最后一位为0，BE的DSCP值为000000(0)。常用的DSCP用法见<a href="set_dscp.html#ZH-CN_CONCEPT_0251174294__table_0365AAA1"><b><span class="cmdname">表1</span></b></a>。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>该命令最大记录数为10。</li></ul>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0251174294__table_0365AAA1"></a><a name="table_0365AAA1"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0251174294__table_0365AAA1" frame="border" border="1" rules="all"><caption><b>表1 </b>常用的DSCP用法列表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.1" liSelected="liSelected"><p>对应的服务</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.2" liSelected="liSelected"><p>IPv4优先级/EXP/802.1P</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.3" liSelected="liSelected"><p>DSCP(二进制)</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.4" liSelected="liSelected"><p>DSCP[十进制][十六进制]</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.5" liSelected="liSelected"><p>TOS[十进制][十六进制]</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.6" liSelected="liSelected"><p>应用</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.285714285714285%" id="mcps1.3.3.3.2.8.1.7" liSelected="liSelected"><p>丢包率</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>BE</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>000 000</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>Internet</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>NULL</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 1</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>001 010</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>10[0x0a]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>40[0x28]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>Leased Line</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>L</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 1</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>001 100</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>12[0x0c]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>48[0x30]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>Leased Line</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>M</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 1</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>001 110</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>14[0x0e]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>56[0x38]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>Leased Line</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>H</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 2</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>010 010</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>18[0x12]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>72[0x48]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>IPTV VOD</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>L</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 2</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>010 100</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>20[0x14]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>80[0x50]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>IPTV VOD</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>M</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 2</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>010 110</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>22[0x16]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>88[0x58]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>IPTV VOD</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>H</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 3</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>011 010</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>26[0x1a]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>104[0x68]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>IPTV Broadcast</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>L</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 3</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>011 100</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>28[0x1c]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>112[0x70]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>IPTV Broadcast</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>M</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 3</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>011 110</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>30[0x1e]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>120[0x78]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>IPTV Broadcast</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>H</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 4</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>100 010</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>34[0x22]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>136[0x88]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>NGN/3G Signaling</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>L</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 4</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>100 100</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>36[0x24]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>144[0x90]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>NGN/3G Signaling</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>M</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>Green 4</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>100 110</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>38[0x26]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>152[0x98]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>NGN/3G Signaling</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>H</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>EF</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>101 110</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>46[0x2E]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>184[0xB8]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>NGN/3G voice</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>NULL</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>CS6(INC)</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>6</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>110 000</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>48[0x30]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>192[0xC0]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>Protocol</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>NULL</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.1 "><p>CS7(NC)</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.2 "><p>7</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.3 "><p>111 000</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.4 "><p>56[0x38]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.5 "><p>224[0xE0]</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.6 "><p>Protocol</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.285714285714285%" headers="mcps1.3.3.3.2.8.1.7 "><p>NULL</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul><li>NC、EF、AF4、AF3、AF2、AF1、BE等都是RFC2474协议中定义的差异化服务类等级。NC是最高优先级服务，依次递减，BE为最低优先级服务类。CS6和CS7默认用于协议报文，因为如果这些报文无法接收的话会引起协议中断，所以应该优先保障；EF用于承载语音的流量，因为语音要求低延迟、低抖动、低丢包率，是仅次于协议报文的最重要的报文；AF4可以用来承载语音的信令流量；AF3可以用来承载IPTV的直播流量，直播的实时性很强，需要连续性和大吞吐量的保证；AF2可以用来承载VOD的流量；AF1可以用来承载专线业务；BE可以用来承载INTERNET业务。</li><li>通常使用AF服务类等级加丢包率表示AF类的DSCP值。例如，AF43表示服务类等级为AF4，丢包率为H；AF42表示服务类等级为AF4，丢包率为M；AF41表示服务类等级为AF4，丢包率为L。</li></ul>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0251174294__table_0365AAA2"></a><a name="table_0365AAA2"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0251174294__table_0365AAA2" frame="border" border="1" rules="all"><caption><b>表2 </b>业务消息DSCP系统初始设置值</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.3.5.2.5.1.1" liSelected="liSelected"><p>消息类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.3.5.2.5.1.2" liSelected="liSelected"><p>接口类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.3.5.2.5.1.3" liSelected="liSelected"><p>消息类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.3.5.2.5.1.4" liSelected="liSelected"><p>DSCP值</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.3.5.2.5.1.1 "><p>业务消息</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.3.5.2.5.1.2 "><p>Ga接口</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.3.5.2.5.1.3 "><p>其他消息</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.3.5.2.5.1.4 "><p>56</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul><li>该命令存在系统初始设置记录，参数的初始设置值如下表：</li></ul>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.3.7.1.3.1.1" liSelected="liSelected"><p>INTERFACE</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.3.7.1.3.1.2" liSelected="liSelected"><p>DSCP</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.3.7.1.3.1.1 "><p>Ga</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.3.7.1.3.1.2 "><p>56</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.6.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.6.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.6.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.6.2.1.4.1.1 "><p>INTERFACE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.6.2.1.4.1.2 "><p>接口类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.6.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于选择信令报文修改DSCP值的接口类型。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：枚举类型。</p>
+<ul><li>Ga：Ga。</li></ul>
+<p>默认值：无</p>
+<p>配置原则：根据业务配置需要，请参考<a href="set_dscp.html#ZH-CN_CONCEPT_0251174294__table_0365AAA2"><b><span class="cmdname">表2</span></b></a>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.6.2.1.4.1.1 "><p>DSCP</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.6.2.1.4.1.2 "><p>差分服务代码点</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.6.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于设置信令报文的DSCP值。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：整数类型，取值范围为0～63。</p>
+<p>默认值：无</p>
+<p>配置原则：根据业务配置需要，请参考<a href="set_dscp.html#ZH-CN_CONCEPT_0251174294__table_0365AAA1"><b><span class="cmdname">表1</span></b></a>配置优先级，其它数值按最低优先级处理。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0251174294__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0251174294" class="sectiontitle2contents">使用实例</a></h4><p>设置接口为Ga的业务消息的DSCP值为56：</p>
+<pre class="codeblock">SET DSCP: INTERFACE=Ga, DSCP=56;</pre>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_interface_dscp_management000.html">接口DSCP管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_dscp.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="激活鉴权功能（适用于5G）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5G_Authentication.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0283117452.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_5G_Authentication_03.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="AMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010301">
+<meta name="Function" content="安全">
+<meta name="Function" content="安全管理">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0166260458">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>激活鉴权功能（适用于5G）</title>
+</head>
+<body><a name="ZH-CN_OPI_0166260458"></a><a name="ZH-CN_OPI_0166260458"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">激活<span>鉴权功能</span>（适用于5G）</h1>
+<ul><li><a href="#ZH-CN_OPI_0166260458__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0166260458__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0166260458__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0166260458__1.3.4">任务示例</a></li></ul><div id="OPIbody1555755955887"><div class="Section" id="ZH-CN_OPI_0166260458__OPIAscenarios10044878172748"><a name="ZH-CN_OPI_0166260458__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0166260458" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p id="ZH-CN_OPI_0166260458__p1251111544394">对于建议强制鉴权的流程（包括初始注册、移动性INTER注册、空闲态EPS到5GS注册流程），系统默认开启鉴权功能。新建部署或运维阶段，可以执行本操作对所需流程开启强制鉴权功能，或者修改强制鉴权的流程。</p>
+<div class="note" id="ZH-CN_OPI_0166260458__note1961664485313"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0166260458__zh-cn_topic_0305599235_p123912029114012">适用于AMF。</p>
+</div></div>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0166260458__OPICprerequisites19764978172748"><a name="ZH-CN_OPI_0166260458__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0166260458" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0166260458__OPIAconditions1565898172748">前提条件</p></span><p id="ZH-CN_OPI_0166260458__p98401057457"><a name="ZH-CN_OPI_0166260458__OPIAconditions1565898172748"></a><a name="OPIAconditions1565898172748"></a>请仔细阅读<a href="../desc/unc_2000_feature_desc_5G_Authentication_02.html">WSFD-010301 鉴权功能特性概述（适用于5G）</a>。</p>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0166260458__OPIBdata11383252172748">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0166260458__table154882392127" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_OPI_0166260458__row18489203920125"><th align="left" class="cellrowborder" valign="top" width="14.31%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0166260458__p1948917392122">类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.509999999999998%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0166260458__p34891739121213">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.85%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0166260458__p84900393120">取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="30.330000000000002%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p id="ZH-CN_OPI_0166260458__p1749019393122">获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="20%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p id="ZH-CN_OPI_0166260458__p104901939101216">说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0166260458__row12928034125917"><td class="cellrowborder" rowspan="3" valign="top" width="14.31%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0166260458__p1193018342590"><a href="../MML/Document/add_ngusrsecpara.html"><b><span class="cmdname" id="ZH-CN_OPI_0166260458__cmdname72534189383">ADD NGUSRSECPARA</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="15.509999999999998%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0166260458__p6930183405916">用户范围</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.85%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0166260458__p49316342595">ALL_USER</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.330000000000002%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0166260458__p179311034115910">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="20%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0166260458__p10931143445914">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0166260458__row14901839171217"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0166260458__p6875163965015">鉴权事件</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0166260458__p5631036143620"><span>SERVICE_REQUEST</span></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0166260458__p197416492518">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0166260458__p12740492512">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0166260458__row18121449141310"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0166260458__p61408461413">鉴权周期(h)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0166260458__p1712244981316"><span>24</span></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0166260458__p181224495134">全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0166260458__p141231449181315">-</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0166260458__OPIEworkSteps11508030172748"><a name="ZH-CN_OPI_0166260458__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0166260458" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol id="ZH-CN_OPI_0166260458__steps7726332172748"><li id="ZH-CN_OPI_0166260458__step729485013366"><span id="ZH-CN_OPI_0166260458__cmd4294450123619"><span>进入<span class="wintitle" id="ZH-CN_OPI_0166260458__zh-cn_topic_0305599235_wintitle1891213344912">“MML命令行-UNC”</span>窗口。</span></span></li><li id="ZH-CN_OPI_0166260458__step811720172748"><span id="ZH-CN_OPI_0166260458__cmd19480755172748">设置需要强制鉴权的流程。</span><p><p id="ZH-CN_OPI_0166260458__p3921172510410"><a href="../MML/Document/add_ngusrsecpara.html"><b><span class="cmdname" id="ZH-CN_OPI_0166260458__cmdname126718794014">ADD NGUSRSECPARA</span></b></a></p>
+</p></li></ol>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0166260458__OPIGexample23979164172748"><a name="ZH-CN_OPI_0166260458__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0166260458" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0166260458__OPIAintroduction33492446172748">任务描述</p></span><p id="ZH-CN_OPI_0166260458__p16345115124810"><a name="ZH-CN_OPI_0166260458__OPIAintroduction33492446172748"></a><a name="OPIAintroduction33492446172748"></a>配置所有用户在服务请求流程中需要强制鉴权。</p>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0166260458__OPIBscripts31952838172748">脚本</p></span><p id="ZH-CN_OPI_0166260458__p158771415295"><a name="ZH-CN_OPI_0166260458__OPIBscripts31952838172748"></a><a name="OPIBscripts31952838172748"></a>//配置所有用户在服务请求流程中需要鉴权。</p>
+<pre class="screen" id="ZH-CN_OPI_0166260458__screen16587191452920">ADD NGUSRSECPARA: SUBRANGE=ALL_USER, AUTHEVENT=SERVICE_REQUEST, AUTHPERIOD=24;</pre>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_5G_Authentication.html">鉴权功能（5G）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_concept_0283117452.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../desc/unc_2000_feature_desc_5G_Authentication_03.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

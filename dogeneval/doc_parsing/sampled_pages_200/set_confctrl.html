@@ -1,0 +1,204 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置冲突控制参数（SET CONFCTRL）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_session_process_conflict_control.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_confctrl.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209651408">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置冲突控制参数（SET CONFCTRL）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209651408"></a><a name="ZH-CN_MMLREF_0209651408"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置冲突控制参数（SET CONFCTRL）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209651408__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209651408__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209651408__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209651408__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209651408__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651408" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：SGW-C、PGW-C、SMF</strong>
+                </p>
+
+                    <p>该命令用于设置冲突场景下，低优先级流程消息的缓存重发次数和缓存重发时间间隔。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209651408__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651408" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.1">EPSRETRYTIMES</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.2">EPSTIMEOUT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.3">NRRETRYTIMES</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.4">NRTIMEOUT</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 "><p>2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209651408__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209651408" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209651408__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651408" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>EPSRETRYTIMES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>EPS消息缓存重发的次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置冲突场景下，Create Bearer Request/Update Bearer Request/Delete Bearer Request消息的缓存次数，次数达到设置值时，消息将被丢弃。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~15。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>EPSTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>EPS消息缓存重发的时间间隔(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置冲突场景下，从收到Create Bearer Response/Update Bearer Response/Delete Bearer Response开始，到重发Create Bearer Request/Update Bearer Request/Delete Bearer Request的时间间隔。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~4，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NRRETRYTIMES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NR消息缓存重发的次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置冲突场景下，缓存网络侧触发的Session Modify流程的次数，次数达到设置值时，消息将被丢弃。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~15。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NRTIMEOUT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NR消息缓存重发的时间间隔(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置冲突场景下，缓存的网络侧触发的Session Modify流程重发的时间间隔。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~4，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209651408__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209651408" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>设置Create Bearer Request/Update Bearer Request/Delete Bearer Request消息缓存重发次数为3次，缓存时长为2秒，Sesssoin Modify流程缓存重发次数为3次，缓存时长为2秒：</p>
+
+                    <pre class="screen">SET CONFCTRL: EPSRETRYTIMES=3, EPSTIMEOUT=2, NRRETRYTIMES=3, NRTIMEOUT=2;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_session_process_conflict_control.html">会话流程冲突控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_confctrl.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

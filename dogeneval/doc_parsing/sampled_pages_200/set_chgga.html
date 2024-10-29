@@ -1,0 +1,334 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置计费Ga接口参数(SET CHGGA)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_charging_ga_interface_parameter.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_chgga.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126145378">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置计费Ga接口参数(SET CHGGA)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126145378"></a><a name="ZH-CN_MMLREF_0000001126145378"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置计费Ga接口参数(SET CHGGA)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126145378__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126145378__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126145378__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126145378__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126145378__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126145378__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145378__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126145378" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126145378__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>该命令用于设置计费Ga接口参数，包括SGSN生成话单的协议版本等参数。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145378__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126145378" class="sectiontitle2contents">注意事项</a></h4><ul><li>系统初次运行时，会执行系统初始设置值。</li><li>如果设置<span class="parmname">“CDR重发间隔（ITVRES）”</span>、<span class="parmname">“硬盘操作失败告警次数门限（HDDETH）”</span>、<span class="parmname">“硬盘空间不足门限（HDDFSL）”</span>、<span class="parmname">“重定向帧最大占用率（REDICTFRMMAXOCCRATE）”</span>，则只有在CDP进程重启之后才生效。</li><li>如果设置<span class="parmname">“GPRS CDR协议版本（GCR）”</span>、<span class="parmname">“UMTS CDR协议版本（UCR）”</span>、<span class="parmname">“R98 CDR版本（CHGVER98）”</span>、<span class="parmname">“R99 CDR版本（CHGVER99）”</span>、<span class="parmname">“R4 CDR版本（CHGVER4）”</span>、<span class="parmname">“R5 CDR版本（CHGVER5）”</span>、<span class="parmname">“R6 CDR版本（CHGVER6）”</span>、<span class="parmname">“R7 CDR版本（CHGVER7）”</span>、<span class="parmname">“R9 CDR版本（CHGVER9）”</span>，则只有重新启动SPP和UPP进程之后才生效。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145378__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126145378" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145378__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126145378" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145378__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126145378" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GCR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>GPRS CDR协议版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是GPRS话单生成所遵循的协议版本。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“R98(R98)”</span></li><li><span class="parmvalue">“R99(R99)”</span></li><li><span class="parmvalue">“R4(R4)”</span></li><li><span class="parmvalue">“R5(R5)”</span></li><li><span class="parmvalue">“R6(R6)”</span></li><li><span class="parmvalue">“R7(R7)”</span></li><li><span class="parmvalue">“R9(R9)”</span></li></ul>
+</div>
+<p>系统初始设置值：R98(R98)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>UCR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>UMTS CDR协议版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是UMTS话单生成所遵循的协议版本。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“R99(R99)”</span></li><li><span class="parmvalue">“R4(R4)”</span></li><li><span class="parmvalue">“R5(R5)”</span></li><li><span class="parmvalue">“R6(R6)”</span></li><li><span class="parmvalue">“R7(R7)”</span></li><li><span class="parmvalue">“R9(R9)”</span></li></ul>
+</div>
+<p>系统初始设置值：R99(R99)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER98</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R98 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R98话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>设置为<span class="parmvalue">“R98(R98)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“CMCCV130(中国移动计费网关规范V1.3.0)”</span>：表示遵循中国移动计费网关规范V1.3.0。</li><li><span class="parmvalue">“GSM1215V760(GSM 12.15 V7.6.0)”</span>：表示遵循全球移动通信系统计费网关规范12.15 V7.6.0。</li><li><span class="parmvalue">“USI1215V760(USI 12.15 V7.6.0)”</span>：表示遵循俄罗斯<span class="keyword"><span id="ZH-CN_MMLREF_0000001126145378__zh-cn_task_0272842530_text1503051056192121">UNC</span></span>基于GSM 12.15 V7.6.0的计费网关规范。</li></ul>
+</div>
+<p>系统初始设置值：CMCCV130(中国移动计费网关规范V1.3.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER99</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R99 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R99话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>或<span class="parmname">“UCR”</span>设置为<span class="parmvalue">“R99(R99)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“GPP32015V360(3GPP 32.015 V3.6.0)”</span>：表示遵循3GPP 32.015 V3.6.0版本，2001年7月发布。</li><li><span class="parmvalue">“GPP32015V3A0(3GPP 32.015 V3.a.0)”</span>：表示遵循3GPP 32.015 V3.10.0版本，2003年1月发布。</li><li><span class="parmvalue">“AIS32015V360(AIS 32.015 V3.6.0)”</span>：表示基于3GPP 32.015 V3.6.0的增强计费网关规范，该规范在S-CDR、S-SMO-CDR、S-SMT-CDR话单中增加了PLMN ID字段。</li></ul>
+</div>
+<p>系统初始设置值：GPP32015V360(3GPP 32.015 V3.6.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R4 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R4话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>或<span class="parmname">“UCR”</span>设置为<span class="parmvalue">“R4(R4)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“GPP32215V440(3GPP 32.215 V4.4.0)”</span>：表示遵循3GPP 32.215 V4.4.0版本，2003年1月发布。</li><li><span class="parmvalue">“VOX32215V440(VOX 32.215 V4.4.0)”</span>：表示基于3GPP 32.215 V4.4.0的增强计费网关规范，该规范对S-CDR、S-SMO-CDR、S-SMT-CDR话单中的部分信元进行了扩展和重新定义。</li></ul>
+</div>
+<p>系统初始设置值：GPP32215V440(3GPP 32.215 V4.4.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER5</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R5 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R5话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>或<span class="parmname">“UCR”</span>设置为<span class="parmvalue">“R5(R5)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“GPP32215V560(3GPP 32.215 V5.6.0)”</span>：表示遵循3GPP 32.215 V5.6.0版本，2004年6月发布。</li></ul>
+</div>
+<p>系统初始设置值：GPP32215V560(3GPP 32.215 V5.6.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER6</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R6 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R6话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>或<span class="parmname">“UCR”</span>设置为<span class="parmvalue">“R6(R6)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“GPP32251V660(3GPP 32.251 V6.6.0)”</span>：表示遵循3GPP 32.251 V6.6.0版本，2006年3月发布。</li></ul>
+</div>
+<p>系统初始设置值：GPP32251V660(3GPP 32.251 V6.6.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER7</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R7 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R7话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>或<span class="parmname">“UCR”</span>设置为<span class="parmvalue">“R7(R7)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“GPP32251V740(3GPP 32.251 V7.4.0)”</span>：表示遵循3GPP 32.251 V7.4.0版本，2007年6月发布。</li></ul>
+</div>
+<p>系统初始设置值：GPP32251V740(3GPP 32.251 V7.4.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CHGVER9</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>R9 CDR版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是R9话单生成所遵循的协议版本。</p>
+<p>前提条件：该参数在<span class="parmname">“GCR”</span>或<span class="parmname">“UCR”</span>设置为<span class="parmvalue">“R9(R9)”</span>时生效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“GPP32251V940(3GPP 32.251 V9.4.0)”</span>：表示遵循3GPP 32.251 V9.4.0版本，2010年10月发布。</li></ul>
+</div>
+<p>系统初始设置值：GPP32251V940(3GPP 32.251 V9.4.0)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动SPP和UPP进程之后才能生效。详细内容请参见注意事项。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>ITVRES</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>CDR重发间隔（s）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是CDP进程发送话单给CG之后，如果在该时间间隔之内没有收到CG的应答，则会再次重发。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1～10</p>
+<p>系统初始设置值：3</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动CDP进程之后才能生效。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RSNUM</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>CDR重发次数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是CDP进程发送话单给CG的最大重发次数。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1～10</p>
+<p>系统初始设置值：3</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数配置后立即生效，无需重新启动CDP进程。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>HDDETH</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>硬盘操作失败告警次数门限</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是CDP进程最大连续硬盘操作失败次数。如果超过该门限值，CDP进程触发计费业务硬盘操作失败告警。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1～10</p>
+<p>系统初始设置值：5</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动CDP进程之后才能生效。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>HDDFSL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>硬盘空间不足门限（%）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数是计费业务硬盘空间不足门限配置值。如果已使用空间与总空间的比值超过该门限值，CDP进程将在主备之间切换话单存储的硬盘。当两个硬盘空间都不足时，覆盖硬盘上话单文件若配置为不覆盖，则话单将丢失，若配置为覆盖，则删除硬盘旧话单腾出硬盘空间保存新话单。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：50～90</p>
+<p>系统初始设置值：70</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数修改后，必须重新启动CDP进程之后才能生效。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>REDICTFRMMAXOCCRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>重定向帧最大占用率（%）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定重定向帧的最大占用率。重定向帧是指当CG故障了重新指定另一个CG时发出的帧。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：20～80</p>
+<p>系统初始设置值：80</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>QOSVER</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>话单QoS最高版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数表示话单QoS最高版本。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围： <ul><li><span class="parmvalue">“R5(R5)”</span></li><li><span class="parmvalue">“R7(R7)”</span></li></ul>
+</div>
+<p>系统初始设置值：R5(R5)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GASENDUDPCHECK</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>发送消息UDP校验</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为Ga接口为UDP连接时发送消息是否进行UDP校验的开关。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“DISABLE(不生效)”</span></li><li><span class="parmvalue">“ENABLE(生效)”</span></li></ul>
+</div>
+<p>系统初始设置值：ENABLE(生效)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GAREVUDPCHECK</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>接收消息UDP校验</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数为Ga接口为UDP连接时接收消息是否进行UDP校验的开关。UDP校验指话单在GA口进行数据包传送时进行的包数据的校验检查。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“DISABLE(不生效)”</span></li><li><span class="parmvalue">“ENABLE(生效)”</span></li></ul>
+</div>
+<p>系统初始设置值：ENABLE(生效)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CDROVERWRITE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>覆盖硬盘上话单文件</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于控制是否覆盖硬盘文件。开启硬盘覆盖功能时应保证硬盘上不存在话单文件（通过<a href="dsp_chgfile.html"><b><span class="cmdname">DSP CHGFILE</span></b></a>查询），否则该功能删除的话单文件不能保证为最旧的文件。为了保证在开启硬盘覆盖功能之前，且已经存在硬盘上的话单删除完之前，不会删除在开启功能后新生成的话单，需要复位备CDP进程后倒换主备CDP进程。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO(不覆盖)”</span></li><li><span class="parmvalue">“YES(覆盖)”</span></li></ul>
+</div>
+<p>系统初始设置值：NO(不覆盖)</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>该参数配置后立即生效。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IP地址选择策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数表示Ga接口IP地址策略。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：枚举类型。在IPv4网络中，配置成“IPV4(仅使用IPv4地址)”；在IPv4向IPv6改造过程中，配置成“IPV6PRE(优先使用IPv6地址)”；IPv6网络改造完成后，配置成“IPV6(仅使用IPv6地址)”。<ul><li>IPV4：仅使用IPv4地址。</li></ul>
+<ul><li>IPV6：仅使用IPv6地址。</li></ul>
+<ul><li>IPV6PRE：优先使用IPv6地址。</li></ul>
+</div>
+<p>系统初始设置值：IPV4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126145378__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126145378" class="sectiontitle2contents">使用实例</a></h4><p>设置一条计费Ga接口参数，<span class="parmname">“GPRS CDR协议版本”</span>为<span class="parmvalue">“R99”</span>，<span class="parmname">“UMTS CDR协议版本”</span>为<span class="parmvalue">“R4”</span>，<span class="parmname">“R98 CDR版本”</span>为<span class="parmvalue">“GSM1215V760”</span>，<span class="parmname">“R4 CDR版本”</span>为<span class="parmvalue">“GPP32215V440”</span>，<span class="parmname">“CDR重发间隔(s)”</span>为4s，<span class="parmname">“CDR重发次数”</span>为4，<span class="parmname">“硬盘操作失败告警次数门限”</span>为85，<span class="parmname">“覆盖硬盘上话单文件”</span>为<span class="parmvalue">“NO”</span>：</p>
+<p><span class="msgph">SET CHGGA: GCR=R99, UCR=R4, CHGVER98=GSM1215V760, CHGVER4=GPP32215V440, ITVRES=4, RSNUM=4, HDDETH=4, HDDFSL=85, CDROVERWRITE=NO;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_charging_ga_interface_parameter.html">计费Ga接口参数
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_chgga.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

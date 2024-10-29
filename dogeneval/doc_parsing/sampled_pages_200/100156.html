@@ -1,0 +1,140 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="alarmref">
+<meta name="DC.Title" content="ALM-100156 分层转发环路">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0245555655.html">
+<meta name="DC.Relation" scheme="URI" content="../Alarms/100112.html">
+<meta name="DC.Relation" scheme="URI" content="../Alarms/100232.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_ALARMREF_0215707634">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>ALM-100156 分层转发环路</title>
+</head>
+<body><a name="ZH-CN_ALARMREF_0215707634"></a><a name="ZH-CN_ALARMREF_0215707634"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">ALM-100156 分层转发环路</h1>
+<ul><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.1">告警解释</a></li><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.2">告警属性</a></li><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.3">告警参数</a></li><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.4">对系统的影响</a></li><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.5">可能原因</a></li><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.6">处理步骤</a></li><li><a href="#ZH-CN_ALARMREF_0215707634__1.3.7">参考信息</a></li></ul><div><div class="alarmdesc"><a name="ZH-CN_ALARMREF_0215707634__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">告警解释</a></h2>
+<div class="alarmdescbody"><p><strong>适用NF</strong></p>
+<p>NRF</p>
+<ul><li>告警触发机制<p>当NRF接收到请求需要分层转发时，在路由查询之后，检测到出现了环路，这时NFR将不再转发该请求，并产生此告警。在告警期间若出现多种条件触发告警，每个POD只按照第一次触发条件上报告警。</p>
+<p>环路检测机制参见告警参数中的<span class="parmname">“环路检测类型”</span>。</p>
+</li><li>告警恢复机制<p>当NRF上报完告警后，间隔一定时间后，会自动恢复本告警。间隔时间默认为20分钟，可通过SET NRFFUNCSW命令调整。</p>
+<p>如果问题没有解决，告警恢复后业务再次触发环路，告警会再次上报。</p>
+</li></ul>
+</div></div>
+<div class="alarmattrs"><a name="ZH-CN_ALARMREF_0215707634__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">告警属性</a></h2>
+<div class="alarmattrsbody"><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.2.1.1.1">告警ID</th>
+<th valign="bottom" align="left" id="mcps1.3.2.1.1.2">告警级别</th>
+<th valign="bottom" align="left" id="mcps1.3.2.1.1.3">可自动清除</th>
+</tr>
+<tr><td valign="top" headers="mcps1.3.2.1.1.1"><p>100156</p>
+</td>
+<td valign="top" headers="mcps1.3.2.1.1.2"><p>重要告警</p>
+</td>
+<td valign="top" headers="mcps1.3.2.1.1.3"><p>是</p>
+</td>
+</tr>
+</table></div>
+</div></div>
+<div class="alarmparameters"><a name="ZH-CN_ALARMREF_0215707634__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">告警参数</a></h2>
+<div class="alarmparametersbody"><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.3.1.1">参数名称</th>
+<th valign="bottom" align="left" id="mcps1.3.3.1.2">参数含义</th>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>POD名称</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示上报告警进程实例所在Pod的名称。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>环路检测类型</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>该参数用于表示NRF当前环路的检测类型。</p>
+<ul><li>源IP检测：源IP归属于下一跳NRF组，NRF认为当前请求的源NRF和下一跳NRF相同，出现了环路。</li><li>via下一跳检测：via头域中包含下一跳NRF组中的一个或多个IP，NRF认为下一跳NRF曾经处理过当前请求，出现了环路。</li><li>via本端检测：via头域中包含本端NRF的IP，NRF认为自己曾经处理过当前请求，出现了环路。</li></ul>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>源地址</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示请求方NF的地址。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>目的NRF组名称</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示分层转发目的NRF组名称。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>请求消息类型</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示请求消息类型。</p>
+<ul><li>订阅</li><li>服务发现</li><li>Token分配</li><li>订阅更新</li><li>去订阅</li></ul>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>请求参数信息</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示请求参数信息。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1"><p>Via头域</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.2"><p>表示HTTP请求报文中的Via头域。</p>
+</td>
+</tr>
+</table></div>
+</div></div>
+<div class="impactonsystem"><a name="ZH-CN_ALARMREF_0215707634__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">对系统的影响</a></h2>
+<div class="impactonsystembody"><p>NRF提供的服务可能受影响，对NF的请求可能返回失败，或者返回没有可用结果。</p>
+</div></div>
+<div class="possiblecauses"><a name="ZH-CN_ALARMREF_0215707634__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">可能原因</a></h2>
+<div class="alarmpossbody"><p>NRF分层路由配置错误或者数据规划不合理。</p>
+<p>NRF管理的服务提供方NF没有注册。</p>
+</div></div>
+<div class="alarmhanding"><a name="ZH-CN_ALARMREF_0215707634__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">处理步骤</a></h2><div class="alarmhandlingbody"><div class="alarmhandling-titled"><ul><div class="HandlingTitled"><p class="sectiontitle">检查分层路由配置</p>
+<div class="dropdowncontext"><ol type="1" start="1"><li><span>则根据源目的NRF信息，结合请求参数信息，检查本NRF以及对端NRF的分层路由配置，是否有引起环路的配置。</span><p><ul><li>是=&gt; <a href="#ZH-CN_ALARMREF_0215707634__substep9471192611582">步骤2</a>。</li><li>否=&gt; <a href="#ZH-CN_ALARMREF_0215707634__substep3968814103613">步骤3</a>。</li></ul>
+</p></li></ol></div>
+<div class="dropdowncontext"><ol type="1" start="2"><li id="ZH-CN_ALARMREF_0215707634__substep9471192611582"><a name="ZH-CN_ALARMREF_0215707634__substep9471192611582"></a><a name="substep9471192611582"></a><span id="ZH-CN_ALARMREF_0215707634__">修改路由配置，再检查后续相同告警参数的此告警是否继续频繁上报。</span><p><ul><li>是=&gt; <a href="#ZH-CN_ALARMREF_0215707634__substep3968814103613">步骤3</a>。</li><li>否=&gt; 处理结束。</li></ul>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">检查NF状态</p>
+<div class="dropdowncontext"><ol type="1" start="3"><li id="ZH-CN_ALARMREF_0215707634__substep3968814103613"><a name="ZH-CN_ALARMREF_0215707634__substep3968814103613"></a><a name="substep3968814103613"></a><span id="ZH-CN_ALARMREF_0215707634__">根据请求参数信息在本NRF以及对端NRF上通过MML命令DSP REGNFINSTANCE检查对应的服务提供方NF是否注册 。</span><p><ul><li>是=&gt; <a href="#ZH-CN_ALARMREF_0215707634__substep162953236382">步骤4</a>。</li><li>否=&gt; 根据实际情况做进一步判断处理，例如NF还未正式入网或支持的号段数据还未规划。</li></ul>
+</p></li></ol></div>
+<div class="dropdowncontext"><ol type="1" start="4"><li id="ZH-CN_ALARMREF_0215707634__substep162953236382"><a name="ZH-CN_ALARMREF_0215707634__substep162953236382"></a><a name="substep162953236382"></a><span id="ZH-CN_ALARMREF_0215707634__">请收集告警信息、日志信息和配置信息，并联系华为技术支持处理。</span></li></ol></div>
+</div>
+</ul></div>
+</div></div>
+<div class="relatedinformation"><a name="ZH-CN_ALARMREF_0215707634__1.3.7"></a><a name="1.3.7"></a><h2 class="sectiontitle"><a href="#ZH-CN_ALARMREF_0215707634" class="sectiontitle2contents">参考信息</a></h2>
+<div class="relatedinformationbody"><p>无</p>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0245555655.html">NRF
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../Alarms/100112.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../Alarms/100232.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

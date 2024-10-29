@@ -3,7 +3,7 @@
         "task_name": "ToolSelection",
         "description": "考察大模型根据工具描述和用户问题选取并使用合适的工具进行故障诊断",
         "system_prompt": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>",
-        "template": "<工具描述>：{tool_description}\n<用户问题>:\n{user_question}",
+        "template": "<工具描述>：\n{tool_description}\n\n<用户问题>:\n{user_question}",
         "output_requirement": null,
         "fields": [
             {
@@ -12,7 +12,7 @@
             },
             {
                 "name": "user_question",
-                "description": "用户问题"
+                "description": "用户问题，包含场景的描述以及需要解决的问题"
             }
         ],
         "examples": [
@@ -41,7 +41,7 @@
             },
             {
                 "name": "user_problem",
-                "description": "用户的问题文本"
+                "description": "用户的问题文本，包含场景的描述以及需要解决的问题"
             }
         ],
         "examples": [
@@ -127,7 +127,7 @@
         "fields": [
             {
                 "name": "user_question",
-                "description": "用户提出的问题"
+                "description": "用户提出的问题，包含场景的描述以及需要解决的问题"
             }
         ],
         "examples": [

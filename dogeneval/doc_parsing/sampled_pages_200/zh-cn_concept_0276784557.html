@@ -1,0 +1,602 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="N2接口协议简介">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0276783806.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0276784330.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0276784557">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>N2接口协议简介</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0276784557"></a><a name="ZH-CN_CONCEPT_0276784557"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">N2接口协议简介</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0276784557__1.3.1.1">场景描述</a></li><li><a href="#ZH-CN_CONCEPT_0276784557__1.3.2.1">协议栈</a></li><li><a href="#ZH-CN_CONCEPT_0276784557__1.3.3.1">消息列表</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0276784557__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0276784557" class="sectiontitle2contents">场景描述</a></h4><p>N2接口为(R)AN和AMF间的信令面接口。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0276784557__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0276784557" class="sectiontitle2contents">协议栈</a></h4><p>N2接口协议栈如下图所示。</p>
+<div class="fignone"><span class="figcap"><b>图1 </b>N2接口协议栈</span><br><span><img class="vsd" src="../images/zh-cn_image_0276784545.png"></span><p>NG-AP（NG Application Protocol）：NG-RAN与AMF之间的应用层协议。</p>
+<p>SCTP：此协议用于保证NG-RAN与AMF之间的信令消息传送。</p>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0276784557__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0276784557" class="sectiontitle2contents">消息列表</a></h4><p>N2接口上支持的消息如下表所示。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>N2接口的消息列表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="39.943994399439944%" id="mcps1.3.3.3.2.4.1.1" liSelected="liSelected"><p>消息</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.881188118811883%" id="mcps1.3.3.3.2.4.1.2" liSelected="liSelected"><p>方向</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="48.17481748174818%" id="mcps1.3.3.3.2.4.1.3" liSelected="liSelected"><p>作用</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE SETUP REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求NG-RAN节点为一个或多个PDU会话资源在Uu和NG-U接口上分配资源。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE SETUP RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于回复为一个或多个PDU会话分配Uu和NG-U接口资源的请求。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE RELEASE COMMAND</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求NG-RAN节点释放为给定UE建立的PDU会话资源。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE RELEASE RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于响应释放UE的PDU会话资源的请求。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE MODIFY REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求NG-RAN节点对给定UE已经建立的PDU会话资源进行修改。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE MODIFY RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于上报PDU会话资源修改请求消息的结果。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE NOTIFY</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于在GBR QoS流已经被请求启用通知后，由NG-RAN通知该QoS流的QoS需求不再满足或者由NG-RAN节点重新满足。该消息也可以由NG-RAN节点发送，用于通知给定UE的PDU会话资源已释放。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE MODIFY INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于请求AMF对给定UE的已建立的PDU会话资源进行修改。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PDU SESSION RESOURCE MODIFY CONFIRM</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于从PDU会话资源修改指示消息中确认请求的结果。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>INITIAL CONTEXT SETUP REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，请求建立UE上下文。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>INITIAL CONTEXT SETUP RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于确认UE上下文建立。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE CONTEXT RELEASE REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，请求释放UE相关的NG接口逻辑连接。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE CONTEXT RELEASE COMMAND</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求释放UE相关的NG接口的逻辑连接。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE CONTEXT RELEASE COMPLETE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于确认UE相关的NG接口逻辑连接已释放。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE CONTEXT MODIFICATION REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于向NG-RAN节点提供UE上下文信息变更。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE CONTEXT MODIFICATION RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于确认UE上下文已更新。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE CONTEXT MODIFICATION FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于表明UE上下文更新失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>RRC INACTIVE TRANSITION REPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点通知5GC，UE已进入或离开RRC_INACTIVE状态。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER REQUIRED</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>为用户请求目标侧的切换资源准备。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>Handover Command</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt;NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>向源侧通告目标侧资源已准备好。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER PREPARATION FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>向源侧通告切换准备失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>向目标侧请求切换资源准备。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER REQUEST ACKNOWLEDGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>返回目标侧切换资源准备情况。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>返回目标侧切换资源准备失败原因。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER NOTIFY</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>目标侧通知AMF用户切换完成。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PATH SWITCH REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>为用户请求下行GTP隧道终点迁移。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PATH SWITCH REQUEST ACKNOWLEDGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt;NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>返回PATH SWITCH REQUEST消息的请求结果。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PATH SWITCH REQUEST FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>AMF向(R)AN通知路径切换失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER CANCEL</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt;AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>源侧通告AMF切换取消。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>HANDOVER CANCEL ACKNOWLEDGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>AMF向源侧确认切换已取消。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UPLINK RAN STATUS TRANSFER</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送给AMF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>DOWNLINK RAN STATUS TRANSFER</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送给NG-RAN节点。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PAGING</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt;gNB</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于在一个或多个跟踪区域寻呼UE。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>INITIAL UE MESSAGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于通过NG接口向AMF发送初始层3消息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>DOWNLINK NAS TRANSPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于在NG接口上携带NAS信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UPLINK NAS TRANSPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于在NG接口上携带NAS信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>NAS NON DELIVERY INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于在NG接口下行NAS传输消息中上报之前发送的NAS PDU未正常收到。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>REROUTE NAS REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求INITIAL UE MESSAGE消息重路由到另一个AMF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>NG SETUP REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于为NG-C接口实例发送应用层信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>NG SETUP RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于为NG-C接口实例发送应用层信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>NG SETUP FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于指示NG建立失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>RAN CONFIGURATION UPDATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于为NG-C接口实例发送更新的应用层信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>RAN CONFIGURATION UPDATE ACKNOWLEDGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于确认NG-C接口实例的NG-RAN节点更新信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>RAN CONFIGURATION UPDATE FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于指示RAN配置更新失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>AMF CONFIGURATION UPDATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于为NG-C接口实例发送更新信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>AMF CONFIGURATION UPDATE ACKNOWLEDGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于确认AMF为NG-C接口实例发送的更新信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>AMF CONFIGURATION UPDATE FAILURE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于指示AMF配置更新失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>AMF STATUS INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于支持AMF管理功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>NG RESET</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF and AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN和AMF发送，用于请求复位所有或部分NG接口。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>NG RESET ACKNOWLEDGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF and AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN和AMF发送，用于回复NG RESET消息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>ERROR INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF and AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN和AMF发送，表示该节点已经检测到错误。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>OVERLOAD START</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于向NG-RAN节点指示AMF过载。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>OVERLOAD STOP</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于指示AMF过载消除。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UPLINK RAN CONFIGURATION TRANSFER</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于发送NG-RAN配置信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>DOWNLINK RAN CONFIGURATION TRANSFER</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于发送NG-RAN配置信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>WRITE-REPLACE WARNING REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，请求开始广播警告消息或覆盖警告消息的广播。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>WRITE-REPLACE WARNING RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于向AMF确认警告消息的开始广播或覆盖请求。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PWS CANCEL REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF转发给NG-RAN节点，用于取消正在进行的警告消息广播。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PWS CANCEL RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于指示取消已识别消息的广播成功和失败的警告区域列表。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PWS RESTART INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于向AMF告知NG-RAN节点的部分或全部小区的PWS信息可从CBC重新加载，如果需要的话。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>PWS FAILURE INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，通知AMF该NG-RAN节点一个或多个小区正在进行的PWS操作失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>DOWNLINK UE ASSOCIATED NRPPA TRANSPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于携带通过NG接口发送的NRPPA消息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UPLINK UE ASSOCIATED NRPPA TRANSPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于携带通过NG接口发送的NRPPA消息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>DOWNLINK NON UE ASSOCIATED NRPPA TRANSPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于携带通过NG接口发送的NRPPA消息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UPLINK NON UE ASSOCIATED NRPPA TRANSPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于携带通过NG接口发送的NRPPA信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>TRACE START</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于为UE发起一个跟踪会话。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>TRACE FAILURE INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于指示UE的跟踪启动流程或去激活跟踪流程失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>DEACTIVATE TRACE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于去激活跟踪会话。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>CELL TRAFFIC TRACE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于传递特定跟踪信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>LOCATION REPORTING CONTROL</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息用于AMF请求NG-RAN上报UE位置信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>LOCATION REPORTING FAILURE INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于指示位置上报失败。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>LOCATION REPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息用于提供UE的位置信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE TNLA BINDING RELEASE REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求NG-RAN节点为UE解除TNLA绑定关系。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE RADIO CAPABILITY INFO INDICATION</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于向AMF提供UE无线能力相关信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE RADIO CAPABILITY CHECK REQUEST</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>AMF -&gt; NG-RAN node</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由AMF发送，用于请求NG-RAN节点检查UE无线能力与IMS语音业务的网络配置之间的兼容性。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="39.943994399439944%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE RADIO CAPABILITY CHECK RESPONSE</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.881188118811883%" headers="mcps1.3.3.3.2.4.1.2 "><p>NG-RAN node -&gt; AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="48.17481748174818%" headers="mcps1.3.3.3.2.4.1.3 "><p>该消息由NG-RAN节点发送，用于上报UE无线能力与网络配置之间的IMS语音兼容性。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_concept_0276783806.html">N2接口
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_concept_0276784330.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

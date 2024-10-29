@@ -1,0 +1,319 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="设置星期配置(SET CHGWKDY)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_week_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_chgwkdy.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126305210">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置星期配置(SET CHGWKDY)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126305210"></a><a name="ZH-CN_MMLREF_0000001126305210"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置星期配置(SET CHGWKDY)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.6.1">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001126305210__1.3.7.1">参考信息</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126305210__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>该命令用于设置普通计费属性用户、预付费计费属性用户、包月制计费属性用户或实时计费属性用户的周一到周日的费率属性是正常工作日还是休息日。该命令与费率时段配置（<a href="add_chgtari.html"><b><span class="cmdname">ADD CHGTARI</span></b></a>）相结合，进行灵活的费率时段控制。该命令的配置是为了实现对S-CDR话单进行不同费率时段的计费。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">注意事项</a></h4><ul><li>系统初次运行时，会执行系统初始设置值。</li><li>该命令执行后立即生效。</li><li>在星期配置表中，<span class="parmname">“星期序号”</span>和<span class="parmname">“计费属性”</span>唯一确定一条记录。</li><li>同一计费属性的周记录数固定为7，本表记录总数固定为28。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="28.000000000000004%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="29.67%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="42.33%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="28.000000000000004%" headers="mcps1.3.5.2.1.4.1.1 "><p>WKDAY</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.67%" headers="mcps1.3.5.2.1.4.1.2 "><p>星期序号</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.33%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定一个星期中的某一天。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“MON(星期一)”</span></li><li><span class="parmvalue">“TUES(星期二)”</span></li><li><span class="parmvalue">“WED(星期三)”</span></li><li><span class="parmvalue">“THURS(星期四)”</span></li><li><span class="parmvalue">“FRI(星期五)”</span></li><li><span class="parmvalue">“SAT(星期六)”</span></li><li><span class="parmvalue">“SUN(星期日)”</span></li></ul>
+</div>
+<p>系统初始设置值：请参考<a href="#ZH-CN_MMLREF_0000001126305210__tab1">表1</a>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="28.000000000000004%" headers="mcps1.3.5.2.1.4.1.1 "><p>CC</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.67%" headers="mcps1.3.5.2.1.4.1.2 "><p>计费属性</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.33%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用来指定该天对普通计费属性用户、预付费计费属性用户、包月制计费属性用户还是对实时计费属性用户有效。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NORMAL(普通计费)”</span>：表示普通计费属性，按照此种方式计费的用户按照常规的方式支付费用。</li><li><span class="parmvalue">“PREPAID(预付费)”</span>：表示预付费计费属性，按照此种方式计费的用户在获取某种服务之前需要预支付一定的费用。</li><li><span class="parmvalue">“FLATRATE(包月制)”</span>：表示包月制计费属性，按照此种方式计费的用户在一个月内的收费是固定的。</li><li><span class="parmvalue">“HOTBILLING(实时计费)”</span>：表示实时计费属性，按照此种方式计费的用户将在短时间或流量达到某个值时及时生成话单，保证运营商对此类用户及时收费。</li></ul>
+</div>
+<p>系统初始设置值：请参考<a href="#ZH-CN_MMLREF_0000001126305210__tab1">表1</a>。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="28.000000000000004%" headers="mcps1.3.5.2.1.4.1.1 "><p>TT</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.67%" headers="mcps1.3.5.2.1.4.1.2 "><p>费率类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="42.33%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用来表示是该天的费率类型。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“WORK(工作日)”</span></li><li><span class="parmvalue">“WEEKEND(周休日)”</span></li></ul>
+</div>
+<p>系统初始设置值：请参考<a href="#ZH-CN_MMLREF_0000001126305210__tab1">表1</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">使用实例</a></h4><p>设置一条包月制计费属性的星期表配置：将包月制计费属性的星期六的费率类型改为工作日，配置格式为：</p>
+<p><span class="msgph">SET CHGWKDY: WKDAY=SAT, CC=FLATRATE, TT=WORK;</span></p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305210__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_MMLREF_0000001126305210" class="sectiontitle2contents">参考信息</a></h4>
+<div class="tableBorder"><a name="ZH-CN_MMLREF_0000001126305210__tab1"></a><a name="tab1"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_MMLREF_0000001126305210__tab1" frame="border" border="1" rules="all"><caption><b>表1 </b>系统初始设置值</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.11331133113312%" id="mcps1.3.7.2.2.4.1.1" liSelected="liSelected"><p>星期序号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.44334433443344%" id="mcps1.3.7.2.2.4.1.2" liSelected="liSelected"><p>计费属性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.44334433443344%" id="mcps1.3.7.2.2.4.1.3" liSelected="liSelected"><p>费率类型</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SUN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SAT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>FRI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>THURS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>WED</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>TUES</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>MON</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>HOTBILLING</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SUN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SAT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>FRI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>THURS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>WED</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>TUES</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>MON</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>FLATRATE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SUN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SAT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>FRI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>THURS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>WED</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>TUES</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>MON</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>PREPAID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SUN</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>SAT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WEEKEND</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>FRI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>THURS</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>WED</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>TUES</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.11331133113312%" headers="mcps1.3.7.2.2.4.1.1 "><p>MON</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.2 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.44334433443344%" headers="mcps1.3.7.2.2.4.1.3 "><p>WORK</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_week_configuration.html">计费星期配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_chgwkdy.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

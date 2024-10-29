@@ -1,0 +1,516 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="激活基于域名的本地分流（DNS重定向）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001205889427.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0000001154381248.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0000001200261033.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0000001154221456">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>激活基于域名的本地分流（DNS重定向）</title>
+</head>
+<body><a name="ZH-CN_OPI_0000001154221456"></a><a name="ZH-CN_OPI_0000001154221456"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">激活基于域名的本地分流（DNS重定向）</h1>
+<ul><li><a href="#ZH-CN_OPI_0000001154221456__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0000001154221456__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0000001154221456__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0000001154221456__1.3.4">任务示例</a></li></ul><div><div class="Section" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIAscenarios10196160163836"><a name="ZH-CN_OPI_0000001154221456__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001154221456" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1715653007163836">部署基于域名的本地分流功能，且本地DN部署DNS服务器时，需要配置七层分流规则和DNS重定向。</p>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPICprerequisites932139962163836"><a name="ZH-CN_OPI_0000001154221456__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001154221456" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIAconditions1164835944163836">前提条件</p></span><ul id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_ul936784756163836"><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_li1654583926163836">请仔细阅读<span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_ph1982720651163836"><a href="zh-cn_topic_0000001194923145.html">分流原理</a></span>。</li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_li318895422163836">已完成与周边网元的对接。</li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_li18209172634912">完成协议识别库和解析库的加载。</li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_li1627117438323">已开启Web Proxy功能。</li></ul>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIBdata4999109163836">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_table872181833183108" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1942213552183108"><th align="left" class="cellrowborder" valign="top" width="19.57%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1568779584183108">类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.28%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p344486211183108">参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.16%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p259757876183108">取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.380000000000003%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p205202760183108">获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.61%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p2029492096183108">说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1646374852183108"><td class="cellrowborder" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p89981270517"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname19210627141118">SET COLOCATEDLBO</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p123526257183108">ULCL功能开关（ULCLSWITCH）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p9711174414381">ENABLE</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1039614447183108">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p15549132493911">配置UL CL与PSA1共部署的本地分流功能开关。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row134383815178"><td class="cellrowborder" rowspan="2" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p859395219413"><strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b95931752154113">ADD HOST</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p35505424">Host配置名称（HOSTNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p163161232104514">host1</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p550834313477">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p38953736">配置触发分流的Host信息。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row2385125871912"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p4410728">域名（DOMAINVALUE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p512595319453">www.huawei.com</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p155161943194711">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row171590448219"><td class="cellrowborder" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p78591371151"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname670503011114">ADD FLOWFILTER</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1789605">流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p10740297">flowfilter_ulcl01</p>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p797023110020">flowfilter_ulcl02</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1052118432471">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p2784095">流过滤器。</p>
+<div class="note" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_note2894191213308"><span class="notetitle"> 说明： </span><div class="notebody"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p118945126301">flowfilter_ulcl01用于DNS报文的匹配，flowfilter_ulcl02用于TCP报文的匹配。</p>
+</div></div>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row361221784317"><td class="cellrowborder" rowspan="7" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p4612417104319"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname1445863701113">ADD FILTER</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p6780163794319">过滤器名称（FILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p14612141784317">filter_test01</p>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1216483814015">filter_test02</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p249774645216">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="6" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p186133170434">配置三四层过滤条件。</p>
+<div class="note" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_note148006318504"><span class="notetitle"> 说明： </span><div class="notebody"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p480083115018">匹配DNS报文的过滤条件，三四层协议只能配置为UDP。</p>
+</div></div>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row388425894313"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p17870113064414">三四层IPv4协议输入类型（L34PROTTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p915512513453">STRING</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p61511347145211">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row06271813124512"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p484282312453">三四层IPv4协议输入类型（L34PROTOCOL）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p16271613134511">UDP</p>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p897919864318">ANY</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p16835184711521">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row108829151501"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p107918120472">服务器起始端口号（SVRSTARTPORT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p167918116476">53</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p18792151134711">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row467917121305"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p679211154715">服务器结束端口号（SVRENDPORT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1079212114710">53</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1979251144711">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row10798837114715"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p769834474712">服务器IP地址配置模式（SVRIPMODE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p19784548481">HOSTNAME</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1585648115214">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row8735939164819"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p5991145154813">Host配置名称（HOSTNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p473653924810">host1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p176251915125819">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1073620397486">Host配置名称已通过<strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b9517104744911">ADD HOST</strong>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row8639155215311"><td class="cellrowborder" rowspan="2" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p86407527318"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname2038024216114">ADD FLTBINDFLOWF</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p175761334449">流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p129681041116">flowfilter_ulcl01</p>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p209686412112">flowfilter_ulcl02</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p55768341247">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p157620341041">流过滤器名称已通过<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname15412144512114">ADD FLOWFILTER</span></b>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1531191715418"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p9422194810414">过滤器名称（FILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p196815412113">filter_test01</p>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p596874616">filter_test02</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p974675619417">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p33125174410">过滤器名称已通过<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname4284154711112">ADD FILTER</span></b>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row141746487615"><td class="cellrowborder" rowspan="3" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1650719331586"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname923710498110">ADD L7FILTER</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1176104810619">七层过滤器名称（L7FILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p201763487611">l7filter-test</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p12525144318474">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p137056321217">匹配DNS报文的过滤条件需要配置七层过滤条件。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1293157472"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p493397777">子七层过滤器名称（SUBL7FLTNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p119331171875">sl7filter-test</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1452954313473">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1518359663"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p135191590612">URL（URL）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1652019591569">www.huawei.com</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p11533134313473">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1825525615418">该参数取值要和<strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b4474603431">ADD HOST</strong>命令配置的域名保持一致。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1073218561566"><td class="cellrowborder" rowspan="3" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p18655152713429"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname06281854121118">ADD PROTBINDFLOWF</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p35014918452">流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p182281242134710">flowfilter_ulcl01</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p7584141064813">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p783014510475">流过滤器名称已通过<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname42211157111119">ADD FLOWFILTER</span></b>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row104665420613"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p9804417104920">协议名称（PROTOCOLNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p34705414611">dns</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p14863352194714">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p17482548611">匹配DNS报文的过滤条件需要绑定七层协议。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1110175110614"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1649365704915">七层过滤器名字（L7FILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p684155705011">l7filter-test</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1021717481480">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p256719465113">七层过滤器名字已通过<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname19772597116">ADD L7FILTER</span></b>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row172441613134117"><td class="cellrowborder" rowspan="3" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1347510209418"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname179729391211">ADD FLOWFILTERGRP</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1147552064113">流过滤器组名称（FLWFLTRGRPNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p7475132034116">flowfiltergrp_ulcl01</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1847616202416">与对端协商</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p12476202044115">对应SMF下发的Application ID。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row16395161011410"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p4476122024118">流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p174768207419">flowfilter_ulcl01</p>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p447619203415">flowfilter_ulcl02</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p7476020154110">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p147622010418">绑定的FlowFilter已通过<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname655661181220">ADD FLOWFILTER</span></b>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row496911664111"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p154761320194110">流过滤器逻辑分组（FLWFLTRLOGICGRP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p14761420194119">OR</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p547617202419">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p64761020124118">或组内的任何一个流过滤器命中，则执行分流流程。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1131414157466"><td class="cellrowborder" rowspan="4" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p16490539211"><strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b669211691219">ADD LOGICINF</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p12496532214">逻辑接口名称（NAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p134965352112">phif1/0/0</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p349155320216">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1149105314214">整机IP Farm心跳检测使用的接口。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row94421622134611"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p7490531217">逻辑接口的IP版本（IPVERSION）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p2049205302116">IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1849195382117">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p114917538211">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row7601119144619"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1549195372111">逻辑接口的IPv4地址1（IPV4ADDRESS1）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p44914533217">10.10.10.10</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p74914535217">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p164919531215">心跳检测的本端IP地址一般是从终端的地址池中获取，在配置地址池时需要预留一个IP地址用于IP Farm的心跳检测。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row13416217174615"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p5491753122114">逻辑接口的IPv4掩码1（IPV4MASK1）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p174995342114">255.255.255.255</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p64919539217">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1849195322115">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row10794911101"><td class="cellrowborder" rowspan="4" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p19697183519464"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname0692291121">ADD IPFARM</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p3697235134610">健康检查标记（HEALTHCHECKFLAG）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p17697235144614">ENABLE</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p18697163518466">本端规划</p>
+</td>
+<td class="cellrowborder" rowspan="3" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p669773544617">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row260511120466"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p469723516462">IP-Farm名称（IPFARMNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p76971735154610">farm_test</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p12697183517462">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row694235516109"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p11697113515463">IP协议版本（IPVERSION）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p14697113515461">IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p469715355466">本端规划</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row172834571114"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p168711517132119">心跳检测接口名称（INTERFACENAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p287191710215">phif1/0/0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p2871517162117">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p157091056104611">已通过<strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b781271321219">ADD LOGICINF</strong>命令配置完成。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row6569125917103"><td class="cellrowborder" rowspan="3" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p142164911910"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname17734111119123">ADD IPFARMSERVER</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p5654135031715">IP-Farm名称（IPFARMNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p0654105013174">farm_test</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p19438751185820">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1996731192">使用的IP Farm由<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname1710081671212">ADD IPFARM</span></b>配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row12314153171020"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1813710583183113">IP协议版本（IPVERSION）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p351985708183113">IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p10156111714418">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p12163101720124">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row11600174519106"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1242993765183113">服务器IPv4地址（SERVERIPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p23667091183113">192.168.253.251</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1812997058183113">与对端协商</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1932020187126">重定向目的地址。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1749014417229"><td class="cellrowborder" rowspan="5" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p9447143872016"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname15429111919122">ADD RULE</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p43689923">规则名称（RULENAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p49222835">rule_dns01</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p466495516479">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p23167904">配置重定向规则。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1362110562233"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p27427975">流过滤器或流过滤器组选择(FILTERINGMODE)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p7073466">FLOWFILTER</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p56681455104719">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1861174872214">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row119691953192312"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p66660559">流过滤器名称（FLOWFILTERNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p30796205">flowfilter_ulcl01</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p01841151124815">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p56226836">绑定的FlowFilter已通过<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname574872121219">ADD FLOWFILTER</span></b>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1195325912236"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p25807001">策略类型（POLICYTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p9992350">WEBPROXY</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p59708588472">本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p13506102414246">-</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row10899173810220"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p58761073">策略名称（POLICYNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p143197761219">farm_test</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p0848103885214">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p939782042411">绑定的PCC策略组已通过<span><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname181331333121215">ADD IPFARMSERVER</span></b></span>命令配置。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row7763113464819"><td class="cellrowborder" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p11653577413"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname2064754211127">ADD USERPROFILE</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p159811391221">用户模板名称（USERPROFILENAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p124852045745">up_test</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p2834205511820">与对端协商</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p6984399211">与SMF上配置的PCC用户模板名称保持一致。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row1691438144814"><td class="cellrowborder" rowspan="2" valign="top" width="19.57%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p3415751419"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname1836654714129">ADD RULEBINDING</span></b></p>
+</td>
+<td class="cellrowborder" valign="top" width="19.28%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p069215492610">用户模板名称（USERPROFILENAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.16%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1369213491362">up_test</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.380000000000003%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p209714119710">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.61%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p3971101471">使用<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname19896194412123">ADD USERPROFILE</span></b>命令定义的用户模板名称。</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_row8552740154816"><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p488016281894">规则名称（RULENAME）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p487718285914">rule_dns01</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p2095185144510">已配置数据中获取</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p17100163910211">-</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIEworkSteps1396161825163836"><a name="ZH-CN_OPI_0000001154221456__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001154221456" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_steps752534839163836"><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step102805480100"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd828064815106">配置UL CL与PSA1共部署的本地分流功能开关。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p08352043111119"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname15182135071217">SET COLOCATEDLBO</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step647499145115"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd18474109135111">配置Host信息。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p017113019511"><strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b729133812164">ADD HOST</strong></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step84642409519"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd14464840155110">配置基于域名的本地分流过滤条件。</span><ol type="a" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substeps1018611115522"><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep51891350144016"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd41891850144017">配置流过滤器。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p31891650114017"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname367011546124">ADD FLOWFILTER</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep1779715204117"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd2798158417">配置三四层过滤条件。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1379201513418"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname69988562129">ADD FILTER</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep25150436018"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd251519439013">绑定三四层过滤条件。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p851516431010"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname58061558121213">ADD FLTBINDFLOWF</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep13186516521"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd518614145218">配置七层过滤条件。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1664415133527"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname171671711131">ADD L7FILTER</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep1050716233523"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd1507142365212">绑定七层过滤条件。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p35211244135214"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname6391310133">ADD PROTBINDFLOWF</span></b></p>
+</p></li></ol>
+</li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step17619131515486"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd1961951520487">配置本地分流流过滤器组。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1961951513485"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname133691041101518">ADD FLOWFILTERGRP</span></b></p>
+<div class="note" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_note7617174317193"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_ul11301416103710"><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_li51301616173717">流过滤器组对应SMF下发的AppID。一个流过滤器组中需要绑定基于域名的本地分流过滤条件，才能实现针对一个AppID的分流功能。</li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_li19130141618378">匹配中流过滤器组后，根据ApplD检索到分流PDR，然后按照PDR中的转发规则FAR、QoS规则QER执行策略动作。</li></ul>
+</div></div>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step84134052314"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd8413100192316">配置IP Farm使用的心跳检测接口。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p66021913112312"><strong id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_b1993654351515">ADD LOGICINF</strong></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step3"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd264655482183113">配置IP Farm。</span><ol type="a" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substeps1245003303183113"><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep1519465387183113"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd1926712832183113">创建重定向的IP Farm。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1235667638183113"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname8823184531519">ADD IPFARM</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep648574379183113"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd2110079328183113">配置IP farm服务器地址。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p335315010183113"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname48963479154">ADD IPFARMSERVER</span></b></p>
+</p><p><div class="note" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_note1171014135183113"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1694425837183113">IP Farm配置完成后，可以执行命令<b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname1079916495154">DSP IPFARMSERVER</span></b>查询IP Farm中server的状态。为确保业务正常进行，需保证至少有一个server的状态为up。</p>
+</div></div>
+</p></li></ol>
+</li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step5393174213519"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd9394142195113">配置重定向规则。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p17398123995320"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname275915518155">ADD RULE</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_step1730816462404"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd53081946104015">配置重定向规则与用户模板的绑定关系。</span><ol type="a" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substeps205415217410"><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep9541132110412"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd2054072114417">创建UserProfile。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p16031307411"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname1115945481519">ADD USERPROFILE</span></b></p>
+</p></li><li id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_substep5171165616415"><span id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmd1617112567411">将已配置的rule绑定到UserProfile。</span><p><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1161412844219"><b><span class="cmdname" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_cmdname943915562156">ADD RULEBINDING</span></b></p>
+</p></li></ol>
+</li></ol>
+</div></div>
+<div class="Section" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIGexample985904709163836"><a name="ZH-CN_OPI_0000001154221456__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0000001154221456" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIAintroduction1818488894163836">任务描述</p></span><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p02031419143416"><a name="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIAintroduction1818488894163836"></a><a name="zh-cn_opi_0000001200167735_OPIAintroduction1818488894163836"></a>开启UPF本地分流功能，UPF将访问URL为www.huawei.com的DNS报文重定向到地址为"192.168.253.251"的本地DNS服务器。</p>
+<span><p class="sectiontitle" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIBscripts1238902512163836">脚本</p></span><p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1934213411439"><a name="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_OPIBscripts1238902512163836"></a><a name="zh-cn_opi_0000001200167735_OPIBscripts1238902512163836"></a>//配置UL CL与PSA1共部署的本地分流功能开关。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen517811449435">SET COLOCATEDLBO: ULCLSWITCH=ENABLE;</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1686878375183108">//配置Host信息。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen365031">ADD HOST:HOSTNAME="host1",DOMAINVALUE="www.huawei.com";</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p3285280">//配置UL CL UPF的针对DNS报文的L7过滤条件。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen29567523">ADD FLOWFILTER:FLOWFILTERNAME="flowfilter_ulcl01";
+ADD FILTER:FILTERNAME="filter_test01",L34PROTTYPE=STRING,L34PROTOCOL=UDP,SVRSTARTPORT=53,SVRENDPORT=53;
+ADD FLTBINDFLOWF:FLOWFILTERNAME="flowfilter_ulcl01",FILTERNAME="filter_test01";
+ADD L7FILTER:L7FILTERNAME="l7filter-test",SUBL7FLTNAME="sl7filter-test",URLTYPE=URL,URL="www.huawei.com";
+ADD PROTBINDFLOWF:FLOWFILTERNAME="flowfilter_ulcl01",PROTOCOLNAME="dns",L7FILTERNAME="l7filter-test";</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p8293326102610">//配置UL CL UPF的针对IP报文的L34过滤条件。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen15291521142716">ADD FLOWFILTER:FLOWFILTERNAME="flowfilter_ulcl02";
+ADD FILTER:FILTERNAME="filter_test02",L34PROTTYPE=STRING,L34PROTOCOL=ANY,SVRIPMODE=HOSTNAME,HOSTNAME="host1";
+ADD FLTBINDFLOWF:FLOWFILTERNAME="flowfilter_ulcl02",FILTERNAME="filter_test02";</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p1322804165019">//配置UL CL UPF的本地分流流过滤器组。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen1722816419503">ADD FLOWFILTERGRP:FLWFLTRGRPNAME="flowfiltergrp_ulcl01",FLOWFILTERNAME="flowfilter_ulcl01",FLWFLTRLOGICGRP=OR;
+ADD FLOWFILTERGRP:FLWFLTRGRPNAME="flowfiltergrp_ulcl01",FLOWFILTERNAME="flowfilter_ulcl02",FLWFLTRLOGICGRP=OR;</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p137371459132315">//配置IP Farm使用的心跳检测接口。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen138791369242">ADD LOGICINF:NAME="phif1/0/0",IPVERSION=IPV4,IPV4ADDRESS1="10.10.10.10",IPV4MASK1="255.255.255.255";</pre>
+<div class="p" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p073592103815">//配置PSA1 UPF的IP Farm。<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen2109686451183113">ADD IPFARM:HEALTHCHECKFLAG=ENABLE,IPFARMNAME="farm_test",IPVERSION=IPV4,INTERFACENAME="phif1/0/0";</pre>
+</div>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen945206916183113">ADD IPFARMSERVER:IPFARMNAME="farm_test",IPVERSION=IPV4,SERVERIPV4="192.168.253.251";</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p64781122">//配置PSA1 UPF的重定向规则。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen46159188">ADD RULE:RULENAME="rule_dns01",POLICYTYPE=WEBPROXY,FILTERINGMODE=FLOWFILTER, FLOWFILTERNAME="flowfilter_ulcl01",POLICYNAME="farm_test";</pre>
+<p id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_p16589171112516">//配置PSA1 UPF的重定向规则与用户模板的绑定关系。</p>
+<pre class="screen" id="ZH-CN_OPI_0000001154221456__zh-cn_opi_0000001200167735_screen10204142825411">ADD USERPROFILE:USERPROFILENAME="up_test";
+ADD RULEBINDING:USERPROFILENAME="up_test",RULENAME="rule_dns01";</pre>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0000001205889427.html">部署基于PCF静态签约的分流（UPF）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_opi_0000001154381248.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0000001200261033.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

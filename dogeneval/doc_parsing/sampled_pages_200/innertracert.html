@@ -1,0 +1,279 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="INNER IP Tracert（INNERTRACERT）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/pfp_n_tracert.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0000001288575686">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>INNER IP Tracert（INNERTRACERT）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0000001288575686"></a><a name="ZH-CN_CONCEPT_0000001288575686"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">INNER IP Tracert（INNERTRACERT）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0000001288575686__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0000001288575686__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0000001288575686__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0000001288575686__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0000001288575686__1.3.5.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001288575686__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0000001288575686" class="sectiontitle2contents">命令功能</a></h4><p>该命令用来测试数据包从发送主机到目的地所经过的网关。对于网络中出现的故障，可以执行INNERPING命令，根据回应的报文查看网络连通的情况，然后进一步使用该命令查看网络中出现故障的位置，为故障诊断提供依据。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001288575686__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0000001288575686" class="sectiontitle2contents">注意事项</a></h4><p>该命令执行后立即生效。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001288575686__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0000001288575686" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001288575686__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0000001288575686" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50.38%" id="mcps1.3.4.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.85%" id="mcps1.3.4.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.77%" id="mcps1.3.4.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>IPVERSION</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>IP协议版本号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定探测报文的IP协议版本。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：枚举类型。</p>
+<ul><li>IPv4：IPv4协议族。</li><li>IPv6：IPv6协议族。</li></ul>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>VPNNAME</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>VPN实例名称</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定VPN实例名。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：字符串类型，输入长度范围为1～31。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>SOURCEIPV4ADDRESS</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>源IPv4地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv4”时为条件必选参数。</p>
+<p>参数含义：该参数用于指定源IPv4地址。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：IPv4地址类型。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>SOURCEIPV6ADDRESS</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>源IPv6地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv6”时为条件必选参数。</p>
+<p>参数含义：该参数用于指定源IPv6地址。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：IPv6地址类型。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>DESTIPV4ADDRESS</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>目的IPv4地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv4”时为条件必选参数。</p>
+<p>参数含义：该参数用于指定目的主机IPv4地址。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：IPv4地址类型。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>DESTIPV6ADDRESS</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>目的IPv6地址</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv6”时为条件必选参数。</p>
+<p>参数含义：该参数用于指定目的主机IPv6地址。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：IPv6地址类型。</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>DESTPORT</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>目的端口号</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定目的主机的UDP端口号。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为0～65535。</p>
+<p>默认值：33434</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>TIMEOUT</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>超时时间（ms）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定等待响应报文的超时时间。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为1～20000，单位是毫秒。</p>
+<p>默认值：5000</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>FIRSTTTL</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>初始TTL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv4”时为条件可选参数。</p>
+<p>参数含义：该参数用于指定初始TTL。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为1～255。</p>
+<p>默认值：1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>MAXTTL</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>最大TTL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv4”时为条件可选参数。</p>
+<p>参数含义：该参数用于指定最大TTL。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为1～255。</p>
+<p>默认值：30</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>FIRSTHOPLIMIT</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>初始跳限制</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv6”时为条件可选参数。</p>
+<p>参数含义：该参数用于指定初始跳限制。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为1～255。</p>
+<p>默认值：1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>MAXHOPLIMIT</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>最大跳限制</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv6”时为条件可选参数。</p>
+<p>参数含义：该参数用于指定最大跳限制。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为1～255。</p>
+<p>默认值：30</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>IPV4PACKETSIZE</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>IPv4报文字节数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv4”时为条件可选参数。</p>
+<p>参数含义：该参数用于指定IPv4报文大小。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为12～9600，单位是字节。</p>
+<p>默认值：12</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>IPV6PACKETSIZE</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>IPv6报文字节数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>前提条件：该参数在“IPVERSION”配置为“IPv6”时为条件可选参数。</p>
+<p>参数含义：该参数用于指定IPv6报文大小。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为20～9600，单位是字节。</p>
+<p>默认值：20</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>PACKETCOUNT</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>发包数</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定每次发送的探测数据包个数。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：整数类型，取值范围为1～65535，单位是包数。</p>
+<p>默认值：3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.4.2.1.4.1.1 "><p>SERVICEINSTANCE</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.85%" headers="mcps1.3.4.2.1.4.1.2 "><p>服务实例</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.77%" headers="mcps1.3.4.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数表示大颗粒服务实例名称。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：字符串类型，通过LST VNFC命令获取。</p>
+<p>默认值：无</p>
+<p>配置原则：只能填写通过LST VNFC命令查询到的管理代理标识，但不能填写0，0表示VNFP。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001288575686__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0000001288575686" class="sectiontitle2contents">使用实例</a></h4><ul><li>检查从发送主机到IP地址为10.137.144.1的主机所经过的网关：<pre class="codeblock">INNERTRACERT: IPVERSION=IPv4, SOURCEIPV4ADDRESS="10.137.144.2", DESTIPV4ADDRESS="10.137.144.1"<span>,SERVICEINSTANCE="CSLB_VNFC_999"</span>; </pre>
+<pre class="screen"> traceroute to 10.137.144.1(10.137.144.1), max hops: 30,packet length: 40,press CTRL_Q to break 
+ 
+ 1 10.137.144.1 2 ms  
+ 
+ 1 10.137.144.1 1 ms  
+ 
+ 1 10.137.144.1 1 ms  
+ 
+共有7个报告 
+---    END</pre>
+</li></ul>
+<ul><li>检查从发送主机到IPv6地址为2001:db8::1的主机所经过的网关：<pre class="codeblock">INNERTRACERT: IPVERSION=IPv6, SOURCEIPV6ADDRESS="2001:db8::2", DESTIPV6ADDRESS="2001:db8::1"<span>,SERVICEINSTANCE="CSLB_VNFC_999"</span>; </pre>
+<pre class="screen">  traceroute to 2001:db8::1  30 hops max,60 bytes packet,press CTRL_Q to break 
+ 
+ 1 2001:db8::1 107 ms  
+ 
+ 1 2001:db8::1 1 ms  
+ 
+ 1 2001:db8::1 1 ms  
+ 
+共有7个报告 
+---    END</pre>
+</li></ul>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/pfp_n_tracert.html">Tracert
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

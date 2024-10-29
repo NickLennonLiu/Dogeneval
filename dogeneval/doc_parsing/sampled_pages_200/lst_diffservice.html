@@ -1,0 +1,129 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="查询差异化服务接入门限(LST DIFFSERVICE)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_configuration_table_of_difference_service.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/mod_diffservice.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/dsp_diffservice.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172345271">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询差异化服务接入门限(LST DIFFSERVICE)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172345271"></a><a name="ZH-CN_MMLREF_0000001172345271"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">查询差异化服务接入门限(LST DIFFSERVICE)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.6.1">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001172345271__1.3.7.1">输出结果说明</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172345271__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>该命令用于查询差异化服务配置信息。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">注意事项</a></h4><p>无。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug；monitor-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>AT</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>接入类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于设置待查询的用户接入门限或者PDP接入门限。</p>
+<p>取值范围：</p>
+<ul><li><span class="parmname">“USER(用户接入)”</span>：差异化服务触发类型为用户类型</li><li><span class="parmname">“PDP(PDP接入)”</span>：差异化服务触发类型为PDP类型</li></ul>
+<p>默认值： 无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>USRPRI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>用户级别</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：该参数用于指定待查询的用户签约QoS属性中的分配保留优先级（Allocation/Retention Priority）。</p>
+<p>前提条件：此参数在<span class="parmname">“AT”</span>设置为<span class="parmname">“USER(用户接入)”</span>或<span class="parmname">“PDP(PDP接入)”</span>时生效。</p>
+<p>取值范围：</p>
+<ul><li><span class="parmvalue">“HIGHLEVELUSER(高端用户)”</span>：分配保留优先级为1。</li><li><span class="parmvalue">“NORMALUSER(普通用户)”</span>：分配保留优先级为2。</li><li><span class="parmvalue">“LOWLEVELUSER(低端用户)”</span>：分配保留优先级为3。</li></ul>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>不输入该参数时，查询所有用户级别的接入门限。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SRVLVL</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>业务级别</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件可选参数</p>
+<p>参数含义：待查询的业务级别，由用户PDP上下文QoS中的流量等级（Traffic class）、下行保证速率（Guaranteed bit rate for downlink）和发送控制优先级（Traffic handling priority）确定。</p>
+<p>前提条件：此参数在<span class="parmname">“接入类型”</span>选取为<span class="parmname">“PDP(PDP接入)”</span>时生效。</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“CONVERSATION(Conversation)”</span>：流量等级为Conversational class。</li><li><span class="parmvalue">“STREAMINGGBRMORE25KBPS(StreamGBRMore25kbps)”</span>：流量等级为Streaming class，下行保证速率大于等于25kbit/s。</li><li><span class="parmvalue">“STREAMINGGBRLESS24KBPS(StreamGBRLess24kbps)”</span>：流量等级为Streaming class，下行保证速率小于等于24kbit/s。</li><li><span class="parmvalue">“INTERACTIVETRAFFICPRI1(InteractiveTrafficPri1)”</span>：流量等级为Interactive class，发送控制优先级为1。</li><li><span class="parmvalue">“INTERACTIVETRAFFICPRI2(InteractiveTrafficPri2)”</span>：流量等级为Interactive class，发送控制优先级为2。</li><li><span class="parmvalue">“INTERACTIVETRAFFICPRI3(InteractiveTrafficPri3)”</span>：流量等级为Interactive class，发送控制优先级为3。</li><li><span class="parmvalue">“BACKGROUND(Background)”</span>：流量等级为Background class。</li><li><span class="parmvalue">“NONE(None)”</span>：通用业务级别，表示该用户没有业务级别，设置的门限就是该用户级别所有业务级别的门限。</li></ul>
+</div>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>不输入该参数时，查询所有业务级别的接入门限。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">使用实例</a></h4><p>查询以“PDP方式”接入，用户级别为“高端用户”，业务级别为“Background”的差异化服务配置信息：</p>
+<p><span class="msgph">LST DIFFSERVICE: AT=PDP, USRPRI=HIGHLEVELUSER, SRVLVL=BACKGROUND;</span></p>
+<pre class="screen">%%LST DIFFSERVICE: AT=PDP, USRPRI=HIGHLEVELUSER, SRVLVL=BACKGROUND;%%
+RETCODE = 0  操作成功。
+
+差异化服务配置表
+-------------------------------------
+            用户级别  =  高端用户     
+            业务级别  =  Background      
+PDP数负荷拒绝门限(%)  =  20      
+PDP数负荷恢复门限(%)  =  10
+(结果个数 = 1)
+
+---    END</pre>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345271__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_MMLREF_0000001172345271" class="sectiontitle2contents">输出结果说明</a></h4><p>请参考<a href="add_diffservice.html"><b><span class="cmdname">ADD DIFFSERVICE</span></b></a>的参数说明。</p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_configuration_table_of_difference_service.html">差异化服务配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/mod_diffservice.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/dsp_diffservice.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

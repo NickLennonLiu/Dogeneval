@@ -1,0 +1,197 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="本地配置与签约数据的优先级">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0248552636.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0248748810.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="AMF">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-106003">
+<meta name="Function" content="基本接入功能">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0248748809">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>本地配置与签约数据的优先级</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0248748809"></a><a name="ZH-CN_TOPIC_0248748809"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">本地配置与签约数据的优先级</h1>
+<div><p>当用户接入，AMF首先根据UE签约数据或AMF本地配置的<strong>RAT限制信息（RAT restriction ）</strong>和<strong>核心网限制信息（Core Network type restriction）</strong>信息，以及UE当前使用的无线接入类型来决策是否允许用户接入。移动性接入限制信息获取方式以及优先级如下：</p>
+<ul><li><strong>签约数据</strong><p>AMF从签约数据获取移动性接入限制信息（AccessAndMobilitySubscriptionData）中获取<strong>RAT限制（RAT restriction ）</strong>信息和<strong>核心网限制（Core Network type restriction）</strong>信息。</p>
+</li><li><strong>AMF本地配置</strong><p>为了在AMF上支持针对不同用户接入的灵活控制，AMF提供用户接入控制的本地策略配置，可配置本地策略适用的<strong>用户范围</strong>、指定限制的<strong>RAT类型</strong>和指定限制的<strong>核心网类型</strong>等。</p>
+<p>对于指定的用户（群），根据<a href="../MML/Document/add_ngmmsubdata.html"><b><span class="cmdname">ADD NGMMSUBDATA</span></b></a>命令中“SUBRANGE”参数来匹配<strong>用户范围</strong>，优先级从高到低依次为：IMSI前缀（包括用户群组）&gt;外网用户&gt;本网用户&gt;所有用户。如果其匹配成功，则按照本地配置的策略执行接入控制。</p>
+</li><li><strong>AMF本地配置</strong><strong>与</strong><strong>签约数据</strong><strong>的优先级</strong><div class="p">对于待接入的用户，同时存在签约信息和AMF本地配置的移动性接入限制信息，如果用户匹配了AMF本地配置的接入限制记录，则按照本地配置执行接入控制。只有当AMF本地未配置或者用户无任何匹配的接入限制记录时，AMF才根据签约数据检查接入控制。具体决策场景如<a href="#ZH-CN_TOPIC_0248748809__table958362413522">表1</a>。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0248748809__table958362413522"></a><a name="table958362413522"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0248748809__table958362413522" frame="border" border="1" rules="all"><caption><b>表1 </b>移动性接入限制信息具体决策场景</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.04839516048395%" id="mcps1.3.2.3.5.2.2.7.1.1" liSelected="liSelected"><p>AMF本地配置（RAT限制）</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.278272172782717%" id="mcps1.3.2.3.5.2.2.7.1.2" liSelected="liSelected"><p>AMF本地配置（<strong>核心网限制</strong>）</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="13.92860713928607%" id="mcps1.3.2.3.5.2.2.7.1.3" liSelected="liSelected"><p>签约数据（RAT限制）</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.568543145685428%" id="mcps1.3.2.3.5.2.2.7.1.4" liSelected="liSelected"><p>签约数据（<strong>核心网限制</strong>）</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.268473152684727%" id="mcps1.3.2.3.5.2.2.7.1.5" liSelected="liSelected"><p>决策结果</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="22.907709229077085%" id="mcps1.3.2.3.5.2.2.7.1.6" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.04839516048395%" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.278272172782717%" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.92860713928607%" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.568543145685428%" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.268473152684727%" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>允许接入。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.907709229077085%" headers="mcps1.3.2.3.5.2.2.7.1.6 "><p>如果AMF本地未配置或者用户无匹配的接入限制配置记录，且签约数据中没有RAT限制或者核心网限制，则表示不限制该用户使用NR接入，即该用户在5GC的接入控制检查通过。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.04839516048395%" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.278272172782717%" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.92860713928607%" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>NR</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.568543145685428%" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.268473152684727%" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户NR接入到5GC。</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="22.907709229077085%" headers="mcps1.3.2.3.5.2.2.7.1.6 "><p>当该用户在AMF本地未配置或者用户无任何匹配的接入限制记录时，则AMF才根据签约数据检查接入控制。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>EUTRA</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户EUTRA接入到5GC。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>5GC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户接入到5GC。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>-</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>EPC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户从5G到4G的互操作流程。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.04839516048395%" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>Null</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.278272172782717%" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>Null</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.92860713928607%" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.568543145685428%" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.268473152684727%" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>允许接入。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.907709229077085%" headers="mcps1.3.2.3.5.2.2.7.1.6 "><p>如果用户匹配的AMF上的配置记录给出的RAT限制和核心网限制都是空值（Null），那么不论该用户签约的移动性接入限制信息配置为何值，AMF都对该用户做允许接入。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.04839516048395%" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>NR</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.278272172782717%" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.92860713928607%" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.568543145685428%" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.268473152684727%" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户NR接入到5GC。</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="22.907709229077085%" headers="mcps1.3.2.3.5.2.2.7.1.6 "><p>如果其匹配了AMF本地配置的接入限制记录，则按照本地配置匹配记录给出的接入限制执行，不考虑签约数据。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>EUTRA</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户EUTRA接入到5GC（NAS组网场景）。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>5GC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户接入到5GC。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.1 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.2 "><p>EPC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.3 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.4 "><p>Any</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.5.2.2.7.1.5 "><p>限制用户从5G到4G的互操作流程。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul><li>“-”表示不存在配置或者签约。</li><li>“Any”表示任意值或者任意值组合。</li><li>“Null”表示记录给出的限制方式为空（参数全部清空），即不限制。</li><li>当UE在5GC接入控制检查失败时，AMF向UE返回注册拒绝，并通过<a href="../MML/Document/set_ngmmproctrl.html"><b><span class="cmdname">SET NGMMPROCTRL</span></b></a>配置携带相应原因值。UE的5G接入被拒绝后会尝试在4G接入，相关流程在EPC处理。</li><li>如果是<strong>紧急注册</strong>（5GS registration type=emergency registration），则跳过用户接入控制检查。</li></ul>
+</div></div>
+</li></ul>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_concept_0248552636.html">用户接入控制功能（适用于AMF）实现原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0248748810.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

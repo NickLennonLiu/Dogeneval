@@ -1,0 +1,522 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="激活NRF主备容灾特性">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Active_Standby_NRF_Redundancy.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_concept_0258293889.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_opi_0179385941.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-114001">
+<meta name="Function" content="容灾">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0179385860">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>激活NRF主备容灾特性</title>
+</head>
+<body><a name="ZH-CN_OPI_0179385860"></a><a name="ZH-CN_OPI_0179385860"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">激活NRF主备容灾特性</h1>
+<ul><li><a href="#ZH-CN_OPI_0179385860__1.4.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0179385860__1.4.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0179385860__1.4.3">操作流程</a></li><li><a href="#ZH-CN_OPI_0179385860__1.4.4">操作步骤</a></li><li><a href="#ZH-CN_OPI_0179385860__1.4.5">任务示例</a></li></ul><div><p></p>
+<div class="Section"><a name="ZH-CN_OPI_0179385860__1.4.1"></a><a name="1.4.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0179385860" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>当运营商希望通过地理容灾确保业务所在地发生重大灾难NRF依然能够提供正常的数据业务，保证5GC中各NF业务流程的可靠性时，部署此特性。部署场景分为两种情况：</p>
+<ul><li>现网分别在两个DC新增2台NRF用于设备间地理容灾，通过配置决定两台设备初始的主备运行状态。</li><li>现网原有1台NRF，新增1台设备NRF和原NRF用于设备间备份，此时原设备作为主设备，新增设备作为备设备。</li></ul>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0179385860__zh-cn_topic_0305599235_p1321631202518">适用于AMF、SMF<span>、NRF</span><span>、SMSF</span>。</p>
+</div></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0179385860__1.4.2"></a><a name="1.4.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0179385860" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li><span>请仔细阅读<a href="../desc/unc_2000_feature_desc_Active_Standby_NRF_Redundancy_01.html">WSFD-114001 NRF主备容灾特性概述</a></span>。</li><li>完成加载License。</li><li>用于主备容灾的NRF设备上无业务。</li><li><p>已按照自身组网完成NRF主、备之间的路由配置，对于IPv4组网，各配置场景请参考“初始配置与调测”中自动部署<a href="../installation/ce_ugw_190016_10.html">配置动态路由OSPF+BFD组网（IPv4）</a>、<a href="../installation/ce_ugw_190016_12.html">配置静态路由+BFD组网（IPv4）</a>、<a href="../installation/5g_com_init_comm_009.html">配置BGP over OSPF/静态路由+BFD（IPv4）</a>或手动部署<a href="../installation/cn_20_1_3a22.html">配置动态路由OSPF+BFD组网（IPv4）</a>、<a href="../installation/cn_20_1_3a23.html">配置静态路由+BFD组网（IPv4）</a>、<a href="../installation/5g_com_init_comm_011.html">配置BGP over OSPF/静态路由+BFD（IPv4）</a>。</p>
+</li><li><p>已按照自身组网完成NRF主、备之间的路由配置，对于IPv6组网，各配置场景请参考“初始配置与调测”中自动部署<a href="../installation/ce_ugw_190016_11.html">配置动态路由OSPFv3+BFD组网（IPv6）</a>、<a href="../installation/ce_ugw_190016_13.html">配置静态路由+BFD组网（IPv6）</a>、<a href="../installation/5g_com_init_comm_010.html">配置BGP over OSPFv3/静态路由+BFD（IPv6）</a>或手动部署<a href="../installation/cu_ugw_010016_061_ipv6.html">配置动态路由OSPFv3+BFD组网（IPv6）</a>、<a href="../installation/cu_ugw_010016_062_ipv6.html">配置静态路由+BFD组网（IPv6）</a>、<a href="../installation/5g_com_init_comm_012.html">配置BGP over OSPFv3/静态路由+BFD（IPv6）</a>。</p>
+</li><li>各NF已完成配置到两个NRF（对应本特性中的主、备NRF）的数据。NF配置的对接NRF的优先级与规划的主、备NRF保持一致，NF对接的优先级高的NRF为主NRF。</li><li>已获取证书：<ul><li>商用证书：客户申请。</li><li>华为证书：<span>UNC</span>为NRF主备容灾提供华为证书，获取路径：<a href="http://support.huawei.com/" target="_blank" rel="noopener noreferrer">http://support.huawei.com</a> &gt; 技术支持 &gt; 产品软件 &gt; 云核心网 &gt; Mobile Packet Core &gt; 5G Packet Core &gt; 5G Packet Core &gt; UNC。选择使用的UNC版本， 从<span class="parmname">“软件”</span>列表中获取<strong><span>UNC</span>_<em>版本号</em>_PresetCertificates.zip</strong>。<div class="caution"><span class="cautiontitle"><img src="../public_sys-resources/caution_3.0-zh-cn.png"> </span><div class="cautionbody"><ul><li>如需开启证书域名校验功能，则证书中的域名必须与实际域名保持一致。否则将导致域名校验失败，从而导致NF间建链失败。</li><li>华为预置证书仅用于部署阶段为设备接入客户网络建立初始安全通道，华为不对预置证书的安全性做承诺与保证。</li><li>对于将华为预置证书作为业务证书使用而导致的安全风险和安全事件，由客户自行处置并承担后果。</li><li>华为预置证书有效期参见<a href="#ZH-CN_OPI_0179385860__table142113490390">表1</a>。</li><li>预置证书过期后，使用预置证书的业务会中断。</li><li>华为建议客户通过部署PKI系统对现网设备、软件签发证书并做好证书的生命周期管理（为保证安全性推荐使用短有效期的证书）。</li></ul>
+</div></div>
+
+<div class="tableBorder"><a name="ZH-CN_OPI_0179385860__table142113490390"></a><a name="table142113490390"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0179385860__table142113490390" frame="border" border="1" rules="all"><caption><b>表1 </b>华为证书</caption><thead align="left"><tr id="ZH-CN_OPI_0179385860__row422164912396"><th align="left" class="cellrowborder" colspan="2" valign="top" id="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__p0343921097">证书类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__p162294923919">网元主备容灾安全通信证书</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__p324110963319">证书有效期</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0179385860__row02314983914"><td class="cellrowborder" rowspan="3" valign="top" width="18.56%" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p10343628915">设备证书</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.82%" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p277713444425">设备证书</p>
+</td>
+<td class="cellrowborder" valign="top" width="25.56%" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.2 "><p id="ZH-CN_OPI_0179385860__p172344910399">cert.pem</p>
+</td>
+<td class="cellrowborder" rowspan="3" valign="top" width="33.06%" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.3 "><p id="ZH-CN_OPI_0179385860__p690151694111">截止到2034年11月</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__row62311493394"><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p3777124484212">私钥文件</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p12231549203913">cert.key</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__row121713553425"><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p151723550426">私钥密码</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p276665611480">Aqkx@cfrm930</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__row3159165910423"><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__p33441827911">CA证书</p>
+</td>
+<td class="cellrowborder" colspan="2" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.1 mcps1.4.2.1.1.1.7.1.2.6.2.5.1.2 "><p id="ZH-CN_OPI_0179385860__p165220473217">ca.pem</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.1.1.7.1.2.6.2.5.1.3 "><p id="ZH-CN_OPI_0179385860__p732192111418">截止到2041年10月</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li></ul>
+</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.600000000000001%" id="mcps1.4.2.1.2.1.1.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.760000000000002%" id="mcps1.4.2.1.2.1.1.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="28.590000000000003%" id="mcps1.4.2.1.2.1.1.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.700000000000003%" id="mcps1.4.2.1.2.1.1.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="32.35000000000001%" id="mcps1.4.2.1.2.1.1.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="14.600000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p><strong><a href="../MML/Document/add_grlinstance.html"><b><span class="cmdname">ADD GRLINSTANCE</span></b></a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>容灾实例标识(GRINSTID)</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.3 "><ul><li>1</li><li>2</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="32.35000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.5 "><ul><li>同一容灾组中两个NRF容灾实例标识、默认运行模式禁止相同。</li><li>主用NRF配置为ACTIVE，备用NRF配置为STANDBY。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>默认运行模式(DFTMODE)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><ul><li>ACTIVE</li><li>STANDBY</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="6" valign="top" width="14.600000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p><strong><a href="../MML/Document/add_grgroup.html"><b><span class="cmdname">ADD GRGROUP</span></b></a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>容灾组标识(GRGROUPID)</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" width="32.35000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.5 "><p>主备NRF要求GRGROUPID配置一致。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>容灾组名称(GRGROUPNAME)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>grGroup1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>本端容灾实例标识(LGRINSTID)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>对端容灾实例标识(PGRINSTID)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>对端容灾控制通道IP地址版本号(IPVERSION)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>对端容灾控制通道地址为对端登录OM Portal的IP地址。（对应一级容灾通道）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>对端容灾控制通道IPv4地址(PGRCIP)</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>10.3.1.2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="5" valign="top" width="14.600000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p><strong><a href="../MML/Document/add_grdciinfo.html">ADD GRDCIINFO</a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>容灾组标识(GRGROUPID)</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.35000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.5 "><p>容灾组标识已通过<strong><a href="../MML/Document/add_grgroup.html"><b><span class="cmdname">ADD GRGROUP</span></b></a></strong>配置。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>IP版本（IPVERSION）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>本端DC通信IPv4地址（LDCIP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>10.5.5.1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>本端规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>此IP地址为NRF本端规划的DC通信的IP地址。（对应数据备份通道）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>对端DC通信IPv4地址（PDCIP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>10.5.5.2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>与对端协商</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>此IP地址为对端NRF规划的DC通信的IP地址。（对应数据备份通道）</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>VPN实例名称（VPNINSTANCE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>DCI_VPN</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>-</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="6" valign="top" width="14.600000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p><strong><a href="../MML/Document/add_nrfgrfwdaddr.html"><b><span class="cmdname">ADD NRFGRFWDADDR</span></b></a></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="12.760000000000002%" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>对端NRF名称（PEERNRFNAME）</p>
+</td>
+<td class="cellrowborder" valign="top" width="28.590000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.3 "><ul><li>NRF0001</li><li>NRF0002</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="11.700000000000003%" headers="mcps1.4.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.35000000000001%" headers="mcps1.4.2.1.2.1.1.6.1.5 "><ul><li>主NRF：NRF0001</li><li>备NRF：NRF0002</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>对端NRF实例标识（PEERNRFINSTID）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><ul><li>65e4567-e89b-12d3-a456-426655440012</li><li>12e3456-e89b-12d3-a456-420033220124</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><ul><li>主NRF：65e4567-e89b-12d3-a456-426655440012</li><li>备NRF：12e3456-e89b-12d3-a456-420033220124</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>IP类型（IPTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="4" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.4 "><ul><li>IP地址为各自NRF的HTTP本端端点地址。（对应业务转发通道）<ul><li>主NRF：172.16.0.7</li><li>备NRF：172.26.0.7</li></ul>
+</li><li>端口、是否支持TLS、IP地址信息（包含IP类型+IPV4地址/IPV6地址）需要与此对端NRF作为<strong>服务端</strong>时对应的参数取值保持一致。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>IPV4地址（IPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><ul><li>172.16.0.7</li><li>172.26.0.7</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>端口（PORT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>10380</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.1 "><p>是否支持TLS（TLS）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.2 "><p>FALSE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.2.1.2.1.1.6.1.3 "><p>本端规划</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0179385860__1.4.3"></a><a name="1.4.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0179385860" class="sectiontitle2contents">操作流程</a></h2>
+<div class="Sectionbody"><div class="fignone"><span class="figcap"><b>图1 </b>NRF主备容灾配置流程</span><br><span><img class="vsd" src="../images/zh-cn_image_0179553190.png"></span></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0179385860__1.4.4"></a><a name="1.4.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0179385860" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ul><div class="HandlingTitled"><p class="sectiontitle"><strong>配置主NRF</strong></p>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">增加NRF主备容灾通道安全认证，保证通道安全。</p>
+<p><div class="caution"><span class="cautiontitle"><img src="../public_sys-resources/caution_3.0-zh-cn.png"> </span><div class="cautionbody"><p>容灾通道认证开关可通过<strong><a href="../MML/Document/set_grauth.html">SET GRAUTH</a></strong>命令设置（容灾通道认证开关默认打开），建议保持开关打开，避免网络安全风险。</p>
+</div></div>
+</p><div class="Steps-titled"><ol type="1" start="1"><li><span>上传证书文件。</span><p><ol type="a"><li><a href="zh-cn_topic_0147898077.html">登录OM Portal</a>。</li><li>选择<span class="menucascade">“<span class="uicontrol">安全</span> &gt; <span class="uicontrol">证书管理&gt;证书与证书集管理</span>”</span>，单击<span class="uicontrol">“上传证书”</span>，选择<span class="uicontrol">“证书集”</span>，上传CA证书和设备证书文件。<p>使用<span>UNC</span>华为证书时，需要上传的证书文件如<a href="#ZH-CN_OPI_0179385860__table18854019527">表2 华为证书</a>所示。</p>
+
+<div class="tableBorder"><a name="ZH-CN_OPI_0179385860__table18854019527"></a><a name="table18854019527"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0179385860__table18854019527" frame="border" border="1" rules="all"><caption><b>表2 </b>华为证书</caption><thead align="left"><tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row422164912396"><th align="left" class="cellrowborder" colspan="2" valign="top" id="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p0343921097">证书类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p162294923919">网元主备容灾安全通信证书</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p324110963319">证书有效期</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row02314983914"><td class="cellrowborder" rowspan="3" valign="top" width="18.56%" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p10343628915">设备证书</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.82%" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p277713444425">设备证书</p>
+</td>
+<td class="cellrowborder" valign="top" width="25.56%" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.2 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p172344910399">cert.pem</p>
+</td>
+<td class="cellrowborder" rowspan="3" valign="top" width="33.06%" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.3 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p690151694111">截止到2034年11月</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row62311493394"><td class="cellrowborder" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p3777124484212">私钥文件</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p12231549203913">cert.key</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row121713553425"><td class="cellrowborder" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p151723550426">私钥密码</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p276665611480">Aqkx@cfrm930</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row3159165910423"><td class="cellrowborder" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p33441827911">CA证书</p>
+</td>
+<td class="cellrowborder" colspan="2" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.1 mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.2 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p165220473217">ca.pem</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.4.1.2.3.1.2.1.2.5.2.5.1.3 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p732192111418">截止到2041年10月</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li>（可选）如果存在CA证书对应的证书吊销列表（CRL文件），则根据需要上传CRL文件。选择<span class="menucascade">“<span class="uicontrol">安全</span> &gt; <span class="uicontrol">证书管理&gt;上传证书吊销列表</span>”</span>，单击<span class="uicontrol">“上传证书吊销列表”</span>，上传CRL文件。<div class="notice"><span class="noticetitle"><img src="../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody"><p>CA证书与CRL文件一一对应，如果存在多个CA证书，则需要分别上传其对应的CRL文件。</p>
+</div></div>
+</li></ol>
+</p></li><li><span>关联证书业务场景。</span><p><ol type="a"><li>选择<span class="menucascade">“<span class="uicontrol">安全</span> &gt; <span class="uicontrol">证书管理</span> &gt; <span class="uicontrol">证书应用场景关联</span>”</span>，在证书场景列表中选择<strong>网元主备容灾安全通信</strong>，单击<span class="uicontrol">“关联证书”</span>。</li><li>选择与该场景关联的证书，即<a href="#ZH-CN_OPI_0179385860__table18854019527">表2 华为证书</a>中准备的证书。<div class="notice"><span class="noticetitle"><img src="../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody"><p>CA证书与CRL文件一一对应。当一个证书场景关联了多个CA证书时，如果需要启用CRL功能，那么还需要一一关联这些CA证书所对应的CRL文件。</p>
+</div></div>
+</li></ol>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">在主NRF上使能NRF主备容灾功能。</p>
+<div class="Steps-titled"><ol type="1" start="3"><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0179385860__zh-cn_topic_0305599235_wintitle1891213344912">“MML命令行-UNC”</span>窗口。</span></span></li><li><span>打开本特性的License配置开关。</span><p><p><strong><a href="../MML/Document/set_licenseswitch.html"><b><span class="cmdname">SET LICENSESWITCH</span></b></a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置主NRF的容灾实例和容灾组和DC通信通道。</p>
+<div class="Steps-titled"><ol type="1" start="5"><li><span>配置容灾实例。</span><p><p><strong><a href="../MML/Document/add_grlinstance.html"><b><span class="cmdname">ADD GRLINSTANCE</span></b></a></strong></p>
+</p></li><li><span>配置容灾组。</span><p><p><strong><a href="../MML/Document/add_grgroup.html"><b><span class="cmdname">ADD GRGROUP</span></b></a></strong></p>
+</p></li></ol></div>
+<div class="Steps-titled"><ol type="1" start="7"><li><span>配置DC通信通道信息。</span><p><p><strong><a href="../MML/Document/add_grdciinfo.html">ADD GRDCIINFO</a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">当主NRF正常进行业务，备NRF上收到了业务请求需要转发到主NRF上进行处理时，在主NRF上配置备NRF向主NRF的消息转发。</p>
+<div class="Steps-titled"><ol type="1" start="8"><li><span>在主NRF上打开主备容灾业务消息转发开关。</span><p><p><strong><a href="../MML/Document/set_nrffuncsw.html"><b><span class="cmdname">SET NRFFUNCSW</span></b></a></strong></p>
+</p></li><li><span>在主NRF上新增对端NRF地址。（对端NRF地址即为其作为服务端实体类型时的HTTP实体IP地址。）</span><p><p><strong><a href="../MML/Document/add_nrfgrfwdaddr.html"><b><span class="cmdname">ADD NRFGRFWDADDR</span></b></a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">可选：运营商根据需要，希望主用NRF故障恢复后可以自动倒回重新作为主用NRF时，配置自动主备倒回操作。</p>
+<div class="Steps-titled"><ol type="1" start="10"><li><span>配置自动主备倒回功能。</span><p><p><strong><a href="../MML/Document/set_grautoswitchback.html">SET GRAUTOSWITCHBACK</a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置手动主备倒换<span>/手动配置容灾通道认证开关</span>的二次鉴权，确保人工操作安全。</p>
+<div class="Steps-titled"><ol type="1" start="11"><li><span>打开二次鉴权开关。</span><p><p><strong><a href="../MML/Document/set_secauth.html"><b><span class="cmdname">SET SECAUTH</span></b></a></strong></p>
+</p></li><li><span><a name="ZH-CN_OPI_0179385860__cmd73634111431"></a><a name="cmd73634111431"></a>新增二次鉴权对应的用户。</span><p><p><strong><a href="../MML/Document/add_usrsecauth.html"><b><span class="cmdname">ADD USRSECAUTH</span></b></a></strong></p>
+</p></li><li><span><a name="ZH-CN_OPI_0179385860__cmd47473179483"></a><a name="cmd47473179483"></a>新增二次鉴权对应的执行命令。</span><p><p><strong><a href="../MML/Document/add_secauthmem.html"><b><span class="cmdname">ADD SECAUTHMEM</span></b></a></strong></p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul><li><a href="#ZH-CN_OPI_0179385860__cmd73634111431">12</a>对应的用户名为登录当前NRF所在系统的OM Portal的用户名。<a href="#ZH-CN_OPI_0179385860__cmd47473179483">13</a>用于设置二次鉴权的触发命令，即执行此命令参数中对应的命令后，系统会对<a href="#ZH-CN_OPI_0179385860__cmd73634111431">12</a>设置的用户进行二次鉴权，鉴权方式为系统弹框提示，用户按弹框输入正确的用户名、密码（此特性为对应登录OM Portal的用户名、密码）通过鉴权。</li><li>手动主备倒换的命令为<strong><a href="../MML/Document/switch_grl.html"><b><span class="cmdname">SWITCH GRL</span></b></a></strong>。</li><li>手动修改容灾通道认证开关（容灾通道认证开关默认打开）的命令为<strong><a href="../MML/Document/set_grauth.html">SET GRAUTH</a></strong>。</li></ul>
+</div></div>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">可选：当出现大区或资源池级故障时，配置主备NRF自动倒换的流量判断比例，备NRF根据已注册的NF的此比例进行判断是否升主。</p>
+<p><p><strong><a href="../MML/Document/set_nrfsoftpara.html">SET NRFSOFTPARA</a></strong></p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>例如，主备NRF上注册的NF总的数量为a，网络中总故障的NF数量为b，则需要手动设置主备NRF自动切换的比例为(a-b)/a*50%。得到配置参数为value=(a-b)/a*50%*100。对应配置的脚本为：</p>
+<p>SET NRFSOFTPARA: DT=Dw, DWORDNUM=1, DWORDVALUE=value；</p>
+</div></div>
+</p></div>
+<div class="HandlingTitled"><p class="sectiontitle"><strong>配置备NRF</strong></p>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">增加NRF主备容灾通道安全认证，保证通道安全。</p>
+<p><div class="caution"><span class="cautiontitle"><img src="../public_sys-resources/caution_3.0-zh-cn.png"> </span><div class="cautionbody"><p>容灾通道认证开关可通过<strong><a href="../MML/Document/set_grauth.html">SET GRAUTH</a></strong>命令设置（容灾通道认证开关默认打开），建议保持开关打开，避免网络安全风险。</p>
+</div></div>
+</p><div class="Steps-titled"><ol type="1" start="14"><li><span>上传证书文件。</span><p><ol type="a"><li><a href="zh-cn_topic_0147898077.html">登录OM Portal</a>。</li><li>选择<span class="menucascade">“<span class="uicontrol">安全</span> &gt; <span class="uicontrol">证书管理&gt;证书与证书集管理</span>”</span>，单击<span class="uicontrol">“上传证书”</span>，选择<span class="uicontrol">“证书集”</span>，上传CA证书和设备证书文件。<p>使用<span>UNC</span>华为证书时，需要上传的证书文件如<a href="#ZH-CN_OPI_0179385860__table1871746195515">表4 华为证书</a>所示。</p>
+
+<div class="tableBorder"><a name="ZH-CN_OPI_0179385860__table1871746195515"></a><a name="table1871746195515"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_OPI_0179385860__table1871746195515" frame="border" border="1" rules="all"><caption><b>表3 </b>华为证书</caption><thead align="left"><tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row422164912396_1"><th align="left" class="cellrowborder" colspan="2" valign="top" id="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p0343921097_1">证书类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.2" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p162294923919_1">网元主备容灾安全通信证书</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.3" liSelected="liSelected"><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p324110963319_1">证书有效期</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row02314983914_1"><td class="cellrowborder" rowspan="3" valign="top" width="18.56%" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p10343628915_1">设备证书</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.82%" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p277713444425_1">设备证书</p>
+</td>
+<td class="cellrowborder" valign="top" width="25.56%" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.2 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p172344910399_1">cert.pem</p>
+</td>
+<td class="cellrowborder" rowspan="3" valign="top" width="33.06%" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.3 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p690151694111_1">截止到2034年11月</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row62311493394_1"><td class="cellrowborder" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p3777124484212_1">私钥文件</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p12231549203913_1">cert.key</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row121713553425_1"><td class="cellrowborder" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p151723550426_1">私钥密码</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p276665611480_1">Aqkx@cfrm930</p>
+</td>
+</tr>
+<tr id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_row3159165910423_1"><td class="cellrowborder" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p33441827911_1">CA证书</p>
+</td>
+<td class="cellrowborder" colspan="2" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.1 mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.2 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p165220473217_1">ca.pem</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.4.4.1.10.3.1.2.1.2.5.2.5.1.3 "><p id="ZH-CN_OPI_0179385860__zh-cn_opi_0179385860_p732192111418_1">截止到2041年10月</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li>（可选）如果存在CA证书对应的证书吊销列表（CRL文件），则根据需要上传CRL文件。选择<span class="menucascade">“<span class="uicontrol">安全</span> &gt; <span class="uicontrol">证书管理&gt;上传证书吊销列表</span>”</span>，单击<span class="uicontrol">“上传证书吊销列表”</span>，上传CRL文件。<div class="notice"><span class="noticetitle"><img src="../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody"><p>CA证书与CRL文件一一对应，如果存在多个CA证书，则需要分别上传其对应的CRL文件。</p>
+</div></div>
+</li></ol>
+</p></li><li><span>关联证书业务场景。</span><p><ol type="a"><li>选择<span class="menucascade">“<span class="uicontrol">安全</span> &gt; <span class="uicontrol">证书管理</span> &gt; <span class="uicontrol">证书应用场景关联</span>”</span>，在证书场景列表中选择<strong>网元主备容灾安全通信</strong>，单击<span class="uicontrol">“关联证书”</span>。</li><li>选择与该场景关联的证书，即<a href="#ZH-CN_OPI_0179385860__table1871746195515">表4 华为证书</a>中准备的证书。<div class="notice"><span class="noticetitle"><img src="../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody"><p>CA证书与CRL文件一一对应。当一个证书场景关联了多个CA证书时，如果需要启用CRL功能，那么还需要一一关联这些CA证书所对应的CRL文件。</p>
+</div></div>
+</li></ol>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">在备NRF上使能NRF主备容灾功能。</p>
+<div class="Steps-titled"><ol type="1" start="16"><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0179385860__zh-cn_topic_0305599235_wintitle1891213344912_1">“MML命令行-UNC”</span>窗口。</span></span></li><li><span>打开本特性的License配置开关。</span><p><p><strong><a href="../MML/Document/set_licenseswitch.html"><b><span class="cmdname">SET LICENSESWITCH</span></b></a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置备NRF的容灾实例和容灾组和DC通信通道。</p>
+<div class="Steps-titled"><ol type="1" start="18"><li><span>配置容灾实例。</span><p><p><strong><a href="../MML/Document/add_grlinstance.html"><b><span class="cmdname">ADD GRLINSTANCE</span></b></a></strong></p>
+</p></li><li><span>配置容灾组。</span><p><p><strong><a href="../MML/Document/add_grgroup.html"><b><span class="cmdname">ADD GRGROUP</span></b></a></strong></p>
+</p></li></ol></div>
+<div class="Steps-titled"><ol type="1" start="20"><li><span>配置DC通信通道信息。</span><p><p><strong><a href="../MML/Document/add_grdciinfo.html">ADD GRDCIINFO</a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">当主NRF正常进行业务，备NRF上收到了业务请求需要转发到主NRF上进行处理时，在备NRF上配置备NRF向主NRF的消息转发。</p>
+<div class="Steps-titled"><ol type="1" start="21"><li><span>在备NRF上打开主备容灾业务消息转发开关。</span><p><p><strong><a href="../MML/Document/set_nrffuncsw.html"><b><span class="cmdname">SET NRFFUNCSW</span></b></a></strong></p>
+</p></li><li><span>在备NRF上新增对端NRF地址。（对端NRF地址即为其作为服务端实体类型时的HTTP实体IP地址。）</span><p><p><strong><a href="../MML/Document/add_nrfgrfwdaddr.html"><b><span class="cmdname">ADD NRFGRFWDADDR</span></b></a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">可选：运营商根据需要，希望主用NRF故障恢复后可以自动倒回重新作为主用NRF时，配置自动主备倒回操作。</p>
+<div class="Steps-titled"><ol type="1" start="23"><li><span>配置主备倒回。</span><p><p><strong><a href="../MML/Document/set_grautoswitchback.html"><b><span class="cmdname">SET GRAUTOSWITCHBACK</span></b></a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">配置手动主备倒换<span>/手动配置容灾通道认证开关</span>的二次鉴权，确保人工操作安全。</p>
+<div class="Steps-titled"><ol type="1" start="24"><li><span>打开二次鉴权开关。</span><p><p><strong><a href="../MML/Document/set_secauth.html"><b><span class="cmdname">SET SECAUTH</span></b></a></strong></p>
+</p></li><li><span><a name="ZH-CN_OPI_0179385860__cmd13451256065"></a><a name="cmd13451256065"></a>新增二次鉴权对应的用户。</span><p><p><strong><a href="../MML/Document/add_usrsecauth.html"><b><span class="cmdname">ADD USRSECAUTH</span></b></a></strong></p>
+</p></li><li><span><a name="ZH-CN_OPI_0179385860__cmd1870725418411"></a><a name="cmd1870725418411"></a>新增二次鉴权对应的执行命令。</span><p><p><strong><a href="../MML/Document/add_secauthmem.html"><b><span class="cmdname">ADD SECAUTHMEM</span></b></a></strong></p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><ul><li><a href="#ZH-CN_OPI_0179385860__cmd13451256065">25</a>对应的用户名为登录当前NRF所在系统的OM Portal的用户名。<a href="#ZH-CN_OPI_0179385860__cmd1870725418411">26</a>用于设置二次鉴权的触发命令，即执行此命令参数中对应的命令后，系统会对<a href="#ZH-CN_OPI_0179385860__cmd13451256065">25</a>设置的用户进行二次鉴权，鉴权方式为系统弹框提示，用户按弹框输入正确的用户名、密码（此特性为对应登录OM Portal的用户名、密码）通过鉴权。</li><li>手动主备倒换的命令为<strong><a href="../MML/Document/switch_grl.html"><b><span class="cmdname">SWITCH GRL</span></b></a></strong>。</li><li>手动修改容灾通道认证开关（容灾通道认证开关默认打开）的命令为<strong><a href="../MML/Document/set_grauth.html">SET GRAUTH</a></strong>。</li></ul>
+</div></div>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">复位备NRF使其生效。</p>
+<div class="Steps-titled"><ol type="1" start="27"><li><span>复位备NRF使其生效。</span><p><p><strong><a href="../MML/Document/rst_nodebatch.html"><b><span class="cmdname">RST NODEBATCH</span></b></a></strong></p>
+</p></li></ol></div>
+</div>
+<div class="HandlingTitled"><p class="sectiontitle">可选：当出现大区或资源池级故障时，配置主备NRF自动倒换的流量判断比例，备NRF根据已注册的NF的此比例进行判断是否升主。</p>
+<p><p><strong><a href="../MML/Document/set_nrfsoftpara.html">SET NRFSOFTPARA</a></strong></p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>例如，主备NRF上注册的NF总的数量为a，网络中总故障的NF数量为b，则需要手动设置主备NRF自动切换的比例为(a-b)/a*50%。得到配置参数为value=(a-b)/a*50%*100。对应配置的脚本为：</p>
+<p>SET NRFSOFTPARA: DT=Dw, DWORDNUM=1, DWORDVALUE=value；</p>
+</div></div>
+</p></div>
+</ul>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0179385860__1.4.5"></a><a name="1.4.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0179385860" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">任务描述</p></span><p>运营商规划本地或者异地NRF设备间容灾，在NRF上部署主备容灾功能：</p>
+<p>配置容灾组grGroup1中标识为1的容灾实例作为主NRF，主NRF的<strong>对端</strong>容灾控制通道地址为10.3.1.2（即备NRF登录OM Portal的IP地址为10.3.1.2），主NRF的DC通信通道地址为10.5.5.1。</p>
+<p>配置容灾组grGroup1中标识为2的容灾实例作为备NRF，备NRF的<strong>对端</strong>容灾控制通道地址为10.3.1.1（即主NRF登录OM Portal的IP地址为10.3.1.1），备NRF的DC通信通道地址为10.5.5.2。</p>
+<span><p class="sectiontitle">脚本</p></span><p>//打开本特性的License配置开关，适用于AMF。</p>
+<pre class="screen">SET LICENSESWITCH: LICITEM="LKV2ASNRR02", SWITCH=ENABLE;</pre>
+<p>//打开本特性的License配置开关，适用于SMF。</p>
+<pre class="screen">SET LICENSESWITCH: LICITEM="LKV2ASNRR03", SWITCH=ENABLE;</pre>
+<p>//配置主NRF。</p>
+<p>//打开本特性的License配置开关，适用于NRF。</p>
+<pre class="screen">SET LICENSESWITCH: LICITEM="LKV2ASNRR01", SWITCH=ENABLE;</pre>
+<p>//配置主NRF本地容灾实例。</p>
+<pre class="screen">ADD GRLINSTANCE: GRINSTID=1, DFTMODE=ACTIVE;</pre>
+<p>//配置主NRF容灾组信息。</p>
+<pre class="screen">ADD GRGROUP: GRGROUPID=1, GRGROUPNAME="grGroup1", LGRINSTID=1, PGRINSTID=2, IPVERSION=IPV4, PGRCIP="10.3.1.2"; </pre>
+<p>//配置主NRF DC通信通道信息。</p>
+<pre class="screen">ADD GRDCIINFO: GRGROUPID=1, IPVERSION=IPV4, LDCIP="10.5.5.1", PDCIP="10.5.5.2", VPNINSTANCE="DCI_VPN";</pre>
+<p>//打开主备容灾业务消息转发开关。</p>
+<pre class="screen">SET NRFFUNCSW: NRFGRFWDFUNSW=FUNC_ON; </pre>
+<p>//配置对端NRF地址。</p>
+<pre class="screen">ADD NRFGRFWDADDR: PEERNRFNAME="NRF0002", PEERNRFINSTID="12e3456-e89b-12d3-a456-420033220124", IPTYPE=IPV4, IPV4="172.26.0.7", PORT=10380, TLS=FALSE;</pre>
+<p>//打开二次鉴权开关。</p>
+<pre class="screen">SET SECAUTH: STATUS=ON;</pre>
+<p>//新增二次鉴权对应的用户。</p>
+<pre class="screen">ADD USRSECAUTH: USRNAME="admin";</pre>
+<p>//新增二次鉴权的触发命令。</p>
+<pre class="screen">ADD SECAUTHMEM: MEID=0, COMMAND="SWITCH GRL";
+<span>ADD SECAUTHMEM: MEID=0, COMMAND="SET GRAUTH";</span></pre>
+<p>//配置备NRF。</p>
+<p>//打开本特性的License配置开关，适用于NRF。</p>
+<pre class="screen">SET LICENSESWITCH: LICITEM="LKV2ASNRR01", SWITCH=ENABLE;</pre>
+<p>//配置备NRF本地容灾实例。</p>
+<pre class="screen">ADD GRLINSTANCE: GRINSTID=2, DFTMODE=STANDBY;</pre>
+<p>//配置备NRF容灾组信息。</p>
+<pre class="screen">ADD GRGROUP: GRGROUPID=1, GRGROUPNAME="grGroup1", LGRINSTID=2, PGRINSTID=1, IPVERSION=IPV4, PGRCIP="10.3.1.1"; </pre>
+<p>//配置备NRF DC通信通道信息。</p>
+<pre class="screen">ADD GRDCIINFO: GRGROUPID=1, IPVERSION=IPV4, LDCIP="10.5.5.2", PDCIP="10.5.5.1", VPNINSTANCE="DCI_VPN";</pre>
+<p>//打开主备容灾业务消息转发开关。</p>
+<pre class="screen">SET NRFFUNCSW:NRFGRFWDFUNSW=FUNC_ON; </pre>
+<p>//配置对端NRF地址。</p>
+<pre class="screen">ADD NRFGRFWDADDR: PEERNRFNAME="NRF0001", PEERNRFINSTID="65e4567-e89b-12d3-a456-426655440012", IPTYPE=IPV4, IPV4="172.16.0.7", PORT=10380, TLS=FALSE;</pre>
+<p>//打开二次鉴权开关。</p>
+<pre class="screen">SET SECAUTH: STATUS=ON;</pre>
+<p>//新增二次鉴权对应的用户。</p>
+<pre class="screen">ADD USRSECAUTH: USRNAME="admin";</pre>
+<p>//新增二次鉴权的触发命令</p>
+<pre class="screen">ADD SECAUTHMEM: MEID=0, COMMAND="SWITCH GRL";
+<span>ADD SECAUTHMEM: MEID=0, COMMAND="SET GRAUTH";</span></pre>
+<p>//复位备用NRF。</p>
+<pre class="screen">RST NODEBATCH: APPID=0;</pre>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Active_Standby_NRF_Redundancy.html">WSFD-114001 NRF主备容灾
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_concept_0258293889.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../toctopics/zh-cn_opi_0179385941.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

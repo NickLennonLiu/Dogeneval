@@ -1,0 +1,227 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置状态通知失败重传参数（SET NOTIFYRSDPARA）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nrf_notify_fail_resend_switch.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_notifyrsdpara.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0225121212">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置状态通知失败重传参数（SET NOTIFYRSDPARA）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0225121212"></a><a name="ZH-CN_MMLREF_0225121212"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置状态通知失败重传参数（SET NOTIFYRSDPARA）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0225121212__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0225121212__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0225121212__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0225121212__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0225121212__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0225121212" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：NRF</strong>
+                </p>
+
+                    <p>该命令配置了NRF状态通知失败时重传的参数。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0225121212__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0225121212" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+							<ul><li>主备或双活组网的场景下，如果需要配置此命令，则两个NRF上均需执行此命令，且配置参数一致。</li></ul>
+  
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">NOTIFYRSDSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">NOTIFYRSDTIMER</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.3">NOTIFYRSDTIMES</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.4">NOTIFYRSDCODE</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.5">NOTIFYRSDCAP</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 "><p>FUNC_ON</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 "><p>429.500.503.504</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 "><p>1024</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0225121212__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0225121212" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0225121212__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0225121212" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NOTIFYRSDSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>失败通知重传开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示控制失败通知是否需要重传开关。开关打开后发送失败的通知按一定周期会尝试重新发送，直至发送成功；关闭则不重新发送。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>FUNC_ON（打开）</li><li>FUNC_OFF（关闭）</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NOTIFYRSDTIMER</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>失败通知重传周期时长(分钟)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示失败通知重传周期的时长。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~10080，单位是分钟。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NOTIFYRSDTIMES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>失败通知重传最大次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示失败通知重传最大次数。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~10080，单位是次。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NOTIFYRSDCODE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>失败通知重传状态码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示需要失败通知重传的HTTP状态码，多个错误码用“.”分割。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~256。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NOTIFYRSDCAP</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>失败通知重传消息队列长度</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于表示需要失败通知重传的消息队列长度，当消息队列溢出之后可通过配置队列长度取消内部资源超限告警。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~10000。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0225121212__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0225121212" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>设置状态通知失败重传参数，打开失败通知重传开关，失败通知重传周期时长设置为30分钟，失败通知重传消息队列长度设置为1024：</p>
+
+                    <pre class="screen">SET NOTIFYRSDPARA:NOTIFYRSDSW=FUNC_ON,NOTIFYRSDTIMER=30,NOTIFYRSDCAP=1024;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nrf_notify_fail_resend_switch.html">NRF通知失败重传开关
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_notifyrsdpara.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

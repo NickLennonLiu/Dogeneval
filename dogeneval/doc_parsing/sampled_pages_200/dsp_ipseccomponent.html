@@ -1,0 +1,525 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="查询IPsec组件信息（DSP IPSECCOMPONENT）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/vnrs_vnfc_n_ipsec_component_information.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0134580668">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询IPsec组件信息（DSP IPSECCOMPONENT）</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0134580668"></a><a name="ZH-CN_CONCEPT_0134580668"></a>
+
+<div class="articleBoxWithoutHead">
+
+<h1 class="topicTitle-h1">查询IPsec组件信息（DSP IPSECCOMPONENT）</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0134580668__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0134580668__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0134580668__1.3.3.1">操作用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0134580668__1.3.4.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0134580668__1.3.5.1">使用实例</a></li><li><a href="#ZH-CN_CONCEPT_0134580668__1.3.6.1">输出结果说明</a></li></ul>
+<div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580668__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0134580668" class="sectiontitle2contents">命令功能</a></h4><p>该命令用于查询IPsec组件信息。</p>
+
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580668__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0134580668" class="sectiontitle2contents">注意事项</a></h4><p>无。</p>
+
+</div>
+
+
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580668__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0134580668" class="sectiontitle2contents">操作用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580668__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0134580668" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.1"><p>参数标识</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.2"><p>参数名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.4.2.1.1.1.3"><p>参数说明</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>TYPE</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 "><p>显示类型</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.2.1.1.1.1 mcps1.3.4.2.1.1.1.2 mcps1.3.4.2.1.1.1.3 ">
+<p>可选必选说明：必选参数</p>
+
+<p>参数含义：显示IPsec组件不同信息。</p>
+
+<p>数据来源：本端规划</p>
+
+<p>取值范围：枚举类型。</p>
+
+<ul><li>COMP_INFO：显示IPsec组件信息。</li><li>SOCK_INFO：显示Ipsec组件创建的SOCKET信息。</li></ul>
+
+<p>默认值：无</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580668__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0134580668" class="sectiontitle2contents">使用实例</a></h4><ul><li><p>查询IPsec组件信息：</p>
+
+<pre class="codeblock">DSP IPSECCOMPONENT: TYPE=COMP_INFO;</pre>
+<pre class="screen">
+RETCODE = 0  操作成功。
+
+结果如下
+--------
+IPsec组件PID    IPsec组件CID    部署类型    OS节点ID     端口组ID1    端口组ID2    PP6组件PID    PP6组件状态    PP6写管道ID    PP6读管道ID    PP6写管道状态    PP6管道打开重传定时器状态    PP6流控定时器状态    PP4组件PID    PP4组件状态    PP4写管道ID    PP4读管道ID    PP4写管道状态    PP4管道打开重传定时器状态    PP4流控定时器状态    Socket组件CID    Socket组件状态    Socket注册状态    Socket注册定时器状态    Socket NSF BB状态    Socket NSF BB定时器状态    应用切换状态    应用切换定时器状态
+
+0x3f0050        0x803f0098      1           1            0            0            0x72000f      可用状态       524442         0              已打开状态       未运行状态                   未运行状态           0x660014      可用状态       524443         0              已打开状态       未运行状态                   未运行状态           0x8065000b       可用状态          已注册状态        未运行状态              4                    未运行状态                 初始状态        未运行状态        
+0x3f0022        0x803f0022      2           134217794    65           66           0x72000f      可用状态       2148008018     0              已打开状态       未运行状态                   未运行状态           0x660014      可用状态       0              0              初始状态         未运行状态                   未运行状态           0x80650094       可用状态          已注册状态        未运行状态              初始状态             未运行状态                 初始状态        未运行状态        
+0x3f0021        0x803f0021      2           134217793    65           66           0x72000f      可用状态       2148008014     0              已打开状态       未运行状态                   未运行状态           0x660014      可用状态       0              0              初始状态         未运行状态                   未运行状态           0x80650087       可用状态          已注册状态        未运行状态              初始状态             未运行状态                 初始状态        未运行状态        
+(结果个数 = 3)
+---    END</pre>
+</li><li><p>查询IPsec socket信息：</p>
+
+<pre class="codeblock">DSP IPSECCOMPONENT: TYPE=SOCK_INFO;</pre>
+<pre class="screen">
+RETCODE = 0  操作成功。
+
+结果如下
+--------
+IPsec组件PID    IPsec组件CID    ESP socket ID    ESP socket FSM状态    ESP发送管道ID    ESP发送管道状态    ESP管道打开重传定时器状态    ESP流控定时器状态    AH socket ID    AH socket FSM状态    AH发送管道ID    AH发送管道状态    AH管道打开重传定时器状态    AH流控定时器
+
+0x3f0050        0x803f0098      9                已创建状态            524453           已打开状态         未运行状态                   未运行状态           10              已创建状态           524455          已打开状态        未运行状态                  未运行状态  
+0x3f0022        0x803f0022      1                已创建状态            1572914          已打开状态         未运行状态                   未运行状态           2               已创建状态           524343          已打开状态        未运行状态                  未运行状态  
+0x3f0021        0x803f0021      1                已创建状态            2097204          已打开状态         未运行状态                   未运行状态           2               已创建状态           1572918         已打开状态        未运行状态                  未运行状态  
+(结果个数 = 3)
+---    END</pre>
+</li></ul>
+</div>
+
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0134580668__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0134580668" class="sectiontitle2contents">输出结果说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<thead align="left">
+<tr>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.1"><p>输出项名称</p>
+</th>
+
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.6.2.1.1.1.2"><p>输出项解释</p>
+</th>
+
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>IPsec组件PID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>IPsec组件PID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>IPsec组件CID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>IPsec组件CID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>部署类型</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>部署类型。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>OS节点ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>OS节点ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>端口组ID1</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>端口组ID1。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>端口组ID2</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>端口组ID2。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6组件PID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6组件PID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6组件状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6组件状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6写管道ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6写管道ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6读管道ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6读管道ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6写管道状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6写管道状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6管道打开重传定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6管道打开重传定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6流控定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP6流控定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4组件PID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4组件PID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4组件状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4组件状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4写管道ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4写管道ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4读管道ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4读管道ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4写管道状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4写管道状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4管道打开重传定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4管道打开重传定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4流控定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>PP4流控定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket组件CID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket组件CID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket组件状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket组件状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket注册状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket注册状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket注册定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket注册定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket NSF BB状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket NSF BB状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket NSF BB定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>Socket NSF BB定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>应用切换状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>应用切换状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>应用切换定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>应用切换定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP socket ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP socket ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP socket FSM状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP socket FSM状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP发送管道ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP发送管道ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP发送管道状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP发送管道状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP管道打开重传定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP管道打开重传定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP流控定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>ESP流控定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH socket ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH socket ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH socket FSM状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH socket FSM状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH发送管道ID</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH发送管道ID。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH发送管道状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH发送管道状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH管道打开重传定时器状态</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH管道打开重传定时器状态。</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH流控定时器</p>
+</td>
+
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.1.1.1 mcps1.3.6.2.1.1.1.2 "><p>AH流控定时器。</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/vnrs_vnfc_n_ipsec_component_information.html">IPsec组件信息
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

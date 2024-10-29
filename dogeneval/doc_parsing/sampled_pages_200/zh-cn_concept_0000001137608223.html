@@ -1,0 +1,317 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-214101 支持NF属性检查与校验特性概述">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001159915249.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0000001103201624.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-214101">
+<meta name="Function" content="网络自治">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0000001137608223">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-214101  支持NF属性检查与校验特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0000001137608223"></a><a name="ZH-CN_CONCEPT_0000001137608223"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-214101  支持NF属性检查与校验特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0000001137608223__1.4.13.1">发布历史</a></li></ul><div><p></p>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.1.1"></a><a name="1.4.1.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">适用NF</a></h4><p>NRF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.2.1"></a><a name="1.4.2.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">定义</a></h4><p>为了避免NF的异常操作影响到NRF设备安全及5G Core业务，NRF支持对NF进行白名单和校验控制：符合NRF白名单的NF才允许注册/更新；NF进行上述服务化流程时，对应参数校验通过的NF才能完成对应的服务化流程。</p>
+<p>为了避免号段类NF的号段配置错误影响到5G Core业务，NRF支持对NF Profile的属性冲突核验，对于存在号段冲突的情况可以查询或提示告警。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.3.1"></a><a name="1.4.3.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="29.959999999999997%" id="mcps1.4.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="70.04%" id="mcps1.4.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="29.959999999999997%" headers="mcps1.4.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="70.04%" headers="mcps1.4.3.2.1.3.1.2 "><p>NRF对NF进行有效性核查或冲突校验，可以及时发现NF误操作或者误配置，避免影响5G Core业务。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="29.959999999999997%" headers="mcps1.4.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="70.04%" headers="mcps1.4.3.2.1.3.1.2 "><p>用户不感知该特性。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.4.1"></a><a name="1.4.4.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">应用场景</a></h4><p>NF进行基本的服务化流程包含NF注册/更新/订阅通知/发现流程时，可以使用本特性进行相应的参数检查或属性冲突核查，避免误操作或者误配置导致5G Core业务受损。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.5.1"></a><a name="1.4.5.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="27.52%" id="mcps1.4.5.3.1.4.1.1" liSelected="liSelected"><p><strong>涉及NF</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="29.38%" id="mcps1.4.5.3.1.4.1.2" liSelected="liSelected"><p><strong>支持版本</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="43.1%" id="mcps1.4.5.3.1.4.1.3" liSelected="liSelected"><p><strong>功能说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="27.52%" headers="mcps1.4.5.3.1.4.1.1 "><p>NRF</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.38%" headers="mcps1.4.5.3.1.4.1.2 "><p><span>UNC 20.6.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="43.1%" headers="mcps1.4.5.3.1.4.1.3 "><p>支持对NF的属性检查与参数校验。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span>“81203513 LKV2NFACV01 支持NF属性检查与校验”。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.6.1"></a><a name="1.4.6.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.7.1"></a><a name="1.4.7.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.8.1"></a><a name="1.4.8.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">应用限制</a></h4><ul><li>NRF处于流控状态时，NF新注册/更新时MML触发的核验延迟，发现流程时停止NRF内及跨NRF冲突核查及告警，减少对NRF的负荷。</li><li>跨NRF的NF间属性冲突交叉验证只支持单层东西向互联组网场景。</li><li>NRF上属性冲突自动核验只能核验出满足发现条件且存在冲突的NF，不能覆盖所有的已注册NF。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.9.1"></a><a name="1.4.9.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">原理概述</a></h4><p>NF Profile通过NF向NRF注册时携带，是后续NF发现和Token请求等的基础，因此NF属 Profile的正确性尤为重要。NRF针对NF Profile提供了接入控制、属性检查和属性校验等功能，确保NF业务的正常进行。</p>
+<ul><li><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b20606996505">NF白名单接入控制功能</strong><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p360629105012">NRF提供了白名单功能，只有在白名单列表中的NF才允许注册/更新。NRF上通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b460613985016"><a href="../MML/Document/set_nrfwhitelistsw.html">SET NRFWHITELISTSW</a></strong>命令开启NF白名单受控接入控制功能，并通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b8606189165017"><a href="../MML/Document/add_nrfwhitelist.html">ADD NRFWHITELIST</a></strong>命令配置NF InstanceID白名单列表。此功能需要NF配合，待注册的NF需要首先进行人工配置核验，确保NF Profile没问题后，NRF才将此NF添加到白名单中，提升注册NF的NF Profile准确率。</p>
+</li><li><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b116065911508">NF服务化流程中的基础参数校验</strong><ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul360614945018"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li18158101416384">NF Profile必带参数校验<p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1898016152387"><a name="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li18158101416384"></a><a name="zh-cn_topic_0166303311_li18158101416384"></a>对于大型运营商网络，同一种类型NF全网会规划多个，分别服务于不同范围或用户，每个NF上需要规划配置对应的服务属性范围，如果不携带这些属性，NRF会默认为此NF支持所有范围，可能会导致后面业务过程中选择的NF出现错误。因此，需要对特定NF必须携带的属性参数做校验，只有满足必带参数条件，才允许NF注册/更新/通知/发现等流程。</p>
+<div class="p" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1476211196427">NF和NRF侧都支持必带属性参数校验：<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul660618915012"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li45776552310">NF侧支持校验的NF类型及对应的参数参考<a href="#ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table560712920507">表1</a>，通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b760759145012"><span><a href="../MML/Document/set_nfnrfmgmtpara.html">SET NFNRFMGMTPARA</a></span></strong><span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph160714935014">命令中的<span class="parmname" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_parmname2060716914502">“NFPROFILECHKSW”</span></span>参数控制。<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul1971218571839"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li146068918508">NF注册流程中，如果NF Service中注册参数检查不满足必选属性携带规则，NF侧会上报<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph1660749125014">“<a href="../Alarms/100225.html">ALM-100225 NF注册失败</a>”</span>告警。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li785320241545">NF更新流程中，如果NF更新后的NF Service Profile不满足必选属性携带规则，NF侧会上报<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph51471944447">“<a href="../Alarms/100225.html">ALM-100225 NF注册失败</a>”</span>告警。</li></ul>
+</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li14538124914310">NRF支持校验的NF类型及对应的参数参考<a href="#ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table657784604817">表2</a>，通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b10607293505"><a href="../MML/Document/set_nrftakepararule.html">SET NRFTAKEPARARULE</a></strong>命令控制。<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul1291722204415"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li1321591194416">NF注册流程中，如果NF注册参数检查不满足必选属性携带规则，NRF不允许NF注册并返回对应原因，需要NF侧人工调整注册参数。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li188075624410">NF更新流程中，如果NF更新后的Profile不满足必选属性携带规则，NRF不允许NF更新并返回对应原因，需要NF侧人工调整NF参数。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li4524171655810">NF订阅通知流程中，由于NF属性变更触发订阅通知时，NRF会对属性变更后NF包含的属性进行校验，如果变更的NF不满足必选属性携带规则，NRF会将此NF作为Suspended状态发送订阅通知。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li1511325124515">NF发现流程中，NRF对服务发现结果的目标NF包含的属性进行校验，如果目标NF不满足必选属性携带规则，NRF不会将此NF作为服务发现结果返回。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li153751515215">NRF还会周期性检查已注册的对应NF中是否携带了<a href="#ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table657784604817">表2</a>的参数信息，如果没有携带，上报<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph1849615354210">“<a href="../Alarms/100315.html">ALM-100315 NF携带信元防呆</a>”</span>告警。</li></ul>
+</li></ul>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table560712920507"></a><a name="zh-cn_topic_0166303311_table560712920507"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table560712920507" frame="border" border="1" rules="all"><caption><b>表1 </b>NF侧判断不同类型NF必须携带的NF Service Profile信息</caption><thead align="left"><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row156075995014"><th align="left" class="cellrowborder" valign="top" width="41.589999999999996%" id="mcps1.4.9.3.2.2.1.2.2.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p10607896508"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b1460717995016">NF</strong><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b1160720917501">类型</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="58.41%" id="mcps1.4.9.3.2.2.1.2.2.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1560811905019"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b11608795508">NF Service</strong><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b1760814925013">必带信息</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row146081935011"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.2.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p11608291506">AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.2.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1560859115010">TAI List或TAI Range必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row860889165018"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.2.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p96084915503">SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.2.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p136080915012">TAI List或TAI Range必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row960899115018"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.2.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p76081897500">BSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.2.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p136080912502">IPv4或IPv6Prefix必带一个</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table657784604817"></a><a name="zh-cn_topic_0166303311_table657784604817"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table657784604817" frame="border" border="1" rules="all"><caption><b>表2 </b>NRF侧判断不同类型NF必须携带的NF Profile信息</caption><thead align="left"><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row16576144624816"><th align="left" class="cellrowborder" valign="top" width="41.589999999999996%" id="mcps1.4.9.3.2.2.1.2.3.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p05761446134816"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b55761946104816">NF</strong><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b185761546184817">类型</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="58.41%" id="mcps1.4.9.3.2.2.1.2.3.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1757684611486"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b17576446154810">NF Profile</strong><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b1757634624816">必带信息</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row175760468480"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p14576134610483">AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1257674613487">TAI List或TAI Range必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row75761846194815"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1757610464487">SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p9576346164816">TAI List或TAI Range必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row5577174619487"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p9576184610489">AUSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p9577184617485">SUPI或RoutingIndicator必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row6577164634818"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p157764664816">UDM</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p145771046154815">SUPI或GPSI或RoutingIndicator必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row19577546154820"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p15577546184820">PCF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p711015411266">SUPI或GPSI必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row10440112113556"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p5440821115513">UDR</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p61268412616">SUPI或GPSI必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row1099151912558"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p199916197555">CHF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p614244111614">SUPI或GPSI必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row202741242185518"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p18275342125519">CUSTOM_OCS</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1214824110619">SUPI或GPSI必带一个</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row185774466489"><td class="cellrowborder" valign="top" width="41.589999999999996%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p657784611489">BSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="58.41%" headers="mcps1.4.9.3.2.2.1.2.3.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1257724614814">IPv4或IPv6Prefix必带一个</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li></ul>
+<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul1460979135016"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li1228051191013">NF服务发现参数必带参数检查<p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p928021111104"><a name="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li1228051191013"></a><a name="zh-cn_topic_0166303311_li1228051191013"></a>服务发现参数如果不规范，例如发现号段类NF时，服务发现参数中没有携带号码参数，可能会导致选择的目标NF不符合预期，影响业务。为了确保服务发现参数的规范性，NRF支持对特定目标NF的服务发现流程中的发现参数进行校验。对于服务发现特定NF，除基本发现参数及NF Type、Service Name外，必须携带其他发现参数，否则NRF会判断服务发现流程失败。<span>此功能通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b206102910502"><a href="../MML/Document/set_nrfdiscpararule.html">SET NRFDISCPARARULE</a></strong>命令灵活配置不同目标NF必须携带的服务发现参数。</span></p>
+</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li156101994506">NF服务发现参数可忽略参数检查<p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p156672463111"><a name="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li156101994506"></a><a name="zh-cn_topic_0166303311_li156101994506"></a>NRF上可通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b161925448113"><a href="../MML/Document/add_nrfigndiscpara.html">ADD NRFIGNDISCPARA</a></strong>命令在发现特定NF类型时校验某些可以忽略的参数，减少对各NF发现参数要求，提升兼容性。例如即使请求方NF服务发现携带了preferred-locality参数，NRF可忽略此参数，选择只满足其他选择参数的目标NF。</p>
+</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li206098911507">NF其他参数校验检查<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul760910920505"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li96096917506">NRF支持对更新流程中的参数做如下校验：不允许更新NF Type或NF InstanceID，NRF会处理为更新失败。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li660909165015">NRF上支持对部分更新流程中更新参数是否携带array下标做校验，对于携带array下标的部分更新流程，NRF会处理为更新失败，避免NF和NRF间对array下标处理不一致而影响业务。<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph136101992501">此功能通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b861012935015"><a href="../MML/Document/set_nrfpatupdidxsw.html">SET NRFPATUPDIDXSW</a></strong>命令实现。</span>其中array下标用于指定要更新的数组元素的位置。</li></ul>
+</li></ul>
+</li><li><strong>NRF对特定NF的NF Profile的属性冲突核验</strong><ul><li>NF Profile的属性冲突人工核验<div class="p" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p156111790504">NRF支持通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b103347110101"><a href="../MML/Document/opr_nrfnfattrvry.html">OPR NRFNFATTRVRY</a></strong>命令对<a href="#ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table136111091503">表3</a>给出的NF进行对应属性冲突人工核验<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b126114912507">。</strong><span>NF属性冲突人工核验参数通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b106114905010"><a href="../MML/Document/set_nrfdiscpararule.html">SET NRFVERIFYPARA</a></strong>命令配置。</span>NRF支持两种核验行为<span>，可以通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b196111498509"><a href="../MML/Document/dsp_nrfnfattrvry.html">DSP NRFNFATTRVRY</a></strong>查看核验结果</span>：<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul861116915509"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li1961112985012">本NRF管理的同类型NF间属性冲突交叉验证：对于同一个NRF下，如果已注册的相同类型NF中有与当前NF存在属性值重叠，但两者大区/省份信息不同<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph9864194117518">（大区及省份信息可以通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b11774113716515"><a href="../MML/Document/set_nrfverifypara.html">SET NRFVERIFYPARA</a></strong>中参数设置）</span>，则认为当前NF存在NF间属性冲突。</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li18611189155012">NF属性与跨NRF寻址信息冲突交叉验证：如果为NRF东西向分层组网，核验跨NRF寻址信息中与当前NF存在属性值重叠，则认为存在NF属性与跨NRF寻址信息冲突。</li></ul>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table136111091503"></a><a name="zh-cn_topic_0166303311_table136111091503"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_table136111091503" frame="border" border="1" rules="all"><caption><b>表3 </b><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b15611990508">NF Profile的属性冲突</strong><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b196111392503">核验NF类型及对应属性</strong></caption><thead align="left"><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row1861159135020"><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.4.9.3.3.2.1.1.7.2.3.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1361179185016"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b186118925010">待核验NF</strong><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b1361212913506">类型</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.4.9.3.3.2.1.1.7.2.3.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1261214910504"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b36127911502">可核验的属性</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row1661215965016"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p186121498500">UDM</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1961219916509">IMSI、MSISDN、ROUTINGINDICATOR</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row19612393507"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p56121499501">PCF</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p156127911501">IMSI、MSISDN</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row13612129115010"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p9612496507">CHF</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1361249155017">IMSI</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row86120910508"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p166121397509">AUSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p106128935015">IMSI、ROUTINGINDICATOR</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row76125955011"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p16127925012">AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p126121795508">TAI/TAI Range</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row1361312955020"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p126131093504">SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p3613119105011">TAI/TAI Range</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_row136138917504"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p6613797508">BSF</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.4.9.3.3.2.1.1.7.2.3.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p961349165019">IPV6PREFIX</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li><li>NF Profile的属性冲突自动核验<div class="p" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p161379205011">服务发现流程中，NRF也实现了对<a href="zh-cn_topic_0166303311.html#ZH-CN_TOPIC_0166303311__table136111091503">表3</a>给出的NF进行对应属性冲突核验，核验通过服务发现流程<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b66134910502">自动触发</strong>。如果存在属性冲突，则上报<span><a href="../Alarms/100325.html">ALM-100325 服务发现NF属性核验冲突</a></span>告警<span>。NRF上通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b13613169125012"><a href="../MML/Document/set_nrfdiscverify.html">SET NRFDISCVERIFY</a></strong>命令配置支持两种核验行为</span>：<ul id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ul4613498506"><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li1961349115012">本NRF管理的同类型NF间属性冲突交叉验证：对于同一个NRF下，如果发现结果中NF的存在大区/省份信息不同<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph023016137610">（大区及省份信息可以通过<strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b82309130619"><a href="../MML/Document/set_nrfverifypara.html">SET NRFVERIFYPARA</a></strong>中参数设置）</span>，则认为当前NF存在NF间属性冲突，会上报<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph795210455216"><a href="../Alarms/100325.html">ALM-100325 服务发现NF属性核验冲突</a></span>告警。此种场景下，NRF可以通过<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph4139850163313"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b347213017337"><a href="../MML/Document/set_nrfdiscverify.html">SET NRFDISCVERIFY</a></strong>中的<span class="parmname" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_parmname5472163017333">“DISCPRELOCALSW”</span></span>参数设置只返回与请求者同大区/省份的目标NF。<div class="note" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_note83171610565"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p1321614567">NFInstanceID需符合运营商的规范。若不符合，强制开启<span><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b123171555141720"><a href="../MML/Document/set_nrfdiscverify.html">SET NRFDISCVERIFY</a></strong>中的<span class="parmname" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_parmname33171455191718">“DISCPRELOCALSW”</span>参数</span>对应的冲突优先返回同大区/省份目标NF，则会影响业务。</p>
+</div></div>
+</li><li id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_li061312915010">NF属性与跨NRF寻址信息冲突交叉验证：如果为NRF东西向分层组网，本大区已经有满足发现条件的NF，核验跨NRF寻址信息也存在满足发现条件的路由信息，则认为存在NF属性与跨NRF寻址信息冲突，会上报<span id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_ph6140104920212"><a href="../Alarms/100325.html">ALM-100325 服务发现NF属性核验冲突</a></span>告警。此种场景下，NRF只返回本大区的目标NF。</li></ul>
+</div>
+<p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_p06132917508">NF侧也支持通过<span><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_b99031926143717"><a href="../MML/Document/set_nfdiscplcy.html">SET NFDISCPLCY</a></strong>命令的<span class="parmname" id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0166303311_parmname1898161716391">“NFIDCHECK”</span></span>参数对NRF返回的服务发现结果NF进行属性冲突核验，如果服务发现结果中NF存在大区/省份信息不同，认为存在NF间属性冲突，会上报<span><a href="../Alarms/100306.html">ALM-100306 NFInstanceID冲突</a></span>告警。</p>
+</li></ul>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.10.1"></a><a name="1.4.10.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.11.1"></a><a name="1.4.11.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.12.1"></a><a name="1.4.12.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_row13357349144216"><th align="left" class="cellrowborder" valign="top" width="20.29%" id="mcps1.4.12.2.1.4.1.1" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p2357154917428"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_b3357349174216">标准类别</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="36.230000000000004%" id="mcps1.4.12.2.1.4.1.2" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p1035710493425"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_b035717492421">标准编号</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="43.480000000000004%" id="mcps1.4.12.2.1.4.1.3" liSelected="liSelected"><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p173572497422"><strong id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_b1335784918422">标准名称</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_row17357134924210"><td class="cellrowborder" valign="top" width="20.29%" headers="mcps1.4.12.2.1.4.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p20480133422920">3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.230000000000004%" headers="mcps1.4.12.2.1.4.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p1348043482910">29.510</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.480000000000004%" headers="mcps1.4.12.2.1.4.1.3 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p548018341292">Technical Specification Group Core Network and Terminals;5G System;Network Function Repository Services;</p>
+</td>
+</tr>
+<tr id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_row38211451175919"><td class="cellrowborder" valign="top" width="20.29%" headers="mcps1.4.12.2.1.4.1.1 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p78241251135914">3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.230000000000004%" headers="mcps1.4.12.2.1.4.1.2 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p10824951185915">23.502</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.480000000000004%" headers="mcps1.4.12.2.1.4.1.3 "><p id="ZH-CN_CONCEPT_0000001137608223__zh-cn_topic_0165731313_p111511217512">Technical Specification Group Services and System Aspects;Procedures for the 5G System;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001137608223__1.4.13.1"></a><a name="1.4.13.1"></a><a href="#ZH-CN_CONCEPT_0000001137608223" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.333333333333336%" id="mcps1.4.13.2.1.4.1.1" liSelected="liSelected"><p><strong>特性版本</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.333333333333336%" id="mcps1.4.13.2.1.4.1.2" liSelected="liSelected"><p><strong>发布版本</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.333333333333336%" id="mcps1.4.13.2.1.4.1.3" liSelected="liSelected"><p><strong>发布说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.4.13.2.1.4.1.1 "><p>02</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.4.13.2.1.4.1.2 "><p><span>20.8.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.4.13.2.1.4.1.3 "><p>特性增强，NRF返回的服务发现结果NF间存在属性冲突时，NRF可以支持仅返回与请求方NF同区域的目标NF。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.4.13.2.1.4.1.1 "><p style="color:#00B0F0;"><span style="color:#000000;">01</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.4.13.2.1.4.1.2 "><p><span>20.6.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.333333333333336%" headers="mcps1.4.13.2.1.4.1.3 "><p style="color:#00B0F0;"><span style="color:#000000;">首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0000001159915249.html">WSFD-214101 支持NF属性检查与校验
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0000001103201624.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

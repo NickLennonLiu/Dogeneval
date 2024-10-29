@@ -1,0 +1,312 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Namf_MT_ProvideDomainSelectionInfo">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0290888895.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0290888896.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0290888897">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>Namf_MT_ProvideDomainSelectionInfo</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0290888897"></a><a name="ZH-CN_TOPIC_0290888897"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">Namf_MT_ProvideDomainSelectionInfo</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0290888897__1.3.1.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0290888897__1.3.2.1">服务操作</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0290888897__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0290888897" class="sectiontitle2contents">应用场景</a></h4><p>由NF服务消费者（UDM）调用Namf_MT_ProvideDomainSelectionInfo获取用于IMS语音终结域选择的UE信息，包括：</p>
+<ul><li>是否支持PS会话上的IMS语音指示</li><li>最近一次与UE的无线联系的时间戳</li><li>当前接入类型和RAT类型</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0290888897__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0290888897" class="sectiontitle2contents">服务操作</a></h4><div class="fignone"><span class="figcap"><b>图1 </b>Namf_MT_ProvideDomainSelectionInfo服务操作</span><br><span><img class="vsd" src="../images/zh-cn_image_0295131080.png"></span></div>
+<ol><li>NF服务消费者（UDM）向AMF发送Namf_MT_ProvideDomainSelectionInfo消息，发送GET请求消息，获取以下<a href="#ZH-CN_TOPIC_0290888897__table1377472124717">表1</a>，查询参数“info-class”设置为“TADS”。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0290888897__table1377472124717"></a><a name="table1377472124717"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0290888897__table1377472124717" frame="border" border="1" rules="all"><caption><b>表1 </b>信元</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.67%" id="mcps1.3.2.3.1.2.2.6.1.1" liSelected="liSelected"><p>信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="11.959999999999999%" id="mcps1.3.2.3.1.2.2.6.1.2" liSelected="liSelected"><p>呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="13.18%" id="mcps1.3.2.3.1.2.2.6.1.3" liSelected="liSelected"><p>存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="36.34%" id="mcps1.3.2.3.1.2.2.6.1.4" liSelected="liSelected"><p>描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="23.849999999999998%" id="mcps1.3.2.3.1.2.2.6.1.5" liSelected="liSelected"><p>取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>Info-class</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.959999999999999%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.18%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.34%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>指示需要获取的UE Context信元的类。</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.849999999999998%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0306200514.html">UeContextInfoClass</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>supportedFeatures</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.959999999999999%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.18%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.34%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>表示支持的可选特性，如果该信元出现，表示至少支持一个可选特性。</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.849999999999998%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180352.html">SupportedFeatures</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.67%" headers="mcps1.3.2.3.1.2.2.6.1.1 "><p>oldGuami</p>
+</td>
+<td class="cellrowborder" valign="top" width="11.959999999999999%" headers="mcps1.3.2.3.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="13.18%" headers="mcps1.3.2.3.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.34%" headers="mcps1.3.2.3.1.2.2.6.1.4 "><p>当NF服务消费者向目标AMF发起请求时，该信元应出现在AMF计划删除流程中，关联到不可用的AMF的UE。</p>
+</td>
+<td class="cellrowborder" valign="top" width="23.849999999999998%" headers="mcps1.3.2.3.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180404.html">Guami</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li>AMF向NF服务消费者（UDM）返回Namf_MT_ProvideDomainSelectionInfo响应消息。<ul><li>如果请求被接受，表示操作成功。AMF响应状态码“200 OK”，并且响应的消息体应包含<a href="#ZH-CN_TOPIC_0290888897__table17797123412186">表2</a>的对象，包括用于IMS语音的终止域选择的UE信息。
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0290888897__table17797123412186"></a><a name="table17797123412186"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0290888897__table17797123412186" frame="border" border="1" rules="all"><caption><b>表2 </b>UeContextInfo数据类型</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.24%" id="mcps1.3.2.3.2.1.1.2.2.6.1.1" liSelected="liSelected"><p>信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="8.74%" id="mcps1.3.2.3.2.1.1.2.2.6.1.2" liSelected="liSelected"><p>呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="10.17%" id="mcps1.3.2.3.2.1.1.2.2.6.1.3" liSelected="liSelected"><p>存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="41.870000000000005%" id="mcps1.3.2.3.2.1.1.2.2.6.1.4" liSelected="liSelected"><p>描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="22.98%" id="mcps1.3.2.3.2.1.1.2.2.6.1.5" liSelected="liSelected"><p>取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.24%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>supportVoPS</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.74%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.17%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.870000000000005%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>该信元指示在UE当前在3GPP接入中注册的注册区域中是否支持基于PS会话的IMS语音。</p>
+<p>当需要以下UE Context Information类时，该信元应出现：</p>
+<p>- "TADS"</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.98%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>取值类型为boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.24%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>supportVoPSn3gpp</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.74%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.17%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.870000000000005%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>该信元指示在UE当前注册的WLAN中是否支持基于非3GPP接入的IMS语音。</p>
+<p>当UE在WLAN非3GPP接入中注册并且需要以下UE Context Information类时，该信元出现：</p>
+<p>- "TADS"</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.98%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>取值类型为boolean</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.24%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>lastActTime</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.74%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.17%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.870000000000005%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>该信元指示与UE最后一次无线联系的时间戳。</p>
+<p>当需要以下UE Context Information类时，该信元应出现：</p>
+<p>- "TADS"</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.98%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180338.html">DateTime</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.24%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>accessType</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.74%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.17%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.870000000000005%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>该信元指示UE当前的接入类型。</p>
+<p>当需要以下UE Context Information类时，该信元应出现：</p>
+<p>- "TADS"</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.98%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180431.html">AccessType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.24%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>ratType</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.74%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.17%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.870000000000005%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>该信元指示UE当前的RAT类型。</p>
+<p>当需要以下UE Context Information类时，该信元应出现：</p>
+<p>- "TADS"</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.98%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180432.html">RatType</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16.24%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.1 "><p>supportedFeatures</p>
+</td>
+<td class="cellrowborder" valign="top" width="8.74%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.2 "><p>条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.17%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.3 "><p>0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="41.870000000000005%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.4 "><p>表示支持的可选特性，如果该信元出现，表示至少支持一个可选特性。</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.98%" headers="mcps1.3.2.3.2.1.1.2.2.6.1.5 "><p>参见数据类型<a href="zh-cn_topic_0297180352.html">SupportedFeatures</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li><li>如果失败，AMF应返回“307 Temporary Redirect/403 Forbidden/404 Not Found”等HTTP状态码，并且消息体应包含一个ProblemDetails数据类型的对象，其“detail”信元为错误原因值。
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表3 </b>ProblemDetails数据类型</caption><thead align="left"><tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row207921455219"><th align="left" class="cellrowborder" valign="top" width="15.790000000000001%" id="mcps1.3.2.3.2.1.2.1.2.6.1.1" liSelected="liSelected"><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p5792645625">信元名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.120000000000001%" id="mcps1.3.2.3.2.1.2.1.2.6.1.2" liSelected="liSelected"><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p07921045725">呈现要求</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="9.370000000000001%" id="mcps1.3.2.3.2.1.2.1.2.6.1.3" liSelected="liSelected"><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1679284510212">存在次数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="29.68%" id="mcps1.3.2.3.2.1.2.1.2.6.1.4" liSelected="liSelected"><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p14792345823">描述</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="30.04%" id="mcps1.3.2.3.2.1.2.1.2.6.1.5" liSelected="liSelected"><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p12491311144912">取值说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row13792124518211"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1036365219419">type</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1784612557412">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p73636521447">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p4766202620589">标识问题类型的URI引用，参见协议IETF RFC 3986。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p115017111499">参见数据类型<a href="zh-cn_topic_0297180356.html">Uri</a></p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row279212453216"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p16363752545">title</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p784613553414">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p183646525410">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1876410261588">对问题类型的简短的、可读的总结。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p165010114491">取值类型为string</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row1479312453211"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p10364652649">status</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p168465551145">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p936410523413">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p8763142613589">表示出现此问题的HTTP状态代码。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1050181116492">取值类型为integer</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row579334517217"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p13644521144">detail</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p68468551046">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p193641521043">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1876215267583">针对问题发生情况的解释。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p165011112498">取值类型为string</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row103336461846"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p12364185214417">instance</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p084745510412">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p736445211418">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p876142610582">表示问题的特定发生的URI引用。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p7501211144916">参见数据类型<a href="zh-cn_topic_0297180356.html">Uri</a></p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row033316461647"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p836465214416">cause</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p128475558416">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1736416521448">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p18759142620582">机器可读应用程序错误原因，并提供与应用程序相关的错误信息。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1650811134917">取值类型为string</p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row1833411461840"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p336475210415">invalidParams</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p5847105514420">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p636455213411">1..N</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p1334184617420">无效参数的描述，对于因参数无效而拒绝的请求。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p050151119491">参见数据类型<a href="zh-cn_topic_0297180373.html">InvalidParam</a></p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row1334204612410"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p15364165216416">supportedFeatures</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p984785517420">条件必选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p2036514520414">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p17335184619416">表示NF服务提供者所支持的特性，如果NF服务提供者不支持特性，则该信元应设置为字符“0”。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p105041144916">参见数据类型<a href="zh-cn_topic_0297180352.html">SupportedFeatures</a></p>
+</td>
+</tr>
+<tr id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_row5281349742"><td class="cellrowborder" valign="top" width="15.790000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.1 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p113651452346">targetScp</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.120000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.2 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p18476557411">可选</p>
+</td>
+<td class="cellrowborder" valign="top" width="9.370000000000001%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.3 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p7365552143">0..1</p>
+</td>
+<td class="cellrowborder" valign="top" width="29.68%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.4 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p152984915410">HTTP请求被重定向到的SCP的ApiRoot，参见协议3GPP TS 29.500。</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.04%" headers="mcps1.3.2.3.2.1.2.1.2.6.1.5 "><p id="ZH-CN_TOPIC_0290888897__zh-cn_topic_0290872202_p115017118490">参见数据类型<a href="zh-cn_topic_0297180356.html">Uri</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li></ul>
+</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0290888895.html">Namf_MT的服务操作
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0290888896.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

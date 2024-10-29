@@ -1,0 +1,20 @@
+[
+    {
+        "task": "ParamExtract",
+        "kp_type": "事实陈述",
+        "kp_title": "描述激活IM类业务资源管控功能的前提条件和需要的数据。",
+        "kp_content": "前提条件：请仔细阅读[WSFD-106305 IM类业务资源管控特性概述](../desc/unc_2000_feature_desc_Radio_Resource_Management_optimization_of_IM_service_01.html)。完成对端PCU和BSC激活IM类业务资源管控。完成信令实体配置。完成加载License。数据：包括SET GTPUCTRL、MOD NSE和SET LICENSESWITCH等参数。",
+        "template": "请根据<参数描述>提取出<用户问题>中对应参数的值\n\n<用户问题>：\n{user_question}\n<参数描述>：\n{param_description}\n\n以JSON格式{{\"参数名称\":\"参数值\",...}}输出。",
+        "qa_gen_response": "{\n    \"user_question\": \"我已经完成了阅读WSFD-106305 IM类业务资源管控特性概述，也已经完成了对端PCU和BSC的激活和信令实体配置。现在我需要加载License，我需要知道相关的参数。\",    \n    \"param_description\": \"需要加载License的参数\",\n    \"answer\": \"{\\\"参数名称\\\":\\\"SET LICENSESWITCH\\\"}\",\n    \"explanation\": \"在知识点内容中，当描述到需要加载License时，提到了参数SET LICENSESWITCH。因此，需要加载License的参数就是SET LICENSESWITCH。\"\n}",
+        "qa_gen_time": 6.064509153366089,
+        "is_zeroshot": true,
+        "require_scene": false,
+        "example": null,
+        "kp_path": "网络部署/特性部署/UNC特性指南/差异化服务管理/WSFD-106305 IM类业务资源管控/unc_2000_feature_om_radio_resource_management_optimization_of_im_service.html",
+        "Question": "请根据<参数描述>提取出<用户问题>中对应参数的值\n\n<用户问题>：\n我已经完成了阅读WSFD-106305 IM类业务资源管控特性概述，也已经完成了对端PCU和BSC的激活和信令实体配置。现在我需要加载License，我需要知道相关的参数。\n<参数描述>：\n需要加载License的参数\n\n以JSON格式{\"参数名称\":\"参数值\",...}输出。",
+        "Answer": "{\"参数名称\":\"SET LICENSESWITCH\"}",
+        "error": null,
+        "Model_Answer": "{\"参数名称\":\"SET LICENSESWITCH\"}",
+        "match": true,
+        "match_reason": "根据知识库内容，完成加载License需要的参数是SET LICENSESWITCH，模型回复正确",
+        "_id": 

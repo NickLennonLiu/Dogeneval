@@ -1,0 +1,333 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="WSFD-109204 QCI 扩展特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0310505690.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0310505692.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-109204">
+<meta name="Function" content="QoS">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0310505691">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-109204 QCI 扩展特性概述</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0310505691"></a><a name="ZH-CN_TOPIC_0310505691"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-109204 QCI 扩展特性概述</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0310505691__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0310505691__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">适用NF</a></h4><p>SGW-C、PGW-C、SMF</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">定义</a></h4><p>QCI（QoS Class Identifier）为QoS分类识别码，用于表示资源分配、分组调度的优先级，每个QCI代表了不同业务的QoS指标，例如资源类型、优先级、时延、分组丢失率等。QCI在各个网元中传递，避免协商和传递大量具体的QoS 参数。QCI包括“标准QCI”和“扩展QCI”两大类，3GPP规范定义了标准QCI以及对应QoS指标和业务类型。</p>
+<div class="p"><span>UNC</span>支持QCI 扩展功能，运营商可以自定义多个扩展QCI，对不同的用户或者业务类别设置不同的扩展QCI，以提供面向用户和业务的差异化服务。<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>在5G网络中，5QI （5G QoS Identifier）用于标识QoS等级，相当于EPS网络中的QCI，用于端到端的QoS控制。</p>
+<ul><li>当UNC作为SGW-C、PGW-C时，支持QCI扩展功能。</li><li>当UNC作为SMF时，支持5QI扩展功能。</li></ul>
+</div></div>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><ul><li>通过对用户群进行细分，为不同需求的用户群提供不同服务，进行灵活业务控制，精细化运营。</li><li>充分地发挥网络资源的效益，提高客户满意度。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>享受差异化的业务体验。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">应用场景</a></h4><ul><li><p>基于业务的差异化控制</p>
+<p>业务差分是指不同业务类型之间的QoS差别，比如流媒体业务和普通浏览业务的差异，主要体现在时延、丢包率、带宽及资源分配性质（GBR、non-GBR）等。不同类型的业务对时延、丢包、带宽及资源分配等有不同的需求。</p>
+<p>例如，支付类业务在标准QCI中未定义，运营商可以规划扩展QCI 128用于支付类业务。</p>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="18.95959595959596%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="26.949494949494945%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="54.090909090909086%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="18.95959595959596%" headers="mcps1.3.5.3.1.4.1.1 "><p>eNodeB/gNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.949494949494945%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊需求</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.090909090909086%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持QCI/5QI 的扩展。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.95959595959596%" headers="mcps1.3.5.3.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.949494949494945%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="54.090909090909086%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持QCI的扩展。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.95959595959596%" headers="mcps1.3.5.3.1.4.1.1 "><p>AMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.949494949494945%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊需求</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.090909090909086%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持5QI 的扩展。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.95959595959596%" headers="mcps1.3.5.3.1.4.1.1 "><p>PGW-C/SGW-C/SMF</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.949494949494945%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.6.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="54.090909090909086%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持QCI/5QI 的扩展，向PCRF/PCF上报QCI/5QI 信息，并执行PCRF/PCF下发的策略。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.95959595959596%" headers="mcps1.3.5.3.1.4.1.1 "><p>PCRF/PCF</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.949494949494945%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊需求</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.090909090909086%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持QCI/5QI 的扩展，基于QCI/5QI 信息下发策略。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.95959595959596%" headers="mcps1.3.5.3.1.4.1.1 "><p>HSS/UDM</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.949494949494945%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊需求</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.090909090909086%" headers="mcps1.3.5.3.1.4.1.3 "><p>支持QCI/5QI 的扩展，支持保存用户的扩展QCI/5QI 信息。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span><span class="parmname">“82200DBA LKV2UNCQCI1 QCI 扩展”</span>。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">与其他特性的交互</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="11.51%" id="mcps1.3.6.2.1.5.1.1" liSelected="liSelected"><p>交互类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="20.549999999999997%" id="mcps1.3.6.2.1.5.1.2" liSelected="liSelected"><p>相关特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="31.97%" id="mcps1.3.6.2.1.5.1.3" liSelected="liSelected"><p>控制项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="35.97%" id="mcps1.3.6.2.1.5.1.4" liSelected="liSelected"><p>交互说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="2" valign="top" width="11.51%" headers="mcps1.3.6.2.1.5.1.1 "><p>影响</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.549999999999997%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="zh-cn_topic_0310980736.html">WSFD-102601 LTE一键通基础功能（适用于PGW-C/SGW-C）</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="31.97%" headers="mcps1.3.6.2.1.5.1.3 "><p><span class="parmname">“81202855 LTE一键通基础功能-USM”</span></p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="35.97%" headers="mcps1.3.6.2.1.5.1.4 "><p>本特性中提到的65、66、69和70 QCI，为PTT（Push To Talk）专用QCI，需要同时部署<a href="zh-cn_topic_0310980736.html">WSFD-102601 LTE一键通基础功能（适用于PGW-C/SGW-C）</a>与<a href="zh-cn_concept_0310282603.html">WSFD-102602 LTE一键通（适用于PGW-C/SGW-C）</a>，才能实现LTE一键通功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.1 "><p><a href="zh-cn_concept_0310282603.html">WSFD-102602 LTE一键通（适用于PGW-C/SGW-C）</a></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.2 "><p><span class="parmname">“82200DAV LTE一键通-USM”</span></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.51%" headers="mcps1.3.6.2.1.5.1.1 "><p>影响</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.549999999999997%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="../desc/unc_2000_feature_desc_QCI_Extensionxtension.html">WSFD-105103 基于用户等级的QCI扩展</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="31.97%" headers="mcps1.3.6.2.1.5.1.3 "><p><strong><span class="parmname">“82206579 基于用户等级的QCI扩展”</span></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="35.97%" headers="mcps1.3.6.2.1.5.1.4 "><p>如果需要MME支持QCI扩展，则需要部署<a href="../desc/unc_2000_feature_desc_QCI_Extensionxtension.html">WSFD-105103 基于用户等级的QCI扩展</a>功能。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">应用限制</a></h4><ul><li>由于QCI扩展属于私有扩展，所以启用该特性的时候，需要全网部署功能网元eNodeB/gNodeB、MME/AMF、PGW-C/SGW-C/SMF、PCRF/PCF和HSS/UDM支持QCI扩展。若一侧网元已开启扩展QCI License，而另一侧网元未开启扩展QCI License，可能会导致QCI处理冲突。</li><li>本特性暂不支持设置扩展QCI的优先级，即<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>的“PRIORITY”参数对本特性无效。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">原理概述</a></h4><p><strong>QCI介绍</strong></p>
+<p>QCI (QoS Class Identifier)是EPS承载最重要的QoS参数之一，一个QCI是一个值，每个QCI指示每类业务的资源类型、优先级、时延、丢包率等质量要求。</p>
+<p>QCI相当于是对Qos参数进行了量化，在接口上使用QCI而不是传输一组QoS参数，主要是为了减少接口上的控制信令数据传输量，并且在多厂商互连环境和漫游环境中使得不同设备/系统间的互连互通更加容易。</p>
+<p><strong>标准QCI</strong><strong>和扩展QCI</strong></p>
+<p><span>QCI/5QI</span>的范围参见<a href="#ZH-CN_TOPIC_0310505691__table81238509132">表1</a>。</p>
+
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0310505691__table81238509132"></a><a name="table81238509132"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0310505691__table81238509132" frame="border" border="1" rules="all"><caption><b>表1 </b><strong>标准<span>QCI/5QI</span></strong><strong>和扩展</strong><strong>QCI</strong><strong>/5QI</strong></caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="11.401140114011401%" id="mcps1.3.9.7.2.5.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="26.162616261626166%" id="mcps1.3.9.7.2.5.1.2" liSelected="liSelected"><p>3GPP规范定义的范围</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="18.57185718571857%" id="mcps1.3.9.7.2.5.1.3" liSelected="liSelected"><p><span>UNC</span>定义的范围</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="43.86438643864386%" id="mcps1.3.9.7.2.5.1.4" liSelected="liSelected"><p>解释</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="11.401140114011401%" headers="mcps1.3.9.7.2.5.1.1 "><p><strong>标准<span>QCI/5QI</span></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="26.162616261626166%" headers="mcps1.3.9.7.2.5.1.2 "><p><span>3GPP标准定义的标准QCI/5QI最初只有1~9，后续协议演进增加了其他的数值作为标准QCI/5QI，例如65~67、69~70、75、79~80、82~85等</span>。</p>
+<p>对应的QoS参数及相关原理参见<a href="zh-cn_topic_0311073828.html">标准QCI/5QI</a>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.57185718571857%" headers="mcps1.3.9.7.2.5.1.3 "><p><span>标准QCI/5QI的范围包括1~9和命令</span><a href="../MML/Document/add_stdqosid.html"><b><span class="cmdname">ADD STDQOSID</span></b></a><span>中已配置的值。</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="43.86438643864386%" headers="mcps1.3.9.7.2.5.1.4 "><p><span>除1~9之外的标准QCI/5QI，需要通过命令</span><a href="../MML/Document/lst_stdqosid.html"><b><span class="cmdname">LST STDQOSID</span></b></a><span>查询是否已经在</span><span>UNC</span><span>上配置。</span>如果未配置，可通过命令<a href="../MML/Document/add_stdqosid.html"><b><span class="cmdname">ADD STDQOSID</span></b></a>配置标准QCI/5QI，否<span>则按照扩展QCI/5QI处理</span><strong>。</strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.401140114011401%" headers="mcps1.3.9.7.2.5.1.1 "><p><strong>扩展</strong><strong><span>QCI/5QI</span></strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="26.162616261626166%" headers="mcps1.3.9.7.2.5.1.2 "><p>除标准QCI/5QI以外都属于扩展QCI/5QI。</p>
+<p>相关原理参见<a href="zh-cn_topic_0311073829.html">扩展QCI/5QI应用</a>。</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.57185718571857%" headers="mcps1.3.9.7.2.5.1.3 "><p>1~255中，除标准QCI/5QI以外都属于扩展QCI/5QI。</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.86438643864386%" headers="mcps1.3.9.7.2.5.1.4 "><p><span>UNC</span>支持通过配置扩展QCI/5QI与标准QCI/5QI间的映射关系来实现相应的功能。</p>
+<ul><li><span>UNC</span>支持通过命令<a href="../MML/Document/set_extenqciattr.html"><b><span class="cmdname">SET EXTENQCIATTR</span></b></a>配置扩展QCI/5QI的参数属性、部分功能控制开关以及扩展QCI/5QI映射为标准QCI/5QI的缺省值。</li><li><span>UNC</span>支持通过命令<a href="../MML/Document/add_extendqcimap.html"><b><span class="cmdname">ADD EXTENDQCIMAP</span></b></a>增加扩展QCI/5QI和标准QCI/5QI的映射关系。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>引入QCI扩展功能后，运营商可以扩展多个“扩展QCI”，通过对不同的用户或者业务类别提供不同的扩展QCI设置，也可以自定义QCI以提供面向用户的差异化服务。</p>
+<p><span>UNC</span>支持扩展QCI/5QI功能如下<a href="#ZH-CN_TOPIC_0310505691__table146380278425">表2</a>。</p>
+
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0310505691__table146380278425"></a><a name="table146380278425"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0310505691__table146380278425" frame="border" border="1" rules="all"><caption><b>表2 </b><span>UNC</span>支持扩展QCI/5QI功能</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="17.51%" id="mcps1.3.9.10.2.3.1.1" liSelected="liSelected"><p>场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="82.49%" id="mcps1.3.9.10.2.3.1.2" liSelected="liSelected"><p>功能</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="4" valign="top" width="17.51%" headers="mcps1.3.9.10.2.3.1.1 "><p>LTE场景/5G场景</p>
+</td>
+<td class="cellrowborder" valign="top" width="82.49%" headers="mcps1.3.9.10.2.3.1.2 "><p><span>UNC</span>支持签约的扩展QCI/5QI及相关QoS参数，该扩展QCI/5QI参数被eNodeB/gNodeB、MME/AMF和PGW-C/SGW-C/SMF识别并应用，通过扩展QCI/5QI达到在无线侧资源分配时应用用户分级及业务分类信息进行差异化处理的目的。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.9.10.2.3.1.1 "><p><span>UNC</span>支持PCRF/PCF下发的扩展QCI/5QI及相关QoS参数，并支持该扩展QoS参数在GTP V2接口消息中的传递，根据该扩展QCI/5QI创建/更新/删除承载或会话。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.9.10.2.3.1.1 "><p><span>UNC</span>支持本地配置扩展QCI/5QI，运营商可规划不同QCI/5QI对应的用户级别和业务类型，从而实现用户差异化和业务差异化体验。</p>
+<ul><li>对于本地用户，<span>UNC</span>支持根据扩展QCI/5QI为用户创建/更新/删除承载或会话。</li><li>对于漫游用户，<span>UNC</span>支持配置“漫游用户使用扩展QCI”的开关，且支持将扩展QCI/5QI映射成标准QCI/5QI。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.9.10.2.3.1.1 "><p><span>UNC</span>支持配置N40/Ga/Gy/Radius鉴权和计费的扩展QCI/5QI控制开关。当N40/Ga/Gy/Radius鉴权和计费不支持扩展QCI/5QI时，<span>UNC</span>支持将扩展QCI/5QI映射成标准QCI/5Q再发送。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="17.51%" headers="mcps1.3.9.10.2.3.1.1 "><p>GPRS/UMTS场景</p>
+</td>
+<td class="cellrowborder" valign="top" width="82.49%" headers="mcps1.3.9.10.2.3.1.2 "><p>对于GPRS/UMTS用户，GnGp接口交互使用GTP V1信令，消息中携带Pre-R8 QoS参数，无法携带QCI参数，<span>UNC</span>支持将Pre-R8 QoS参数映射为标准QCI上报给PCRF/PCF。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="10.290000000000001%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.07%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="77.64%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="7" valign="top" width="10.290000000000001%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.07%" headers="mcps1.3.12.2.1.4.1.2 "><p>23.401</p>
+</td>
+<td class="cellrowborder" valign="top" width="77.64%" headers="mcps1.3.12.2.1.4.1.3 "><p>General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.107</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Quality of Service (QoS) concept and architecture</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.274</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunnelling Protocol for Control plane (GTPv2-C); Stage 3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.468</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>3rd Generation Partnership Project; Technical Specification Group Services and System Aspects; Group Communication System Enablers for LTE (GCSE_LTE)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.203</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>3rd Generation Partnership Project; Technical Specification Group Services and System Aspects; Policy and charging control architecture</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.214</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Architecture enhancements for control and user plane separation of EPC nodes</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.501</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>System Architecture for the 5G System</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0310505691__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0310505691" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.6.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0310505690.html">WSFD-109204 QCI 扩展
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0310505692.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置网络亚健康参数（SET NETSUBHEALTH）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/csp_n_node_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_netsubhealth.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/set_diskchkpara.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001088773788">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置网络亚健康参数（SET NETSUBHEALTH）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001088773788"></a><a name="ZH-CN_MMLREF_0000001088773788"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">设置网络亚健康参数（SET NETSUBHEALTH）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001088773788__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001088773788__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001088773788__1.3.3">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001088773788__1.3.4">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001088773788__1.3.5">输出结果说明</a></li></ul><div><div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001088773788__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001088773788" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody"><p>本命令用于设置网络亚健康参数，也可以在OM Portal菜单界面选择<span class="menucascade">“<span class="uicontrol">监控分析 &gt; 节点健康检查 &gt; 网络亚健康检查</span>”</span>进行设置。</p>
+<div class="note"><img src="../../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p><span>该命令仅在虚机场景下支持。</span></p>
+</div></div>
+</div></div>
+<div class="mmlnote"><a name="ZH-CN_MMLREF_0000001088773788__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001088773788" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody"><ul><li>本命令设置完成后需间隔至少五分钟后再次设置。</li><li>该命令存在系统初始记录，参数的初始设置值如下：</li></ul>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.666666666666664%" id="mcps1.3.2.2.1.7.1.1" liSelected="liSelected"><p>网络亚健康检测开关</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.666666666666664%" id="mcps1.3.2.2.1.7.1.2" liSelected="liSelected"><p>网络亚健康故障自愈开关</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.666666666666664%" id="mcps1.3.2.2.1.7.1.3" liSelected="liSelected"><p>上报告警阈值（%）</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.666666666666664%" id="mcps1.3.2.2.1.7.1.4" liSelected="liSelected"><p>清除告警阈值（%）</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.626874625074985%" id="mcps1.3.2.2.1.7.1.5" liSelected="liSelected"><p>一个错包数等价的丢包数</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.70645870825835%" id="mcps1.3.2.2.1.7.1.6" liSelected="liSelected"><p>网络亚健康故障检测周期（分钟）</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.666666666666664%" headers="mcps1.3.2.2.1.7.1.1 "><p>开启</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.666666666666664%" headers="mcps1.3.2.2.1.7.1.2 "><p>开启</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.666666666666664%" headers="mcps1.3.2.2.1.7.1.3 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.666666666666664%" headers="mcps1.3.2.2.1.7.1.4 "><p>0.7</p>
+</td>
+<td class="cellrowborder" valign="top" width="15.626874625074985%" headers="mcps1.3.2.2.1.7.1.5 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.70645870825835%" headers="mcps1.3.2.2.1.7.1.6 "><p>5</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+<div class="mmlparam"><a name="ZH-CN_MMLREF_0000001088773788__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001088773788" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody"><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.3.1.1.1"><p><strong>参数标识</strong></p>
+</th>
+<th valign="bottom" align="left" id="mcps1.3.3.1.1.2"><p><strong>参数名称</strong></p>
+</th>
+<th valign="bottom" align="left" id="mcps1.3.3.1.1.3" width="65%"><p><strong>参数说明</strong></p>
+</th>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1.1"><p>SCSTATUS</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.2"><p>网络亚健康检测开关</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.3"><p>可选必选说明：必选参数。</p>
+<p>参数含义：用于指定网络亚健康检测开关状态。</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ON(开启)”</span></li><li><span class="parmvalue">“OFF(关闭)”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“ON(开启)”</span>。</p>
+<p>配置原则：关闭网络亚健康检测开关会联动关闭网络亚健康故障自愈开关。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1.1"><p>SHSTATUS</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.2"><p>网络亚健康故障自愈开关</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.3"><p>可选必选说明：该参数在“网络亚健康检测开关”配置为“ON”时为条件必选参数。</p>
+<p>参数含义：用于指定网络亚健康故障自愈开关状态。</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ON(开启)”</span></li><li><span class="parmvalue">“OFF(关闭)”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“ON(开启)”</span>。</p>
+<p>配置原则：无。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1.1"><p>ART</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.2"><p>上报告警阈值（%）</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.3"><p>可选必选说明：该参数在“网络亚健康检测开关”配置为“ON”时为条件必选参数。</p>
+<p>参数含义：系统在“网络亚健康故障检测周期（分钟）”检测网络状况，如果判断网络丢包率大于“上报告警阈值（%）”，则上报告警“ALM-135641 网络亚健康”。</p>
+<p>取值范围：为1~30之间的整数值。</p>
+<p>默认值：2。</p>
+<p>配置原则：无。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1.1"><p>ACT</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.2"><p>清除告警阈值（%）</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.3"><p>可选必选说明：该参数在“网络亚健康检测开关”配置为“ON”时为条件必选参数。</p>
+<p>参数含义：系统在“网络亚健康故障检测周期（分钟）”检测网络状况，如果判断网络丢包率小于等于“清除告警阈值（%）”，则恢复告警“ALM-135641 网络亚健康”。</p>
+<p>取值范围：0.1~0.99，最多4个字符。</p>
+<p>默认值：“0.7”。</p>
+<p>配置原则：无。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1.1"><p>NCEP</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.2"><p>一个错包数等价的丢包数</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.3"><p>可选必选说明：该参数在“网络亚健康检测开关”配置为“ON”时为条件必选参数。</p>
+<p>参数含义：用于计算丢包比率。</p>
+<p>取值范围：为3~100之间的整数值。</p>
+<p>默认值：5。</p>
+<p>配置原则：无。</p>
+</td>
+</tr>
+<tr><td valign="top" headers="mcps1.3.3.1.1.1"><p>NSCP</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.2"><p>网络亚健康故障检测周期（分钟）</p>
+</td>
+<td valign="top" headers="mcps1.3.3.1.1.3"><p>可选必选说明：该参数在“网络亚健康检测开关”配置为“ON”时为条件必选参数。</p>
+<p>参数含义：用于设置系统检测网络状况的周期。</p>
+<p>取值范围：为5~30之间的整数值。</p>
+<p>默认值：5。</p>
+<p>配置原则：无。</p>
+</td>
+</tr>
+</table></div>
+</div></div>
+<div class="mmlexample"><a name="ZH-CN_MMLREF_0000001088773788__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001088773788" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody"><ol><li>设置网络亚健康检测开启，网络亚健康故障自愈开启，“上报告警阈值（%）”为“5”，“清除告警阈值（%）”为“0.8”，“一个错包数等价的丢包数”为“10”，“网络亚健康故障检测周期（分钟）”为“10”。</li></ol>
+<pre class="screen">%%SET NETSUBHEALTH: SCSTATUS=ON, SHSTATUS=ON,ART=5,ACT="0.8",NCEP=10,NSCP=10;%%
+RETCODE = 0  操作成功
+ 
+---    END</pre>
+</div></div>
+<div class="mmloutput"><a name="ZH-CN_MMLREF_0000001088773788__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001088773788" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody"><p>命令执行正常，会返回命令执行成功的提示信息。</p>
+<div class="p">该命令执行异常，会返回对应的错误码。常见错误码如<a href="#ZH-CN_MMLREF_0000001088773788__table199721539194716">表1</a>所示。
+<div class="tableBorder"><a name="ZH-CN_MMLREF_0000001088773788__table199721539194716"></a><a name="table199721539194716"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_MMLREF_0000001088773788__table199721539194716" frame="border" border="1" rules="all"><caption><b>表1 </b>错误码列表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.5.2.2.2.5.1.1" liSelected="liSelected"><p>错误码</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.5.2.2.2.5.1.2" liSelected="liSelected"><p>错误码解释</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.5.2.2.2.5.1.3" liSelected="liSelected"><p>原因分析</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.5.2.2.2.5.1.4" liSelected="liSelected"><p>处理建议</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.1 "><p>130002</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.2 "><p>操作失败</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.3 "><p>接口调用异常或者数据解析异常。</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.4 "><p>请联系<span><span class="keyword" id="ZH-CN_MMLREF_0000001088773788__zh-cn_topic_0272836496_keyword158591618669">华为</span></span>技术支持。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.1 "><p>130007</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.2 "><p>修改参数过于频繁，请稍后再试</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.3 "><p>修改参数过于频繁，请稍后再试</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.4 "><p>间隔5分钟修改一次。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.1 "><p>130009</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.2 "><p>参数ACT的值不在(0.1-0.99)范围内</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.3 "><p>参数ACT（清除告警阈值）的值不在(0.1-0.99)范围内</p>
+</td>
+<td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.5.2.2.2.5.1.4 "><p>按照提示，重新填写参数。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/csp_n_node_management.html">节点管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_netsubhealth.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/set_diskchkpara.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

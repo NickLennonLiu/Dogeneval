@@ -1,0 +1,851 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="QoS参数映射机制">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0286483637.html">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0286483639.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0286483640">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>QoS参数映射机制</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0286483640"></a><a name="ZH-CN_TOPIC_0286483640"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">QoS参数映射机制</h1>
+<div><p><strong>为什么要进行QoS参数映射</strong></p>
+<p>在核心网内部的网元中存储着用户5QI、ARP、MBR/GBR等QoS信息，这些网元在进行消息转发时是知道哪些是优先转发，哪些是靠后转发的，但是消息离开这些网元进入IP承载网络时，路由器交换器等是不知道也看不到5QI、ARP等信息，为了和网元保持相同优先级转发报文，消息在离开网元进入这些路由器时需要进行QoS参数映射，这些路由器就可以依照映射后的QoS参数对不同报文进行不同优先级转发了。</p>
+<p>为了保证无线用户的QoS要求能够传递到承载网，实现真正的E2E QoS，在UPF向DN侧转发用户报文时，需要将无线QoS参数值映射为承载网QoS参数值，也就是UPF需要在N6口发送数据包的时候，修改数据包的QoS标记，把核心网设备能理解的QoS转换为承载网设备能理解的QoS；在UPF向RAN侧转发用户报文时，也需要将承载网QoS参数值映射为无线QoS参数值，也就是UPF需要在N3口发送GTP包的时候，按照映射构造符合DSCP规划的GTP外层IP包，把承载网设备能理解的QoS转换为核心网设备能理解的QoS。</p>
+<p><strong>无线QoS与承载网QoS的映射过程</strong></p>
+<p>由于承载网中不同的网络使用不同的QoS优先级标记，例如VLAN网络使用802.1p，Diff-Serv网络使用DSCP（differentiated services code point区分服务编码点），MPLS网络使用EXP。核心网需要分别支持无线QoS到VLAN、Diff-Serv网络、MPLS网络的映射。详细的映射过程如<a href="#ZH-CN_TOPIC_0286483640__fig365432665514">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0286483640__fig365432665514"><a name="ZH-CN_TOPIC_0286483640__fig365432665514"></a><a name="fig365432665514"></a><span class="figcap"><b>图1 </b>无线QoS与承载网QoS的映射过程</span><br><span><img class="vsd" src="../images/zh-cn_image_0000001198412379.png"></span></div>
+<ul><li>上行数据报文映射过程<ol><li>将上下文激活时确定的QoS参数以本地配置的规则，映射为DSCP或ToS值。</li><li>根据本地配置将DSCP映射为Service-Class和Color。</li><li>根据DN网络的类型，把Service-Class和Color映射为DSCP/EXP/802.1p的优先级。</li><li>将映射的规则填到数据包头进行转发，满足服务质量的要求。</li></ol>
+</li><li>下行数据报文映射过程<ol><li>根据DN网络类型，将DSCP/EXP/802.1p的优先级映射为Service-Class和Color值。</li><li>将Service-Class和Color值映射为DSCP值，将映射的DSCP值填入IP包头。</li><li>为了转发给RAN，在IP包的基础上封装IP+UDP+GTP-U包。</li><li>将上下文激活时确定的DSCP值，填到外层IP报头中。对于内层IP报头不做修改。该报文在核心网的传送过程中，将根据外层IP报头的DSCP或ToS获得不同的处理优先级，从而满足服务质量的要求。</li></ol>
+</li></ul>
+<p><strong>无线QoS与承载网QoS的缺省映射关系</strong></p>
+<p>DiffServ是一种适用于骨干网络，可满足多种服务需求的IP QoS模型。在DiffServ体系中，用户通过标记分组的DS字段来申请不同层次的服务。DS字段的前6位称为DSCP，具有相同DSCP值的分组的集合称为BA（Behaviour Aggregate）。5QI到DSCP的默认映射关系如<a href="#ZH-CN_TOPIC_0286483640__table312011303282">表1</a>所示。如果5QI类型未在表中，请根据网络规划自行配置业务类型到DSCP的映射。其中，DSCP取值需经过端到端规划，满足传输设备中DSCP到PHB的映射规则。在合理规划的前提下，DSCP值越大则优先级越高。QoS与DSCP的映射规则可以通过<strong>ADD EPSREMARK</strong>和<b><span class="cmdname">ADD 5GCREMARK</span></b>命令调整。其中<span style="color:#0D0D0D;">标准5QI等同于QCI，1：1映射，</span><span style="color:#0D0D0D;">非标准的5QI根据SMF本地配置进行映射。</span></p>
+
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0286483640__table312011303282"></a><a name="table312011303282"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0286483640__table312011303282" frame="border" border="1" rules="all"><caption><b>表1 </b>5QI与DSCP的缺省映射关系</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.35%" id="mcps1.3.10.2.4.1.1" liSelected="liSelected"><p>5QI类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="32.54%" id="mcps1.3.10.2.4.1.2" liSelected="liSelected"><p>DSCP</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="34.11%" id="mcps1.3.10.2.4.1.3" liSelected="liSelected"><p>资源类型</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.35%" headers="mcps1.3.10.2.4.1.1 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.54%" headers="mcps1.3.10.2.4.1.2 "><p>46</p>
+</td>
+<td class="cellrowborder" rowspan="7" valign="top" width="34.11%" headers="mcps1.3.10.2.4.1.3 "><p>GBR</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>34</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>34</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>4</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>34</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>65</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>46</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>66</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>46</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>75</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>46</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.35%" headers="mcps1.3.10.2.4.1.1 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" width="32.54%" headers="mcps1.3.10.2.4.1.2 "><p>46</p>
+</td>
+<td class="cellrowborder" rowspan="8" valign="top" width="34.11%" headers="mcps1.3.10.2.4.1.3 "><p>Non-GBR</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>6</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>18</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>7</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>18</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>8</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>18</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>9</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>69</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>46</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>70</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>18</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.1 "><p>79</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.10.2.4.1.2 "><p>18</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>路由器保留有DSCP到每跳转发行为PHB（Per-Hop Behaviours）的映射，PHB是指满足某类转发需求的行为，如流量监管、流量整形、队列管理等。分组进入路由器时，根据其DSCP标记划归一个BA并被选取特定的PHB进行转发。核心网支持DSCP到PHB的映射，具体映射如<a href="#ZH-CN_TOPIC_0286483640__table0877135417426">表2</a>所示，DSCP、802.1p与内部服务等级的映射规则可以通过<strong>SET QOSBA</strong>命令调整。</p>
+<p>核心网网元根据用户报文的DSCP归划对应的具有相同DSCP值的分组集合BA并被选取特定的PHB进行转发。如果用户报文的DSCP未定义到PHB的映射，核心网网元将选择采用缺省PHB进行转发处理。目前，IETF定义了三种标准的PHB：</p>
+<ul><li>加速转发EF（Expedited Forwarding）<p>EF提供低丢包率、低延迟、高带宽的转发服务，它适用于信令的转发。</p>
+</li><li>确保转发AF（Assured Forwarding）<p>AF提供对订购带宽质量的确保转发，超过订购带宽的转发具有不同丢弃优先级的服务，这主要适用于多媒体业务的转发。</p>
+</li><li>尽力而为BE（Best-Effort）<p>BE即传统的IP分组投递服务，是缺省的PHB。只关注可达性，其他方面不做任何要求。适用于对带宽、延迟性能不敏感的E-Mail等业务。</p>
+</li></ul>
+
+<div class="tableBorder"><a name="ZH-CN_TOPIC_0286483640__table0877135417426"></a><a name="table0877135417426"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_TOPIC_0286483640__table0877135417426" frame="border" border="1" rules="all"><caption><b>表2 </b>DSCP到内部服务等级的缺省映射关系表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="14.8014801480148%" id="mcps1.3.14.2.7.1.1" liSelected="liSelected"><p>DSCP</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="17.65176517651765%" id="mcps1.3.14.2.7.1.2" liSelected="liSelected"><p>Service-Class</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.68166816681668%" id="mcps1.3.14.2.7.1.3" liSelected="liSelected"><p>Color</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.051605160516054%" id="mcps1.3.14.2.7.1.4" liSelected="liSelected"><p>DSCP</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.09160916091609%" id="mcps1.3.14.2.7.1.5" liSelected="liSelected"><p>Service-Class</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="18.72187218721872%" id="mcps1.3.14.2.7.1.6" liSelected="liSelected"><p>Color</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>00</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>32</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>af4</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>33</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>02</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>34</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>af4</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>03</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>35</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>04</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>36</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>af4</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>yellow</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>05</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>37</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>06</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>38</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>af4</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>red</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>07</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>39</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>08</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af1</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>40</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>ef</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>09</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>41</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>10</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af1</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>42</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>11</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>43</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>12</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af1</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>44</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>13</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>45</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>14</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af1</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>46</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>ef</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>15</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>47</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>16</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af2</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>48</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>cs6</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>17</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>49</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>18</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af2</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>50</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>19</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>51</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>20</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af2</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>52</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>21</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>53</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>22</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af2</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>54</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>23</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>55</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>24</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af3</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>56</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>cs7</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>25</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>57</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>26</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af3</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>58</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>27</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>59</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>28</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af3</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>60</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>29</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>61</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>30</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>af3</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>62</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="14.8014801480148%" headers="mcps1.3.14.2.7.1.1 "><p>31</p>
+</td>
+<td class="cellrowborder" valign="top" width="17.65176517651765%" headers="mcps1.3.14.2.7.1.2 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.68166816681668%" headers="mcps1.3.14.2.7.1.3 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.051605160516054%" headers="mcps1.3.14.2.7.1.4 "><p>63</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.09160916091609%" headers="mcps1.3.14.2.7.1.5 "><p>be</p>
+</td>
+<td class="cellrowborder" valign="top" width="18.72187218721872%" headers="mcps1.3.14.2.7.1.6 "><p>green</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表3 </b>内部服务等级到DSCP的缺省映射关系表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="30.11698830116988%" id="mcps1.3.15.2.4.1.1" liSelected="liSelected"><p>Service-Class</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="35.92640735926407%" id="mcps1.3.15.2.4.1.2" liSelected="liSelected"><p>Color</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.956604339566034%" id="mcps1.3.15.2.4.1.3" liSelected="liSelected"><p>DSCP</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>BE</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>10</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>12</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>14</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>18</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>20</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>22</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>26</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>28</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>30</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>34</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>yellow</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>36</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>38</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>EF</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>46</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>CS6</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>48</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="30.11698830116988%" headers="mcps1.3.15.2.4.1.1 "><p>CS7</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.92640735926407%" headers="mcps1.3.15.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.956604339566034%" headers="mcps1.3.15.2.4.1.3 "><p>56</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表4 </b>内部服务等级到802.1p的缺省映射关系表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.32%" id="mcps1.3.16.2.4.1.1" liSelected="liSelected"><p>Service</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.339999999999996%" id="mcps1.3.16.2.4.1.2" liSelected="liSelected"><p>Color</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.339999999999996%" id="mcps1.3.16.2.4.1.3" liSelected="liSelected"><p>802.1p优先级</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>BE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green、yellow、red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>1</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green、yellow、red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green、yellow、red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green、yellow、red</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>EF</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>5</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>CS6</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>6</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.16.2.4.1.1 "><p>CS7</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.2 "><p>green</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.16.2.4.1.3 "><p>7</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表5 </b>802.1p到内部服务等级的缺省映射关系表</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.339999999999996%" id="mcps1.3.17.2.4.1.1" liSelected="liSelected"><p>802.1p优先级</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.32%" id="mcps1.3.17.2.4.1.2" liSelected="liSelected"><p>Service</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.339999999999996%" id="mcps1.3.17.2.4.1.3" liSelected="liSelected"><p>Color</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>BE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>AF1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>AF2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>AF3</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>AF4</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>EF</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>6</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>CS6</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.1 "><p>7</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.32%" headers="mcps1.3.17.2.4.1.2 "><p>CS7</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.339999999999996%" headers="mcps1.3.17.2.4.1.3 "><p>green</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0286483637.html">SM策略下发与执行原理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../toctopics/zh-cn_topic_0286483639.html"><span class="font-st">&lt; </span>上一节</a>
+</div>
+</div>
+</body>
+</html>

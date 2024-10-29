@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="网元网管断链">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0302144489.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0302144805">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>网元网管断链</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0302144805"></a><a name="ZH-CN_TOPIC_0302144805"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">网元网管断链</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0302144805__1.3.1.1">现象描述</a></li><li><a href="#ZH-CN_TOPIC_0302144805__1.3.2.1">可能原因</a></li><li><a href="#ZH-CN_TOPIC_0302144805__1.3.3.1">定位思路</a></li><li><a href="#ZH-CN_TOPIC_0302144805__1.3.4.1">处理步骤</a></li><li><a href="#ZH-CN_TOPIC_0302144805__1.3.5.1">参考信息</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0302144805__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0302144805" class="sectiontitle2contents">现象描述</a></h4><p>在网管的“主拓扑”界面显示对应网元和网管断链，对应网元上会出现断连标志<span><img src="../images/zh-cn_image_0302771105.png"></span>。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0302144805__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0302144805" class="sectiontitle2contents">可能原因</a></h4><ul><li>北向对接默认用户emscomm的密码未重置或者SNMP默认用户v3User的密码未重置。</li><li>网管连接网元的参数填写错误。</li><li>Soap服务，mmlService服务，SNMP服务异常。</li><li>OMLB服务未侦听Soap服务，mmlService服务，SNMP服务相关端口。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0302144805__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0302144805" class="sectiontitle2contents">定位思路</a></h4><ul><li>运维人员确认是否重置过北向对接默认用户emscomm和SNMP默认用户v3User的密码。</li><li>网管侧查看连接网元的参数是否正常。</li><li>网元侧服务治理查看Soap，mmlService，SNMP服务是否异常。</li><li>进OMLB主节点查看上述服务的端口是否被侦听。</li><li>尝试在网管页面删除连接网元的公钥。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0302144805__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0302144805" class="sectiontitle2contents">处理步骤</a></h4><ol><li>登录OM Portal，单击<span class="menucascade">“<span class="uicontrol">安全 &gt; 日志审计 &gt; 操作日志</span>”</span>，在搜索栏中输入<span class="uicontrol">“MOD SNMPUSER”</span>或<span class="uicontrol">“修改SNMP用户密码”</span>。</li><li>查看搜索结果中的<span class="uicontrol">“详细信息”</span>，确定是否重置过SNMP默认用户v3User的密码。<ul><li>是 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li16979182519147">3</a></li><li>否 =&gt; 参考《<span><span class="keyword" id="ZH-CN_TOPIC_0302144805__zh-cn_topic_0272837703_keyword615016151388">UNC</span></span>应用用户默认帐号》修改密码。</li></ul>
+</li><li id="ZH-CN_TOPIC_0302144805__li16979182519147"><a name="ZH-CN_TOPIC_0302144805__li16979182519147"></a><a name="li16979182519147"></a>单击<span class="menucascade">“<span class="uicontrol">安全 &gt; 日志审计 &gt; 操作日志</span>”</span>，在搜索栏中输入<span class="uicontrol">“MOD PWD”</span>或者单击<span class="menucascade">“<span class="uicontrol">安全 &gt; 日志审计 &gt; 安全日志</span>”</span>，在搜索栏中输入<span class="uicontrol">“重置密码”</span>。</li><li>查看搜索结果中的<span class="uicontrol">“详细信息”</span>，确定是否重置过北向对接默认用户emscomm的密码。<ul><li>是 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li10938012113519">5</a></li><li>否 =&gt; 参考《<span><span class="keyword" id="ZH-CN_TOPIC_0302144805__zh-cn_topic_0272837703_keyword615016151388_1">UNC</span></span>应用用户默认帐号》修改密码。</li></ul>
+</li><li id="ZH-CN_TOPIC_0302144805__li10938012113519"><a name="ZH-CN_TOPIC_0302144805__li10938012113519"></a><a name="li10938012113519"></a>在网管“主拓扑”界面，右键点击对应网元，查看网元属性，重新填写网元IP，网元连接类型，OSS认证模式，协议版本，安全用户名，端口，授权协议，加密协议，以及对应密码，查看网元和网管是否重新建立链路。<ul><li>是 =&gt; 完成</li><li>否 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li1321385513815">6</a></li></ul>
+</li><li id="ZH-CN_TOPIC_0302144805__li1321385513815"><a name="ZH-CN_TOPIC_0302144805__li1321385513815"></a><a name="li1321385513815"></a>在网元的“应用配置 &gt; 服务治理”界面，查看Soap，mmlService，SNMP服务实例是否存在。<ul><li>是 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li18488541112512">7</a></li><li>否 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li1431415552150">12</a></li></ul>
+</li><li id="ZH-CN_TOPIC_0302144805__li18488541112512"><a name="ZH-CN_TOPIC_0302144805__li18488541112512"></a><a name="li18488541112512"></a>在网元的“应用配置 &gt; 服务治理”界面查询OMLB服务，点击实例属性，找到"status_omlb"为"M"的实例，记录其对应的"nodeID"。</li><li>使用mtuser用户登录"nodeID"表示的节点，然后切换成root用户。</li><li>通过<strong>which docker</strong>检查容器引擎类型，并进入omlb容器。<ul><li>如果存在docker可执行文件，如下命令所示。<pre class="screen">PaaSOM-1:/home/mtuser # which docker
+/usr/bin/docker</pre>
+<p>执行<strong>docker ps |grep omlb</strong>获取omlb dockerId。</p>
+<p>执行<strong>docker exec -it -u root <em>dockerId</em> sh</strong>进入omlb容器。</p>
+</li><li>如果没有找到docker可执行文件，如下命令所示。<pre class="screen">PaaSOM-1:/home/mtuser # which docker
+which: no docker in (/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin)</pre>
+<p>执行<strong>crictl ps |grep omlb</strong>获取omlb containerdID。</p>
+<pre class="screen">inipv6-csp-a-0:/home/mtuser # crictl ps | grep omlb
+dd88a8b9c815a       10.196.73.2:20202/op_svc_pom/omlb:23.0.0.B089                             27 hours ago        Running             omlb-software              2                   53e2fdaaa4aff</pre>
+<p>执行<strong>crictl inspect containerdID | grep "pid"</strong> 获取omlb容器实例的pid。</p>
+<pre class="screen">inipv6-csp-a-0:/home/mtuser # crictl inspect dd88a8b9c815a | grep "pid"
+    "pid": 48604,
+            "pid": 1
+            "type": "pid"</pre>
+<p>执行<strong>nsenter -t pid -a</strong>进入omlb容器实例</p>
+<pre class="screen">PaaSOM-2:/home/mtuser # nsenter -t 48604 -a
+-bash: EulerOS_history: command not found
+[root@PaaSOM-2 /]#</pre>
+<p>执行<strong>unset PROMPT_COMMAND</strong>忽略-bash: EulerOS_history: command not found错误</p>
+<pre class="screen">[root@PaaSOM-2 /]# unset PROMPT_COMMAND
+[root@PaaSOM-2 /]#</pre>
+</li></ul>
+</li><li>进入容器后，再执行“netstat -nlp | grep &lt;port&gt;”，查询对应服务的端口是否被侦听。其中Soap对应6443，mmlService对应9000，SNMP对应8000。如下报文所示，6443端口显示为侦听状态。<pre class="screen">netstat -nlp | grep 6443
+tcp        0      0 xxx.xxx.xxx.xxx:6443     0.0.0.0:*               LISTEN      -
+tcp6       0      0 xxxx:xxxx:xxxx:xxxx:xxxx:6443 :::*                    LISTEN      -</pre>
+<ul><li>是 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li11762134841517">11</a></li><li>否 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li1431415552150">12</a></li></ul>
+</li><li id="ZH-CN_TOPIC_0302144805__li11762134841517"><a name="ZH-CN_TOPIC_0302144805__li11762134841517"></a><a name="li11762134841517"></a>联系网管运维人员删除对应网元公钥，然后在主拓扑上右键点击对应网元，选择<span class="menucascade">“<span class="uicontrol">设置允许连接</span>”</span>，查看网元和网管是否重新建立链路。<ul><li>是 =&gt; 完成</li><li>否 =&gt; <a href="#ZH-CN_TOPIC_0302144805__li1431415552150">12</a></li></ul>
+</li><li id="ZH-CN_TOPIC_0302144805__li1431415552150"><a name="ZH-CN_TOPIC_0302144805__li1431415552150"></a><a name="li1431415552150"></a>请联系华为技术支持处理。</li></ol>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0302144805__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0302144805" class="sectiontitle2contents">参考信息</a></h4><p>无。</p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0302144489.html">对接网管类故障
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+</div>
+</div>
+</body>
+</html>

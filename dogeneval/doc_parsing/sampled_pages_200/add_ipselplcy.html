@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加IP地址选择策略(ADD IPSELPLCY)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_ip_address_selection_policy.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/mod_ipselplcy.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172225141">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加IP地址选择策略(ADD IPSELPLCY)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172225141"></a><a name="ZH-CN_MMLREF_0000001172225141"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加IP地址选择策略(ADD IPSELPLCY)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172225141__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172225141__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172225141__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172225141__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172225141__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172225141__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225141__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172225141" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172225141__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>该命令用于增加S10、S11、Gn/Gp、S5/S8、S3、S4、Sv接口的IP地址选择策略。</p>
+<p>在IPv6改造过程中，可以针对整系统和用户粒度进行IP地址策略控制。</p>
+<p>其中GU接口是指Gn/Gp接口，LTE接口是指S10、S11、S5/S8、S3、S4、Sv接口。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225141__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172225141" class="sectiontitle2contents">注意事项</a></h4><ul><li>此命令可配置的最大记录数为32。</li><li>该命令执行后立即生效。</li><li>该命令中LTE接口和GU接口需要独立配置，如果没有配置LTE接口，则S10、S11、S5/S8、S3、S4、S5、Sv接口按IPv4策略来选。如果没有配置GU接口，则Gn/Gp接口按IPv4策略来选。</li><li>当软参BYTE_EX_B26 BIT3&#8211;BIT4打开（设置为“1”，“2”，“3”）时，该命令不控制N26接口的IP地址选择策略，仅由此软参控制。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225141__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172225141" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225141__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172225141" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225141__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172225141" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CTRLRANGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>控制范围</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定命令生效的范围。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“DEFAULT(缺省策略)”</span></li><li><span class="parmvalue">“SPECIFY(指定IMSI)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li><span class="parmvalue">“DEFAULT(缺省策略)”</span>，即为S10、S11、Gn/Gp、S5/S8、S3、S4、Sv接口指定IP地址选择策略。</li><li><span class="parmvalue">“SPECIFY(指定IMSI)”</span>是用户粒度的，主要在设备IPv6改造过程中，指定部分用户进行IPv6试验，而不影响原有用户使用IPv4。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>指定IMSI的配置记录优先级大于缺省配置记录。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IMSI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IMSI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定用户的IMSI。</p>
+<p>前提条件：该参数在<span class="parmname">“CTRLRANGE(控制范围)”</span>设置为<span class="parmvalue">“SPECIFY(指定IMSI)”</span>有效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1~15位十进制数字</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IPPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>LTE接口本网IP地址选择策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数表示S10、S11、Sv、S3、S4、S5接口IP地址策略。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“IPV4(仅使用IPv4地址)”</span></li><li><span class="parmvalue">“IPV6(仅使用IPv6地址)”</span></li><li><span class="parmvalue">“IPV6PRE(优先使用IPv6地址)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>在设备IPv6改造过程中，指定一些本网用户进行IPv6试验，则可使用<span class="parmvalue">“IPV6(仅使用IPv6地址)”</span>。</li><li>在IPv4网络中，配置成<span class="parmvalue">“IPV4(仅使用IPv4地址)”</span>；在IPv4向IPv6改造过程中，配置成<span class="parmvalue">“IPV6PRE(优先使用IPv6地址)”</span>；IPv6网络改造完成后，配置成<span class="parmvalue">“IPV6(仅使用IPv6地址)”</span>。</li><li>当软参BYTE_EX_B26 BIT3&#8211;BIT4打开（设置为“1”，“2”，“3”）时，该参数不控制N26接口的IP地址选择策略，仅由此软参控制。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>REMOTEIPPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>LTE接口漫游IP地址选择策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数表示S8接口IP地址选择策略。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“IPV4(仅使用IPv4地址)”</span></li><li><span class="parmvalue">“IPV6(仅使用IPv6地址)”</span></li><li><span class="parmvalue">“IPV6PRE(优先使用IPv6地址)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>在设备IPv6改造过程中，指定一些漫游用户进行IPv6试验，则可使用<span class="parmvalue">“IPV6(仅使用IPv6地址)”</span>。</li><li>在IPv4网络中，配置成<span class="parmvalue">“IPV4(仅使用IPv4地址)”</span>；在IPv4向IPv6改造过程中，如果本网和外网之间IPv6改造没有完成，配置成<span class="parmvalue">“IPV4(仅使用IPv4地址)”</span>；在IPv4向IPv6改造过程中，如果本网和外网之间IPv6改造完成，配置成<span class="parmvalue">“IPV6PRE(优先使用IPv6地址)”</span>；IPv6网络改造完成后，配置成<span class="parmvalue">“IPV6(仅使用IPv6地址)”</span>。</li><li>当软参BYTE_EX_B26 BIT3&#8211;BIT4打开（设置为“1”，“2”，“3”）时，该参数不控制N26接口的IP地址选择策略，仅由此软参控制。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GUIPPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>GU接口本网IP地址选择策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数表示Gn接口IP地址选择策略。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“IPV4(仅使用IPv4地址)”</span></li><li><span class="parmvalue">“IPV6(仅使用IPv6地址)”</span></li><li><span class="parmvalue">“IPV6PRE(优先使用IPv6地址)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>在设备IPv6改造过程中，指定一些本网用户进行IPv6试验，则可使用“IPV6(仅使用IPv6地址)”。</li><li>在IPv4网络中，配置成“IPV4(仅使用IPv4地址)”；在IPv4向IPv6改造过程中，配置成“IPV6PRE(优先使用IPv6地址)”；IPv6网络改造完成后，配置成“IPV6(仅使用IPv6地址)”。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>GUREMOTEIPPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>GU接口漫游IP地址选择策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数表示Gp接口IP地址选择策略。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“IPV4(仅使用IPv4地址)”</span></li><li><span class="parmvalue">“IPV6(仅使用IPv6地址)”</span></li><li><span class="parmvalue">“IPV6PRE(优先使用IPv6地址)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>在设备IPv6改造过程中，指定一些漫游用户进行IPv6试验，则可使用“IPV6(仅使用IPv6地址)”。</li><li>在IPv4网络中，配置成“IPV4(仅使用IPv4地址)”；在IPv4向IPv6改造过程中，如果本网和外网之间IPv6改造没有完成，配置成“IPV4(仅使用IPv4地址)”；在IPv4向IPv6改造过程中，如果本网和外网之间IPv6改造完成，配置成“IPV6PRE(优先使用IPv6地址)”；IPv6网络改造完成后，配置成“IPV6(仅使用IPv6地址)”。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>DESC</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>描述</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于描述对象属性、配置原因、背景，以便在查询时能够清晰地区分大量配置数据。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0~32位字符串</p>
+<p>默认值：noname</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172225141__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172225141" class="sectiontitle2contents">使用实例</a></h4><ol><li>增加记录，控制范围为“DEFAULT”，LTE接口本网IP地址选择策略为“IPV4”，LTE接口漫游IP地址选择策略为“IPV4”，GU接口本网IP地址选择策略为“IPV4”，GU接口漫游IP地址选择策略为“IPV4”：<pre> ADD IPSELPLCY: CTRLRANGE=DEFAULT,IPPLCY=IPV4,REMOTEIPPLCY=IPV4,GUIPPLCY=IPV4,GUREMOTEIPPLCY=IPV4;</pre>
+</li><li>增加记录，控制范围为“SPECIFY”，IMSI为"460031501000001"，LTE接口本网IP地址选择策略为“IPV6”，LTE接口漫游IP地址选择策略为“IPV4”，GU接口本网IP地址选择策略为“IPV6”，GU接口漫游IP地址选择策略为“IPV4”：<pre> ADD IPSELPLCY: CTRLRANGE=SPECIFY, IMSI="460031501000001",IPPLCY=IPV6,REMOTEIPPLCY=IPV4,GUIPPLCY=IPV6,GUREMOTEIPPLCY=IPV4;</pre>
+</li></ol>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_ip_address_selection_policy.html">IP地址选择策略
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/mod_ipselplcy.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

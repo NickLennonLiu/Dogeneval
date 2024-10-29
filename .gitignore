@@ -1,3 +1,6 @@
 data/UNC_20.9.5/
+data/**
 **/__pycache__/
 **/.pytest_cache/
+**/logs/
+**/*.hdx

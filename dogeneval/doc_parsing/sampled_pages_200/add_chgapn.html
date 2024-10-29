@@ -1,0 +1,116 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加APN计费属性(ADD CHGAPN)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_charging_apn.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_chgapn.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172344965">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加APN计费属性(ADD CHGAPN)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172344965"></a><a name="ZH-CN_MMLREF_0000001172344965"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加APN计费属性(ADD CHGAPN)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172344965__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172344965__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172344965__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172344965__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172344965__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172344965__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172344965__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172344965" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172344965__zh-cn_concept_0272842528_b1497557340192121">适用网元：SGSN</strong></span></p>
+<p>该命令用于配置基于APN的计费属性信息。当要求忽略HLR签约的APN计费属性时（通过命令<a href="set_chgcdr.html"><b><span class="cmdname">SET CHGCDR</span></b></a>设置参数<span class="parmname">“IGNOREFLG”</span>的取值），可以用该命令根据APN配置其计费属性。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172344965__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172344965" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效，但该配置只对之后激活的用户有效。</li><li>本表最大记录数为1000。</li><li>各记录的APNNI字段不能重复。</li><li><p>S-CDR中填写的计费属性按照如下的优先等级进行选择：</p>
+<ol><li><p>通过<a href="lst_chggncccfg.html"><b><span class="cmdname">LST CHGGNCCCFG</span></b></a> 查看按照用户的IMSI匹配上的<span class="parmvalue">“SPECIAL_USER(指定用户)”</span>的记录，如果没有匹配的<span class="parmvalue">“SPECIAL_USER(指定用户)”</span>的记录则查看<span class="parmvalue">“ALL_USER(所有用户)”</span>的记录，其中的<span class="parmname">“S-CDR中的计费属性”</span>参数取值如果为是，则表示S-CDR中填写的计费属性必须与发送给GGSN的计费属性保持一致，否则按本优先级列表选择下一项。</p>
+</li><li><p>APN级签约数据中的计费属性，可通过<a href="set_chgcdr.html"><b><span class="cmdname">SET CHGCDR</span></b></a>命令的<span class="parmname">“IGNOREFLG”</span>参数配置忽略APN级签约计费属性。如果根据<span class="parmname">“IGNOREFLG”</span>参数的取值，该用户忽略APN级签约计费属性，则按本优先级列表选择下一项。如果HLR中该用户未签约APN级计费属性，或该用户签约的APN级计费属性为无效值，也按本优先级列表选择下一项。</p>
+</li><li><p>忽略APN级签约计费属性情况下，<a href="add_chgapn.html"><b><span class="cmdname">ADD CHGAPN</span></b></a>命令配置的计费属性，通过<a href="lst_chgapn.html"><b><span class="cmdname">LST CHGAPN</span></b></a>命令查看。如果该PDP的APNNI没有对应的配置，则按本优先级列表选择下一项。</p>
+</li><li><p>用户级签约数据中的计费属性，可通过<a href="set_chgcdr.html"><b><span class="cmdname">SET CHGCDR</span></b></a>命令的<span class="parmname">“IGNOREFLG”</span>参数配置忽略用户级签约计费属性。如果根据<span class="parmname">“IGNOREFLG”</span>参数的取值，该用户忽略用户级签约计费属性，则按本优先级列表选择下一项。如果HLR中该用户未签约用户级计费属性，或该用户签约的用户级计费属性为无效值，也按本优先级列表选择下一项。</p>
+</li><li><p>不忽略APN级签约计费属性情况下，<a href="add_chgapn.html"><b><span class="cmdname">ADD CHGAPN</span></b></a>命令配置的计费属性，通过<a href="lst_chgapn.html"><b><span class="cmdname">LST CHGAPN</span></b></a>命令查看，如果该PDP的APNNI没有对应的配置，则按本优先级列表选择下一项。</p>
+</li><li><p><a href="add_chgdchar.html"><b><span class="cmdname">ADD CHGDCHAR</span></b></a>命令配置的计费属性，此命令只对外网用户生效，包括漫游用户和拜访用户。通过<a href="lst_chgdchar.html"><b><span class="cmdname">LST CHGDCHAR</span></b></a>命令查看，如果按照用户类型、移动国家码、移动网号，该外网用户没有对应的配置，则按本优先级列表选择下一项。</p>
+</li><li><p><a href="set_chgcdr.html"><b><span class="cmdname">SET CHGCDR</span></b></a>命令配置的计费属性。</p>
+</li></ol>
+</li><li><div class="p">M-CDR中填写的计费属性按照如下的优先等级进行选择： <ol><li><p>用户级签约数据中的计费属性，可通过<a href="set_chgcdr.html"><b><span class="cmdname">SET CHGCDR</span></b></a>命令的<span class="parmname">“IGNOREFLG”</span>参数配置忽略用户级签约计费属性。如果根据<span class="parmname">“IGNOREFLG”</span>参数的取值，该用户忽略用户级签约计费属性，则按本优先级列表选择下一项。如果HLR中该用户未签约用户级计费属性，或该用户签约的用户级计费属性为无效值，也按本优先级列表选择下一项。</p>
+</li><li><p><a href="add_chgdchar.html"><b><span class="cmdname">ADD CHGDCHAR</span></b></a>命令配置的计费属性，此命令只对外网用户生效，包括漫游用户和拜访用户。通过<a href="lst_chgdchar.html"><b><span class="cmdname">LST CHGDCHAR</span></b></a>命令查看，如果按照用户类型、移动国家码、移动网号，该外网用户没有对应的配置，则按本优先级列表选择下一项。</p>
+</li><li><p><a href="set_chgcdr.html"><b><span class="cmdname">SET CHGCDR</span></b></a>命令配置的计费属性。</p>
+</li></ol>
+</div>
+</li><li><p>SGSN发送给GGSN的计费属性由CHGGNCCCFG配置进行控制，请参考<a href="add_chggncccfg.html"><b><span class="cmdname">ADD CHGGNCCCFG</span></b></a>。</p>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172344965__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172344965" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172344965__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172344965" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172344965__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172344965" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>APNNI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>APN网络标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定APN网络标识。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：长度不超过62的字符串</p>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>APN网络标识地址由一个或多个LABEL构成，各LABEL间用“.”间隔。</li><li>每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”。</li><li>APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>按照3GPP协议，APN网络标识不区分大小写。为统一格式起见，APN网络标识的字母部分全部以大写格式保存。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>CC</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>计费属性</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定当忽略HLR签约的APN计费属性时，应该对该APN的用户按何种计费方式收费。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NORMAL(普通计费)”</span>：表示普通计费属性，按照此种方式计费的用户按照常规的方式支付费用。</li><li><span class="parmvalue">“PREPAID(预付费)”</span>：表示预付费计费属性，按照此种方式计费的用户在获取某种服务之前需要预支付一定的费用。</li><li><span class="parmvalue">“FLATRATE(包月制)”</span>：表示包月制计费属性，按照此种方式计费的用户在一个月内的收费是固定的。</li><li><span class="parmvalue">“HOTBILLING(实时计费)”</span>：表示实时计费属性，按照此种方式计费的用户将在短时间或流量达到某个值时及时生成话单，保证运营商对此类用户及时收费。</li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NORMAL(普通计费)”</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172344965__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172344965" class="sectiontitle2contents">使用实例</a></h4><p>配置APNNI为"huawei1.com"的用户的计费属性为预付费：</p>
+<p><span class="msgph">ADD CHGAPN: APNNI="huawei1.com", CC=PREPAID;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_charging_apn.html">APN计费属性
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_chgapn.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

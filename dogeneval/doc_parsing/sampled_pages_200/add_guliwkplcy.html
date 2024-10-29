@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加GUL互操作本地策略 (ADD GULIWKPLCY)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_local_policy_for_gul_interworking.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_guliwkplcy.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0000001368175773">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加GUL互操作本地策略 (ADD GULIWKPLCY)</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0000001368175773"></a><a name="ZH-CN_CONCEPT_0000001368175773"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加GUL互操作本地策略 (ADD GULIWKPLCY)</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0000001368175773__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_CONCEPT_0000001368175773__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_CONCEPT_0000001368175773__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0000001368175773__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_CONCEPT_0000001368175773__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_CONCEPT_0000001368175773__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001368175773__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0000001368175773" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_CONCEPT_0000001368175773__zh-cn_concept_0272842528_b850912308192121">适用网元：MME</strong></span></p>
+<ul><li>此命令用于增加GUL互操作本地策略。该配置生效后会影响234G互操作相关指标。</li><li>该命令执行后不会对正在进行信令流程的用户立即生效，该命令中的限制会在用户的下一次信令流程中生效。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001368175773__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0000001368175773" class="sectiontitle2contents">注意事项</a></h4><p>本表最大记录数为1024条。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001368175773__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0000001368175773" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001368175773__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0000001368175773" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001368175773__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0000001368175773" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.31%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.36%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>SUBRANGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>用户范围</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定需要限制Non-GBR承载的QoS的用户范围。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：</p>
+<ul><li>“IMSI_PREFIX(指定IMSI前缀)”：指网络中与指定的IMSI前缀匹配的用户。</li><li>“HOME_USER(本网用户)”：指网络中的本网签约用户。</li><li>“FOREIGN_USER(外网用户)” ：指网络中的漫游用户。</li><li>“ALL_USER(所有用户)”：指网络中的所有用户。</li></ul>
+<p>默认值：无</p>
+<p>配置原则：</p>
+<ul><li>“SUBRANGE（用户范围）”的优先级从高到低为：“IMSI_PREFIX”，“FOREIGN_USER”或“HOME_USER”，“ALL_USER”。</li><li>系统优先查找高优先级的配置记录，如果查找不到，再查找低优先级的配置记录。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>NOID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>运营商标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定运营商标识。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在“SUBRANGE”配置为“FOREIGN_USER”或“HOME_USER”后生效。</p>
+<p>取值范围：整数类型，取值范围为0~64，128~254。</p>
+<p>默认值：无</p>
+<p>配置原则：</p>
+<ul><li>若该参数需要配置为0或128～254之间的值时，须先在ADD MNO中配置取值相同的“MNOID”参数。</li><li>若该参数需要配置为1～64之间的值时，须先在ADD MVNO中配置取值相同的“MVNOID”参数。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>IMSIPRE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>IMSI前缀</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定IMSI前缀以区分不同的用户群。</p>
+<p>数据来源：整网规划</p>
+<p>前提条件：该参数在“用户范围”参数配置为“IMSI_PREFIX”后生效。</p>
+<p>取值范围：5～15位十进制数字字符串。</p>
+<p>默认值：无</p>
+<p>配置原则：</p>
+<p>当该参数配置生效时，按照IMSI最长匹配进行查询，如果有匹配的记录，使用该记录的配置；如果没有匹配的记录，则查找IMSI次长匹配的记录。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>GULCTRLCOND</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>GUL互操作定制处理条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定GU到LTE互操作定制策略生效时，用户需要满足的条件。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围： 位域类型，取值范围如下：</p>
+<ul><li>N1CAP（N1能力）</li><li>CNR（签约CNR）</li><li>ARD（签约ARD）</li></ul>
+<p>默认值：“N1CAP-1&amp;CNR-1&amp;ARD-1”</p>
+<p>配置原则：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>GULTAUPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>GUL TAU处理策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定GU到LTE TAU流程中，MME是否拒绝用户。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：</p>
+<ul><li>YES（是）：指定GU到LTE的TAU流程中，MME拒绝用户。</li><li>NO（否）：指定GU到LTE的TAU流程中，MME不拒绝用户。</li></ul>
+<p>默认值：NO</p>
+<p>配置原则：</p>
+<p>在GU到LTE的TAU流程中，如果用户满足“GULCTRLCOND（GUL互操作定制处理条件）”时，希望给用户下发TAU Reject（TAU拒绝流程），触发用户在4G重新上线则配置为YES，否则配置为NO。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>GULHOPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>GUL HO处理策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定GU到LTE HO流程中，MME是否拒绝用户。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：</p>
+<ul><li>YES（是）：指定GU到LTE的HO流程中，MME拒绝用户。</li><li>NO（否）：指定GU到LTE的HO流程中，MME不拒绝用户。</li></ul>
+<p>默认值：NO</p>
+<p>配置原则：</p>
+<p>在GU到LTE的HO流程中，如果用户满足“GULCTRLCOND”时，希望按“GULHOREJPLCY（GUL HO拒绝策略）”处理的话，配置为YES，否则配置为NO。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33%" headers="mcps1.3.5.2.1.4.1.1 "><p>GULHOREJPLCY</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.31%" headers="mcps1.3.5.2.1.4.1.2 "><p>GUL HO拒绝策略</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.36%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定GU到LTE HO流程中，MME拒绝用户的策略。</p>
+<p>前提条件：该参数在“GULHOPLCY（GUL HO处理策略）”参数配置为“YES”后生效。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：</p>
+<p>HO_TAU（HO伴随TAU拒绝）</p>
+<p>默认值：“HO_TAU-1”</p>
+<p>配置原则说明：</p>
+<p>如果希望在HO后伴随的TAU流程中拒绝，然后通过TAU Reject触发用户在4G重新上线，则配置“HO_TAU”（HO伴随TAU拒绝）。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0000001368175773__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0000001368175773" class="sectiontitle2contents">使用实例</a></h4><p>增加用户范围为所有用户，GUL互操作定制处理条件为N1能力、签约CNR、签约ARD，GUL TAU处理策略，GUL HO拒绝策略为NO的GUL互操作本地策略 ，可以用如下命令：</p>
+<pre class="screen">ADD GULIWKPLCY: SUBRANGE=ALL_USER, GULCTRLCOND=ARD-1&amp;CNR-1&amp;N1CAP-1, GULTAUPLCY=NO, GULHOPLCY=NO;</pre>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_local_policy_for_gul_interworking.html">GUL互操作本地策略
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_guliwkplcy.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

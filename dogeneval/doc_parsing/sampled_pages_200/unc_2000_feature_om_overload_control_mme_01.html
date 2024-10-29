@@ -1,0 +1,132 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="调测系统过载控制功能（适用于SGSN、MME）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Overload_Control_mme.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2000_feature_om_Overload_Control_mme.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Overload_Control_mme_03.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="MME">
+<meta name="network_function" content="SGSN">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-010801">
+<meta name="Function" content="流控">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0167531054">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>调测系统过载控制功能（适用于SGSN、MME）</title>
+</head>
+<body><a name="ZH-CN_OPI_0167531054"></a><a name="ZH-CN_OPI_0167531054"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">调测系统过载控制功能（适用于SGSN、MME）</h1>
+<ul><li><a href="#ZH-CN_OPI_0167531054__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0167531054__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0167531054__1.3.3">操作步骤</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0167531054__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0167531054" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>支持当网络中出现CPU占用率达到了系统流控的阈值时，系统开始对相应进程进行流控。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0167531054__zh-cn_topic_0305599235_p27301543194713">适用于<span>SGSN、</span>MME。</p>
+</div></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0167531054__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0167531054" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>请仔细阅读<u><a href="../desc/unc_2000_feature_desc_Overload_Control_mme_01.html">系统过载控制功能特性概述（适用于SGSN、MME）</a></u>。</li><li>完成<a href="unc_2000_feature_om_Overload_Control_mme.html">激活系统过载控制功能</a>。</li></ul>
+<span><p class="sectiontitle">数据</p></span><p>该操作无需准备数据。</p>
+<span><p class="sectiontitle">工具</p></span><p>该操作无需准备其他工具。</p>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0167531054__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0167531054" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0167531054__zh-cn_topic_0305599235_wintitle201363402192">“MML命令行-UNC”</span>窗口。</span></span></li><li><span>通过如下命令查看各流控参数与规划是否一致。</span><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.3.1.2.2.1.1"><p>Option</p>
+</th>
+<th valign="bottom" align="left" id="mcps1.3.3.1.2.2.1.2"><p>Description</p>
+</th>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.2.2.2.1" headers="mcps1.3.3.1.2.2.1.1"><strong><p>Inter-MME流控参数</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.2.2.1.2 mcps1.3.3.1.2.2.2.1"><p><a href="../MML/Document/lst_intermmefc.html"><b><span class="cmdname">LST INTERMMEFC</span></b></a></p>
+<p><strong><a href="../MML/Document/lst_intermmefixfc.html">LST INTERMMEFIXFC</a></strong></p>
+<p>如设置了Inter-MME Service Request及Attach的流控相关软参BYTE_EX_B339和BYTE_EX_B340，则还需要执行如下命令查询软参设置情况：</p>
+<p><strong><a href="../MML/Document/lst_softparaofbit.html">LST SOFTPARAOFBIT</a></strong>:DT=BYTE_EX;</p>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.2.2.3.1" headers="mcps1.3.3.1.2.2.1.1"><strong><p>S1寻呼流控参数</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.2.2.1.2 mcps1.3.3.1.2.2.3.1"><p><strong><a href="../MML/Document/lst_s1pagingfc.html">LST S1PAGINGFC</a></strong></p>
+<p>如开启PAE寻呼反压流控功能，则还需要检查如下参数：</p>
+<ul><li><strong><a href="../MML/Document/lst_paecheckpara.html">LST PAECHECKPARA</a></strong></li><li><strong><a href="../MML/Document/lst_paecheckthd.html">LST PAECHECKTHD</a></strong></li><li><strong><a href="../MML/Document/lst_reversefcpara.html">LST REVERSEFCPARA</a></strong></li></ul>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.2.2.4.1" headers="mcps1.3.3.1.2.2.1.1"><strong><p>系统流控参数</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.2.2.1.2 mcps1.3.3.1.2.2.4.1"><p><strong><a href="../MML/Document/lst_flowctrlpara.html">LST FLOWCTRLPARA</a></strong>:<span>PROCTYPE=进程类型</span>;</p>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.2.2.5.1" headers="mcps1.3.3.1.2.2.1.1"><strong><p>流控队列参数</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.2.2.1.2 mcps1.3.3.1.2.2.5.1"><p><strong><a href="../MML/Document/lst_flowctrlque.html">LST FLOWCTRLQUE</a></strong>:APPTYPE=业务类型;</p>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.2.2.6.1" headers="mcps1.3.3.1.2.2.1.1"><strong><p>S1模式基于TALIST寻呼消息不重发TAC区间</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.2.2.1.2 mcps1.3.3.1.2.2.6.1"><p><strong><a href="../MML/Document/lst_talistpagingcfg.html">LST TALISTPAGINGCFG</a></strong></p>
+</td>
+</tr>
+</table></div>
+<p><p>预期结果：参数取值和规划一致，执行<a href="#ZH-CN_OPI_0167531054__step1335734193912">步骤 3</a>。否则，参考<a href="unc_2000_feature_om_Overload_Control_mme.html">激活系统过载控制功能（适用于SGSN、MME）</a>调整配置。</p>
+</p></li><li id="ZH-CN_OPI_0167531054__step1335734193912"><a name="ZH-CN_OPI_0167531054__step1335734193912"></a><a name="step1335734193912"></a><span id="ZH-CN_OPI_0167531054__">触发各场景的消息过载，查看是否上报对应流控告警。</span><div class="tableBorder"><table cellpadding="4" cellspacing="0" summary=""><tr><th valign="bottom" align="left" id="mcps1.3.3.1.3.2.1.1"><p>Option</p>
+</th>
+<th valign="bottom" align="left" id="mcps1.3.3.1.3.2.1.2"><p>Description</p>
+</th>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.3.2.2.1" headers="mcps1.3.3.1.3.2.1.1"><strong><p>Inter-MME流控</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.3.2.1.2 mcps1.3.3.1.3.2.2.1"><p><strong><a href="../Alarms/80671.html">ALM-80671 Inter-MME接入流控</a></strong></p>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.3.2.3.1" headers="mcps1.3.3.1.3.2.1.1"><strong><p>S1寻呼流控</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.3.2.1.2 mcps1.3.3.1.3.2.3.1"><p><strong><a href="../Alarms/80649.html">ALM-80649 S1模式寻呼流控</a></strong></p>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.3.2.4.1" headers="mcps1.3.3.1.3.2.1.1"><strong><p>自保流控</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.3.2.1.2 mcps1.3.3.1.3.2.4.1"><p><strong><a href="../Alarms/80667.html">ALM-80667 系统流控启动</a></strong></p>
+</td>
+</tr>
+<tr><td valign="top" id="mcps1.3.3.1.3.2.5.1" headers="mcps1.3.3.1.3.2.1.1"><strong><p>队列流控</p>
+</strong></td>
+<td valign="top" headers="mcps1.3.3.1.3.2.1.2 mcps1.3.3.1.3.2.5.1"><p><strong><a href="../Alarms/80667.html">ALM-80667 系统流控启动</a></strong></p>
+</td>
+</tr>
+</table></div>
+</li></ol>
+</div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Overload_Control_mme.html">系统过载控制功能（适用于SGSN、MME）
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../om/unc_2000_feature_om_Overload_Control_mme.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../desc/unc_2000_feature_desc_Overload_Control_mme_03.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-104408 通过SGs接口实现短消息特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_SMS_over_SGss.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_SMS_over_SGss_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-104408">
+<meta name="Function" content="短消息">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0166292235">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-104408 通过SGs接口实现短消息特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0166292235"></a><a name="ZH-CN_CONCEPT_0166292235"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-104408 通过SGs接口实现短消息特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0166292235__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">适用NF</a></h4><p>MME</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">定义</a></h4><p id="ZH-CN_CONCEPT_0166292235__SGs">基于SGs接口实现短消息，即将用户的短消息在EPS网络和传统的电路域网络之间传递来提供短消息业务，不需要回落到目标电路域网络。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="23.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>最大化利用现有GERAN/UTRAN网络的覆盖和业务质量等资源，保护运营商的投资利益最大化。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>终端用户可以使用一个终端享用LTE高速数据业务和基于SGs接口的短消息业务。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">应用场景</a></h4><p>用户附着在LTE时，通过SGs接口收发短消息，无需回落。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+<p>本特性对网元的要求如下表所示。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="19.18%" id="mcps1.3.5.4.1.4.1.1" liSelected="liSelected"><p><strong>涉及NF</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="35.699999999999996%" id="mcps1.3.5.4.1.4.1.2" liSelected="liSelected"><p><strong>支持版本</strong></p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="45.12%" id="mcps1.3.5.4.1.4.1.3" liSelected="liSelected"><p><strong>功能说明</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="19.18%" headers="mcps1.3.5.4.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.699999999999996%" headers="mcps1.3.5.4.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.3.5.4.1.4.1.3 "><p>设置通过CS域发送短消息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.18%" headers="mcps1.3.5.4.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.699999999999996%" headers="mcps1.3.5.4.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.3.5.4.1.4.1.3 "><p>支持短消息业务。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.18%" headers="mcps1.3.5.4.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.699999999999996%" headers="mcps1.3.5.4.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.3.5.4.1.4.1.3 "><ul><li>辅助MSC完成CS域移动性管理。</li><li>短消息业务。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.18%" headers="mcps1.3.5.4.1.4.1.1 "><p>MSC Server</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.699999999999996%" headers="mcps1.3.5.4.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.3.5.4.1.4.1.3 "><ul><li>电路域移动性管理。</li><li>短消息业务。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.18%" headers="mcps1.3.5.4.1.4.1.1 "><p>HSS</p>
+</td>
+<td class="cellrowborder" valign="top" width="35.699999999999996%" headers="mcps1.3.5.4.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.12%" headers="mcps1.3.5.4.1.4.1.3 "><ul><li>支持短消息业务签约数据。</li><li>寻址目标UE所在的MSC。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span><span class="parmvalue">“82205923 LKV2SMSGU02 通过SGs接口实现短消息”</span>。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">与其他特性的交互</a></h4><p>本特性不涉及与其他特性的交互。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">应用限制</a></h4><div class="p">应用本特性有以下限制：<ul><li>在MSC进行Pool组网的场景下，本特性目前实现不能做到负荷分担和根据负荷迁移用户。</li><li><span>UNC</span>只支持一个TA只能属于一个TA List，同时一个TA List只能属于一个LA的组网场景。</li></ul>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">原理概述</a></h4><p><span><strong>相关概念</strong></span></p>
+<p>新增接口：</p>
+<p>基于SGs接口实现短消息特性中，最主要的接口是SGs接口，它是MME和MSC Server之间的接口，用来处理EPS和CS域之间的移动性管理和短消息业务寻呼流程，这些流程是在现有的Gs接口的流程基础上进行扩充来实现的。SGs接口协议栈如<a href="#ZH-CN_CONCEPT_0166292235__fig_04">图1</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0166292235__fig_04"><a name="ZH-CN_CONCEPT_0166292235__fig_04"></a><a name="fig_04"></a><span class="figcap"><b>图1 </b>SGs接口协议栈</span><br><span><img class="vsd" src="figure/zh-cn_image_0175711486.png"></span><br></div>
+<p>基于SGs接口实现短消息，即将用户的短消息在EPS网络和传统的电路域网络之间传递来提供短消息业务，不需要回落到目标电路域网络。为实现上述功能，MME需要完成如下处理：</p>
+<ul><li>辅助MSC完成CS域移动性管理</li><li>短消息业务<ul><li>主叫短消息业务<p>用户发起主叫短消息流程，分为空闲态和连接态两种情况。</p>
+</li><li>被叫短消息业务<p>短消息中心发起被叫短消息流程，根据UE的状态分为空闲态和连接态两种情况。</p>
+</li></ul>
+</li></ul>
+<p><span><strong>系统实现</strong></span></p>
+<ul><li>短消息业务：<div class="fignone"><span class="figcap"><b>图2 </b>短消息业务</span><br><span><img class="vsd" src="figure/zh-cn_image_0175711485.png"></span><br></div>
+<p>当有短消息业务进行时，MME作为中间转发节点完成UE和MSC消息的转发，协助UE和MSC完成短消息功能。</p>
+<p>短消息功能和语音功能的主要区别在于，短消息功能不需要将UE回落到GERAN/UTRAN网络，直接利用E-UTRAN网络为UE提供短消息业务。</p>
+</li><li>辅助MSC完成CS域移动性管理：<div class="p">为了基于SGs接口实现短消息业务，MME需要辅助MSC完成电路域的移动性管理，具体内容如下：<ul><li>UE通过EPS网络注册电路域业务。</li><li>UE通过EPS网络完成电路域位置变更通知。</li><li>MSC通过EPS网络对UE进行电路域寻呼。</li><li>UE通过EPS网络注销电路域业务。</li></ul>
+</div>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">特性规格</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>通过SGs接口实现短消息特性规格</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="53%" id="mcps1.3.11.2.2.3.1.1" liSelected="liSelected"><p>规格名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="47%" id="mcps1.3.11.2.2.3.1.2" liSelected="liSelected"><p>规格指标</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="53%" headers="mcps1.3.11.2.2.3.1.1 "><p>MME和MSC之间的偶联数</p>
+</td>
+<td class="cellrowborder" valign="top" width="47%" headers="mcps1.3.11.2.2.3.1.2 "><p>16</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="53%" headers="mcps1.3.11.2.2.3.1.1 "><p>MME连接的MSC个数</p>
+</td>
+<td class="cellrowborder" valign="top" width="47%" headers="mcps1.3.11.2.2.3.1.2 "><p><span>256</span></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="53%" headers="mcps1.3.11.2.2.3.1.1 "><p>本端SCTP IP地址个数</p>
+</td>
+<td class="cellrowborder" valign="top" width="47%" headers="mcps1.3.11.2.2.3.1.2 "><p>2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="53%" headers="mcps1.3.11.2.2.3.1.1 "><p>对端SCTP IP地址个数</p>
+</td>
+<td class="cellrowborder" valign="top" width="47%" headers="mcps1.3.11.2.2.3.1.2 "><p>2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表2 </b>Standards Compliance</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.2.4.1.1" liSelected="liSelected"><p>Category</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.2.4.1.2" liSelected="liSelected"><p>Number</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.2.4.1.3" liSelected="liSelected"><p>Name</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="4" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.2.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.2.4.1.2 "><p>23.401</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.2.4.1.3 "><p>3rd Generation Partnership Project;Technical Specification Group Services and System Aspects;General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.2.4.1.1 "><p>36.413</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.2.4.1.2 "><p>3rd Generation Partnership Project;Technical Specification Group Radio Access Network; Evolved Universal Terrestrial Radio Access Network  (E-UTRAN);S1 Application Protocol (S1AP) (Release 8)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.2.4.1.1 "><p>29.118</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.2.4.1.2 "><p>3rd Generation Partnership Project;Technical Specification Group Core Network and Terminals;Mobility Management Entity (MME)&#8211;Visitor Location Register (VLR) SGs interface specification (Release 8)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.2.4.1.1 "><p>24.301</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.2.4.1.2 "><p>3rd Generation Partnership Project;Technical Specification Group Core Network and Terminals;Non-Access-Stratum (NAS) protocol for Evolved Packet System (EPS);Stage 3 (Release 8)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0166292235__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0166292235" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_SMS_over_SGss.html">WSFD-104408 通过SGs接口实现短消息
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_SMS_over_SGss_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

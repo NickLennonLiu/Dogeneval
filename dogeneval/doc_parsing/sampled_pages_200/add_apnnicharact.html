@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="增加APNNI属性配置信息(ADD APNNICHARACT)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_configuration_table_of_apnni_characteristics.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_apnnicharact.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001172345265">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加APNNI属性配置信息(ADD APNNICHARACT)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001172345265"></a><a name="ZH-CN_MMLREF_0000001172345265"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">增加APNNI属性配置信息(ADD APNNICHARACT)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001172345265__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001172345265__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001172345265__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172345265__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001172345265__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001172345265__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345265__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001172345265" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001172345265__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>该命令用于配置在非活动用户（指已附着，但不进行业务活动的用户）分离流程中需要进行特殊处理的APN。它主要实现了在非活动用户分离流程中，“基于APN的保护”与“基于APN配置定时器”的功能。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345265__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001172345265" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li><li>该命令最大记录数为100。</li><li>每条记录中的APN NI字段不能重复。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345265__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001172345265" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345265__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001172345265" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345265__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001172345265" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>APNNI</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>APN网络标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：APN网络标识。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：1～62位字符串</p>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>APN网络标识由一个或多个LABEL构成，各LABEL间用“.”间隔。</li><li>每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”。</li><li>APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾，不能取值为“*”。</li></ul>
+</div>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>APN网络标识不区分大小写。</li><li>APNNI在APN中所处的位置，例如：example1.com.mnc123.mcc123.gprs，其中NI= example1.com，OI= mnc123.mcc123.gprs。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RSVIDLEUSER</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>是否永久保留非活动用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数决定了当SGSN启动分离非活动用户功能时，签约了该APN NI的用户在处于非活动状态时是否进行分离。</p>
+<p>数据来源：整网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“NO(否)”</span></li><li><span class="parmvalue">“YES(是)”</span></li></ul>
+</div>
+<p>默认值：<span class="parmvalue">“NO(否)”</span></p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><ul><li>对于配置的APN NI，当属性<span class="parmname">“是否永久保留非活动用户”</span>设置为<span class="parmvalue">“是”</span>时，标识SGSN在启动非活动用户分离功能后，签约了该APN NI的用户必须保留，即该用户不能被当作非活动用户而进行分离。</li><li>对于配置的APN NI，当属性<span class="parmname">“是否永久保留非活动用户”</span>设置为<span class="parmvalue">“否”</span>时，则需要同时设置该APN NI对应的<span class="parmname">“分离非活动用户定时器”</span>时长，这就标识着SGSN在启动非活动用户分离功能后，签约了该APN NI的用户在指定的<span class="parmname">“分离非活动用户定时器”</span>超时后才进行分离。</li></ul>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>RSVIDLEUSERTMR</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>分离非活动用户定时器（min）</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数决定了当SGSN启动非活动用户分离功能后，签约了该APNNI的用户在指定多长时间后才进行分离。当用户进入非活动状态时启动该定时器，当用户做业务时停止该定时器。定时器超时之后分离非活动用户。</p>
+<p>前提条件：该参数在<span class="parmname">“是否永久保留非活动用户”</span>参数设置为<span class="parmvalue">“否”</span>时，才需要配置。</p>
+<p>数据来源：整网规划</p>
+<p>取值范围：0min～4320min</p>
+<p>默认值：360min</p>
+<div class="p">配置原则：<ul><li>该定时器的时长决定了分离该APNNI下用户的时长，其大小不受其他参数影响。</li><li>取值为0时，2G用户请参考<strong>SET GBDETACH</strong>命令的<span class="parmname">“非活动用户分离定时器”</span>的时长。3G用户请参考<strong>SET IUDETACH</strong>命令的<span class="parmname">“非活动用户分离定时器”</span>的时长。</li></ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001172345265__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001172345265" class="sectiontitle2contents">使用实例</a></h4><p>增加记录，配置APN NI为<span class="parmvalue">“example1.com”</span>的用户不启用分离非活动用户功能：</p>
+<p><span class="msgph">ADD APNNICHARACT: APNNI="example1.com", RSVIDLEUSER=YES;</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_configuration_table_of_apnni_characteristics.html">APNNI属性
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_apnnicharact.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

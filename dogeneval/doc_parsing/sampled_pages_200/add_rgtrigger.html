@@ -1,0 +1,483 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="增加RG级的trigger参数（ADD RGTRIGGER）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_rg_level_trigger.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_rgtrigger.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0209653787">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加RG级的trigger参数（ADD RGTRIGGER）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0209653787"></a><a name="ZH-CN_MMLREF_0209653787"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">增加RG级的trigger参数（ADD RGTRIGGER）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0209653787__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0209653787__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0209653787__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0209653787__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0209653787__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653787" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：PGW-C、SMF</strong>
+                </p>
+
+                    <p>该命令用于增加RG级的trigger参数。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0209653787__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653787" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后只对新激活用户生效。</li></ul>
+
+                        <ul><li>最多可输入101条记录。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">CCTMPLTNAME</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">QOSCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.3">ULCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.4">SRVNDCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.5">PRACHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.6">PSDATAOFFCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.7">UETZCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.8">PLMNCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.9">RATCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.10">TIMELIMIT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.11">VOLUMELIMIT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.12">EVENTLIMIT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.13">QUOTATHRESHOLD</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.14">VT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.15">QHT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.16">SERVPLMNRTCTCHG</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.17">APNRATECTRLCHG</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>global</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>IMMEDIATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>IMMEDIATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>IMMEDIATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>IMMEDIATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>IMMEDIATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>IMMEDIATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 mcps1.3.2.4.1.1.1.4 mcps1.3.2.4.1.1.1.5 mcps1.3.2.4.1.1.1.6 mcps1.3.2.4.1.1.1.7 mcps1.3.2.4.1.1.1.8 mcps1.3.2.4.1.1.1.9 mcps1.3.2.4.1.1.1.10 mcps1.3.2.4.1.1.1.11 mcps1.3.2.4.1.1.1.12 mcps1.3.2.4.1.1.1.13 mcps1.3.2.4.1.1.1.14 mcps1.3.2.4.1.1.1.15 mcps1.3.2.4.1.1.1.16 mcps1.3.2.4.1.1.1.17 "><p>DEFERRED</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0209653787__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0209653787" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0209653787__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653787" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CCTMPLTNAME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>融合计费模板名称</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定CCT模板的名称。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~63。不区分大小写。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 该参数使用<a href="add_cct.html"><b><span class="cmdname">ADD CCT</span></b></a>命令配置生成。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QOSCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>QoS更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置QoS更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ULCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>用户位置更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置用户位置更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SRVNDCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>服务节点更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置服务节点更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PRACHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>区域用户位置上报更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置区域用户位置上报更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PSDATAOFFCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PS数据关闭状态更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置3GPP PS数据关闭状态更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>UETZCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>用户时区更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置用户时区更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：IMMEDIATE</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PLMNCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>PLMN更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置PLMN更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：IMMEDIATE</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>RATCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>RAT更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RAT更新的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：IMMEDIATE</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TIMELIMIT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>时间阈值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级时间阈值的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>VOLUMELIMIT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>流量阈值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级流量阈值的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>EVENTLIMIT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>事件阈值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级事件阈值的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QUOTATHRESHOLD</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>配额阈值</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级配额阈值的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量</li></ul>
+<p> 默认值：IMMEDIATE</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>VT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>配额有效时长</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级配额有效时长的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量</li></ul>
+<p> 默认值：IMMEDIATE</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>QHT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>配额保持时长</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级配额保持时长的trigger上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量</li></ul>
+<p> 默认值：IMMEDIATE</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SERVPLMNRTCTCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>服务PLMN速率控制更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级服务PLMN速率控制更新trigger的上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>APNRATECTRLCHG</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>APN速率控制更新</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置RG级APN速率控制更新trigger的上报方式。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NONREPORT（不上报）”：事件发生，不生成容器，不上报CHF。</li><li>“IMMEDIATE（立即上报）”：事件发生，按Immediate上报，对已经产生的用量生成用量容器，向CHF发送Charging Data Request Update消息携带所有生成的用量容器，并开始新的用量计量。</li><li>“DEFERRED（延迟上报）”：事件发生，按Deferred上报，对已经产生的用量生成用量容器，并开始新的用量计量。</li></ul>
+<p> 默认值：DEFERRED</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0209653787__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0209653787" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>新增名为“test”的CCT融合计费模板的RG级的trigger参数，QoS更改trigger上报方式为立即上报：</p>
+
+                    <pre class="screen">ADD RGTRIGGER: CCTMPLTNAME="test", QOSCHG=IMMEDIATE;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_rg_level_trigger.html">RG级Trigger
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_rgtrigger.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

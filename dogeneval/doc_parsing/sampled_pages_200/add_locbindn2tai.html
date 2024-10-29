@@ -1,0 +1,212 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="增加UPF位置信息与UPF优先支持的5G TAI范围的绑定关系（ADD LOCBINDN2TAI）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_5g_tai_range_and_locality_name_binding.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_locbindn2tai.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0296241683">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>增加UPF位置信息与UPF优先支持的5G TAI范围的绑定关系（ADD LOCBINDN2TAI）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0296241683"></a><a name="ZH-CN_MMLREF_0296241683"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">增加UPF位置信息与UPF优先支持的5G TAI范围的绑定关系（ADD LOCBINDN2TAI）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0296241683__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0296241683__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0296241683__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0296241683__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0296241683__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296241683" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：SMF</strong>
+                </p>
+
+                    <p>该命令用于增加UPF位置信息与UPF优先支持的TAI范围的绑定关系。</p>
+
+                    <p>在用户激活时，SMF从激活请求中获取用户位置信息，在为用户选择UPF时，会优先选择包含用户位置信息的已绑定TAI域的UPF，以获得更好的服务。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0296241683__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296241683" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>使用命令SET UPSELECTFLAG将LOCALITY开关置为ENABLE时生效。</li></ul>
+
+                    <ul><li> 同一LOCALITY下，MCC相同且MNC长度不同时，MNC的前两位不允许相同。</li><li> 相同LOCALITY，MCC，MNC的记录，绑定的N2TAC范围不允许重叠。</li></ul>
+
+                        <ul><li>最多可输入16384条记录。</li></ul>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0296241683__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0296241683" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0296241683__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296241683" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LOCALITY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>UPF位置区</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于标识UPF位置区。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是1~255。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 参数值需要与UPF规划的LOCALITY参数保持一致。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MCC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>移动国家码</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定对端NF的移动国家码。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度是3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 本参数由3个十进制数字组成。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MNC</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>移动网号</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定对端NF的移动网号。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度范围是2~3。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 本参数由2~3个十进制数字组成。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>N2TACSTART</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>N2 TAC起始号段</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定TAC的起始号段。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度是6。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 字符串类型，6位16进制数。</p>
+<p> TAC的终止号段需要不小于TAC的起始号段，且结束值和开始值长度需相等。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>N2TACEND</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>N2 TAC终止号段</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于指定TAC的终止号段。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：字符串类型，输入长度是6。</p>
+<p> 默认值：无</p>
+<p> 配置原则：</p>
+<p> 字符串类型，6位16进制数。</p>
+<p> TAC的终止号段需要不小于TAC的起始号段，且结束值和开始值长度需相等。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0296241683__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296241683" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>新增UPF位置信息与UPF优先支持的TAI范围的绑定关系，其中UPF位置区为“locality1”，MCC为460, MNC为03，N2 TAC起始号段为130101，N2 TAC终止号段为130102。</p>
+
+                    <pre class="screen">ADD LOCBINDN2TAI: LOCALITY="locality1",MCC="460",MNC="03",N2TACSTART="130101",N2TACEND="130102";</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_5g_tai_range_and_locality_name_binding.html">位置区域绑定5G TAI范围
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_locbindn2tai.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

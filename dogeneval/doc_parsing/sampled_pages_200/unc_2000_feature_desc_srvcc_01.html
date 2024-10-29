@@ -1,0 +1,361 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-102003 SRVCC">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_srvcc.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2000_feature_om_Deploying_SRVCC_Services.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-102003">
+<meta name="Function" content="VoLTE">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0168374442">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-102003 SRVCC</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0168374442"></a><a name="ZH-CN_CONCEPT_0168374442"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-102003 SRVCC</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0168374442__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">适用NF</a></h4><p>MME、SGW-C、PGW-C</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">定义</a></h4><p>SRVCC（Single Radio Voice Call Continuity）为单语音呼叫持续。在LTE网络部署初期，LTE网络未完全覆盖，当VoLTE用户移动到了LTE未覆盖到的区域，语音业务则需要切换到CS网络（无线侧为GSM/UMTS），SRVCC可以保证在网络切换过程中，正在进行的语音业务不中断。</p>
+<p>eSRVCC（enhanced SRVCC）是对SRVCC的增强。相对于SRVCC，eSRVCC优化了组网，通过设定信令面和媒体面锚点，使整个切换时延更短，提升了用户体验。因eSRVCC与SRVCC的差异主要在核心网，这里不区分介绍，SRVCC即代表SRVCC/eSRVCC。</p>
+<div class="fignone"><span class="figcap"><b>图1 </b>SRVCC切换</span><br><span><img class="vsd" src="figure/zh-cn_image_0208571675.png"></span></div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="36.5%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="63.5%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="36.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>提供语音业务从LTE网络到GSM/UMTS网络的无缝切换，有助于实现组网的灵活演进，降低运营商的成本。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="36.5%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.5%" headers="mcps1.3.3.2.1.3.1.2 "><p>语音通话业务无中断，提升用户体验和对运营商的满意度。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">应用场景</a></h4><p>在LTE网络部署初期，LTE网络未完全覆盖，VoLTE用户进行语音通话时，可能会从LTE网络覆盖的范围移动到非LTE网络覆盖的范围内（即GSM/UMTS），这时需要SRVCC方案保证网络切换过程中用户的语音业务不中断。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">可获得性</a></h4><div class="p"><strong>涉及NF</strong>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="24.81%" id="mcps1.3.5.2.2.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="24.81%" id="mcps1.3.5.2.2.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50.38%" id="mcps1.3.5.2.2.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>UE</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>具备SRVCC功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>eNodeB</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>完成用户的识别和无线接入转发功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>接收eNodeB发送的切换请求，并将请求消息中语音数据切换标识发送给MSC Server。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p><span>UNC 20.0.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>在语音切换到CS网络后，通知SGW-U/PGW-U删除LTE语音承载。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>SGW-U/PGW-U</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>UDG 20.0.0及后续版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>按照SGW-C/PGW-C的指示删除LTE语音承载。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>UDG 20.0.0及后续版本</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>在语音切换到CS网络后，删除LTE语音承载。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>SGSN</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>在语音业务切换中将数据业务挂起。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>MSC Server</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><ul><li>执行从MME发过来的切换请求。</li><li>支持语音业务从LTE到CS域的切换。</li><li>将语音会话锚定在IMS网络中。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>PCRF</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊需求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>下发用户的策略控制信息。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>HSS</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>存放VoLTE用户相关的签约数据，供CS域、IMS域和EPC域网元获取用户数据。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>IMS</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.81%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="50.38%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>提供IMS切换锚点，并完成切换流程。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span>“82206605 LKV2VOLTE01 SRVCC”（适用于MME）“82208003 LKV3WPRVCC11 SRVCC”（适用于SGW-C/PGW-C）。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">与其他特性的交互</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="7.770777077707772%" id="mcps1.3.6.2.1.5.1.1" liSelected="liSelected"><p>交互类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.011601160116008%" id="mcps1.3.6.2.1.5.1.2" liSelected="liSelected"><p>相关特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15.651565156515652%" id="mcps1.3.6.2.1.5.1.3" liSelected="liSelected"><p>控制项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="60.56605660566057%" id="mcps1.3.6.2.1.5.1.4" liSelected="liSelected"><p>交互说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="7.770777077707772%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.011601160116008%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_VoLTE_Entry_Feature.html">WSFD-102001 VoLTE基础语音业务</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="15.651565156515652%" headers="mcps1.3.6.2.1.5.1.3 "><p>82206605  VoLTE基础语音业务</p>
+</td>
+<td class="cellrowborder" valign="top" width="60.56605660566057%" headers="mcps1.3.6.2.1.5.1.4 "><p>部署本特性前需要先开启<a href="unc_2000_feature_desc_VoLTE_Entry_Feature.html">WSFD-102001 VoLTE基础语音业务</a>特性，以保证基本的VoLTE语音业务功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="7.770777077707772%" headers="mcps1.3.6.2.1.5.1.1 "><p>影响</p>
+</td>
+<td class="cellrowborder" valign="top" width="16.011601160116008%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Default_MSC_over_SGs_and_Sv.html">WSFD-104405 基于SGs和Sv接口的默认MSC选择</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="15.651565156515652%" headers="mcps1.3.6.2.1.5.1.3 "><p>82206559 基于SGs和Sv接口的默认MSC选择</p>
+</td>
+<td class="cellrowborder" valign="top" width="60.56605660566057%" headers="mcps1.3.6.2.1.5.1.4 "><p>部署本特性时，建议同时部署<a href="unc_2000_feature_desc_Default_MSC_over_SGs_and_Sv.html">WSFD-104405 基于SGs和Sv接口的默认MSC选择</a>特性，这样在SRVCC业务过程中，如果MME解析MSC失败，可以尝试使用Default LAI解析MSC，提升业务成功率。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">应用限制</a></h4><ul><li><p>仅支持LTE网络到GSM/UMTS网络的切换，不支持GSM/UMTS网络到LTE网络的切换。</p>
+</li><li><p>仅支持语音业务的切换，不支持视频业务的切换。</p>
+</li><li><p>不支持紧急呼叫业务的切换。</p>
+</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">原理概述</a></h4><p>SRVCC特性中，MME和MSC Server之间通过Sv接口对接，协议栈如<a href="#ZH-CN_CONCEPT_0168374442__fig1">图2</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0168374442__fig1"><a name="ZH-CN_CONCEPT_0168374442__fig1"></a><a name="fig1"></a><span class="figcap"><b>图2 </b>Sv接口协议栈</span><br><span><img class="vsd" src="figure/zh-cn_image_0168374454.png"></span></div>
+<p>当VoLTE用户从LTE网络覆盖区域移动到GSM/UMTS网络覆盖区域时，SRVCC方案将正在进行的语音业务切换到CS网络，保证用户通话不中断，典型组网如<a href="#ZH-CN_CONCEPT_0168374442__fig2">图3</a>所示。</p>
+<div class="fignone" id="ZH-CN_CONCEPT_0168374442__fig2"><a name="ZH-CN_CONCEPT_0168374442__fig2"></a><a name="fig2"></a><span class="figcap"><b>图3 </b>SRVCC典型组网</span><br><span><img class="vsd" src="figure/zh-cn_image_0168374456.png"></span></div>
+<p>SRVCC方案提供的切换可以仅切换语音业务，也可以将语音业务和数据业务一起切换，这取决于UE和网络侧的能力。涉及切换场景如<a href="#ZH-CN_CONCEPT_0168374442__table5979185542">表1 SRVCC切换场景</a>所示。</p>
+<ul><li>是否支持DTM（Dual Transfer Mode）<ul><li><p>支持DTM是指，在GERAN网络下，用户可以同时进行语音和数据业务。</p>
+</li><li><p>不支持DTM是指，在GERAN网络下，用户进行语音业务时，数据业务会被挂起。</p>
+</li></ul>
+</li><li>是否支持PS Handover<ul><li>支持PS Handover，语音业务和数据业务可以一起切换（数据业务无损失）。</li><li>不支持PS Handover，仅切换语音业务，数据业务通过RAU/TAU流程恢复（数据业务有损失）。</li></ul>
+</li></ul>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0168374442__table5979185542"></a><a name="table5979185542"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0168374442__table5979185542" frame="border" border="1" rules="all"><caption><b>表1 </b>SRVCC切换场景</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="21.43%" id="mcps1.3.9.8.2.4.1.1" liSelected="liSelected"><p>切换场景</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="24.43%" id="mcps1.3.9.8.2.4.1.2" liSelected="liSelected"><p>说明</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="54.14%" id="mcps1.3.9.8.2.4.1.3" liSelected="liSelected"><p>数据业务处理</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="21.43%" headers="mcps1.3.9.8.2.4.1.1 "><p><a href="unc_2000_feature_desc_SRVCC_Attach_Procedure_01.html">场景一：E-UTRAN到GERAN的SRVCC，不支持DTM</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="24.43%" headers="mcps1.3.9.8.2.4.1.2 "><p>该场景要求eNodeB能够判断出目标GERAN或者UE不支持DTM。</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.14%" headers="mcps1.3.9.8.2.4.1.3 "><div class="p">SRVCC流程中数据业务挂起。待语音通话结束后，根据用户所在网络，通过TAU/RAU恢复数据业务。<ul><li>如果用户在E-UTRAN和GERAN共同覆盖的区域，用户通过TAU返回LTE网络，恢复数据业务。</li><li>如果用户在仅有GERAN覆盖的区域，用户通过RAU流程将数据业务迁移到GSM网络。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.43%" headers="mcps1.3.9.8.2.4.1.1 "><p><a href="unc_2000_feature_desc_SRVCC_Attach_Procedure_01.html">场景二：E-UTRAN到GERAN的SRVCC，支持DTM，不支持PS Handover</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="24.43%" headers="mcps1.3.9.8.2.4.1.2 "><p>该场景要求eNodeB能够判断出目标GERAN和UE支持DTM，但GERAN不支持PS  Handover。</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.14%" headers="mcps1.3.9.8.2.4.1.3 "><p>SRVCC流程进行的同时数据业务通过RAU流程迁移至GSM网络。数据和语音都在GSM网络进行。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.43%" headers="mcps1.3.9.8.2.4.1.1 "><p><a href="unc_2000_feature_desc_SRVCC_Attach_Procedure_01.html">场景三：E-UTRAN到UTRAN的SRVCC，不支持PS Handover</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="24.43%" headers="mcps1.3.9.8.2.4.1.2 "><p>该场景要求eNodeB能够判断出目标UTRAN不支持PS Handover。</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.14%" headers="mcps1.3.9.8.2.4.1.3 "><p>SRVCC流程进行的同时数据业务通过RAU流程迁移至UMTS网络。数据和语音都在UMTS网络进行。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.43%" headers="mcps1.3.9.8.2.4.1.1 "><p>场景四：E-UTRAN到UTRAN的SRVCC，支持PS Handover</p>
+</td>
+<td class="cellrowborder" valign="top" width="24.43%" headers="mcps1.3.9.8.2.4.1.2 "><p>该场景要求eNodeB能够判断出目标UTRAN支持PS Handover。</p>
+</td>
+<td class="cellrowborder" valign="top" width="54.14%" headers="mcps1.3.9.8.2.4.1.3 "><p>SRVCC方案中语音业务和数据业务同时切换，相对于TAU/RAU，本场景可以保证数据业务无损切换，提升用户体验。</p>
+<p>SRVCC方案中语音业务和数据业务同时切换的功能请参考<a href="unc_2000_feature_desc_Data_Voice_Switch_within_SRVCC.html">WSFD-110753-1 基于SRVCC的数据语音双切换</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="10.8%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="12.73%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="76.47%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="11" valign="top" width="10.8%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="12.73%" headers="mcps1.3.12.2.1.4.1.2 "><p>23.216</p>
+</td>
+<td class="cellrowborder" valign="top" width="76.47%" headers="mcps1.3.12.2.1.4.1.3 "><p>Single Radio Voice Call Continuity (SRVCC);Stage 2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.401</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network(E-UTRAN) access</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.402</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Architecture enhancements for non-3GPP accesses</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.237</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>IP Multimedia Subsystem (IMS) Service Continuity; Stage 2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>24.237</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>IP Multimedia Subsystem (IMS) Service Continuity; Stage 3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.280</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Evolved Packet System (EPS);3GPP Sv interface (MME to MSC, and SGSN to MSC) for SRVCC</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.292</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Interworking between the IP Multimedia (IM) Core Network (CN) subsystem and MSC Server for IMS Centralized Services (ICS)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.292</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>IP Multimedia Subsystem (IMS) centralized services;Stage 2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>24.292</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>IP Multimedia Subsystem (IMS) centralized services;Stage 3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.060</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>General Packet Radio Service (GPRS) Service Description; Stage 2</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.272</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>MME and SGSN Related Interfaces Based on Diameter Protocol</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0168374442__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0168374442" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.0.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_srvcc.html">WSFD-102003 SRVCC
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../om/unc_2000_feature_om_Deploying_SRVCC_Services.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

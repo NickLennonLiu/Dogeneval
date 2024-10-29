@@ -1,6 +1,7 @@
 from openai import OpenAI
 
 from dogeneval.utils.parser import try_parse_json
+from dogeneval.utils.decorators import retry
 
 openai_api_key = "EMPTY"
 
@@ -25,18 +26,28 @@ class AzureClient:
     def get_azure_model(self):
         from langchain_openai.chat_models import AzureChatOpenAI
         llm = AzureChatOpenAI(
+            # gpt4
             azure_endpoint="https://swedencentralchatgpt.openai.azure.com/",
             # azure_ad_token="1df6890f43db40e093c00df74e3fc185",
             api_key="1df6890f43db40e093c00df74e3fc185",
             openai_api_version="2024-02-01",
             azure_deployment="gpt4-test",
+            
+            # gpt4o
+            # api_key = "77d239285ca8450287186024ffc22f57",
+            # api_version = "2024-02-01",
+            # azure_endpoint = "https://eastuszhiyan.openai.azure.com/",
+            # azure_deployment = "gpt4o-test",
+            # model = "gpt-4o",
         )
         return llm
     
+    @retry(default_return_value="")
     def chat(self, prompt):
         response = self.llm.invoke(prompt).content
         return response
     
+    @retry(default_return_value=dict())
     def chat_json(self, prompt):
         response = self.llm.invoke(prompt).content
         return try_parse_json(response)

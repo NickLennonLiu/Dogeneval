@@ -1,0 +1,180 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="修改GTP-U IP地址接口属性(MOD GTPUINTFATTR)">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_gtp_u_interface_attribute.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/rmv_gtpuintfattr.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_gtpuintfattr.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001126305794">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>修改GTP-U IP地址接口属性(MOD GTPUINTFATTR)</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001126305794"></a><a name="ZH-CN_MMLREF_0000001126305794"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">修改GTP-U IP地址接口属性(MOD GTPUINTFATTR)</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001126305794__1.3.1.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001126305794__1.3.2.1">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001126305794__1.3.3.1">本地用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305794__1.3.4.1">网管用户权限</a></li><li><a href="#ZH-CN_MMLREF_0000001126305794__1.3.5.1">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001126305794__1.3.6.1">使用实例</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305794__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_MMLREF_0000001126305794" class="sectiontitle2contents">命令功能</a></h4><p><span><strong id="ZH-CN_MMLREF_0000001126305794__zh-cn_concept_0272842528_b1991595364192121">适用网元：SGSN、MME</strong></span></p>
+<p>该命令用于修改已存在记录的名称等维护信息。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305794__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_MMLREF_0000001126305794" class="sectiontitle2contents">注意事项</a></h4><ul><li>该命令执行后立即生效。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305794__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001126305794" class="sectiontitle2contents">本地用户权限</a></h4><p>manage-ug；system-ug</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305794__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_MMLREF_0000001126305794" class="sectiontitle2contents">网管用户权限</a></h4><p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305794__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_MMLREF_0000001126305794" class="sectiontitle2contents">参数说明</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.1" liSelected="liSelected"><p>参数标识</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.5.2.1.4.1.3" liSelected="liSelected"><p>参数说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>MODTYPE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>修改条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：必选参数</p>
+<p>参数含义：该参数用于指定修改操作的类型。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“BYINDEX(根据记录索引)”</span></li><li><span class="parmvalue">“BYINTFSUB(根据接口类型和用户范围)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INDEX</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>记录索引</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定已存在记录的索引。</p>
+<p>前提条件：该参数在<span class="parmname">“修改条件”</span>参数配置为<span class="parmvalue">“BYINDEX(根据记录索引)”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0~4294967295</p>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>使用<a href="lst_gtpuintfattr.html"><b><span class="cmdname">LST GTPUINTFATTR</span></b></a>查询记录的名称。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>SUBRANGE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>用户范围</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定GTPU IP地址适用的用户范围。</p>
+<p>前提条件：该参数在<span class="parmname">“修改条件”</span>参数配置为<span class="parmvalue">“YINTFSUB(根据接口类型和用户范围)”</span>B后生效。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ALL_USER(所有用户)”</span></li><li><span class="parmvalue">“SPECIAL_IMSIPRE(指定IMSI前缀)”</span></li><li><span class="parmvalue">“SPECIAL_NOID(指定运营商)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>NOID</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>运营商标识</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定用户归属的运营商标识。</p>
+<p>前提条件：该参数在<span class="parmname">“用户范围”</span>参数配置为<span class="parmvalue">“SPECIAL_NOID(指定运营商)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：0～64，128～254</p>
+<p>默认值：无</p>
+<div class="p">配置原则：<ul><li>若该参数需要配置为0或128～254之间的值时，请先在<a href="add_mno.html"><b><span class="cmdname">ADD MNO</span></b></a>中配置取值相同的<span class="parmname">“MNOID”</span>参数。</li><li>若该参数需要配置为1～64之间的值时，须先在<a href="add_mvno.html"><b><span class="cmdname">ADD MVNO</span></b></a>中配置取值相同的<span class="parmname">“MVNOID”</span>参数。</li></ul>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>IMSIPRE</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>IMSI前缀</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定用户的IMSI前缀。使用时按照IMSI最长匹配进行查询。</p>
+<p>前提条件：该参数在<span class="parmname">“用户范围”</span>参数配置为<span class="parmvalue">“SPECIAL_IMSIPRE(指定IMSI前缀)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<p>取值范围：1~15位十进制数</p>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTFTP1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>接口类型</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定GTPU IP地址适用的接口类型。</p>
+<p>前提条件：该参数在<span class="parmvalue">“用户范围”</span>参数配置为<span class="parmname">“ALL_USER(所有用户)”</span>后生效。</p>
+<p>数据来源：本端规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ALL_INTERFACE(所有接口)”</span></li><li><span class="parmvalue">“GN-GGSN/GP(Gn-GGSN/Gp)”</span></li><li><span class="parmvalue">“GN-SGSN/S16(Gn-SGSN/S16)”</span></li><li><span class="parmvalue">“Iu(IU)”</span></li><li><span class="parmvalue">“S11(S11)”</span></li><li><span class="parmvalue">“S4(S4)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p><span class="parmvalue">“GN-SGSN(Gn-SGSN)”</span>包含GnGp SGSN之间的接口以及GnGp SGSN与MME之间的接口。</p>
+</div></div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>INTFTP2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>接口类型2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：条件必选参数</p>
+<p>参数含义：该参数用于指定GTPU IP地址适用的接口类型。</p>
+<p>前提条件：该参数在<span class="parmvalue">“用户范围”</span>参数配置为<span class="parmvalue">“SPECIAL_NOID(指定运营商)”</span>/<span class="parmvalue">“SPECIAL_IMSIPRE(指定IMSI前缀)”</span>后生效。</p>
+<p>数据来源：全网规划</p>
+<div class="p">取值范围：<ul><li><span class="parmvalue">“ALL_INTERFACE(所有接口)”</span></li><li><span class="parmvalue">“GN-GGSN/GP(Gn-GGSN/Gp)”</span></li><li><span class="parmvalue">“S11(S11)”</span></li><li><span class="parmvalue">“S4(S4)”</span></li></ul>
+</div>
+<p>默认值：无</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.1 "><p>DESC</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.2 "><p>描述信息</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.5.2.1.4.1.3 "><p>可选必选说明：可选参数</p>
+<p>参数含义：该参数用于指定描述信息。</p>
+<p>数据来源：本端规划</p>
+<p>取值范围：0~31位字符串</p>
+<p>默认值：无</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001126305794__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_MMLREF_0000001126305794" class="sectiontitle2contents">使用实例</a></h4><p>将修改类型为BYINDEX、INDEX为1的记录的DESC修改为"HUAWEI"。</p>
+<p><span class="msgph">MOD GTPUINTFATTR: MODTYPE=BYINDEX, INDEX=0, DESC="HUAWEI";</span></p>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_gtp_u_interface_attribute.html">GTP-U接口类型属性
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/rmv_gtpuintfattr.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_gtpuintfattr.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

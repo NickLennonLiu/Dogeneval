@@ -1,0 +1,231 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="WSFD-104201 SGSN Pool用户迁移特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Subscriber_Migration_in_SGSN_Pooll.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Subscriber_Migration_in_SGSN_Pool_022.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="Function" content="容灾">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0245946615">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-104201 SGSN Pool用户迁移特性概述</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0245946615"></a><a name="ZH-CN_TOPIC_0245946615"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-104201 SGSN Pool用户迁移特性概述</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0245946615__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.2.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_TOPIC_0245946615__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">适用NF</a></h4><p><span>SGSN</span></p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">定义</a></h4><p><term>SGSN</term> Pool用户迁移特性是在SGSN Pool组网中，当用户在Pool内的SGSN上分布不均衡时，通过手工方式将部分用户从一个SGSN迁移到另一个SGSN上，从而实现对SGSN Pool内这些SGSN的维护而不影响用户业务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.3.2.1.3.1.2 "><p>Pool区内用户灵活调度，方便网络维护及网络扩容。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.3.2.1.3.1.2 "><p>在进行SGSN维护时，用户业务不受影响。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">应用场景</a></h4><div class="p">SGSN Pool内SGSN之间用户的迁移可以应用于如下的场景。<ul><li><p>迁移全部用户</p>
+<p>升级SGSN Pool内的一个或多个SGSN时，需要先将这些SGSN内的全部用户迁移到SGSN Pool内其他SGSN中，然后再对这些SGSN进行升级，避免升级影响用户的业务。</p>
+</li><li><p>迁移部分用户</p>
+<p>如上例，当这些SGSN升级完毕后，需要将其他SGSN中的部分用户迁移回升级完毕的SGSN。</p>
+<p>通过EMS，指定SGSN中迁出的用户数或用户比例（当前SGSN静态用户数的比例），当迁出用户数达到指定的用户数或比例时，迁移操作自动停止。</p>
+</li><li><p>迁移指定RNC/BSC下的用户</p>
+<p>将SGSN Pool1中的RNC/BSC由SGSN Pool2接管时，为了避免接管过程中对该RNC/BSC下的用户业务造成影响，先将需要接管的RNC/BSC也连入SGSN Pool2中（对这些RNC/BSC，SGSN Pool1和SGSN Pool2中所有的SGSN实际上构成了一个新的SGSN Pool），然后将SGSN Pool1各SGSN中位于RNC/BSC下的用户迁移到SGSN Pool2中的各SGSN中，迁移完毕后，可以断开RNC/BSC与SGSN Pool1的连接。</p>
+<p>通过EMS，SGSN能够只迁移指定RNC/BSC业务区的用户。同时可以支持迁移10个RNC/BSC业务区中的用户。</p>
+</li><li><p>迁移指定的用户</p>
+<p>为了拨测或测试目的，需要将SGSN Pool内在SGSN1中注册的用户迁移到SGSN2。</p>
+<p>通过EMS，SGSN能够根据IMSI方式迁移指定的用户。</p>
+</li><li><p>基于MSISDN号段迁移用户</p>
+<p>不推荐。</p>
+</li></ul>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">可获得性</a></h4><div class="p"><strong>涉及NF</strong>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="25.94%" id="mcps1.3.5.2.2.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="27.82%" id="mcps1.3.5.2.2.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="46.239999999999995%" id="mcps1.3.5.2.2.1.4.1.3" liSelected="liSelected"><p>功能</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="25.94%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>MS</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="46.239999999999995%" headers="mcps1.3.5.2.2.1.4.1.3 "><ul><li>根据网络侧的指示时间发起周期RAU。</li><li>根据网络侧指示重新发起Attach流程。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25.94%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>BSC</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="46.239999999999995%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>不将新接入的用户路由到已经处于迁移状态的SGSN。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25.94%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>RNC</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="46.239999999999995%" headers="mcps1.3.5.2.2.1.4.1.3 "><p>不将新接入的用户路由到已经处于迁移状态的SGSN。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25.94%" headers="mcps1.3.5.2.2.1.4.1.1 "><p><span>SGSN</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82%" headers="mcps1.3.5.2.2.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="46.239999999999995%" headers="mcps1.3.5.2.2.1.4.1.3 "><ul><li>根据U2020的指示发起用户迁移任务。</li><li>定期向U2020上报迁移进度。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25.94%" headers="mcps1.3.5.2.2.1.4.1.1 "><p>U2020</p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82%" headers="mcps1.3.5.2.2.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="46.239999999999995%" headers="mcps1.3.5.2.2.1.4.1.3 "><ul><li>根据POOL内SGSN的负荷情况，决定启动和停止用户迁移任务。</li><li>监控用户迁移进度。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>License支持</strong></p>
+<p><span>本特性只有获得了License许可后才能获得该特性的服务，对应的License控制项为</span>“82206553 LKV2SGSNMG02 SGSN Pool用户迁移”。</p>
+<p>本特性加载License后即可使用。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">与其他特性的交互</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16.781678167816782%" id="mcps1.3.6.2.1.5.1.1" liSelected="liSelected"><p>交互类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="22.772277227722775%" id="mcps1.3.6.2.1.5.1.2" liSelected="liSelected"><p>相关特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="25.002500250025%" id="mcps1.3.6.2.1.5.1.3" liSelected="liSelected"><p>控制项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="35.44354435443544%" id="mcps1.3.6.2.1.5.1.4" liSelected="liSelected"><p>交互说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16.781678167816782%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="22.772277227722775%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Gb-flexx.html">WSFD-104204 Gb-flex</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="25.002500250025%" headers="mcps1.3.6.2.1.5.1.3 "><p>82206555 Gb-flex</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="35.44354435443544%" headers="mcps1.3.6.2.1.5.1.4 "><p>本特性开启前需要开启特性“<a href="unc_2000_feature_desc_Iu-flexx.html">WSFD-104203 Iu-flex</a>”或“<a href="unc_2000_feature_desc_Gb-flexx.html">WSFD-104204 Gb-flex</a>”。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Iu-flexx.html">WSFD-104203 Iu-flex</a></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.6.2.1.5.1.3 "><p>82206554 Iu-flex</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">应用限制</a></h4><p>在<span>UNC</span>存在进程复位的场景下，用户迁移功能不可用。请在进程复位完成后，再启动用户迁移。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">原理概述</a></h4><div class="p">用户迁移类型主要包括以下几种。<ul><li><p>迁移全部用户</p>
+</li><li><p>迁移部分用户</p>
+</li><li><p>迁移指定RNC/BSC下的用户</p>
+</li><li><p>迁移指定的用户</p>
+</li><li><p>基于MSISDN号段迁移用户</p>
+</li></ul>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">特性规格</a></h4><p>本特性无特殊规格。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.2 "><p>23.236</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.12.2.1.4.1.3 "><p>Intra-domain connection of Radio Access Network (RAN) nodes to multiple Core Network (CN) nodes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0245946615__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_TOPIC_0245946615" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p><span>首次发布。</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2000_feature_desc_Subscriber_Migration_in_SGSN_Pooll.html">WSFD-104201 SGSN Pool用户迁移
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Subscriber_Migration_in_SGSN_Pool_022.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

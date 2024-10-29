@@ -1,0 +1,153 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="4G网络基于指定区域的策略控制实现原理">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0252744850.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_Presence_Reporting_Area_Support_01.html">
+<meta name="DC.Relation" scheme="URI" content="../om/unc_2000_feature_om_Presence_Reporting_Area_Support.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="network_function" content="MME">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-106010">
+<meta name="Function" content="Qos">
+<meta name="Function" content="智能PCC">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0168358202">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>4G网络基于指定区域的策略控制实现原理</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0168358202"></a><a name="ZH-CN_CONCEPT_0168358202"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">4G网络基于指定区域的策略控制实现原理</h1>
+<div><p id="ZH-CN_CONCEPT_0168358202__p150092792180642"><a name="ZH-CN_CONCEPT_0168358202__p150092792180642"></a><a name="p150092792180642"></a><span><strong>业务流程</strong></span></p>
+<p>开始、保持、取消PRA订阅场景与业务流程的对应关系如<a href="#ZH-CN_CONCEPT_0168358202__tab7">表1</a>所示：</p>
+
+<div class="tableBorder"><a name="ZH-CN_CONCEPT_0168358202__tab7"></a><a name="tab7"></a><table cellpadding="4" cellspacing="0" summary="" id="ZH-CN_CONCEPT_0168358202__tab7" frame="border" border="1" rules="all"><caption><b>表1 </b>PRA订阅场景与业务流程的对应关系</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="17.669999999999998%" id="mcps1.3.3.2.4.1.1" liSelected="liSelected"><p>状态</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="52.300000000000004%" id="mcps1.3.3.2.4.1.2" liSelected="liSelected"><p>用户状态管理</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="30.03%" id="mcps1.3.3.2.4.1.3" liSelected="liSelected"><p>流程</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="5" valign="top" width="17.669999999999998%" headers="mcps1.3.3.2.4.1.1 "><p>开始PRA订阅</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.300000000000004%" headers="mcps1.3.3.2.4.1.2 "><p>用户在LTE网络建立PDN连接</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.03%" headers="mcps1.3.3.2.4.1.3 "><p>Attach/UE请求PDN连接</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>用户从GSM/UMTS网络移动到LTE网络，需要根据PCF/PCRF下发的trigger开启PRA。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>TAU、Handover</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>用户从Non-3GPP网络切换LTE网络，需要根据PCF/PCRF下发的trigger开启PRA。</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>Handover</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>用户已经在线（PDN承载已建立）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>承载更新</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>用户已经在线（PDN承载已建立）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>专有承载建立</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="2" valign="top" width="17.669999999999998%" headers="mcps1.3.3.2.4.1.1 "><p>保持PRA订阅</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.300000000000004%" headers="mcps1.3.3.2.4.1.2 "><p>用户在LTE网络内PRA区域移动</p>
+</td>
+<td class="cellrowborder" valign="top" width="30.03%" headers="mcps1.3.3.2.4.1.3 "><p>Intra TAU、Inter TAU、X2-based-HO、S1-based HO</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>用户从Idle态到Connected态变化</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>Service Request</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="5" valign="top" width="17.669999999999998%" headers="mcps1.3.3.2.4.1.1 "><p>取消PRA订阅</p>
+</td>
+<td class="cellrowborder" valign="top" width="52.300000000000004%" headers="mcps1.3.3.2.4.1.2 "><p>用户从LTE网络移动到GSM/UMTS网络、Non-3GPP网络，UNC记录PRA状态无效。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>如果UNC是融合PGW/GGSN，可能UNC作为GGSN根据PCRF的tigger或者本地配置发起PRA上报动作。</p>
+</div></div>
+</td>
+<td class="cellrowborder" valign="top" width="30.03%" headers="mcps1.3.3.2.4.1.3 "><p>RAU、Handover、Detach</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><div class="p">用户从4G切换到5G时，UNC记录4G PRA状态无效。<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>如果UNC是融合PGW/SMF，可能UNC会作为SMF根据PCF的tigger或者本地配置发起PRA上报动作。</p>
+</div></div>
+</div>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>TAU、Handover</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>用户从5G切换到4G时，UNC记录5G PRA状态无效，UNC作为PGW-C根据PCRF/PCF的tigger或者本地配置发起PRA上报动作。</p>
+<div class="note"><span class="notetitle"> 说明： </span><div class="notebody"><p>如果UNC是融合PGW/SMF，可能UNC会作为PGW-C根据PCRF/PCF的tigger或者本地配置发起PRA上报动作。</p>
+</div></div>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>TAU、Handover</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>PCRF取消PRA订阅</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>承载更新</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.1 "><p>PCRF取消PRA订阅</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.3.2.4.1.2 "><p>专有承载建立</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>接下来分别以Attach流程、Intra TAU流程和Update Bearer流程为例来介绍MME开始、保持和取消PRA订阅。</p>
+<ul><li>开始PRA订阅（Attach流程）<div class="fignone"><span class="figcap"><b>图1 </b>开始PRA订阅</span><br><span><img class="vsd" src="figure/zh-cn_image_0252731714.png"></span></div>
+</li><li>保持PRA订阅（Intra TAU流程）<div class="fignone"><span class="figcap"><b>图2 </b>保持PRA订阅</span><br><span><img class="vsd" src="figure/zh-cn_image_0252731717.png"></span></div>
+</li><li>取消PRA订阅（Update Bearer流程）<div class="fignone"><span class="figcap"><b>图3 </b>取消PRA订阅</span><br><span><img class="vsd" src="figure/zh-cn_image_0252731716.png"></span></div>
+</li></ul>
+<p><span><strong>ECGI粒度的PRA订阅</strong></span></p>
+<p><strong>使用场景</strong></p>
+<div class="p">在以下三种场景中，使用ECGI粒度规划PRA区域：<ul><li>PRA区域较小（如商场、酒店）。</li><li>若存在一个eNodeB服务多个跟踪区域时，PRA区域不能跨多个跟踪区域进行规划。</li><li>若存在Home eNodeB通过Home eNodeB Gateway接入MME时，PRA区域不能通过HOME_ENBID进行规划。</li></ul>
+</div>
+<p><strong>流程</strong></p>
+<p>当用户在订阅的PRA区域，处于Connected态的用户发生跨小区（ECGI粒度）的位置移动，触发小区位置上报功能（<a href="unc_2000_feature_desc_Cell_Location_Information_Report_S11_01.html">WSFD-106403 小区位置信息上报功能（S11接口）</a>），eNodeB需要及时上报用户的实时位置信息给MME。后续信元传递流程同<a href="#ZH-CN_CONCEPT_0168358202__p150092792180642">业务流程</a>。</p>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0252744850.html">4G网络基于指定区域的策略控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_Presence_Reporting_Area_Support_01.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../om/unc_2000_feature_om_Presence_Reporting_Area_Support.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

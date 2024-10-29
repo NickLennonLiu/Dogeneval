@@ -1,0 +1,279 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="WSFD-011201 支持离线计费特性概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2030_feature_desc_Offline_Billing.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2030_feature_desc_Offline_Billing_02.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-011201">
+<meta name="Function" content="计费">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_CONCEPT_0225745814">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>WSFD-011201 支持离线计费特性概述</title>
+</head>
+<body><a name="ZH-CN_CONCEPT_0225745814"></a><a name="ZH-CN_CONCEPT_0225745814"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">WSFD-011201 支持离线计费特性概述</h1>
+<ul><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.1.1">适用NF</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.2.1">定义</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.3.1">客户价值</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.4.1">应用场景</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.5.1">可获得性</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.6.1">与其他特性的交互</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.7.1">对系统的影响</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.8.1">应用限制</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.9.1">原理概述</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.10.1">计费与话单</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.11.1">特性规格</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.12.1">遵循标准</a></li><li><a href="#ZH-CN_CONCEPT_0225745814__1.3.13.1">发布历史</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">适用NF</a></h4><p><span>SGSN、</span><span>GGSN、</span>SGW-C、PGW-C</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">定义</a></h4><p>离线计费是一种非实时的计费方式，SGSN/GGSN-C/SGW-C/PGW-C将GGSN-U/SGW-U/PGW-U上报的移动用户的计费信息（如时长、流量、事件等）按照一定的计费规则格式化为话单，通过Ga接口将话单消息发送到CG（Charging Gateway）。CG完成话单的存储、标准化等预处理工作，并将标准计费数据送到BS（Billing System）作最终处理。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">客户价值</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.21%" id="mcps1.3.3.2.1.3.1.1" liSelected="liSelected"><p>受益方</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="66.79%" id="mcps1.3.3.2.1.3.1.2" liSelected="liSelected"><p>受益描述</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.21%" headers="mcps1.3.3.2.1.3.1.1 "><p>运营商</p>
+</td>
+<td class="cellrowborder" valign="top" width="66.79%" headers="mcps1.3.3.2.1.3.1.2 "><ul><li><p>根据用户使用数据业务的信息，运营商可以对终端用户进行精确收费；也可以为运营商之间的结算或运营商与ISP之间的结算提供依据。</p>
+</li><li><p>通过控制是否生成数据业务话单，以及配置部分话单的产生频率，运营商可以方便地控制话单的生成，并有效减少计费网关CG及计费中心BS的负荷。</p>
+</li><li><p>运营商可以配置话单中是否包含特定信息，以制定灵活的计费方案。</p>
+</li><li><p>运营商可以针对不同类型的用户，如本地用户、漫游用户和拜访用户，指定不同的话单生成方式。</p>
+</li><li><p>话单中记录的用户业务使用情况，可以帮助运营商分析用户的使用行为和习惯，为制定运营策略提供依据。</p>
+</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="33.21%" headers="mcps1.3.3.2.1.3.1.1 "><p>用户</p>
+</td>
+<td class="cellrowborder" valign="top" width="66.79%" headers="mcps1.3.3.2.1.3.1.2 "><p>记录用户使用数据业务的详细情况，便于核查消费情况。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">应用场景</a></h4><p>对用户进行离线计费时，可以在<span>UNC</span>上启用离线计费功能。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">可获得性</a></h4><p><strong>涉及NF</strong></p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="19.39%" id="mcps1.3.5.3.1.4.1.1" liSelected="liSelected"><p>涉及NF</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.39%" id="mcps1.3.5.3.1.4.1.2" liSelected="liSelected"><p>支持版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="61.22%" id="mcps1.3.5.3.1.4.1.3" liSelected="liSelected"><p>功能说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.1 "><p>SGSN</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="61.22%" headers="mcps1.3.5.3.1.4.1.3 "><p>按照预先设置的计费规则生成原始话单，发送到CG。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.1 "><p>GGSN/SGW-C/PGW-C</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UNC 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="61.22%" headers="mcps1.3.5.3.1.4.1.3 "><ul><li>通过N4接口下发URR信元，指示SGW-U/PGW-U的计费原则。</li><li>按照预先设置的计费规则生成原始话单，发送到CG。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.1 "><p>SGW-U/PGW-U</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.2 "><p><span>UDG 20.3.0及后续版本</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="61.22%" headers="mcps1.3.5.3.1.4.1.3 "><p>收集用户使用网络、业务等资源的信息，如时长、流量等，并将该信息上报给GGSN/SGW-C/PGW-C。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.1 "><p>CG</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="61.22%" headers="mcps1.3.5.3.1.4.1.3 "><p>对SGSN/GGSN/SGW-C/PGW-C发送来的话单进行存储、合并、标准化预处理、增加运营商自定义字段，并将处理后的标准计费数据发送到BS。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.1 "><p>BS</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.39%" headers="mcps1.3.5.3.1.4.1.2 "><p>无特殊要求</p>
+</td>
+<td class="cellrowborder" valign="top" width="61.22%" headers="mcps1.3.5.3.1.4.1.3 "><p>处理CG发送来的计费数据，生成最终的用户账单。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>License</strong><strong>支持</strong></p>
+<p>本特性无需获得License许可即可获得该特性的服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.6.1"></a><a name="1.3.6.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">与其他特性的交互</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="25%" id="mcps1.3.6.2.1.5.1.1" liSelected="liSelected"><p>交互类型</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="15%" id="mcps1.3.6.2.1.5.1.2" liSelected="liSelected"><p>相关特性</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="16.75%" id="mcps1.3.6.2.1.5.1.3" liSelected="liSelected"><p>控制项名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="43.25%" id="mcps1.3.6.2.1.5.1.4" liSelected="liSelected"><p>交互说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Basic_Content_Based_Charging.html">WSFD-109002 内容计费基本功能</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="16.75%" headers="mcps1.3.6.2.1.5.1.3 "><p>82207988 LKV3W9BCC12 内容计费基本功能</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.25%" headers="mcps1.3.6.2.1.5.1.4 "><p>如果需要基于业务粒度对用户业务进行离线计费，需要同时开启内容计费基本功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Volume_Based_Charging_of_Service.html">WSFD-109004 基于业务流量的计费</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="16.75%" headers="mcps1.3.6.2.1.5.1.3 "><p>82207990 LKV3WPVBCS11  基于业务流量的计费</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.25%" headers="mcps1.3.6.2.1.5.1.4 "><p>如果需要基于业务流量对用户业务进行离线计费，需要开启基于业务流量的计费。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="25%" headers="mcps1.3.6.2.1.5.1.1 "><p>依赖</p>
+</td>
+<td class="cellrowborder" valign="top" width="15%" headers="mcps1.3.6.2.1.5.1.2 "><p><a href="unc_2000_feature_desc_Time_Based_Charging_of_Service.html">WSFD-109003 基于业务时长的计费</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="16.75%" headers="mcps1.3.6.2.1.5.1.3 "><p>82207991 LKV3W9TBCS12 基于业务时长的计费</p>
+</td>
+<td class="cellrowborder" valign="top" width="43.25%" headers="mcps1.3.6.2.1.5.1.4 "><p>如果需要基于业务时长对用户业务进行在线计费，需要开启基于业务时长的计费。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.7.1"></a><a name="1.3.7.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">对系统的影响</a></h4><p>本特性对系统无影响。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.8.1"></a><a name="1.3.8.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">应用限制</a></h4><ul><li><span>UNC</span>支持最多与32个CG对接。</li><li>CG支持的话单版本字段需要与<span>UNC</span>的话单版本字段支持能力一致。</li></ul>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.9.1"></a><a name="1.3.9.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">原理概述</a></h4><p>离线计费的组网及接口如<a href="#ZH-CN_CONCEPT_0225745814__fig113985911220">图1</a>所示，SGSN/GGSN-C/SGW-C/PGW-C和GGSN-U/SGW-U/PGW-U配合实现对通过GPRS/UMTS/LTE网络接入的用户进行离线计费。用户激活后开始访问业务，GGSN-U/SGW-U/PGW-U对用户上下行业务数据进行记录收集，上报给SGSN/GGSN-C/SGW-C/PGW-C。SGSN/GGSN-C/SGW-C/PGW-C生成话单，并发送给CG，CG通过FTP协议将话单传给计费中心BS。</p>
+<div class="note"><img src="../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p>3GPP TS 23.125 PCC架构中定义的离线计费的接口是Gz。从计费架构方面来说，它等同于Ga接口。</p>
+</div></div>
+<div class="fignone" id="ZH-CN_CONCEPT_0225745814__fig113985911220"><a name="ZH-CN_CONCEPT_0225745814__fig113985911220"></a><a name="fig113985911220"></a><span class="figcap"><b>图1 </b>离线计费组网结构图</span><br><span><img class="vsd" src="figure/zh-cn_image_0239901522.png"></span></div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.10.1"></a><a name="1.3.10.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">计费与话单</a></h4><p>本特性不涉及计费与话单。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.11.1"></a><a name="1.3.11.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">特性规格</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.11.2.1.3.1.1" liSelected="liSelected"><p>规格名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="50%" id="mcps1.3.11.2.1.3.1.2" liSelected="liSelected"><p>规格指标</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.1 "><p>支持<a href="../MML/Document/add_chgimsicfg.html"><b><span class="cmdname">ADD CHGIMSICFG</span></b></a>控制S-CDR话单生成的配置命令个数</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.2 "><p>2,048</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.1 "><p>支持<a href="../MML/Document/add_chgplmncfg.html"><b><span class="cmdname">ADD CHGPLMNCFG</span></b></a>控制S-CDR话单生成的配置命令个数</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.2 "><p>1,500</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.1 "><p>整系统话单缓存能力（天）</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.2 "><p>7</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.1 "><p>最多支持对接的CG个数</p>
+</td>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.3.11.2.1.3.1.2 "><p>32</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.12.1"></a><a name="1.3.12.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">遵循标准</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="11.76%" id="mcps1.3.12.2.1.4.1.1" liSelected="liSelected"><p>标准类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="19.17%" id="mcps1.3.12.2.1.4.1.2" liSelected="liSelected"><p>标准编号</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="69.07%" id="mcps1.3.12.2.1.4.1.3" liSelected="liSelected"><p>标准名称</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="5" valign="top" width="11.76%" headers="mcps1.3.12.2.1.4.1.1 "><p>3GPP</p>
+</td>
+<td class="cellrowborder" valign="top" width="19.17%" headers="mcps1.3.12.2.1.4.1.2 "><p>23.502</p>
+</td>
+<td class="cellrowborder" valign="top" width="69.07%" headers="mcps1.3.12.2.1.4.1.3 "><p>Procedures for the 5G System; Stage 2(Release 15)</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>29.244</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Interface between the Control Plane and the User Plane Nodes; Stage 3</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>32.298</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Telecommunication management; Charging management; Charging Data Record (CDR) parameter description</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>32.251</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Telecommunication management; Charging management; Packet Switched (PS) domain charging</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.1 "><p>23.214</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.12.2.1.4.1.2 "><p>Architecture enhancements for control and user plane separation of EPC nodes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_CONCEPT_0225745814__1.3.13.1"></a><a name="1.3.13.1"></a><a href="#ZH-CN_CONCEPT_0225745814" class="sectiontitle2contents">发布历史</a></h4>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.1" liSelected="liSelected"><p>特性版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.2" liSelected="liSelected"><p>发布版本</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.3.13.2.1.4.1.3" liSelected="liSelected"><p>发布说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.1 "><p>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.2 "><p><span>20.3.0</span></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.3.13.2.1.4.1.3 "><p>首次发布。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../desc/unc_2030_feature_desc_Offline_Billing.html">WSFD-011201 支持离线计费
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2030_feature_desc_Offline_Billing_02.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

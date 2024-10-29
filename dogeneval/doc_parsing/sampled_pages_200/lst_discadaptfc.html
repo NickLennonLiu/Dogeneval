@@ -1,0 +1,223 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="查询服务发现自适应流控NF级配置（LST DISCADAPTFC）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_nf_discovery_adaptive_flow_control.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/mod_discadaptfc.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/set_discadaptfcpara.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001363250257">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>查询服务发现自适应流控NF级配置（LST DISCADAPTFC）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001363250257"></a><a name="ZH-CN_MMLREF_0000001363250257"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">查询服务发现自适应流控NF级配置（LST DISCADAPTFC）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001363250257__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001363250257__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001363250257__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001363250257__1.3.5">使用实例</a></li><li><a href="#ZH-CN_MMLREF_0000001363250257__1.3.6">输出结果说明</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001363250257__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001363250257" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：AMF、SMF、NSSF、SMSF、NCG</strong>
+                </p>
+
+                    <p>该命令用于查询服务发现自适应流控NF级配置。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0000001363250257__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001363250257" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                <p>无</p>
+
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001363250257__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001363250257" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组；G_3，用户级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0000001363250257__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001363250257" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>NFTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>NF类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定NF类型。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：仅支持可以被服务发现的NF类型。</p>
+<ul><li>“NfInvalid（NfInvalid）”：NfInvalid</li><li>“NfNRF（NfNRF）”：NfNRF</li><li>“NfUDM（NfUDM）”：NfUDM</li><li>“NfAMF（NfAMF）”：NfAMF</li><li>“NfSMF（NfSMF）”：NfSMF</li><li>“NfAUSF（NfAUSF）”：NfAUSF</li><li>“NfNEF（NfNEF）”：NfNEF</li><li>“NfPCF（NfPCF）”：NfPCF</li><li>“NfSMSF（NfSMSF）”：NfSMSF</li><li>“NfNSSF（NfNSSF）”：NfNSSF</li><li>“NfUDR（NfUDR）”：NfUDR</li><li>“NfLMF（NfLMF）”：NfLMF</li><li>“NfGMLC（NfGMLC）”：NfGMLC</li><li>“Nf5G_EIR（Nf5G_EIR）”：Nf5G_EIR</li><li>“NfSEPP（NfSEPP）”：NfSEPP</li><li>“NfUPF（NfUPF）”：NfUPF</li><li>“NfN3IWF（NfN3IWF）”：NfN3IWF</li><li>“NfAF（NfAF）”：NfAF</li><li>“NfUDSF（NfUDSF）”：NfUDSF</li><li>“NfBSF（NfBSF）”：NfBSF</li><li>“NfCHF（NfCHF）”：NfCHF</li><li>“NfCUSTOM_OCS（NfCUSTOM_OCS）”：NfCUSTOM_OCS</li><li>“NfSCP（NfSCP）”：NfSCP</li><li>“NfPCSCF（NfPCSCF）”：NfPCSCF</li></ul>
+<p> 默认值：无</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0000001363250257__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001363250257" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>查询用于发现AMF的配置</p>
+
+                    <pre class="screen">%%LST DISCADAPTFC:;%%
+RETCODE = 0  操作成功
+
+结果如下
+--------
+                            NF类型  =  NfAMF
+启动流控最低服务发现速率阈值(次/s)  =  10
+      自适应流控速率变化步长(次/s)  =  5
+              流控状态变更周期(秒)  =  10
+         启动流控服务发现成功率(%)  =  80
+         停止流控服务发现成功率(%)  =  95
+(结果个数 = 1)</pre>
+
+        </div></div>
+
+
+            <div class="mmloutput"><a name="ZH-CN_MMLREF_0000001363250257__1.3.6"></a><a name="1.3.6"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001363250257" class="sectiontitle2contents">输出结果说明</a></h2>
+<div class="mmloutputbody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="18.517161353365093%" id="mcps1.3.6.1.1.3.1.1" liSelected="liSelected">输出项名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="81.48283864663492%" id="mcps1.3.6.1.1.3.1.2" liSelected="liSelected">输出项解释</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>NF类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定NF类型。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>启动流控最低服务发现速率阈值(次/s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定启动自适应流控的服务发现速率最低阈值，低于该值不启动也没必要启动流控。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>自适应流控速率变化步长(次/s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定自适应流控速率变化步长。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>流控状态变更周期(秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定流控状态变化周期。可以理解为最少需要INTERVAL秒，该NFType才可从正常状态变为过载状态(或者从过载状态变为正常状态)。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>启动流控服务发现成功率(%)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定启控成功率。当一个周期内服务发现的平均成功率低于该值时，才可能启动流控。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="18.517161353365093%" headers="mcps1.3.6.1.1.3.1.1 "><p>停止流控服务发现成功率(%)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="81.48283864663492%" headers="mcps1.3.6.1.1.3.1.2 "><p>该参数用于指定解控成功率。当一个周期内服务发现的平均成功率高于该值时，才可能解除流控。</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div></div>
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_nf_discovery_adaptive_flow_control.html">服务发现自适应流控
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/mod_discadaptfc.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/set_discadaptfcpara.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

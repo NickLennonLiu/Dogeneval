@@ -1,0 +1,221 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置SDR传输能力（SET SDRTRANS）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/sdrs_n_transmission_ability_control.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_sdrtrans.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0230310143">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置SDR传输能力（SET SDRTRANS）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0230310143"></a><a name="ZH-CN_MMLREF_0230310143"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置SDR传输能力（SET SDRTRANS）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0230310143__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0230310143__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0230310143__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0230310143__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0230310143__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0230310143" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody">
+                        <p>该命令是高危命令，操作不当可能会导致业务受损，请谨慎使用并联系华为技术支持协助操作。可靠传输能力与安全传输能力有关联关系，操作前请参考联机帮助。</p>
+
+                </div></div>
+
+                    <p>该命令用于设置SDR传输能力。SDR传输能力包括可靠传输能力和安全传输能力。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0230310143__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0230310143" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>若要设置安全传输能力为ENABLEALL或NOTSET，可靠传输能力不能为DISABLEALL。</li><li>若要禁用可靠传输能力，请确认安全传输能力是否处于开启状态；若安全传输能力处于开启状态，请先禁用安全传输能力再禁用可靠传输能力；若只禁用可靠传输能力却开启安全传输能力，则禁用可靠传输能力只对非加密消息生效，对加密消息不生效。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.1">FLATTYPE</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.2">TRANSABILITY</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.4.1.1.1.3">OPT</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>BASE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>RELIABILITY</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>NOTSET</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>BASE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>SECURITY</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>DISABLEALL</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>FABRIC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>RELIABILITY</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>DISABLEALL</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>FABRIC</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>SECURITY</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.4.1.1.1.1 mcps1.3.2.4.1.1.1.2 mcps1.3.2.4.1.1.1.3 "><p>DISABLEALL</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0230310143__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0230310143" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0230310143__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0230310143" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>FLATTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>通信平面类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于标识SDR通信平面类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“BASE（Base）”：Base平面</li><li>“FABRIC（Fabric）”：Fabric平面</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TRANSABILITY</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>传输能力类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：必选参数</p>
+<p> 参数含义：该参数用于标识SDR传输能力类型。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“RELIABILITY（可靠传输能力）”：可靠传输能力</li><li>“SECURITY（安全传输能力）”：安全传输能力</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>OPT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>选项开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"TRANSABILITY"配置为"RELIABILITY、SECURITY"时为条件必选参数。</p>
+<p> 参数含义：该参数用于标识SDR传输能力的选项开关。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“DISABLEALL（禁用该传输能力）”：禁用所有消息的该传输能力</li><li>“ENABLEALL（启用该传输能力）”：启用所有消息的该传输能力</li><li>“NOTSET（不设置该传输能力）”：不设置该传输能力</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0230310143__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0230310143" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                <ul><li>设置SDR的BASE平面可靠传输能力：
+                            <pre class="screen">%%SET SDRTRANS: FLATTYPE=BASE, TRANSABILITY=RELIABILITY, OPT=NOTSET, CONFIRM=Y;%%</pre>
+
+						</li><li>开启安全传输能力前，需先确保可靠传输能力不是DISABLEALL状态，如果查询出来的可靠传输能力是DISABLEALL状态，请先将可靠传输能力置为NOTSET或ENABLEALL：
+                            <pre class="screen">%%LST SDRTRANS:;%%
+%%SET SDRTRANS: FLATTYPE=BASE, TRANSABILITY=RELIABILITY, OPT=NOTSET, CONFIRM=Y;%%
+%%SET SDRTRANS: FLATTYPE=BASE, TRANSABILITY=SECURITY, OPT=NOTSET, CONFIRM=Y;%%</pre>
+
+						</li><li>若要禁用所有消息（包括加密消息）的可靠传输能力，需要先禁用安全能力，再禁用可靠能力：
+                            <pre class="screen">%%SET SDRTRANS: FLATTYPE=BASE, TRANSABILITY=SECURITY, OPT=DISABLEALL, CONFIRM=Y;%%
+%%SET SDRTRANS: FLATTYPE=BASE, TRANSABILITY=RELIABILITY, OPT=DISABLEALL, CONFIRM=Y;%%</pre>
+
+						</li></ul>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/sdrs_n_transmission_ability_control.html">传输能力控制
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_sdrtrans.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

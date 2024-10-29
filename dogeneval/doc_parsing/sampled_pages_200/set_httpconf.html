@@ -1,0 +1,772 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置HTTP属性（SET HTTPCONF）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/httpexecsvc_n_http_property_management.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_httpconf.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0000001183972196">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置HTTP属性（SET HTTPCONF）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0000001183972196"></a><a name="ZH-CN_MMLREF_0000001183972196"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置HTTP属性（SET HTTPCONF）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0000001183972196__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0000001183972196__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0000001183972196__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0000001183972196__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0000001183972196__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001183972196" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <div class="notice"><span class="noticetitle"><img src="../../public_sys-resources/notice_3.0-zh-cn.png"> </span><div class="noticebody">
+                        <p>该命令中SIGNALROUTING参数用于设置信令路由开关，信令路由功能下HTTP性能降低，可能影响正常业务，不建议开启使用。</p>
+
+                </div></div>
+
+                    <p>该命令用于设置HTTP协议层的属性，该属性设置后整系统生效。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0000001183972196__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001183972196" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.1">SIGNALROUTING</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.2">HTTPLOGLEVEL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.3">TCPLOGLEVEL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.4">DETECTINTERVAL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.5">LOADREPINTERVAL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.6">LINKAGINGTIME</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.7">CLIENTRCVRSPTMT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.8">SERVERRCVBDTMT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.9">SERVERSNDRSPTMT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.10">PINGSWITCH</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.11">PINGINTVAL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.12">PINGPROBES</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.13">KEEPALIVESW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.14">KEEPALIVETIME</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.15">KEEPALIVEINTVL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.16">KEEPALIVEPROBES</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.17">MAXBODYSIZE</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.18">MAXJSONLEAFNUM</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.19">TCPSEDELTIME</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.20">MAXCLIENTSTREAM</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.21">INITLINKINTVL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.22">IPDETECTSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.23">PERFSTATSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.24">LINKSETRECOVERTIME</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.25">CONFCHECKSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.26">LINKCHECKSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.27">COMPRESSTH</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.28">REQCBFCSW</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.29">SYNREXINTERVAL</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.30">SYNREXTIMES</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.31">ESTABREXTIMES</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>FALSE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>ERROR</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>FATAL</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>720</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>10</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>10</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>60</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>ON</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>1800</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>5</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>16000</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>200</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>30</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>60</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>TRUE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>500</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 mcps1.3.2.3.1.1.1.6 mcps1.3.2.3.1.1.1.7 mcps1.3.2.3.1.1.1.8 mcps1.3.2.3.1.1.1.9 mcps1.3.2.3.1.1.1.10 mcps1.3.2.3.1.1.1.11 mcps1.3.2.3.1.1.1.12 mcps1.3.2.3.1.1.1.13 mcps1.3.2.3.1.1.1.14 mcps1.3.2.3.1.1.1.15 mcps1.3.2.3.1.1.1.16 mcps1.3.2.3.1.1.1.17 mcps1.3.2.3.1.1.1.18 mcps1.3.2.3.1.1.1.19 mcps1.3.2.3.1.1.1.20 mcps1.3.2.3.1.1.1.21 mcps1.3.2.3.1.1.1.22 mcps1.3.2.3.1.1.1.23 mcps1.3.2.3.1.1.1.24 mcps1.3.2.3.1.1.1.25 mcps1.3.2.3.1.1.1.26 mcps1.3.2.3.1.1.1.27 mcps1.3.2.3.1.1.1.28 mcps1.3.2.3.1.1.1.29 mcps1.3.2.3.1.1.1.30 mcps1.3.2.3.1.1.1.31 "><p>12</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0000001183972196__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0000001183972196" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0000001183972196__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001183972196" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SIGNALROUTING</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>信令路由开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置信令路由开关。如果信令路由开关打开，HTTP链路管理按信令路由方式处理，如果信令路由开关关闭，HTTP链路管理按正常方式处理。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>HTTPLOGLEVEL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>http-server日志级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定http-server日志级别。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“DEBUG（DEBUG）”：打开调试级别及以上日志输出</li><li>“INFO（INFO）”：打开提示级别及以上的日志输出</li><li>“WARN（WARN）”：打开告警级别及以上的日志输出</li><li>“ERROR（ERROR）”：打开错误级别及以上的日志输出</li><li>“FATAL（FATAL）”：打开致命级别的日志输出</li><li>“CLOSE（CLOSE）”：关闭日志输出</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TCPLOGLEVEL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>tcp-process日志级别</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定tcp-process日志级别。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“DEBUG（DEBUG）”：打开调试级别及以上日志输出</li><li>“INFO（INFO）”：打开提示级别及以上的日志输出</li><li>“WARN（WARN）”：打开告警级别及以上的日志输出</li><li>“ERROR（ERROR）”：打开错误级别及以上的日志输出</li><li>“FATAL（FATAL）”：打开致命级别的日志输出</li><li>“CLOSE（CLOSE）”：关闭日志输出</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DETECTINTERVAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>故障链路探测最长时间间隔(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置故障链路探测的最长时间间隔。当链路状态变化为故障以后，该链路状态是否变化到正常需要通过重建探测，重建探测按时间递延方式触发，该参数即设置递延的最大时间。当递延到最大时间以后，在该链路老化前会一直以该间隔触发重建来探测该链路是否正常。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~720，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LOADREPINTERVAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>链路负载上报时间间隔(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置链路的负载上报时间间隔。系统支持定时上报链路负载情况，该参数用于配置上报的时间间隔。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~100，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LINKAGINGTIME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>链路老化时间(min)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置链路老化时间。当系统中的链路处于空闲状态下，为确保链路资源及时释放，该链路需要老化释放，通过本参数配置可修改链路空闲以后的老化时间。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是10~14400，单位是分钟。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CLIENTRCVRSPTMT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>客户端接收HTTP响应消息超时时间(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置当系统作为客户端时，HTTP请求报文发送以后，接收到HTTP响应报文的超时时间。即超过该设置时间未收到对端设备的HTTP响应报文，则认为HTTP响应接收超时。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~20，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SERVERRCVBDTMT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>服务端接收HTTP请求消息体超时时间(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置当系统作为服务端时，接受客户端请求消息体超时时间。系统作为服务端时，对端的同一个HTTP请求报文需要分多次接收，如果在该设定超时时间内没有收齐该HTTP请求报文，则该HTTP请求接收失败。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~20，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SERVERSNDRSPTMT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>服务端接收HTTP响应消息超时时间(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置系统为服务端时，HTTP请求报文上送给业务以后，业务回HTTP响应报文的超时时间。即HTTP上送HTTP请求报文以后，如果业务在该设置时间内未返回HTTP响应报文，HTTP会直接发送HTTP响应报文并携带对应状态码为504给对端设备，告知对端设备本端业务处理异常。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是1~20，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PINGSWITCH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>客户端HTTP PING探测开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置本端为客户端时，HTTP PING探测功能是否打开。如果该功能打开，则HTTP会定时发送HTTP PING报文用于探测当前链路是否正常。如果该功能关闭，则HTTP不会定时发送HTTP PING探测报文，HTTP链路故障无法主动感知。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PINGINTVAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>客户端HTTP PING探测时间间隔(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置HTTP PING探测报文发送的时间间隔。HTTP PING报文按该设置值定时发送。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是10~600，单位是秒。协议规定的最小值是60秒。如要设置为低于60秒，必须首先确认对端支持。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PINGPROBES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>客户端HTTP PING探测次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置HTTP PING报文的探测次数。当客户端按HTTP PING探测间隔持续发送HTTP PING报文，但是连续未收到本配置中设置次数的HTTP PING响应报文，则认为该链路故障。以探测时间间隔60秒、探测次数3次为例。故障发生后探测到故障的时间，最短为60×3=180秒，最长为60×(3+1)=240秒。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是2~10。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>KEEPALIVESW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Keepalive功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置TCP的Keepalive机制开关。TCP协议中支持Keepalive功能，但该功能默认关闭，需要上层业务打开。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“ON（打开）”：打开</li><li>“OFF（关闭）”：关闭</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>KEEPALIVETIME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Keepalive空闲时间(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"KEEPALIVESW"配置为"ON"时为条件可选参数。</p>
+<p> 参数含义：该参数用于配置TCP Keepalive的空闲时长，即在监控到TCP会话空闲以后，根据该配置值触发周期性的保活探测报文。TCP协议中默认该参数为7200秒，产品的默认值为1800秒。该参数配置过长，可能导致对端已经故障的链路长时间无法释放，该参数配置过短，可能会触发频繁保活探测。建议使用默认值配置。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是60~65535，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>KEEPALIVEINTVL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Keepalive探测间隔(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"KEEPALIVESW"配置为"ON"时为条件可选参数。</p>
+<p> 参数含义：该参数用于配置TCP的keepalive空闲时间以后，保活探测无响应，继续发送下一个保活探测报文的间隔时间。TCP协议中默认该参数为75秒，产品默认值为5秒。该参数配置过长，保活报文发送间隔变长，探测时间变长，该参数配置过短，保活报文发送间隔短，发送过于频繁。建议使用默认值。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~150，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>KEEPALIVEPROBES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Keepalive探测次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"KEEPALIVESW"配置为"ON"时为条件可选参数。</p>
+<p> 参数含义：该参数用于配置TCP的Keepalive保活探测的次数。即保活报文无响应可继续发送保活报文的次数。TCP协议默认该探测次数为9次，产品默认设置为5次。该参数设置过大，探测时间变长，该参数设置过小，比如仅探测1次，可能出现误判断。建议使用默认值。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是1~20，单位是次。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>DESCRIPTION</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>描述</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定描述信息。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：字符串类型，输入长度范围是0~255。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MAXBODYSIZE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>最大消息体大小(MBytes)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置HTTP请求/响应中消息体的最大大小，单位是MBytes，超过该大小的消息将会被丢掉。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是2~16。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MAXJSONLEAFNUM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>JSON数据最多叶子节点个数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置HTTP请求消息中JSON数据的最大叶子节点个数，超过该大小的请求消息将会被丢掉。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是16000~512000。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TCPSEDELTIME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>TCP会话删除延迟时间(s)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置需要删除的TCP会话的延迟时间。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是3~10，单位是秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>MAXCLIENTSTREAM</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>客户端最大并发流</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定客户端最大并发流上限。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~32768，单位是条。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>INITLINKINTVL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>初始重建链间隔(毫秒)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于限制初始建链时，HTTP重建的等待时长。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是200~10000，单位是毫秒。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>IPDETECTSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>IP可达自动探测的功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于控制当检测到HTTP链路故障后，是否自动向对端IP发起Ping及Tracert，探测对端IP是否可达。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>PERFSTATSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>性能统计功能开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置HTTP消息性能统计功能开关。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LINKSETRECOVERTIME</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>发送恢复链路集信息请求的时间间隔</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：对于同一个链路集，SBILINK向TOPO发送链路恢复请求的时间间隔。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是10~60，单位是秒。</p>
+<p> 默认值：30。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>CONFCHECKSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>配置核查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于控制HTTP配置数据的核查功能开关。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>LINKCHECKSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>链路核查开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于控制HTTP链路的核查功能开关。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>COMPRESSTH</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>压缩报文阈值 (千字节)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置HTTP转发报文压缩阈值。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~4096，单位是千字节。</p>
+<p> 默认值：60。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>REQCBFCSW</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>Reqcb流控开关</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于控制服务端和客户端的REQCB流控开关。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：</p>
+<ul><li>TRUE(TRUE)</li><li>FALSE(FALSE)</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SYNREXINTERVAL</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>TCP SYN包重传时间间隔(ms)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置TCP SYN包重传间隔，单位为ms。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是100~120000，单位是毫秒。</p>
+<p> 默认值：500。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>SYNREXTIMES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>TCP SYN包重传最大次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于设置TCP SYN包重传最大次数。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~13，单位是次。</p>
+<p> 默认值：0。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ESTABREXTIMES</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>TCP建链成功后包重传最大次数</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于配置TCP建链成功后，包重传最大次数。</p>
+<p> 数据来源：本端规划</p>
+<p> 取值范围：整数类型，取值范围是0~13，单位是次。</p>
+<p> 默认值：12。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0000001183972196__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0000001183972196" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>如果要把信令路由的开关打开，可以执行如下命令：</p>
+
+                    <pre class="screen">SET HTTPCONF: SIGNALROUTING=TRUE;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/httpexecsvc_n_http_property_management.html">HTTP属性管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_httpconf.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

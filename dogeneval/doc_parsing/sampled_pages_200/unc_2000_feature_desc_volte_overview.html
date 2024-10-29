@@ -1,0 +1,205 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="VoLTE概述">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../toctopics/zh-cn_topic_0248450963.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_SBC_Selection.html">
+<meta name="DC.Relation" scheme="URI" content="../desc/unc_2000_feature_desc_volte_Service_Procedures.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="Function" content="VoLTE">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_TOPIC_0172335012">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../public_sys-resources/ExpandCollapse.js"></script>
+<title>VoLTE概述</title>
+</head>
+<body><a name="ZH-CN_TOPIC_0172335012"></a><a name="ZH-CN_TOPIC_0172335012"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">VoLTE概述</h1>
+<ul><li><a href="#ZH-CN_TOPIC_0172335012__1.3.1.1">定义</a></li><li><a href="#ZH-CN_TOPIC_0172335012__1.3.2.1">VoLTE网络演进</a></li><li><a href="#ZH-CN_TOPIC_0172335012__1.3.3.1">CSFB与VoLTE/SRVCC对比</a></li><li><a href="#ZH-CN_TOPIC_0172335012__1.3.4.1">VoLTE组网</a></li><li><a href="#ZH-CN_TOPIC_0172335012__1.3.5.1">关键接口</a></li></ul><div><div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0172335012__1.3.1.1"></a><a name="1.3.1.1"></a><a href="#ZH-CN_TOPIC_0172335012" class="sectiontitle2contents">定义</a></h4><p>VoLTE（Voice over LTE），一种基于LTE传输语音的解决方案。随着移动宽带网络的演进，移动语音从软交换向移动宽带语音的方向发展。无线侧从2G/3G演进到LTE，核心网从CS演进到IMS。华为提供基于IMS的VoLTE移动宽带语音方案，实现了语音业务和数据业务融合的新模式（均通过LTE进行传输），该方案具有高带宽、低时延的特性，让用户体验到极致的语音接续服务。</p>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0172335012__1.3.2.1"></a><a name="1.3.2.1"></a><a href="#ZH-CN_TOPIC_0172335012" class="sectiontitle2contents">VoLTE网络演进</a></h4><p>LTE网络部署是一个渐进的过程，它需要经历3个阶段：“热点覆盖 &gt; 连续成片覆盖 &gt; 全覆盖”，如<a href="#ZH-CN_TOPIC_0172335012__fig4508230125117">图1</a>所示。在LTE网络全覆盖前，需要考虑LTE用户在2G/3G网络和LTE网络的漫游、切换、以及业务一致性等诸多问题。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0172335012__fig4508230125117"><a name="ZH-CN_TOPIC_0172335012__fig4508230125117"></a><a name="fig4508230125117"></a><span class="figcap"><b>图1 </b>LTE网络部署</span><br><span><img class="vsd" src="figure/zh-cn_image_0207907518.png"></span></div>
+<p>随着LTE网络部署的逐步扩大，VoLTE网络也逐步演进成熟，从CSFB到VoLTE/SRVCC，如<a href="#ZH-CN_TOPIC_0172335012__fig849454773310">图2</a>所示。</p>
+<ul><li>CSFB（CS Fallback）：现网中部署了LTE网络，未部署IMS网络，LTE提供数据业务，不提供语音业务，当用户发起语音业务时，需要回落到CS域进行承载，这种回落方式称为CSFB。</li><li>VoLTE/SRVCC<ul><li>VoLTE：现网中部署了LTE网络和IMS网络，数据业务和语音业务均可以通过LTE进行承载。</li></ul>
+<ul><li>SRVCC（Single Radio Voice Call Continuity）：是VoLTE语音解决方案的一部分，用以保证LTE覆盖边缘地带通话的连续性。在LTE网络部署初期，部署了IMS网络，但LTE网络未完全覆盖，当VoLTE用户移动到了LTE未覆盖到的区域，语音业务则需要切换到CS网络来承载，SRVCC用来保证正在进行的语音业务在网络发生切换时不中断。<p>SRVCC与PS Handover主要不同在于SRVCC是将PS域业务切换到CS域，进行了跨域的切换，而PS Handover并没有跨域切换。</p>
+</li></ul>
+</li></ul>
+<div class="fignone" id="ZH-CN_TOPIC_0172335012__fig849454773310"><a name="ZH-CN_TOPIC_0172335012__fig849454773310"></a><a name="fig849454773310"></a><span class="figcap"><b>图2 </b>VoLTE网络的演进过程</span><br><span><img class="vsd" src="figure/zh-cn_image_0207909413.png"></span></div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0172335012__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_TOPIC_0172335012" class="sectiontitle2contents">CSFB与VoLTE/SRVCC对比</a></h4><p>CSFB对网络的改造较小，但是接入时延和语音质量相对VoLTE较差，仅是VoLTE的过渡方案。CSFB和VoLTE/SRVCC会在一定时间内长期共存。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表1 </b>CSFB与VoLTE/SRVCC对比</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="10.47104710471047%" id="mcps1.3.3.3.2.4.1.1" liSelected="liSelected"><p>比对项</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="45.14451445144515%" id="mcps1.3.3.3.2.4.1.2" liSelected="liSelected"><p>CSFB</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="44.38443844384438%" id="mcps1.3.3.3.2.4.1.3" liSelected="liSelected"><p>VoLTE/SRVCC</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="10.47104710471047%" headers="mcps1.3.3.3.2.4.1.1 "><p>网络部署</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.14451445144515%" headers="mcps1.3.3.3.2.4.1.2 "><ul><li>部署LTE，不需要部署IMS网络，可以使用现有的CS网络。</li><li>升级MME和MSC，支持SGs接口。</li><li>HSS不需要升级。</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="44.38443844384438%" headers="mcps1.3.3.3.2.4.1.3 "><ul><li>部署LTE，同时需要部署IMS网络。</li><li>升级MME和MSC，支持Sv接口。</li><li>升级HSS支持SRVCC。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="10.47104710471047%" headers="mcps1.3.3.3.2.4.1.1 "><p>语音业务</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.14451445144515%" headers="mcps1.3.3.3.2.4.1.2 "><p>在LTE覆盖区域由LTE提供数据业务，用户发起语音业务需要回落到CS网络。</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.38443844384438%" headers="mcps1.3.3.3.2.4.1.3 "><ul><li>在LTE覆盖区域由LTE提供数据业务和语音业务。</li><li>在LTE覆盖边缘地带通过SRVCC保证通话的连续性。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="10.47104710471047%" headers="mcps1.3.3.3.2.4.1.1 "><p>触发条件</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.14451445144515%" headers="mcps1.3.3.3.2.4.1.2 "><p>当UE在LTE覆盖范围下发起语音呼叫或收到语音呼叫时，MME立即指示eNodeB发起CSFB流程，随后UE经过网络重选到CS网络进行语音寻呼。</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.38443844384438%" headers="mcps1.3.3.3.2.4.1.3 "><ul><li>当UE在LTE覆盖范围下发起语音呼叫或收到语音呼叫时，MME发起VoLTE语音。</li><li>当UE进行VoLTE语音通话时，从LTE的覆盖区域移动到2G/3G网络覆盖区域，语音业务从IMS切换到CS，触发SRVCC，通话不中断。</li></ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="10.47104710471047%" headers="mcps1.3.3.3.2.4.1.1 "><p>附着流程</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.14451445144515%" headers="mcps1.3.3.3.2.4.1.2 "><p>UE发起联合附着（CS和PS）。</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.38443844384438%" headers="mcps1.3.3.3.2.4.1.3 "><p>UE发起联合附着（CS和PS）或者PS附着。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="10.47104710471047%" headers="mcps1.3.3.3.2.4.1.1 "><p>UE设置</p>
+</td>
+<td class="cellrowborder" valign="top" width="45.14451445144515%" headers="mcps1.3.3.3.2.4.1.2 "><p>当UE未开启VoLTE语音时，UE发起CSFB呼叫。</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.38443844384438%" headers="mcps1.3.3.3.2.4.1.3 "><p>当UE开启VoLTE语音时，UE首先尝试发起VoLTE呼叫，如果呼叫失败，再尝试CSFB的呼叫。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0172335012__1.3.4.1"></a><a name="1.3.4.1"></a><a href="#ZH-CN_TOPIC_0172335012" class="sectiontitle2contents">VoLTE组网</a></h4><div class="fignone"><span class="figcap"><b>图3 </b>VoLTE组网</span><br><span><img class="vsd" src="figure/zh-cn_image_0173495055.png"></span></div>
+<p>VoLTE网络涉及IMS域、CS域、EPC域、PS域和用户数据库各，各网络的功能介绍如下所示。</p>
+
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><caption><b>表2 </b>VoLTE网络中的各网元功能</caption><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="11.03110311031103%" id="mcps1.3.4.4.2.4.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="10.801080108010801%" id="mcps1.3.4.4.2.4.1.2" liSelected="liSelected"><p>网元</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="78.16781678167817%" id="mcps1.3.4.4.2.4.1.3" liSelected="liSelected"><p>功能介绍</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" rowspan="6" valign="top" width="11.03110311031103%" headers="mcps1.3.4.4.2.4.1.1 "><p>PS</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.801080108010801%" headers="mcps1.3.4.4.2.4.1.2 "><p>MME</p>
+</td>
+<td class="cellrowborder" valign="top" width="78.16781678167817%" headers="mcps1.3.4.4.2.4.1.3 "><p>移动管理实体，提供控制面的移动性管理，包括用户上下文和移动状态管理，分配用户临时身份标识等。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>S-GW</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>业务网关，主要提供承载接入、认证、业务控制、业务调度等用户面功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>P-GW</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>PDN网关，用于连接3GPP网络与外部PDN（Packet Data Network）。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>PCRF</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>提供QoS策略和计费控制功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>SGSN</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>负责2/3G用户的位置管理，接入控制功能等。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>GGSN</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>负责2/3G数据包的路由和封装。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="3" valign="top" width="11.03110311031103%" headers="mcps1.3.4.4.2.4.1.1 "><p>IMS</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.801080108010801%" headers="mcps1.3.4.4.2.4.1.2 "><p>P-CSCF</p>
+</td>
+<td class="cellrowborder" valign="top" width="78.16781678167817%" headers="mcps1.3.4.4.2.4.1.3 "><p>IMS网络的拜访入口，主要负责拜访网络与归属网络之间的SIP信令转发。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>CSCF</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>包含I/S-CSCF逻辑网元，主要负责IMS域内用户的呼叫路由转发功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>ATS</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>负责IMS网络的业务触发，包含逻辑网元SCC AS/Anchor AS/IM-SSF/IP-SM-GW，与EPC业务关系最大的是SCC AS，SCC AS提供T-ADS（Terminating Access Domain Selection）功能，负责网络侧被叫的域选功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="2" valign="top" width="11.03110311031103%" headers="mcps1.3.4.4.2.4.1.1 "><p>CS</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.801080108010801%" headers="mcps1.3.4.4.2.4.1.2 "><p>MSC Server</p>
+</td>
+<td class="cellrowborder" valign="top" width="78.16781678167817%" headers="mcps1.3.4.4.2.4.1.3 "><p>负责CS用户的会话控制和路由转发功能。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.1 "><p>MGW</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.4.4.2.4.1.2 "><p>提供与传统PSTN、PLMN网络互通的话音媒体通道资源。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.03110311031103%" headers="mcps1.3.4.4.2.4.1.1 "><p>数据库</p>
+</td>
+<td class="cellrowborder" valign="top" width="10.801080108010801%" headers="mcps1.3.4.4.2.4.1.2 "><p>融合HLR/HSS</p>
+</td>
+<td class="cellrowborder" valign="top" width="78.16781678167817%" headers="mcps1.3.4.4.2.4.1.3 "><p>融合HLR/HSS由HLR、IMS-HSS、SAE-HSS三个逻辑网元组成，统一存放用户数据。</p>
+<ul><li>HLR负责存放CS域的用户数据。</li><li>IMS-HSS负责存放IMS域的用户数据。</li><li>SAE-HSS负责存放EPC域的用户数据。</li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle"><a name="ZH-CN_TOPIC_0172335012__1.3.5.1"></a><a name="1.3.5.1"></a><a href="#ZH-CN_TOPIC_0172335012" class="sectiontitle2contents">关键接口</a></h4><p>部署VoLTE网络时，需要新增EPC网络与IMS网络、CS网络的对接，对应接口为SGi接口和Sv接口。</p>
+<ul><li>SGi接口<p>SGi接口是P-GW和IMS域的P-CSCF之间的接口，是SIP用户接入IMS网络的连接点。在VoLTE业务中，SGi承载了所有IMS对应的APN的语音、视频数据以及SIP信令。SGi协议栈如<a href="#ZH-CN_TOPIC_0172335012__fig230762102918">图4</a>所示。</p>
+<div class="fignone" id="ZH-CN_TOPIC_0172335012__fig230762102918"><a name="ZH-CN_TOPIC_0172335012__fig230762102918"></a><a name="fig230762102918"></a><span class="figcap"><b>图4 </b>SGi接口协议栈</span><p><span><img class="vsd" src="figure/zh-cn_image_0173495054.png"></span></p>
+</div>
+</li><li>Sv接口<div class="p">Sv接口是MME和MSC之间的接口，是VoLTE/SRVCC方案中最主要的接口。当用户通话过程中从LTE移动到CS网络时，eNodeB向MME发送切换请求，MME收到eNodeB的切换请求消息后，通过Sv接口向MSC发送PS到CS的切换请求，将语音承载切换到CS网络。Sv接口协议栈如<a href="#ZH-CN_TOPIC_0172335012__fig10308824295">图5</a>所示。<div class="fignone" id="ZH-CN_TOPIC_0172335012__fig10308824295"><a name="ZH-CN_TOPIC_0172335012__fig10308824295"></a><a name="fig10308824295"></a><span class="figcap"><b>图5 </b>Sv接口协议栈</span><br><span><img class="vsd" src="figure/zh-cn_image_0173495056.png"></span></div>
+</div>
+</li></ul>
+</div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../toctopics/zh-cn_topic_0248450963.html">语音功能
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../desc/unc_2000_feature_desc_SBC_Selection.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../desc/unc_2000_feature_desc_volte_Service_Procedures.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

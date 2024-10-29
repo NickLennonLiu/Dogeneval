@@ -1,0 +1,232 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="mmlref">
+<meta name="DC.Title" content="设置N40接口配额的控制参数（SET N40QUOTACTRL）">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../MML/LinkedDoc/unc_n_global_configuration.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_cnvrgdchgpara.html">
+<meta name="DC.Relation" scheme="URI" content="../../MML/Document/lst_n40quotactrl.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_MMLREF_0296805505">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>设置N40接口配额的控制参数（SET N40QUOTACTRL）</title>
+</head>
+<body><a name="ZH-CN_MMLREF_0296805505"></a><a name="ZH-CN_MMLREF_0296805505"></a>
+
+<div class="articleBoxWithoutHead">
+
+	<h1 class="topicTitle-h1">设置N40接口配额的控制参数（SET N40QUOTACTRL）</h1>
+<ul><li><a href="#ZH-CN_MMLREF_0296805505__1.3.1">命令功能</a></li><li><a href="#ZH-CN_MMLREF_0296805505__1.3.2">注意事项</a></li><li><a href="#ZH-CN_MMLREF_0296805505__1.3.4">参数说明</a></li><li><a href="#ZH-CN_MMLREF_0296805505__1.3.5">使用实例</a></li></ul>
+    <div> 
+	    	
+        <div class="mmlfunc"><a name="ZH-CN_MMLREF_0296805505__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296805505" class="sectiontitle2contents">命令功能</a></h2>
+<div class="mmlfuncbody">
+                <p>
+                    <strong>适用NF：PGW-C、SMF</strong>
+                </p>
+
+                    <p>该命令用来控制N40接口配额的控制参数。</p>
+
+        </div></div>
+
+        <div class="mmlnote"><a name="ZH-CN_MMLREF_0296805505__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296805505" class="sectiontitle2contents">注意事项</a></h2>
+<div class="mmlnotebody">
+                    <ul><li>该命令执行后立即生效。</li></ul>
+
+                    <ul><li>系统部署完成后，已经存在初始记录，参数的初始记录值如下表：</li></ul>
+
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.1">ZEROQUOTAACT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.2">ZEROTIMEQTACT</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.3">BLKTIMER</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.4">ONLMETERINGTYPE</th>
+<th align="left" class="cellrowborder" valign="top" id="mcps1.3.2.3.1.1.1.5">TCMODE</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>NORMAL</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>TERMINATE</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>0</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>DEFAULT</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.3.1.1.1.1 mcps1.3.2.3.1.1.1.2 mcps1.3.2.3.1.1.1.3 mcps1.3.2.3.1.1.1.4 mcps1.3.2.3.1.1.1.5 "><p>DEFAULT</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+        </div></div>
+
+
+        <div class="section"><h4 class="sectiontitle"><a name="ZH-CN_MMLREF_0296805505__1.3.3.1"></a><a name="1.3.3.1"></a><a href="#ZH-CN_MMLREF_0296805505" class="sectiontitle2contents">操作用户权限</a></h4> <p>G_1，管理员级别命令组；G_2，操作员级别命令组</p>
+</div>
+
+       
+        <div class="mmlparam"><a name="ZH-CN_MMLREF_0296805505__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296805505" class="sectiontitle2contents">参数说明</a></h2>
+<div class="mmlparambody">
+                
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+                        
+                        
+                        
+                        <thead align="left">
+                            <tr>
+                                <th align="left" class="cellrowborder" valign="top" width="15.161516151615162%" id="mcps1.3.4.1.1.4.1.1" liSelected="liSelected">参数标识</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="18.12181218121812%" id="mcps1.3.4.1.1.4.1.2" liSelected="liSelected">参数名称</th>
+
+                                <th align="left" class="cellrowborder" valign="top" width="66.71667166716672%" id="mcps1.3.4.1.1.4.1.3" liSelected="liSelected">参数说明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ZEROQUOTAACT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>CHF下发零配额的动作</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定CHF下发零配额时的处理动作。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“NORMAL（正常处理）”：按正常配额处理，下发零配额给UPF。</li><li>“BLCK_TRG_RPT（BLCK_TRG_RPT）”：阻塞业务，后续有Trigger触发时，上报Charging Data Request Update消息。</li><li>“BLCK_IMMED_RPT（BLCK_IMMED_RPT）”：阻塞业务，立即触发一条原因为Final的Charging Data Request Update消息。</li><li>“BLCK_NO_RPT（阻塞业务）”：阻塞业务。</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ZEROTIMEQTACT</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>CHF下发零时长配额的动作</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于控制CHF响应消息中GrantedUnit中携带零时长配额的动作。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“TERMINATE（去活会话）”：去活PDU会话。</li><li>“ACCEPT（接受）”：按正常时长配额处理。</li><li>“NOTCTRL（忽略）”：忽略时长配额控制。</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：</p>
+<p> 该配置与BYTE504 BIT1冲突时，按软参配置生效。</p>
+<p> 该参数仅在参数ZEROQUOTAACT配置为NORMAL时生效。</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>BLKTIMER</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>RG级阻塞处理时间间隔(分钟)</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：该参数在"ZEROQUOTAACT"配置为"BLCK_IMMED_RPT、BLCK_NO_RPT"时为条件可选参数。</p>
+<p> 参数含义：该参数用于指定RG级阻塞动作的业务阻塞时间。从阻塞开始经过配置时长以后，业务再来时可以重新触发配额申请。</p>
+<p> 数据来源：全网规划</p>
+<p> 取值范围：整数类型，取值范围是0~1440。</p>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>ONLMETERINGTYPE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>在线计费上报统计类型</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于控制CHF仅下发在线计费RG时长或流量配额时，是否同时上报时长和流量的使用情况给CHF。</p>
+<p> 数据来源：全网规划</p>
+<p>取值范围：</p>
+<ul><li>“DEFAULT（缺省）”：按GrantedUnit下发的配额类型上报给CHF。</li><li>“TIME_VOLUME（同时上报时长和流量）”：同时上报时长和流量使用情况给CHF。</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="cellrowborder" valign="top" width="15.161516151615162%" headers="mcps1.3.4.1.1.4.1.1 "><p>TCMODE</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="18.12181218121812%" headers="mcps1.3.4.1.1.4.1.2 "><p>费率切换模式</p>
+</td>
+
+                                    <td class="cellrowborder" valign="top" width="66.71667166716672%" headers="mcps1.3.4.1.1.4.1.3 "><p> 可选必选说明：可选参数</p>
+<p> 参数含义：该参数用于指定零点时是否强制发生费率切换。</p>
+<p> 数据来源：本端规划</p>
+<p>取值范围：</p>
+<ul><li>“DEFAULT（缺省）”：费率切换发生的时间点按费率切换配置（ADD TARIFFGROUP）生效。</li><li>“DAILY（每天零点强制费率切换）”：在费率切换配置基础上，每天00：00再强制进行费率切换，生效范围为所有用户。</li><li>“MONTHLY（月初第一天零点强制费率切换）”：在费率切换配置基础上，月初第一天00：00再强制进行费率切换，生效范围为所有用户。</li></ul>
+<p> 默认值：无。执行命令并不输入该参数时，系统默认为参数的初始设置值。</p>
+<p> 配置原则：无</p>
+</td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+        </div></div>
+
+        <div class="mmlexample"><a name="ZH-CN_MMLREF_0296805505__1.3.5"></a><a name="1.3.5"></a><h2 class="sectiontitle"><a href="#ZH-CN_MMLREF_0296805505" class="sectiontitle2contents">使用实例</a></h2>
+<div class="mmlexamplebody">
+                    <p>设置SMF收到零配额动作为阻塞不上报：</p>
+
+                    <pre class="screen">SET N40QUOTACTRL: ZEROQUOTAACT=BLCK_NO_RPT;</pre>
+
+        </div></div>
+
+
+
+
+        
+    </div>
+    
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../MML/LinkedDoc/unc_n_global_configuration.html">全局配置
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../MML/Document/lst_cnvrgdchgpara.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../MML/Document/lst_n40quotactrl.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>

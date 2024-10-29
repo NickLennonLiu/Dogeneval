@@ -1,0 +1,266 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn" xml:lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+   
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="DC.Type" content="OPI">
+<meta name="DC.Title" content="激活NSA(Opt.3)双连接管理">
+<meta name="product" content="">
+<meta name="DC.Relation" scheme="URI" content="../../vusn/desc/cn_10_07_15812101.html">
+<meta name="DC.Relation" scheme="URI" content="../../toctopics/zh-cn_concept_0193270611.html">
+<meta name="DC.Relation" scheme="URI" content="../../toctopics/zh-cn_opi_0193270613.html">
+<meta name="prodname" content="">
+<meta name="version" content="">
+<meta name="brand" content="UNC 21.0.0 产品文档_大集成_21.0.0">
+<meta name="DC.Publisher" content="20200504">
+<meta name="pid_type" content="特性指南">
+<meta name="feature_id" content="WSFD-011502">
+<meta name="Function" content="NSA业务基本功能">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ZH-CN_OPI_0193270612">
+<meta name="DC.Language" content="zh-cn">
+<link rel="stylesheet" type="text/css" href="../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/browseVersion.js"></script>
+<script type="text/javascript" src="../../public_sys-resources/jquery.min.idp.js"></script>
+<script language="javascript" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script>
+<title>激活NSA(Opt.3)双连接管理</title>
+</head>
+<body><a name="ZH-CN_OPI_0193270612"></a><a name="ZH-CN_OPI_0193270612"></a>
+
+<div class="articleBoxWithoutHead">
+<h1 class="topicTitle-h1">激活<span>NSA(Opt.3)双连接管理</span></h1>
+<ul><li><a href="#ZH-CN_OPI_0193270612__1.3.1">操作场景</a></li><li><a href="#ZH-CN_OPI_0193270612__1.3.2">必备事项</a></li><li><a href="#ZH-CN_OPI_0193270612__1.3.3">操作步骤</a></li><li><a href="#ZH-CN_OPI_0193270612__1.3.4">任务示例</a></li></ul><div><div class="Section"><a name="ZH-CN_OPI_0193270612__1.3.1"></a><a name="1.3.1"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0193270612" class="sectiontitle2contents">操作场景</a></h2>
+<div class="Sectionbody"><p>本操作指导介绍在运行网络中激活<span>NSA(Opt.3)双连接管理</span>的操作过程。</p>
+<div class="note"><img src="../../public_sys-resources/note_3.0-zh-cn.png"><span class="notetitle"> </span><div class="notebody"><p id="ZH-CN_OPI_0193270612__zh-cn_topic_0305599235_p18226134233910">适用于MME。</p>
+</div></div>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0193270612__1.3.2"></a><a name="1.3.2"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0193270612" class="sectiontitle2contents">必备事项</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">前提条件</p></span><ul><li>请仔细阅读<a href="../desc/cn_10_07_15812101.html">WSFD-011502 NSA(Opt.3)双连接管理</a>。</li></ul>
+<span><p class="sectiontitle">数据</p></span>
+<div class="tableBorder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all"><thead align="left"><tr><th align="left" class="cellrowborder" valign="top" width="16%" id="mcps1.3.2.1.2.1.1.6.1.1" liSelected="liSelected"><p>类别</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="18.98%" id="mcps1.3.2.1.2.1.1.6.1.2" liSelected="liSelected"><p>参数名称</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.23%" id="mcps1.3.2.1.2.1.1.6.1.3" liSelected="liSelected"><p>取值样例</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="14.62%" id="mcps1.3.2.1.2.1.1.6.1.4" liSelected="liSelected"><p>获取方法</p>
+</th>
+<th align="left" class="cellrowborder" valign="top" width="36.17%" id="mcps1.3.2.1.2.1.1.6.1.5" liSelected="liSelected"><p>说明</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="16%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><span><a href="../../MML/Document/set_s1cmpt.html"><b><span class="cmdname">SET S1CMPT</span></b></a></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="18.98%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>是否携带NR UE Security Capabilities信元（NRSEC）</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.23%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>YES</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.62%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" valign="top" width="36.17%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>配置安全协商相关信元的携带情况</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="16%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><span><a href="../../MML/Document/set_nsactrl.html"><b><span class="cmdname">SET NSACTRL</span></b></a></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="18.98%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>NR流量上报（NRUSERPT）</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.23%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>YES</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.62%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="13" valign="top" width="36.17%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>配置流量上报策略</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="6" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><span><a href="../../MML/Document/add_sgwcharact.html"><b><span class="cmdname">ADD SGWCHARACT</span></b></a></span></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>对端设备范围（RANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>SPECIFIED</p>
+</td>
+<td class="cellrowborder" rowspan="5" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IP地址类型（IPT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IPV4地址（IPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>10.10.10.10</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IPV4地址掩码（IPV4MSK）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>255.255.255.0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>S-GW支持Secondary RAT Usage Data Report（SECRATRPT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>YES</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>描述（DESC）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>noname</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>本端规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="6" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><span><a href="../../MML/Document/add_mmecharact.html"><b><span class="cmdname">ADD MMECHARACT</span></b></a></span></p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>对端设备范围（RANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>SPECIAL_MME</p>
+</td>
+<td class="cellrowborder" rowspan="6" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IP地址类型（IPTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>MME IPv4信令面地址（IPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>10.20.10.13</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IPv4掩码（MASKV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>255.255.255.0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>是否携带Secondary RAT Usage Data Report信元（SECRATRPT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>YES</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>描述（DESC）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>noname</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="7" valign="top" width="16%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><span><a href="../../MML/Document/add_mmecharact.html"><b><span class="cmdname">ADD MMECHARACT</span></b></a></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="18.98%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>对端设备范围（RANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.23%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>SPECIAL_MME</p>
+</td>
+<td class="cellrowborder" rowspan="7" valign="top" width="14.62%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="7" valign="top" width="36.17%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>配置Inter流程中对等网元间NSA用户信息传递策略。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IP地址类型（IPTYPE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>MME IPv4信令面地址（IPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>10.20.10.13</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IPv4掩码（MASKV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>255.255.255.0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>是否携带扩展接入限制数据（EXTARD）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>YES</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>是否携带UE附加安全能力（UEASECCAP）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>YES</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>是否限制最大速率（BITRATE）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>NO</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" rowspan="5" valign="top" width="16%" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p><a href="../../MML/Document/add_sgsncharact.html"><b><span class="cmdname">ADD SGSNCHARACT</span></b></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="18.98%" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>对端设备范围（RANGE）</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.23%" headers="mcps1.3.2.1.2.1.1.6.1.3 "><p>SPECIAL_SGSN</p>
+</td>
+<td class="cellrowborder" rowspan="5" valign="top" width="14.62%" headers="mcps1.3.2.1.2.1.1.6.1.4 "><p>全网规划</p>
+</td>
+<td class="cellrowborder" rowspan="5" valign="top" width="36.17%" headers="mcps1.3.2.1.2.1.1.6.1.5 "><p>配置Inter流程中对等网元间NSA用户信息传递策略。</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>IP地址类型（IPT）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>IPV4</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>SGSN IPv4信令面地址（IPV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>10.20.10.14</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>掩码（MASKV4）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>255.255.255.0</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.1 "><p>是否携带扩展接入限制数据（ARD）</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.3.2.1.2.1.1.6.1.2 "><p>YES</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></div>
+<div class="Section"><a name="ZH-CN_OPI_0193270612__1.3.3"></a><a name="1.3.3"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0193270612" class="sectiontitle2contents">操作步骤</a></h2>
+<div class="Sectionbody"><ol><li><span><span>进入<span class="wintitle" id="ZH-CN_OPI_0193270612__zh-cn_topic_0305599235_wintitle1891213344912">“MML命令行-UNC”</span>窗口。</span></span></li><li><span>配置安全协商相关信元的携带情况。</span><p><p><span><a href="../../MML/Document/set_s1cmpt.html"><b><span class="cmdname">SET S1CMPT</span></b></a></span></p>
+</p></li><li><span>配置流量上报策略。</span><ol type="a"><li><span>设置MME支持NR流量上报功能。</span><p><p><span><a href="../../MML/Document/set_nsactrl.html"><b><span class="cmdname">SET NSACTRL</span></b></a></span></p>
+</p></li><li><span>设置给SGW携带Secondary RAT Usage Data Report信元。</span><p><p><span><a href="../../MML/Document/add_sgwcharact.html"><b><span class="cmdname">ADD SGWCHARACT</span></b></a></span></p>
+</p></li><li><strong>可选：</strong><span>设置给对端MME携带Secondary RAT Usage Data Report信元。如果对端网元支持NSA用户数据报告上报功能且支持处理Secondary RAT Usage Data Report信元时执行此步骤。</span><p><p><span><a href="../../MML/Document/add_mmecharact.html"><b><span class="cmdname">ADD MMECHARACT</span></b></a></span></p>
+</p></li></ol>
+</li><li><span>配置Inter流程中对等网元间NSA用户信息传递策略。</span><p><p><span><a href="../../MML/Document/add_mmecharact.html"><b><span class="cmdname">ADD MMECHARACT</span></b></a></span></p>
+<p><a href="../../MML/Document/add_sgsncharact.html"><b><span class="cmdname">ADD SGSNCHARACT</span></b></a></p>
+</p></li></ol>
+</div></div>
+<div class="Section"><a name="ZH-CN_OPI_0193270612__1.3.4"></a><a name="1.3.4"></a><h2 class="sectiontitle"><a href="#ZH-CN_OPI_0193270612" class="sectiontitle2contents">任务示例</a></h2>
+<div class="Sectionbody"><div style="padding-left: 15px;"><span><p class="sectiontitle">任务描述</p></span><p>激活<span>NSA(Opt.3)双连接管理</span>特性。</p>
+<span><p class="sectiontitle">脚本</p></span><p>//配置S1接口兼容性。</p>
+<pre class="screen">SET S1CMPT: NRSEC=YES;</pre>
+<p>//配置MME启动NR流量上报功能。</p>
+<pre class="screen">SET NSACTRL: NRUSERPT=YES; </pre>
+<p>//设置给SGW携带Secondary RAT Usage Data Report信元。</p>
+<pre class="screen">ADD SGWCHARACT: RANGE=SPECIFIED, IPT=IPV4, IPV4="10.10.10.10", IPV4MSK="255.255.255.0", SECRATRPT=YES;</pre>
+<p>//设置给MME携带Secondary RAT Usage Data Report信元。</p>
+<pre class="screen">ADD MMECHARACT: RANGE=SPECIAL_MME, IPTYPE=IPV4, IPV4="10.20.10.13", MASKV4="255.255.255.0", SECRATRPT=YES;</pre>
+<p>//配置Inter流程中对等网元间DCNR信息传递策略。</p>
+<pre class="screen">ADD MMECHARACT: RANGE=SPECIAL_MME, IPTYPE=IPV4, IPV4="10.20.10.15", MASKV4="255.255.255.0", EXTARD=YES, UEASECCAP=YES, BITRATE=NO;</pre>
+<pre class="screen">ADD SGSNCHARACT: RANGE=SPECIAL_SGSN, IPT=IPV4, IPV4="10.20.10.14", MASKV4="255.255.255.0", ARD=YES;</pre>
+</div></div></div>
+</div>
+
+</div>
+<div class="footerNavBar clearfix">
+
+<div class="parentlink">
+父主题：
+<a href="../../vusn/desc/cn_10_07_15812101.html">WSFD-011502 NSA(Opt.3)双连接管理
+</a>
+</div>
+<div class="copyrightBottomBar">
+版权所有 &copy; 华为技术有限公司</div>
+<div class="bottomNavBtn clearfix">
+<a href="../../toctopics/zh-cn_concept_0193270611.html"><span class="font-st">&lt; </span>上一节</a>
+<a href="../../toctopics/zh-cn_opi_0193270613.html">下一节<span class="font-st"> &gt;</span></a>
+</div>
+</div>
+</body>
+</html>
