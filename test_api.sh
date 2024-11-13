@@ -1,5 +1,5 @@
-curl http://10.0.0.4:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
-  "model": "/models/Qwen/Qwen2-72B-Instruct-AWQ",
+curl http://10.0.0.1:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
+  "model": "/models/Qwen/Qwen2.5-72B-Instruct-AWQ",
   "messages": [
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": "Tell me something about large language models."}

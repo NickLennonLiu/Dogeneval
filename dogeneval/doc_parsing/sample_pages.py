@@ -3,8 +3,10 @@ import json
 import shutil
 import numpy as np
 from loguru import logger
-import matplotlib.pyplot as plt
 import random
+import matplotlib.pyplot as plt
+from math import ceil
+
 def collect_all_files(src_directory, dest_directory):
     # 如果目标文件夹不存在，则创建
     if not os.path.exists(dest_directory):
@@ -48,6 +50,17 @@ def collect_file_lengths_by_characters(directory):
     return file_lengths
 
 
+def output_to_json(files, output_json, encoding='utf-8', root_dir=''):
+    data = [
+        {
+            "filename": file,
+            "path": file.replace('.txt', '').replace(root_dir, ''),
+            "content": open(file, 'r', encoding=encoding).read()
+        } for file in files
+    ]
+    with open(output_json, 'w') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
 def sample_page_with_path(src_dir, output_json, sample_size=200):
     sampled_files = []
 
@@ -66,15 +79,58 @@ def sample_page_with_path(src_dir, output_json, sample_size=200):
     logger.info(f"sampled files: {len(sampled_files)}, mml_count: {500 - mml_count}")
     sampled_files = random.sample(sampled_files, sample_size)
     # 将filename, path, content保存到output_json
-    data = [
-        {
-            "filename": file,
-            "path": file.replace('.txt', ''),
-            "content": open(file, 'r', encoding='gbk').read()
-        } for file in sampled_files
-    ]
-    with open(output_json, 'w') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    output_to_json(sampled_files, output_json, encoding='utf-8')
+
+
+def get_files_in_dir(dir_path, min_chars=200, max_chars=None):
+    """获取满足字符数条件的文件"""
+    files_in_dir = {}
+    for root, dirs, files in os.walk(dir_path):
+        valid_files = []
+        for file in files:
+            file_path = os.path.join(root, file)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    char_count = len(content)
+                    
+                    # 检查字符数是否满足要求
+                    if char_count >= min_chars and (max_chars is None or char_count <= max_chars):
+                        valid_files.append(file)
+            except (UnicodeDecodeError, FileNotFoundError, IsADirectoryError):
+                # 跳过无法读取的文件
+                continue
+        files_in_dir[root] = valid_files
+    return files_in_dir
+
+def sample_files(dir_path, num_samples):
+    # 获取所有文件并计算每个子文件夹的文件数
+    files_in_dir = get_files_in_dir(dir_path)
+    all_files = []
+    sub_dir_files_count = {}
+
+    for subdir, files in files_in_dir.items():
+        sub_dir_files_count[subdir] = len(files)
+        all_files.extend([(subdir, file) for file in files])
+
+    # 计算每个子文件夹的采样权重，并按比例计算采样数量
+    total_files = len(all_files)
+    sample_counts = {
+        subdir: max(ceil(num_samples * (count / total_files)), 1)
+        for subdir, count in sub_dir_files_count.items()
+    }
+
+    # 从每个子文件夹中采样所需数量的文件
+    sampled_files = []
+    for subdir, count in sample_counts.items():
+        if count > len(files_in_dir[subdir]):
+            # 如果采样数大于实际文件数，只能全选
+            sampled_files.extend([(subdir, file) for file in files_in_dir[subdir]])
+        else:
+            sampled_files.extend(random.sample([(subdir, file) for file in files_in_dir[subdir]], count))
+
+    # 返回采样的文件列表
+    return [os.path.join(subdir, file) for subdir, file in sampled_files]
 
 if __name__ == "__main__":
     src_dir = '/home/junetheriver/codes/qa_generation/huawei/data/sampled_pages'  # 替换为源文件夹路径

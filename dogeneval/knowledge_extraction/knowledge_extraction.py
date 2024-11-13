@@ -13,6 +13,8 @@ from dogeneval.qa_vector.similarity_search import get_similar_docs
 from dogeneval.qa_vector.db import load_db
 import pandas as pd
 
+import argparse
+
 
 def knowledge_extraction(output_dir):
     output_dir = os.path.join(output_dir, "knowledge_points")
@@ -81,7 +83,7 @@ def load_docs_from_json(input_json):
         data = json.load(f)
     return data
 
-def knowledge_extraction(docs, output_dir):
+def knowledge_extraction(docs, name, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
     version_str = datetime.datetime.now().strftime("%m%d%H%M")
@@ -102,7 +104,7 @@ def knowledge_extraction(docs, output_dir):
         else:
             kps = []
         for kp in kps:
-            save_result(kp, collection_name=f'knowledge_points-{version_str}')
+            save_result(kp, collection_name=f'{name}-knowledge_points-{version_str}')
 
         save_knowledge_points.extend(kps)
     
@@ -115,11 +117,22 @@ def knowledge_extraction(docs, output_dir):
         'path': '路径',
     }, inplace=True)
 
-    df.to_excel(os.path.join(output_dir, f"knowledge_points-{version_str}.xlsx"))
+    df.to_excel(os.path.join(output_dir, f"{name}-knowledge_points-{version_str}.xlsx"))
 
 if __name__ == "__main__":
-    input_json = "/home/junetheriver/codes/qa_generation/huawei/data/sampled_pages_200_txt.json"
-    output_dir = "/home/junetheriver/codes/qa_generation/huawei/data"
+    # input_json = "/home/junetheriver/codes/qa_generation/huawei/data/sampled_pages_200_txt.json"
+    # output_dir = "/home/junetheriver/codes/qa_generation/huawei/data"
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input_json", type=str, required=True)
+    parser.add_argument("--output_dir", type=str, required=True)
+    parser.add_argument("--name", type=str, required=True)
+    args = parser.parse_args()
+
+    input_json = args.input_json
+    output_dir = args.output_dir
+    name = args.name
+    
     docs = load_docs_from_json(input_json)
     logger.info(f"docs: {len(docs)}")
-    knowledge_extraction(docs, output_dir)
+    knowledge_extraction(docs, name, output_dir)

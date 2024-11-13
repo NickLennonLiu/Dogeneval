@@ -1,0 +1,2804 @@
+能力,任务,题目,模型答案,知识点类型,知识点标题,知识点内容,知识点路径
+任务规划,告警检查,"你是核心网运维工程师，你的任务是判断用户问题是否和告警有关
+
+用户问题：用户反馈在操作华为AMF系统过载控制功能时，触发了各场景的消息过载，但没有看到对应的流控告警，这是怎么回事？
+
+若用户问题和告警无关，输出{""告警问题"":""否""}，若有关，输出{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""""}","{""告警问题"":""是"",""网元名称"":""华为AMF系统"",""告警ID"":"""",""告警名称"":""流控告警""}",处理步骤,详细描述了如何操作华为的AMF系统过载控制功能，包括查看各流控参数与规划是否一致，触发各场景的消息过载，查看是否上报对应流控告警等步骤。,"操作步骤
+1. 进入“MML命令行-UNC”窗口。
+2. 通过如下命令查看各流控参数与规划是否一致。（列表省略）
+预期结果：参数取值和规划一致，执行3。否则，参考[激活系统过载控制功能（适用于AMF）](unc_2000_feature_om_Overload_Control_amf.html)调整配置。
+3. 触发各场景的消息过载，查看是否上报对应流控告警。（列表省略）",网络部署/特性部署/UNC特性指南/流控功能/WSFD-010801 系统过载控制功能/系统过载控制功能（适用于AMF）/unc_2000_feature_om_overload_control_amf_01.html
+任务规划,告警检查,"你是核心网运维工程师，你的任务是判断用户问题是否和告警有关
+
+用户问题：你是核心网运维工程师，在查看告警时发现Trigger未上报的问题。你猜测可能是CHF没有下发对应的Trigger类型，也有可能是SMF本地没有配置对应的Trigger类型，甚至可能是Trigger的生效原则错误。你觉得这个问题和告警有关系吗？
+
+若用户问题和告警无关，输出{""告警问题"":""否""}，若有关，输出{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""""}","{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""Trigger未上报""}",处理步骤,详细描述了如何处理Trigger未上报的问题，包括检查CHF是否下发对应的Trigger类型，检查SMF本地是否配置对应的Trigger类型，检查Trigger的生效原则是否错误，以及联系华为技术支持。,处理步骤：1.检查CHF是否下发对应的Trigger类型。2.检查SMF本地是否配置对应的Trigger类型。3.检查Trigger的生效原则是否错误。4.请收集日志信息和配置信息，并联系华为技术支持处理。,网络部署/业务专题/5G Core 计费解决方案/计费解决方案概述/N40接口融合计费/常见故障案例/zh-cn_trbcase_0280259369.html
+任务规划,告警检查,"你是核心网运维工程师，你的任务是判断用户问题是否和告警有关
+
+用户问题：你是核心网运维工程师，你的任务是判断用户问题是否和告警有关。用户问题：“我们在配置告警参数时，设置了NCG长时间未接收到话单告警的报警检测周期，但是在超过这个时间，NCG未接收到链路上的话单时，为什么没有发送此告警？”若用户问题和告警无关，输出{{""告警问题"":""否""}}，若有关，输出{{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""""}}
+
+若用户问题和告警无关，输出{""告警问题"":""否""}，若有关，输出{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""""}","{""告警问题"":""是"",""网元名称"":""NCG"",""告警ID"":""ALM-82021"",""告警名称"":""NCG长时间未接收到话单""}",概念介绍,介绍设置未接收到话单告警参数的参数说明，包括告警开关和告警检测周期两个参数。,"参数说明：
+参数标识 | 参数名称 | 参数说明 
+---|---|--- 
+SWITCHSTATE | 告警开关 | 该参数用于设置是否支持[**ALM-82021 NCG长时间未接收到话单**](../../Alarms/82021.html)告警上报，“OFF(关闭)”为禁止上报此告警，“ON(开启)”为支持上报此告警。数据来源：全网规划 取值范围：枚举类型。
+TIMEOUT | 告警检测周期（分钟） | 该参数用于设置NCG的[**ALM-82021 NCG长时间未接收到话单**](../../Alarms/82021.html)告警的检测周期。超过这个时间，NCG未接收到链路上的话单时，则发送此告警。数据来源：全网规划 取值范围：整数类型，取值范围为1～1440。",OM参考/命令/UNC MML命令/业务服务管理/NCG业务及策略管理/计费管理/业务系统管理/维护管理/未接收到话单告警参数/set_nocdralm.html
+任务规划,告警检查,"你是核心网运维工程师，你的任务是判断用户问题是否和告警有关
+
+用户问题：你是核心网运维工程师，你发现在监控系统中，ALM-82021 NCG长时间未接收到话单的告警开关已经设置为ON，但是却长时间未接收到话单，你能否判定这是一个告警问题？
+
+若用户问题和告警无关，输出{""告警问题"":""否""}，若有关，输出{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""""}","{""告警问题"":""是"",""网元名称"":""NCG"",""告警ID"":""ALM-82021"",""告警名称"":""长时间未接收到话单""}",具体案例,提供一个设置未接收到话单告警参数的具体使用实例，该实例中设置ALM-82021 NCG长时间未接收到话单的告警开关为ON，告警检测周期为默认值5。,"使用实例：
+设置[**ALM-82021 NCG长时间未接收到话单**](../../Alarms/82021.html)的“告警开关”为“ON(开启)”，“告警检测周期（分钟）”为默认值“5”：
+
+SET NOCDRALM: SWITCHSTATE=ON, TIMEOUT=5;",OM参考/命令/UNC MML命令/业务服务管理/NCG业务及策略管理/计费管理/业务系统管理/维护管理/未接收到话单告警参数/set_nocdralm.html
+任务规划,告警检查,"你是核心网运维工程师，你的任务是判断用户问题是否和告警有关
+
+用户问题：用户在进行核心网运维的过程中，发现在某种特定场景下，UNC回复给eNodeB的Error Indication消息中并未携带Criticality Diagnostics信元，想知道这是否涉及到了BYTE_EX118 BIT1的告警？如果是，请提供相关的告警信息。
+
+若用户问题和告警无关，输出{""告警问题"":""否""}，若有关，输出{""告警问题"":""是"",""网元名称"":"""",""告警ID"":"""",""告警名称"":""""}","{""告警问题"":""否""}",概念介绍,该知识点介绍了BYTE_EX118 BIT1软参的功能，它用于控制UNC在特定场景下向eNodeB回复的消息中是否携带Criticality Diagnostics信元，以及该软参的取值和生效方式等信息。,"本软参用于控制UNC在不支持Part of S1 interface类型的Reset流程时，向eNodeB回复的Error Indication消息中是否携带Criticality Diagnostics信元。
+取值范围：0~1
+0：不携带Criticality Diagnostics信元。
+1：携带Criticality Diagnostics信元。
+推荐值：0
+系统初始设置值：0
+UNC收到eNodeB发送的Part of S1 interface类型的Reset消息。
+修改参数值后立即生效。",OM参考/软件参数/UNC软件参数/业务软件参数/软件参数（SGSN/MME）/参数说明/S1接口管理/byte_ex_118_bit1_0.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【查询定位服务权限配置命令】
+OPTYPE：ADD
+IPV4ADDRESS：192.168.1.1
+IPV6ADDRESS：2001:0db8:85a3:0000:0000:8a2e:0370:7334
+USRGRPID：5GUGRP01
+指令：
+请提取定位服务操作类型、IPV4地址、IPV6地址、用户群组标识共4个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""OPTYPE"": ""ADD"",
+""IPV4ADDRESS"": ""192.168.1.1"",
+""IPV6ADDRESS"": ""2001:0db8:85a3:0000:0000:8a2e:0370:7334"",
+""USRGRPID"": ""5GUGRP01""
+}",概念介绍,查询定位服务权限配置命令参数包括定位服务操作类型（OPTYPE）、IPV4地址（IPV4ADDRESS）、IPV6地址（IPV6ADDRESS）和用户群组标识（USRGRPID）。,"参数标识 | 参数名称 | 参数说明
+---|---|---
+OPTYPE | 定位服务操作类型 | 可选必选说明：可选参数 参数含义：该参数用于指定定位服务的服务操作类型。 数据来源：全网规划
+IPV4ADDRESS | IPV4地址 | 可选必选说明：可选参数 参数含义：该参数用于指定定位服务消费者的IPV4地址。 数据来源：全网规划
+IPV6ADDRESS | IPV6地址 | 可选必选说明：可选参数 参数含义：该参数用于指定定位服务消费者的IPV6地址。 数据来源：全网规划
+USRGRPID | 用户群组标识 | 可选必选说明：可选参数 参数含义：该参数用于指定5G用户群标识。 数据来源：本端规划",OM参考/命令/UNC MML命令/业务服务管理/5G接入业务管理/5G定位服务管理/定位服务权限配置管理/lst_lcspermitcfg.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+本软参用于配置HTTP自愈功能的参数。BIT1~BIT8：用于控制HTTP自愈周期的时长，单位为10分钟。BIT9~BIT16：用于控制HTTP进程检测故障的故障链路百分比阈值。BIT17~BIT24：用于控制HTTP进程检测故障的故障链路数阈值。BIT25~BIT32：保留。一个自愈周期内仅允许进行一次HTTP自愈。当一个HTTP进程上故障的链路百分比大于等于故障链路百分比阈值，且故障的链路数大于等于故障链路数阈值时，该HTTP进程向HTTP控制节点上报故障；否则不上报故障。
+指令：
+请提取BIT1~BIT8用途，BIT9~BIT16用途，BIT17~BIT24用途，BIT25~BIT32用途，自愈周期规则，故障上报条件共6个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""BIT1~BIT8用途"": ""用于控制HTTP自愈周期的时长，单位为10分钟"",
+""BIT9~BIT16用途"": ""用于控制HTTP进程检测故障的故障链路百分比阈值"",
+""BIT17~BIT24用途"": ""用于控制HTTP进程检测故障的故障链路数阈值"",
+""BIT25~BIT32用途"": ""保留"",
+""自愈周期规则"": ""一个自愈周期内仅允许进行一次HTTP自愈"",
+""故障上报条件"": ""当一个HTTP进程上故障的链路百分比大于等于故障链路百分比阈值，且故障的链路数大于等于故障链路数阈值时，该HTTP进程向HTTP控制节点上报故障；否则不上报故障""
+}",概念介绍,介绍DWORD1635 控制HTTP自愈功能参数的含义，包括BIT1~BIT32的具体含义和使用情况。,"本软参用于配置HTTP自愈功能的参数。
+
+* BIT1~BIT8：用于控制HTTP自愈周期的时长，单位为10分钟。
+* BIT9~BIT16：用于控制HTTP进程检测故障的故障链路百分比阈值。
+* BIT17~BIT24：用于控制HTTP进程检测故障的故障链路数阈值。
+* BIT25~BIT32：保留。
+
+
+* 一个自愈周期内仅允许进行一次HTTP自愈。
+* 当一个HTTP进程上故障的链路百分比大于等于故障链路百分比阈值，且故障的链路数大于等于故障链路数阈值时，该HTTP进程向HTTP控制节点上报故障；否则不上报故障。",OM参考/软件参数/UNC软件参数/平台软件参数/HTTP软参/dword_1635.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【故障现象】在进行5G到4G网络切换时，观察到Forward Relocation Response消息中的关键信元出现异常。【故障地点】北京市海淀区xxxxx【是否首次使用】否【是否机卡绑定/贴片卡】是【终端设备】华为5G设备【客户夜间是否配合处理】否【故障号码信息】经HSS核实，故障号码144xxxx406269对应IMSI：46xxxx354014471状态正常，卡类型为USIM卡，开通2、3、4G上网功能，限制2、3G接入，签约APN为CMMTMJSXZ，附着时间：CS：2024-01-18 13:51，EPC：2024-01-18 16:07。【客户联系方式】119xxxx8160【客户经理联系方式】125xxxx9257 22516000100000000000000000000125 人联网禁止
+指令：
+请提取故障现象、故障地点、故障号码、故障APN列表、IMSI列表共5个信息
+
+所有信息的默认值都为空字符串，以json格式输出","输出：
+{
+  ""故障现象"": ""在进行5G到4G网络切换时，观察到Forward Relocation Response消息中的关键信元出现异常"",
+  ""故障地点"": ""北京市海淀区xxxxx"",
+  ""故障号码"": ""144xxxx406269"",
+  ""故障APN列表"": [""CMMTMJSXZ""],
+  ""IMSI列表"": [""46xxxx354014471""]
+}",表格,列举了在基于PSHO的5G到4G网络切换流程中，Handover Required消息、Forward Relocation Response消息以及Handover Command消息中的关键信元及其解释。,"表1 Handover Required消息中的关键信元关键信元 | 信元解释
+---|---
+| 指示NG RAN侧触发的是5GS到EPS网络的切换。
+| 指示RAN侧拒绝IMS语音业务的原因值。
+| 如果是IMS语音业务导致的切换，指示targetID需为Global eNB ID。
+... 表3 Handover Command消息的关键信元关键信元 | 信元解释
+---|---
+| 指示NG RAN侧触发的是5GS到EPS网络的切换。
+| 指示Qos Flow标识QFI为1。
+| 指示目标无线给源无线的信息，即E-UTRAN给NG RAN的信息。",快速入门/协议与流程/5G Core信令分析/业务流程/Vo5G/VoNR基本呼叫/5G到4G的切换流程/zh-cn_topic_0000001310845581.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+适用NF：AMF、SMF、SGW-C、PGW-C、P-GW、S-GW 
+
+含义：该软参用于控制GTPC路径发布核查周期 
+
+取值说明：BIT2-0, BIT3-0:核查周期2min。BIT2-1, BIT3-0:核查周期20min。BIT2-0, BIT3-1:核查周期120min。BIT2-1, BIT3-1:关闭核查。系统初始设置值：0 
+
+应用场景：该软参用于控制GTPC路径发布核查周期，当单次GTPC路径数量过多时，可适当将核查周期调大。 
+
+关联软参：无。 
+
+关联特性：WSFD-010600 路径管理。 
+
+生效方式：无。 
+
+配置举例：如果需要关闭GTPC路径发布核查功能。具体的操作如下：
+
+1. 在“MML命令行 - UNC”窗口中，执行LST COMMONSOFTPARAOFBIT命令查询软参DWORD205中BIT2和BIT3的取值。
+
+2. 若查询结果不为期望值，则需要修改。在“MML命令行 - UNC”窗口中，执行SET COMMONSOFTPARAOFBIT命令设置软参DWORD205中BIT2和BIT3的取值。
+指令：
+请提取软参的含义、取值说明、应用场景、关联特性、配置举例共5个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""含义"": ""该软参用于控制GTPC路径发布核查周期"",
+""取值说明"": ""BIT2-0, BIT3-0:核查周期2min。BIT2-1, BIT3-0:核查周期20min。BIT2-0, BIT3-1:核查周期120min。BIT2-1, BIT3-1:关闭核查。系统初始设置值：0"",
+""应用场景"": ""该软参用于控制GTPC路径发布核查周期，当单次GTPC路径数量过多时，可适当将核查周期调大。"",
+""关联特性"": ""WSFD-010600 路径管理。"",
+""配置举例"": ""如果需要关闭GTPC路径发布核查功能。具体的操作如下：\n\n1. 在“MML命令行 - UNC”窗口中，执行LST COMMONSOFTPARAOFBIT命令查询软参DWORD205中BIT2和BIT3的取值。\n\n2. 若查询结果不为期望值，则需要修改。在“MML命令行 - UNC”窗口中，执行SET COMMONSOFTPARAOFBIT命令设置软参DWORD205中BIT2和BIT3的取值。""
+}",概念介绍,介绍了控制GTPC路径发布核查周期的软参，包括软参的适用NF、含义、取值说明、应用场景、关联软参、关联特性、生效方式以及配置举例。,"适用NF：AMF、SMF、SGW-C、PGW-C、P-GW、S-GW 
+
+含义：该软参用于控制GTPC路径发布核查周期 
+
+取值说明：BIT2-0, BIT3-0:核查周期2min。BIT2-1, BIT3-0:核查周期20min。BIT2-0, BIT3-1:核查周期120min。BIT2-1, BIT3-1:关闭核查。系统初始设置值：0 
+
+应用场景：该软参用于控制GTPC路径发布核查周期，当单次GTPC路径数量过多时，可适当将核查周期调大。 
+
+关联软参：无。 
+
+关联特性：WSFD-010600 路径管理。 
+
+生效方式：无。 
+
+配置举例：如果需要关闭GTPC路径发布核查功能。具体的操作如下：
+
+1. 在“MML命令行 - UNC”窗口中，执行LST COMMONSOFTPARAOFBIT命令查询软参DWORD205中BIT2和BIT3的取值。
+
+2. 若查询结果不为期望值，则需要修改。在“MML命令行 - UNC”窗口中，执行SET COMMONSOFTPARAOFBIT命令设置软参DWORD205中BIT2和BIT3的取值。",OM参考/软件参数/UNC软件参数/业务软件参数/软件参数（5G业务公共）/路径管理/dword_0205_bit_0002.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【故障现象】我们的网络设备最近遭遇了ARP攻击，具体表现为ARP欺骗攻击和ARP泛洪攻击。我们使用的是UNC的设备，已经实现了一组ARP安全特性，但仍然无法防止这种攻击。【故障地点】北京市朝阳区【是否首次遭遇】否【网络设备】UNC设备【故障开始时间】2022-03-01 10:00:00【客户夜间是否配合处理】是【客户联系方式】135xxxx0091【客户经理联系方式】未知
+指令：
+请提取故障现象、故障地点、网络设备、故障开始时间、客户联系方式共5个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""故障现象"": ""我们的网络设备最近遭遇了ARP攻击，具体表现为ARP欺骗攻击和ARP泛洪攻击。我们使用的是UNC的设备，已经实现了一组ARP安全特性，但仍然无法防止这种攻击。"",
+""故障地点"": ""北京市朝阳区"",
+""网络设备"": ""UNC设备"",
+""故障开始时间"": ""2022-03-01 10:00:00"",
+""客户联系方式"": ""135xxxx0091""
+}",概念介绍,介绍了ARP攻击防御的主要概念和UNC实现了一组ARP安全特性的情况。,ARP协议是二层网络运行的基础协议之一，其具有简单、易用的优点，但缺乏安全机制，容易被攻击发起者利用而增加网络安全风险。ARP攻击类型包括两类：ARP欺骗攻击和ARP泛洪攻击。UNC实现了一组ARP安全特性，提供了多种技术对ARP攻击进行防范、检测和解决，能够防范针对ARP协议的攻击，有效避免ARP攻击对网络安全性的危害，保证网络设备和通信网络的安全性。,快速入门/产品安全/UNC安全原理/网络层安全/防攻击/zh-cn_topic_0173122090.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【配置场景】在VNF与运营商网络的其他设备互通时，需要在网关侧进行的路由配置。与VNF连接的网关推荐采用运营商的PE交换机、或者DC GW网关、部分局点也用EOR交换机。无论采用何种型号设备，网关上的配置要求相同（如下所示），详细操作步骤请获取并参考相应型号设备的产品文档。运营商PE上的数据，需以运营商的规划和配置为准。
+指令：
+请提取配置场景, VNF连接的网关推荐设备, 网关上的配置要求, 运营商PE上的数据共4个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""配置场景"": ""在VNF与运营商网络的其他设备互通时，需要在网关侧进行的路由配置"",
+""VNF连接的网关推荐设备"": ""运营商的PE交换机、或者DC GW网关、部分局点也用EOR交换机"",
+""网关上的配置要求"": ""无论采用何种型号设备，网关上的配置要求相同，详细操作步骤请获取并参考相应型号设备的产品文档"",
+""运营商PE上的数据"": ""需以运营商的规划和配置为准""
+}",事实描述,描述在VNF与运营商网络的其他设备互通时，需要在网关侧进行的路由配置,为实现VNF与运营商网络的其他设备互通，除了在VNF上进行相关接口路由配置外，还需要在下一跳设备例如网关侧进行相应的路由配置，才能打通VNF对外的网络通信路径。与VNF连接的网关推荐采用运营商的PE交换机、或者DC GW网关、部分局点也用EOR交换机。无论采用何种型号设备，网关上的配置要求相同（如下所示），详细操作步骤请获取并参考相应型号设备的产品文档。运营商PE上的数据，需以运营商的规划和配置为准。,网络部署/初始配置/UNC初始配置与调测/组网路由配置/ce_ugw_022616_06.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【操作指令】SET S1CMPT: MMEID=1, DLAISPT=NO, ALLMMESRVPLMNSPT=YES, ZUCHONGZHI=YES, TMTWSE=NO, SPIDSPT=NO, HRLSPT=YES, IMSVMASK=ALL, NXPAGAREASCP=ON, SECURITYCTXTSPT=YES;
+指令：
+请提取MMEID、DLAISPT、ALLMMESRVPLMNSPT、ZUCHONGZHI、TMTWSE、SPIDSPT、HRLSPT、IMSVMASK、NXPAGAREASCP、SECURITYCTXTSPT共10个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""MMEID"": ""1"",
+""DLAISPT"": ""NO"",
+""ALLMMESRVPLMNSPT"": ""YES"",
+""ZUCHONGZHI"": ""YES"",
+""TMTWSE"": ""NO"",
+""SPIDSPT"": ""NO"",
+""HRLSPT"": ""YES"",
+""IMSVMASK"": ""ALL"",
+""NXPAGAREASCP"": ""ON"",
+""SECURITYCTXTSPT"": ""YES""
+}",处理步骤,详细描述了如何设置S1接口的兼容性，包括各种参数的设置以及它们的含义和取值范围。,设置S1接口兼容性(SET S1CMPT)，该命令用于设置S1接口兼容性参数。包括参数说明和使用实例。具体参数包括：是否支持Register LAI信元、发送所有MME服务PLMN、eNodeB是否支持祖冲之算法、是否携带Time to Wait信元、NAS transport消息是否携带SPID信元、NAS TRANSPORT消息是否携带HRL信元、Masked IMEISV发送范围、Next Paging Area Scope开关、UE CONTEXT SUSPEND RESPONSE和UE CONTEXT RESUME RESPONSE消息中是否携带Security Context等。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/S1接口管理/S1接口兼容性/set_s1cmpt.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【昨日故障信息】我方接收到来自浙江省金华市文和街的故障报告，故障现象为物联卡无法上网，当地信号差，需测试信号并进行优化。故障号码为1441475129311，IMSI为460086751209311，APN为CMNBIOT6，故障开始时间为11月28日。【今日故障信息】我方接收到来自广东省深圳市南山区的故障报告，故障现象为无法接入5G网络，故障号码为1441475129312，IMSI为460086751209312，APN为CMNBIOT7，故障开始时间为11月29日。
+指令：
+请提取故障现象、故障地点、故障号码、故障开始时间、APN、IMSI共6个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""昨日故障信息"": {
+    ""故障现象"": ""物联卡无法上网，当地信号差，需测试信号并进行优化"",
+    ""故障地点"": ""浙江省金华市文和街"",
+    ""故障号码"": ""1441475129311"",
+    ""故障开始时间"": ""11月28日"",
+    ""APN"": ""CMNBIOT6"",
+    ""IMSI"": ""460086751209311""
+},
+""今日故障信息"": {
+    ""故障现象"": ""无法接入5G网络"",
+    ""故障地点"": ""广东省深圳市南山区"",
+    ""故障号码"": ""1441475129312"",
+    ""故障开始时间"": ""11月29日"",
+    ""APN"": ""CMNBIOT7"",
+    ""IMSI"": ""460086751209312""
+}
+}",表格,描述在5G中AMF查询MME时使用的域名规划，包括域名构造来源、标准域名格式、域名举例以及DNS查询方式。,"**表1** 域名规划AMF使用的域名构造来源 | 标准域名格式 | 域名举例 | DNS查询方式  
+---|---|---|---  
+5G终端携带的5G-GUTI（5G-GUTI是由MME分配的GUTI映射成而来，AMF对mmec和mmegi直接使用） | MMEC<AA>.MMEGI<BBBB>.MME.EPC.MNC<YYY>.MCC<ZZZ>.3GPPNETWORK.ORG | mmecC1.mmegi3593.mme.epc.mnc003.mcc123.3gppnetwork.org | [N-A/N-AAAA查询](zh-cn_topic_0291347136.html)",网络部署/业务专题/5G Core 4/5G互操作解决方案/基于N26接口5GC互操作实现原理/互操作业务信令处理原理/EPS到5GS的重选/EPS到5GS的重选涉及的网元发现/zh-cn_topic_0290798185.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【弱口令字典成员添加】
+参数标识：WEAKPWD，参数名称：弱口令，参数说明：必选参数，用于增加弱口令字典中的成员。数据来源：本端规划，取值范围：字符串类型，输入长度范围为1～32。默认值：无，配置原则：密码不支持中文字符。密码区分大小写。最大能添加2000条弱口令字典数据。
+指令：
+请提取参数标识、参数名称、参数说明、数据来源、取值范围、输入长度范围、默认值、配置原则、最大添加数量共9个信息
+
+所有信息的默认值都为空字符串，以json格式输出","输出：
+{
+""参数标识"": ""WEAKPWD"",
+""参数名称"": ""弱口令"",
+""参数说明"": ""必选参数，用于增加弱口令字典中的成员"",
+""数据来源"": ""本端规划"",
+""取值范围"": ""字符串类型"",
+""输入长度范围"": ""1～32"",
+""默认值"": ""无"",
+""配置原则"": ""密码不支持中文字符。密码区分大小写"",
+""最大添加数量"": ""2000条""
+}",表格,详细说明了增加弱口令字典成员的参数，包括参数标识、参数名称和参数说明。,参数标识：WEAKPWD，参数名称：弱口令，参数说明：必选参数，用于增加弱口令字典中的成员。数据来源：本端规划，取值范围：字符串类型，输入长度范围为1～32。默认值：无，配置原则：密码不支持中文字符。密码区分大小写。最大能添加2000条弱口令字典数据。,OM参考/命令/UNC MML命令/业务服务管理/NCG业务及策略管理/计费管理/业务系统管理/弱口令管理/add_weakpwddicmem.html
+语义理解,信息提取,"你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息
+
+输入：
+【故障现象】我方线下联系客户经理123xxxx3405得知：故障数量：1张，前期正常使用，12日出现无法上网，配合测试联系123xxxx3405。【故障地点】浙江台xxxx。【是否首次使用】否。【是否机卡绑定/贴片卡】无机卡绑定。【终端设备】4G路由器。【故障号码信息】经HSS核实，故障号码14xxxx367040对应IMSI：46xxxxx7040状态正常，开通2、3、4G上网功能，限制2、3G接入，签约APN为CMIOT，CS域附着时间：2024-01-05 08:45:58，MME域附着时间：2024-01-05 09:09。【客户联系方式】未知。【客户经理联系方式】123xxxx3405。【夜间是否可配合测试】否。鉴于此，烦请贵方协助处理，谢谢！。【自动预处理结果】投诉现象为前期正常使用，12日出现无法上网，查询运管最近无上线记录；请浙江省核心侧核查。经NFMHSS01BE01AHW hss核实，故障号码 1441564367040，状态正常，卡类型为USIM卡，开通2G上网功能，开通4G上网功能，ARD 2G接入受限，ARD 4G接入不受限，NB-ARD受限，2G呼入禁止，2G呼出禁止，4G语音业务禁止，未开通短信功能，签约APN为CMIOT，CSUPLTIME = 2024-01-05 08:45:58，PSUPLTIME =，MME-UpdateLocation-Time = 2024-01-05 09:09:46。未查询到IMS信息。通用apn对接四大区全部PGW。
+指令：
+请提取故障现象、故障APN列表、故障地点、故障号码、故障卡数量、故障开始时间、故障结束时间、URL或IP、IMSI列表共9个信息
+
+所有信息的默认值都为空字符串，以json格式输出","{
+""故障现象"": ""前期正常使用，12日出现无法上网"",
+""故障APN列表"": [""CMIOT""],
+""故障地点"": ""浙江台xxxx"",
+""故障号码"": ""14xxxx367040"",
+""故障卡数量"": ""1"",
+""故障开始时间"": ""2024-01-12"",
+""故障结束时间"": """",
+""URL或IP"": """",
+""IMSI列表"": [""46xxxxx7040""]
+}",处理步骤,描述了在4G网络中，使用APN进行DNS查询并获取P-GW的组名、接口名和IP地址的全过程。,P-GW查询过程如图1所示。1. 根据当前用户使用的APN，向DNS查询域名“cmnet.apn.epc.mnc000.mcc234.3gppnetwork.org”的NAPTR记录，DNS服务器上涉及的记录如图2所示。2. DNS返回NAPTR记录查询响应，响应消息中“Replacement”字段携带了P-GW的组名“pgw-list-1.qd.sd.node.epc.mnc000.mcc234.3gppnetwork.org”。* “Flags”为“S”，表示下一次使用SRV记录查询。* “Service”为“x-3gpp-pgw:x-s5-gtp:x-gn”，表示支持S5接口和Gn接口。3. UNC根据2返回的P-GW组名，向DNS查询进行SRV记录查询，DNS服务器上涉及的记录如图3所示。4. DNS返回SRV查询响应，即返回“pgw-list-1”中对应P-GW的S5接口名“topon.pgw-s5.qdugw01.qd.sd.node.epc.mnc000.mcc234.3gppnetwork.org”。5. UNC根据P-GW的S5接口名进行A记录查询，DNS服务器上涉及的记录如图4所示。6. DNS返回A查询响应，即返回P-GW的S5接口名对应的IP地址信息。,网络部署/业务专题/UNC网元选择专题/2/3/4G网络的网元选择/DNS应用场景及查询方式/DNS查询流程介绍/N-S-A查询/zh-cn_topic_0308066103.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加”在5G Core的计费消息缓存机制中“
+
+<用户问题>：
+当NCG恢复后，计费消息如何进行回放？
+
+返回改写后的用户问题",在5G Core的计费消息缓存机制中，当NCG恢复后，计费消息如何进行回放？,处理步骤,描述了5G Core中当主备NCG均故障时的处理方式，包括计费消息的缓存方式，以及NCG恢复后计费消息的回放方式,"当主备NCG均故障时，为避免用户体验变差，可以采用不做配额管理的计费方式，允许用户继续使用业务，并缓存计费信息，随着NCG的恢复，可以将缓存的计费信息回放到对应的NCG。
+
+开启计费缓存功能需配置：
+
+  * 配置Tx定时器超时，导致的SMF处理动作（**SET FAILHANDLING** 命令配置FHACTION参数为CONTINUE）**。**
+  * 配置PDU会话级异常状态返回码，导致的SMF的处理动作（**ADD PDUSCACT** 命令配置SCACT参数为FAILOVER或CONTINUE）**。**
+  * 配置计费缓存功能（**SET N40MSGSTG** 命令配置STGSWITCH）**。**
+  * 配置SMF生成ChargingDataRef（**SET CNVRGDCHGPARA** 命令配置CHGDATAREFGEN）。
+
+当NCG恢复后，SMF支持将缓存的计费消息进行回放，发送到NCG。
+
+P1：SMF配置了计费缓存功能，以及回放速率、回放最小间隔（**SET N40MSGSTG** 命令配置）。当计费消息缓存时，SMF确定回放目标NCG。
+
+1：SMF判断回放目标NCG已经恢复，且当前缓存的计费消息已经超过最小重放间隔（**SET N40MSGSTG** 命令的REPLAYINTERVAL配置），则发送回放的Charging Data Request消息，消息中携带failure或failureafter标识。
+
+2：NCG返回Charging Data Response消息。
+
+P2：如果响应码为2XX，则回放成功，SMF释放本地对应的缓存消息。如果响应码为429，SMF需要继续存储该消息，待后续再次尝试回放。",网络部署/业务专题/5G Core 计费解决方案/计费解决方案概述/N40接口融合计费/融合计费可靠性/zh-cn_topic_0231702099.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加""在5G网络中""，且将问题的主语变为""用户身份标识""
+
+<用户问题>：
+SUCI是如何生成的？
+
+返回改写后的用户问题",在5G网络中，用户身份标识SUCI是如何生成的？,概念介绍,解释了5G网络中的身份识别功能特性的原理，包括其涉及的各种身份标识的定义。,"5G网络中，用户身份标识包括SUPI、SUCI、5G-GUTI、PEI。
+SUPI（Subscription Permanent Identifier）：5G网络中UE的永久身份标识。
+SUCI（Subscription Concealed Identifier）：UE对SUPI加密生成SUCI。当UE无有效5G-GUTI时，采用SUCI标识自己的身份。
+5G-GUTI（5G Globally Unique Temporary UE Identity）：AMF为UE分配的临时身份标识。
+PEI（Permanent Equipment Identifier）：5G网络中UE的永久设备标识。",网络部署/特性部署/UNC特性指南/安全管理功能/WSFD-010304 身份识别功能/身份识别功能（5G）/unc_2000_feature_desc_5g_identity_check.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加'在QoS控制中，'
+
+<用户问题>：
+MME是如何通过命令进行基于IMSI号段的控制的?
+
+返回改写后的用户问题",在QoS控制中，MME是如何通过命令进行基于IMSI号段的控制的?,处理步骤,描述MME如何通过命令进行基于IMSI号段的QoS控制，以及控制过程中对QoS的决策流程。,MME通过ADD QOSCAP命令和ADD QOSCAPBYQCI命令进行基于IMSI号段的QoS控制，控制对象为指定号段用户的Non-GBR承载，IMSI号段通过上述两个命令中的'SUBRANGE（用户范围）'参数定义。ADD QOSCAP命令用于限制特定用户群的Non-GBR承载的QoS控制策略。ADD QOSCAPBYQCI命令用于限制QCI粒度的特定用户群的Non-GBR承载的QoS控制策略。,网络部署/特性部署/UNC特性指南/QoS功能/WSFD-105104 基于IMSI号段的QoS控制/基于IMSI号段的QoS控制（适用于MME）/实现原理/unc_2000_feature_desc_qos_control_based_on_imsi_03.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加""在5G网络中的UPF（User Plane Function）中""
+
+<用户问题>：
+SMF下发的策略执行业务识别和控制是如何实现的？
+
+返回改写后的用户问题",在5G网络中的UPF（User Plane Function）中，SMF下发的策略执行业务识别和控制是如何实现的？,概念介绍,解释了5G网络中的用户面功能UPF（User Plane Function）的功能和作用，它是5G Core中的用户面功能，主要实现根据SMF下发的策略执行业务识别和控制、生成用户下行路由并进行数据报文转发等功能，和控制面配合为用户提供业务服务。,UPF（User Plane Function）是5G Core中的用户面功能，主要实现根据SMF下发的策略执行业务识别和控制、生成用户下行路由并进行数据报文转发等功能，和控制面配合为用户提供业务服务。,5G基础知识/一望5G/5G Core业务解决方案解读：用户面网元选择/zh-cn_topic_0000001146258403.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加""在核心网运维中，""，并在问题后添加""，以及其在实时、动态地调整MME Pool内的负荷分布中的应用场景和客户价值。""
+
+<用户问题>：
+MME Pool 用户迁移特性是什么？
+
+返回改写后的用户问题",在核心网运维中，MME Pool 用户迁移特性是什么，以及其在实时、动态地调整MME Pool内的负荷分布中的应用场景和客户价值。,概念介绍,介绍MME Pool 用户迁移特性的定义，以及它的应用场景和客户价值,MME Pool 用户迁移特性是指根据MME Pool内各MME的负载情况，操作人员通过EMS（Element Management System）下发启动迁移命令，将负载过高或需要升级的MME上的用户迁移到MME Pool中的其他MME上，从而实现实时、动态地调整MME Pool内的负荷分布。在个别场景下，本特性可能是指MME Pool间的迁移。如下文提到的基于eNodeB进行迁移。,网络部署/特性部署/UNC特性指南/容灾功能/MME容灾方案/容灾原理/WSFD-104103 MME Pool 用户迁移/unc_2000_feature_desc_subscriber_migration_in_mme_pool_011.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加""在5G网络切片技术中""
+
+<用户问题>：
+如何理解S-NSSAI的概念？
+
+返回改写后的用户问题",在5G网络切片技术中，如何理解S-NSSAI的概念？,概念介绍,5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。,5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。网络切片是一个端到端的概念，包括无线、传输及核心网，UNC则提供了核心网内的切片功能，主要由NSSF网络功能来实现。网络切片使用S-NSSAI（Single Network Slice Selection Assistance Information）进行标识。相关概念如下：Subscribed S-NSSAIs、Requested NSSAI、Configured NSSAI、Allowed NSSAI、Rejected S-NSSAIs。,网络部署/特性部署/UNC特性指南/网络切片功能/zh-cn_topic_0247814887.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加“在4G/5G互操作时”，问题尾部添加“，并解释可能出现的问题及其原因。”
+
+<用户问题>：
+融合SMF+PGW-C在向NRF注册时携带对应PGW-C的FQDN的作用是什么
+
+返回改写后的用户问题",在4G/5G互操作时，融合SMF+PGW-C在向NRF注册时携带对应PGW-C的FQDN的作用是什么，并解释可能出现的问题及其原因。,概念介绍,解释了在4G/5G互操作时，如何通过融合SMF+PGW-C和DNS Server的配置来保证4G/5G的会话选到同样的融合SMF+PGW-C，从而保证业务连续性。还包括在未配置融合PGW-C+SMF网元信息时，可能会导致的问题。,在搞明白了4G/5G互操作时AMF和MME的发现机制后，后续的会话又是咋样实现的呢？下面我们来看下会话部分的实现机制。如前文所述，控制面PGW-C和SMF进行了融合。一方面，融合SMF+PGW-C在向NRF注册时携带对应PGW-C的FQDN； 另一方面，在现网DNS Sever上配置融合SMF+ PGW-C网元信息，以保证4G/5G的会话选到同样的融合SMF+PGW-C，从而保证业务连续性了。注意：如未在现网DNS Sever上配置融合PGW-C+SMF网元信息，当UE从4G切换到5G网络时携带的是现网UGW的主机名，会导致AMF无法根据此主机名获取到SMF网元，从而导致选不到SMF，造成切换失败。,5G基础知识/一望5G/5G Core业务解决方案解读：4G&5G互操作/4G/5G互操作/4G/5G互操作实现原理关键点/zh-cn_topic_0000001086009554.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+问题前添加""在基于业务感知的带宽控制操作中，""
+
+<用户问题>：
+如何查询License配置开关是否已打开？
+
+返回改写后的用户问题",在基于业务感知的带宽控制操作中，如何查询License配置开关是否已打开？,处理步骤,描述如何调测基于业务感知的带宽控制功能的具体操作步骤。,1. 进入“MML命令行-UNC”窗口。2. 执行[**LST LICENSESWITCH**] 命令，查询License配置开关是否已打开。3. 创建用户跟踪任务，消息类型选择N4/Gx/N7。4. 测试终端使用“huawei.com”发起接入网络请求。5. 执行**[DSP PDUSESSION]** 命令，通过测试终端的IMSI查看测试终端是否激活成功。6. 检查N4接口跟踪报文，是否将指定规则传递给UPF。7. 执行[**LST RULE**] 命令查询带宽控制规则的名称是否与UPF/PCF上的配置一致。8. 请联系华为技术支持工程师。,网络部署/特性部署/UNC特性指南/智能PCC解决方案/WSFD-211005 基于业务感知的带宽控制/zh-cn_opi_0279619227.html
+文本生成,工单改写,"你是核心网运维工程师，请根据<改写规则>，将<用户问题>补充完整
+
+<改写规则>：
+在问题前添加 '在SGSN和MME网元中', 并将问题的动词改为相应的命令形式
+
+<用户问题>：
+如何清除SCTP统计信息？
+
+返回改写后的用户问题",在SGSN和MME网元中，如何使用命令来清除SCTP统计信息？,处理步骤,介绍如何在SGSN和MME网元中使用命令来清除SCTP统计信息,"此命令用于清除SCTP统计信息
+本地用户权限: manage-ug；system-ug
+网管用户权限: G_1，管理员级别命令组；G_2，操作员级别命令组
+参数说明: 参考表格
+使用实例: 清除RU名称为USN_VSU1、进程号为0的SCTP偶联统计信息：CLR SCTPAS: CLRAST=GLBTR, RUNAME=""USN_VSU1"", PN=0;",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/扩展调测/业务调测/SCTP统计信息/clr_sctpas.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+1. 首先，监控MME与HSS之间Diameter链路的状态。如果链路从正常或故障状态变为拥塞状态，计数器加1。
+2. 继续监控一个测量周期内，MME与HSS之间Diameter链路处于拥塞状态的次数。
+3. 收集数据，并将数据以次为单位进行记录。
+4. 如果在一个测量周期内，链路拥塞的次数超过预设的阈值，需要立即报告。然后进行下一步的处理。
+5. 根据收集到的数据，分析链路拥塞的原因。
+6. 根据分析的结果，确定解决链路拥塞的方法，并执行相应的操作。
+7. 执行操作后，再次监控MME与HSS之间Diameter链路的状态，确认链路是否恢复正常。
+8. 如果链路恢复正常，结束处理。如果链路仍然拥塞，继续执行步骤5。
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": ""1"",
+    ""content"": ""监控MME与HSS之间Diameter链路的状态。如果链路从正常或故障状态变为拥塞状态，计数器加1""
+  },
+  {
+    ""step"": ""2"",
+    ""content"": ""继续监控一个测量周期内，MME与HSS之间Diameter链路处于拥塞状态的次数""
+  },
+  {
+    ""step"": ""3"",
+    ""content"": ""收集数据，并将数据以次为单位进行记录""
+  },
+  {
+    ""step"": ""4"",
+    ""content"": ""如果在一个测量周期内，链路拥塞的次数超过预设的阈值，需要立即报告。然后进行下一步的处理""
+  },
+  {
+    ""step"": ""5"",
+    ""content"": ""根据收集到的数据，分析链路拥塞的原因""
+  },
+  {
+    ""step"": ""6"",
+    ""content"": ""根据分析的结果，确定解决链路拥塞的方法，并执行相应的操作""
+  },
+  {
+    ""step"": ""7"",
+    ""content"": ""执行操作后，再次监控MME与HSS之间Diameter链路的状态，确认链路是否恢复正常""
+  },
+  {
+    ""step"": ""8"",
+    ""content"": ""如果链路恢复正常，结束处理。如果链路仍然拥塞，继续执行步骤5""
+  }
+]",概念介绍,介绍了一个测量周期内，MME与HSS之间Diameter链路处于拥塞状态的次数的统计方法，包括含义、单位、测量点、测量类型和计算公式。,"含义：本测量指标统计了一个测量周期内，MME与HSS之间Diameter链路处于拥塞状态的次数。
+单位：次
+测量点：当Diameter链路从正常或故障状态变为拥塞状态时，计数器加1。
+测量类型：累加和
+计算公式：无。",OM参考/性能指标/业务性能指标/业务性能指标/SGSN/MME业务性能指标/LINK性能指标/S6a/Diameter链路/117490814.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+处理步骤：
+1. 配置NRF1。
+   1. 关闭双活NRF容灾特性的License配置开关。
+   2. 删除双活NRF容灾实例通信地址信息。
+   3. 删除双活容灾实例。
+   4. 查询容灾配置信息，确保容灾配置信息已删除。
+2. 配置NRF2。
+   1. 关闭双活NRF容灾特性的License配置开关。
+   2. 删除双活NRF容灾实例通信地址信息。
+   3. 删除双活容灾实例。
+   4. 查询容灾配置信息，确保容灾配置信息已删除。
+
+注意只回答json，不要回答其它内容","[
+    {
+        ""step"": ""配置NRF1"",
+        ""sub_steps"": [
+            ""关闭双活NRF容灾特性的License配置开关"",
+            ""删除双活NRF容灾实例通信地址信息"",
+            ""删除双活容灾实例"",
+            ""查询容灾配置信息，确保容灾配置信息已删除""
+        ]
+    },
+    {
+        ""step"": ""配置NRF2"",
+        ""sub_steps"": [
+            ""关闭双活NRF容灾特性的License配置开关"",
+            ""删除双活NRF容灾实例通信地址信息"",
+            ""删除双活容灾实例"",
+            ""查询容灾配置信息，确保容灾配置信息已删除""
+        ]
+    }
+]",代码,提供了一个现网2个单机运行的NRF组成双活容灾组，需要将改造后的双活NRF回退到2个单机NRF时的脚本示例。,"脚本：//配置NRF1。//关闭双活NRF容灾特性的License配置开关。SET LICENSESWITCH: LICITEM="" LKV2DLNRR01"", SWITCH=DISABLE;//删除双活NRF容灾实例通信地址信息。RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.2"";RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.1"";//删除双活容灾实例。RMV DRINST: DRINSTID=0;//查询容灾配置信息，确保容灾配置信息已删除。DSP DRINFO: PEERDRINSTID=1;//配置NRF2。//关闭双活NRF容灾特性的License配置开关。SET LICENSESWITCH: LICITEM="" LKV2DLNRR01"", SWITCH=DISABLE;//删除双活NRF容灾实例通信地址信息。RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.1"";RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.2"";//删除双活容灾实例。RMV DRINST: DRINSTID=1;//查询容灾配置信息，确保容灾配置信息已删除。DSP DRINFO: PEERDRINSTID=0;",网络部署/业务专题/5G Core NRF解决方案/NRF功能部署/5G独立部署/NRF单层容灾组网/NRF解决方案基本功能配置实例（NRF双活容灾+ NF注册/更新/去注册、NF订阅/通知+NF发现）/新建场景/2个单机改造双活场景/zh-cn_opi_0296491554.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+
+1. MME上查看Create Session Request中indication flag中的5gsiwk标志位是否为1。
+* 是：=>2。
+* 否：=>4。
+2. 查看SMF+PGW-C收到的Create Session Request中indication flag中的5gsiwk标志位是否为1。
+* 是：=>3。
+* 否：=>4。
+3. 在SMF+PGW-C上执行命令SET POLICYMODE: TMACCTYPE=UE5G_RAT4G, BY5GSIWKI=DISABLE, FORCED=Npcf; 关闭SMF校验。重复UE的4G接入操作，查看问题是否解决
+* 是：=>结束。
+* 否：=>4。
+4. 请收集日志信息和配置信息，并联系华为技术支持处理。
+
+注意只回答json，不要回答其它内容
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": 1,
+    ""content"": ""MME上查看Create Session Request中indication flag中的5gsiwk标志位是否为1。"",
+    ""yes"": 2,
+    ""no"": 4
+  },
+  {
+    ""step"": 2,
+    ""content"": ""查看SMF+PGW-C收到的Create Session Request中indication flag中的5gsiwk标志位是否为1。"",
+    ""yes"": 3,
+    ""no"": 4
+  },
+  {
+    ""step"": 3,
+    ""content"": ""在SMF+PGW-C上执行命令SET POLICYMODE: TMACCTYPE=UE5G_RAT4G, BY5GSIWKI=DISABLE, FORCED=Npcf; 关闭SMF校验。重复UE的4G接入操作，查看问题是否解决。"",
+    ""yes"": ""结束"",
+    ""no"": 4
+  },
+  {
+    ""step"": 4,
+    ""content"": ""请收集日志信息和配置信息，并联系华为技术支持处理。""
+  }
+]",处理步骤,提供了在5G用户4G接入，有SGW的场景下，SMF在Create Session response里面回复system failure的处理步骤。,"1. MME上查看Create Session Request中indication flag中的5gsiwk标志位是否为1。
+* 是：=>2。
+* 否：=>4。
+2. 查看SMF+PGW-C收到的Create Session Request中indication flag中的5gsiwk标志位是否为1。
+* 是：=>3。
+* 否：=>4。
+3. 在SMF+PGW-C上执行命令SET POLICYMODE: TMACCTYPE=UE5G_RAT4G, BY5GSIWKI=DISABLE, FORCED=Npcf; 关闭SMF校验。重复UE的4G接入操作，查看问题是否解决
+* 是：=>结束。
+* 否：=>4。
+4. 请收集日志信息和配置信息，并联系华为技术支持处理。",网络部署/业务专题/5G Core 4/5G互操作解决方案/常见故障案例/zh-cn_trbcase_0235666866.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+本地配置方式
+
+SMF选择PCF不关注对端是数据PCF还是语音PCF，本地配置时按照PCF侧规划配置对接即可。
+
+* AMF配置到PCF脚本如下：
+
+      ADD PNFPROFILE: NFINSTANCEID=""PCF_Instance_0"", NFTYPE=NfPCF,  NFSTATUS=Registered, IPADDRESSTYPE=IPTypeV6, IPV6ADDRESS1=""2001:db8:6:6:6:6:6:6"", PORT=80, CAPACITY=100;
+ADD PNFSERVICE: NFINSTANCEID=""PCF_Instance_0"", SRVINSTANCEID=""Service_Instance_0"", SERVICENAME= NpcfAmPlcCtrl, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100;
+ADD PNFSERVICE: NFINSTANCEID=""PCF_Instance_0"", SRVINSTANCEID=""Service_Instance_1"", SERVICENAME= NpcfUePcy, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100;
+
+* SMF配置到PCF脚本如下：
+
+      ADD PNFPROFILE: NFINSTANCEID=""PCF_Instance_0"", NFTYPE=NfPCF,  NFSTATUS=Registered, IPADDRESSTYPE=IPTypeV6, IPV6ADDRESS1=""2001:db8:6:6:6:6:6:6"", PORT=80, CAPACITY=100;
+ADD PNFSERVICE: NFINSTANCEID=""PCF_Instance_0"", SRVINSTANCEID=""Service_Instance_0"", SERVICENAME=npcfSmplcCtrl, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100;
+
+注意只回答json，不要回答其它内容","[
+    {
+        ""step"": ""1"",
+        ""instruction"": ""按照PCF侧规划配置对接，不论对端是数据PCF还是语音PCF""
+    },
+    {
+        ""step"": ""2"",
+        ""instruction"": ""执行AMF配置到PCF脚本：ADD PNFPROFILE: NFINSTANCEID='PCF_Instance_0', NFTYPE=NfPCF,  NFSTATUS=Registered, IPADDRESSTYPE=IPTypeV6, IPV6ADDRESS1='2001:db8:6:6:6:6:6:6', PORT=80, CAPACITY=100""
+    },
+    {
+        ""step"": ""3"",
+        ""instruction"": ""添加PNFSERVICE：NFINSTANCEID='PCF_Instance_0', SRVINSTANCEID='Service_Instance_0', SERVICENAME= NpcfAmPlcCtrl, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100""
+    },
+    {
+        ""step"": ""4"",
+        ""instruction"": ""添加PNFSERVICE：NFINSTANCEID='PCF_Instance_0', SRVINSTANCEID='Service_Instance_1', SERVICENAME= NpcfUePcy, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100""
+    },
+    {
+        ""step"": ""5"",
+        ""instruction"": ""执行SMF配置到PCF脚本：ADD PNFPROFILE: NFINSTANCEID='PCF_Instance_0', NFTYPE=NfPCF,  NFSTATUS=Registered, IPADDRESSTYPE=IPTypeV6, IPV6ADDRESS1='2001:db8:6:6:6:6:6:6', PORT=80, CAPACITY=100""
+    },
+    {
+        ""step"": ""6"",
+        ""instruction"": ""添加PNFSERVICE：NFINSTANCEID='PCF_Instance_0', SRVINSTANCEID='Service_Instance_0', SERVICENAME=npcfSmplcCtrl, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100""
+    }
+]",处理步骤,在5G网络中，选择PCF的本地配置方式不关注对端是数据PCF还是语音PCF，本地配置时按照PCF侧规划配置对接。这一知识点详细介绍了AMF和SMF到PCF的配置脚本。,"本地配置方式
+
+SMF选择PCF不关注对端是数据PCF还是语音PCF，本地配置时按照PCF侧规划配置对接即可。
+
+* AMF配置到PCF脚本如下：
+
+      ADD PNFPROFILE: NFINSTANCEID=""PCF_Instance_0"", NFTYPE=NfPCF,  NFSTATUS=Registered, IPADDRESSTYPE=IPTypeV6, IPV6ADDRESS1=""2001:db8:6:6:6:6:6:6"", PORT=80, CAPACITY=100;
+ADD PNFSERVICE: NFINSTANCEID=""PCF_Instance_0"", SRVINSTANCEID=""Service_Instance_0"", SERVICENAME= NpcfAmPlcCtrl, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100;
+ADD PNFSERVICE: NFINSTANCEID=""PCF_Instance_0"", SRVINSTANCEID=""Service_Instance_1"", SERVICENAME= NpcfUePcy, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100;
+
+* SMF配置到PCF脚本如下：
+
+      ADD PNFPROFILE: NFINSTANCEID=""PCF_Instance_0"", NFTYPE=NfPCF,  NFSTATUS=Registered, IPADDRESSTYPE=IPTypeV6, IPV6ADDRESS1=""2001:db8:6:6:6:6:6:6"", PORT=80, CAPACITY=100;
+ADD PNFSERVICE: NFINSTANCEID=""PCF_Instance_0"", SRVINSTANCEID=""Service_Instance_0"", SERVICENAME=npcfSmplcCtrl, SCHEMA=http, NFSERVICESTATUS=REGISTERED, PRIORITY=10, CAPACITY=100;
+",网络部署/业务专题/UNC网元选择专题/5G网络的网元选择/不同业务流程下的网元选择/业务流程中网元选择配置/zh-cn_topic_0000001225433080.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+1. 登录SCCP管理界面。 2. 选择“配置管理 > SCCP配置 > SCCP全局翻译码”。 3. 选择需要删除的GT码索引。 4. 点击“删除”按钮。 5. 在弹出的确认框中点击“确定”。 6. 检查删除后的GT码索引列表，确认需要删除的GT码索引已经不存在。
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": ""1"",
+    ""instruction"": ""登录SCCP管理界面""
+  },
+  {
+    ""step"": ""2"",
+    ""instruction"": ""选择“配置管理 > SCCP配置 > SCCP全局翻译码”""
+  },
+  {
+    ""step"": ""3"",
+    ""instruction"": ""选择需要删除的GT码索引""
+  },
+  {
+    ""step"": ""4"",
+    ""instruction"": ""点击“删除”按钮""
+  },
+  {
+    ""step"": ""5"",
+    ""instruction"": ""在弹出的确认框中点击“确定”""
+  },
+  {
+    ""step"": ""6"",
+    ""instruction"": ""检查删除后的GT码索引列表，确认需要删除的GT码索引已经不存在""
+  }
+]",表格,描述删除SCCP全局翻译码命令的参数及其含义,"参数标识 | 参数名称 | 参数说明
+---|---|---
+GTX | GT码索引 | 可选必选说明：必选参数 参数含义：该参数用于指定希望要被删除的GT码索引。取值范围：0~4095 默认值：无 说明： 此索引对应的GT记录应该在GT表中存在。",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/信令传输管理/SCCP管理/SCCP全局翻译码/rmv_sccpgt.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+在相关网元均完成本特性的配置后，可以采用以下步骤检查特性工作是否正常：用户MS签约的QoS版本为rel5或者rel99。1. 用户MS开机发起附着请求。2. 用户MS发起PDP激活请求。3. 查询QoS参数。进入“MML命令行-UNC”窗口。[**DSP SMCTX**](../MML/Document/dsp_smctx.html): IDTYPE=显示类型;预期结果：用户附着成功并且PDP激活成功，用户签约的最大上行速率、最大下行速率已经根据转换规则被修改。
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": ""确认用户MS签约的QoS版本为rel5或者rel99"",
+    ""type"": ""confirm""
+  },
+  {
+    ""step"": ""用户MS开机发起附着请求"",
+    ""type"": ""action""
+  },
+  {
+    ""step"": ""用户MS发起PDP激活请求"",
+    ""type"": ""action""
+  },
+  {
+    ""step"": ""查询QoS参数"",
+    ""type"": ""action""
+  },
+  {
+    ""step"": ""进入“MML命令行-UNC”窗口"",
+    ""type"": ""action""
+  },
+  {
+    ""step"": ""执行DSP SMCTX命令，IDTYPE=显示类型"",
+    ""type"": ""action""
+  },
+  {
+    ""step"": ""验证用户附着成功并且PDP激活成功，用户签约的最大上行速率、最大下行速率已经根据转换规则被修改"",
+    ""type"": ""confirm""
+  }
+]",处理步骤,描述在相关网元均完成QoS覆盖特性配置后，如何通过一系列步骤检查特性工作是否正常。,"在相关网元均完成本特性的配置后，可以采用以下步骤检查特性工作是否正常：
+用户MS签约的QoS版本为rel5或者rel99。
+1. 用户MS开机发起附着请求。
+2. 用户MS发起PDP激活请求。
+3. 查询QoS参数。
+进入“MML命令行-UNC”窗口。
+[**DSP SMCTX**](../MML/Document/dsp_smctx.html): IDTYPE=显示类型;
+预期结果：用户附着成功并且PDP激活成功，用户签约的最大上行速率、最大下行速率已经根据转换规则被修改。",网络部署/特性部署/UNC特性指南/QoS功能/WSFD-105001 QoS覆盖/unc_2000_feature_om_qos_overwritten_02.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+1.首先需要在MME、eNodeB等网元上首先完成基本业务的数据配置，然后通过U2020/MAE统一进行维护管理。
+2.现网演进工程实施主要应考虑整个工程对现网业务影响最小，由于整个工程实施过程可能时间较长，所以每一个分解步骤过程都应是可逆过程，即可以进行倒回；同时每一个分解过程都是稳定的，即可以随时停顿在任何一个实施阶段，而现有网络业务没有影响。
+3.将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中。
+4.在数据配置流程方面，一般按照流程进行配置。
+
+注意只回答json，不要回答其它内容","[
+  {""step"": ""1"", ""action"": ""在MME、eNodeB等网元上首先完成基本业务的数据配置，然后通过U2020/MAE统一进行维护管理。""},
+  {""step"": ""2"", ""action"": ""现网演进工程实施主要应考虑整个工程对现网业务影响最小，由于整个工程实施过程可能时间较长，所以每一个分解步骤过程都应是可逆过程，即可以进行倒回；同时每一个分解过程都是稳定的，即可以随时停顿在任何一个实施阶段，而现有网络业务没有影响。""},
+  {""step"": ""3"", ""action"": ""将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中。""},
+  {""step"": ""4"", ""action"": ""按照配置流程进行数据配置。""}
+]",处理步骤,描述了将4G网络演进成MME Pool的部署流程，主要包括组网部署流程和配置部署流程。,"部署流程
+
+组网部署流程
+本场景适用于将现网的MME、eNodeB演进成Pool的工程。整个施工过程中，没有新设备加入。
+需要在MME、eNodeB等网元上首先完成基本业务的数据配置，然后通过U2020/MAE统一进行维护管理。具体配置步骤请参照《UNC初始配置与调测》和《U2020 MBB网络管理系统 虚拟化产品文档》 / 《iMaster MAE产品文档》。
+现网演进工程实施主要应考虑整个工程对现网业务影响最小，由于整个工程实施过程可能时间较长，所以每一个分解步骤过程都应是可逆过程，即可以进行倒回；同时每一个分解过程都是稳定的，即可以随时停顿在任何一个实施阶段，而现有网络业务没有影响。
+整个工程实施过程分为3个部分：
+
+升级和演进准备阶段。
+网络工程实施阶段。
+遗留问题处理，网络调整优化阶段。
+
+其中在网络工程实施阶段中包括对每一阶段的调测工作。
+将现网演进成Pool，可能涉及很多台MME和eNodeB，但是其基本原理是一样的。
+首先将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中。需要特别注意的是，整个演进过程中，应该通过规划，尽量使演进过程对网络的影响最小。
+
+配置部署流程
+在数据配置流程方面，一般按图3的流程进行配置：",网络部署/特性部署/UNC特性指南/容灾功能/MME容灾方案/改造部署/4G现网演进成MME Pool/zh-cn_topic_0202307847.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+1. 执行SET LICENSESWITCH: LICITEM=""LKV2IPV601"", SWITCH=ENABLE; 命令，开启IPv6承载上下文特性。执行成功 => 2，执行失败 => 3
+2. 执行SET LICENSESWITCH: LICITEM=""LKV2IPV6SM01"", SWITCH=ENABLE; 命令，进一步激活IPv6承载上下文特性。执行成功 => 处理完毕，执行失败 => 3
+3. 检查LICITEM参数是否正确，检查网络设备的许可证是否支持IPv6。确认无误后，重新执行步骤1和步骤2。问题仍未解决 => 4
+4. 请联系相关技术支持处理。
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": 1,
+    ""description"": ""执行SET LICENSESWITCH: LICITEM=\""LKV2IPV601\"", SWITCH=ENABLE; 命令，开启IPv6承载上下文特性"",
+    ""success"": {
+      ""next_step"": 2
+    },
+    ""failure"": {
+      ""next_step"": 3
+    }
+  },
+  {
+    ""step"": 2,
+    ""description"": ""执行SET LICENSESWITCH: LICITEM=\""LKV2IPV6SM01\"", SWITCH=ENABLE; 命令，进一步激活IPv6承载上下文特性"",
+    ""success"": {
+      ""next_step"": null,
+      ""message"": ""处理完毕""
+    },
+    ""failure"": {
+      ""next_step"": 3
+    }
+  },
+  {
+    ""step"": 3,
+    ""description"": ""检查LICITEM参数是否正确，检查网络设备的许可证是否支持IPv6。确认无误后，重新执行步骤1和步骤2"",
+    ""failure"": {
+      ""next_step"": 4,
+      ""message"": ""问题仍未解决""
+    }
+  },
+  {
+    ""step"": 4,
+    ""description"": ""请联系相关技术支持处理""
+  }
+]",具体案例,提供了一个激活IPv6承载上下文特性的具体任务示例，包括了执行的命令行脚本。,"任务描述
+
+启用IPv6承载上下文特性。
+
+脚本
+
+
+SET LICENSESWITCH: LICITEM=""LKV2IPV601"", SWITCH=ENABLE;
+SET LICENSESWITCH: LICITEM=""LKV2IPV6SM01"", SWITCH=ENABLE;",网络部署/特性部署/UNC特性指南/IPv6功能/WSFD-104001 IPv6承载上下文/WSFD-104001 IPv6承载上下文（MME、S/PGW-C）/unc_2000_feature_om_ipv6_pdp_bearer_context_mme_01.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+1. 在命令行输入增加SGS服务端链路集命令。
+2. 指定链路集的索引。
+   是 => 请执行步骤3。
+   否 => 请执行步骤4。
+3. 输入对端MME提供的索引号。
+   是 => 请执行步骤5。
+   否 => 请执行步骤4。
+4. 输入链路集的名称。
+5. 执行命令。
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": 1,
+    ""content"": ""在命令行输入增加SGS服务端链路集命令""
+  },
+  {
+    ""step"": 2,
+    ""content"": ""指定链路集的索引"",
+    ""actions"": [
+      {
+        ""action"": ""是"",
+        ""next_step"": 3
+      },
+      {
+        ""action"": ""否"",
+        ""next_step"": 4
+      }
+    ]
+  },
+  {
+    ""step"": 3,
+    ""content"": ""输入对端MME提供的索引号"",
+    ""actions"": [
+      {
+        ""action"": ""是"",
+        ""next_step"": 5
+      },
+      {
+        ""action"": ""否"",
+        ""next_step"": 4
+      }
+    ]
+  },
+  {
+    ""step"": 4,
+    ""content"": ""输入链路集的名称""
+  },
+  {
+    ""step"": 5,
+    ""content"": ""执行命令""
+  }
+]",表格,展示增加SGS服务端链路集命令的参数详细信息，包括参数标识、名称、说明等,"参数标识 | 参数名称 | 参数说明
+---|---|---
+LSX | 链路集索引 | 可选必选说明：必选参数 参数含义：该参数用于指定链路集的索引。 数据来源：本端规划 取值范围：0~2000 默认值：无 配置原则：增加链路集时，链路集索引建议从小到大配置。
+MMEN | MME索引 | 可选必选说明：必选参数 参数含义：该参数用于指定对端MME提供的索引号。 数据来源：整网规划 取值范围：0~2000 默认值：无 配置原则：须先在[ADD SGSMME](add_sgsmme.html)中配置取值相同的“MMEX”参数。
+LSN | 链路集名 | 可选必选说明：可选参数 参数说明：该参数用于指定链路集的名称。 数据来源：整网规划 取值范围： 字符串类型，输入长度范围为0~31 默认值： noname 配置原则：无",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/信令传输管理/SMSF管理/SGS服务端链路集/add_sgsrlks.html
+格式遵从,Json格式,"你是核心网运维工程师，你的任务是将以下处理步骤转换成step的形式，返回json格式的列表。
+
+处理步骤：
+1. 已经登录OM Portal，或者已登录U2020，或者登录MAE并进入Access子系统。
+2. 使用**[LST VNFC](../MML/Document/lst_vnfc.html)** 命令查询系统上部署的所有VNFC。
+3. 在步骤2查询出的所有VNFC上都执行如下两条命令：
+
+* 使用**[SET BASESUBHEALTH](../MML/Document/set_basesubhealth.html)** 命令配置Base平面Base链路亚健康信息。
+* 使用命令**[SET ELECTSERVICE](../MML/Document/set_electservice.html)** 配置主控与业务节点之间的故障检测方式为HA+ETCD。
+
+注意只回答json，不要回答其它内容","[
+  {
+    ""step"": ""登录OM Portal，或者已登录U2020，或者登录MAE并进入Access子系统""
+  },
+  {
+    ""step"": ""使用LST VNFC命令查询系统上部署的所有VNFC""
+  },
+  {
+    ""step"": ""在步骤2查询出的所有VNFC上都执行如下两条命令""
+  },
+  {
+    ""step"": ""使用SET BASESUBHEALTH命令配置Base平面Base链路亚健康信息""
+  },
+  {
+    ""step"": ""使用命令SET ELECTSERVICE配置主控与业务节点之间的故障检测方式为HA+ETCD""
+  }
+]",处理步骤,激活业务节点故障状态管理增强功能时，需要进行的操作步骤,"1. 已经登录OM Portal，或者已登录U2020，或者登录MAE并进入Access子系统。
+2. 使用**[LST VNFC](../MML/Document/lst_vnfc.html)** 命令查询系统上部署的所有VNFC。
+3. 在步骤2查询出的所有VNFC上都执行如下两条命令：
+
+* 使用**[SET BASESUBHEALTH](../MML/Document/set_basesubhealth.html)** 命令配置Base平面Base链路亚健康信息。
+* 使用命令**[SET ELECTSERVICE](../MML/Document/set_electservice.html)** 配置主控与业务节点之间的故障检测方式为HA+ETCD。",网络部署/特性部署/UNC特性指南/Service Fabric特性/Service Fabric可靠性/SFFD-010030 分布式集群防脑裂/zh-cn_opi_0255826271.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+运维工程师在执行MML批处理过程中，发现批处理文件无法执行。他提供了以下批处理文件内容：
+/*MEID= 0*/LST ME:; ADD NE: IDTYPE=BYID, ID=1, SRVPROT=IPV4, SRVIP=10.10.10.1, SRVPORT=21, PW=123456, FTPMODE=ACTIVE, TRANSFERMODE=BINARY;
+
+<业务知识>：
+MML批处理文件（也称脚本文件）是一种纯文本文件，是将连续执行的一批MML命令，以文本的形式保存。如果以后需要执行相同的操作，可以直接调用已保存的批处理命令文件，而不必再逐条输入命令。执行MML批处理时，对内容格式要求如下：* MML批处理执行的命令必须满足MML的格式要求。例如，命令必须包含冒号，并且以分号结尾。* 在输入批处理命令前，必须先输入USE ME:MEID=*;，选择的批处理文件的第一条命令也必须是USE ME:MEID=*;。 其中*表示要执行批处理命令的网元ID。
+
+<推理规则>：
+检查批处理文件的第一条命令是否为USE ME:MEID=*;。如果不是，那么批处理文件将无法执行。检查后续命令是否满足MML格式要求，例如，命令必须包含冒号，并且以分号结尾。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""首先，根据推理规则，我们需要检查批处理文件的第一条命令是否为USE ME:MEID=*;。在给定的批处理文件中，第一条命令是/*MEID= 0*/LST ME:;，并不是USE ME:MEID=*;。其次，我们需要检查后续命令是否满足MML格式要求，例如，命令必须包含冒号，并且以分号结尾。在给定的批处理文件中，后续命令ADD NE: IDTYPE=BYID, ID=1, SRVPROT=IPV4, SRVIP=10.10.10.1, SRVPORT=21, PW=123456, FTPMODE=ACTIVE, TRANSFERMODE=BINARY;是满足MML格式要求的。"",
+""分析结果"": ""批处理文件无法执行的原因是其第一条命令并不是USE ME:MEID=*;""
+}",概念介绍,介绍了MML批处理文件的作用以及执行MML批处理时对内容格式的要求。,MML批处理文件（也称脚本文件）是一种纯文本文件，是将连续执行的一批MML命令，以文本的形式保存。如果以后需要执行相同的操作，可以直接调用已保存的批处理命令文件，而不必再逐条输入命令。执行MML批处理时，对内容格式要求如下：* MML批处理执行的命令必须满足MML的格式要求。例如，命令必须包含冒号，并且以分号结尾。* 在输入批处理命令前，必须先输入USE ME:MEID=*;，选择的批处理文件的第一条命令也必须是USE ME:MEID=*;。 其中*表示要执行批处理命令的网元ID。* 在批处理文件中使用“/* */”对USE ME 进行注释时，系统默认是有效命令。仅当使用“//”进行注释时，系统则视其为无效命令。* 对于命令前的网元ID注释，注释中的网元ID标识“MEID”和“=”之间不能存在空格。例如，/* MEID= 0 */LST ME:;其中“MEID”和“=”之间无空格。* 当进行批处理“语法检查”或“执行”时，如果存在非法的USE ME，将终止“语法检查”或“执行”。* 不支持多条命令在同一行。* 不支持命令参数的校验。,网络运维/日常维护/UNC基础运维操作/执行MML命令/通过OM Portal执行MML命令/zh-cn_topic_0234004619.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+你是一个核心网运维工程师，你收到一个任务：在NRF双活场景下，需要指示NF切换到另一个容灾的NRF上注册。这个任务给出的信息是：执行OPR NRFNFSWTNRF命令后，NRF会对NF限定次数的心跳和全量更新请求进行正常处理后返回504，或从下一次收到NF心跳或全量更新请求后的1分钟内对心跳和全量更新请求进行正常处理后返回504。
+
+<业务知识>：
+OPR NRFNFSWTNRF命令是用于NRF双活场景下，指示NF切换到另一个容灾的NRF上注册的。执行该命令后会导致该NF实例注册或心跳请求短时间接收504响应，所以应该谨慎操作。此命令执行结果可以通过DSP NRFNFSWTNRF命令查询。
+
+<推理规则>：
+如果执行OPR NRFNFSWTNRF命令后，NRF返回504的话，那么可以认为NF已经切换到另一个容灾的NRF上注册。如果NRF没有返回504，那么需要重新执行OPR NRFNFSWTNRF命令。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""根据业务知识，OPR NRFNFSWTNRF命令是用于NRF双活场景下，指示NF切换到另一个容灾的NRF上注册的。执行该命令后会导致该NF实例注册或心跳请求短时间接收504响应。因此，如果执行OPR NRFNFSWTNRF命令后，NRF返回504的话，那么可以认为NF已经切换到另一个容灾的NRF上注册。如果NRF没有返回504，那么需要重新执行OPR NRFNFSWTNRF命令。"",
+""分析结果"": ""根据输入信息，已经执行了OPR NRFNFSWTNRF命令，并且NRF返回了504响应，所以可以确认NF已经切换到另一个容灾的NRF上注册。""
+}",概念介绍,描述操作指示NF切换NRF（OPR NRFNFSWTNRF）命令的功能及其使用场景,执行该命令后会导致该NF实例注册或心跳请求短时间接收504响应，请谨慎操作。适用NF：NRF，该命令用于NRF双活场景下指示NF切换到另外容灾的NRF上注册。执行完该命令后，NRF会对NF限定次数的心跳和全量更新请求进行正常处理后返回504，或从下一次收到NF心跳或全量更新请求后的1分钟内对心跳和全量更新请求进行正常处理后返回504。此命令执行结果通过DSP NRFNFSWTNRF命令查询。,OM参考/命令/UNC MML命令/业务服务管理/NRF业务及策略管理/对端NF管理/NF信息刷新/opr_nrfnfswtnrf.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+你接到一个工单，其中涉及到一个APNNI的配置信息，该APNNI的组号GRPID为2，APNNI信息为'www.example.com'，描述信息为'example apnni'。你需要分析该APNNI的配置信息是否符合规则。
+
+<业务知识>：
+参数标识 | 参数名称 | 参数说明
+---|---|---
+GRPID | APNNI组号 | 可选必选说明：必选参数 参数含义：该参数用于指定APNNI组号。 数据来源：本端规划 取值范围：0～15 默认值：无 配置原则：该ID必须是ADD APNNIGROUP命令中已配置的ID记录。
+APNNI | APNNI | 可选必选说明：必选参数 参数含义：该参数用来指定APNNI信息。 数据来源：本端规划 取值范围：1～62位字符串 默认值：无 配置原则：
+  * APN网络标识地址由一个或多个LABEL构成，各LABEL间用“.”间隔。
+  * 每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。
+  * APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾。
+DESC | 描述 | 可选必选说明：可选参数 参数含义：APNNI描述信息。 数据来源：本端规划 取值范围：0～256位字符串 默认值：noname
+
+<推理规则>：
+1. 检查GRPID是否在0～15的范围内，并且在ADD APNNIGROUP命令中已配置
+2. 检查APNNI是否符合以下规则：
+    * APN网络标识地址由一个或多个LABEL构成，各LABEL间用“.”间隔。
+    * 每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。
+    * APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾。
+3. 检查DESC的长度是否在0～256位字符串的范围内
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""首先，检查GRPID的取值，GRPID为2，符合取值范围0～15的规定。然后，检查APNNI的取值，APNNI为'www.example.com'，它是由多个LABEL构成，各LABEL间用'.'间隔，每个LABEL的构成字符只是字母和'.'，符合规定。并且它不以'rac'、'lac'、'sgsn'或'rnc'开头，也不以'.gprs'结尾，符合规定。最后，检查DESC的取值，DESC为'example apnni'，长度在0～256位字符串的范围内，符合规定。"",
+""分析结果"": ""该APNNI的配置信息符合规则""
+}",表格,描述增加APNNI命令的参数说明，包括每个参数的标识、名称、说明，以及取值范围、默认值和配置原则等信息。,"参数标识 | 参数名称 | 参数说明  
+---|---|---  
+GRPID | APNNI组号 | 可选必选说明：必选参数 参数含义：该参数用于指定APNNI组号。 数据来源：本端规划 取值范围：0～15 默认值：无 配置原则：该ID必须是ADD APNNIGROUP命令中已配置的ID记录。  
+APNNI | APNNI | 可选必选说明：必选参数 参数含义：该参数用来指定APNNI信息。 数据来源：本端规划 取值范围：1～62位字符串 默认值：无 配置原则：  
+  * APN网络标识地址由一个或多个LABEL构成，各LABEL间用“.”间隔。  
+  * 每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。  
+  * APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾。  
+DESC | 描述 | 可选必选说明：可选参数 参数含义：APNNI描述信息。 数据来源：本端规划 取值范围：0～256位字符串 默认值：noname",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/会话管理/APNNI信息管理/APNNI管理/add_apnni.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+你正在处理一个网络故障，设备报告了大量的ARP报文，造成了网络的延迟和阻塞。你的任务是分析此问题，并提出解决方案。
+
+<业务知识>：
+UNC实现了ARP防攻击功能，包括ARP报文合法性检查、ARP严格学习、ARP学习抑制、ARP报文限速、ARP Miss消息限速、ARP快回和ARP双向分离等。其中，ARP报文限速特性指设备会对单位时间内收到的ARP报文进行数量统计，如果ARP报文数量超出了配置的阈值，超出部分的ARP报文将被忽略。
+
+<推理规则>：
+如果设备收到大量的ARP报文，应启用ARP报文限速功能，对单位时间内收到的ARP报文进行数量统计，如果ARP报文数量超出了配置的阈值，超出部分的ARP报文将被忽略。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""设备报告了大量的ARP报文，导致了网络的延迟和阻塞。这表明设备在单位时间内收到的ARP报文数量超出了正常范围，根据业务知识，UNC提供的ARP报文限速可以解决这个问题。这项功能会对单位时间内收到的ARP报文数量进行统计，如果ARP报文数量超出了配置的阈值，超出部分的ARP报文将被忽略。"",
+""分析结果"": ""应启用ARP报文限速功能，对单位时间内收到的ARP报文进行数量统计，如果ARP报文数量超出了配置的阈值，超出部分的ARP报文将被忽略。这样可以有效减少设备处理ARP报文的数量，进一步降低网络的延迟和阻塞。""
+}",表格,详细描述了UNC实现的ARP防攻击功能，包括各项功能的作用和工作原理。,"表1 ARP防攻击功能防攻击功能 | 详细描述
+ARP报文合法性检查 | ARP报文中的MAC地址信息包括以太网报文头中的MAC地址和ARP报文数据区中的MAC地址，在正常情况下，以太网桢头中的MAC地址和ARP报文数据区中的MAC地址是一致的。UNC实现了ARP报文合法性检查特性，对设备收到的ARP报文数据区中的源、目的MAC地址和以太网报文头中的源、目的MAC进行一致性检查，如果一致，则认为该ARP报文是合法的；否则认为报文是非法的，直接丢弃。
+ARP严格学习 | 一般情况下，网络设备会学习收到的ARP请求报文。严格学习ARP表项是指网络设备仅仅学习自己发送的ARP请求报文的应答报文，对其它设备向其发送的ARP请求报文和非自己发送的ARP请求报文对应的应答报文不进行处理。这样，可以拒绝掉大部分的ARP请求和应答报文攻击。
+ARP学习抑制 | 在某些情况下网络设备下挂的某个端口遭受到ARP攻击时，设备在短时间内会收到大量的ARP报文，导致设备上的ARP表项溢出，影响合法用户正常使用网络。ARP表项限制特性通过限制设备的各个接口学习ARP表项的总数目，可以有效的防止ARP表项溢出，保证ARP表项的安全性。
+ARP报文限速 | 设备在短时间内会收到大量的ARP报文，也会导致设备的CPU资源极大地消耗在ARP学习和ARP响应上面，影响其它业务的处理。ARP报文限速特性指设备会对单位时间内收到的ARP报文进行数量统计，如果ARP报文数量超出了配置的阈值，超出部分的ARP报文将被忽略。
+ARP Miss消息限速 | ARP Miss消息是指设备在转发报文时因匹配不到对应的ARP表项而上报给上层软件的Miss消息。如果ARP Miss消息过多，会导致设备的CPU资源浪费在处理ARP Miss消息上，影响设备对其他业务的处理。
+ARP快回 | 大量ARP报文上送控制平面会造成CPU负载过高，危害系统安全。针对这种威胁，UNC支持ARP快回功能。使能ARP快回功能后，用户平面在接收到ARP请求报文后不上送控制平面处理，直接回复ARP响应报文给客户端。
+ARP双向分离 | 传统的ARP处理方法是将ARP请求或响应报文全部送到CPU进行处理，ARP请求和响应报文都会在CPU中产生ARP状态表项。当ARP请求量过大时，CPU无法处理过多的ARP报文，造成正常的ARP报文被丢弃而影响主机上线。ARP双向分离是将ARP请求和响应分开处理，ARP请求由转发面进行无状态应答，不上送CPU进行处理；ARP响应则只响应CPU请求过的ARP报文，非CPU发出请求的ARP响应报文则丢弃。",快速入门/产品安全/UNC安全原理/网络层安全/防攻击/zh-cn_topic_0173122090.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+在UNC窗口中，执行LST COMMONSOFTPARAOFBIT命令查询软参DWORD205中BIT2和BIT3的取值，发现结果为BIT2-0, BIT3-1。
+
+<业务知识>：
+适用NF：AMF、SMF、SGW-C、PGW-C、P-GW、S-GW。含义：该软参用于控制GTPC路径发布核查周期。取值说明：BIT2-0, BIT3-0:核查周期2min。BIT2-1, BIT3-0:核查周期20min。BIT2-0, BIT3-1:核查周期120min。BIT2-1, BIT3-1:关闭核查。系统初始设置值：0。应用场景：该软参用于控制GTPC路径发布核查周期，当单次GTPC路径数量过多时，可适当将核查周期调大。
+
+<推理规则>：
+查看软参DWORD205中BIT2和BIT3的取值，根据取值说明中对应的核查周期得出结论。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"":""根据输入信息，我们在UNC窗口中执行了LST COMMONSOFTPARAOFBIT命令，查询了软参DWORD205中BIT2和BIT3的取值，结果为BIT2-0, BIT3-1。然后我们查看了业务知识中的取值说明，发现BIT2-0, BIT3-1对应的是核查周期120min。"",
+""分析结果"":""当前GTPC路径发布核查周期为120分钟。""
+}",概念介绍,介绍了控制GTPC路径发布核查周期的软参，包括软参的适用NF、含义、取值说明、应用场景、关联软参、关联特性、生效方式以及配置举例。,"适用NF：AMF、SMF、SGW-C、PGW-C、P-GW、S-GW 
+
+含义：该软参用于控制GTPC路径发布核查周期 
+
+取值说明：BIT2-0, BIT3-0:核查周期2min。BIT2-1, BIT3-0:核查周期20min。BIT2-0, BIT3-1:核查周期120min。BIT2-1, BIT3-1:关闭核查。系统初始设置值：0 
+
+应用场景：该软参用于控制GTPC路径发布核查周期，当单次GTPC路径数量过多时，可适当将核查周期调大。 
+
+关联软参：无。 
+
+关联特性：WSFD-010600 路径管理。 
+
+生效方式：无。 
+
+配置举例：如果需要关闭GTPC路径发布核查功能。具体的操作如下：
+
+1. 在“MML命令行 - UNC”窗口中，执行LST COMMONSOFTPARAOFBIT命令查询软参DWORD205中BIT2和BIT3的取值。
+
+2. 若查询结果不为期望值，则需要修改。在“MML命令行 - UNC”窗口中，执行SET COMMONSOFTPARAOFBIT命令设置软参DWORD205中BIT2和BIT3的取值。",OM参考/软件参数/UNC软件参数/业务软件参数/软件参数（5G业务公共）/路径管理/dword_0205_bit_0002.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+你收到了一个工单，反应一位高端用户在使用PDP方式接入网络时有时会遇到接入失败的问题。你查询了相关的差异化服务配置信息，结果如下：
+用户级别  =  高端用户
+业务级别  =  Background
+PDP数负荷拒绝门限(%)  =  20
+PDP数负荷恢复门限(%)  =  10
+(结果个数 = 1)
+你需要分析这个用户遇到接入失败的可能原因是什么，并给出下一步的操作建议。
+
+<业务知识>：
+差异化服务配置是网络运营商为了更好地满足不同用户的需求，对不同用户级别和业务级别设置不同的接入门限。其中，PDP数负荷拒绝门限是当PDP的负荷达到这个门限时，新的接入请求会被拒绝。PDP数负荷恢复门限是当PDP的负荷下降到这个门限时，新的接入请求才会被接受。
+
+<推理规则>：
+首先，根据查询到的差异化服务配置信息，查看PDP数负荷拒绝门限和PDP数负荷恢复门限的数值。如果拒绝门限设定的较低，那么用户在网络负荷较高的时候可能会遇到接入失败的问题。因此，分析结果应为：如果拒绝门限设定的较低，则可能是因为网络负荷过高导致的接入失败；如果拒绝门限设定的不低，那么接入失败的原因可能并非由此引起。对于下一步的操作，应该根据分析结果进一步排查。如果是由于网络负荷过高导致的接入失败，那么可以考虑调整差异化服务的配置，比如提高PDP数负荷拒绝门限；如果接入失败的原因可能并非由此引起，那么需要进一步排查其他可能的原因。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""根据查询到的差异化服务配置信息，用户级别为高端用户，业务级别为Background，PDP数负荷拒绝门限为20%，PDP数负荷恢复门限为10%。根据业务知识，当PDP的负荷达到拒绝门限时，新的接入请求会被拒绝，当PDP的负荷下降到恢复门限时，新的接入请求才会被接受。因此，如果拒绝门限设定的较低，那么用户在网络负荷较高的时候可能会遇到接入失败的问题。"",
+""分析结果"": ""用户遇到的接入失败问题可能是由于网络负荷过高，导致PDP负荷达到了设定的20%拒绝门限，从而拒绝了用户的新接入请求。下一步的操作建议是，可以考虑调整差异化服务的配置，比如提高PDP数负荷拒绝门限，以减少在网络负荷较高时新的接入请求被拒绝的情况；同时，还需要进一步排查其他可能导致接入失败的原因。""
+}",具体案例,给出一个查询差异化服务接入门限命令的具体使用实例。,"查询以“PDP方式”接入，用户级别为“高端用户”，业务级别为“Background”的差异化服务配置信息：
+
+LST DIFFSERVICE: AT=PDP, USRPRI=HIGHLEVELUSER, SRVLVL=BACKGROUND;
+
+%%LST DIFFSERVICE: AT=PDP, USRPRI=HIGHLEVELUSER, SRVLVL=BACKGROUND;%%
+RETCODE = 0  操作成功。
+
+差异化服务配置表
+-------------------------------------
+用户级别  =  高端用户
+业务级别  =  Background
+PDP数负荷拒绝门限(%)  =  20
+PDP数负荷恢复门限(%)  =  10
+(结果个数 = 1)
+
+---    END",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/会话管理/差异化服务配置/lst_diffservice.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+你是核心网运维工程师，收到一个报错信息：'错误码：1001，错误描述：APNNI库记录添加失败'。你知道APNNI库记录是对APN网络标识地址的记录，用于识别UE。你需要找出可能的错误原因。
+
+<业务知识>：
+参数标识 | 参数名称 | 参数说明
+---|---|---
+APNNI | APNNI | 可选必选说明：必选参数 参数含义：该参数用于设置PDP激活请求中携带的APNNI或者签约数据中的APNNI。 数据来源：本端规划 取值范围：1~62位字符串 默认值：无 配置原则：
+
+每条记录中的“APNNI”字段不能重复。
+“APNNI”（APN网络标识地址）由一个或多个LABEL构成，各LABEL间用“.”间隔。每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾，不能取值为“*”。
+
+<推理规则>：
+根据错误信息和业务知识，首先需要检查APNNI库记录中是否存在相同的APNNI字段，如果存在，那么可能是重复添加导致的错误，需要删除重复的记录。其次，需要检查APNNI的取值是否符合规则，包括长度、构成字符以及禁止的起始字符和结尾。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""根据错误信息，APNNI库记录添加失败，可能的原因包括APNNI字段重复或APNNI取值不符合规则。首先，检查APNNI库记录中是否存在相同的APNNI字段，如果存在，那可能是由于重复添加导致的错误。其次，检查APNNI的取值是否符合规则，包括长度、构成字符以及禁止的起始字符和结尾。"",
+""分析结果"": ""APNNI库记录添加失败的可能原因包括APNNI字段重复或APNNI取值不符合规则。需要检查APNNI库记录和APNNI的取值规则。""
+}",表格,详细描述了增加APNNI库记录命令的参数，包括参数名称、参数说明以及配置原则。,"参数标识 | 参数名称 | 参数说明  
+---|---|---  
+APNNI | APNNI | 可选必选说明：必选参数 参数含义：该参数用于设置PDP激活请求中携带的APNNI或者签约数据中的APNNI。 数据来源：本端规划 取值范围：1~62位字符串 默认值：无 配置原则： 
+
+  * 每条记录中的“APNNI”字段不能重复。
+  * “APNNI”（APN网络标识地址）由一个或多个LABEL构成，各LABEL间用“.”间隔。每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾，不能取值为“*”。
+
+APNTYPE | APN类型 | 可选必选说明：必选参数 参数含义：该参数用于指定根据PDP激活请求中携带的APNNI或是签约数据中的APNNI来识别UE。 数据来源：本端规划 取值范围：
+
+  * “REQUEST_APN(请求APN)”
+  * “SUBSCRIBED_APN(签约APN)”
+
+默认值：无 配置原则：
+
+  * 选择类型为“REQUEST_APN(请求APN)”时，即此请求APNNI识别的用户终端启用Smartphone相关功能。
+  * 选择类型为“SUBSCRIBED_APN(签约APN)”时，即此签约APNNI识别的用户终端启用Smartphone相关功能。
+
+UETYPE | 终端类型 | 可选必选说明：必选参数 参数含义：该参数用于设置请求APNNI或签约APNNI对应的终端类型。 数据来源：本端规划 取值范围：
+
+  * “ANDROID(Android)”
+  * “BLACKBERRY(Black Berry)”
+  * “IOS(iOS)”
+  * “WINDOWS(Windows)”
+  * “CUSTOM_TYPE_1(自定义类型1)”
+  * “CUSTOM_TYPE_2(自定义类型2)”
+  * “CUSTOM_TYPE_3(自定义类型3)”
+  * “CUSTOM_TYPE_4(自定义类型4)”
+  * “CUSTOM_TYPE_5(自定义类型5)”
+  * “CUSTOM_TYPE_6(自定义类型6)”
+  * “CUSTOM_TYPE_7(自定义类型7)”
+  * “CUSTOM_TYPE_8(自定义类型8)”
+  * “CUSTOM_TYPE_9(自定义类型9)”
+  * “CUSTOM_TYPE_10(自定义类型10)”
+  * “CUSTOM_TYPE_11(自定义类型11)”
+  * “CUSTOM_TYPE_12(自定义类型12)”
+
+默认值：无  
+UEDESC | 终端详细信息 | 可选必选说明：可选参数 参数含义：该参数是对终端类型的详细描述。 数据来源：本端规划 取值范围：长度为255位字符串 默认值：无",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/Smartphone管理/终端类型识别/APNNI库管理/add_apnnilib.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+在早高峰期间，你接手了一项任务，需要对一个具备5G能力的用户设备（UE）进行网络切换分析。该UE初始在4G网络注册，现需切换到5G网络。你需要根据现有数据和规定的推理规则，确定网络切换的关键步骤和涉及的网络设备。
+
+<业务知识>：
+在用户在4G网络注册后续切换/重选到5G网络的场景下，描述了MME和AMF如何通过DNS和NRF获取和传递融合SMF+PGW-C的信息，从而将用户承载切换到5G。具体步骤如下：1. 具备5G能力的UE开始在LTE网络初始附着时，MME会从DNS获取到PGW FQDN后，根据“nc-smf”标志位识别融合网关SMF+PGW-C，并将用户的PDN连接建立到融合SMF+PGW-C上。2. 当用户从LTE网络切换或者重选到5G网络，MME会将PGW FQDN传递给AMF。3. AMF根据的PGW FQDN向NRF查询到融合的SMF，从将用户承载切到5G。
+
+<推理规则>：
+根据4G到5G网络切换的规则，如果获取到的设备信息显示UE具备5G能力，并且UE已在LTE网络初始附着，那么可以推理出MME会从DNS获取到PGW FQDN，并识别出融合网关SMF+PGW-C。当用户从LTE网络切换到5G网络，MME会将PGW FQDN传递给AMF，AMF将根据PGW FQDN向NRF查询并获取融合的SMF，从而将用户承载切换到5G。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""首先，根据业务知识和输入信息，我们知道该UE具备5G能力并且已在LTE网络初始附着。根据推理规则，MME会从DNS获取到PGW FQDN，并识别出融合网关SMF+PGW-C，并将用户的PDN连接建立到融合SMF+PGW-C上。当用户需要从LTE网络切换到5G网络，MME会将PGW FQDN传递给AMF。然后，AMF将根据PGW FQDN向NRF查询并获取融合的SMF，从而将用户承载切换到5G。"",
+""分析结果"": ""关键步骤包括：1. MME从DNS获取PGW FQDN并识别出融合网关SMF+PGW-C，建立用户PDN连接。2. 当用户需要切换到5G网络，MME将PGW FQDN传递给AMF。3. AMF根据PGW FQDN向NRF查询并获取融合的SMF，完成用户承载的切换到5G。涉及的网络设备包括：MME，DNS，AMF，NRF，SMF+PGW-C。""
+}",具体案例,在用户在4G网络注册后续切换/重选到5G网络的场景下，描述了MME和AMF如何通过DNS和NRF获取和传递融合SMF+PGW-C的信息，从而将用户承载切换到5G。,以用户初始在4G网络注册后续切换/重选到5G网络场景，举例来说：1. 具备5G能力的UE开始在LTE网络初始附着时，MME会从DNS获取到PGW FQDN后，根据“nc-smf”标志位识别融合网关SMF+PGW-C，并将用户的PDN连接建立到融合SMF+PGW-C上。2. 当用户从LTE网络切换或者重选到5G网络，MME会将PGW FQDN传递给AMF。3. AMF根据的PGW FQDN向NRF查询到融合的SMF，从将用户承载切到5G。,5G基础知识/一望5G/5G Core业务解决方案解读：4G&5G互操作/4G/5G互操作/4G/5G互操作实现原理关键点/zh-cn_topic_0000001086009554.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+你在运维过程中发现，一个新入网的5G签约终端在不同区域入网时，都会选择融合网关，但是在4/5G切换时网元选择与发现的一致性出现异常。你需要对这个问题进行分析，找出可能的问题所在。
+
+<业务知识>：
+在4/5G互操作场景下，5G签约终端从不同区域入网时，都会选择融合网关。融合SMF+PGW-C，在向NRF注册时可携带对应PGW-C的FQDN，在DNS Server内记录中service parameters包含“nc-smf”关键字，例如x-3gpp-pgw:x-s5-gtp+nc-smf。可确保4/5G 切换时网元选择与发现的一致性。
+
+<推理规则>：
+如果5G签约终端在4/5G切换时网元选择与发现的一致性出现异常，那么需要检查融合网关在向NRF注册时是否正确携带了对应PGW-C的FQDN，以及DNS Server内记录中service parameters是否包含了“nc-smf”关键字。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+    ""推导过程"": ""根据业务知识，我们了解到在4/5G互操作场景下，5G签约终端在不同区域入网时都会选择融合网关，而融合网关在向NRF注册时需要携带对应PGW-C的FQDN。同时，DNS Server内记录中的service parameters需要包含'nc-smf'关键字，以确保4/5G切换时网元选择与发现的一致性。当5G签约终端在4/5G切换时网元选择与发现的一致性出现异常时，我们需要根据推理规则进行检查。"",
+    ""分析结果"": ""融合网关在向NRF注册时可能没有正确携带对应PGW-C的FQDN，或者DNS Server内记录中的service parameters没有包含'nc-smf'关键字。需要进一步检查这两个问题点。""
+}",概念介绍,介绍抑制使用PGW FQDN的服务发现功能的原理概述,在4/5G互操作场景下，5G签约终端从不同区域入网时，都会选择融合网关。融合SMF+PGW-C，在向NRF注册时可携带对应PGW-C的FQDN，在DNS Server内记录中service parameters包含“nc-smf”关键字，例如x-3gpp-pgw:x-s5-gtp+nc-smf。可确保4/5G 切换时网元选择与发现的一致性。,网络部署/特性部署/UNC特性指南/流控功能/WSFD-010802 周边网元过载保护/zh-cn_topic_0318066840.html
+逻辑推理,逻辑推理,"你是核心网运维工程师，你的任务是严格按照推理规则给出分析结果，推导过程尽量简要。
+
+<输入信息>：
+在你负责的核心网中，发生了一次计费Trigger事件，你收到了以下的信令流程记录：
+ '时间':2025-07-13 16:35:01.243,'消息名称':Charging Data Request,'方向':SMF发送到CHF
+ '时间':2025-07-13 16:36:01.243,'消息名称':Charging Data Request,'方向':SMF发送到CHF
+ '时间':2025-07-13 16:37:01.243,'消息名称':Charging Data Request,'方向':SMF发送到CHF
+你需要根据这些信息确定Trigger的上报方式。
+
+<业务知识>：
+Trigger的上报方式包括不上报、立即上报和延迟上报。不上报是指当计费Trigger发生时，不生成容器，不上报CHF。立即上报是指当计费Trigger发生时，SMF立即将计费Trigger和当前的计费数据上报给CHF，之前延迟上报的也会同时上报上去。延迟上报是指当计费Trigger发生时，SMF记录下当前的计费数据，但不立即触发Charging Data Request消息，而是在下一条Charging Data Request消息中将当前保存的计费数据上报给CHF。
+
+<推理规则>：
+如果Charging Data Request消息在Trigger发生后立即发送，那么上报方式为立即上报。如果Charging Data Request消息在Trigger发生后没有立即发送，而是在下一条Charging Data Request消息中将当前保存的计费数据上报给CHF，那么上报方式为延迟上报。如果没有上报任何消息，那么上报方式为不上报。
+
+你需要按照格式回答，根据推理规则中规定的内容填写，回答格式为json格式，包含推导过程和分析结果两个字段","{
+""推导过程"": ""根据信令流程记录，Charging Data Request消息在Trigger发生后立即发送了三次，这与立即上报的描述相符，即当计费Trigger发生时，SMF立即将计费Trigger和当前的计费数据上报给CHF。"",
+""分析结果"": ""Trigger的上报方式为立即上报。""
+}",表格,详细解释了Trigger的上报方式，包括不上报、立即上报和延迟上报。,"**表1** Trigger的上报方式上报方式 | 详细说明
+---|---
+不上报 | 当计费Trigger发生时，不生成容器，不上报CHF。
+立即上报 | 当计费Trigger发生时，SMF立即将计费Trigger和当前的计费数据上报给CHF，之前延迟上报的也会同时上报上去。
+延迟上报 | 当计费Trigger发生时，SMF记录下当前的计费数据，但不立即触发Charging Data Request消息，而是在下一条Charging Data Request消息中将当前保存的计费数据上报给CHF。",网络部署/业务专题/5G Core 计费解决方案/计费解决方案概述/N40接口融合计费/常见故障案例/zh-cn_trbcase_0280259369.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+参数：
+#APN名称：Huawei.com，ULCL功能开关：ENABLE，用户模板组名称：ulcl_test，用户模板名称：testuserprofilename，规则名称：testrule，策略类型：ULCL，策略名称：testulclpropname，流过滤器名称：ulcl，ULCL属性名称：testulclpropname，数据网络访问标识符：testdnai，DNAI服务区域名称：DNAREA1，DNAI服务区域类型：N2TAI，DNAI服务区名称支持5GTAI范围的起始值：46001000001，DNAI服务区名称支持5GTAI范围的结束值：46001000006，IPv6本地UP分流策略：UlClPrefer
+
+以START开始END结束写<业务脚本>","START
+ADD APN:APN=Huawei.com,ULCLFUNC=ENABLE;
+ADD APNUSRPROFG:APN=Huawei.com,USERPROFGNAME=ulcl_test;
+ADD USRPROFGROUP:USERPROFGNAME=ulcl_test;
+ADD UPBINDUPG:USERPROFGNAME=ulcl_test,UPBINDTYPE=ULCL,USERPROFILENAME=testuserprofilename;
+ADD RULE:RULENAME=testrule,POLICYTYPE=ULCL,POLICYNAME=testulclpropname,FLOWFILTERNAME=ulcl;
+ADD USERPROFILE:USERPROFILENAME=testuserprofilename,UPTYPE=ULCL;
+ADD RULEBINDING:USERPROFILENAME=testuserprofilename,RULENAME=testrule,POLICYTYPE=ULCL;
+ADD FLOWFILTER:FLOWFILTERNAME=ulcl;
+ADD ULCLPROP:ULCLPROPNAME=testulclpropname,DNAI=testdnai;
+ADD DNAREA:AREANAME=DNAREA1,AREATYPE=N2TAI;
+ADD DNAREABINDN2TAI:AREANAME=DNAREA1,N2BEGINTAI=46001000001,N2ENDTAI=46001000006;
+ADD DNAIBINDDNAREA:DNAI=testdnai,AREANAME=DNAREA1;
+SET SMFFUNC:IPV6LOCALUP=UlClPrefer;
+END",表格,描述在部署基于SMF本地规则的分流时需要配置的数据，包括DNN模板组，用户模板组，规则，用户属性模板，UL CL分流策略，DNAI对应的服务区域，IPv6会话场景下的分流策略等。,"数据
+类别 | 参数名称 | 取值样例 | 获取方法 | 说明
+---|---|---|---|---
+**ADD APN** | APN名称（APN） | Huawei.com | 全网规划 | 配置DNN模板组 参数“APN”可配置为专网DNN。
+ULCL功能开关（ULCLFUNC） | ENABLE | 本端规划
+**ADD APNUSRPROFG** | APN（APN） | Huawei.com | 全网规划
+用户模板组名称（USERPROFGNAME） | ulcl_test | 本端规划
+**ADD USRPROFGROUP** | 用户模板组名称（USERPROFGNAME） | ulcl_test | 本端规划 | 配置用户模板组 “用户模板绑定类型”可以配置为ULCL。
+**ADD UPBINDUPG** | 用户模板组名称（USERPROFGNAME） | ulcl_test | 本端规划
+用户模板绑定类型（UPBINDTYPE） | ULCL
+用户模板名称（USERPROFILENAME） | testuserprofilename | 全网规划
+**ADD RULE** | 规则名称（RULENAME） | testrule | 全网规划 | 配置规则
+策略类型（POLICYTYPE） | ULCL | 本端规划
+策略名称（POLICYNAME） | testulclpropname
+流过滤器名称（FLOWFILTERNAME） | ulcl | 与对端协商
+**ADD USERPROFILE** | 用户模板名称（USERPROFILENAME） | testuserprofilename | 全网规划 | 配置用户属性模板 “用户模板类型”和“策略类型”均配置为ULCL
+用户模板类型（UPTYPE） | ULCL | 本端规划
+**ADD RULEBINDING** | 用户模板名称（USERPROFILENAME） | testuserprofilename | 全网规划
+规则名称（RULENAME） | testrule | 本端规划
+策略类型（POLICYTYPE） | ULCL | 本端规划
+**ADD FLOWFILTER** | 流过滤器名称（FLOWFILTERNAME） | ulcl | 与对端协商 | 配置UL CL分流策略 “流过滤器名称”需要和UPF侧保持一致。 这里的“数据网络访问标识符”需要和与分流UPF对接配置中ADD PNFDNAI中的DNAI在数据规划上保持一致。
+**ADD ULCLPROP** | ULCL属性名称（ULCLPROPNAME） | testulclpropname | 本端规划
+数据网络访问标识符（DNAI） | testdnai
+**ADD DNAREA** | DNAI服务区域名称（AREANAME） | DNAREA1 | 全网规划 | 配置DNAI对应的服务区域 “数据网络访问标识符”需要和**ADD ULCLPROP** 中的“数据网络访问标识符”保持一致。 DNAI是用于SMF选择辅锚点UPF用的，需要确保本处配置的区域范围在辅锚点UPF的覆盖范围内。
+DNAI服务区域类型（AREATYPE） | N2TAI
+**ADD DNAREABINDN2TAI** | DNAI服务区域名称（AREANAME） | DNAREA1 | 全网规划
+DNAI服务区名称支持5GTAI范围的起始值（N2BEGINTAI） | 46001000001
+DNAI服务区名称支持5GTAI范围的结束值（N2ENDTAI） | 46001000006
+**ADD DNAIBINDDNAREA** | 数据网络访问标识（DNAI） | testdnai | 全网规划
+DNAI服务区域名称（AREANAME） | DNAREA1
+**SET SMFFUNC** | IPv6本地UP分流策略（IPV6LOCALUP） | UlClPrefer | 本端规划 | 配置IPv6会话场景下的分流策略 如果是IPv6会话，系统默认选择Bp分流模式，如果是UL CL分流需要修改配置。
+（可选）**SET APNAUTHATTR** | APN名称（APN） | cmnet | 全网规划 | 配置当用户二次鉴权失败后，仍可以访问公网。
+控制AAA鉴权服务器回复Access Reject时是否允许用户继续激活（AAAREJECTCTRL） | CONTINUE | 全网规划",网络部署/业务专题/5G Core UL CL分流解决方案/分流业务部署/基于SMF本地规则的分流/功能部署/zh-cn_opi_0000001149014078.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+需要实现终端的差异化控制，需要配置的参数如下：
+配置“是否支持Register LAI信元”为“NOT_SUPPORT（不支持）”；
+配置“发送所有MME服务PLMN”为“YES（是）”；
+配置“eNodeB是否支持祖冲之算法”为“NO（否）”；
+配置“是否携带Time to Wait信元”为“YES（是）”；
+配置“NAS transport消息是否携带SPID信元”为“NO（否）”；
+配置“NAS TRANSPORT消息是否携带HRL信元”为“YES（是）”；
+配置“Masked IMEISV发送范围”为“SPECENODEB（特定eNodeB）”；
+配置“Next Paging Area Scope开关”为“NO（否）”；
+配置UE CONTEXT SUSPEND RESPONSE和UE CONTEXT RESUME RESPONSE消息中“是否携带Security Context”为“NO（否）”。
+
+以START开始END结束写<业务脚本>","START
+
+MOD S1INTERFACE: 
+SupportRegisterLAI=NOT_SUPPORT, 
+SendAllMMEServicePLMN=YES, 
+SupportZhuChongzhiAlgorithm=NO, 
+CarryTimeToWait=YES, 
+CarrySPIDinNASTransport=NO, 
+CarryHRLinNASTransport=YES, 
+MaskedIMEISVSendRange=SPECENODEB, 
+NextPagingAreaScope=NO, 
+CarrySecurityContextinUEContextResponse=NO;
+
+END",具体案例,描述了在某个具体场景下如何设置S1接口的兼容性。,某局点需要实现终端的差异化控制，设置S1接口兼容性参数如下：配置“是否支持Register LAI信元”为“NOT_SUPPORT（不支持）”，配置“发送所有MME服务PLMN”为“YES（是）”，配置“eNodeB是否支持祖冲之算法”为“NO（否）”，配置“是否携带Time to Wait信元”为“YES（是）”，配置“NAS transport消息是否携带SPID信元”为“NO（否）”，配置“NAS TRANSPORT消息是否携带HRL信元”为“YES（是）”，配置“Masked IMEISV发送范围”为“SPECENODEB（特定eNodeB）”，配置“Next Paging Area Scope开关”为“NO（否）”，配置UE CONTEXT SUSPEND RESPONSE和UE CONTEXT RESUME RESPONSE消息中“是否携带Security Context”为“NO（否）”。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/S1接口管理/S1接口兼容性/set_s1cmpt.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+命令名称：ADD NSLICEMAPPING；本地映射开关：ON；命令条数：5000；已注册用户：已注册
+
+以START开始END结束写<业务脚本>","START
+ADD NSLICEMAPPING: MAPNUM=5000;
+SET NSMAPPARA: LOCALSWITCH=ON;
+STR NGUSRBATCHDEREG: REGTYPE=NEEDTORE-REG;
+END",处理步骤,在使用增加漫游切片映射配置命令时，需要注意的事项,"该命令执行后立即生效。
+
+最多可输入8192条记录。
+
+当SET NSMAPPARA中本地映射开关参数设置为“ON(打开)”，AMF判断不能为UE提供需要的切片映射服务时，仍会发起到NSSF的网络切片映射服务。
+
+增加漫游切片映射配置时，对已注册用户不会立即生效。如果需要立即生效，请先执行STR NGUSRBATCHDEREG命令对漫游用户启动批量去注册任务，并指定去注册类型为需要重新注册，触发用户重新注册，获取最新切片映射关系。",OM参考/命令/UNC MML命令/业务服务管理/5G接入业务管理/移动性管理/网络切片映射管理/AMF网络切片映射配置管理/add_amfroamnsmap.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+NRF1通信地址：10.5.5.2，NRF2通信地址：10.5.5.1
+
+以START开始END结束写<业务脚本>","START
+//配置NRF1。
+//关闭双活NRF容灾特性的License配置开关。
+SET LICENSESWITCH: LICITEM="" LKV2DLNRR01"", SWITCH=DISABLE;
+//删除双活NRF容灾实例通信地址信息。
+RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.2"";
+RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.1"";
+//删除双活容灾实例。
+RMV DRINST: DRINSTID=0;
+//查询容灾配置信息，确保容灾配置信息已删除。
+DSP DRINFO: PEERDRINSTID=1;
+
+//配置NRF2。
+//关闭双活NRF容灾特性的License配置开关。
+SET LICENSESWITCH: LICITEM="" LKV2DLNRR01"", SWITCH=DISABLE;
+//删除双活NRF容灾实例通信地址信息。
+RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.1"";
+RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.2"";
+//删除双活容灾实例。
+RMV DRINST: DRINSTID=1;
+//查询容灾配置信息，确保容灾配置信息已删除。
+DSP DRINFO: PEERDRINSTID=0;
+END",代码,提供了一个现网2个单机运行的NRF组成双活容灾组，需要将改造后的双活NRF回退到2个单机NRF时的脚本示例。,"脚本：//配置NRF1。//关闭双活NRF容灾特性的License配置开关。SET LICENSESWITCH: LICITEM="" LKV2DLNRR01"", SWITCH=DISABLE;//删除双活NRF容灾实例通信地址信息。RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.2"";RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.1"";//删除双活容灾实例。RMV DRINST: DRINSTID=0;//查询容灾配置信息，确保容灾配置信息已删除。DSP DRINFO: PEERDRINSTID=1;//配置NRF2。//关闭双活NRF容灾特性的License配置开关。SET LICENSESWITCH: LICITEM="" LKV2DLNRR01"", SWITCH=DISABLE;//删除双活NRF容灾实例通信地址信息。RMV DRCOMM: DRINSTID=0, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.1"";RMV DRCOMM: DRINSTID=1, IPVERSION=COMM_IPV4, COMMIPV4=""10.5.5.2"";//删除双活容灾实例。RMV DRINST: DRINSTID=1;//查询容灾配置信息，确保容灾配置信息已删除。DSP DRINFO: PEERDRINSTID=0;",网络部署/业务专题/5G Core NRF解决方案/NRF功能部署/5G独立部署/NRF单层容灾组网/NRF解决方案基本功能配置实例（NRF双活容灾+ NF注册/更新/去注册、NF订阅/通知+NF发现）/新建场景/2个单机改造双活场景/zh-cn_opi_0296491554.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+参数：DT=Dw, DWORDNUM=504, VALUE=1, POSITION=6;
+
+以START开始END结束写<业务脚本>","START
+SET SMFSOFTPARAOFBIT: DT=Dw, DWORDNUM=504, VALUE=1, POSITION=6;
+END",概念介绍,介绍了华为SMF的融合计费管理中的一项参数设置，即DWORD504 BIT6，这个参数影响SMF在发出Charging Data Request消息时是否需要检查CHF链路状态。,"该软参控制SMF发Charging Data Request消息时是否检查CHF链路状态。取值说明：DWORD504 BIT6：值为0时：当CHF链路状态为Normal，正常给CHF发送消息，但CHF链路状态为Fault时，不向CHF发送消息。值为1时：只要激活时链路状态正常，会话内都直接向CHF发送消息。系统初始设置值：0。修改该参数值后立即生效。配置开启该功能，修改DWORD504 BIT6软参的值为1。SET SMFSOFTPARAOFBIT: DT=Dw, DWORDNUM=504, VALUE=VALUE_1, POSITION=6;",OM参考/软件参数/UNC软件参数/业务软件参数/软件参数（SMF/GGSN/SGW-C/PGW-C）/融合计费管理/dword_0504_bit_0006.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+HMCC: 460; HMNC: 11; HSST: 1; HSD: ABC123; VMCC: 310; VMNC: 410; VSST: 2; VSD: DEF456
+
+以START开始END结束写<业务脚本>","START
+ADD ROAMSLICEMAP: HMCC=""460"", HMNC=""11"", HSST=1, HSD=""ABC123"", VMCC=""310"", VMNC=""410"", VSST=2, VSD=""DEF456"";
+END",表格,增加漫游切片映射配置命令的参数详细说明,"参数标识 | 参数名称 | 参数说明
+---|---|---
+HMCC | 归属地移动国家码 |  可选必选说明：必选参数 参数含义：该参数用于描述归属地移动国家码。 数据来源：全网规划 取值范围：字符串类型，输入长度是3。3位十进制数。 默认值：无 配置原则：无
+HMNC | 归属地移动网号 |  可选必选说明：必选参数 参数含义：该参数用于描述归属地移动网号。 数据来源：全网规划 取值范围：字符串类型，输入长度范围是2~3。2位或者3位十进制数。 默认值：无 配置原则：无
+HSST | 归属地切片服务类型 |  可选必选说明：必选参数 参数含义：该参数用于描述归属地切片服务类型。 数据来源：全网规划 取值范围：整数类型，取值范围是0~255。 默认值：无 配置原则：无
+HSD | 归属地切片细分标识 |  可选必选说明：必选参数 参数含义：该参数用于表示归属地切片细分标识。 数据来源：全网规划 取值范围：字符串类型，输入长度范围是1~6。该参数输入长度为6或1。长度为6时，只能由字母（A-F或者a-f）、数字（0-9）组成，且大小写不敏感，转大写处理。长度为1时，只能为“*”，表示通配符，任意SD值都可以匹配。 默认值：无 配置原则： 如果该参数为空请填入FFFFFF。
+VMCC | 拜访地移动国家码 |  可选必选说明：必选参数 参数含义：该参数用于描述拜访地移动国家码。 数据来源：全网规划 取值范围：字符串类型，输入长度是3。3位十进制数。 默认值：无 配置原则：无
+VMNC | 拜访地移动网号 |  可选必选说明：必选参数 参数含义：该参数用于描述拜访地移动网号。 数据来源：全网规划 取值范围：字符串类型，输入长度范围是2~3。2位或者3位十进制数。 默认值：无 配置原则：无
+VSST | 拜访地切片服务类型 |  可选必选说明：必选参数 参数含义：该参数用于描述拜访地切片服务类型。 数据来源：全网规划 取值范围：整数类型，取值范围是0~255。 默认值：无 配置原则：无
+VSD | 拜访地切片细分标识 |  可选必选说明：必选参数 参数含义：该参数用于表示拜访地切片细分标识。 数据来源：全网规划 取值范围：字符串类型，输入长度是6。该参数只能由字母（A-F或者a-f）、数字（0-9）组成，且大小写不敏感，转大写处理。 默认值：无 配置原则： 如果该参数为空请填入FFFFFF。",OM参考/命令/UNC MML命令/业务服务管理/5G接入业务管理/移动性管理/网络切片映射管理/AMF网络切片映射配置管理/add_amfroamnsmap.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+MEID：XYZ123，Moc名称：MOC_67，标签：TAG-ABC
+
+以START开始END结束写<业务脚本>","START
+LST MOCNTF:MEID=XYZ123,MOCNAME=MOC_67,LABEL=TAG-ABC;
+END",表格,描述对象通知订阅查询（LST MOCNTF）命令的参数信息，包括参数标识、参数名称和参数说明,"参数标识 | 参数名称 | 参数说明 
+---|---|--- 
+MEID | MEID | 根据MEID来确定请求处理者（CSP/子网元）。 
+MOCNAME | Moc名称 | Moc名称。
+LABEL | 标签 | 被管对象类对应的标签值。",OM参考/命令/UNC机机接口命令/主动通知消息/zh-cn_mmlref_0243241664.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+特性名称：WSFD-011301；命令：ADD CAUSEGRP，RMV CAUSEGRP，MOD CAUSEGRP，LST CAUSEGRP，ADD CAUSEMAP，RMV CAUSEMAP，MOD CAUSEMAP，LST CAUSEMAP；参数：CAUSEGRPID=1001, CAUSEGRPID=1002, CAUSEGRPID=1003, CAUSEGRPID=1004, CAUSEMAPID=2001, CAUSEMAPID=2002, CAUSEMAPID=2003, CAUSEMAPID=2004
+
+以START开始END结束写<业务脚本>","START
+ADD CAUSEGRP:CAUSEGRPID=1001;
+ADD CAUSEGRP:CAUSEGRPID=1002;
+ADD CAUSEGRP:CAUSEGRPID=1003;
+ADD CAUSEGRP:CAUSEGRPID=1004;
+RMV CAUSEGRP:CAUSEGRPID=1001;
+RMV CAUSEGRP:CAUSEGRPID=1002;
+RMV CAUSEGRP:CAUSEGRPID=1003;
+RMV CAUSEGRP:CAUSEGRPID=1004;
+MOD CAUSEGRP:CAUSEGRPID=1001;
+MOD CAUSEGRP:CAUSEGRPID=1002;
+MOD CAUSEGRP:CAUSEGRPID=1003;
+MOD CAUSEGRP:CAUSEGRPID=1004;
+LST CAUSEGRP:CAUSEGRPID=1001;
+LST CAUSEGRP:CAUSEGRPID=1002;
+LST CAUSEGRP:CAUSEGRPID=1003;
+LST CAUSEGRP:CAUSEGRPID=1004;
+ADD CAUSEMAP:CAUSEMAPID=2001;
+ADD CAUSEMAP:CAUSEMAPID=2002;
+ADD CAUSEMAP:CAUSEMAPID=2003;
+ADD CAUSEMAP:CAUSEMAPID=2004;
+RMV CAUSEMAP:CAUSEMAPID=2001;
+RMV CAUSEMAP:CAUSEMAPID=2002;
+RMV CAUSEMAP:CAUSEMAPID=2003;
+RMV CAUSEMAP:CAUSEMAPID=2004;
+MOD CAUSEMAP:CAUSEMAPID=2001;
+MOD CAUSEMAP:CAUSEMAPID=2002;
+MOD CAUSEMAP:CAUSEMAPID=2003;
+MOD CAUSEMAP:CAUSEMAPID=2004;
+LST CAUSEMAP:CAUSEMAPID=2001;
+LST CAUSEMAP:CAUSEMAPID=2002;
+LST CAUSEMAP:CAUSEMAPID=2003;
+LST CAUSEMAP:CAUSEMAPID=2004;
+END",处理步骤,这是一个关于华为WSFD-011301特性-基于原因值的UE行为调整的MML命令列表，这些命令用于对这项特性进行操作和管理。,"本特性相关的MML命令如下：
+
+  * [**ADD CAUSEGRP**](../MML/Document/add_causegrp.html)
+  * [**RMV CAUSEGRP**](../MML/Document/rmv_causegrp.html)
+  * [**MOD CAUSEGRP**](../MML/Document/mod_causegrp.html)
+  * [**LST CAUSEGRP**](../MML/Document/lst_causegrp.html)
+  * [**ADD CAUSEMAP**](../MML/Document/add_causemap.html)
+  * [**RMV CAUSEMAP**](../MML/Document/rmv_causemap.html)
+  * [**MOD CAUSEMAP**](../MML/Document/mod_causemap.html)
+  * [**LST CAUSEMAP**](../MML/Document/lst_causemap.html)
+  * [**SET PMMPROCTRL**](../MML/Document/set_pmmproctrl.html)
+  * [**LST PMMPROCTRL**](../MML/Document/lst_pmmproctrl.html)
+  * [**SET GMMPROCTRL**](../MML/Document/set_gmmproctrl.html)
+  * [**LST GMMPROCTRL**](../MML/Document/lst_gmmproctrl.html)
+  * [**SET EMMPROCTRL**](../MML/Document/set_emmproctrl.html)
+  * [**LST EMMPROCTRL**](../MML/Document/lst_emmproctrl.html)
+  * [**SET GBSMPROCTRL**](../MML/Document/set_gbsmproctrl.html)
+  * [**LST GBSMPROCTRL**](../MML/Document/lst_gbsmproctrl.html)
+  * [**SET IUSMPROCTRL**](../MML/Document/set_iusmproctrl.html)
+  * [**LST IUSMPROCTRL**](../MML/Document/lst_iusmproctrl.html)
+  * [**SET S1SMPROCTRL**](../MML/Document/set_s1smproctrl.html)
+  * [**LST S1SMPROCTRL**](../MML/Document/lst_s1smproctrl.html)
+  * [**DSP COMMMCTX**](../MML/Document/dsp_commmctx.html)",网络部署/特性部署/UNC特性指南/基本接入功能/WSFD-011301 基于原因值的UE行为调整/WSFD-011301 基于原因值的UE行为调整（适用于SGSN、MME）/unc_2000_feature_desc_modification_base_on_ue_behavior_03.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+#步骤区域组索引：1234，1235；链路名称：HLR-HSS；链路区域段：1123A-1123F，1124A-1124F
+
+以START开始END结束写<业务脚本>","START
+ACT DMLNK: DMRGNIDX=1234, DMNAME=""HLR-HSS"", DMSUBRGN=""1123A-1123F"";
+ACT DMLNK: DMRGNIDX=1235, DMNAME=""HLR-HSS"", DMSUBRGN=""1124A-1124F"";
+END",概念介绍,介绍MME与HSS、EIR、DRA或GMLC之间的链路通信的恢复命令，以及使用该命令时的注意事项,适用网元：SGSN、MME。该命令用于激活Diameter链路。当需要恢复被DEA DMLNK命令去活的MME与HSS、EIR、DRA或GMLC之间的链路的通信时，用此命令进行激活。注意事项：该命令执行后立即生效。链路处于激活态时，不允许执行该操作，否则将导致部分业务损失。链路只有通过DEA DMLNK命令去活后处于非激活态时，才需要进行激活操作。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/信令传输管理/Diameter管理/Diameter链路/act_dmlnk.html
+代码/MML生成,NL2MML,"你是核心网运维工程师，你的任务是根据<参数>写MML格式的<业务脚本>
+
+<参数>：
+对端标识：10.70.200.1:5164；对端标识类型：CALLBACKURL
+
+以START开始END结束写<业务脚本>","START
+%%DSP NRFLINKINFO: PEERIDTYPE=CALLBACKURL, PEERID=10.70.200.1:5164;%%
+END",处理步骤,通过使用命令DSP NRFLINKINFO，可以查询NRF管理的链路信息。此操作需要具有管理员级别的用户权限。查询参数包括对端标识、对端标识类型和链路状态。,"查询NRF管理的链路信息：
+
+
+%%DSP NRFLINKINFO: PEERIDTYPE=CALLBACKURL;%%
+RETCODE = 0  操作成功
+
+结果如下
+------------------------
+Link information  =  {
+	""PeerId"": ""10.70.200.1:5164"",
+	""PeerIdType"": ""CALLBACKURL"",
+	""LinkStatus"": ""NORMAL"",
+	""RetryAfterSeconds"": 0,
+	""AddrMsgStatus"": ""NotRecv"",
+	""LinkUpdateTime"": ""2020-03-16T21:17:06+08:00"",
+	""RecordCreateTime"": ""2020-03-16T21:17:06+08:00"",
+	""OverLoadBeginTime"": ""1970-01-01T08:00:00+08:00"",
+	""LogicLink"": ""AAEBRhNGyAEsFADFnRyBAAA="",
+	""SbiInfo"": {
+		""NotifyType"": ""Add"",
+		""InfoType"": ""Callback"",
+		""PeerId"": ""10.70.200.1:5164"",
+		""NFType"": ""AMF"",
+		""Scheme"": ""http"",
+		""Fqdn"": ""tac-123.epc.mnc003.mcc123.3gppnetwork.org"",
+		""Ipv4Addresses"": [
+			""10.70.200.1:5164""
+		],
+		""Ipv6Addresses"": null
+	}
+}
+(结果个数 = 1)
+
+---    END",OM参考/命令/UNC MML命令/业务服务管理/NRF业务及策略管理/NRF业务参数/链路管理/dsp_nrflinkinfo.html
+数学计算,数学计算,"你是核心网运维工程师，你的任务是根据给出的业务场景和用户问题，计算出数学问题的答案
+
+业务场景：
+作为核心网运维工程师，你需要处理一个关于流量上报的问题。在你的网络中，SMF/PGW-C接收到的UPF上报的用户下行流量为1929461570千字节。这个数值会按照URR累加到一个指标，该指标仅统计预定义URR的流量。现在，你需要计算出在指定测量周期内，SMF/PGW-C接收到的UPF上报的所有用户下行流量的总和。
+
+用户问题：
+假设在指定测量周期内，除了已知的1929461570千字节的流量外，还有3个UPF上报的用户下行流量分别为58965432千字节，23456789千字节和12345678千字节。请计算出在指定测量周期内，SMF/PGW-C接收到的UPF上报的所有用户下行流量的总和，并以json格式输出结果。
+
+输出格式为json格式{""答案""：""""}","{""答案"": ""2077454469千字节""}",概念介绍,该指标用于统计在指定测量周期内SMF/PGW-C接收UPF上报的指定URR的下行流量上报（千字节）。,含义：该指标用于统计在指定测量周期内SMF/PGW-C接收UPF上报的指定URR的下行流量上报（千字节）。单位：千字节。测量点：当SMF/PGW-C接收到UPF上报的用户流量时，将消息中携带的下行流量按URR累加到该指标。测量类型：当统计周期时间大于采集周期时，取统计周期内采集周期的累加值。计算公式：无。相关说明：该指标仅统计预定义URR的流量。,OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/服务化接口测量/指定URR的N4接口收到的用量上报测量/1929461570.html
+数学计算,数学计算,"你是核心网运维工程师，你的任务是根据给出的业务场景和用户问题，计算出数学问题的答案
+
+业务场景：
+你作为一名核心网运维工程师，需要手动调整HTTP自愈功能的参数，以降低触发HTTP进程自愈的概率。你需要配置的参数为自愈周期2小时，百分比阈值80，故障链路数阈值40。
+
+用户问题：
+请根据所给参数和公式：软参值=(自愈周期÷10分钟) + (百分比阈值<<左移8位) + (故障链路数阈值<<左移16位)计算出软参值，并以JSON格式返回。
+
+输出格式为json格式{""答案""：""""}","首先，计算自愈周期的值，2小时等于120分钟，所以自愈周期÷10分钟等于12。
+然后，将百分比阈值80左移8位，得到80<<8=20480。
+最后，将故障链路数阈值40左移16位，得到40<<16=2621440。
+根据公式，软参值=12+20480+2621440=2641932。
+
+所以，最后的答案为：
+{""答案"":""2641932""}",处理步骤,介绍如何配置DWORD1635 控制HTTP自愈功能参数，包括具体的操作步骤和计算公式。,"当需要降低触发HTTP进程自愈的概率时，以调整HTTP自愈功能各项参数为“自愈周期2小时”、“百分比阈值90”、“故障链路数阈值50”为例，通过公式计算后，可将该软参设置为“3299852”，具体操作如下：
+
+执行SET FWSOFTPARA命令设置软参DWORD1635的取值为“3299852”。
+
+SET FWSOFTPARA: PARAMETERSTYPE=DWORD, DWORDINDEX=1635, DWORDVALUE=3299852;
+
+计算公式：软参值=(自愈周期÷10分钟) + (百分比阈值<<左移8位) + (故障链路数阈值<<左移16位)",OM参考/软件参数/UNC软件参数/平台软件参数/HTTP软参/dword_1635.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+步骤1：CloseLicense
+步骤2：DeleteAddress
+步骤3：DeleteInstance
+步骤4：CheckInfo
+步骤5：endNode
+已知当前步骤描述为进行人工操作，按照顺序执行以下操作，关闭双活NRF容灾特性的License配置开关 => 步骤 2，删除双活NRF容灾实例通信地址信息 => 步骤 3，删除双活容灾实例 => 步骤 4，查询容灾配置信息，如果容灾配置信息已删除 => 步骤 5，如果容灾配置信息未删除 => 步骤 1。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为DeleteInstanceResult，用于选择下一步分支的参数定义为{'result':'容灾配置信息，取值范围{""已删除""，""未删除""}'}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+""branches"": [
+{
+""condition"": ""DeleteInstanceResult.result == '已删除'"",
+""action"": ""步骤5""
+},
+{
+""condition"": ""DeleteInstanceResult.result == '未删除'"",
+""action"": ""步骤1""
+}
+]
+}",处理步骤,描述双活NRF回退为单机NRF的具体操作步骤，包括解除双活NRF的容灾配置，删除双活NRF容灾实例通信地址信息，删除双活容灾实例和查询容灾配置信息。,操作步骤：1. NRF1和NRF2上分别执行解除NRF的双活容灾配置。1.1 进入“MML命令行-UNC”窗口。1.2 关闭双活NRF容灾特性的License配置开关。1.3 删除双活NRF容灾实例通信地址信息。1.4 删除双活容灾实例。1.5 查询容灾配置信息，确保容灾配置信息已删除。,网络部署/业务专题/5G Core NRF解决方案/NRF功能部署/5G独立部署/NRF单层容灾组网/NRF解决方案基本功能配置实例（NRF双活容灾+ NF注册/更新/去注册、NF订阅/通知+NF发现）/新建场景/2个单机改造双活场景/zh-cn_opi_0296491554.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+步骤1：OpenUNCWindow
+步骤2：TurnOnSGSN
+步骤3：TurnOnPCU
+步骤4：TurnOnLicense
+步骤5：CheckResult
+已知当前步骤描述为打开“MML命令行-UNC”窗口，然后打开SGSN功能控制开关，参数“SPTSPCSRVEXT”（2G支持特殊业务类型扩展头）固定选择“SUPPORT”（支持）。接着打开PCU功能控制开关，参数“SPECSRV”（是否支持特殊业务类型）固定选择“YES”（是）。最后打开本特性的License配置开关，然后检查是否激活成功。是=>诊断成功，任务结束。否=>步骤 5。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为TurnOnLicenseResult，用于选择下一步分支的参数定义为{'activation': '是否激活成功，取值范围{""是""，""否""}'}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","[
+{""action"": ""endNode"", ""parameter"": {""activation"": ""是""}},
+{""action"": ""CheckResult"", ""parameter"": {""activation"": ""否""}}
+]",处理步骤,描述激活IM类业务无线资源管控功能的具体操作步骤。,1. 进入“MML命令行-UNC”窗口。2. 打开SGSN功能控制开关。参数“SPTSPCSRVEXT”（2G支持特殊业务类型扩展头）固定选择“SUPPORT”（支持）。3. 打开PCU功能控制开关。参数“SPECSRV”（是否支持特殊业务类型）固定选择“YES”（是）。4. 打开本特性的License配置开关。,网络部署/特性部署/UNC特性指南/差异化服务管理/WSFD-106305 IM类业务资源管控/unc_2000_feature_om_radio_resource_management_optimization_of_im_service.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+
+步骤1：OpenDataNetwork
+步骤2：UserOnlineCheck
+步骤3：RuleActivationCheck
+步骤4：QosParameterCheck
+步骤5：UserQosContextCheck
+步骤6：BusinessExperienceCheck
+步骤7：EndNode
+已知当前步骤描述为进行人工操作，依次检查用户是否上线，UNC（SMF）本地规则名是否已成功激活，UNC（SMF）激活的规则中QoS参数是否与本地配置一致，UPF用户QoS上下文是否正常。完成所有步骤后 => 步骤 7。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为OpenDataNetworkResult，用于选择下一步分支的参数定义为{""result"":""用户状态，取值范围{""正常""，""异常""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+  ""branches"": [
+    {
+      ""condition"": {
+        ""parameter"": ""OpenDataNetworkResult"",
+        ""value"": ""正常""
+      },
+      ""action"": {
+        ""step"": ""UserOnlineCheck""
+      }
+    },
+    {
+      ""condition"": {
+        ""parameter"": ""OpenDataNetworkResult"",
+        ""value"": ""异常""
+      },
+      ""action"": {
+        ""step"": ""EndNode""
+      }
+    }
+  ]
+}",处理步骤,介绍5G PCC策略的快速调测方法，包括调测说明，必备事项以及详细的调测步骤,"调测说明
+快速调测提供了一种能快捷、直观判断PCC策略配置、下发与执行是否符合3GPP协议要求及华为UNC/UDG定义的策略逻辑的方法。
+必备事项
+前提条件
+已参考[本地PCC策略配置](zh-cn_topic_0000001162415085.html)完成本地规则的配置。
+终端用户已在UDM完成开户签约。
+已参考[调测原则](zh-cn_topic_0000001120714788.html)了解网元调测关键点。
+数据
+该操作无需准备数据。
+工具
+无。
+调测步骤
+1. 打开终端“移动数据网络”，使用户上线。
+2. 用户上线后，检查UNC（SMF）本地规则名是否在UNC（SMF）侧已成功激活。
+3. 保持用户会话在线，继续查询UNC（SMF）激活的规则中QoS参数是否与本地配置一致。
+4. 检查UPF用户QoS上下文。
+5. （非必选）检查终端业务实际体验与原始需求保持一致。",网络部署/业务专题/5G PCC之SM策略解决方案/SM策略配置与调测/业务调测方法/本地PCC策略调测/zh-cn_topic_0000001121200422.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+步骤1：InitiateNetworkSwitch
+步骤2：AMFQueriesSMF
+步骤3：AMFTransfersPGWInfo
+步骤4：MMEQueriesDNS
+步骤5：EndNetworkSwitch
+已知当前步骤描述为进行网络切换操作，首先AMF需要查询和发现可用的SMF，然后AMF将PGW FQDN和PGW-C S5接口地址传递给MME。如果MME需要通过查询PGW-C的FQDN而获取PGW-C的拓扑信息，从而选择和PGW-C最近的SGW-C，则需要向DNS Server发起查询。查询成功 => 诊断成功，任务结束。查询失败 => 2。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为MMEQueriesDNSResult，用于选择下一步分支的参数定义为{""isQuerySuccess"":""查询是否成功，取值范围{""是""，""否""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","[
+  {
+    ""stepId"": ""步骤5"",
+    ""stepName"": ""EndNetworkSwitch"",
+    ""action"": ""endNode"",
+    ""conditions"": [
+      {
+        ""parameterId"": ""isQuerySuccess"",
+        ""operator"": ""equal"",
+        ""value"": ""是""
+      }
+    ]
+  },
+  {
+    ""stepId"": ""步骤2"",
+    ""stepName"": ""AMFQueriesSMF"",
+    ""action"": ""branch"",
+    ""conditions"": [
+      {
+        ""parameterId"": ""isQuerySuccess"",
+        ""operator"": ""equal"",
+        ""value"": ""否""
+      }
+    ]
+  }
+]",具体案例,在用户在5G网络注册后续切换/重选到4G网络的场景下，描述了AMF和MME如何通过NRF和DNS获取和传递融合SMF+PGW-C的信息，从而实现用户的网络切换。,如果用户初始是在5G网络注册后续切换/重选到4G网络，通过如下流程来实现。1. AMF从NRF查询和发现可用的SMF。2. 当该用户从5G网络切换或者重选到LTE网络，AMF会将PGW FQDN和PGW-C S5接口地址传递给MME。3. 如果MME希望通过查询PGW-C的FQDN而获取PGW-C的拓扑信息，从而选择和PGW-C最近的SGW-C，会向DNS Server发起查询。,5G基础知识/一望5G/5G Core业务解决方案解读：4G&5G互操作/4G/5G互操作/4G/5G互操作实现原理关键点/zh-cn_topic_0000001086009554.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+步骤1：MMLCommandWindow
+步骤2：UDMDataConfiguration
+步骤3：PCFDataConfiguration
+步骤4：CHFDataConfiguration
+步骤5：AMFDataConfiguration
+步骤6：EndConfiguration
+已知当前步骤描述为进行人工操作，配置到UDM的数据，如果配置成功，继续进行PCF的数据配置。是 => 3，否 => 6。配置到PCF的数据，如果配置成功，继续进行CHF的数据配置。是 => 4，否 => 6。配置到CHF的数据，如果配置成功，继续进行AMF的数据配置。是 => 5，否 => 6。配置到AMF的数据，如果配置成功，诊断结束。是 => 6，否 => 6。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为UDMDataConfigurationResult, PCFDataConfigurationResult, CHFDataConfigurationResult, AMFDataConfigurationResult，用于选择下一步分支的参数定义为{""isDataConfigurationSuccessful"":""数据配置是否成功，取值范围{""是""，""否""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+  ""MMLCommandWindow"": {
+    ""nextStep"": {
+      ""是"": {
+        ""action"": ""branch"",
+        ""parameter"": ""UDMDataConfigurationResult"",
+        ""description"": ""配置到UDM的数据，如果配置成功，继续进行PCF的数据配置。"",
+        ""value"": ""是""
+      },
+      ""否"": {
+        ""action"": ""endNode"",
+        ""parameter"": ""UDMDataConfigurationResult"",
+        ""description"": ""配置到UDM的数据，如果配置失败，诊断结束。"",
+        ""value"": ""否""
+      }
+    }
+  },
+  ""UDMDataConfiguration"": {
+    ""nextStep"": {
+      ""是"": {
+        ""action"": ""branch"",
+        ""parameter"": ""PCFDataConfigurationResult"",
+        ""description"": ""配置到PCF的数据，如果配置成功，继续进行CHF的数据配置。"",
+        ""value"": ""是""
+      },
+      ""否"": {
+        ""action"": ""endNode"",
+        ""parameter"": ""PCFDataConfigurationResult"",
+        ""description"": ""配置到PCF的数据，如果配置失败，诊断结束。"",
+        ""value"": ""否""
+      }
+    }
+  },
+  ""PCFDataConfiguration"": {
+    ""nextStep"": {
+      ""是"": {
+        ""action"": ""branch"",
+        ""parameter"": ""CHFDataConfigurationResult"",
+        ""description"": ""配置到CHF的数据，如果配置成功，继续进行AMF的数据配置。"",
+        ""value"": ""是""
+      },
+      ""否"": {
+        ""action"": ""endNode"",
+        ""parameter"": ""CHFDataConfigurationResult"",
+        ""description"": ""配置到CHF的数据，如果配置失败，诊断结束。"",
+        ""value"": ""否""
+      }
+    }
+  },
+  ""CHFDataConfiguration"": {
+    ""nextStep"": {
+      ""是"": {
+        ""action"": ""branch"",
+        ""parameter"": ""AMFDataConfigurationResult"",
+        ""description"": ""配置到AMF的数据，如果配置成功，诊断结束。"",
+        ""value"": ""是""
+      },
+      ""否"": {
+        ""action"": ""endNode"",
+        ""parameter"": ""AMFDataConfigurationResult"",
+        ""description"": ""配置到AMF的数据，如果配置失败，诊断结束。"",
+        ""value"": ""否""
+      }
+    }
+  },
+  ""AMFDataConfiguration"": {
+    ""nextStep"": {
+      ""是"": {
+        ""action"": ""endNode"",
+        ""parameter"": ""isDataConfigurationSuccessful"",
+        ""description"": ""所有数据配置成功，诊断结束。"",
+        ""value"": ""是""
+      },
+      ""否"": {
+        ""action"": ""endNode"",
+        ""parameter"": ""isDataConfigurationSuccessful"",
+        ""description"": ""配置到AMF的数据，如果配置失败，诊断结束。"",
+        ""value"": ""否""
+      }
+    }
+  }
+}",处理步骤,在5G融合组网对接配置中，配置本地NRF的操作步骤包括进入MML命令行-UNC窗口，配置到UDM的数据，配置到PCF的数据，配置到CHF的数据，配置到AMF的数据等步骤。,"操作步骤
+
+进入“MML命令行-UNC”窗口。
+配置到UDM的数据，包括UDM的Profile、Service、PLMN信息、支持的SUPI范围等信息。
+配置到PCF的数据，包括PCF的Profile、Service、PLMN信息、支持的SUPI范围等信息。
+配置到CHF的数据，包括CHF的Profile、Service、支持的SUPI范围等信息。
+配置到AMF的数据，包括AMF的Profile、Service、PLMN等信息。",网络部署/初始配置/UNC初始配置与调测/2/3/4/5G融合组网对接配置/配置SMF+GW-C/unc_2000_init_smf_047.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+
+步骤1：ConditionalGateway0
+步骤2：AuthenticationCheck1
+步骤3：AuthenticationCheck2
+步骤4：AuthenticationCheck3
+步骤5：AuthenticationCheck4
+步骤6：AuthenticationCheck5
+步骤7：AuthenticationCheck6
+步骤8：informationCollection7
+已知当前步骤描述为进行指定N12接口的AUSF向AMF返回的鉴权成功次数的检查，如果鉴权成功次数稳定，说明鉴权成功率正常，=>诊断成功，任务结束。否则=>步骤 8。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为AuthenticationCheck6Result，用于选择下一步分支的参数定义为{""success"":""鉴权成功次数的状态，取值范围{""稳定""，""波动""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+  ""branches"": [
+    {
+      ""condition"": ""AuthenticationCheck6Result.success == '稳定'"",
+      ""action"": ""endNode""
+    },
+    {
+      ""condition"": ""AuthenticationCheck6Result.success == '波动'"",
+      ""action"": ""informationCollection7""
+    }
+  ]
+}",概念介绍,介绍在AMF N12接口测量中，指定N12接口的AUSF向AMF返回的鉴权成功次数的含义、单位、测量点、测量类型和计算公式，以及相关的说明。,"含义：指定N12接口的AUSF向AMF返回的鉴权成功次数。
+单位：次
+测量点：AMF发送HTTP POST请求消息，请求针对AUSF的“ue-authentications”资源URI发起“POST”标准操作，AMF收到AUSF返回的响应消息，其中HTTP Status Code=201 Created。（3GPP TS 29.509）。
+测量类型：当统计周期时间大于采集周期时，取统计周期内采集周期的累加值。
+计算公式：无 
+相关说明：如果该指标出现波动，请查看鉴权成功率指标是否下降。如果是则查看鉴权失败原因后具体分析。",OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/服务化接口测量/指定局向的AMF N12接口测量/1929480578.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+
+步骤1：OpenDeviceArchive
+步骤2：SelectElement
+步骤3：SyncToDevice
+步骤4：DownloadToLocal
+步骤5：ViewSavedFile
+步骤6：SelectElement2
+步骤7：ShowFileList
+步骤8：ViewFileDetails
+已知当前步骤描述为打开“设备档案采集”窗口，选择需要收集设备信息的网元。同步设备档案文件至U2020/MAE服务器，下载网元设备档案文件至本地客户端。查看U2020/MAE服务器上已经保存的设备档案文件。选择需要收集设备信息的网元，显示文件列表，查看“网元名称”、“导出时间”、“文件名称”。是=>诊断成功，任务结束。否=>步骤 8。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为ShowFileListResult，用于选择下一步分支的参数定义为{""success"":""操作结果，取值范围{""成功"",""失败""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+""nextStep"": [
+{
+""action"": ""endNode"",
+""output"": {
+""success"": ""成功""
+}
+},
+{
+""action"": ""步骤8"",
+""output"": {
+""success"": ""失败""
+}
+}
+]
+}",处理步骤,描述如何使用U2020/MAE上的设备档案功能实现设备资产信息的收集和上报的步骤,"操作步骤
+
+在主菜单中选择“配置 > 设备档案”，打开“设备档案采集”窗口。
+根据用户需求，在左侧导航树中，选择需要收集设备信息的网元。从网元同步设备档案文件至U2020/MAE服务器，从U2020/MAE服务器下载网元设备档案文件至本地客户端。
+根据用户需求，查看U2020/MAE服务器上已经保存的设备档案文件。
+在左侧导航树中，选择需要收集设备信息的网元。
+单击“显示文件列表”。在右侧区域显示“网元名称”、“导出时间”、“文件名称”。",网络运维/日常维护/UNC基础运维操作/zh-cn_topic_0259951517.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+步骤1：LST_APNACCESSCTRL
+步骤2：DSP_SMSESSIONNUM
+步骤3：SET_APNACCESSCTRL
+步骤4：Check_Alarm
+已知当前步骤描述为执行命令LST APNACCESSCTRL查询UNC配置的最大PDP数目是否合理，是 => 2，否 => 3。执行命令DSP SMSESSIONNUM查询当前APN下的会话上下文数是否大于配置最大值，是 => 3，否 => 4。执行命令SET APNACCESSCTRL调整最大PDP数目，使其符合现网部署规划。当APN下的PDP上下文数低于配置设置的“最大PDP数目”的99%时，查看告警是否恢复。是 => 诊断成功，任务结束。否 => 1。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为Check_Alarm_Result，用于选择下一步分支的参数定义为{""isAlarmClear"":""告警是否清除，取值范围{""是""，""否""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+""branches"": [
+{
+""condition"": {
+""isAlarmClear"": ""是""
+},
+""action"": ""endNode"",
+""description"": ""诊断成功，任务结束""
+},
+{
+""condition"": {
+""isAlarmClear"": ""否""
+},
+""action"": ""步骤1"",
+""description"": ""LST_APNACCESSCTRL""
+}
+]
+}",处理步骤,给出处理ALM-100314 APN最大PDP数流控告警的具体步骤和操作命令,处理步骤：1. 执行命令LST APNACCESSCTRL查询UNC配置的最大PDP数目是否合理，是否参考现网部署规划设置。2. 执行命令DSP SMSESSIONNUM查询当前APN下的会话上下文数是否大于配置最大值。3. 执行命令SET APNACCESSCTRL调整最大PDP数目。使其符合现网部署规划。当APN下的PDP上下文数低于配置设置的“最大PDP数目”的99%时，查看告警是否恢复。,网络运维/故障处理/UNC告警处理/业务告警/SMF&GW-C&GGSN/100314.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+步骤1：CheckSwitch
+步骤2：ExecuteCommand
+步骤3：CheckEffect
+步骤4：BatchDereg
+步骤5：endNode
+已知当前步骤描述为检查SET NSMAPPARA中本地映射开关参数是否为“ON(打开)”，如果为“ON(打开)” => 步骤 2，否则 => 步骤 5。在步骤2中执行增加漫游切片映射配置命令，然后 => 步骤 3。在步骤3中检查是否对已注册用户立即生效，如果立即生效 => 步骤 5，否则 => 步骤 4。在步骤4中执行STR NGUSRBATCHDEREG命令对漫游用户启动批量去注册任务，并指定去注册类型为需要重新注册，然后 => 步骤 5。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为CheckSwitchResult、ExecuteCommandResult、CheckEffectResult、BatchDeregResult，用于选择下一步分支的参数定义为CheckSwitchResult定义为{""switch_status"":""SET NSMAPPARA中本地映射开关参数状态，取值范围{""ON""，""OFF""}""}
+ExecuteCommandResult定义为{""command_status"":""增加漫游切片映射配置命令执行状态，取值范围{""成功""，""失败""}""}
+CheckEffectResult定义为{""effect_status"":""检查是否对已注册用户立即生效，取值范围{""立即生效""，""不立即生效""}""}
+BatchDeregResult定义为{""dereg_status"":""执行STR NGUSRBATCHDEREG命令对漫游用户启动批量去注册任务的状态，取值范围{""成功""，""失败""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","[
+  {
+    ""current_step"": ""CheckSwitch"",
+    ""next_step"": {
+      ""switch_status"":""ON"",
+      ""next_node"": ""ExecuteCommand""
+    },
+    ""action"": ""CheckSwitch"",
+    ""output"": ""CheckSwitchResult""
+  },
+  {
+    ""current_step"": ""CheckSwitch"",
+    ""next_step"": {
+      ""switch_status"":""OFF"",
+      ""next_node"": ""endNode""
+    },
+    ""action"": ""CheckSwitch"",
+    ""output"": ""CheckSwitchResult""
+  },
+  {
+    ""current_step"": ""ExecuteCommand"",
+    ""next_step"": {
+      ""command_status"":""成功"",
+      ""next_node"": ""CheckEffect""
+    },
+    ""action"": ""ExecuteCommand"",
+    ""output"": ""ExecuteCommandResult""
+  },
+  {
+    ""current_step"": ""ExecuteCommand"",
+    ""next_step"": {
+      ""command_status"":""失败"",
+      ""next_node"": ""endNode""
+    },
+    ""action"": ""ExecuteCommand"",
+    ""output"": ""ExecuteCommandResult""
+  },
+  {
+    ""current_step"": ""CheckEffect"",
+    ""next_step"": {
+      ""effect_status"":""立即生效"",
+      ""next_node"": ""endNode""
+    },
+    ""action"": ""CheckEffect"",
+    ""output"": ""CheckEffectResult""
+  },
+  {
+    ""current_step"": ""CheckEffect"",
+    ""next_step"": {
+      ""effect_status"":""不立即生效"",
+      ""next_node"": ""BatchDereg""
+    },
+    ""action"": ""CheckEffect"",
+    ""output"": ""CheckEffectResult""
+  },
+  {
+    ""current_step"": ""BatchDereg"",
+    ""next_step"": {
+      ""dereg_status"":""成功"",
+      ""next_node"": ""endNode""
+    },
+    ""action"": ""BatchDereg"",
+    ""output"": ""BatchDeregResult""
+  },
+  {
+    ""current_step"": ""BatchDereg"",
+    ""next_step"": {
+      ""dereg_status"":""失败"",
+      ""next_node"": ""endNode""
+    },
+    ""action"": ""BatchDereg"",
+    ""output"": ""BatchDeregResult""
+  }
+]",处理步骤,在使用增加漫游切片映射配置命令时，需要注意的事项,"该命令执行后立即生效。
+
+最多可输入8192条记录。
+
+当SET NSMAPPARA中本地映射开关参数设置为“ON(打开)”，AMF判断不能为UE提供需要的切片映射服务时，仍会发起到NSSF的网络切片映射服务。
+
+增加漫游切片映射配置时，对已注册用户不会立即生效。如果需要立即生效，请先执行STR NGUSRBATCHDEREG命令对漫游用户启动批量去注册任务，并指定去注册类型为需要重新注册，触发用户重新注册，获取最新切片映射关系。",OM参考/命令/UNC MML命令/业务服务管理/5G接入业务管理/移动性管理/网络切片映射管理/AMF网络切片映射配置管理/add_amfroamnsmap.html
+任务规划,任务规划,"你是核心网运维工程师，你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数
+
+已知所有步骤编号和步骤名为
+	步骤1：IdentityCheck0
+	步骤2：IdentityCheck1
+	步骤3：IdentityCheck2
+	步骤4：IdentityCheck3
+	步骤5：IdentityCheck4
+	步骤6：IdentityCheck5
+	步骤7：IdentityCheck6
+	步骤8：IdentityCheck7
+	步骤9：informationCollection8
+已知当前步骤描述为进行AMF操作，根据告警参数“5G-GUTI”和“SUCI”，检查该UE是否已注册到网络，并确认是否需要进行二次鉴权或获取UE的PEI。已注册且不需要二次鉴权 => 2。已注册但需要二次鉴权 => 4。已注册但需要获取PEI => 6。未注册 => 8。。其中每个“=>”后的内容为步骤编号，前面给出的步骤名一一对应。
+已知当前步骤的输出为IdentityCheck0Result，用于选择下一步分支的参数定义为{""regStatus"":""UE是否已注册到网络，取值范围{""已注册""，""未注册""}"", ""authReq"":""是否需要二次鉴权，取值范围{""需要""，""不需要""}"", ""peiReq"":""是否需要获取PEI，取值范围{""需要""，""不需要""}""}。
+
+当下一步为诊断结束时，action请选择endNode。以JSON格式生成下一步的所有分支情况。","{
+  ""IdentityCheck0Result"": [
+    {
+      ""condition"": {
+        ""regStatus"": ""已注册"",
+        ""authReq"": ""不需要"",
+        ""peiReq"": ""不需要""
+      },
+      ""action"": {
+        ""nextStep"": 2
+      }
+    },
+    {
+      ""condition"": {
+        ""regStatus"": ""已注册"",
+        ""authReq"": ""需要"",
+        ""peiReq"": ""不需要""
+      },
+      ""action"": {
+        ""nextStep"": 4
+      }
+    },
+    {
+      ""condition"": {
+        ""regStatus"": ""已注册"",
+        ""authReq"": ""不需要"",
+        ""peiReq"": ""需要""
+      },
+      ""action"": {
+        ""nextStep"": 6
+      }
+    },
+    {
+      ""condition"": {
+        ""regStatus"": ""未注册""
+      },
+      ""action"": {
+        ""nextStep"": 8
+      }
+    }
+  ]
+}",事实陈述,列举了5G网络中的身份识别功能特性的几种应用场景。,"当UE以5G-GUTI注册到网络且首次鉴权失败时，AMF向UE发送身份识别请求以获取UE的SUCI，然后进行二次鉴权。
+当UE以5G-GUTI注册到网络且AMF无法识别该5G-GUTI时，AMF向UE发送身份识别请求以获取UE的SUCI。
+当UE以5G-GUTI注册到网络且AMF需要获取UE的PEI时，AMF向UE发送身份标识请求以获取UE的PEI。",网络部署/特性部署/UNC特性指南/安全管理功能/WSFD-010304 身份识别功能/身份识别功能（5G）/unc_2000_feature_desc_5g_identity_check.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+我正在进行M2M长周期性定时器的操作，现在我已经进入到了“MML命令行-UNC”窗口，我需要在UNC上创建用户跟踪。接下来我得到了IMSI为“460036500000002”的M2M终端的MM上下文，显示的“使用的周期RAU-TAU定时器（分钟）”为720分钟（12小时）。我想确认我是否正在正确操作。
+<参数描述>：
+<名称>：window
+<描述>: 当前正在使用的窗口
+<类型>: string
+
+<名称>：UNC_trace
+<描述>: 是否在UNC上创建了用户跟踪
+<类型>: boolean
+
+<名称>：IMSI
+<描述>: M2M终端的IMSI
+<类型>: string
+
+<名称>：RAU_TAU_timer
+<描述>: 使用的周期RAU-TAU定时器的时长（分钟）
+<类型>: integer
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""window"": ""MML命令行-UNC"", ""UNC_trace"": true, ""IMSI"": ""460036500000002"", ""RAU_TAU_timer"": 720}",处理步骤,详细介绍了如何在运行网络中调测M2M长周期性定时器的具体步骤,"在相关网元均完成本特性的配置后，可以采用以下步骤检查特性工作是否正常：
+
+本验证方法的预置条件：系统配置了针对指定IMSI前缀“46003”的长周期定时器，定时时长为12小时。
+
+1. 进入“MML命令行-UNC”窗口。
+2. 在UNC上创建用户跟踪。
+3. 终端开机、附着到网络。
+4. 执行下述命令，观察IMSI为“460036500000002”的M2M终端的MM上下文。
+
+DSP COMMMCTX: QUERYOPT=BYIMSI, IMSI=""460036500000002"";
+
+预期结果：观察到“使用的周期RAU-TAU定时器（分钟）”为720分钟（12小时）。
+
+5. 观察用户跟踪。
+
+预期结果：
+
+对于4G M2M终端，UNC通过Attach Accept消息携带信元t3412-extended-value下发给终端。
+
+对于2G/3G M2M终端，UNC通过Attach Accept消息携带信元t3312-extended-value下发给终端。",网络部署/特性部署/UNC特性指南/NB-IOT业务功能/WSFD-011602 支持M2M长周期性定时器/unc_2110_feature_om_extended_periodic_timer_for_m2m01.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+在身份识别流程中，通过MOD IUAUTHCIPH和MOD GBAUTHCIPH设置，对3G和2G网络强制进行身份识别，当手机用户使用P-TMSI附着，且没有发生过SGSN改变时，发送Identity Request消息。请问身份识别流程是如何进行的？
+<参数描述>：
+<名称>:triggerEvent
+<描述>:触发身份识别流程的事件
+<类型>:string
+
+<名称>:authCommands
+<描述>:用于设置身份识别的命令
+<类型>:string
+
+<名称>:networkType
+<描述>:网络类型
+<类型>:string
+
+<名称>:userStatus
+<描述>:用户状态
+<类型>:string
+
+<名称>:identityMsg
+<描述>:身份识别流程涉及的消息类型
+<类型>:string
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""triggerEvent"": ""手机用户使用P-TMSI附着，且没有发生过SGSN改变"", ""authCommands"": ""MOD IUAUTHCIPH和MOD GBAUTHCIPH"", ""networkType"": ""3G和2G"", ""userStatus"": ""没有发生过SGSN改变"", ""identityMsg"": ""Identity Request""}",处理步骤,详细介绍了身份识别流程，包括触发身份识别流程的情形和身份识别流程的具体步骤。,触发身份识别流程的情形：SGSN通过命令MOD IUAUTHCIPH和MOD GBAUTHCIPH设置分别对3G和2G网络强制进行身份识别，当手机用户使用P-TMSI附着，且没有发生过SGSN改变时，发送Identity Request消息。身份识别流程：1. SGSN向MS发送身份标识请求消息Identity Request。2. MS收到Identity Request请求后，通过发送网络身份标识响应消息Identity Response，将用户的身份信息（IMSI、IMEI、IMEISV）发送到SGSN。,网络部署/特性部署/UNC特性指南/安全管理功能/WSFD-010304 身份识别功能/身份识别功能（2G&3G）/unc_2010_feature_desc_identity_check_01.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+运营商希望将NF实例标识为'88888888-4444-1234-5678-123456789ABC'的服务发现缓存有效时长和订阅有效时长进行单独控制，分别设置为120秒和120秒，执行如下命令。ADD NRFNFTIMER: NFINSTANCEID='88888888-4444-1234-5678-123456789ABC', DISCVALIDTIMER=120, SUBVALIDTIMER=120;
+<参数描述>：
+<名称>：NFInstanceId
+<描述>: NF实例标识
+<类型>: string
+
+<名称>：DiscValidTimer
+<描述>: 服务发现缓存有效时长
+<类型>: integer
+
+<名称>：SubValidTimer
+<描述>: 订阅有效时长
+<类型>: integer
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""NFInstanceId"":""88888888-4444-1234-5678-123456789ABC"",""DiscValidTimer"":120,""SubValidTimer"":120}",具体案例,提供一个使用增加指定NF在NRF上的时长信息命令的实例,"运营商希望将NF实例标识为""88888888-4444-1234-5678-123456789ABC""的服务发现缓存有效时长和订阅有效时长进行单独控制，分别设置为120秒和120秒，执行如下命令。ADD NRFNFTIMER: NFINSTANCEID=""88888888-4444-1234-5678-123456789ABC"", DISCVALIDTIMER=120, SUBVALIDTIMER=120;",OM参考/命令/UNC MML命令/业务服务管理/NRF业务及策略管理/NRF业务参数/定时器参数/add_nrfnftimer.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+在发送Nudm_UECM_PcscfRestoration3GPPAccessNotify请求消息时，报文内容为POST /nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access，Content-Type: application/json;charset=UTF-8，{ ""supi"": ""imsi-46001123456"",}，请问这里的supi参数值是多少？
+<参数描述>：
+<名称>：supi
+<描述>: Subscriber Permanent Identifier，持久订阅者识别号
+<类型>: string
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""supi"":""imsi-46001123456""}",代码,该知识点提供了Nudm_UECM_PcscfRestoration3GPPAccessNotify请求消息的具体实例。,"POST /nudm-uecm/v1/imsi-460456789321874/registrations/amf-3gpp-access
+Content-Type: application/json;charset=UTF-8
+{ 
+    ""supi"": ""imsi-46001123456"",
+}",快速入门/协议与流程/5G Core信令分析/服务化接口协议/Nudm/服务操作/N8/接口服务操作/Nudm_UEContextManagement_P-CSCF-RestorationNotification/cn_udm_17_080035.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+我需要配置AMF网元的服务发现参数规则为“TARGETNFTYPE”，可以提供相应的命令吗？
+<参数描述>：
+<名称>：NFTYPE
+<描述>: 网元类型
+<类型>: string
+
+<名称>：DISCPARA
+<描述>: 服务发现参数
+<类型>: string
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""NFTYPE"": ""AMF"", ""DISCPARA"": ""TARGETNFTYPE-1&SERVICENAMES-0""}",具体案例,提供一个具体的命令使用实例，示例中配置AMF网元的服务发现参数规则为“TARGETNFTYPE”,"配置AMF网元的服务发现参数规则为“TARGETNFTYPE”，执行如下命令。
+
+SET NRFDISCPARARULE: NFTYPE=AMF, DISCPARA=TARGETNFTYPE-1&SERVICENAMES-0;",OM参考/命令/UNC MML命令/业务服务管理/NRF业务及策略管理/NRF业务参数/NF服务发现参数处理规则/set_nrfdiscpararule.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+我正在使用M2M长周期性定时器进行调测，查询方式QUERYOPT为BYIMSI，IMSI为460036500000002。
+<参数描述>：
+
+<名称>：QUERYOPT
+<描述>: 查询方式
+<类型>: string
+
+<名称>：IMSI
+<描述>: IMSI
+<类型>: string
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""QUERYOPT"":""BYIMSI"",""IMSI"":""460036500000002""}",表格,列出了在进行M2M长周期性定时器调测时所需的数据和工具,"数据
+
+类别 | 参数名称 | 取值样例 | 获取方法 | 说明
+---|---|---|---|---
+用户信息查询 | 查询方式（QUERYOPT） | BYIMSI | 本端规划 | -
+IMSI（IMSI） | 460036500000002 | 测试终端自带
+
+工具
+
+OM Portal跟踪",网络部署/特性部署/UNC特性指南/NB-IOT业务功能/WSFD-011602 支持M2M长周期性定时器/unc_2110_feature_om_extended_periodic_timer_for_m2m01.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+用户要求删除SCCP全局翻译码，提供的GT码索引GTX为2048。
+<参数描述>：
+<名称>：GTX
+<描述>: GT码索引
+<类型>: integer
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""GTX"": 2048}",表格,描述删除SCCP全局翻译码命令的参数及其含义,"参数标识 | 参数名称 | 参数说明
+---|---|---
+GTX | GT码索引 | 可选必选说明：必选参数 参数含义：该参数用于指定希望要被删除的GT码索引。取值范围：0~4095 默认值：无 说明： 此索引对应的GT记录应该在GT表中存在。",OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/信令传输管理/SCCP管理/SCCP全局翻译码/rmv_sccpgt.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+我现在需要在弱口令字典中增加一个新的成员，参数标识是WEAKPWD，参数名称是弱口令，这个成员的值是123456。
+<参数描述>：
+<名称>：WEAKPWD
+<描述>: 参数标识
+<类型>: string
+
+<名称>：弱口令
+<描述>: 必选参数，用于增加弱口令字典中的成员。数据来源：本端规划，取值范围：字符串类型，输入长度范围为1～32。默认值：无，配置原则：密码不支持中文字符。密码区分大小写。最大能添加2000条弱口令字典数据。
+<类型>: string
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""WEAKPWD"": ""123456""}",表格,详细说明了增加弱口令字典成员的参数，包括参数标识、参数名称和参数说明。,参数标识：WEAKPWD，参数名称：弱口令，参数说明：必选参数，用于增加弱口令字典中的成员。数据来源：本端规划，取值范围：字符串类型，输入长度范围为1～32。默认值：无，配置原则：密码不支持中文字符。密码区分大小写。最大能添加2000条弱口令字典数据。,OM参考/命令/UNC MML命令/业务服务管理/NCG业务及策略管理/计费管理/业务系统管理/弱口令管理/add_weakpwddicmem.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+当用户需要删除BYPASS故障状态码时，参数PEERNFTYPE为UDM，NFINSTANCEID为123456
+<参数描述>：
+参数标识：PEERNFTYPE
+参数名称：对端网元类型
+参数说明：该参数用于指定对端网元类型。
+
+参数标识：NFINSTANCEID
+参数名称：网元实例标识
+参数说明：该参数用于指定网元实例标识。
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""对端网元类型"":""UDM"",""网元实例标识"":""123456""}",表格,详细说明了删除BYPASS故障状态码命令中的参数，包括参数标识、参数名称、参数说明等信息。,"参数标识 | 参数名称 | 参数说明 
+---|---|--- 
+PEERNFTYPE | 对端网元类型 |  可选必选说明：必选参数 参数含义：该参数用于指定对端网元类型。 数据来源：全网规划 取值范围：
+* “UDM（UDM）”：UDM
+* “AUSF（AUSF）”：AUSF
+默认值：无 配置原则：无
+NFINSTANCEID | 网元实例标识 |  可选必选说明：必选参数 参数含义：该参数用于指定网元实例标识。 数据来源：全网规划 取值范围：字符串类型，输入长度范围是0~36。 默认值：无 配置原则： 该参数只能由字母（A-Z或者a-z）、数字（0-9）、中划线（-）、下划线（_）组成。不区分大小写。",OM参考/命令/UNC MML命令/业务服务管理/5G接入业务管理/通用配置管理/Bypass故障状态码管理/rmv_bypassfaultcode.html
+格式遵从,参数提取,"请根据<参数描述>提取出<用户问题>中对应参数的值
+
+<用户问题>：
+我正在做2G移动性管理的配置，移动国家码（MCC）为460，移动网号（MNC）为00，国家码（CC）为86，是否允许（SM业务SM）为YES，最大承载数（MAXSMNUM）为11，是否允许（SMS业务SMS）为YES，协议类型（S5S8TYPE）为GTP，运营商名称（PLMNN）为name。另外，我设置了T3322（s）（T3322）为6，N3322（times）（N3322）为4，T3350（s）（T3350）为6，N3350（times）（N3350）为4，T3360（s）（T3360）为6，N3360（times）（N3360）为4，T3370（s）（T3370）为6，N3370（times）（N3370）为4，T3313（s）（T3313）为6，N3313（times）（N3313）为2，重寻呼间隔递增值（s）（PAGINGDELTA）为0，准备定时器（s）（RDYTMR）为44，MS可达定时器（min）（MSRCHTMR）为54，保留参数（IMDTCHTMR）为58，T3定时器（s）（T3）为0，优先级（PRT）为0，保留参数2（RDTDELTA）为0。并且我启用了鉴权和加密功能，设置了IMSI前缀（IMSIPRE）为460001，安全策略（SECPLC）为AUTHANDPROTECTED，加密算法（CIPHALG）为GEA_3-1&GEA_2-1&GEA_1-1。
+<参数描述>：
+<名称>：MCC
+<描述>: 移动国家码
+<类型>: string
+
+<名称>：MNC
+<描述>: 移动网号
+<类型>: string
+
+<名称>：CC
+<描述>: 国家码
+<类型>: string
+
+<名称>：SM
+<描述>: 是否允许SM业务
+<类型>: string
+
+<名称>：MAXSMNUM
+<描述>: 最大承载数
+<类型>: integer
+
+<名称>：SMS
+<描述>: 是否允许SMS业务
+<类型>: string
+
+<名称>：S5S8TYPE
+<描述>: 协议类型
+<类型>: string
+
+<名称>：PLMNN
+<描述>: 运营商名称
+<类型>: string
+
+<名称>：T3322
+<描述>: T3322定时器
+<类型>: integer
+
+<名称>：N3322
+<描述>: N3322次数
+<类型>: integer
+
+<名称>：T3350
+<描述>: T3350定时器
+<类型>: integer
+
+<名称>：N3350
+<描述>: N3350次数
+<类型>: integer
+
+<名称>：T3360
+<描述>: T3360定时器
+<类型>: integer
+
+<名称>：N3360
+<描述>: N3360次数
+<类型>: integer
+
+<名称>：T3370
+<描述>: T3370定时器
+<类型>: integer
+
+<名称>：N3370
+<描述>: N3370次数
+<类型>: integer
+
+<名称>：T3313
+<描述>: T3313定时器
+<类型>: integer
+
+<名称>：N3313
+<描述>: N3313次数
+<类型>: integer
+
+<名称>：PAGINGDELTA
+<描述>: 重寻呼间隔递增值
+<类型>: integer
+
+<名称>：RDYTMR
+<描述>: 准备定时器
+<类型>: integer
+
+<名称>：MSRCHTMR
+<描述>: MS可达定时器
+<类型>: integer
+
+<名称>：IMDTCHTMR
+<描述>: 保留参数
+<类型>: integer
+
+<名称>：T3
+<描述>: T3定时器
+<类型>: integer
+
+<名称>：PRT
+<描述>: 优先级
+<类型>: integer
+
+<名称>：RDTDELTA
+<描述>: 保留参数2
+<类型>: integer
+
+<名称>：IMSIPRE
+<描述>: IMSI前缀
+<类型>: string
+
+<名称>：SECPLC
+<描述>: 安全策略
+<类型>: string
+
+<名称>：CIPHALG
+<描述>: 加密算法
+<类型>: string
+
+以JSON格式{""参数名称"":""参数值"",...}输出。","{""MCC"":""460"", ""MNC"":""00"", ""CC"":""86"", ""SM"":""YES"", ""MAXSMNUM"":11, ""SMS"":""YES"", ""S5S8TYPE"":""GTP"", ""PLMNN"":""name"", ""T3322"":6, ""N3322"":4, ""T3350"":6, ""N3350"":4, ""T3360"":6, ""N3360"":4, ""T3370"":6, ""N3370"":4, ""T3313"":6, ""N3313"":2, ""PAGINGDELTA"":0, ""RDYTMR"":44, ""MSRCHTMR"":54, ""IMDTCHTMR"":58, ""T3"":0, ""PRT"":0, ""RDTDELTA"":0, ""IMSIPRE"":""460001"", ""SECPLC"":""AUTHANDPROTECTED"", ""CIPHALG"":""GEA_3-1&GEA_2-1&GEA_1-1""}",表格,描述配置2G移动性管理所需的参数，包括移动国家码，移动网号，国家码，是否允许SM业务，最大承载数，是否允许SMS业务，协议类型，运营商名称等。,"数据
+
+类别 | 参数名称 | 取值样例 | 获取方法 | 说明
+---|---|---|---|---
+ADD HPLMN | 移动国家码（MCC） | 460 | 参见“水平网设LLD文档 ”。 | 增加归属PLMN配置信息。
+移动网号（MNC） | 00
+国家码（CC） | 86
+是否允许（SM业务SM） | YES
+最大承载数（MAXSMNUM） | 11
+是否允许（SMS业务SMS） | YES
+协议类型（S5S8TYPE） | GTP
+运营商名称（PLMNN） | name
+SET GMM | T3322（s）（T3322） | 6 | 配置2G移动性管理定时器参数。
+N3322（times）（N3322） | 4
+T3350（s）（T3350） | 6
+N3350（times）（N3350） | 4
+T3360（s）（T3360） | 6
+N3360（times）（N3360） | 4
+T3370（s）（T3370） | 6
+N3370（times）（N3370） | 4
+T3313（s）（T3313） | 6
+N3313（times）（N3313） | 2
+重寻呼间隔递增值（s）（PAGINGDELTA） | 0
+准备定时器（s）（RDYTMR） | 44
+MS可达定时器（min）（MSRCHTMR） | 54
+保留参数（IMDTCHTMR） | 58
+T3定时器（s）（T3） | 0
+优先级（PRT） | 0
+保留参数2（RDTDELTA） | 0
+ADD GBAUTHCIPH | IMSI前缀（IMSIPRE） | 460001 | 启用鉴权和加密功能。
+安全策略（SECPLC） | AUTHANDPROTECTED
+加密算法（CIPHALG） | GEA_3-1&GEA_2-1&GEA_1-1",网络部署/初始配置/UNC初始配置与调测/2/3/4/5G融合组网对接配置/配置SGSN/配置移动性管理/unc_2000_init_sgsn_16_03.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+在一个2G网络中，我们正在尝试激活IM类业务的无线资源管控。SGSN已经被设定为支持特殊业务类型扩展头，并且NSE标识为1的信令实体也已经开启了对特殊业务类型的支持。我们已经运行了以下脚本：//打开功能开关。SET GTPUCTRL: SPTSPCSRVEXT=SUPPORT; MOD NSE: NSEI=1, SPECSRV=YES; //打开本特性的License配置开关。SET LICENSESWITCH: LICITEM=""LKV2RRMIM01"", SWITCH=ENABLE;
+
+<用户问题>：
+如果我想关闭这个功能，我应该修改哪个部分的脚本代码？并且修改成什么样子?
+
+输出格式为json格式{""答案""：""""}","{""答案""：""如果你想关闭这个功能，你应该修改两部分的脚本代码。第一部分是将功能开关关闭，将'SET GTPUCTRL: SPTSPCSRVEXT=SUPPORT;'修改为'SET GTPUCTRL: SPTSPCSRVEXT=NOTSUPPORT;'，第二部分是将NSE标识为1的信令实体的特殊业务类型支持关闭，将'MOD NSE: NSEI=1, SPECSRV=YES;'修改为'MOD NSE: NSEI=1, SPECSRV=NO;'。另外，你还需要关闭此特性的License配置开关，将'SET LICENSESWITCH: LICITEM=\""LKV2RRMIM01\"", SWITCH=ENABLE;'修改为'SET LICENSESWITCH: LICITEM=\""LKV2RRMIM01\"", SWITCH=DISABLE;'。""}",具体案例,提供了一个在2G网络中激活IM类业务无线资源管控的具体操作案例。,"任务描述：在2G网络中，SGSN支持将IM类业务信息传递给无线侧。设置SGSN支持特殊业务类型扩展头，NSE标识为1的信令实体支持特殊业务类型。脚本：//打开功能开关。SET GTPUCTRL: SPTSPCSRVEXT=SUPPORT; MOD NSE: NSEI=1, SPECSRV=YES; //打开本特性的License配置开关。SET LICENSESWITCH: LICITEM=""LKV2RRMIM01"", SWITCH=ENABLE;",网络部署/特性部署/UNC特性指南/差异化服务管理/WSFD-106305 IM类业务资源管控/unc_2000_feature_om_radio_resource_management_optimization_of_im_service.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+最近你被分配到了一项新的任务，需要为一个新的基站设置S1接口兼容性。该任务包括各种参数的设置以及它们的含义和取值范围。具体参数包括：是否支持Register LAI信元、发送所有MME服务PLMN、eNodeB是否支持祖冲之算法、是否携带Time to Wait信元、NAS transport消息是否携带SPID信元、NAS TRANSPORT消息是否携带HRL信元、Masked IMEISV发送范围、Next Paging Area Scope开关、UE CONTEXT SUSPEND RESPONSE和UE CONTEXT RESUME RESPONSE消息中是否携带Security Context等。
+
+<用户问题>：
+在设置S1接口兼容性时，你是否需要设置eNodeB是否支持祖冲之算法这个参数？
+
+输出格式为json格式{""答案""：""""}","{""答案"":""是""}",处理步骤,详细描述了如何设置S1接口的兼容性，包括各种参数的设置以及它们的含义和取值范围。,设置S1接口兼容性(SET S1CMPT)，该命令用于设置S1接口兼容性参数。包括参数说明和使用实例。具体参数包括：是否支持Register LAI信元、发送所有MME服务PLMN、eNodeB是否支持祖冲之算法、是否携带Time to Wait信元、NAS transport消息是否携带SPID信元、NAS TRANSPORT消息是否携带HRL信元、Masked IMEISV发送范围、Next Paging Area Scope开关、UE CONTEXT SUSPEND RESPONSE和UE CONTEXT RESUME RESPONSE消息中是否携带Security Context等。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/S1接口管理/S1接口兼容性/set_s1cmpt.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+在5G Core信令分析中，Echo Response消息在N9接口协议中有重要作用。这个消息是对Echo Request消息的响应。然而，Recovery信元中的Restart Counter值并不会使用，它被发送方设置为0，接收方可以忽略这个值。Recovery信元只是为了向后兼容性而设置为必选的。
+
+<用户问题>：
+在5G Core信令分析中，如果接收到一个Echo Request消息，需要回应一个Echo Response消息。在这种情况下，Recovery信元中的Restart Counter值该如何处理？
+
+输出格式为json格式{""答案""：""""}","{""答案""：""在这种情况下，Recovery信元中的Restart Counter值由发送方设置为0，接收方可以忽略这个值。""}",概念介绍,描述5G Core信令分析中非服务化接口协议N9接口相关的Echo Response消息的功能,该消息应作为接收到的Echo Request消息的响应。Recovery信元中的Restart Counter值不使用。通过该值由发送方设置为0，接收方可以忽略。由于向后兼容性原因，Recovery信元是必选的。,快速入门/协议与流程/5G Core信令分析/非服务化接口协议/N9接口/相关消息解释/zh-cn_concept_0276784933.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+在4G网络中，当用户使用APN进行网络连接时，会发生一系列的DNS查询以获取P-GW的接口信息。UNC首先根据用户当前使用的APN向DNS查询域名的NAPTR记录，获取到P-GW的组名。然后，UNC将根据这个组名进行SRV记录查询，获取到P-GW的S5接口名。最后，UNC根据这个S5接口名进行A记录查询，获取到对应的IP地址信息。整个过程中，DNS服务器会根据查询请求返回相关的记录信息。
+
+<用户问题>：
+当UNC在查询P-GW的过程中，使用DNS查询域名的NAPTR记录后，获取到的""Replacement""字段中携带的信息是什么？
+
+输出格式为json格式{""答案""：""""}","{""答案""：""Replacement字段携带了P-GW的组名“pgw-list-1.qd.sd.node.epc.mnc000.mcc234.3gppnetwork.org”。""}",处理步骤,描述了在4G网络中，使用APN进行DNS查询并获取P-GW的组名、接口名和IP地址的全过程。,P-GW查询过程如图1所示。1. 根据当前用户使用的APN，向DNS查询域名“cmnet.apn.epc.mnc000.mcc234.3gppnetwork.org”的NAPTR记录，DNS服务器上涉及的记录如图2所示。2. DNS返回NAPTR记录查询响应，响应消息中“Replacement”字段携带了P-GW的组名“pgw-list-1.qd.sd.node.epc.mnc000.mcc234.3gppnetwork.org”。* “Flags”为“S”，表示下一次使用SRV记录查询。* “Service”为“x-3gpp-pgw:x-s5-gtp:x-gn”，表示支持S5接口和Gn接口。3. UNC根据2返回的P-GW组名，向DNS查询进行SRV记录查询，DNS服务器上涉及的记录如图3所示。4. DNS返回SRV查询响应，即返回“pgw-list-1”中对应P-GW的S5接口名“topon.pgw-s5.qdugw01.qd.sd.node.epc.mnc000.mcc234.3gppnetwork.org”。5. UNC根据P-GW的S5接口名进行A记录查询，DNS服务器上涉及的记录如图4所示。6. DNS返回A查询响应，即返回P-GW的S5接口名对应的IP地址信息。,网络部署/业务专题/UNC网元选择专题/2/3/4G网络的网元选择/DNS应用场景及查询方式/DNS查询流程介绍/N-S-A查询/zh-cn_topic_0308066103.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+移动性管理功能EMM（EPS Mobility Management）用来控制UE（User Equipment）在LTE/EPC的接入及跟踪UE当前的位置信息，即UE当前所在的TA（Tracking Area）/TA List、当前所在的MME（Mobility Management Entity）等信息。
+
+<用户问题>：
+在一个大型的4G网络环境中，一台UE设备从一个TA区域移动到另一个TA区域，此时，EMM的主要职责应当是什么？
+
+输出格式为json格式{""答案""：""""}","{""答案""：""在一个大型的4G网络环境中，一台UE设备从一个TA区域移动到另一个TA区域，此时，EMM的主要职责应当是控制UE设备的接入以及跟踪和更新UE设备的当前位置信息，即更新UE设备所在的新的TA（Tracking Area）和MME（Mobility Management Entity）等信息。""}",概念介绍,描述4G网络中的移动性管理特性，包括适用的网络功能、定义、客户价值、应用场景、可获得性、与其他特性的交互、对系统的影响、应用限制、原理概述、计费与话单、特性规格、遵循标准和发布历史等内容。,移动性管理功能EMM（EPS Mobility Management）用来控制UE（User Equipment）在LTE/EPC的接入及跟踪UE当前的位置信息，即UE当前所在的TA（Tracking Area）/TA List、当前所在的MME（Mobility Management Entity）等信息。,网络部署/特性部署/UNC特性指南/基本接入功能/WSFD-010201 移动性管理/WSFD-010201 移动性管理（4G）/unc_2000_feature_desc_4g_mobility_management_01.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+为了保证系统的安全性，你作为系统管理员需要定期检查远程接入日志。这些日志信息被保存在/var/log/authlog文件中。你可以通过下面的命令来查看SSH登录日志：
+
+    cat /var/log/authlog  | grep '.*sshd.*for.*from.*'
+
+<用户问题>：
+作为新任命的系统管理员，你被要求监控远程登录情况以确保系统的安全性。你应该查看哪个文件来获取SSH登录日志信息？
+
+输出格式为json格式{""答案""：""""}","{""答案"": ""/var/log/authlog""}",处理步骤,描述如何进行远程接入日志审计以保证系统安全，包括查看SSH登录日志的命令。,"为保证系统安全，系统管理员需要每天检查远程接入日志，日志信息存放在/var/log/authlog文件中。查看SSH登录日志。命令示例如下：
+
+    cat /var/log/authlog  | grep "".*sshd.*for.*from.*""",网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/网络层安全/远程接入控制/zh-cn_topic_0000001222590725.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+在对AMF单POD的CHR进行流控时，需要设置流控门限。例如，若需要设定流控门限为300PPS，可以将BIT10、BIT9、BIT8依次置为0、1、1。具体的设置步骤如下：1.在“MML命令行 - UNC”窗口中，使用LST AMFSOFTPARAOFBIT命令查询软参DWORD12中BIT8、BIT9、BIT10的取值。若检查结果不为BIT10:0 BIT9:1 BIT8:1时，则需要进行修改。2.在“MML命令行 - UNC”窗口中，执行SET AMFSOFTPARAOFBIT命令设置软参DWORD12中BIT10、BIT9、BIT8的取值分别为“0”、“1”、“1”。
+
+<用户问题>：
+如何在需要对AMF单POD的CHR进行流控时，设定流控门限为300PPS？
+
+输出格式为json格式{""答案""：""""}","{""答案""：""在需要对AMF单POD的CHR进行流控时，设定流控门限为300PPS的具体步骤如下：1.首先，在'MML命令行 - UNC'窗口中，使用LST AMFSOFTPARAOFBIT命令查询软参DWORD12中BIT8、BIT9、BIT10的取值。若检查结果不为BIT10:0 BIT9:1 BIT8:1时，则需要进行修改。2.然后，在'MML命令行 - UNC'窗口中，执行SET AMFSOFTPARAOFBIT命令，将软参DWORD12中BIT10、BIT9、BIT8的取值分别设置为'0'、'1'、'1'。""}",具体案例,描述了如何在需要对AMF单POD发送的CHR单据进行流控时，通过设置软参控制流控的门限的具体配置步骤,当需要对AMF单POD的CHR进行流控时，例如若需要设置流控门限为300PPS时，可以把BIT10、BIT9、BIT8依次置为0、1、1。具体操作如下：1.在“MML命令行 - UNC”窗口中，LST AMFSOFTPARAOFBIT命令查询依次查询软参DWORD12中BIT8、BIT9、BIT10的取值。若检查结果不为BIT10:0 BIT9:1 BIT8:1时，则需要修改。2.在“MML命令行 - UNC”窗口中，执行SET AMFSOFTPARAOFBIT命令设置软参DWORD12中BIT10、BIT9、BIT8的取值分别为“0”、“1”、“1”。,OM参考/软件参数/UNC软件参数/业务软件参数/软件参数（AMF）/OM管理/dword_0012_bit_0008-bit_0010.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+在网络功能虚拟化环境中，我们需要配置一条命令来增加NF服务发现的忽略参数规则。该命令主要包含两个参数：NFTYPE和IGNDISCPARA。NFTYPE是必选参数，用于表示忽略发现参数规则对应的目标NF类型；IGNDISCPARA也是必选参数，表示NRF忽略的服务发现参数。
+
+<用户问题>：
+如果需要配置一条命令以忽略NRF对特定类型的NF，例如类型为'gNB'的NF的服务发现参数，该如何填写命令中的参数？
+
+输出格式为json格式{""答案""：""""}","{""答案"": ""在命令中，需要将NFTYPE参数设置为'gNB'，以表示目标NF类型为'gNB'。IGNDISCPARA参数需要设置为需要忽略的服务发现参数。具体的参数值需要根据具体的网络环境和需求进行设置。""}",表格,详细解释增加NF服务发现忽略参数规则命令中的参数标识、参数名称和参数说明。,"参数标识 | 参数名称 | 参数说明
+---|---|---
+NFTYPE | 网元类型 |  必选参数，该参数用于表示忽略发现参数规则对应的目标NF类型。
+IGNDISCPARA | 服务发现忽略参数 |  必选参数，该参数表示NRF忽略的服务发现参数。",OM参考/命令/UNC MML命令/业务服务管理/NRF业务及策略管理/NRF业务参数/NF服务发现忽略参数处理规则/add_nrfigndiscpara.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+本操作指导介绍在运行网络中激活终端省电PSM模式的操作过程。随着物联网的发展，M2M广泛应用于智能抄表等领域。这些领域的M2M终端被置于某些固定位置，采用各种电池供电，这种情况对电池寿命要求较高。本特性可以在这类M2M终端无上行数传时，指示终端进入PSM（Power Saving Mode）。终端进入PSM后不再接收下行消息，达到省电的目的，从而提高电池的使用寿命。适用于MME。
+
+<用户问题>：
+在智能抄表的应用场景下，为了提高电池使用寿命，需要激活哪种模式使得M2M终端在无上行数传时不再接收下行消息？
+
+输出格式为json格式{""答案""：""""}","{""答案""：""需要激活PSM（Power Saving Mode）模式""}",概念介绍,介绍在运行网络中激活终端省电PSM模式的操作过程，以及这种模式在M2M终端的应用场景。,本操作指导介绍在运行网络中激活终端省电PSM模式的操作过程。随着物联网的发展，M2M广泛应用于智能抄表等领域。这些领域的M2M终端被置于某些固定位置，采用各种电池供电，这种情况对电池寿命要求较高。本特性可以在这类M2M终端无上行数传时，指示终端进入PSM（Power Saving Mode）。终端进入PSM后不再接收下行消息，达到省电的目的，从而提高电池的使用寿命。适用于MME。,网络部署/特性部署/UNC特性指南/NB-IOT业务功能/WSFD-215001 终端省电PSM模式/unc_2110_feature_om_power_saving_mode01.html
+文本生成,阅读理解,"请根据下面出的一段话回答<用户问题>
+
+<上下文>：
+在5G网络中，AMF可能会因为多种原因需要获取UE设备的身份信息。比如当UE以5G-GUTI注册到网络且首次鉴权失败时，AMF会向UE发送身份识别请求以获取UE的SUCI，然后进行二次鉴权。如果AMF无法识别UE的5G-GUTI，也会发送身份识别请求。另外，如果需要获取UE的PEI，也会进行身份标识请求。
+
+<用户问题>：
+在5G网络中，AMF无法识别UE的5G-GUTI，这时应该如何取得UE的身份信息？
+
+输出格式为json格式{""答案""：""""}","{""答案"":""在5G网络中，当AMF无法识别UE的5G-GUTI时，AMF会向UE发送身份识别请求以获取UE的SUCI。""}",事实陈述,列举了5G网络中的身份识别功能特性的几种应用场景。,"当UE以5G-GUTI注册到网络且首次鉴权失败时，AMF向UE发送身份识别请求以获取UE的SUCI，然后进行二次鉴权。
+当UE以5G-GUTI注册到网络且AMF无法识别该5G-GUTI时，AMF向UE发送身份识别请求以获取UE的SUCI。
+当UE以5G-GUTI注册到网络且AMF需要获取UE的PEI时，AMF向UE发送身份标识请求以获取UE的PEI。",网络部署/特性部署/UNC特性指南/安全管理功能/WSFD-010304 身份识别功能/身份识别功能（5G）/unc_2000_feature_desc_5g_identity_check.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【访问离线计费功能卡顿/掉线/异常】、【客户特定诉求】、【离线计费功能参数错误（软参设置错误）】、【特定软参访问问题】、【无法访问或访问慢/卡顿/掉线/离线计费功能问题】、【其他】
+
+用户问题:
+【故障现象】我方线下联系客户158xxxx582得知：在进行离线计费时，无法正常使用，一直显示正在处理，但是无法得到结果。客户信息为：
+【账户信息】经HSS核实，账户号码144xxxx406351对应IMSI：460048834002486状态正常，开通2、3、4G上网功能，限制2、3G接入，签约APN为CMMTMTJQS.TJ。144xxxx406351状态为停机。
+【客户联系方式】158xxxx1582
+【客户经理联系方式】未知
+【夜间是否可配合测试】否
+业支回复：号码1440683406351人联网禁止，区域限制天津，策略如下：22220000100000000000000000005100
+鉴于此，烦请贵方协助处理，谢谢！
+
+以JSON格式输出{""类别"":""""}","{""类别"":""无法访问或访问慢/卡顿/掉线/离线计费功能问题""}",事实陈述,介绍WSFD-011201离线计费功能的相关软参，这些软参用于配置离线计费功能的参数,"本特性相关的软参如下：
+
+  * [BYTE77 控制运营商定制需求](../software_smf/byte/byte_0077.html)
+  * [BIT836 控制是否携带华为CG的5G定制字段。](../software_smf/bit/bit_0836.html)
+  * [BYTE72 控制CG锁定时长和话单优先发送到CG发送的重定向消息中指定CG的时长](../software_smf/byte/byte_0072.html)
+  * [BIT160 控制话单中业务容器的Duration为0但有流量时，业务容器的时间填充原则](../software_smf/bit/bit_0160.html)
+  * [BIT1105 控制当PCRF下发非法CG IP和端口时是否去激活用户](../software_smf/bit/bit_1105.html)
+  * [BIT1211 控制话单中流量容器的QoS-Info是否携带APN-AMBR字段](../software_smf/bit/bit_1211.html)",网络部署/特性部署/UNC特性指南/计费管理功能/WSFD-011201 支持离线计费/WSFD-011201 支持离线计费参考信息/unc_2030_feature_desc_offline_billing_15.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【PGW-C承载修改成功】、【PGW-C承载修改失败】、【PGW-C承载修改未收到响应】、【其他】
+
+用户问题:
+用户在使用移动网络时发现网络速度慢，经过运维团队排查，发现在PGW-C上，基于VPLMN的HSS发起的QoS更新的承载修改次数较多。具体情况如下：
+【测量点】指定VPLMN下，PGW-C收到MME发送的Modify Bearer Command消息，PGW-C发送更新承载请求消息给MME，当PGW-C收到MME返回的更新承载响应消息时，判断QoS更新的承载修改成功，对该指标进行加一统计。
+【测量类型】当统计周期时间大于采集周期时，取统计周期内采集周期的累加值。
+【计算公式】无
+请根据这些信息，将问题分类，并以JSON格式输出{""类别"":""""}。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""PGW-C承载修改成功""}",概念介绍,这个知识点描述了在PGW-C（包含SPGW-C合一中的PGW-C部分）上基于VPLMN的HSS发起的QoS更新的承载修改成功次数的含义、单位、测量点、测量类型以及计算公式。,"含义：该测量指标用于统计指定测量周期内PGW-C（包含SPGW-C合一中的PGW-C部分）上基于VPLMN的HSS发起的QoS更新的承载修改成功次数。
+单位：次
+测量点：指定VPLMN下，PGW-C（包含SPGW-C合一中的PGW-C部分）收到MME/SPGW-C（包含SPGW-C合一中的PGW-C部分）发送的Modify Bearer Command消息，PGW-C（包含SPGW-C合一中的PGW-C部分）发送更新承载请求消息给MME/SPGW-C（包含SPGW-C合一中的PGW-C部分），当PGW-C（包含SPGW-C合一中的PGW-C部分）收到MME/SPGW-C（包含SPGW-C合一中的PGW-C部分）返回的更新承载响应消息时，判断QoS更新的承载修改成功，对该指标进行加一统计。
+测量类型：当统计周期时间大于采集周期时，取统计周期内采集周期的累加值。
+计算公式：无",OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/SGW/PGW/GGSN GTP会话管理/指定VPLMN的控制面基本会话业务流程/1929494785.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【无法进行5G国际漫游】、【5G数据连接领域计费问题】、【5G系统，计费服务管理问题】、【UE策略控制服务问题】、【网络切片选择服务问题】、【其他】
+
+用户问题:
+问题现象描述：客户张先生持有的5G手机在国际漫游期间，无法正常进行呼叫和接听电话，无法发送和接收信息，互联网连接也存在问题。客户张先生在国内时，这款手机的5G服务一切正常，但在国外就无法正常工作。请你根据问题现象描述进行分类，并以JSON格式输出{""类别"":""""}。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""无法进行5G国际漫游""}",表格,此表格列出了5GC国际漫游解决方案需要遵循的各种通信协议，包括标准类别、标准编号和标准名称。,"标准类别 | 标准编号 | 标准名称
+---|---|---
+3GPP | 23.501 | System Architecture for the 5G System
+23.502 | Procedures for the 5G System
+24.501 | Non-Access-Stratum (NAS) protocol for 5G System (5GS)
+29.502 | Session Management Services
+29.503 | Unified Data Management Services
+29.507 | Interface between the Control Plane and the User Plane Nodes
+29.510 | Network Function Repository Services
+29.518 | 5G System; Access and Mobility Management Services
+29.573 | 5G System; Public Land Mobile Network (PLMN) interconnection
+32.255 | 5G Data connectivity domain charging
+32.291 | Charging management; 5G system, charging service
+29.525 | UE Policy Control Service
+29.531 | Network Slice Selection Services",网络部署/业务专题/5GC国际漫游解决方案/zh-cn_topic_0000001364324129.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【流量异常】、【流量正常】、【流量计量错误】、【其他】
+
+用户问题:
+我方的运维人员在对网络进行例行检查时发现，某个监测点在指定测量周期内SMF/PGW-C接收UPF上报的指定URR的下行流量上报（千字节）异常增高。经过查证，发现并无大的数据传输操作。请你根据这个现象对问题进行分类。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""流量异常""}",概念介绍,该指标用于统计在指定测量周期内SMF/PGW-C接收UPF上报的指定URR的下行流量上报（千字节）。,含义：该指标用于统计在指定测量周期内SMF/PGW-C接收UPF上报的指定URR的下行流量上报（千字节）。单位：千字节。测量点：当SMF/PGW-C接收到UPF上报的用户流量时，将消息中携带的下行流量按URR累加到该指标。测量类型：当统计周期时间大于采集周期时，取统计周期内采集周期的累加值。计算公式：无。相关说明：该指标仅统计预定义URR的流量。,OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/服务化接口测量/指定URR的N4接口收到的用量上报测量/1929461570.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【隧道RTT平均时延正常】、【隧道RTT平均时延偏高】、【隧道RTT平均时延偏低】、【隧道RTT平均时延波动大】、【其他】
+
+用户问题:
+用户在使用通信服务过程中，感觉通信质量波动较大，经常出现卡顿的情况。运维人员后台查看到，用户通信隧道的RTT（Round-Trip Time）平均时延数据呈现波动态势，具体数据如下：在上午10点-11点的一小时内，RTT平均时延为30ms，11点-12点的时候，RTT平均时延为10ms，12点-13点的时候，RTT平均时延又升高到40ms。请根据这些情况，对用户问题进行分类。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""隧道RTT平均时延波动大""}",概念介绍,介绍了隧道RTT平均时延的含义，以及其在通信质量分析中的应用,本测量指标统计了一个测量周期内，隧道的RTT(Round-Trip Time)平均时延。该指标体现了隧道通信质量，用于分析网络质量问题。RTT，即往返时延，表示从发送端发送数据开始，到发送端收到来自接收端的响应消息，总共经历的时间。,OM参考/性能指标/平台性能指标/平台性能指标/性能指标/CSLB测量/基于隧道转发统计/1908081553.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【VLAN帧格式错误】、【TPID取值错误】、【PRI取值错误】、【CFI取值错误】、【VID取值错误】、【其他】
+
+用户问题:
+一台支持802.1q的设备收到了一条来自以太网的数据帧，但该设备不能正确处理这条数据帧。数据帧的VLAN Tag信息如下：TPID：0x9100，PRI：5，CFI：0，VID：2000。根据这些信息，你能确定这条数据帧属于哪个问题类别吗？请以JSON格式输出{""类别"":""""}。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""TPID取值错误""}",概念介绍,描述VLAN帧格式的结构与含义，包括TPID、PRI、CFI、VID四个部分的功能和取值范围。,IEEE 802.1q是虚拟桥接局域网的正式标准，对Ethernet帧格式进行了修改，在源MAC地址字段和协议类型字段之间加入4字节的802.1q Tag，简称VLAN Tag。修改后的Ethernet帧称为VLAN帧，如图2所示。TPID：Tag Protocol Identifier，标记协议信息，长度为16比特，表示帧类型。取值为0x8100时表示802.1q Tag帧。如果不支持802.1q的设备收到这样的帧，会将其丢弃。PRI：Priority，优先级，长度为3比特，表示帧的优先级，取值范围为0～7，值越大优先级越高。用于设备阻塞时，优先发送优先级高的数据帧。CFI：Canonical Format Indicator，经典格式指示符，长度为1比特，表示MAC地址是否是经典格式。CFI为0说明是经典格式，CFI为1表示为非经典格式。用于兼容以太网和令牌环网。在以太网中，CFI的值为0。VID：VLAN ID，长度为12比特，表示该帧所属的VLAN。在UNC中，VLAN ID取值范围是0～4095。由于0和4095为协议保留取值，所以VLAN ID的有效取值范围是1～4094。,网络部署/特性部署/UNC特性指南/IP基本功能/IPFD-010002 支持VLAN子接口/实现原理/dc_fenix_feature_vlan_0002.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【RAA消息包数正常】、【RAA消息包数异常】、【Result Code为第4类的RAA消息包数异常】、【Result Code为第4类的RAA消息包数正常】、【其他】
+
+用户问题:
+用户的问题是:【故障现象】某运营商在一段时间内不断接收到大量的RAA消息，其中Result Code为第4类（4000~4999）的RAA消息包数显著增多，导致GY接口压力增大。【用户需求】用户需要了解这种现象是正常的还是异常的，以及是否有必要采取一些应对措施。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""Result Code为第4类的RAA消息包数异常""}",概念介绍,介绍Gy接口发送Result Code为第4类的RAA消息包数(DRA)的含义，即用于统计在指定测量周期内客户端UNC通过GY接口向指定服务器端DRA发送命令层Result Code为第4类（4000~4999）的RAA消息包数的情况。,本测量指标用于统计在指定测量周期内客户端UNC通过GY接口向指定服务器端DRA发送命令层Result Code为第4类（4000~4999）的RAA消息包数。本指标统计结果主要用于观察本测量周期内，UNC通过GY接口向指定服务器端DRA发送的RAA消息中Result Code为第4类的情况。,OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/Gy接口测量/Gy接口返回码测量(DRA)/1929485907.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【ARP欺骗攻击】、【ARP泛洪攻击】、【其他ARP相关问题】、【其他非ARP问题】
+
+用户问题:
+我们最近在网络中发现了一些异常情况。具体表现为一些网络设备无法正常通信，经过我们的初步检查发现可能是受到了ARP攻击。现象描述如下：部分网络设备出现网络通信故障，具体表现为网络断断续续，或无法访问网络。经过初步排查，我们发现异常的ARP请求/应答包数量显著增加。请根据这些信息，将问题归类。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""ARP泛洪攻击""}",概念介绍,介绍了ARP攻击防御的主要概念和UNC实现了一组ARP安全特性的情况。,ARP协议是二层网络运行的基础协议之一，其具有简单、易用的优点，但缺乏安全机制，容易被攻击发起者利用而增加网络安全风险。ARP攻击类型包括两类：ARP欺骗攻击和ARP泛洪攻击。UNC实现了一组ARP安全特性，提供了多种技术对ARP攻击进行防范、检测和解决，能够防范针对ARP协议的攻击，有效避免ARP攻击对网络安全性的危害，保证网络设备和通信网络的安全性。,快速入门/产品安全/UNC安全原理/网络层安全/防攻击/zh-cn_topic_0173122090.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【接收成功消息数异常】、【接收失败消息数异常】、【其他】
+
+用户问题:
+在一个测量周期内，我们发现对于指定DNN，H-SMF在更新会话时接收Nsmf_PDUSession_Update Response成功消息的数量明显下降，其值远低于同期平均值。请求分类此问题，并以JSON格式输出。
+
+以JSON格式输出{""类别"":""""}","{""类别"":""接收成功消息数异常""}",概念介绍,介绍了H-SMF在5G会话管理流程中，更新会话时接收Nsmf_PDUSession_Update Response成功消息的统计方法，包含了其含义、单位、测量点、测量类型和计算公式。,"含义：该指标用于统计一个测量周期内，指定DNN的H-SMF会话更新时接收Nsmf_PDUSession_Update Response成功消息数。
+单位：次
+测量点：统计周期内，当H-SMF接收会话更新Nsmf_PDUSession_Update Response成功消息携带n1SmInfoFromUe信元，并且对应PDU Session归属指定DNN时，对该指标加一。
+测量类型：当统计周期时间大于采集周期时，取统计周期内采集周期的累加值。
+计算公式：无",OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/SMF 会话管理/指定DNN的H-SMF 5G会话管理流程/1929511955.html
+语义理解,工单分类,"你的任务是根据提供的<类别>对用户问题进行分类，然后以JSON格式输出分类结果。
+
+类别：
+【配置流程错误】、【网络工程实施阶段问题】、【升级和演进准备阶段问题】、【遗留问题处理、网络调整优化阶段问题】、【其他】
+
+用户问题:
+你的任务是根据用户的问题，对问题进行分类。用户的问题是：【故障现象】我方通过U2020/MAE进行了MME Pool的部署，按照流程首先完成了基本业务的数据配置，然后进行了维护管理。但是在网络工程实施阶段，我们发现部分eNodeB无法正常加入Pool区，导致整个网络业务受到了影响。请问这个问题应该归类到哪个分类？以JSON格式输出{""类别"":""""}
+
+以JSON格式输出{""类别"":""""}","{""类别"":""网络工程实施阶段问题""}",处理步骤,描述了将4G网络演进成MME Pool的部署流程，主要包括组网部署流程和配置部署流程。,"部署流程
+
+组网部署流程
+本场景适用于将现网的MME、eNodeB演进成Pool的工程。整个施工过程中，没有新设备加入。
+需要在MME、eNodeB等网元上首先完成基本业务的数据配置，然后通过U2020/MAE统一进行维护管理。具体配置步骤请参照《UNC初始配置与调测》和《U2020 MBB网络管理系统 虚拟化产品文档》 / 《iMaster MAE产品文档》。
+现网演进工程实施主要应考虑整个工程对现网业务影响最小，由于整个工程实施过程可能时间较长，所以每一个分解步骤过程都应是可逆过程，即可以进行倒回；同时每一个分解过程都是稳定的，即可以随时停顿在任何一个实施阶段，而现有网络业务没有影响。
+整个工程实施过程分为3个部分：
+
+升级和演进准备阶段。
+网络工程实施阶段。
+遗留问题处理，网络调整优化阶段。
+
+其中在网络工程实施阶段中包括对每一阶段的调测工作。
+将现网演进成Pool，可能涉及很多台MME和eNodeB，但是其基本原理是一样的。
+首先将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中。需要特别注意的是，整个演进过程中，应该通过规划，尽量使演进过程对网络的影响最小。
+
+配置部署流程
+在数据配置流程方面，一般按图3的流程进行配置：",网络部署/特性部署/UNC特性指南/容灾功能/MME容灾方案/改造部署/4G现网演进成MME Pool/zh-cn_topic_0202307847.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+该软参需要与[DWORD1601 BIT26 控制HTTP是否开启自愈功能](dword_0001_bit_0026.html)配合使用，当且仅当[DWORD1601 BIT26 控制HTTP是否开启自愈功能](dword_0001_bit_0026.html)设置为0时，该软参才会生效。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""DWORD1635 控制HTTP自愈功能参数需要与DWORD1601 BIT26 控制HTTP是否开启自愈功能配合使用，只有当DWORD1601 BIT26设置为0时，DWORD1635才会生效。""}",概念介绍,介绍DWORD1635 控制HTTP自愈功能参数的关联软参，包括需要与其他哪些参数配合使用。,该软参需要与[DWORD1601 BIT26 控制HTTP是否开启自愈功能](dword_0001_bit_0026.html)配合使用，当且仅当[DWORD1601 BIT26 控制HTTP是否开启自愈功能](dword_0001_bit_0026.html)设置为0时，该软参才会生效。,OM参考/软件参数/UNC软件参数/平台软件参数/HTTP软参/dword_1635.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+触发身份识别流程的情形：SGSN通过命令MOD IUAUTHCIPH和MOD GBAUTHCIPH设置分别对3G和2G网络强制进行身份识别，当手机用户使用P-TMSI附着，且没有发生过SGSN改变时，发送Identity Request消息。身份识别流程：1. SGSN向MS发送身份标识请求消息Identity Request。2. MS收到Identity Request请求后，通过发送网络身份标识响应消息Identity Response，将用户的身份信息（IMSI、IMEI、IMEISV）发送到SGSN。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""身份识别流程在SGSN对3G和2G网络强制身份识别的设置下触发，特别是当手机用户使用P-TMSI附着且没有SGSN改变时。流程具体包括SGSN向MS发送身份标识请求消息Identity Request，以及MS在收到请求后，通过发送网络身份标识响应消息Identity Response，将用户的身份信息（如IMSI、IMEI、IMEISV）发送到SGSN。""}",处理步骤,详细介绍了身份识别流程，包括触发身份识别流程的情形和身份识别流程的具体步骤。,触发身份识别流程的情形：SGSN通过命令MOD IUAUTHCIPH和MOD GBAUTHCIPH设置分别对3G和2G网络强制进行身份识别，当手机用户使用P-TMSI附着，且没有发生过SGSN改变时，发送Identity Request消息。身份识别流程：1. SGSN向MS发送身份标识请求消息Identity Request。2. MS收到Identity Request请求后，通过发送网络身份标识响应消息Identity Response，将用户的身份信息（IMSI、IMEI、IMEISV）发送到SGSN。,网络部署/特性部署/UNC特性指南/安全管理功能/WSFD-010304 身份识别功能/身份识别功能（2G&3G）/unc_2010_feature_desc_identity_check_01.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+介绍WSFD-011201离线计费功能的相关告警，这些告警用于监控离线计费功能的运行状态。本特性相关的告警如下：
+
+  * [ALM-81021 CG无响应]
+  * [ALM-81059 超期话单缓存]
+  * [ALM-81005 话单池空间不足]
+  * [ALM-81033 配置与业务冲突]
+
+输出格式为json格式{""总结"":""""}","{""总结"":""WSFD-011201离线计费功能的相关告警包括ALM-81021 CG无响应，ALM-81059 超期话单缓存，ALM-81005 话单池空间不足，和ALM-81033 配置与业务冲突。这些告警用于监控离线计费功能的运行状态。""}",事实陈述,介绍WSFD-011201离线计费功能的相关告警，这些告警用于监控离线计费功能的运行状态,"本特性相关的告警如下：
+
+  * [ALM-81021 CG无响应](../Alarms/81021.html)
+  * [ALM-81059 超期话单缓存](../Alarms/81059.html)
+  * [ALM-81005 话单池空间不足](../Alarms/81005.html)
+  * [ALM-81033 配置与业务冲突](../Alarms/81033.html)",网络部署/特性部署/UNC特性指南/计费管理功能/WSFD-011201 支持离线计费/WSFD-011201 支持离线计费参考信息/unc_2030_feature_desc_offline_billing_15.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+网络对UE进行移动性管理必然涉及到UE的身份标识，在5G网络中使用到的身份标识有：
+
+  * 永久身份标识（SUPI，Subscription Permanent Identifier），全球唯一，全网都据此标识来识别一个用户，5G网络中是SUPI，4G网络中是IMSI。
+  * 永久设备标识（PEI，Permanent Equipment Identifier），全球唯一，唯一标识一个设备，5G网络中是PEI，4G网络中是IMEI。
+  * 临时身份标识，由核心网分配，用来避免在网络上传输永久身份标识，防止攻击者跟踪用户的位置及活动状况。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""在5G网络中，UE身份标识包括永久身份标识SUPI，这是全球唯一的，用于全网识别一个用户，对应4G网络中的IMSI。另一种是永久设备标识PEI，这也是全球唯一的，用于唯一标识一个设备，对应4G网络中的IMEI。另外，还有临时身份标识，由核心网分配，用来在网络上传输时避免暴露永久身份标识，以防止攻击者跟踪用户的位置和活动状况。""}",概念介绍,描述5G网络中UE标识的概念，以及在4G和5G网络中的对比分析,"网络对UE进行移动性管理必然涉及到UE的身份标识，在5G网络中使用到的身份标识有：
+
+  * 永久身份标识（SUPI，Subscription Permanent Identifier），全球唯一，全网都据此标识来识别一个用户，5G网络中是SUPI，4G网络中是IMSI。
+  * 永久设备标识（PEI，Permanent Equipment Identifier），全球唯一，唯一标识一个设备，5G网络中是PEI，4G网络中是IMEI。
+  * 临时身份标识，由核心网分配，用来避免在网络上传输永久身份标识，防止攻击者跟踪用户的位置及活动状况。",快速入门/协议与流程/5G Core信令分析/业务流程/连接、注册、移动性管理/zh-cn_concept_0276785160.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+描述了将4G网络演进成MME Pool的部署流程，主要包括组网部署流程和配置部署流程。部署流程为：首先在MME、eNodeB等网元上首先完成基本业务的数据配置，然后通过U2020/MAE统一进行维护管理。整个工程实施过程分为3个部分：升级和演进准备阶段、网络工程实施阶段、遗留问题处理，网络调整优化阶段。将现网演进成Pool，可能涉及很多台MME和eNodeB，但是其基本原理是一样的。首先将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中。需要特别注意的是，整个演进过程中，应该通过规划，尽量使演进过程对网络的影响最小。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""部署流程主要包括组网部署流程和配置部署流程，涉及到MME、eNodeB等网元的基本业务数据配置和维护管理。整个工程实施过程包括升级和演进准备阶段、网络工程实施阶段、遗留问题处理和网络调整优化阶段。演进过程可能涉及多台MME和eNodeB，其基本原理是将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中，整个过程需要规划，以最小化对网络的影响。""}",处理步骤,描述了将4G网络演进成MME Pool的部署流程，主要包括组网部署流程和配置部署流程。,"部署流程
+
+组网部署流程
+本场景适用于将现网的MME、eNodeB演进成Pool的工程。整个施工过程中，没有新设备加入。
+需要在MME、eNodeB等网元上首先完成基本业务的数据配置，然后通过U2020/MAE统一进行维护管理。具体配置步骤请参照《UNC初始配置与调测》和《U2020 MBB网络管理系统 虚拟化产品文档》 / 《iMaster MAE产品文档》。
+现网演进工程实施主要应考虑整个工程对现网业务影响最小，由于整个工程实施过程可能时间较长，所以每一个分解步骤过程都应是可逆过程，即可以进行倒回；同时每一个分解过程都是稳定的，即可以随时停顿在任何一个实施阶段，而现有网络业务没有影响。
+整个工程实施过程分为3个部分：
+
+升级和演进准备阶段。
+网络工程实施阶段。
+遗留问题处理，网络调整优化阶段。
+
+其中在网络工程实施阶段中包括对每一阶段的调测工作。
+将现网演进成Pool，可能涉及很多台MME和eNodeB，但是其基本原理是一样的。
+首先将所有MME组建成一个Pool区，然后逐渐将eNodeB加入Pool区当中。需要特别注意的是，整个演进过程中，应该通过规划，尽量使演进过程对网络的影响最小。
+
+配置部署流程
+在数据配置流程方面，一般按图3的流程进行配置：",网络部署/特性部署/UNC特性指南/容灾功能/MME容灾方案/改造部署/4G现网演进成MME Pool/zh-cn_topic_0202307847.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。网络切片是一个端到端的概念，包括无线、传输及核心网，UNC则提供了核心网内的切片功能，主要由NSSF网络功能来实现。网络切片使用S-NSSAI（Single Network Slice Selection Assistance Information）进行标识。相关概念如下：Subscribed S-NSSAIs、Requested NSSAI、Configured NSSAI、Allowed NSSAI、Rejected S-NSSAIs。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""5G网络采用网络切片技术在同一硬件基础设施上按需分配资源，形成不同且相互隔离的切片网络以承载多种业务场景。网络切片是一个端到端的概念，包括无线、传输及核心网，核心网内的切片功能主要由NSSF网络功能实现，切片标识采用S-NSSAI。相关概念包括Subscribed S-NSSAIs、Requested NSSAI、Configured NSSAI、Allowed NSSAI、Rejected S-NSSAIs。""}",概念介绍,5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。,5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。网络切片是一个端到端的概念，包括无线、传输及核心网，UNC则提供了核心网内的切片功能，主要由NSSF网络功能来实现。网络切片使用S-NSSAI（Single Network Slice Selection Assistance Information）进行标识。相关概念如下：Subscribed S-NSSAIs、Requested NSSAI、Configured NSSAI、Allowed NSSAI、Rejected S-NSSAIs。,网络部署/特性部署/UNC特性指南/网络切片功能/zh-cn_topic_0247814887.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+S5/S8(PGW-C)因WLAN到EUTRAN切换发送IMS用户QCI为1的Create Bearer Request消息数的含义是统计指定周期内，用户从WLAN到EUTRAN切换时，PGW-C通过S5/S8接口发送的IMS用户QCI为1的Create Bearer Request消息数。配置APN的情况下，优先看APN下的IMSSWITCH使能标记，APN下IMSSWITCH配置为使能则进行统计，APN下IMSSWITCH配置为不使能则不进行统计。APN下IMSSWITCH配置为INHERIT的情况下看全局配置，全局IMSSWITCH配置为使能则统计，否则不统计。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""该测量指标在指定周期内，统计了用户从WLAN到EUTRAN切换时，PGW-C通过S5/S8接口发送的IMS用户QCI为1的Create Bearer Request消息数。统计规则根据APN下的IMSSWITCH配置决定，如果IMSSWITCH被使能则进行统计，否则不进行统计。若APN下IMSSWITCH配置为INHERIT，则会参考全局IMSSWITCH的配置。""}",概念介绍,介绍该测量指标在指定周期内，用户从WLAN到EUTRAN切换时，PGW-C通过S5/S8接口发送的IMS用户QCI为1的Create Bearer Request消息数的含义和其统计条件。,该测量指标用于统计指定周期内，用户从WLAN到EUTRAN切换时，PGW-C通过S5/S8接口发送的IMS用户QCI为1的Create Bearer Request消息数。配置APN的情况下，优先看APN下的IMSSWITCH使能标记，APN下IMSSWITCH配置为使能则进行统计，APN下IMSSWITCH配置为不使能则不进行统计。APN下IMSSWITCH配置为INHERIT的情况下看全局配置，全局IMSSWITCH配置为使能则统计，否则不统计。,OM参考/性能指标/业务性能指标/业务性能指标/AMF/SMF/GW-C/NRF/NSSF/SMSF/NCG业务性能指标/SGW/PGW/GGSN GTP会话管理/PGW-C业务层S5/S8接口IMS流程/1929458600.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+UNC和UDG支持的全部S11接口错误码如表1所示。表1 S11接口错误码错误码 | 错误码含义 | UNC处理方式 | UDG处理方式 ---|---|---|--- 64 | Context Not Found | - | S4/S11/S5/S8/S2a/S2b接口错误码-64 65 | Invalid Message Format | - | S4/S11/S5/S8/S2a/S2b接口错误码-65 66 | Version not supported by next peer | - | S4/S11/S5/S8/S2a/S2b接口错误码-66 68 | Service not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-68 69 | Mandatory IE incorrect | - | S4/S11/S5/S8/S2a/S2b接口错误码-69 70 | Mandatory IE missing | - | S4/S11/S5/S8/S2a/S2b接口错误码-70 72 | System failure | - | S4/S11/S5/S8/S2a/S2b接口错误码-72 73 | No resources available | - | S4/S11/S5/S8/S2a/S2b接口错误码-73 74 | Semantic error in the TFT operation | - | S4/S11/S5/S8/S2a/S2b接口错误码-74 76 | Semantic errors in packet filter(s) | - | S4/S11/S5/S8/S2a/S2b接口错误码-76 77 | Syntactic errors in packet filter(s) | - | S4/S11/S5/S8/S2a/S2b接口错误码-77 78 | Missing or unknown APN | - | S4/S11/S5/S8/S2a/S2b接口错误码-78 81 | Relocation failure | - | S4/S11/S5/S8/S2a/S2b接口错误码-81 82 | Denied in RAT | - | S4/S11/S5/S8/S2a/S2b接口错误码-82 83 | Preferred PDN type not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-83 84 | All dynamic addresses are occupied | - | S4/S11/S5/S8/S2a/S2b接口错误码-84 85 | UE context without TFT already activated | - | S4/S11/S5/S8/S2a/S2b接口错误码-85 86 | Protocol type not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-86 87 | UE not responding | Create Bearer Response：UE not responding | S4/S11/S5/S8/S2a/S2b接口错误码-87 88 | UE refuses | Create Bearer Response：UE refuses | - 89 | Service denied | - | S4/S11/S5/S8/S2a/S2b接口错误码-89 90 | Unable to page UE | - | S4/S11/S5/S8/S2a/S2b接口错误码-90 91 | No memory available | - | S4/S11/S5/S8/S2a/S2b接口错误码-91 92 | User authentication failed | - | S4/S11/S5/S8/S2a/S2b接口错误码-92 93 | APN access denied – no subscription | - | S4/S11/S5/S8/S2a/S2b接口错误码-93 94 | Request rejected | Create Bearer Response：Request rejected | S4/S11/S5/S8/S2a/S2b接口错误码-94 96 | IMSI not known | - | S4/S11/S5/S8/S2a/S2b接口错误码-96 97 | Semantic error in the TAD operation | - | S4/S11/S5/S8/S2a/S2b接口错误码-97 100 | Remote peer not responding | - | S4/S11/S5/S8/S2a/S2b接口错误码-100 103 | Conditional IE missing | - | S4/S11/S5/S8/S2a/S2b接口错误码-103 104 | APN Restriction type Incompatible with currently active PDN connection | - | S4/S11/S5/S8/S2a/S2b接口错误码-104 106 | Data forwarding not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-106 107 | Invalid reply from remote peer | - | S4/S11/S5/S8/S2a/S2b接口错误码-107
+
+输出格式为json格式{""总结"":""""}","{""总结"":""本文档详细列出了UNC和UDG支持的全部S11接口错误码以及对应的错误含义和处理方式。错误码包括Context Not Found, Invalid Message Format, Version not supported by next peer, Service not supported等。其中一部分错误码UNC没有特定处理方式，而UDG则会指定对应的接口错误码进行处理。""}",表格,本文档详细列出了UNC和UDG支持的全部S11接口错误码以及对应的错误含义和处理方式。,"UNC和UDG支持的全部S11接口错误码如表1所示。
+
+表1 S11接口错误码错误码 | 错误码含义 | UNC处理方式 | UDG处理方式
+---|---|---|---
+64 | Context Not Found | - | S4/S11/S5/S8/S2a/S2b接口错误码-64
+65 | Invalid Message Format | - | S4/S11/S5/S8/S2a/S2b接口错误码-65
+66 | Version not supported by next peer | - | S4/S11/S5/S8/S2a/S2b接口错误码-66
+68 | Service not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-68
+69 | Mandatory IE incorrect | - | S4/S11/S5/S8/S2a/S2b接口错误码-69
+70 | Mandatory IE missing | - | S4/S11/S5/S8/S2a/S2b接口错误码-70
+72 | System failure | - | S4/S11/S5/S8/S2a/S2b接口错误码-72
+73 | No resources available | - | S4/S11/S5/S8/S2a/S2b接口错误码-73
+74 | Semantic error in the TFT operation | - | S4/S11/S5/S8/S2a/S2b接口错误码-74
+76 | Semantic errors in packet filter(s) | - | S4/S11/S5/S8/S2a/S2b接口错误码-76
+77 | Syntactic errors in packet filter(s) | - | S4/S11/S5/S8/S2a/S2b接口错误码-77
+78 | Missing or unknown APN | - | S4/S11/S5/S8/S2a/S2b接口错误码-78
+81 | Relocation failure | - | S4/S11/S5/S8/S2a/S2b接口错误码-81
+82 | Denied in RAT | - | S4/S11/S5/S8/S2a/S2b接口错误码-82
+83 | Preferred PDN type not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-83
+84 | All dynamic addresses are occupied | - | S4/S11/S5/S8/S2a/S2b接口错误码-84
+85 | UE context without TFT already activated | - | S4/S11/S5/S8/S2a/S2b接口错误码-85
+86 | Protocol type not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-86
+87 | UE not responding | Create Bearer Response：UE not responding | S4/S11/S5/S8/S2a/S2b接口错误码-87
+88 | UE refuses | Create Bearer Response：UE refuses | -
+89 | Service denied | - | S4/S11/S5/S8/S2a/S2b接口错误码-89
+90 | Unable to page UE | - | S4/S11/S5/S8/S2a/S2b接口错误码-90
+91 | No memory available | - | S4/S11/S5/S8/S2a/S2b接口错误码-91
+92 | User authentication failed | - | S4/S11/S5/S8/S2a/S2b接口错误码-92
+93 | APN access denied – no subscription | - | S4/S11/S5/S8/S2a/S2b接口错误码-93
+94 | Request rejected | Create Bearer Response：Request rejected | S4/S11/S5/S8/S2a/S2b接口错误码-94
+96 | IMSI not known | - | S4/S11/S5/S8/S2a/S2b接口错误码-96
+97 | Semantic error in the TAD operation | - | S4/S11/S5/S8/S2a/S2b接口错误码-97
+100 | Remote peer not responding | - | S4/S11/S5/S8/S2a/S2b接口错误码-100
+103 | Conditional IE missing | - | S4/S11/S5/S8/S2a/S2b接口错误码-103
+104 | APN Restriction type Incompatible with currently active PDN connection | - | S4/S11/S5/S8/S2a/S2b接口错误码-104
+106 | Data forwarding not supported | - | S4/S11/S5/S8/S2a/S2b接口错误码-106
+107 | Invalid reply from remote peer | - | S4/S11/S5/S8/S2a/S2b接口错误码-107",快速入门/协议与流程/EPC信令分析/EPC信令与协议分析/接口协议/S11/cn_1_10_11400.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+增加APNNI库记录命令执行后立即生效，本表最大记录数为256条，添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。此命令执行后立即生效。本表最大记录数为256条。添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。用户请求的APNNI和终端类型的对应关系记录最多能添加128条。签约数据中的APNNI和终端类型的对应关系记录最多也只能添加128条。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""执行增加APNNI库记录命令后会立即生效，这个表的最大记录数为256条。在添加APNNI对应的终端类型记录后，若想使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。同时，用户请求的APNNI和终端类型的对应关系记录以及签约数据中的APNNI和终端类型的对应关系记录最多都只能添加128条。""}",事实陈述,增加APNNI库记录命令执行后立即生效，本表最大记录数为256条，添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。,此命令执行后立即生效。本表最大记录数为256条。添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。用户请求的APNNI和终端类型的对应关系记录最多能添加128条。签约数据中的APNNI和终端类型的对应关系记录最多也只能添加128条。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/Smartphone管理/终端类型识别/APNNI库管理/add_apnnilib.html
+语义理解,文本摘要,"你是告警助理，你的任务是根据用户提供的内容进行摘要总结
+
+当MSC Pool中某个MSC进行软件升级，或者发生故障暂时不能使用时，对于联合附着用户和联合RA/LA更新用户，需要SGSN将此类用户迁移到其他MSC上去，以避免此类用户附着失败或业务中断。用户通过SGSN（与该MSC有Gs接口，且开启Gs接口功能的所有SGSN）操作维护终端下发命令启动迁移，SGSN将该MSC状态信息标识为不可用，该MSC进入迁移状态。SGSN进行用户迁移，为用户重新选择可用的MSC。用户迁移过程一共分为两个阶段：第一阶段：迁移空闲态的MS。当MS发起联合RA/LA更新、联合附着或者周期路由区更新时，SGSN将该用户分配到其他的MSC上，实现用户迁移。第一阶段的迁移时长可以通过参数“第一阶段迁移时间(min)”确定。第二阶段：第一阶段结束后，对于没有迁移的用户，例如处于连接态的用户，SGSN向用户下发“IMSI detach”请求，要求用户重新附着。在用户重新附着时，SGSN将该用户分配到其他的MSC上，实现用户迁移。在启动迁移后任何时刻，用户都可通过SGSN操作维护终端下发命令终止迁移。用户下发终止迁移命令后，SGSN启动回退过程。在MS发起联合RA/LA更新、联合附着或者周期路由区更新时，SGSN强制执行Gs口更新，将已迁移到其他MSC上的MS重新分配到原MSC上。一般情况下，一个周期路由更新周期后，绝大多数MS可回到原MSC上。
+
+输出格式为json格式{""总结"":""""}","{""总结"":""当MSC Pool中的某个MSC进行软件升级或发生故障时，需要通过SGSN将联合附着用户和联合RA/LA更新用户迁移到其他可用的MSC上，以避免用户附着失败或业务中断。用户迁移过程分为两个阶段：第一阶段是迁移空闲态的MS，此阶段的时长可以通过参数设定；第二阶段是对于未迁移的用户，例如处于连接态的用户，SGSN会向他们下发“IMSI detach”请求，要求用户重新附着并完成迁移。在迁移过程中，如果用户需要停止迁移，可以通过SGSN操作维护终端下发命令终止迁移，并启动回退过程，使已迁移到其他MSC上的MS重新分配到原MSC上。""}",处理步骤,描述在MSC Pool中进行软件升级或发生故障时，如何通过SGSN将用户迁移到其他MSC以避免失败或业务中断，以及用户迁移的两个阶段。同时，描述了用户迁移过程中如何通过SGSN操作维护终端下发命令终止迁移并启动回退过程。,当MSC Pool中某个MSC进行软件升级，或者发生故障暂时不能使用时，对于联合附着用户和联合RA/LA更新用户，需要SGSN将此类用户迁移到其他MSC上去，以避免此类用户附着失败或业务中断。用户通过SGSN（与该MSC有Gs接口，且开启Gs接口功能的所有SGSN）操作维护终端下发命令启动迁移，SGSN将该MSC状态信息标识为不可用，该MSC进入迁移状态。SGSN进行用户迁移，为用户重新选择可用的MSC。用户迁移过程一共分为两个阶段：第一阶段：迁移空闲态的MS。当MS发起联合RA/LA更新、联合附着或者周期路由区更新时，SGSN将该用户分配到其他的MSC上，实现用户迁移。第一阶段的迁移时长可以通过参数“第一阶段迁移时间(min)”确定。第二阶段：第一阶段结束后，对于没有迁移的用户，例如处于连接态的用户，SGSN向用户下发“IMSI detach”请求，要求用户重新附着。在用户重新附着时，SGSN将该用户分配到其他的MSC上，实现用户迁移。在启动迁移后任何时刻，用户都可通过SGSN操作维护终端下发命令终止迁移。用户下发终止迁移命令后，SGSN启动回退过程。在MS发起联合RA/LA更新、联合附着或者周期路由区更新时，SGSN强制执行Gs口更新，将已迁移到其他MSC上的MS重新分配到原MSC上。一般情况下，一个周期路由更新周期后，绝大多数MS可回到原MSC上。,网络部署/特性部署/UNC特性指南/容灾功能/WSFD-104202 MSC Pool内的用户迁移（Gs接口）/unc_2000_feature_desc_subscriber_migration_in_msc_pool_based_on_gs_02.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{'name': 'DSP_LICENSE', 'description': '确认对应特性license是否得到授权.', 'arguments': {'feature': 'String 特性编号'}, 'results': 'String 特性license授权情况'}, {'name': 'LST_LICENSESWITCH', 'description': '确认特性开关状态.', 'arguments': {'feature': 'String 特性编号'}, 'results': 'String 特性开关状态'}]
+
+<用户问题>:
+你需要使用工具DSP_LICENSE和LST_LICENSESWITCH来确认别名APN特性（特性编号：WSFD-106203）的license是否得到授权，并检查特性开关是否打开。","首先，我们需要使用工具DSP_LICENSE来确认别名APN特性（特性编号：WSFD-106203）的license是否得到授权。我们需要将""WSFD-106203""作为参数传给工具。
+
+使用方式如下：
+```python
+DSP_LICENSE(feature='WSFD-106203')
+```
+这将返回特性license的授权情况。
+
+然后，我们需要使用工具LST_LICENSESWITCH来检查特性开关是否打开。我们也需要将""WSFD-106203""作为参数传给工具。
+
+使用方式如下：
+```python
+LST_LICENSESWITCH(feature='WSFD-106203')
+```
+这将返回特性开关的状态。
+
+请注意，这两个工具返回的结果都是字符串，您需要根据返回的字符串来判断license的授权情况和特性开关的状态。",事实陈述,描述在使用修改别名APN配置命令时需要注意的事项。,该命令只在运营商调整网络时使用，只对后续的APN起作用，对于已有连接的APN不起作用。此配置涉及别名APN特性（特性编号：WSFD-106203，license部件编码：LKV2ALIASAPN02），执行命令请使用[**DSP LICENSE**](dsp_license.html)命令确认对应特性license是否得到授权，执行[**LST LICENSESWITCH**](lst_licenseswitch.html)命令确认特性开关状态为“打开”。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/会话管理/别名APN管理/mod_aliasapn.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{""name"": ""ARP_Security"", ""description"": ""UNC实现的ARP安全特性工具，用于防范、检测和解决ARP攻击."", ""arguments"": {""attack_type"": ""String ARP攻击类型"", ""network_id"": ""String 网络ID""}, ""results"": ""String ARP攻击防御的结果""}, {""name"": ""Final Answer"", ""description"": ""回答用户的问题"", ""arguments"": {""final_answer"": ""String 答案内容""}}]
+
+<用户问题>:
+在网络ID为123的网络中，发现了ARP欺骗攻击，使用ARP_Security工具解决此问题，并按照JSON格式输出<用户问题>对应参数的结果","{
+""ARP_Security"": {
+""attack_type"": ""ARP欺骗攻击"",
+""network_id"": ""123""
+},
+""Final Answer"": {
+""final_answer"": ""已使用ARP_Security工具成功防范并解决了ARP欺骗攻击""
+}
+}",概念介绍,介绍了ARP攻击防御的主要概念和UNC实现了一组ARP安全特性的情况。,ARP协议是二层网络运行的基础协议之一，其具有简单、易用的优点，但缺乏安全机制，容易被攻击发起者利用而增加网络安全风险。ARP攻击类型包括两类：ARP欺骗攻击和ARP泛洪攻击。UNC实现了一组ARP安全特性，提供了多种技术对ARP攻击进行防范、检测和解决，能够防范针对ARP协议的攻击，有效避免ARP攻击对网络安全性的危害，保证网络设备和通信网络的安全性。,快速入门/产品安全/UNC安全原理/网络层安全/防攻击/zh-cn_topic_0173122090.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{'name': 'GetSliceInfo', 'description': '根据S-NSSAI获取网络切片信息.', 'arguments': {'snssai': 'String S-NSSAI的值'}, 'results': '网络切片信息'}, {'name': 'GetSliceStatus', 'description': '根据网络切片ID获取网络切片状态.', 'arguments': {'sliceId': 'String 网络切片ID'}, 'results': '网络切片状态'}, {'name': 'GetSliceResources', 'description': '根据网络切片ID获取网络切片资源使用情况.', 'arguments': {'sliceId': 'String 网络切片ID'}, 'results': '网络切片资源使用情况'}, {'name': 'Final Answer', 'description': '回答用户的问题', 'arguments': {'final_answer': 'String 答案内容'}}]
+
+<用户问题>:
+使用GetSliceInfo工具，根据S-NSSAI('001-010')获取网络切片信息，并使用GetSliceStatus和GetSliceResources工具，根据网络切片ID获取网络切片的状态和资源使用情况，最后按照JSON格式输出<用户问题>对应参数的结果","首先，调用GetSliceInfo工具，代码如下：
+
+```python
+slice_info = GetSliceInfo(snssai='001-010')
+```
+
+得到的`slice_info`即为所需的网络切片信息，其中会包含网络切片ID。
+
+然后，根据获取到的网络切片ID，调用GetSliceStatus和GetSliceResources工具，代码如下：
+
+```python
+slice_status = GetSliceStatus(sliceId=slice_info['sliceId'])
+slice_resources = GetSliceResources(sliceId=slice_info['sliceId'])
+```
+
+最后，将获取到的网络切片信息、网络切片状态和网络切片资源使用情况以JSON格式输出，代码如下：
+
+```python
+final_answer = {
+    'slice_info': slice_info,
+    'slice_status': slice_status,
+    'slice_resources': slice_resources
+}
+```
+
+调用Final Answer工具：
+
+```python
+Final Answer(final_answer=json.dumps(final_answer))
+```
+
+以上即为解答过程。",概念介绍,5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。,5G网络需要承载多类型的业务场景，各场景将区别于4G，不再使用一张网络提供服务，而是利用网络切片技术在同一个硬件基础设施上按需分配资源组合出不同且相互隔离的切片网络。网络切片是一个端到端的概念，包括无线、传输及核心网，UNC则提供了核心网内的切片功能，主要由NSSF网络功能来实现。网络切片使用S-NSSAI（Single Network Slice Selection Assistance Information）进行标识。相关概念如下：Subscribed S-NSSAIs、Requested NSSAI、Configured NSSAI、Allowed NSSAI、Rejected S-NSSAIs。,网络部署/特性部署/UNC特性指南/网络切片功能/zh-cn_topic_0247814887.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+{""name"": ""OM Portal跟踪"", ""description"": ""用于进行M2M长周期性定时器调测的跟踪工具."", ""arguments"": {""QUERYOPT"": ""String 查询方式"", ""IMSI"": ""String IMSI""}, ""results"": ""M2M长周期性定时器调测的结果信息""}
+
+<用户问题>:
+使用OM Portal跟踪工具，通过查询方式为BYIMSI和IMSI为460036500000002进行M2M长周期性定时器的调测，并按照JSON格式输出<用户问题>对应参数的结果",对不起，我无法回答这个问题。因为问题中的<用户问题>对应参数的结果没有给出具体的参数名，所以我无法提供正确的答案。请提供具体的参数名以便我能给出正确的答案。,表格,列出了在进行M2M长周期性定时器调测时所需的数据和工具,"数据
+
+类别 | 参数名称 | 取值样例 | 获取方法 | 说明
+---|---|---|---|---
+用户信息查询 | 查询方式（QUERYOPT） | BYIMSI | 本端规划 | -
+IMSI（IMSI） | 460036500000002 | 测试终端自带
+
+工具
+
+OM Portal跟踪",网络部署/特性部署/UNC特性指南/NB-IOT业务功能/WSFD-011602 支持M2M长周期性定时器/unc_2110_feature_om_extended_periodic_timer_for_m2m01.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+{""name"": ""GetServiceParams"", ""description"": ""获取服务参数. 请在需要查询服务参数时调用此工具，如'查询PGW-C的FQDN'."", ""arguments"": {""serviceType"": ""String 服务类型""}, ""results"": ""String 服务参数""}
+
+<用户问题>:
+运维人员在运维4/5G融合网络时，需要查询PGW-C服务的FQDN参数，应如何操作？","运维人员可以通过调用""GetServiceParams""工具来查询PGW-C服务的FQDN参数。在使用此工具时，""serviceType""参数应设置为""PGW-C""。具体操作如下：
+
+1. 调用GetServiceParams工具。
+2. 在""serviceType""参数中输入""PGW-C""。
+3. 按照提示操作，即可获取PGW-C服务的FQDN参数。
+
+这样，运维人员就可以查询到PGW-C服务的FQDN参数，以确保4/5G切换时网元选择与发现的一致性。",概念介绍,介绍抑制使用PGW FQDN的服务发现功能的原理概述,在4/5G互操作场景下，5G签约终端从不同区域入网时，都会选择融合网关。融合SMF+PGW-C，在向NRF注册时可携带对应PGW-C的FQDN，在DNS Server内记录中service parameters包含“nc-smf”关键字，例如x-3gpp-pgw:x-s5-gtp+nc-smf。可确保4/5G 切换时网元选择与发现的一致性。,网络部署/特性部署/UNC特性指南/流控功能/WSFD-010802 周边网元过载保护/zh-cn_topic_0318066840.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+{""name"": ""DSP NRFLINKINFO"", ""description"": ""查询NRF管理的链路信息。此操作需要具有管理员级别的用户权限。查询参数包括对端标识、对端标识类型和链路状态."", ""arguments"": {""PEERIDTYPE"": ""String 对端标识类型""}, ""results"": ""NRF链路信息""}
+
+<用户问题>:
+使用DSP NRFLINKINFO工具，根据对端标识类型（CALLBACKURL）查询NRF管理的链路信息，并按照JSON格式输出<用户问题>对应参数的结果","可以通过以下步骤使用DSP NRFLINKINFO工具查询NRF管理的链路信息：
+
+1. 首先，需要确保你有管理员级别的权限，因为查询NRF管理的链路信息需要这个权限。
+2. 然后，打开命令行接口，输入以下命令：
+
+```bash
+%%DSP NRFLINKINFO: PEERIDTYPE=CALLBACKURL;%%
+```
+
+3. 回车执行命令，系统会返回查询到的NRF链路信息，例如：
+
+```json
+{
+	""PeerId"": ""10.70.200.1:5164"",
+	""PeerIdType"": ""CALLBACKURL"",
+	""LinkStatus"": ""NORMAL"",
+	""RetryAfterSeconds"": 0,
+	""AddrMsgStatus"": ""NotRecv"",
+	""LinkUpdateTime"": ""2020-03-16T21:17:06+08:00"",
+	""RecordCreateTime"": ""2020-03-16T21:17:06+08:00"",
+	""OverLoadBeginTime"": ""1970-01-01T08:00:00+08:00"",
+	""LogicLink"": ""AAEBRhNGyAEsFADFnRyBAAA="",
+	""SbiInfo"": {
+		""NotifyType"": ""Add"",
+		""InfoType"": ""Callback"",
+		""PeerId"": ""10.70.200.1:5164"",
+		""NFType"": ""AMF"",
+		""Scheme"": ""http"",
+		""Fqdn"": ""tac-123.epc.mnc003.mcc123.3gppnetwork.org"",
+		""Ipv4Addresses"": [
+			""10.70.200.1:5164""
+		],
+		""Ipv6Addresses"": null
+	}
+}
+```
+以上就是使用DSP NRFLINKINFO工具，根据对端标识类型（CALLBACKURL）查询NRF管理的链路信息，并按照JSON格式输出的结果。",处理步骤,通过使用命令DSP NRFLINKINFO，可以查询NRF管理的链路信息。此操作需要具有管理员级别的用户权限。查询参数包括对端标识、对端标识类型和链路状态。,"查询NRF管理的链路信息：
+
+
+%%DSP NRFLINKINFO: PEERIDTYPE=CALLBACKURL;%%
+RETCODE = 0  操作成功
+
+结果如下
+------------------------
+Link information  =  {
+	""PeerId"": ""10.70.200.1:5164"",
+	""PeerIdType"": ""CALLBACKURL"",
+	""LinkStatus"": ""NORMAL"",
+	""RetryAfterSeconds"": 0,
+	""AddrMsgStatus"": ""NotRecv"",
+	""LinkUpdateTime"": ""2020-03-16T21:17:06+08:00"",
+	""RecordCreateTime"": ""2020-03-16T21:17:06+08:00"",
+	""OverLoadBeginTime"": ""1970-01-01T08:00:00+08:00"",
+	""LogicLink"": ""AAEBRhNGyAEsFADFnRyBAAA="",
+	""SbiInfo"": {
+		""NotifyType"": ""Add"",
+		""InfoType"": ""Callback"",
+		""PeerId"": ""10.70.200.1:5164"",
+		""NFType"": ""AMF"",
+		""Scheme"": ""http"",
+		""Fqdn"": ""tac-123.epc.mnc003.mcc123.3gppnetwork.org"",
+		""Ipv4Addresses"": [
+			""10.70.200.1:5164""
+		],
+		""Ipv6Addresses"": null
+	}
+}
+(结果个数 = 1)
+
+---    END",OM参考/命令/UNC MML命令/业务服务管理/NRF业务及策略管理/NRF业务参数/链路管理/dsp_nrflinkinfo.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{""name"": ""LST LICENSESWITCH"", ""description"": ""查询License配置开关是否已打开"", ""arguments"": {}, ""results"": ""License配置开关的状态""}, {""name"": ""DSP PDUSESSION"", ""description"": ""通过测试终端的IMSI查看测试终端是否激活成功"", ""arguments"": {""imsi"": ""String IMSI号""}, ""results"": ""测试终端激活状态""}, {""name"": ""LST RULE"", ""description"": ""查询带宽控制规则的名称是否与UPF/PCF上的配置一致"", ""arguments"": {}, ""results"": ""带宽控制规则的名称""}]
+
+<用户问题>:
+你正在对一个新部署的网络进行测试，你需要确认基于业务感知的带宽控制功能是否正常工作。你需要使用LST LICENSESWITCH工具查询License配置开关是否已打开，使用DSP PDUSESSION工具，通过测试终端的IMSI(460001234567890)查看测试终端是否激活成功，并使用LST RULE工具查询带宽控制规则的名称是否与UPF/PCF上的配置一致。","首先，你需要进入""MML命令行-UNC""窗口。然后，使用""LST LICENSESWITCH""工具查询License配置开关是否已打开。如果开关已打开，那么你可以继续下一步。
+
+接下来，你需要创建一个用户跟踪任务，并选择N4/Gx/N7作为消息类型。然后，让测试终端使用""huawei.com""发起接入网络请求。
+
+之后，你需要使用""DSP PDUSESSION""工具，通过测试终端的IMSI(460001234567890)查看测试终端是否激活成功。如果激活成功，那么你可以继续下一步。
+
+然后，你需要检查N4接口跟踪报文，看看是否将指定规则传递给UPF。
+
+最后，你需要使用""LST RULE""工具查询带宽控制规则的名称是否与UPF/PCF上的配置一致。如果一致，那么基于业务感知的带宽控制功能应该是正常工作的。如果有任何问题，你可以联系华为技术支持工程师获取帮助。",处理步骤,描述如何调测基于业务感知的带宽控制功能的具体操作步骤。,1. 进入“MML命令行-UNC”窗口。2. 执行[**LST LICENSESWITCH**] 命令，查询License配置开关是否已打开。3. 创建用户跟踪任务，消息类型选择N4/Gx/N7。4. 测试终端使用“huawei.com”发起接入网络请求。5. 执行**[DSP PDUSESSION]** 命令，通过测试终端的IMSI查看测试终端是否激活成功。6. 检查N4接口跟踪报文，是否将指定规则传递给UPF。7. 执行[**LST RULE**] 命令查询带宽控制规则的名称是否与UPF/PCF上的配置一致。8. 请联系华为技术支持工程师。,网络部署/特性部署/UNC特性指南/智能PCC解决方案/WSFD-211005 基于业务感知的带宽控制/zh-cn_opi_0279619227.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{'name': 'DSP_LICENSE', 'description': '确认对应特性license是否得到授权.', 'arguments': {'featurecode': 'String 特性编号'}, 'results': 'String 特性license授权信息'}, {'name': 'LST_LICENSESWITCH', 'description': '确认特性开关状态.', 'arguments': {}, 'results': 'String 特性开关状态信息'}, {'name': 'MOD_GMLCSELSTRATEGY', 'description': '修改GMLC选择策略命令，同一LCS客户端类型下的位置区域范围不能重叠.', 'arguments': {'groupid': 'String GMLC选择策略组ID', 'clienttype': 'String LCS客户端类型', 'locationrange': 'String 位置区域范围'}, 'results': '命令执行结果'}]
+
+<用户问题>:
+你需要修改GMLC选择策略，GMLC选择策略组ID为'001', LCS客户端类型为'E911', 位置区域范围为'10-20'. 在此之前，请先使用'DSP_LICENSE'工具，确认特性'WSFD-106401'的license是否得到授权，并使用'LST_LICENSESWITCH'工具，确认特性开关状态是否为“ENABLE(打开)”. 如果以上检查都通过，请使用'MOD_GMLCSELSTRATEGY'工具进行修改.","首先，我将使用'DSP_LICENSE'工具来确认特性'WSFD-106401'的license是否得到授权，该工具的参数是特性编号'WSFD-106401'。 
+
+然后，我将使用'LST_LICENSESWITCH'工具来确认特性开关状态是否为“ENABLE(打开)”，该工具不需要任何参数。
+
+如果以上两个步骤的检查都通过，我将使用'MOD_GMLCSELSTRATEGY'工具进行GMLC选择策略的修改，该工具的参数是GMLC选择策略组ID为'001'，LCS客户端类型为'E911'，以及位置区域范围为'10-20'。",事实陈述,阐述使用修改GMLC选择策略命令时需要注意的事项,该命令执行后立即生效。相同GMLC选择策略组内，同一LCS客户端类型下的位置区域范围不能重叠。此配置涉及位置定位服务（LCS）特性（特性编号：WSFD-106401，license部件编码：LKV2LCS02），请在设置参数前使用DSP LICENSE命令确认对应特性license是否得到授权，执行LST LICENSESWITCH命令确认特性开关状态为“ENABLE(打开)”。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/LCS/GMLC选择策略/mod_gmlcselplcy.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{""name"": ""CheckTriggerType"", ""description"": ""检查CHF是否下发对应的Trigger类型."", ""arguments"": {""triggerId"": ""String TriggerID""}, ""results"": ""对应的Trigger类型""}, {""name"": ""CheckSMFConfig"", ""description"": ""检查SMF本地是否配置对应的Trigger类型."", ""arguments"": {""triggerId"": ""String TriggerID""}, ""results"": ""SMF配置信息""}, {""name"": ""CheckTriggerEffect"", ""description"": ""检查Trigger的生效原则是否错误."", ""arguments"": {""triggerId"": ""String TriggerID""}, ""results"": ""Trigger生效原则信息""}, {""name"": ""ContactHuaweiSupport"", ""description"": ""请收集日志信息和配置信息，并联系华为技术支持处理."", ""arguments"": {""logInfo"": ""String 日志信息"", ""configInfo"": ""String 配置信息""}, ""results"": ""华为技术支持的处理结果""}]
+
+<用户问题>:
+Trigger未上报的问题已经影响到了网络服务质量，需要尽快解决。首先你需要使用CheckTriggerType工具，检查CHF是否下发对应的Trigger类型(TriggerID: 1001)，然后使用CheckSMFConfig工具，检查SMF本地是否配置了这个Trigger类型。如果上述两步都正常，那么使用CheckTriggerEffect工具，检查Trigger的生效原则是否存在错误。最后，收集相关的日志信息和配置信息，使用ContactHuaweiSupport工具联系华为技术支持处理。","首先，我们可以使用工具CheckTriggerType，通过输入参数{""triggerId"": ""1001""}，获取CHF是否下发了对应的Trigger类型。如果返回结果显示CHF已下发对应的Trigger类型，则进入下一步。
+
+其次，我们使用工具CheckSMFConfig，通过输入参数{""triggerId"": ""1001""}，获取SMF本地是否配置了这个Trigger类型。如果返回结果显示SMF本地已配置了这个Trigger类型，则进入下一步。
+
+接下来，我们使用工具CheckTriggerEffect，通过输入参数{""triggerId"": ""1001""}，获取Trigger的生效原则是否存在错误。如果返回结果显示Trigger的生效原则无误，则进入下一步。
+
+最后，我们需要收集相关的日志信息和配置信息，使用工具ContactHuaweiSupport，通过输入参数{""logInfo"": ""相关日志信息"", ""configInfo"": ""相关配置信息""}，联系华为技术支持处理。等待华为技术支持的处理结果，希望能尽快解决这个问题，恢复网络服务质量。",处理步骤,详细描述了如何处理Trigger未上报的问题，包括检查CHF是否下发对应的Trigger类型，检查SMF本地是否配置对应的Trigger类型，检查Trigger的生效原则是否错误，以及联系华为技术支持。,处理步骤：1.检查CHF是否下发对应的Trigger类型。2.检查SMF本地是否配置对应的Trigger类型。3.检查Trigger的生效原则是否错误。4.请收集日志信息和配置信息，并联系华为技术支持处理。,网络部署/业务专题/5G Core 计费解决方案/计费解决方案概述/N40接口融合计费/常见故障案例/zh-cn_trbcase_0280259369.html
+工具使用,工具使用,"你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>
+
+<工具描述>：
+[{'name': 'AddAPNNIRecord', 'description': '增加APNNI库记录命令执行后立即生效，本表最大记录数为256条，添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。', 'arguments': {'apnni': 'String APNNI值', 'terminalType': 'String 终端类型'}, 'results': 'APNNI库记录'}, {'name': 'CheckLicense', 'description': '检查是否已加载License项“Smartphone话务模型统计”', 'arguments': {'licenseName': 'String License名称'}, 'results': 'License加载状态'}]
+
+<用户问题>:
+现在有一个需求，需要添加APNNI值为'apnni123'对应的终端类型为'Smartphone'的记录，并确保能够使用基于终端类型的性能统计功能。请问应该如何操作？","根据你的需求，可以分两步操作。
+
+首先，使用'AddAPNNIRecord'工具来添加APNNI库记录。这个工具的输入参数中，'apnni'应为'apnni123'，'terminalType'应为'Smartphone'。
+
+然后，使用'CheckLicense'工具来检查是否已加载License项“Smartphone话务模型统计”。这个工具的输入参数中，'licenseName'应为'Smartphone话务模型统计'。
+
+这样就可以确保添加了需要的记录，并且能够使用基于终端类型的性能统计功能。",事实陈述,增加APNNI库记录命令执行后立即生效，本表最大记录数为256条，添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。,此命令执行后立即生效。本表最大记录数为256条。添加APNNI对应的终端类型记录后，要使用基于终端类型的性能统计功能，还需要加载License项“Smartphone话务模型统计”。用户请求的APNNI和终端类型的对应关系记录最多能添加128条。签约数据中的APNNI和终端类型的对应关系记录最多也只能添加128条。,OM参考/命令/UNC MML命令/业务服务管理/Pre 5G接入业务管理/控制面管理/业务安全管理/Smartphone管理/终端类型识别/APNNI库管理/add_apnnilib.html

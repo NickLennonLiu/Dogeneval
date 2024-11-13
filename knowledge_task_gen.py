@@ -5,10 +5,11 @@ import pandas as pd
 from loguru import logger
 import time
 
+from dogeneval.validation.quality_control_prompt import form_quality_control_prompt_with_constraints
 from dogeneval.utils.llm import llms
 from dogeneval.utils.mongodb import save_result, load_results_as_df
 from dogeneval.utils.parser import try_parse_json
-from dogeneval.quality_assessment.quality_control import try_answering, check_answer
+from dogeneval.validation.quality_control import quality_control, try_answering, check_answer
 from dogeneval.kp_template_mapping.mapping import map_kp_to_templates
 from dogeneval.template.template_prompt import format_qa_generation_prompt
 
@@ -42,13 +43,15 @@ def construct_qa_and_answer(response, template):
     """
     response_json = try_parse_json(response)
 
+    explain = response_json.get("explanation", None)
+
     if not response_json:
         logger.info(f"Failed to parse response: {response}")
-        return None, None, "JSON Parse Error"
+        return None, None, explain, "JSON Parse Error"
 
     if "error" in response_json:
         logger.error(f"Error in response: {response_json['error']}")
-        return response_json, None, f"Error in response: {response_json['error']}"
+        return response_json, None, explain, f"Error in response: {response_json['error']}"
     
     question = None
     try:
@@ -57,14 +60,16 @@ def construct_qa_and_answer(response, template):
     except KeyError as e:
         logger.error(f"KeyError in response: {e}")
         if question:
-            return question, None, "Parse Answer Error"
-        return response_json, None, f"KeyError in response: {e}"
+            return question, None, explain, "Parse Answer Error"
+        return response_json, None, explain, f"KeyError in response: {e}"
     
-    return question, answer, None
+    
+    
+    return question, answer, explain, None
 
 
 def gen_qa_and_check(llm, 
-                     qa_generation_prompt, row, task, 
+                     qa_generation_prompt, row, task, checks, 
                      is_zeroshot, require_scene, example, 
                      version_str, pbar):
     kp_type = row["type"]
@@ -83,6 +88,7 @@ def gen_qa_and_check(llm,
         "kp_title": kp_title,
         "kp_content": kp_content,
         "template": template,
+        "qa_gen_prompt": qa_generation_prompt,
         "qa_gen_response": response,
         "qa_gen_time": gen_time,
         "is_zeroshot": is_zeroshot,
@@ -91,28 +97,36 @@ def gen_qa_and_check(llm,
         "kp_path": row["path"]
     }
 
-    question, answer, error = construct_qa_and_answer(response, template)
+    question, answer, explain, error = construct_qa_and_answer(response, template)
 
     item["Question"] = question
     item["Answer"] = answer
+    item["explain"] = explain
     item["error"] = error
+
+    # quality control
+    score, reason, quality_control_prompt = quality_control(question, answer, checks, llm)
+    item["quality_score"] = score
+    item["quality_reason"] = reason
+    item["quality_control_prompt"] = quality_control_prompt
 
     if error:
         return item, True, None
 
     # 尝试让模型作答
-    model_answer = try_answering(row, question, llm)
+    model_answer, answer_prompt = try_answering(row, question, llm)
     item["Model_Answer"] = model_answer
-
+    item["answer_prompt"] = answer_prompt
     # 检查模型作答是否正确
-    match, reason = check_answer(row, question, model_answer, llm)
+    match, reason, check_prompt = check_answer(row, question, model_answer, llm)
 
     item["match"] = match
     item["match_reason"] = reason
+    item["check_prompt"] = check_prompt
 
     return item, False, match, gen_time
 
-def main():
+def gen_questions_from_kp(kp_collection_name, name):
     version_str = f"{datetime.datetime.now():%m%d%H%M}"
     random.seed(42)
 
@@ -123,7 +137,7 @@ def main():
     # kp_file = "./data/knowledge_points/knowledge_points-09131036.xlsx"
     # df = pd.read_excel(kp_file)
     # print(df.columns)
-    df = load_results_as_df("knowledge_points-10281449")
+    df = load_results_as_df(kp_collection_name)
 
     # filter kp
     # filter_kp_type = ["处理步骤", "表格", "命令", "具体案例", "代码", "列表", "参数说明", "命令功能", "事实陈述"]
@@ -139,6 +153,10 @@ def main():
         task['template'] = form_question_prompt(task)
     ktasks_dict = {ktask["task_name"]: ktask for ktask in ktasks}
     logger.info(f"Loaded {len(ktasks)} ktasks")
+
+    # load fcc
+    with open("/home/junetheriver/codes/qa_generation/huawei/dogeneval/template/ktask_fcc.json", "r") as f:
+        ktask_fcc = json.load(f)
 
     total_tries = 0
     total_errors = 0
@@ -158,7 +176,7 @@ def main():
 
             # 临时措施，如果匹配得比较多，就不生成选择题和问答题了，而是生成更高级的题目
             if len(mapped_templates) > 6:
-                mapped_templates = [i for i in mapped_templates if i["task_name"] not in ["ReadingComprehension", "QuestionAnswering", "MultipleChoice"]]
+                mapped_templates = [i for i in mapped_templates if i["task_name"] not in ["QuestionAnswering", "MultipleChoice"]]
 
             logger.info(f"Mapped {len(mapped_templates)} templates: {[i['task_name'] for i in mapped_templates]}")
 
@@ -184,17 +202,18 @@ def main():
                 else:
                     require_scene = False
 
-                qa_generation_prompt = format_qa_generation_prompt(task, row, is_zeroshot, require_scene, example)
+                qa_generation_prompt = format_qa_generation_prompt(task, ktask_fcc[task["task_name"]]["constraints"], 
+                                                                    row, is_zeroshot, require_scene, example)
                 
                 retry = 0
                 while retry < 3:
                     try:
                         item, error, match, used_time = gen_qa_and_check(llm, 
-                                        qa_generation_prompt, row, task, 
+                                        qa_generation_prompt, row, task, ktask_fcc[task["task_name"]]["checks"], 
                                         is_zeroshot, require_scene, example, 
                                         version_str, pbar)
                         
-                        save_result(item, f"QA_GEN-{version_str}")
+                        save_result(item, f"{name}-QA_GEN-{version_str}")
                         break
                     except Exception as e:
                         retry += 1
@@ -217,12 +236,16 @@ def main():
             
             pbar.update(len(ktasks) - len(mapped_templates))
     
-    with open(f"kp_qa_gen-{version_str}.json", "w") as f:
+    with open(f"{name}-kp_qa_gen-{version_str}.json", "w") as f:
         json.dump(kp_qa_gen, f, indent=4, ensure_ascii=False)
 
     df_kp_qa_gen = pd.DataFrame(kp_qa_gen)
-    df_kp_qa_gen.to_excel(f"kp_qa_gen-{version_str}.xlsx", index=False)
+    df_kp_qa_gen.to_excel(f"{name}-kp_qa_gen-{version_str}.xlsx", index=False)
 
 
 if __name__ == "__main__":
-    main()
+    zabbix_kp_collection_name = "zabbix-knowledge_points-11111457"
+    emsplus_kp_collection_name = "emsplus-knowledge_points-11111757"
+    unc_kp_collection_name = "knowledge_points-10281449"
+    # gen_questions_from_kp(emsplus_kp_collection_name, "emsplus")
+    gen_questions_from_kp(unc_kp_collection_name, "unc")

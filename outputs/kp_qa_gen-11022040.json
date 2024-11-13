@@ -1,0 +1,26 @@
+[
+    {
+        "task": "InformationExtraction",
+        "kp_type": "概念介绍",
+        "kp_title": "介绍SMF向AMF发送消息时，N1MessageContainer是否需要填写nfId信元，以及具体的取值说明，对于此参数的应用场景和相关影响。",
+        "kp_content": "用于SMF给AMF发消息时，N1MessageContainer是否携带NF Instance ID。取值说明：0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。应用场景：SMF给AMF发消息时，要带上自己的NF Instance ID。发送N1消息的时候，现在NFID变为条件可选。还需要考虑兼容性，新增软参控制。当软参关闭时，N1MessageContainer中不携带SMF的NF Instance ID。当软参打开时，N1MessageContainer中携带SMF的NF Instance ID。软参默认关闭。影响说明：无。",
+        "template": "你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息\n\n输入：\n{input_text}\n指令：\n请提取{extract_fields}共{field_count}个信息\n\n所有信息的默认值都为空字符串，以json格式输出",
+        "qa_gen_response": "{\n    \"input_text\": \"用于SMF给AMF发消息时，N1MessageContainer是否携带NF Instance ID。取值说明：0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。应用场景：SMF给AMF发消息时，要带上自己的NF Instance ID。发送N1消息的时候，现在NFID变为条件可选。还需要考虑兼容性，新增软参控制。当软参关闭时，N1MessageContainer中不携带SMF的NF Instance ID。当软参打开时，N1MessageContainer中携带SMF的NF Instance ID。软参默认关闭。影响说明：无。\",\n    \"extract_fields\": \"N1MessageContainer是否携带NF Instance ID的取值说明、应用场景和软参的默认值\",\n    \"field_count\": \"3\",\n    \"answer\": {\n        \"N1MessageContainer是否携带NF Instance ID的取值说明\": \"0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。\",\n        \"应用场景\": \"SMF给AMF发消息时，要带上自己的NF Instance ID。\",\n        \"软参的默认值\": \"关闭\"\n    },\n    \"explanation\": \"在输入文本中，明确给出了N1MessageContainer是否携带NF Instance ID的取值说明为'0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。'，应用场景为'SMF给AMF发消息时，要带上自己的NF Instance ID。'，以及软参的默认值为'关闭'。\"\n}",
+        "qa_gen_time": 13.412238597869873,
+        "is_zeroshot": true,
+        "require_scene": false,
+        "example": null,
+        "kp_path": "OM参考/软件参数/UNC软件参数/业务软件参数/软件参数（SMF/GGSN/SGW-C/PGW-C）/公共软参/dword_1018_bit_0002.html",
+        "Question": "你是核心网运维工程师，你的任务是根据指令从提供的输入中提取信息\n\n输入：\n用于SMF给AMF发消息时，N1MessageContainer是否携带NF Instance ID。取值说明：0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。应用场景：SMF给AMF发消息时，要带上自己的NF Instance ID。发送N1消息的时候，现在NFID变为条件可选。还需要考虑兼容性，新增软参控制。当软参关闭时，N1MessageContainer中不携带SMF的NF Instance ID。当软参打开时，N1MessageContainer中携带SMF的NF Instance ID。软参默认关闭。影响说明：无。\n指令：\n请提取N1MessageContainer是否携带NF Instance ID的取值说明、应用场景和软参的默认值共3个信息\n\n所有信息的默认值都为空字符串，以json格式输出",
+        "Answer": {
+            "N1MessageContainer是否携带NF Instance ID的取值说明": "0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。",
+            "应用场景": "SMF给AMF发消息时，要带上自己的NF Instance ID。",
+            "软参的默认值": "关闭"
+        },
+        "error": null,
+        "quality_score": 1,
+        "quality_reason": "生成的QA对符合所有检查项中描述的要求",
+        "Model_Answer": "{\n  \"取值说明\": \"0：N1MessageContainer不携带NF Instance ID。1：N1MessageContainer携带NF Instance ID。\",\n  \"应用场景\": \"SMF给AMF发消息时，要带上自己的NF Instance ID。发送N1消息的时候，现在NFID变为条件可选。还需要考虑兼容性，新增软参控制。当软参关闭时，N1MessageContainer中不携带SMF的NF Instance ID。当软参打开时，N1MessageContainer中携带SMF的NF Instance ID。\",\n  \"软参的默认值\": \"关闭\"\n}",
+        "match": true,
+        "match_reason": "模型回复中的'取值说明'，'应用场景'和'软参的默认值'与给定题目和知识点之间的信息完全一致",
+        "_id": 

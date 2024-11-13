@@ -2,8 +2,10 @@ from openai import OpenAI
 
 from dogeneval.utils.parser import try_parse_json
 from dogeneval.utils.decorators import retry
+import requests
 
 openai_api_key = "EMPTY"
+chatanywhere_api_key = "sk-bLpSKRfukRTVQFsqTSjkwHxWpS7p8qywofrzH5q2Ks3UcqKp"
 
 def get_vllm_model(model_path='/home/junetheriver/models/qwen/Qwen1.5-72B-Chat-AWQ', num_gpu=4):
     from vllm import LLM, SamplingParams
@@ -51,6 +53,9 @@ class AzureClient:
     def chat_json(self, prompt):
         response = self.llm.invoke(prompt).content
         return try_parse_json(response)
+    
+    def balance(self):
+        return -1
 
 
 def get_azure_model():
@@ -113,15 +118,53 @@ class OpenAIClient:
         chat_response = self.generate(prompt)
         return try_parse_json(chat_response.choices[0].message.content)
 
+    def balance(self):
+        return -1
+
 def get_openai_model():
     return OpenAIClient()
 
 
+class ChatAnywhereClient():
+    def __init__(self):
+        self.key = chatanywhere_api_key
+        self.client = OpenAI(
+            api_key=chatanywhere_api_key, 
+            base_url="https://api.chatanywhere.tech/v1")
+        self.model = "gpt-4o-ca"
+
+    def chat(self, prompt):
+        chat_response = self.client.chat.completions.create(
+            model = self.model,
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
+        return chat_response.choices[0].message.content
+    
+    def chat_json(self, prompt):
+        chat_response = self.chat(prompt)
+        return try_parse_json(chat_response)
+
+    def balance(self):
+        url = "https://api.chatanywhere.org/v1/query/balance"
+        response = requests.post(url, headers={"Authorization": f"{self.key}"}).json()
+        balance = response.get("balanceTotal") - response.get("balanceUsed")
+        return balance
+
 def get_chatanywhere_model():
-    raise NotImplementedError
+    return ChatAnywhereClient()
 
 
 if __name__ == "__main__":
-    llm = get_openai_model()
+    llm = get_chatanywhere_model()
     from loguru import logger
     logger.info(llm.chat("Please reply: API test success."))
+    logger.info(llm.balance())
