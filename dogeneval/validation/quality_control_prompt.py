@@ -94,6 +94,9 @@ def form_check_prompt(kp, question, response):
     return prompt
 
 
+def format_checks(checks):
+    return "\n".join([f"{i+1}. {check}" for i, check in enumerate(checks)])
+
 def form_quality_control_prompt_with_constraints(question, answer, checks):
     prompt = f"""你是核心网运维工程师，给定一个模型生成的问题和答案，请你根据给定的检查项，判断该题目的质量。
 
@@ -106,7 +109,7 @@ def form_quality_control_prompt_with_constraints(question, answer, checks):
 =============================================
 
 检查项：
-{checks}
+{format_checks(checks)}
 
 请返回一个json，字段包括score字段和reason字段，score字段表示模型生成的题目和答案符合检查项要求的程度，值为符合检查项除以检查项总数；reason字段应为模型生成的题目和答案不符合检查项要求的原因。
 

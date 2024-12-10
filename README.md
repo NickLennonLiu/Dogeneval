@@ -20,8 +20,9 @@ pip install -e .
 
 # TODO
 
-- [ ] 加入chatanywhere的llm用于调用
-- [ ] 改进模版
+- [x] 模板和知识点匹配的时候需要检查知识点内容是否符合模板中的限制
+- [ ] 每个任务生成到一定数量之后，就不再继续生成，先重点看每类的效果
+- [ ] 基座模型添加Qwen2-72B-Instruct-AWQ的vllm版本
 
 
 # Issues

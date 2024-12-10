@@ -1,4 +1,4 @@
-Q2_NO_CHECK_FEWSHOT_PROMPT = """你是核心网运维工程师，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
+Q2_NO_CHECK_FEWSHOT_PROMPT = """你是一名运维专家，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
 
 下面是示例题目，格式可能不完全与模板要求一致，仅供参考：
 ====================
@@ -30,7 +30,7 @@ Q2_NO_CHECK_FEWSHOT_PROMPT = """你是核心网运维工程师，你需要参考
 你返回的内容开头不能是```json，直接返回json内容即可。
 """
 
-Q2_NO_CHECK_ZEROSHOT_PROMPT = """你是核心网运维工程师，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
+Q2_NO_CHECK_ZEROSHOT_PROMPT = """你是一名运维专家，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
 
 你需要生成的问题的模板如下：
 ====================
@@ -58,7 +58,7 @@ Q2_NO_CHECK_ZEROSHOT_PROMPT = """你是核心网运维工程师，你需要参�
 """
 
 Q2_NO_CHECK_FEWSHOT_WITH_SCENE_PROMPT = \
-"""你是核心网运维工程师，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
+"""你是一名运维专家，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
 
 下面是示例题目，格式可能不完全与模板要求一致，仅供参考：
 ====================
@@ -92,7 +92,7 @@ Q2_NO_CHECK_FEWSHOT_WITH_SCENE_PROMPT = \
 你返回的内容开头不能是```json，直接返回json内容即可。
 """
 
-Q2_NO_CHECK_ZEROSHOT_WITH_SCENE_PROMPT = """你是核心网运维工程师，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
+Q2_NO_CHECK_ZEROSHOT_WITH_SCENE_PROMPT = """你是一名运维专家，你需要参考给定的题目模板，利用提供的知识点内容，生成一个符合模板或类似模板格式的题目。
 
 你需要生成的问题的模板如下：
 ====================
@@ -161,7 +161,7 @@ def format_json_example(fields):
 }}"""
 
 
-def format_qa_generation_prompt(template, constraints, kp, is_zeroshot: bool, require_scene: bool, example=None):
+def format_qa_generation_prompt(template, constraints, kp, is_zeroshot: bool, require_scene: bool, example=None, lang="zh"):
     """
     构建 生成Q2 Prompt
     """

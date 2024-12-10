@@ -11,31 +11,7 @@ from dogeneval.utils.mongodb import save_result
 
 from loguru import logger
 
-MAPPING_PROMPT = """你是核心网运维工程师，你的任务是判断产品文档中的一个知识点能否用于生成一系列题目模板中的若干类题目。
-
-<题目模板列表>
-{template_list}
-</题目模板列表>
-
-<知识点描述>
-{kp_title}
-</知识点描述>
-
-<知识点内容>
-{kp_content}
-</知识点内容>
-
-返回一个json，表示你对上述知识点的内容能否生成上述{template_cnt}个模板的题目的判断，不要考虑该知识点是否有必要生成对应任务，要从生成题目的内容是否有足够好的质量和准确性进行考虑。格式如下：
-
-{{
-    "(模板1名称)": {{
-        "choose": true/false,
-        "reason": "..."
-    }}, ...
-}}
-
-你返回的内容开头不能是```json，直接返回json内容即可。
-"""
+from .mapping_prompt import MAPPING_PROMPT_ZH, MAPPING_PROMPT_EN
 
 def form_question_prompt(template_data):
     prompt = template_data["template"]
@@ -50,15 +26,44 @@ def format_template_example(template_data):
     description = template_data['description']
     fields = template_data['fields']
     name = template_data['task_name']
-
+    constraints = template_data.get("constraints", "")
     return json.dumps({
         "task_name": name,
         "description": description,
         "template": template,
         "fields": fields,
+        "constraints": constraints
     }, ensure_ascii=False, indent=4)
 
-def format_kp_templ_mapping_prompt(kp_title, kp_content, template_list, tem_cnt=10):
+def format_kp(kp, lang="zh"):
+    if lang == "zh":
+        return f"""<知识点类型>
+{kp["type"]}
+</知识点类型>
+
+<知识点描述>
+{kp["description"]}
+</知识点描述>
+
+<知识点内容>
+{kp["content"]}
+</知识点内容>
+"""
+    elif lang == "en":
+        return f"""<Knowledge Point Type>
+{kp["type"]}
+</Knowledge Point Type>
+
+<Knowledge Point Description>
+{kp["description"]}
+</Knowledge Point Description>
+
+<Knowledge Point Content>
+{kp["content"]}
+</Knowledge Point Content>
+"""
+
+def format_kp_templ_mapping_prompt(kp, template_list, tem_cnt=10, lang="zh"):
     # 以tem_cnt为size，将template_list分割
     template_list = [template_list[i:i + tem_cnt] for i in range(0, len(template_list), tem_cnt)]
     prompts = []
@@ -66,12 +71,18 @@ def format_kp_templ_mapping_prompt(kp_title, kp_content, template_list, tem_cnt=
 
         template_example = "\n".join([format_template_example(template_data) for template_data in templates])
 
+        if lang == "zh":
+            MAPPING_PROMPT = MAPPING_PROMPT_ZH
+        else:
+            MAPPING_PROMPT = MAPPING_PROMPT_EN
+
         prompt = MAPPING_PROMPT.format(**{
             "template_list": template_example,
-            "kp_title": kp_title,
-            "kp_content": kp_content,
+            "kp_format": format_kp(kp, lang),
             "template_cnt": len(templates),
             })
+        
+        logger.debug(prompt)
         
         # 用openai自带的库计算prompt的token数量
         enc = tiktoken.encoding_for_model("gpt-4o")
@@ -86,13 +97,13 @@ def format_kp_templ_mapping_prompt(kp_title, kp_content, template_list, tem_cnt=
         prompts.append(prompt)
     return prompts
 
-def map_kp_to_templates(kp, templates, llm):
-    kp_title = kp["description"]
-    kp_content = kp["content"]
+def map_kp_to_templates(kp, templates, llm, lang="zh"):
 
-    prompts = format_kp_templ_mapping_prompt(kp_title, kp_content, templates, tem_cnt=6)
+    prompts = format_kp_templ_mapping_prompt(kp, templates, tem_cnt=6, lang=lang)
     
     row_json = {}
+
+    instructs = []
 
     for prompt in prompts:
         max_retries = 3
@@ -101,6 +112,11 @@ def map_kp_to_templates(kp, templates, llm):
             try:
                 response = llm.chat_json(prompt)
                 row_json.update(response)
+                instructs.append({
+                    "instruction": prompt,
+                    "input": "",
+                    "output": json.dumps(response, ensure_ascii=False)
+                })
             except Exception as err:
                 sleep(5)
                 logger.error(err)
@@ -111,7 +127,7 @@ def map_kp_to_templates(kp, templates, llm):
         template_data for template_data in templates if row_json.get(template_data["task_name"], {}).get("choose", False)
     ]
 
-    return mapped_templates
+    return mapped_templates, instructs
     
 
 
@@ -133,12 +149,9 @@ if __name__ == "__main__":
     results = []
 
     for i, row in tqdm(df.iterrows(), total=len(df)):
-        kp_title = row["description"]
-        kp_content = row["content"]
-
         row_json = eval(row.to_json())
 
-        prompts = format_kp_templ_mapping_prompt(kp_title, kp_content, templates, tem_cnt=6)
+        prompts = format_kp_templ_mapping_prompt(row_json, templates, tem_cnt=6)
 
         for prompt in prompts:
             max_retries = 3

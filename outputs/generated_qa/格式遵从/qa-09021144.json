@@ -1,0 +1,137 @@
+[
+    {
+        "question": {
+            "processing_steps": "1. 执行如下命令，并记录“update field too long”或者“insert field too long”大于0的数据表名称。\n\t\t\t\t\t\t\t\tOPR DBGDATA: DBGTYPE=CELLID, CELLID=<告警参数的进程ID>, DEBUGNAME=\"DDF DSP STATS WHERE DATABASETYPE IS sdb\";\n2. 联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"执行如下命令，并记录“update field too long”或者“insert field too long”大于0的数据表名称。\",\n        \"choice\": \"\\t\\t\\t\\t\\t\\tOPR DBGDATA: DBGTYPE=CELLID, CELLID=<告警参数的进程ID>, DEBUGNAME=\\\\\\\"DDF DSP STATS WHERE DATABASETYPE IS sdb\\\\\\\";\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "100491.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 选择“监控分析 > 信息收集”，进入信息收集页面。页面默认显示信息收集的任务列表。2. 创建信息收集任务。2.1 单击“创建”。2.2 在“收集场景”中选择“应用”和信息收集场景，支持“事故处理信息收集场景”和“问题处理信息收集场景”。2.3 输入“任务名称”。2.4 设置“收集周期”后，单击“开始收集”。3. 管理信息收集任务。",
+            "answer": "[{\n    \"step\": 1,\n    \"description\": \"选择“监控分析 > 信息收集”，进入信息收集页面。页面默认显示信息收集的任务列表。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 2,\n    \"description\": \"创建信息收集任务。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 2.1,\n    \"description\": \"单击“创建”。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 2.2,\n    \"description\": \"在“收集场景”中选择“应用”和信息收集场景，支持“事故处理信息收集场景”和“问题处理信息收集场景”。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 2.3,\n    \"description\": \"输入“任务名称”。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 2.4,\n    \"description\": \"设置“收集周期”后，单击“开始收集”。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 3,\n    \"description\": \"管理信息收集任务。\",\n    \"choice\": \"\"\n}]"
+        },
+        "path": "获取日志/zh-cn_topic_0272894391.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 输入SBc接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“SBc接口跟踪”后，单击“添加”，进入SBc接口跟踪任务创建的界面，依次输入“任务名称”、“跟踪时长”和“定位条件”参数。2. 单击“确定”，启动跟踪任务。",
+            "answer": "[{\"step\": 1,\"description\": \"输入SBc接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“SBc接口跟踪”后，单击“添加”，进入SBc接口跟踪任务创建的界面，依次输入“任务名称”、「跟踪时长」和「定位条件」参数。\",\"choice\": \"\"},{\"step\": 2,\"description\": \"单击“确定”，启动跟踪任务。\",\"choice\": \"\"}]"
+        },
+        "path": "创建消息跟踪/创建接口跟踪/zh-cn_opi_0175188294.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看活动告警。\n    1.1 选择“监控分析 > 告警管理 > 活动告警”。\n    1.2 单击该告警前的![](figure/zh-cn_image_0209574807.png)展开详情，查看其定位信息和附加信息。\n2. 选择“应用管理 > 应用License”，选择“定位信息”中，应用ID对应的应用名称。\n3. 查看激活信息里面的License文件到期日期，判断当前日期是否已经超过有效期。\n    * 是 => 步骤 4\n    * 否 => 步骤 5\n4. 在License文件管理页面上传新的License文件，单击License管理页面中的“更新”按钮，更新并激活新的License文件，等待5分钟后，查看告警是否恢复。\n    * 是 => 处理完毕。\n    * 否 => 步骤 5\n5. 收集告警以及日志信息，提交技术支持处理。\n    5.1 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\n![](../public_sys-resources/note_3.0-zh-cn.png)\n勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\n    5.2 收集日志信息：各场景收集步骤如图2所示，收集从产生告警前一天到目前的License的日志。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"查看活动告警。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.1,\n        \"description\": \"选择“监控分析 > 告警管理 > 活动告警”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.2,\n        \"description\": \"单击该告警前的![](figure/zh-cn_image_0209574807.png)展开详情，查看其定位信息和附加信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"选择“应用管理 > 应用License”，选择“定位信息”中，应用ID对应的应用名称。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"查看激活信息里面的License文件到期日期，判断当前日期是否已经超过有效期。\",\n        \"choice\": \"是 => 步骤 4\\n否 => 步骤 5\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"在License文件管理页面上传新的License文件，单击License管理页面中的“更新”按钮，更新并激活新的License文件，等待5分钟后，查看告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。\\n否 => 步骤 5\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"收集告警以及日志信息，提交技术支持处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 5.1,\n        \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\n        \"choice\": \"![](../public_sys-resources/note_3.0-zh-cn.png)\\n勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\"\n    },\n    {\n        \"step\": 5.2,\n        \"description\": \"收集日志信息：各场景收集步骤如图2所示，收集从产生告警前一天到目前的License的日志。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "135201.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看故障原因：\n     * 故障原因是“容灾配置错误” =>请执行2。\n     * 故障原因是“容灾控制通道异常” =>请执行3。\n     * 故障原因是“版本不兼容” =>请执行4。\n2. 通过LST DRGROUPINFO查询容灾配置，需要保证容灾组标识相同，本端和对端容灾实例标识正确，默认运行模式保证不一致。\n     * 不满足 => 通过RMV DRGROUPINFO删除错误配置的信息，再参考产品文档容灾方案介绍专题添加配置信息。\n     * 满足 => 请执行4。\n3. 查询是否存在告警“容灾实例间控制通道通信异常”。\n     * 存在 => 按照该告警处理。\n     * 不存在 => 请执行4。\n4. 请收集日志文件，联系华为技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"查看故障原因：\",\n        \"choice\": \"故障原因是“容灾配置错误” =>请执行2。故障原因是“容灾控制通道异常” =>请执行3。故障原因是“版本不兼容” =>请执行4。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"通过LST DRGROUPINFO查询容灾配置，需要保证容灾组标识相同，本端和对端容灾实例标识正确，默认运行模式保证不一致。\",\n        \"choice\": \"不满足 => 通过RMV DRGROUPINFO删除错误配置的信息，再参考产品文档容灾方案介绍专题添加配置信息。满足 => 请执行4。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"查询是否存在告警“容灾实例间控制通道通信异常”。\",\n        \"choice\": \"存在 => 按照该告警处理。不存在 => 请执行4。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"请收集日志文件，联系华为技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "100502.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "强制重启进程\n    1. 告警产生后，请耐心等待2分钟，检查告警是否恢复。\n\n       * 是 => 处理结束\n       * 否 => 执行步骤 2\n\n    2. 执行[**RST MSPROCESS**](../MML/Document/rst_msprocess.html)命令复位故障进程。等待1分钟后，检查告警是否恢复。\n\n       * 是 => 处理结束\n       * 否 => 执行3\n\n    3. 请收集告警信息和配置信息，并联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"告警产生后，请耐心等待2分钟，检查告警是否恢复。\",\n        \"choice\": \"是 => 处理结束。否 => 执行步骤 2。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"执行[**RST MSPROCESS**]命令复位故障进程。等待1分钟后，检查告警是否恢复。\",\n        \"choice\": \"是 => 处理结束。否 => 执行3。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"请收集告警信息和配置信息，并联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "100001.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "* daemon.json文件所有权设为root:root，文件权限设为600* docker.service文件所有权为root:root，文件权限为600* /etc/docker目录所有权设为root:root，权限设为700",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"daemon.json文件所有权设为root:root，文件权限设为600\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"docker.service文件所有权为root:root，文件权限为600\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"/etc/docker目录所有权设为root:root，权限设为700\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "产品安全/UNC安全原理/基础架构层安全/容器安全/容器安全能力/守护进程文件权限配置/zh-cn_topic_0000001333961201.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 建立用户跟踪，查看对应的接口跟踪或者用户跟踪中是否上报EMS-GX消息。2. 打开EMS-GX消息，根据Easy-Maintenance-System消息中字段获取对应的信息，例如[图1 Easy-Maintenance-System消息](zh-cn_topic_0000001146375027.html#ZH-CN_TOPIC_0000001146375027__fig1088795810494)。**图1** Easy-Maintenance-System消息示例![](../images/zh-cn_image_0000001110619822.png)**表1** Easy-Maintenance-System消息字段解释字段 | 取值说明---|---module | 为“sm4gpolicy”，对应Maintenance-Message“Service-Maintenance-Message”消息。Maintenance-Message： Service-Maintenance-Message | code：错误码。cause：原因描述。suggestion：根据处理建议进行操作。content：用户信息。* Policy-Service-Content，策略相关。3. 根据原因和处理建议进行处理，处理完毕后，重新拨测。* 问题解决，关闭接口或者用户跟踪，处理完毕。* 否则联系华为技术支持。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"建立用户跟踪，查看对应的接口跟踪或者用户跟踪中是否上报EMS-GX消息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"打开EMS-GX消息，根据Easy-Maintenance-System消息中字段获取对应的信息，例如[图1 Easy-Maintenance-System消息](zh-cn_topic_0000001146375027.html#ZH-CN_TOPIC_0000001146375027__fig1088795810494)。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"根据原因和处理建议进行处理，处理完毕后，重新拨测。\",\n        \"choice\": \"问题解决，关闭接口或者用户跟踪，处理完毕。否则联系华为技术支持。\"\n    }\n]"
+        },
+        "path": "创建消息跟踪/跟踪免维护功能/zh-cn_topic_0000001102057096.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看告警“定位信息”中“服务实例名称”，如果“服务实例名称”是“VNFP”执行[DSP RES](../MML/Document/dsp_res.html)和[LST RESTHRESHOLD](../MML/Document/lst_resthreshold.html)命令，其它执行[DSP RU](../MML/Document/dsp_ru.html)和[LST RURESTHRESHOLD](../MML/Document/lst_ruresthreshold.html)命令，查看内存的使用率和内存使用率的过载阈值，确认使用率是否超过使用率过载阈值。\n* 是，请执行2。\n* 否，请执行5。\n2. VNFP下执行[LST RESTHRESHOLD](../MML/Document/lst_resthreshold.html)命令，其它执行[LST RURESTHRESHOLD](../MML/Document/lst_ruresthreshold.html)命令，检查过载阈值是否合理。\n* 是，请执行3。\n* 否，请执行4。\n3. 减少冗余或不需要的业务和配置，降低内存利用率，检查告警是否恢复。\n* 是，处理完毕。\n* 否，请执行5。\n4. VNFP下执行[SET RESTHRESHOLD](../MML/Document/set_resthreshold.html)命令，其它执行[SET RURESTHRESHOLD](../MML/Document/set_ruresthreshold.html)命令，调整过载阈值，检查告警是否恢复。\n* 是，处理完毕。\n* 否，请执行5。\n5. 请收集告警信息和配置信息，并联系技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"查看告警“定位信息”中“服务实例名称”，如果“服务实例名称”是“VNFP”执行[DSP RES](../MML/Document/dsp_res.html)和[LST RESTHRESHOLD](../MML/Document/lst_resthreshold.html)命令，其它执行[DSP RU](../MML/Document/dsp_ru.html)和[LST RURESTHRESHOLD](../MML/Document/lst_ruresthreshold.html)命令，查看内存的使用率和内存使用率的过载阈值，确认使用率是否超过使用率过载阈值。\",\n        \"choice\": \"是 => 请执行步骤2。否 => 请执行步骤5。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"VNFP下执行[LST RESTHRESHOLD](../MML/Document/lst_resthreshold.html)命令，其它执行[LST RURESTHRESHOLD](../MML/Document/lst_ruresthreshold.html)命令，检查过载阈值是否合理。\",\n        \"choice\": \"是 => 请执行步骤3。否 => 请执行步骤4。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"减少冗余或不需要的业务和配置，降低内存利用率，检查告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。否 => 请执行步骤5。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"VNFP下执行[SET RESTHRESHOLD](../MML/Document/set_resthreshold.html)命令，其它执行[SET RURESTHRESHOLD](../MML/Document/set_ruresthreshold.html)命令，调整过载阈值，检查告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。否 => 请执行步骤5。\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"请收集告警信息和配置信息，并联系技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "238493699.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 在主菜单中选择“监控分析 > 消息跟踪” ，在左侧导航单击“参数设置”。2. 在“跟踪文件存留期”中修改存留期，单击“应用”使配置生效。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"在主菜单中选择“监控分析 > 消息跟踪” ，在左侧导航单击“参数设置”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"在“跟踪文件存留期”中修改存留期，单击“应用”使配置生效。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "创建消息跟踪/跟踪通用操作（OM Portal）/zh-cn_topic_0000001149803872.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 选择“监控分析 > 告警管理 > 活动告警”，单击该告警前的![](figure/zh-cn_image_0000001374631161.png)展开详情，查看其“定位信息”和“附加信息”。2. 选择“应用配置 > 服务治理”，查看对应的服务实例状态是否正常。\\n\\n    是 => 步骤 3\\n    否 =>重启服务实例。\\n3. 等待10分钟后，并检查本告警是否已恢复。\\n\\n    是 =>处理完毕\\n    否 => 步骤 4。\\n4. 选择“监控分析  > > 告警管理 > 活动告警”，点击“清除”手动恢复告警。5. 收集告警以及日志信息，提交华为技术支持处理。\\n\\n    1. 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\\n\\n![](../public_sys-resources/note_3.0-zh-cn.png)\\n\\n勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\\n\\n**图1** 导出活动告警\\n![](../commonterms/figure/zh-cn_image_0000001206290874.png)\\n\\n    2. 收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集告警上报前15天的NRSMaster的日志，由于单次最长收集7天的日志，需要进行多次收集。\\n\\n**图2** 收集服务日志\\n![](../commonterms/figure/zh-cn_image_0000001251290797.png)",
+            "answer": "[{\"step\": 1,\"description\": \"选择“监控分析 > 告警管理 > 活动告警”，单击该告警前的![](figure/zh-cn_image_0000001374631161.png)展开详情，查看其“定位信息”和“附加信息”。\",\"choice\": \"\"},{\"step\": 2,\"description\": \"选择“应用配置 > 服务治理”，查看对应的服务实例状态是否正常。\",\"choice\": \"是 => 步骤 3\\n否 =>重启服务实例。\"},{\"step\": 3,\"description\": \"等待10分钟后，并检查本告警是否已恢复。\",\"choice\": \"是 =>处理完毕\\n否 => 步骤 4。\"},{\"step\": 4,\"description\": \"选择“监控分析  > > 告警管理 > 活动告警”，点击“清除”手动恢复告警。\",\"choice\": \"\"},{\"step\": 5,\"description\": \"收集告警以及日志信息，提交华为技术支持处理。\",\"choice\": \"\"},{\"step\": 5.1,\"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\"choice\": \"![](../public_sys-resources/note_3.0-zh-cn.png)\\n勾选本告警后单击“导出”，导出的仍然是所有告警的信息。仅当按照告警ID搜索出本告警后，导出的才是本告警信息。\\n\\n**图1** 导出活动告警\\n![](../commonterms/figure/zh-cn_image_0000001206290874.png)\"},{\"step\": 5.2,\"description\": \"收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集告警上报前15天的NRSMaster的日志，由于单次最长收集7天的日志，需要进行多次收集。\",\"choice\": \"\\n**图2** 收集服务日志\\n![](../commonterms/figure/zh-cn_image_0000001251290797.png)\"}]"
+        },
+        "path": "135631.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 通过MPLS资源类型参数，确认具体的资源类型的超限情况。2. 执行[**DSP MPLSLSPSTC**](../MML/Document/dsp_mplslspstc.html)命令判断当前MPLS资源数量参数是否是预期的合理值。   是，请执行4。   否，请执行3。3. 减少使用相关资源的配置，或减少触发相关资源创建的配置或消息，以降低对应类型MPLS资源的占用（如执行[**SET LDPGLOBAL**](../MML/Document/set_ldpglobal.html)命令，设置触发策略参数修改LSP的触发策略，抑制不需要的LSP建立等）。完成后，观察告警是否清除。   是，处理完毕。   否，请执行4。4. 请收集告警信息和配置信息，并联系技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"通过MPLS资源类型参数，确认具体的资源类型的超限情况。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"执行[**DSP MPLSLSPSTC**](../MML/Document/dsp_mplslspstc.html)命令判断当前MPLS资源数量参数是否是预期的合理值。\",\n        \"choice\": \"是，请执行4。否，请执行3。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"减少使用相关资源的配置，或减少触发相关资源创建的配置或消息，以降低对应类型MPLS资源的占用（如执行[**SET LDPGLOBAL**](../MML/Document/set_ldpglobal.html)命令，设置触发策略参数修改LSP的触发策略，抑制不需要的LSP建立等）。完成后，观察告警是否清除。\",\n        \"choice\": \"是，处理完毕。否，请执行4。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"请收集告警信息和配置信息，并联系技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "158539776.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. SMF收到删除PDU会话的PFCP会话上下文的触发请求。2. SMF向UPF发送[PFCP Session Deletion Request](zh-cn_concept_0000001086168956.html)消息。3. UPF通过PFCP会话ID识别需要删除的PFCP会话上下文，并删除整个会话上下文。UPF返回[PFCP Session Deletion Response](zh-cn_concept_0000001085849356.html)消息，该消息包含UPF需要向SMF提供的所有信息，消息中携带的关键信元如下。4. SMF与AMF或PCF交互，进行后续会话删除等业务流程。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"SMF收到删除PDU会话的PFCP会话上下文的触发请求。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"SMF向UPF发送[PFCP Session Deletion Request](zh-cn_concept_0000001086168956.html)消息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"UPF通过PFCP会话ID识别需要删除的PFCP会话上下文，并删除整个会话上下文。UPF返回[PFCP Session Deletion Response](zh-cn_concept_0000001085849356.html)消息，该消息包含UPF需要向SMF提供的所有信息，消息中携带的关键信元如下。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"SMF与AMF或PCF交互，进行后续会话删除等业务流程。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "协议与流程/5G Core信令分析/业务流程/SMF和UPF交互流程/PFCP会话管理流程/zh-cn_topic_0276784596.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 选择“监控分析 > 运行日志”，在左侧导航栏中选择“服务日志收集”。2. 创建日志收集任务。3. 收集完成后，单击“日志下载地址”右侧的压缩包名称，将结果保存至本地。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"选择“监控分析 > 运行日志”，在左侧导航栏中选择“服务日志收集”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"创建日志收集任务。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"收集完成后，单击“日志下载地址”右侧的压缩包名称，将结果保存至本地。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "获取日志/通过OM Portal获取不同类型日志信息/管理服务日志/info.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 输入SLs接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“SLs接口跟踪”后，单击“添加”，进入SLs接口跟踪任务创建的界面，依次输入“任务名称”、“跟踪时长”和“定位条件”参数。2. 单击“确定”，启动跟踪任务。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"输入SLs接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“SLs接口跟踪”后，单击“添加”，进入SLs接口跟踪任务创建的界面，依次输入“任务名称”、「跟踪时长」和「定位条件」参数。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"单击“确定”，启动跟踪任务。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "创建消息跟踪/创建接口跟踪/zh-cn_opi_0175188293.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021144"
+    }
+]

@@ -1,0 +1,4212 @@
+[
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_MPLSLSPSTC",
+                    "description": "用于判断当前MPLS资源数量参数是否是预期的合理值。",
+                    "arguments": {},
+                    "results": "MPLS资源状态信息"
+                },
+                {
+                    "name": "SET_LDPGLOBAL",
+                    "description": "用于设置触发策略参数，以修改LSP的触发策略，抑制不需要的LSP建立等。",
+                    "arguments": {},
+                    "results": "LDP全局设置结果"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(158539776)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "getInstanceIdResult": {
+                    "alarmId": "158539776",
+                    "microServiceInstanceId": "InstanceId12345",
+                    "portName": "PortA"
+                }
+            }
+        },
+        "path": "158539776.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_MSACTIVE",
+                    "description": "查询选举服务主信息. 使用服务类型、服务组和服务选项作为参数.",
+                    "arguments": {
+                        "serviceType": "String 服务类型",
+                        "serviceGroup": "String 服务组",
+                        "serviceOption": "String 服务选项"
+                    },
+                    "results": "服务主实例的相关信息"
+                },
+                {
+                    "name": "DSP_DCF_CSINFO",
+                    "description": "查询服务实例信息. 使用服务类型作为参数.",
+                    "arguments": {
+                        "serviceType": "String 服务类型"
+                    },
+                    "results": "服务实例信息"
+                },
+                {
+                    "name": "DSP_CELLINFO",
+                    "description": "查询POD的信息. 使用POD名称作为参数.",
+                    "arguments": {
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD的所有进程状态信息"
+                },
+                {
+                    "name": "RST_MSPROCESS",
+                    "description": "按进程类型复位进程. 使用进程类型作为参数.",
+                    "arguments": {
+                        "processType": "String 进程类型"
+                    },
+                    "results": "复位进程后的状态反馈"
+                }
+            ],
+            "user_question": "网元上报了ALM-100443微服务主实例缺失告警，请分析告警上报的原因并提供处理建议。",
+            "answer": "首先，调用GetInstanceIdByAlarm工具，使用告警ID 100443获取微服务实例ID及相关信息。然后，使用DSP_MSACTIVE工具，输入微服务类型、微服务组和微服务选项，查询选举服务主信息。若查询不到主实例信息，则继续使用DSP_DCF_CSINFO工具，输入微服务类型查询服务实例信息。如果可以查到服务实例信息，再使用DSP_CELLINFO工具，输入查询结果中的PodName，检查除CELL_SDRE进程之外的其他进程状态。若发现有进程状态异常，使用RST_MSPROCESS工具复位相应类型的进程，等待30秒观察告警是否恢复。若告警未恢复或无法查到服务实例信息，应收集告警信息和环境配置信息，并联系技术支持工程师。"
+        },
+        "path": "100443.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100489)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": {
+                "getInstanceIdByAlarmResult": {
+                    "alarmId": "100489",
+                    "microserviceInstanceId": "exampleInstanceId",
+                    "relatedPortName": "examplePortName"
+                }
+            }
+        },
+        "path": "100489.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135600)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "InstanceId": "微服务实例ID",
+                "PortName": "端口名称",
+                "AdditionalInfo": "附加信息",
+                "NodeIP": "节点IP",
+                "AlarmSource": "告警源",
+                "AlarmSourceLocation": "告警源位置"
+            }
+        },
+        "path": "135600.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "OPR DBGDATA",
+                    "description": "查询内存池统计信息的重定向命令。通过指定数据库类型、内存池名称前缀和统计对象名，可以获取特定内存池的分配、释放、使用情况及使用率。",
+                    "arguments": {
+                        "DatabaseType": "字符串类型，数据库类型，取值范围sdb",
+                        "PoolName": "字符串类型，内存池名称前缀",
+                        "ObjName": "字符串类型，统计对象名，取值范围arena"
+                    },
+                    "results": "内存池的统计信息，包括内存池名称、分配次数、释放次数、使用中内存块数和内存池使用率"
+                }
+            ],
+            "user_question": "使用DDF DSP POOL命令，查询插件侧（CELLTYPE=1005）sdb数据库中名称前缀为OpPayLoadPool的所有内存池的统计信息，并按照JSON格式输出结果",
+            "answer": {
+                "pool name": "OpPayLoadPool",
+                "allocate": "382",
+                "free": "0",
+                "inuse": "382",
+                "usage": "100%"
+            }
+        },
+        "path": "zh-cn_cliref_0000001132748198.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "显示微服务“aa”的Loop口路由信息。",
+            "answer": "DSP PAELOOPROUTE:CELLTYPE=\"aa\", CELLINSTANCE=\"aa\",MODULE=control;\\nRETCODE = 0  操作成功。\\n结果如下\\n--------\\n端口名称    目的IP地址                         掩码长度\\npae_tun0    192.168.0.1                        32      \\npae_tun0    2001:db8::100                      32      \\n(结果个数 = 2)"
+        },
+        "path": "端口/dsp_paelooproute.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100048)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "{\"alarmId\": \"100048\", \"microserviceInstanceId\": \"InstanceId12345\", \"portName\": \"PortA\"}"
+        },
+        "path": "100048.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(137043968)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": {
+                "InstanceId": "The instance ID related to the alarm 137043968, including service instance number and port name."
+            }
+        },
+        "path": "137043968.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135635)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{ \"microserviceInstanceId\": \"获取的实际微服务实例ID\", \"portName\": \"获取的实际端口名称\" }"
+        },
+        "path": "135635.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136781828)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{ \"final_answer\": \"根据告警ID 136781828 获取的微服务实例ID及相关信息为：{\\\"microServiceInstanceId\\\": \\\"instance123\\\", \\\"portName\\\": \\\"portABC\\\"}\" }"
+        },
+        "path": "告警管理/活动告警/dsp_actalm.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_NCCPEERLIST",
+                    "description": "显示NETCONFC管理的远端设备的信息。",
+                    "arguments": {
+                        "PEERID": "远端ID",
+                        "PID": "组件PID",
+                        "DATATYPE": "数据类型",
+                        "SERVICEINSTANCE": "服务实例"
+                    },
+                    "results": "远端设备的信息，包括Peer ID、InstanceId、ServiceName、Peer Status等"
+                }
+            ],
+            "user_question": "显示NETCONFC管理的远端设备的信息，服务实例名为'vnfc'。",
+            "answer": "RETcode = 0  操作成功。\n\n结果如下\n--------\n输出字符串\n----------------------------------------------------------------------------------------------------\nPeer ID             : 1025\nInstanceId          : peer1025\nServiceName         : cell_A\nPeer Status         : READY\nDriver Name         : schema\nUser Name           : OMO_VNFC_SYSTEM\nDest IP             : 172.17.0.4\nHostDnsName         : \nProtocolPort        : 830\nVrfIndex            : 1\nAuthType            : PUBKEY/PASSWORD\nProtocolSessNum     : 1\nPeerDir             : home:/\nIsAutoConnect       : TRUE\nSessionCapability   : CFG\nPeerProtocolPid     : 0x920025\nFtpProtocolPid      : 0x0\nPID                 : 0x1970024\nProxyPolicy         : 0x0\nProtocolType        : NETCONF TANG\nPeerTypeId          : 1\nTransProtocol       : SFTP\n-----------------------------------------------------------------------------------------------------\n\n(结果个数 = 1)\n---    END"
+        },
+        "path": "系统调测/网络配置协议客户端/dsp_nccpeerlist.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135634)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{\"alarmId\": \"135634\", \"microserviceInstanceId\": \"获取到的微服务实例ID\", \"portName\": \"获取到的端口名称\"}"
+        },
+        "path": "135634.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{ \"name\": \"DSP_COLLECTLOGRESULT\", \"description\": \"该命令用于显示日志收集执行结果。\", \"arguments\": {\"SERVICEINSTANCE\": \"String 服务实例\"}, \"results\": \"日志收集操作执行结果\"}",
+            "user_question": "显示日志收集操作执行结果，服务实例名称为'vnfc'，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{\"RETCODE\": 0, \"操作结果\": \"Operation Success.\"}"
+        },
+        "path": "系统调测/收集日志/dsp_collectlogresult.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_IKEIPSECSA",
+                    "description": "排查是否有没匹配中的ACL rule。",
+                    "arguments": {},
+                    "results": "未匹配的ACL规则信息"
+                },
+                {
+                    "name": "MOD_ACLRULEADV4IPSEC",
+                    "description": "修改对端ACL规则与本端匹配。",
+                    "arguments": {},
+                    "results": "更新后的ACL规则信息"
+                },
+                {
+                    "name": "LST_PROPATTACHIPSECPROPOSAL",
+                    "description": "获取对应IPsec安全提议名称。",
+                    "arguments": {},
+                    "results": "IPsec安全提议名称"
+                },
+                {
+                    "name": "LST_IPSECPROPOSALIPSEC",
+                    "description": "查看IPsec安全提议配置是否一致。",
+                    "arguments": {},
+                    "results": "IPsec安全提议配置信息"
+                },
+                {
+                    "name": "MOD_IPSECPROPOSALIPSEC",
+                    "description": "将两端IPsec安全提议配置修改成一致。",
+                    "arguments": {},
+                    "results": "修改后的IPsec安全提议配置信息"
+                }
+            ],
+            "user_question": "网元上报了ALM-137043969告警，IPSEC SA协商失败，请分析告警上报的原因。",
+            "answer": "首先，调用GetInstanceIdByAlarm工具，根据告警ID(137043969)获取微服务实例ID。然后，检查两端ACL配置是否一致，如果不一致，则使用MOD_ACLRULEADV4IPSEC命令修改对端ACL规则与本端匹配。如果ACL配置一致，继续检查两端IPsec安全提议配置是否一致，如果不一致，则使用MOD_IPSECPROPOSALIPSEC命令将两端IPsec安全提议配置修改成一致。"
+        },
+        "path": "137043969.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(221257800)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "InstanceId": "微服务实例ID",
+                "PortName": "端口名称"
+            }
+        },
+        "path": "221257800.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(85202)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": {
+                "工具调用": "GetInstanceIdByAlarm",
+                "参数": {
+                    "alarmId": "85202"
+                },
+                "结果": {
+                    "微服务实例ID": "实例ID_85202",
+                    "端口名称": "PortName_85202"
+                }
+            }
+        },
+        "path": "85202.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_OMU",
+                    "description": "查看备用操作维护单元（OMU）名称。",
+                    "arguments": {},
+                    "results": "备用OMU相关信息"
+                },
+                {
+                    "name": "RST VNODE",
+                    "description": "重启备用操作维护单元，适用于服务实例名称为'VNFP'的情况。",
+                    "arguments": {},
+                    "results": "重启确认信息"
+                },
+                {
+                    "name": "RST RU",
+                    "description": "重启备用操作维护单元，适用于服务实例名称非'VNFP'的情况。",
+                    "arguments": {},
+                    "results": "重启确认信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(221257807)获取微服务实例ID，然后根据微服务实例名称确定是否重启备用操作维护单元，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "{ \"microserviceInstanceId\": \"获取到的微服务实例ID\", \"restartConfirmation\": \"是否成功重启备用OMU\" }"
+        },
+        "path": "221257807.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(219553797)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "{ \"microServiceInstanceId\": \"服务实例名称\", \"portName\": \"端口名称\" }"
+        },
+        "path": "219553797.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP ACSRBKVER",
+                    "description": "显示升级可回退版本信息，适用于ACS服务，用于显示系统可回退的基础软件包和补丁版本信息。",
+                    "arguments": {
+                        "RBKTYPE": "String 回退类型, 可选参数, 枚举类型: LAST 上一个版本, BASESOFTWARE 基础版本, PATCH 补丁"
+                    },
+                    "results": "回退类型, 基础软件包版本号, 补丁版本号"
+                }
+            ],
+            "user_question": "显示ACS服务可回退的基础版本和补丁版本信息，不指定回退类型。",
+            "answer": "RETCODE = 0  操作成功\n结果如下\n-------------------------\n回退类型 = 基础版本\n基础软件包版本号 = V100R005C00\n补丁版本号 = SPH0010\n(结果个数 = 1)\n---    END"
+        },
+        "path": "系统调测/升级维护/dsp_acsrbkver.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_APPDATA_SYNC",
+                    "description": "从主控OMU同步APP配置数据，确保APP配置数据与主控OMU一致。",
+                    "arguments": {
+                        "PROCESSID": "整数类型，取值范围为0～4294967295，必须指定",
+                        "SERVICEINSTANCE": "字符串类型，通过LST VNFC命令获取，必须指定"
+                    },
+                    "results": "同步结果"
+                }
+            ],
+            "user_question": "同步主控OMU配置数据至3号进程APP，并按照JSON格式输出结果",
+            "answer": "{ \"result\": \"配置数据已成功同步至进程ID为3的服务实例vnfc\"}"
+        },
+        "path": "系统调测/配置维护/APP配置检查/syn_appdata.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_TRCAGENTTASK",
+                    "description": "显示跟踪代理侧跟踪任务信息。",
+                    "arguments": {
+                        "PROCESSID": "Integer 进程ID",
+                        "TRACETASKID": "Integer 跟踪任务号",
+                        "SERVICEINSTANCE": "String 服务实例"
+                    },
+                    "results": "跟踪任务相关信息，包括跟踪任务号、跟踪业务类型、组合条件"
+                }
+            ],
+            "user_question": "显示进程ID为1003的服务实例vnfc的跟踪代理侧跟踪任务信息，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{\"RETCODE\":0,\"results\":[{\"跟踪任务号\":1,\"跟踪业务类型\":512,\"组合条件\":1},{\"跟踪任务号\":2,\"跟踪业务类型\":512,\"组合条件\":1}]}"
+        },
+        "path": "系统调测/跟踪管理调测/dsp_trcagenttask.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(126000)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{ \"instanceId\": \"获取到的微服务实例ID\", \"portName\": \"获取到的端口名称\" }"
+        },
+        "path": "126000.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135647)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "alarmId": "135647",
+                "results": {
+                    "microserviceInstanceId": "instance123",
+                    "portName": "portABCD"
+                }
+            }
+        },
+        "path": "135647.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(15794344)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "{ \"meid\": \"\", \"alarmId\": \"15794344\", \"results\": \"{\\\"微服务实例ID\\\": \\\"待获取\\\", \\\"端口名称\\\": \\\"待获取\\\"}\" }"
+        },
+        "path": "15794344.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(137551)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"137551\", \"microservice_instance_id\": \"<获取到的微服务实例ID>\", \"port_info\": \"<获取到的端口信息>\"}"
+        },
+        "path": "137551.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PROCFILEHDLSTAT",
+                    "description": "显示进程文件句柄使用信息。该命令用于显示进程内的文件句柄使用信息。",
+                    "arguments": {
+                        "RUNAME": "RU名称 可选参数，默认值：无",
+                        "PROCID": "进程ID 可选参数，默认值：无",
+                        "SERVICEINSTANCE": "服务实例 必选参数，默认值：无"
+                    },
+                    "results": "进程ID, RU名称, 文件句柄数目, 文件句柄最大数目"
+                }
+            ],
+            "user_question": "查询RU名称为'VNODE_CSLB_VNFC_OMU_0001'的服务实例的进程文件句柄使用信息，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"进程ID\":[\"4\",\"1000\",\"10002\",\"10001\",\"1001\",\"3\",\"2\"],\"RU名称\":\"VNODE_CSLB_VNFC_OMU_0001\",\"文件句柄数目\":[\"43\",\"32\",\"33\",\"32\",\"33\",\"42\",\"36\"],\"文件句柄最大数目\":\"1024\"}"
+        },
+        "path": "系统调测/进程和组件信息/dsp_procfilehdlstat.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_PAQUEUE",
+                    "description": "显示PAE队列统计信息。通过该命令可查看指定资源上队列的状态和统计信息，可了解通信是否正常，并进行故障诊断。",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例号",
+                        "queueid": "String 队列ID"
+                    },
+                    "results": "PAE队列统计信息"
+                }
+            ],
+            "user_question": "显示指定微服务类型和微服务实例号下的PAE队列统计信息。",
+            "answer": "使用DSP_PAQUEUE命令，参数设置为：CELLTYPE='aa', CELLINSTANCE='aa'; 结果如下：\n\n队列ID        队列名称                接收报文数目    发送报文数目    接收报文速率（pps）    发送报文速率（pps）    重发次数    丢包统计\n\n0x80000000    loop_vchannel_send_0    0               0               0                      0                      0           0\n0x80000001    loop_vchannel_recv_0    8               0               0                      0                      0           0\n0x80000002    loop_vchannel_send_1    0               0               0                      0                      0           0\n... (省略部分结果)\n(结果个数 = 27)"
+        },
+        "path": "端口/dsp_paequeue.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136750)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"136750\", \"微服务实例ID\": \"待获取\", \"端口名称\": \"待获取\"}"
+        },
+        "path": "136750.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136074)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{ \"alarmId\": \"136074\", \"microServiceInstanceId\": \"获取到的微服务实例ID\", \"portName\": \"获取到的端口名称\" }"
+        },
+        "path": "136074.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_BASESUBHEALTH",
+                    "description": "获取亚健康详细信息，确认引起亚健康的具体原因。",
+                    "arguments": {},
+                    "results": "亚健康详细信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(221257870)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "InstanceId": "ServiceInstance12345",
+                "PortName": "BasePlanePort1",
+                "SubHealthReason": "PacketLossExceedsThreshold"
+            }
+        },
+        "path": "221257870.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136100)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": {
+                "alarmId": "136100",
+                "serviceInstanceId": "服务实例ID"
+            }
+        },
+        "path": "136100.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_PAEPORT",
+                    "description": "显示PAE端口统计信息，用于了解PAE模块与其他模块通信是否正常，并进行故障诊断。",
+                    "arguments": {
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例号",
+                        "porttype": "String 端口类型, 可选"
+                    },
+                    "results": "PAE端口统计信息，包括接收/发送报文数目、速率、重发次数及丢包统计"
+                }
+            ],
+            "user_question": "显示所有微服务类型为aa的微服务实例aa的PAE外联口统计信息。",
+            "answer": "微服务类型: aa, 微服务实例号: aa, 端口类型: 外联口, 端口名称: eth5, 接收报文数目: 1316, 发送报文数目: 1311, 接收报文速率（pps）: 5, 发送报文速率（pps）: 6, 重发次数: 0, 丢包统计: 0"
+        },
+        "path": "端口/dsp_paeport.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100500)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{\"alarmId\": \"100500\"}"
+        },
+        "path": "100500.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(158539777)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{ \"alarmId\": \"158539777\", \"service_instance_name\": \"服务实例名称\", \"mpls_resource_type\": \"MPLS资源类型\", \"current_count\": \"MPLS资源当前数量\", \"threshold\": \"MPLS资源阈值\", \"total_count\": \"MPLS资源总数量\" }"
+        },
+        "path": "158539777.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(140058635)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{ \"microserviceInstanceId\": \"服务实例名称\", \"portName\": \"未知\", \"additionalInfo\": \"告警ID: 140058635, ARP表项数量超阈值\" }"
+        },
+        "path": "140058635.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_DBNODE",
+                    "description": "通过集群ID和节点类型获取存储节点的状态。用于确定是否有‘节点状态’是‘故障’的存储节点。",
+                    "arguments": {
+                        "CLUSTERID": "String 集群ID",
+                        "NODETYPE": "String 节点类型"
+                    },
+                    "results": "存储节点的相关信息"
+                },
+                {
+                    "name": "DSP_PROCESSCSDB",
+                    "description": "根据RU名称、进程类型和节点序号查找对应的进程ID。用于查找出对应的进程ID以进一步分析问题。",
+                    "arguments": {
+                        "RUNAME": "String RU名称",
+                        "PROCESSTYPE": "String 进程类型",
+                        "SAMEPROCTYPEINS": "String 节点序号"
+                    },
+                    "results": "进程的相关信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(82603)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "由于告警ID 82603与工具GetInstanceIdByAlarm的告警ID参数匹配，我们可以调用GetInstanceIdByAlarm工具来获取微服务实例ID。但是，具体结果需要根据实际环境中的数据来填充，此处无法给出确切的微服务实例ID。"
+        },
+        "path": "82603.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_DBNODE",
+                    "description": "获取数据存储节点的状态信息。当需要确认是否有存储节点处于故障状态时调用此工具。",
+                    "arguments": {
+                        "CLUSTERID": "String 子集群标识",
+                        "NODETYPE": "String 节点类型"
+                    },
+                    "results": "数据存储节点的状态信息"
+                },
+                {
+                    "name": "DSP_PROCESSCSDB",
+                    "description": "获取特定资源单元的进程信息。用于获取与故障节点相关的进程ID。",
+                    "arguments": {
+                        "RUNAME": "String 资源单元名称",
+                        "PROCESSTYPE": "String 进程类型",
+                        "SAMEPROCTYPEINS": "String 节点序号"
+                    },
+                    "results": "进程信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(82607)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": {
+                "alarmId": "82607",
+                "microserviceInstanceId": "获取到的微服务实例ID",
+                "additionalInfo": "告警详细信息，包括服务实例名称和子集群标识"
+            }
+        },
+        "path": "82607.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_DRGROUPSTATUS",
+                    "description": "显示容灾组的运行状态信息以及容灾控制通道状态。",
+                    "arguments": {
+                        "DRGROUPID": "String 容灾组标识"
+                    },
+                    "results": "容灾组的运行状态信息"
+                }
+            ],
+            "user_question": "显示容灾组标识为1的运行状态信息，以及主备容灾实例之间的心跳状态。",
+            "answer": "{ \"容灾组标识\": \"1\", \"容灾组名称\": \"HafGTnGrp\", \"本端容灾实例标识\": \"222\", \"本端容灾实例运行状态\": \"容灾实例运行状态为备\", \"主备容灾实例之间的心跳状态\": \"主备容灾实例之间握手成功，处于连接状态\", \"最近一次链接建立时间\": \"2022-07-31 22:36:05\", \"最近一次链接断开时间\": \"NULL\" }"
+        },
+        "path": "dsp_drgroupstatus.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(151134214)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{ \"serviceInstanceId\": \"获取到的微服务实例ID\", \"portName\": \"获取到的端口名称\" }"
+        },
+        "path": "151134214.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100441)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{ \"alarmId\": \"100441\", \"result\": \"微服务实例ID: 0x123456, 端口名称: eth0\" }"
+        },
+        "path": "100441.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{ \"name\": \"DSP_PODINFO\", \"description\": \"查询Pod自愈黑名单中所有Pod的信息。\", \"arguments\": {\"meid\": \"String 网元ID\"}, \"results\": \"Pod相关信息\"}",
+            "user_question": "将pod类型\"sbim-pod\"从Pod自愈黑名单中删除。",
+            "answer": "RMV PODBLACKLIST: PODTYPE=\"sbim-pod\";"
+        },
+        "path": "rmv_podblacklist.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100398)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "工具调用": "GetInstanceIdByAlarm",
+                "参数": {
+                    "alarmId": "100398"
+                },
+                "结果": "{\"告警ID\": \"100398\", \"微服务实例ID\": \"待获取\", \"端口名称\": \"待获取\"}"
+            }
+        },
+        "path": "100398.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_DEVBOOTPRES",
+                    "description": "显示BOOTP服务器本地资源信息，查询BOOTP服务器本地资源的MAC地址、端口号等信息。",
+                    "arguments": {
+                        "serviceInstance": "String 服务实例"
+                    },
+                    "results": "BOOTP服务器本地资源信息，包括RU编号、设备ID、硬件类型、网络IP、网络MAC1、网络MAC2、BoardInf配置下发时间、BOOTP服务器端口号、BOOTP客户端端口号"
+                }
+            ],
+            "user_question": "显示BOOTP服务器本地资源信息，服务实例为'vnfc'。",
+            "answer": "RETCODE = 0  操作成功。\n结果如下\n------------------------\nRU编号    设备ID    硬件类型      网络IP     网络MAC1          网络MAC2          BoardInf配置下发时间   BOOTP服务器端口号   BOOTP客户端端口号\n\n1         0x2       0x2           X.X.X.X    00E0-FCXX-XXXX    00E0-FCXX-XXXX    2017-01-18 15:57:02    1067                1068\n2         0xA       0x2           X.X.X.X    00E0-FCXX-XXXX    00E0-FCXX-XXXX    2017-01-18 15:57:02    1067                1068\n64        0x12      0x10000011    X.X.X.X    00E0-FCXX-XXXX    00E0-FCXX-XXXX    2017-01-18 15:57:02    1067                1068\n(结果个数 = 3)\n---    END"
+        },
+        "path": "系统调测/设备管理/dsp_devbootpres.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_NODEPOD",
+                    "description": "查询节点Pod关联关系详细情况。",
+                    "arguments": {},
+                    "results": "节点中包含的pod列表"
+                }
+            ],
+            "user_question": "使用DSP_NODEPOD工具，查询进程类型（CellType）为109的进程中存储节点Pod关联关系详细情况，并按照JSON格式输出结果。",
+            "answer": "{ \"nodeId\": \"192.168.15.113\", \"pods\": [\"ddbsf-pod-54c96c4f68-4pxqd192-168-0-7\", \"haf-pod-72gdn192-168-0-3\"] }, { \"nodeId\": \"192.168.15.124\", \"pods\": [\"haf-pod-jpwvm192-168-2-64\", \"cslbip-pod-2192-168-2-55\"] }, { \"nodeId\": \"192.168.15.128\", \"pods\": [\"sfm-pod-88dc96d7c-kgm8k192-168-0-44\", \"haf-pod-nms65192-168-0-36\", \"ddbsf-pod-54c96c4f68-4qxxw192-168-0-32\"] }"
+        },
+        "path": "zh-cn_topic_0292187231.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135645)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "getInstanceIdResult": {
+                    "alarmId": "135645",
+                    "microserviceInstanceId": "InstanceID12345",
+                    "relatedPortName": "PortA1"
+                }
+            }
+        },
+        "path": "135645.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{\\\"name\\\": \\\"DSP_DCF_ISTOKENPLYEXIST\\\", \\\"description\\\": \\\"查询一个特定TokenType的策略信息是否存在.\\\", \\\"arguments\\\": {\\\"TokenType\\\": \\\"Integer Token类型\\\"}, \\\"results\\\": \\\"策略信息是否存在\\\"}",
+            "user_question": "使用DSP_DCF_ISTOKENPLYEXIST工具，查询TokenType为4021的策略信息是否存在，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "根据提供的工具描述和用户问题，调用DSP_DCF_ISTOKENPLYEXIST工具查询TokenType为4021的策略信息。查询结果：TRUE，表示该TokenType策略存在。"
+        },
+        "path": "zh-cn_cliref_0000001318656654.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(82618)获取微服务实例ID，并按照JSON格式输出结果。",
+            "answer": "{ \"alarmId\": \"82618\", \"microserviceInstanceId\": \"MSI12345\", \"portName\": \"PortA\" }"
+        },
+        "path": "82618.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135641)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": {
+                "InstanceId": "微服务实例ID",
+                "PortName": "端口名称",
+                "AlarmId": "135641"
+            }
+        },
+        "path": "135641.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_NCSSYNCFULLSTC",
+                    "description": "显示全量同步操作期间的统计信息。",
+                    "arguments": {
+                        "VERBOSEFLG": "Boolean 详细输出标志位",
+                        "SERVICEINSTANCE": "String 服务实例"
+                    },
+                    "results": "全量同步操作期间的统计信息"
+                }
+            ],
+            "user_question": "显示全量同步操作期间的详细统计信息，服务实例名为'vnfc'。",
+            "answer": "DSP NCSSYNCFULLSTC:VERBOSEFLG=TRUE,SERVICEINSTANCE=\"vnfc\";"
+        },
+        "path": "系统调测/网络配置协议/dsp_ncssyncfullstc.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136002)获取微服务实例ID，并按照JSON格式输出结果",
+            "answer": "{ \"InstanceId\": \"instance-12345\", \"PortName\": \"eth0\" }"
+        },
+        "path": "136002.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{ \"name\": \"DSP_APPDATA\", \"description\": \"该命令用于显示APPDB表数据和表信息。\", \"arguments\": {\"LOCINDEX1\": \"Integer 进程ID\", \"QUERYTYPE\": \"String 查询类型\", \"TABLENAME\": \"String 表名称\", \"INDEX\": \"Integer 起始索引\", \"DBTYPE\": \"String 数据库类型\", \"SERVICEINSTANCE\": \"String 服务实例\"}, \"results\": \"表数据和表信息\"}",
+            "user_question": "显示APPDB表数据和表信息，查询类型为table-list，数据库类型为app，服务实例为\"vnfc\"。",
+            "answer": "RETcode = 0 操作成功\\n\\n结果如下\\n-------------------------\\n查询结果\\nField(0)        Field(1)        Field(2)        Field(3)        Field(4)        Field(5)        Field(6)\\nTable_Name      Table_Id        MaxRecNum       ActRecNum       RecLength       FieldNum        IndexNum\\nvAlmMonitor     0x19            0x1fffe         0x2             0x91            0x6             0x1\\nvAlarmCutOut    0x1a            0x1fffe         0x0             0x4             0x1             0x1\\nvAlmReportHost  0x1b            0x1fffe         0x0             0x6d            0x5             0x1\\nvFomByFim       0x1c            0x1fffe         0x5c            0x9             0x3             0x1\\nvFomAlarmDic    0x1d            0x13ff          0x22            0x71            0xd             0x1\\nvFimAlarmDic    0x1e            0x13ff          0x22            0xcf            0x7             0x1\\nCFGOsNodeInfo   0x24            0x20000         0x2             0x40            0x9             0x1\\nCFGLocGrp       0x2a            0x20000         0xa             0x3c            0x8             0x1\\n(结果个数 = 8)\\n---    END"
+        },
+        "path": "系统调测/配置维护/配置数据/dsp_appdata.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{\\\"name\\\": \\\"DSP_TRCTASKSTC\\\", \\\"description\\\": \\\"显示跟踪任务相关跟踪消息的统计信息。\\\", \\\"arguments\\\": {\\\"COMPONENTID\\\": \\\"Integer 组件ID\\\", \\\"TRACETASKID\\\": \\\"Integer 跟踪任务号\\\", \\\"SERVICEINSTANCE\\\": \\\"String 服务实例\\\"}, \\\"results\\\": \\\"跟踪任务统计信息\\\"}",
+            "user_question": "使用DSP_TRCTASKSTC工具，显示跟踪任务号为10，组件ID为2161312903，服务实例为\\\"vnfc\\\"的跟踪任务相关跟踪消息的统计信息，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "\\n\\n{\\\"COMPONENTID\\\": 2161312903, \\\"TRACETASKID\\\": 10, \\\"SERVICEINSTANCE\\\": \\\"vnfc\\\", \\\"RETCODE\\\": 0, \\\"跟踪任务号\\\": 10, \\\"跟踪业务类型\\\": 120, \\\"接收消息数\\\": 0, \\\"任务未激活丢弃消息数\\\": 0, \\\"组合条件不匹配丢弃消息数\\\": 0, \\\"过滤条件不匹配丢弃消息数\\\": 0, \\\"缓冲区满丢弃消息数\\\": 0, \\\"实时流控方式下报数超阈值丢弃消息数\\\": 0, \\\"跟踪发送模式非法丢弃消息数\\\": 0, \\\"申请消息失败丢弃消息数\\\": 0, \\\"重定向失败丢弃消息数\\\": 0}"
+        },
+        "path": "系统调测/跟踪管理调测/dsp_trctaskstc.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100311)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": {
+                "final_answer": "{\"alarmId\": \"100311\", \"microserviceInstanceId\": \"InstanceId12345\", \"portName\": \"PortNameABC\"}"
+            }
+        },
+        "path": "100311.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100218)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "alarmId": "100218",
+                "microServiceInstanceId": "获取到的微服务实例ID",
+                "podName": "获取到的POD名称",
+                "cellName": "获取到的CELL名称",
+                "tickDeviationValue": "获取到的Tick偏差值"
+            }
+        },
+        "path": "100218.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DBGDROP_SUM",
+                    "description": "此命令用于查询容器丢包情况统计。",
+                    "arguments": {},
+                    "results": "容器丢包统计信息"
+                }
+            ],
+            "user_question": "使用DBGDROP_SUM命令查询进程类型（CellType）为109的容器丢包情况。",
+            "answer": "使用**DBGDROP SUM** 查询进程类型（CellType）为109的容器丢包情况的结果如下：\nsfm-pod-6db884dfb8-65bp9172-139-0-75__105::tcp retransmit: 7, udp drop: 0, rx drop: 91446784, tx drop: 99315295\nsfm-pod-6db884dfb8-65bp9172-139-0-75__107::tcp retransmit: 7, udp drop: 0, rx drop: 91442060, tx drop: 99311080\n... (省略部分结果)\nvsm-pod-6f7b45df5b-jjlfk172-139-1-142__1009::tcp retransmit: 0, udp drop: 0, rx drop: 0, tx drop: 0\n(Number of results = 10)"
+        },
+        "path": "zh-cn_topic_0232398365.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(6808)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "getInstanceIdByAlarm_result": {
+                    "alarmId": "6808",
+                    "microserviceInstanceId": "GaussDB:127.0.0.1:MONITORDB",
+                    "portName": "N/A"
+                }
+            }
+        },
+        "path": "6808.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_MSACTIVE",
+                    "description": "此命令用于查询所有服务的主实例的服务名，实例ID，进程ID，Pod ID，节点ID等相关信息。",
+                    "arguments": {},
+                    "results": "服务主实例相关信息，包括服务名称、服务实例ID、进程ID、Pod ID、节点ID、服务组ID、可选项"
+                }
+            ],
+            "user_question": "获取所有服务主实例的服务名，实例ID，进程ID，Pod ID，节点ID等信息。",
+            "answer": "服务名称：UesmCtrlSvc，服务实例ID：12532461132836508461，进程ID：appctrl-pod-59f6dcf56b-f94v2172-115-0-224__1012__0，Pod ID：appctrl-pod-59f6dcf56b-f94v2172-115-0-224，节点ID：192.168.0.1，服务组ID：999，可选项：NULL；\n服务名称：SmcCtrlSvc，服务实例ID：12532462215168265344，进程ID：appctrl-pod-59f6dcf56b-f94v2172-115-0-224__1012__0，Pod ID：appctrl-pod-59f6dcf56b-f94v2172-115-0-224，节点ID：192.168.0.2，服务组ID：999，可选项：NULL；\n服务名称：AddrCtrlSvc，服务实例ID：12532464908111989945，进程ID：appctrl-pod-59f6dcf56b-lnphd172-115-0-130__1012__0，Pod ID：appctrl-pod-59f6dcf56b-lnphd172-115-0-130，节点ID：192.168.0.3，服务组ID：999，可选项：NULL；\n服务名称：UpcCtrlSvc，服务实例ID：12532463465002981144，进程ID：appctrl-pod-59f6dcf56b-lnphd172-115-0-130__1012__0，Pod ID：appctrl-pod-59f6dcf56b-lnphd172-115-0-130，节点ID：192.168.0.4，服务组ID：999，可选项：NULL；\n(Number of results = 4)"
+        },
+        "path": "dsp_msactive.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "RST MSPROCESS",
+                    "description": "此命令用于重启指定类型的进程或特定进程ID的进程。在存储故障期间执行该命令复位进程后，该进程在存储故障恢复期都无法启动。",
+                    "arguments": {
+                        "PROCOBJECT": "String 操作对象，可选'PROCNAME'或'PROCID'",
+                        "PROCNAME": "String 进程类型，当PROCOBJECT为'PROCNAME'时为必填",
+                        "PROCID": "String 进程ID，当PROCOBJECT为'PROCID'时为必填",
+                        "MEID": "String 网元ID，可选"
+                    },
+                    "results": "进程复位结果"
+                }
+            ],
+            "user_question": "复位名为'CELL_SBIM'的进程类型，网元ID为'0'，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{ \"RETCODE\": 0, \"message\": \"操作成功\" }"
+        },
+        "path": "rst_msprocess.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP REPORTFAILUREINFO",
+                    "description": "显示当前是否存在组件上报故障信息。",
+                    "arguments": {
+                        "RUNAME": "RU名称",
+                        "SHOWNUM": "要查询的数据最大个数",
+                        "BEGININDEX": "记录起始位置",
+                        "ISVERBOSE": "是否查询详细信息",
+                        "SERVICEINSTANCE": "服务实例"
+                    },
+                    "results": "组件上报故障信息"
+                }
+            ],
+            "user_question": "显示所有详细的组件上报故障信息。",
+            "answer": "RETcode = 0  操作成功。\n\n结果如下\n--------\nRU名称  =  VNODE_CSLB_VNFC_OMU_0002\n组件上报故障时间  =  2016-04-15 14:26:32\n组件ID  =  0x80f100a4\n进程名称  =  APPLocation10001\n临终信息  =  report_failure\n事件  =  11\n事件参数  =  15\n调用栈  = \nliblocbase.so(VRP_HafRepFailure+0xf5) [0x00007f013d959e35]\nlibsspbase.so(HAF_DoReportFailure+0xb3) [0x00007f013eacc513]\nlibsspbase.so(HAF_ReportSelfFailureWithLog+0x17) [0x00007f013eacc957]\ncompa.so(COMPA_ReportSelfFailureHandler+0x9a) [0x00007f01364bf0fa]\nlibdefault.so(RTF_MsgProcessCbk+0x101) [0x00007f01429e97a1]\nlibdefault.so(rtfScmMessageSchedule+0x24d) [0x00007f01429e87bd]\nlibdefault.so(rtfScmCompScheKernelEntryFifo+0xda) [0x00007f01429e955a]\nlibdefault.so(rtfScmCompScheDefaultEntry+0x2fa) [0x00007f01429e5b6a]\nlibdefault.so(tskAllTaskEntry+0x15f) [0x00007f01427faeff]\nlibpthread.so.0(+0x7df5) [0x00007f0143d68df5]\n(结果个数 = 1)\n---    END"
+        },
+        "path": "系统调测/异常信息/dsp_reportfailureinfo.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "[{\"name\": \"DSP PODHEALREC\", \"description\": \"该命令用于查询POD重建历史记录。\", \"arguments\": {\"PODNAME\": \"String POD名称\"}, \"results\": \"POD重建历史记录\"}]",
+            "user_question": "查询vsm-pod-54ddc977b9-4g42g POD的重建历史记录。",
+            "answer": "{\\\"SN\\\": 1, \\\"POD名称\\\": \\\"vsm-pod-54ddc977b9-4g42g\\\", \\\"堆栈ID\\\": \\\"524c409a-bc3b-11ea-a186-025565660064\\\", \\\"PodID\\\": \\\"c2208db2-bc3b-11ea-9d1b-fa163eb94edd\\\", \\\"故障容器类型\\\": \\\"ContainerSm\\\", \\\"故障类型\\\": \\\"反复故障\\\", \\\"故障发生时间\\\": \\\"2020-07-09 09:06:10\\\", \\\"重建时间\\\": \\\"2020-07-09 09:08:03\\\"}"
+        },
+        "path": "dsp_podhealrec.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100278)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": {
+                "InstanceId": "12345",
+                "PortName": "eth0",
+                "AdditionalInfo": "微服务实例号：12345，端口名称：eth0"
+            }
+        },
+        "path": "100278.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DDF_DSP_DATAFEATURE",
+                    "description": "查询数据特征的推送状态（目前只支持sdb插件侧）。",
+                    "arguments": {
+                        "DatabaseType": "字符串类型，数据库类型，取值为sdb",
+                        "DatabaseName": "字符串类型，数据库名称，可由DDF LST DATABASES命令得到",
+                        "TableName": "字符串类型，表名称，可由DDF LST TABLES命令得到",
+                        "Datafeature": "字符串类型，需要查询的数据特征值，可选"
+                    },
+                    "results": "数据特征推送状态"
+                }
+            ],
+            "user_question": "使用DDF_DSP_DATAFEATURE工具，查询数据特征值为3的推送状态。",
+            "answer": "使用**DDF DSP DATAFEATURE WHERE DATABASETYPE IS sdb AND DATABASENAME IS sdb_withcache AND TABLENAME IS Table_sdb_withcache AND DATAFEATURE IS 3**命令，查看插件侧（CELLTYPE=1005）数据特征0的推送状态。结果如下：\ncell id: ddfbetay-pod-8f8bc757f-pkdq7172-108-0-229__1005__0\ndata feature list report:\n***************************************************************************************************\n|data feature            |type                    |published                                        \n***************************************************************************************************\n|3                       |1                       |true\n***************************************************************************************************\n(结果个数 = 1)"
+        },
+        "path": "zh-cn_cliref_0220362874.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(221257874)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "{ \"alarmId\": \"221257874\", \"service_instance_id\": \"123456\", \"port_name\": \"eth0\" }"
+        },
+        "path": "221257874.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_CFGRECOVERRESULT",
+                    "description": "显示系统配置恢复结果。此命令用于查询系统配置恢复的状态和结果，包括配置恢复类型、结果以及配置文件等信息。",
+                    "arguments": {
+                        "SERVICEINSTANCE": "String 服务实例，必选参数，表示大颗粒服务实例名称，数据来源为本端规划，取值范围是通过LST VNFC命令获取。"
+                    },
+                    "results": "配置恢复相关详细信息，包括配置恢复类型、配置恢复结果及配置文件等。"
+                }
+            ],
+            "user_question": "显示系统配置恢复结果，服务实例为'vnfc'，并按照JSON格式输出配置恢复类型、配置恢复结果以及配置文件。",
+            "answer": "{\"RETCODE\":0,\"配置恢复类型\":\"CFG方式启动\",\"配置恢复结果\":\"配置恢复成功\",\"配置文件\":\"nps_configuration.cfg\"}"
+        },
+        "path": "系统调测/配置维护/配置恢复结果/dsp_cfgrecoverresult.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_NCCSYNCINFO",
+                    "description": "查询NETCONFC的配置同步信息。",
+                    "arguments": {
+                        "PEERID": "String 远端ID",
+                        "DATATYPE": "String 数据类型",
+                        "SERVICEINSTANCE": "String 服务实例"
+                    },
+                    "results": "配置同步的信息"
+                }
+            ],
+            "user_question": "查询VNF内NETCONFC的配置同步信息，远端ID为1025，服务实例为'vnfc'。",
+            "answer": "查询VNF内NETCONFC的配置同步信息成功。配置同步的信息包括Data sync base info、Data sync process info等详细信息。"
+        },
+        "path": "系统调测/网络配置协议客户端/dsp_nccsyncinfo.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PAECHANNEL",
+                    "description": "显示PAE Channel状态和统计信息。Channel是同资源内应用进程和PAE之间的通信通道。通过此命令可查看Channel的状态和统计信息，以了解通信是否正常，并进行故障诊断。",
+                    "arguments": {
+                        "CELLTYPE": "String 微服务类型",
+                        "CELLINSTANCE": "String 微服务实例号",
+                        "CHANNELNAME": "String 通道名称（可选）"
+                    },
+                    "results": "PAE Channel的详细统计信息，包括但不限于通道索引、通道ID、通道调度权重等"
+                }
+            ],
+            "user_question": "显示微服务类型为'CCellCpcSrv'微服务实例为'2491301'的PAE Channel统计信息，并按照JSON格式输出结果。",
+            "answer": "使用DSP_PAECHANNEL命令，设置参数CELLTYPE='CCellCpcSrv'，CELLINSTANCE='2491301'，获取并输出微服务的PAE Channel统计信息。"
+        },
+        "path": "端口/dsp_paechannel.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PROCMEMPT",
+                    "description": "显示进程内存分区信息。用于显示进程内的分区内存使用信息。",
+                    "arguments": {
+                        "RUNAME": "RU名称, 可选参数, 字符串类型, 输入长度范围为1～63，不支持空格，区分大小写",
+                        "PROCID": "进程ID, 可选参数, 整数类型, 取值范围为0～4294967295",
+                        "SERVICEINSTANCE": "服务实例, 必选参数, 字符串类型, 通过LST VNFC命令获取"
+                    },
+                    "results": "进程内分区内存使用情况"
+                }
+            ],
+            "user_question": "查询进程内分区内存的使用情况，RU名称为VNODE_CSLB_VNFC_OMU_0001，进程ID为1001，服务实例为vnfc；并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": {
+                "进程ID": "1001",
+                "RU名称": "VNODE_CSLB_VNFC_OMU_0001",
+                "内存分区信息": [
+                    {
+                        "内存分区名": "SYSPT",
+                        "分区内存总大小（Kbytes）": "4096",
+                        "分区内存使用大小（Kbytes）": "3319",
+                        "分区内存使用最大值（Kbytes）": "3389",
+                        "分区内存使用率（%）": "81"
+                    },
+                    {
+                        "内存分区名": "dbPT",
+                        "分区内存总大小（Kbytes）": "6144",
+                        "分区内存使用大小（Kbytes）": "5191",
+                        "分区内存使用最大值（Kbytes）": "5199",
+                        "分区内存使用率（%）": "84"
+                    },
+                    {
+                        "内存分区名": "pipePT",
+                        "分区内存总大小（Kbytes）": "15367",
+                        "分区内存使用大小（Kbytes）": "14679",
+                        "分区内存使用最大值（Kbytes）": "14679",
+                        "分区内存使用率（%）": "95"
+                    },
+                    {
+                        "内存分区名": "msq_node",
+                        "分区内存总大小（Kbytes）": "1562",
+                        "分区内存使用大小（Kbytes）": "1561",
+                        "分区内存使用最大值（Kbytes）": "1561",
+                        "分区内存使用率（%）": "99"
+                    },
+                    {
+                        "内存分区名": "commonPt",
+                        "分区内存总大小（Kbytes）": "102400",
+                        "分区内存使用大小（Kbytes）": "14097",
+                        "分区内存使用最大值（Kbytes）": "14338",
+                        "分区内存使用率（%）": "13"
+                    },
+                    {
+                        "内存分区名": "tempPt",
+                        "分区内存总大小（Kbytes）": "1536",
+                        "分区内存使用大小（Kbytes）": "240",
+                        "分区内存使用最大值（Kbytes）": "540",
+                        "分区内存使用率（%）": "15"
+                    },
+                    {
+                        "内存分区名": "simplePt",
+                        "分区内存总大小（Kbytes）": "1024",
+                        "分区内存使用大小（Kbytes）": "387",
+                        "分区内存使用最大值（Kbytes）": "387",
+                        "分区内存使用率（%）": "37"
+                    }
+                ]
+            }
+        },
+        "path": "系统调测/进程和组件信息/dsp_procmempt.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(82601)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"82601\"}"
+        },
+        "path": "82601.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_RMSTATISTICS",
+                    "description": "查看IPv6各协议的路由数量.",
+                    "arguments": {},
+                    "results": "IPv6各协议的路由数量信息"
+                },
+                {
+                    "name": "LST_IPV6THRESHOLD",
+                    "description": "查看是否是SET_IPV6THRESHOLD命令配置的告警阈值过小.",
+                    "arguments": {},
+                    "results": "告警阈值配置信息"
+                },
+                {
+                    "name": "SET_IPV6THRESHOLD",
+                    "description": "配置合理的告警阈值.",
+                    "arguments": {
+                        "thresholdValue": "Int 告警阈值"
+                    },
+                    "results": "告警阈值配置结果"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(137953287)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{ \"microserviceInstanceId\": \"微服务实例ID\", \"portName\": \"端口名称\" }"
+        },
+        "path": "137953287.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(135655)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"135655\", \"service_instance_id\": \"获取的实际微服务实例ID\", \"port_name\": \"获取的实际端口名称\"}"
+        },
+        "path": "135655.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(140058640)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"140058640\", \"service_instance_id\": \"ServiceInstanceID-001\", \"port_name\": \"Port-1\"}"
+        },
+        "path": "140058640.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_LBTN",
+                    "description": "查询隧道组下的隧道配置和状态。",
+                    "arguments": {},
+                    "results": "隧道组相关配置和状态信息"
+                },
+                {
+                    "name": "ADD_GRDCIINFO",
+                    "description": "为隧道组配置对应的隧道。",
+                    "arguments": {},
+                    "results": "隧道配置结果"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(82413)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{\"alarmId\": \"82413\", \"microserviceInstanceId\": \"获取的微服务实例ID\", \"portName\": \"端口名称\"}"
+        },
+        "path": "82413.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_DBNODE",
+                    "description": "通过子集群标识获取存储节点的状态信息。",
+                    "arguments": {
+                        "CLUSTERID": "String 子集群标识",
+                        "NODETYPE": "String 节点类型"
+                    },
+                    "results": "存储节点状态信息"
+                },
+                {
+                    "name": "DSP_PROCESSCSDB",
+                    "description": "获取指定资源单元名称、进程类型和节点序号的进程信息。",
+                    "arguments": {
+                        "RUNAME": "String 资源单元名称",
+                        "PROCESSTYPE": "String 进程类型",
+                        "SAMEPROCTYPEINS": "String 节点序号"
+                    },
+                    "results": "进程信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(82611)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "由于提供的工具描述中GetInstanceIdByAlarm可以用于根据告警ID获取微服务实例ID，因此可以通过调用GetInstanceIdByAlarm工具并传入参数alarmId='82611'来获取微服务实例ID。然而，具体的结果数据并未给出，这里仅提供方法论。"
+        },
+        "path": "82611.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(15794301)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "alarmId": "15794301",
+                "microServiceInstanceId": "待获取",
+                "portName": "待获取"
+            }
+        },
+        "path": "15794301.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100022)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "{\"alarmId\": \"100022\", \"containerID\": \"待获取\", \"portName\": \"待获取\"}"
+        },
+        "path": "100022.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(221257768)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": {
+                "alarmId": "221257768",
+                "results": "{ \"service_instance_id\": \"12345\", \"port_name\": \"eth0\" }"
+            }
+        },
+        "path": "221257768.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_MEASSPECS",
+                    "description": "查询性能统计指标量的详细信息，包括测量对象类的指标量和指标量规格等。",
+                    "arguments": {
+                        "meid": "String 网元ID"
+                    },
+                    "results": "性能统计指标量的详细信息"
+                },
+                {
+                    "name": "SET_PMCFG",
+                    "description": "配置性能统计指标量的告警阈值比例。",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "thresholdPercentage": "String 告警阈值比例"
+                    },
+                    "results": "告警阈值比例配置结果"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136801)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{ \"alarmId\": \"136801\", \"microserviceInstanceId\": \"InstanceIdFromAlarm136801\", \"portName\": \"PortNameFromInstanceId\" }"
+        },
+        "path": "136801.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "[{ \"name\": \"GetInstanceIdByAlarm\", \"description\": \"根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.\", \"arguments\": {\"alarmId\": \"String 告警ID\"}, \"results\": \"String 告警相关信息，包括微服务实例号、端口名称\"}]",
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(126021)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{ \"InstanceId\": \"根据告警ID 126021 获取到的微服务实例ID\", \"PortName\": \"微服务实例对应的端口名称\", \"AlarmId\": \"126021\" }"
+        },
+        "path": "126021.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_TIMER",
+                    "description": "该命令用于显示定时器信息。",
+                    "arguments": {
+                        "runame": "RU名称, 字符串类型，输入长度范围为1～63。不支持空格，区分大小写。",
+                        "serviceinstance": "服务实例, 字符串类型，通过LST VNFC命令获取。"
+                    },
+                    "results": "进程ID、进程名称、定时器超时时长、定时器参数、定时器类型、定时器选项、组件ID、组件名称等定时器相关信息"
+                }
+            ],
+            "user_question": "显示VNODE_CSLB_VNFC_OMU_0002的定时器信息。",
+            "answer": "RET CODE = 0  操作成功。\n\n结果如下\n--------\n进程ID     进程名称        定时器超时时长    定时器参数    定时器类型    定时器选项    组件ID        组件名称\n1001       HSM             1000              0x757347C9    0x10002       0x80000002    0x80030020    SEM_Agent\n... (省略部分行)\n1001       HSM             120000            0x10D0000     0x0           0x80000002    0x80030020    SEM_Agent\n(结果个数 = 16)\n---    END"
+        },
+        "path": "系统调测/进程和组件信息/dsp_timer.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析，如'网元上报了xx告警，请分析告警上报的原因'.",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(136075)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"136075\", \"microserviceInstanceId\": \"待查询\", \"portName\": \"待查询\"}"
+        },
+        "path": "136075.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_CONNSTATE",
+                    "description": "查询ETCD节点信息。通过指定实例ID，可以获取ETCD集群的状态以及其节点地址。",
+                    "arguments": {
+                        "InstanceId": "数字类型 实例ID"
+                    },
+                    "results": "ETCD集群状态和节点地址"
+                }
+            ],
+            "user_question": "使用DSP_CONNSTATE工具，根据实例ID(10131468891537600350)查询ETCD集群的状态以及其节点地址，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{ \"InstanceId\": \"10131468891537600350\", \"local id\": \"10131468891537600350\", \"STATE\": \"ready\", \"endpoints\": [\"CONN-0. 127.0.0.1:2579\", \"CONN-1. 127.0.0.1:2580\", \"CONN-2. 127.0.0.1:2581\"]}"
+        },
+        "path": "zh-cn_cliref_0213772287.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_LOGMESSAGESEND",
+                    "description": "查询日志发送的信息。该命令用于查询日志发送的信息，需指定目标、消息类型及服务实例等参数。",
+                    "arguments": {
+                        "target": "String 目标",
+                        "type": "String 消息类型",
+                        "boardtype": "Optional String 主控类型",
+                        "serviceinstance": "String 服务实例"
+                    },
+                    "results": "日志消息发送的详细信息，包括日志ID、发送结果、日志产生时间、发送时间、会话ID"
+                }
+            ],
+            "user_question": "查询日志上报Notification的信息，目标为NETCONF，消息类型为事件上报，服务实例为'vnfc'。",
+            "answer": "查询成功，结果如下：\n-------------------------\n日志ID       发送结果    日志产生时间          发送时间              会话ID \n144838659    成功        2016-05-29 17:54:35   2016-05-29 17:54:35   1417       \n144838659    成功        2016-05-29 17:54:35   2016-05-29 17:54:35   1417       \n(结果个数 = 2)"
+        },
+        "path": "日志管理/dsp_logmessagesend.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100503)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": {
+                "alarmId": "100503",
+                "microserviceInstanceId": "获取的具体微服务实例ID",
+                "portName": "获取的具体端口名称"
+            }
+        },
+        "path": "100503.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_SSHCMSGDATA",
+                    "description": "查询SSH客户端与其他组件交互的消息数据。",
+                    "arguments": {
+                        "type": "String 消息类型",
+                        "boardtype": "String OMU类型",
+                        "serviceinstance": "String 服务实例"
+                    },
+                    "results": "SSH客户端与其他组件的消息交互数据"
+                }
+            ],
+            "user_question": "查询SSH客户端的Socketi消息数据，使用DSP_SSHCMSGDATA工具，以JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "查询SSH客户端的Socketi消息数据结果如下：\n------------------------\n消息数据\n\n---------------------------------------------------------------------------------------------------------------------------------\nTime            PeerCID    MsgType                SocketFD    PipeID     Handle     RetCode    Direction\n---------------------------------------------------------------------------------------------------------------------------------\n19/01:35:17.096 0x80650016 SOCK_ProtoRegister     -1          0          0x00000000 0x00000000 O\n(结果个数 = 1)\n---    END"
+        },
+        "path": "系统调测/SSH调测/dsp_sshcmsgdata.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100501)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": {
+                "getInstanceIdResult": {
+                    "alarmId": "100501",
+                    "microserviceInstanceId": "<根据实际情况填写>",
+                    "portName": "<根据实际情况填写>"
+                }
+            }
+        },
+        "path": "100501.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{ \"name\": \"DSP_NOSBASESOCKET\", \"description\": \"查询NOS Base平面网络的Socket信息\", \"arguments\": {\"RU名称\": \"String RU名称\", \"远端地址\": \"String 远端地址\", \"是否查询详细信息\": \"Boolean 是否查询详细信息\", \"服务实例\": \"String 服务实例\"}, \"results\": \"NOS Base平面网络Socket信息\"}",
+            "user_question": "查询指定大颗粒服务实例的所有NOS Base平面网络Socket详细信息。",
+            "answer": "{ \"RU名称\": [\"ACS_OM_RU_0001\", \"ACS_OM_RU_0002\"], \"状态\": [\"LISTEN\", \"ESTAB\", \"TIME-WAIT\"], \"接收队列\": [0, 0, 0, 0], \"发送队列\": [128, 0, 0, 0], \"本端地址：端口\": [\"192.168.1.5:hbci\", \"192.168.1.5:46940\", \"192.168.1.5:41022\", \"192.168.1.5:38469\"], \"远端地址：端口\": [\"0.0.0.0:*\", \"192.168.1.242:21087\", \"192.168.2.240:rwp\", \"192.168.0.217:hbci\"], \"进程\": [\"monitor\", \"monitor\", \"NULL\", \"NULL\"], \"TCP内部信息\": [\"NULL\", \"NULL\", \"NULL\", \"NULL\"] }"
+        },
+        "path": "系统调测/基础网络调测/dsp_nosbasesocket.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_PAEPORTINFO",
+                    "description": "显示指定微服务的PAE端口信息。在流量不通或者端口状态异常场景下，需要确认当前微服务的PAE端口信息以及相关配置是否正常时，可以使用该命令。",
+                    "arguments": {
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例号"
+                    },
+                    "results": "微服务端口信息"
+                }
+            ],
+            "user_question": "显示微服务类型为'aa'且微服务实例号为'aa'的PAE端口信息。",
+            "answer": "微服务类型: aa, 微服务实例号: aa, 端口类型: 内联口, 端口名称: eth1, 端口ID: 1, IP地址: 0.0.0.0, 掩码或前缀长度: 0, MAC地址: 00E0-FC66-0967, MTU（byte）: 1800, MTU配置类型: 用户配置, 端口状态: up, 命名空间: NULL, 绑定模式: 是, 队列数: 1"
+        },
+        "path": "端口/dsp_paeportinfo.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_WLRGLOBALINFO",
+                    "description": "执行DSP WLRGLOBALINFO命令查看本网元所有公网和私网IPv6无线路由前缀总和与最大值。",
+                    "arguments": {},
+                    "results": "IPv6无线路由前缀总和与最大值的信息"
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(154935299)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{\"alarmId\": \"154935299\", \"service_instance_name\": \"待获取的服务实例名称\", \"prefix_quantity\": \"当前系统中IPv6无线路由前缀数量\", \"maximum_value\": \"系统支持的IPv6无线路由前缀数的最大值\"}"
+        },
+        "path": "154935299.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": "{ \"name\": \"DDF_LST_TABLES\", \"description\": \"该命令用于查询本地某数据库包含的表信息。\", \"arguments\": {\"DatabaseType\": \"String 数据库类型\", \"DatabaseName\": \"String 数据库名称\"}, \"results\": \"数据库包含的表信息\"}",
+            "user_question": "查询插件侧（CELLTYPE=1005）ddb类型数据库中数据库ddb包含的表信息。",
+            "answer": "操作成功，查询到的表信息包括：\nlocal id: 12671852337923574368, server type: default, server id: 12671874663161651911, lst tables:\n+-----------+---------+-------+----------+----------+------------+-----------+------+-------+\n|   TABLE   | VERSION | CROSS | TOTALNUM | OWNERNUM | SENDPUBEND | RCVPUBEND | SIZE | USAGE |\n+-----------+---------+-------+----------+----------+------------+-----------+------+-------+\n| Table_ddb | 0       | false | 2        | 0        | true       | true      | 0    | 0     |\n+-----------+---------+-------+----------+----------+------------+-----------+------+-------+\n(结果个数 = 1)"
+        },
+        "path": "zh-cn_cliref_0210499743.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100504)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果。",
+            "answer": "{\"alarmId\": \"100504\", \"microserviceInstanceId\": \"获取到的微服务实例ID\", \"portName\": \"获取到的端口名称\"}"
+        },
+        "path": "100504.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID. 请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(6806)获取微服务实例ID，并按照JSON格式输出用户问题对应参数的结果",
+            "answer": "根据告警ID 6806 获取微服务实例ID的操作已经完成，微服务实例的相关信息包括实例号和端口名称。接下来，我们可以通过微服务实例名称获取其所在POD的名称，进一步分析问题。"
+        },
+        "path": "6806.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "DSP_UPDSTATUS",
+                    "description": "显示RU升级状态，用于查询RU的升级状态。",
+                    "arguments": {
+                        "RUNAME": "String RU名称, 可选",
+                        "STATUS": "String 状态, 可选",
+                        "SERVICEINSTANCE": "String 服务实例, 必选"
+                    },
+                    "results": "RU升级状态相关的信息，包括RU名称和状态"
+                }
+            ],
+            "user_question": "显示RU升级状态，对于服务实例vnfc，获取其RU的升级状态。",
+            "answer": "DSP UPDSTATUS:SERVICEINSTANCE=\"vnfc\"; \n\nRETCODE = 0  操作成功 \n\n结果如下 \n------------------------- \nRU名称                     状态\nVNODE_UGW_VNFC_OMU_0001    On\nVNODE_UGW_VNFC_OMU_0002    On\nVNODE_UGW_VNFC_SPU_0064    On\nVNODE_UGW_VNFC_SPU_0065    On\n(结果个数 = 4) \n---    END"
+        },
+        "path": "系统调测/升级维护/dsp_updstatus.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_PAENODE",
+                    "description": "通过微服务实例名称获取微服务所在POD的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务相关信息"
+                },
+                {
+                    "name": "DSP_POD",
+                    "description": "通过POD名称获取该POD所在NODE的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "podName": "String POD名称"
+                    },
+                    "results": "POD相关信息"
+                },
+                {
+                    "name": "DSP_NODE",
+                    "description": "通过NODE名称获取该NODE所在主机的名称.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "nodeName": "String NODE名称"
+                    },
+                    "results": "NODE相关信息"
+                },
+                {
+                    "name": "GetPhysicSwitchName",
+                    "description": "通过主机名称获取该主机所连接物理交换机的名称.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理交换机名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "GetPhysicSwitchDiscard",
+                    "description": "获取物理交换机的丢包信息.",
+                    "arguments": {
+                        "switchName": "String 物理交换机名称"
+                    },
+                    "results": "String 物理交换机的丢包信息"
+                },
+                {
+                    "name": "GetVswitchDiscard",
+                    "description": "获取虚拟交换机的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 虚拟交换机的丢包信息"
+                },
+                {
+                    "name": "GetPhysicNicDiscard",
+                    "description": "获取物理网卡的丢包信息.",
+                    "arguments": {
+                        "hostName": "String 主机名称"
+                    },
+                    "results": "String 物理网卡的丢包信息"
+                },
+                {
+                    "name": "DSP_PAEDISCARD",
+                    "description": "获取微服务实例所在POD的丢包信息. 在获取POD名称、NODE名称、主机名称和物理交换机名称后，查询微服务实例所在POD的丢包信息时调用此工具.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称"
+                    },
+                    "results": "微服务丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100155)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果",
+            "answer": "{ \"InstanceId\": \"微服务实例ID\", \"PortName\": \"端口名称\" }"
+        },
+        "path": "100155.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "tools_description": [
+                {
+                    "name": "GetInstanceIdByAlarm",
+                    "description": "根据告警ID获取微服务实例ID.  请在用户的问题需要检索定位根因时，调用该工具根据告警ID获取微服务实例名称以便进一步分析。",
+                    "arguments": {
+                        "alarmId": "String 告警ID"
+                    },
+                    "results": "String 告警相关信息，包括微服务实例号、端口名称"
+                },
+                {
+                    "name": "DSP_MSSPORTPMDDRV",
+                    "description": "获取端口PMD驱动的丢包信息.",
+                    "arguments": {
+                        "meid": "String 网元ID",
+                        "celltype": "String 微服务类型",
+                        "cellinstance": "String 微服务实例名称",
+                        "portname": "String 端口名称"
+                    },
+                    "results": "端口PMD驱动的丢包信息"
+                },
+                {
+                    "name": "Final Answer",
+                    "description": "回答用户的问题",
+                    "arguments": {
+                        "final_answer": "String 答案内容"
+                    }
+                }
+            ],
+            "user_question": "使用GetInstanceIdByAlarm工具，根据告警ID(100171)获取微服务实例ID，并按照JSON格式输出<用户问题>对应参数的结果。",
+            "answer": "{ \"alarmId\": \"100171\", \"microserviceInstanceId\": \"InstanceId12345\", \"portName\": \"PortA\" }"
+        },
+        "path": "100171.txt",
+        "template": "你可以调用各种用户自定义的工具来解决用户问题。你的任务是根据<工具描述>解决<用户问题>。\n<工具描述>:\n{tools_description}\n<用户问题>:\n{user_question}",
+        "version": "09021144"
+    }
+]

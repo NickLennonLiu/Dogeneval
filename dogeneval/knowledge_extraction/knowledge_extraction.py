@@ -1,4 +1,4 @@
-from dogeneval.knowledge_extraction.prompt import form_knowledge_point_extract_prompt
+from dogeneval.knowledge_extraction.prompt import form_knowledge_point_extract_prompt, form_knowledge_point_label_prompt
 
 from dogeneval.utils.llm.llms import get_openai_model, get_azure_model
 from dogeneval.utils.parser import try_parse_json
@@ -17,6 +17,7 @@ import argparse
 
 
 def knowledge_extraction(output_dir):
+    raise DeprecationWarning("This function is deprecated. Please use the other version.")
     output_dir = os.path.join(output_dir, "knowledge_points")
     os.makedirs(output_dir, exist_ok=True)
 
@@ -83,7 +84,7 @@ def load_docs_from_json(input_json):
         data = json.load(f)
     return data
 
-def knowledge_extraction(docs, name, output_dir):
+def knowledge_extraction(docs, name, output_dir, lang):
     os.makedirs(output_dir, exist_ok=True)
 
     version_str = datetime.datetime.now().strftime("%m%d%H%M")
@@ -96,7 +97,7 @@ def knowledge_extraction(docs, name, output_dir):
     ktasks, require_scene_ktasks = load_ktasks()
 
     for doc in tqdm(docs, desc="Processing documents"):
-        knowledge_extract_prompt = form_knowledge_point_extract_prompt(doc)
+        knowledge_extract_prompt = form_knowledge_point_extract_prompt(doc, lang)
         response = llm.chat_json(knowledge_extract_prompt)
 
         if response:
@@ -104,7 +105,7 @@ def knowledge_extraction(docs, name, output_dir):
         else:
             kps = []
         for kp in kps:
-            save_result(kp, collection_name=f'{name}-knowledge_points-{version_str}')
+            save_result(kp, collection_name=f'{name}-knowledge_points-{lang}-{version_str}', database="Knowledge_Points")
 
         save_knowledge_points.extend(kps)
     
@@ -117,7 +118,44 @@ def knowledge_extraction(docs, name, output_dir):
         'path': '路径',
     }, inplace=True)
 
-    df.to_excel(os.path.join(output_dir, f"{name}-knowledge_points-{version_str}.xlsx"))
+    df.to_excel(os.path.join(output_dir, f"{name}-knowledge_points-{lang}-{version_str}.xlsx"))
+
+def knowledge_labeling(docs, name, output_dir, lang):
+    os.makedirs(output_dir, exist_ok=True)
+
+    version_str = datetime.datetime.now().strftime("%m%d%H%M")
+
+    save_knowledge_points = []
+
+    llm = get_azure_model()
+    logger.info(llm.chat("测试API，请回复API Test Success"))
+
+    ktasks, require_scene_ktasks = load_ktasks()
+
+    for doc in tqdm(docs, desc="Processing documents"):
+        knowledge_extract_prompt = form_knowledge_point_label_prompt(doc, lang)
+        response = llm.chat_json(knowledge_extract_prompt)
+
+        if response:
+            kp = response
+            kp.update({
+                "content": doc['content'],
+                "path": doc['path'],
+            })
+            save_result(kp, collection_name=f'{name}-knowledge_points-{lang}-{version_str}', database="Knowledge_Points")
+
+            save_knowledge_points.append(kp)
+    
+    df = pd.DataFrame(save_knowledge_points)
+    df.rename(columns={
+        'title': '标题',
+        'type': '类型',
+        'description': '描述',
+        'content': '内容',
+        'path': '路径',
+    }, inplace=True)
+
+    df.to_excel(os.path.join(output_dir, f"{name}-knowledge_points-{lang}-{version_str}.xlsx"))
 
 if __name__ == "__main__":
     # input_json = "/home/junetheriver/codes/qa_generation/huawei/data/sampled_pages_200_txt.json"
@@ -127,12 +165,19 @@ if __name__ == "__main__":
     parser.add_argument("--input_json", type=str, required=True)
     parser.add_argument("--output_dir", type=str, required=True)
     parser.add_argument("--name", type=str, required=True)
+    parser.add_argument("--lang", type=str, required=True, choices=["en", "zh"])
+    parser.add_argument("--type", type=str, required=True, choices=["extract", "label"])
     args = parser.parse_args()
 
     input_json = args.input_json
     output_dir = args.output_dir
     name = args.name
+    lang = args.lang
+    type = args.type
     
     docs = load_docs_from_json(input_json)
     logger.info(f"docs: {len(docs)}")
-    knowledge_extraction(docs, name, output_dir)
+    if type == "extract":
+        knowledge_extraction(docs, name, output_dir, lang)
+    elif type == "label":
+        knowledge_labeling(docs, name, output_dir, lang)

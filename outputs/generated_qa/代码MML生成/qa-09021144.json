@@ -1,0 +1,1145 @@
+[
+    {
+        "question": {
+            "param_question": "参数：EXTENDQCI=145,PRIORITY=6; 标准QCI无需修改",
+            "answer": "START\nMOD EXTENDQCIMAP:EXTENDQCI=145,PRIORITY=6;\nEND"
+        },
+        "path": "QoS/扩展QCI功能/扩展QCI和标准QCI映射/mod_extendqcimap.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识为UPF_Instance_1，TAI为460001000002。",
+            "answer": "START\nADD PNFTAI: NFINSTANCEID=\"UPF_Instance_1\", TAI=\"460001000002\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF实例TAI信息/add_pnftai.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤区域组索引：2500；TACGROUP名称：128-3D90A0；TAC区域段：123077-123077",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2500, TACGROUPNAME=\"128-3D90A0\", TACSTART=\"123077\", TACEND=\"123077\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF实例GPSI信息/add_pnfgpsi.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：需要删除DHCP服务器组名称为group2的备DHCP服务器配置",
+            "answer": "START\nRMV DHCPSERVER:GROUPNAME=\"group2\",ISPRIMARY=DISABLE;\nEND"
+        },
+        "path": "UE地址管理/DHCP管理/DHCP服务器/rmv_dhcpserver.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：PDUESTCAUSE=30, CSRCAUSE=75, ACTPDPCAUSE=210",
+            "answer": "START\nSET SMFFCPARA: PDUESTCAUSE=30, CSRCAUSE=75, ACTPDPCAUSE=210;\nEND"
+        },
+        "path": "接入管理运维/流控管理/SMF流控参数/set_smffcpara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NRF功能实体号：Instanceid02；NRF功能实体描述：nfdescription03；管理状态：Unlocked；运行状态：Disabled；FQDN：fqdn03",
+            "answer": "START\nMOD NRFFUNCTION:INSTANCEID=\"Instanceid02\",NAME=\"nfdescription03\",ADMINSTATE=Unlocked,OPERATIONSTATE=Disabled,FQDN=\"fqdn03\";\nEND"
+        },
+        "path": "NRF性能对象管理/mod_nrffunction.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "配置Rel-8 QoS参数和Pre Rel-8 (R99/R98) QoS参数的映射规则，'QoS流量级别'值为'2'时，'业务类型'为'CONVERSATIONAL'，'通信处理优先级'为'NA'，'是否对信令传输进行优化'为'DONT_OPTIMIZE'，'源统计描述'为'UNKNOWN'，'最大SDU尺寸'为'1500'，'是否发送错误的SDU'为'NO_DETECT'，'传输时延'为'150'，'SDU误码率'为'EN_1E_3'，'残留比特误码率'为'EN_1E_5'。",
+            "answer": "START\nSET EPSQCI2PRER8: QCI=2, TRAFFICCLASS=CONVERSATIONAL, THP=NA, SIGNALIND=DONT_OPTIMIZE, SRCSTATDESC=UNKNOWN, MAXSDU=1500, DELIVERRORSDU=NO_DETECT, TRANSDELAY=150, SDUERRRATIO=EN_1E_3, RESIDUALBER=EN_1E_5;\nEND"
+        },
+        "path": "QoS/PreR8 QoS配置/EPS QCI映射到PreR8/set_epsqci2prer8.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "NF实例标识：AMF_Instance_2，服务实例标识：Service_Instance_1，通知类型：N2Info，回调URI：\"http://192.168.217.2:5080/ngmlc-loc/hgmlc/v1/provide-location\"，N2消息类别：N2Sm",
+            "answer": "START\nADD PNFSRVNTFSUBS: NFINSTANCEID=\"AMF_Instance_2\", SRVINSTANCEID=\"Service_Instance_1\", NTFICATIONTYPE=N2Info, CALLBACKURI=\"http://192.168.217.2:5080/ngmlc-loc/hgmlc/v1/provide-location\", N2INFOCLASS=N2Sm;\nEND"
+        },
+        "path": "本地NRF功能管理/对端服务实例回调管理/add_pnfsrvntfsubs.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例名称：AMF_Instance_1；服务实例标识：Service_Instance_1；服务名称：NamfComm；容量：50000",
+            "answer": "MOD NFSERVICE: NFINSTANCENAME=\"AMF_Instance_1\", SRVINSTANCEID=\"Service_Instance_1\", SERVICENAME=NamfComm, CAPACITY=50000;"
+        },
+        "path": "NF服务配置管理/mod_nfservice.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：TAIRPTPLCY = TAILIST",
+            "answer": "START\nSET AMFPROFILEPLCY: TAIRPTPLCY=TAILIST;\nEND"
+        },
+        "path": "AMF概述信息控制策略/set_amfprofileplcy.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#原因值组标识：127；原因值范围：SPECIAL；起始原始原因值：65000；目标原因值：37",
+            "answer": "START\nMOD SMCAUSEMAP: CAUSEGRPID=127, CAUSERANGE=SPECIAL, BGCAUSE=65000, TCAUSE=37;\nEND"
+        },
+        "path": "SM原因值管理/原因值映射管理/mod_smcausemap.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：豁免APN为\"example.com\"; ",
+            "answer": "START\nADD EXEMPTSERVICE: EXEMPTAPN=\"example.com\";\nEND"
+        },
+        "path": "分组数据离线状态管理/豁免业务配置/add_exemptservice.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤区域组索引：2435；TACGROUP名称：128-2C90A0；TAC区域段：123076-123076",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2435, TACGROUPNAME=\"\"128-2C90A0\"\", TACSTART=\"\"123076\"\", TACEND=\"\"123076\"\";\nEND"
+        },
+        "path": "AMF性能对象管理/add_ngtaigrpmem.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：POOLNAME=lap",
+            "answer": "START\nRMV ADDRPOOL: POOLNAME=\"lap\";\nEND"
+        },
+        "path": "UE地址管理/UE地址池管理/地址池管理/rmv_addrpool.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识：SMF_Instance_1，路由指示信息：1234",
+            "answer": "START\nADD PNFROUTEIND: NFINSTANCEID=\"SMF_Instance_1\", ROUTINGIND=\"1234\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF路由标识信息/add_pnfrouteind.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "删除APN为\"example.com\"的NBNS属性",
+            "answer": "START\nRMV APNNBNS: APN=\"example.com\";\nEND"
+        },
+        "path": "接入控制/DN网络DNS/NBNS选择管理/NBNS选择管理/APN的NBNS属性/rmv_apnnbns.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：CTRLTYPE=GLOBAL_LEVEL;QOS5QISTART=10;QOS5QIEND=15;QCI=5",
+            "answer": "START\nADD QOS5QI2QCIMAP:CTRLTYPE=GLOBAL_LEVEL,QOS5QISTART=10,QOS5QIEND=15,QCI=5;\nEND"
+        },
+        "path": "QoS/QoS映射/5QI到QCI映射/add_qos5qi2qcimap.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "设置全局IPv4地址分配规则，第一优先级规则开关设为使能并按照APN映射的地址范围内分配地址，第二优先级规则开关设为去使能，第三优先级规则开关设为去使能。",
+            "answer": "SET IPALLOCRULE: IPV4FIRSTRULESW=ENABLE, IPV4FIRSTRULE=APN-1, IPV4SECONDRULESW=DISABLE, IPV4THIRDRULESW=DISABLE;"
+        },
+        "path": "UE地址管理/UE地址池管理/地址分配规则配置/set_ipallocrule.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：MCC=\"460\",MNC=\"00\",CTRLTYPE=GLOBAL_LEVEL,MFBRUL=1000,MFBRDL=1000,QOSACTION=DEGRADE,ALLOWED5QIS=1,BINDALLOWED5QIS=ENABLE",
+            "answer": "START\nADD SMFNONDFTQOSCTL:MCC=\"460\",MNC=\"00\",CTRLTYPE=GLOBAL_LEVEL,MFBRUL=1000,MFBRDL=1000,QOSACTION=DEGRADE,ALLOWED5QIS=1,BINDALLOWED5QIS=ENABLE;\nEND"
+        },
+        "path": "QoS/5GC QoS配置/5GC非缺省Flow QoS/add_smfnondftqosctl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：输出类型：DETAIL；NF实例标识：\"udm_instance_0\"；起始号段：\"138100000000000\"；终止号段：\"138100000000001\"",
+            "answer": "%%LST PNFGPSI: OUTPUTTYPE=DETAIL, NFINSTANCEID=\"udm_instance_0\", RANGESTART=\"138100000000000\", RANGEEND=\"138100000000001\";;%%"
+        },
+        "path": "本地NRF功能管理/对端NF实例GPSI信息/lst_pnfgpsi.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：IGNOREHIFLAG设为ENABLE，S2BHANDOVER设为DISABLE",
+            "answer": "START\nSET GLOBALWIFILTEHO: IGNOREHIFLAG=ENABLE, S2BHANDOVER=DISABLE;\nEND"
+        },
+        "path": "接入控制/E-UTRAN和WLAN互操作控制/全局E-UTRAN和WLAN互操作控制/set_globalwifilteho.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "增加更新PDP流程，PCRF策略异常来源，拒绝原因值组号为10，响应超时导致流程拒绝原因值为\"#204 system failure\"。",
+            "answer": "ADD GGSNCAUSECTRL: PROCEDURETYPE=UPD_PDP_PROC, CAUSESOURCE=POLICY_PCRF, CAUSEREJGROUPID=10, CAUSEEXPIRATION=204;"
+        },
+        "path": "SM原因值管理/GTPv1 PDP流程原因值控制/add_ggsncausectrl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2560；TACGROUP名称：128-3D90B0；TAC区域段：123077-123077",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2560, TACGROUPNAME=\"128-3D90B0\", TACSTART=\"123077\", TACEND=\"123077\";\nEND"
+        },
+        "path": "虚拟APN映射管理/基于TAC位置的虚拟APN映射管理/虚拟APN映射的TAC组/add_tacgroup.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：流程类型=PDU_SESSION_MOD_PROC，异常来源=POLICY_PCF",
+            "answer": "START\nRMV SMFCAUSECTRL: PROCEDURETYPE=PDU_SESSION_MOD_PROC, NFTYPE=POLICY_PCF;\nEND"
+        },
+        "path": "SM原因值管理/5GC会话流程原因值控制/rmv_smfcausectrl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "查询扩展QCI和标准QCI的映射关系，指定\"扩展QCI\"为\"133\"",
+            "answer": "START\nLST EXTENDQCIMAP: EXTENDQCI=133;\nEND"
+        },
+        "path": "QoS/扩展QCI功能/扩展QCI和标准QCI映射/lst_extendqcimap.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#删除候选AMF（RMV CANDIDATEAMF）\\n\\n* 命令功能\\n* 注意事项\\n* 参数说明\\n* 使用实例\\n\\n## 命令功能\\n\\n**适用NF：NSSF**\\n\\n本命令用于删除候选AMF，取消AMF与AMFSET的关联关系。\\n\\n## 注意事项\\n\\n  * 该命令执行后立即生效。\\n\\n\\n  * 主备或双活组网的场景下，如果需要配置此命令，则两个NSSF上均需执行此命令，且配置参数一致。\\n\\n#### 操作用户权限\\nG_1，管理员级别命令组；G_2，操作员级别命令组\\n\\n## 参数说明\\n\\n参数标识 | 参数名称 | 参数说明\\n---|---|---\\nINDEX | 索引 |  可选必选说明：必选参数 参数含义：该参数用于描述命令的索引值。 数据来源：本端规划 取值范围：整数类型，取值范围是0~65535。 默认值：无 配置原则：无\\n\\n## 使用实例\\n\\n假如运营商希望删除已有的INDEX为1记录，取消INDEX为1的AMF与对应AMFSET的关联关系，执行下列命令。\\n\\n\\n    RMV CANDIDATEAMF: INDEX=1;",
+            "answer": "START\\nRMV CANDIDATEAMF: INDEX=1;\\nEND"
+        },
+        "path": "候选AMF配置管理/rmv_candidateamf.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2435；TACGROUP名称：128-2C90A0；TAC区域段：123076-123076",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2435, TACGROUPNAME=\"\"128-2C90A0\"\", TACSTART=\"\"123076\"\", TACEND=\"\"123076\"\";\nEND"
+        },
+        "path": "UE地址管理/UE地址池管理/基于UPF地址分配开关配置/set_ipallocbyupfglbsw.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识为AMF_Instance_1，MCC为460，MNC为01",
+            "answer": "START\nRMV PNFPLMN: NFINSTANCEID=\"AMF_Instance_1\", MCC=\"460\",MNC=\"01\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF实例PLMN管理/rmv_pnfplmn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：区域名称为\"shanghai\"，需要删除名为\"shanghai\"的区域性能统计对象",
+            "answer": "START\nRMV PERFREGION: REGNAME=\"shanghai\";\nEND"
+        },
+        "path": "SMF性能对象管理/rmv_perfregion.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "查询类型为MSISDN，MSISDN为8613587000001，无线网络类型为NW2G3G4G，承载/网络业务接入点标识为1的会话QoS信息。",
+            "answer": "%%DSP SESSIONQOSINFO: QUERYTYPE=MSISDN, MSISDN=\"8613587000001\", WLNETWKTYPE=NW2G3G4G, EBIORNSAPI=1;%%"
+        },
+        "path": "接入管理运维/查询会话QoS信息/dsp_sessionqosinfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "删除NCG功能实例信息，参数：NF实例号为“b”",
+            "answer": "START\nRMV NCGFUNCTION: INSTANCEID=\"b\";\nEND"
+        },
+        "path": "NCG性能对象管理/rmv_ncgfunction.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "将“移动国家码”为“460”，“移动网号”为“01”，控制类型为DNN_LEVEL，DNN为\"internet\"，缺省QoS类型为NONGBR，标准5QI为5，ARP的优先级别为3，ARP的抢占能力为MAY_PREEMPT，ARP的被抢占能力为NOT_PREEMPTABLE，上行Session AMBR为1000，下行Session AMBR为2000的QoS配置进行修改。",
+            "answer": "START\nMOD VSMFDFTQOSCTRL: MCC=\"460\", MNC=\"01\", CTRLTYPE=DNN_LEVEL, DNN=\"internet\", DFTQOSTYPE=NONGBR, QOS5QI=5, ARPPL=3, ARPPCI=MAY_PREEMPT, ARPPVI=NOT_PREEMPTABLE, AMBRUL=1000, AMBRDL=2000;\nEND"
+        },
+        "path": "VSMF QoS管理/VPLMN QoS协商/mod_vsmfdftqosctrl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：CSTYPE=SMC_SM,PROCTYPE=\"ProcedureTypeN4DdnReportAsHsmfN11\",INITMSGTYPE=\"InitialMsgTypeUpdateSmContextReq\";RULE=\"{}\"",
+            "answer": "MOD SMFCONFLICTRULE: CSTYPE=SMC_SM,PROCTYPE=\"ProcedureTypeN4DdnReportAsHsmfN11\",INITMSGTYPE=\"InitialMsgTypeUpdateSmContextReq\";RULE=\"{}\""
+        },
+        "path": "接入控制/业务功能灵活控制/冲突策略管理/mod_smfconflictrule.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#删除NF支持服务区信息（RMV NFSRVSCOPE）\n\n##命令功能\n\n**适用NF：AMF、SMF、NRF、NSSF、SMSF、NCG**\n\n该命令用于删除NF实例支持的服务区信息。\n\n##注意事项\n\n该命令执行后立即生效。\n\n####操作用户权限\n\nG_1，管理员级别命令组；G_2，操作员级别命令组\n\n##参数说明\n\n参数标识 | 参数名称 | 参数说明\n---|---|---\nNFINSTANCENAME | NF实例名称 |  可选必选说明：必选参数 参数含义：本参数用于指定NF实例名称。 数据来源：全网规划 取值范围：字符串类型，输入长度范围是0~50。 默认值：无 配置原则： 本参数需要与ADD NFUUID命令中的NFINSTANCENAME值保持一致。 \nSCOPENAME | 服务区名称 |  可选必选说明：必选参数 参数含义：本参数用于指定服务区名称。 数据来源：全网规划 取值范围：字符串类型，输入长度范围是0~50。 默认值：无 配置原则： 本参数的构成字符只能是字母A～Z或a～z、数字0～9、中划线\"-\"和下划线\"_\"，例如，City_A。 \n\n##使用实例\n\n运营商A需要在NFINSTANCENAME为AMF_Instance_0的NF实例下删除服务区名称CityA。",
+            "answer": "RMV NFSRVSCOPE: NFINSTANCENAME=\"AMF_Instance_0\", SCOPENAME=\"CityA\";"
+        },
+        "path": "服务区管理/rmv_nfsrvscope.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NONIPSWITCH=ENABLE",
+            "answer": "START\nSET NONIPFUNC: NONIPSWITCH=ENABLE;\nEND"
+        },
+        "path": "M2M/全局Non-IP配置/set_nonipfunc.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：GRPNAME = \"grp1\"",
+            "answer": "START\nLST SMFAPNGRP:GRPNAME=\"grp1\";\nEND"
+        },
+        "path": "APN管理/APN组管理/lst_smfapngrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：MULDNNIDLETIMER=1000, IPCONFLICTCHECK=ENABLE, IPCONFLICTPASS=DROPRULE, MULSESSIONSW=ENABLE, FEACONFPRI=MULTIDNN",
+            "answer": "START\nSET MULTIDNNCTRL: MULDNNIDLETIMER=1000, IPCONFLICTCHECK=ENABLE, IPCONFLICTPASS=DROPRULE, MULSESSIONSW=ENABLE, FEACONFPRI=MULTIDNN;\nEND"
+        },
+        "path": "本地分流管理/2B2C双DNN控制/set_multidnnctrl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "修改APN名称为\"internet\"的地址分配属性，具体参数为：IPV4分配方式设为LOCAL，不优先使用AAA下发地址，IPV6分配方式设为RADIUS，优先使用AAA下发地址。",
+            "answer": "START\nSET APNADDRESSATTR: APN=\"internet\", IPV4ALLOCTYPE=LOCAL, IPV4RADIUSPRIOR=DISABLE, IPV6ALLOCTYPE=RADIUS, IPV6RADIUSPRIOR=ENABLE;\nEND"
+        },
+        "path": "APN管理/基于APN的地址管理控制参数/set_apnaddressattr.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2450；TACGROUP名称：128-3B8D50；TAC区域段：123077-123077",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2450, TACGROUPNAME=\"128-3B8D50\", TACSTART=\"123077\", TACEND=\"123077\";\nEND"
+        },
+        "path": "TAC分组配置管理/add_tacgroupinnssf.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：最大TAI切片数量设置为50000",
+            "answer": "START\nSET NSSFBIGPKGPARA: MAXTAINSNUM=50000;\nEND"
+        },
+        "path": "NSSF功能参数配置/set_nssfbigpkgpara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：映射名称：two，地址池组名称：spoolgrp2，位置区组类型：TAC，位置区组名称：tacgrp1，APN名称：apn1",
+            "answer": "START\nADD POOLGRPMAP: MAPPINGNAME=\"two\", POOLGRPNAME=\"spoolgrp2\", LOCATIONGRPTYPE=\"TAC\", LOCATIONGRPNAME=\"tacgrp1\", APN=\"apn1\";\nEND"
+        },
+        "path": "地址池组映射配置/add_poolgrpmap.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：example.com；UPF实例标识：upf123",
+            "answer": "START\nRMV APNUPFINFO:APN=\"example.com\",UPFINSTANCEID=\"upf123\";\nEND"
+        },
+        "path": "APN UPF信息管理/rmv_apnupfinfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：PLMN=\"46003\"，RANNODETYPE=GNB，RANNODEID=327697，NODEIDLEN=24，RANGRPNAME=\"group1\"",
+            "answer": "START\nADD FAULTRANBINDGRP: PLMN=\"46003\", RANNODETYPE=GNB, RANNODEID=327697, NODEIDLEN=24, RANGRPNAME=\"group1\";\nEND"
+        },
+        "path": "UP故障管理/N3接口故障RAN组绑定管理/add_faultranbindgrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：apn1；接入模式：NON_TRANS；鉴权模式：MSISDN；鉴权密码：*****；PCO优先级：ENABLE；二次鉴权：ENABLE；COA开关：ENABLE；DM开关：DISABLE；AAA鉴权服务器无响应处理：CONTINUE；在线保持时长：10分钟；随机延迟范围：5分钟；密码使用PCO：DISABLE；确认鉴权密码：*****；使用UDM签约数据参与决策：DISABLE；使用UDM签约的AAA地址：DISABLE；2/3/4G场景下是否进行鉴权：ENABLE；AAA鉴权服务器回复Access Reject处理：DEACTIVE；未响应鉴权请求时Bypass会话插入ULCL：SUPPORT；回复reject时Bypass会话插入ULCL：NOTSUPPORT。",
+            "answer": "START\nSET APNAUTHATTR: APN=\"apn1\", ACCESSMODE=NON_TRANS, AUTHMODE=MSISDN, PASSWORD=\"*****\", PCOPRIORITY=ENABLE, SECONDAUTH=ENABLE, COASWITCH=ENABLE, DISCONNECT=DISABLE, AAANORSPCTRL=CONTINUE, HOLDINGTIME=10, ADJUSTRANGE=5, PWDUSEPCO=DISABLE, CFMPASSWORD=\"*****\", UDMSUBAUTHSW=DISABLE, USEUDMAAAIP=DISABLE, GULAUTHSW=ENABLE, AAAREJECTCTRL=DEACTIVE,NORSPBYPASSULCL=SUPPORT, REJBYPASSULCL=NOTSUPPORT;\nEND"
+        },
+        "path": "APN管理/APN鉴权属性/set_apnauthattr.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#增加NRF的FQDN；索引：2；MCC：\"460\"；MNC：\"01\"；SST：2；FQDN：\"NSSF-LB02.NSSF-HB72.NSSF.EPC.MNC001.MCC308.3GPPNETWORK.ORG\"",
+            "answer": "START\nADD NRFFQDN: INDEX=2, MCC=\"460\", MNC=\"01\", SST=2, FQDN=\"NSSF-LB02.NSSF-HB72.NSSF.EPC.MNC001.MCC308.3GPPNETWORK.ORG\";\nEND"
+        },
+        "path": "NRF FQDN配置管理/add_nrffqdn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：isp，M2M服务器组名称：m2msrvgroup01",
+            "answer": "START\nRMV M2MSVRGRPBIND: APN=\"isp\", GROUPNAME=\"m2msrvgroup01\";\nEND"
+        },
+        "path": "M2M/M2M服务器组绑定关系/rmv_m2msvrgrpbind.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2435；LACGROUP名称：128-2C90A0；LAC区域段：123076-123076",
+            "answer": "START\nADD ADDRLACGROUPINNSSF:INDEX=2435, LACGROUPNAME=\"128-2C90A0\", LACSTART=\"123076\", LACEND=\"123076\";\nEND"
+        },
+        "path": "UE地址管理/UE地址池管理/地址分配位置区管理/地址分配LAC组/lst_addrlacgroup.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "将本端网元的服务发现策略设置为'LOCAL_FIRST'，SCPDOMAIN设置为'domain2'，SCPDOMAIN开关设置为'ON'，发现周期设置为300分钟。",
+            "answer": "START\nSET SCPPARA: DISCPOLICY=LOCAL_FIRST, SCPDOMAIN=domain2, SCPDOMAINSW=ON, DISCPERIOD=300;\nEND"
+        },
+        "path": "本地NRF功能管理/SCP信息管理/set_scppara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：虚拟UPF实例标识：v_upf2；功能名称：MULDNN",
+            "answer": "START\nADD VUPFIDBINDFUNC:VUPFINSTANCEID=\"v_upf2\",FUNCNAME=MULDNN;\nEND"
+        },
+        "path": "虚拟UPF管理/功能绑定管理/add_vupfidbindfunc.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#对端局向NF实例号：bf33a517-7789-4637-b675-b3591b0d706b；本端IP地址：10.20.3.4；对端IP地址：10.20.3.5",
+            "answer": "START\nADD PEERNFIPLIST: NFINSTANCEID=\"bf33a517-7789-4637-b675-b3591b0d706b\", LOCALIP=\"10.20.3.4\", PEERIP=\"10.20.3.5\";\nEND"
+        },
+        "path": "AMF性能对象管理/add_peernfiplist.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：example.com；DHCPV4DEFER：ENABLE；INFINITELEASE：DISABLE；LEASEDAY：7；LEASEHOUR：2；LEASEMINUTE：30；DHCPV6STATELESS：ENABLE",
+            "answer": "START\nSET APNDHCPATTR: APN=\"example.com\", DHCPV4DEFER=ENABLE, INFINITELEASE=DISABLE, LEASEDAY=7, LEASEHOUR=2, LEASEMINUTE=30, DHCPV6STATELESS=ENABLE;\nEND"
+        },
+        "path": "APN管理/APN的DHCP属性/set_apndhcpattr.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "PSA UPF实例名称：upf_none",
+            "answer": "START\nRMV PSAUPFBINDATSSS: PSAUPFINSTNAME=\"upf_none\";\nEND"
+        },
+        "path": "UPF选择管理/PSA绑定ATSSS/rmv_psaupfbindatsss.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "查询一个名为“internet.com”的用户APN和与之对应的上报APN之间的映射关系。",
+            "answer": "%%LST SPECIFICAPNVAL: SUBSCRIBERAPN=\"internet.com\";%%\nRETCODE = 0  操作成功\n\n结果如下\n--------\n                      用户APN  =  internet.com\n     是否只对漫游用户生效开关  =  不使能\n    PCRF交互消息使用的映射APN  =  pcrf\n          CG话单使用的映射APN  =  NULL\n     OCS交互消息使用的映射APN  =  NULL\n     AAA计费消息使用的映射APN  =  NULL\n     AAA鉴权消息使用的映射APN  =  NULL\n     AAA鉴权消息使用的映射APN是否大小写敏感  =  大小写不敏感\n     CHF交互消息使用的映射APN  =  NULL\n     PCF交互消息使用的映射APN  =  NULL\n\n(结果个数 = 1)\n\n---    END"
+        },
+        "path": "APN管理/周边接口呈现APN策略管理/指定上报的APN/lst_specificapnval.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识：AMF_Instance_2，AMF区域标识：01，AMF组标识：002",
+            "answer": "START\nADD PNFAMFINFO: NFINSTANCEID=\"AMF_Instance_2\", AMFREGIONID=\"01\", AMFSETID=\"002\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端AMF信息管理/add_pnfamfinfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：MOC=DNN, RULERANGE=SPECIFICMOI, MOIID=\"internet\", RPTRANGE=KEY",
+            "answer": "START\nMOD PERFRPTRANGE: MOC=DNN, RULERANGE=SPECIFICMOI, MOIID=\"internet\", RPTRANGE=KEY;\nEND"
+        },
+        "path": "性能统计上报范围管理/mod_perfrptrange.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：example.com；用户的接入速率：500",
+            "answer": "START\nSET APNACCESSWAL:APN=\"example.com\",WALNUMBER=500;\nEND"
+        },
+        "path": "APN管理/APN接入速率/set_apnaccesswal.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：MCC=460,MNC=00,CTRLTYPE=GLOBAL_LEVEL",
+            "answer": "START\nRMV SMFNONDFTQOSCTL:MCC=\"460\",MNC=\"00\",CTRLTYPE=GLOBAL_LEVEL;\nEND"
+        },
+        "path": "QoS/5GC QoS配置/5GC非缺省Flow QoS/rmv_smfnondftqosctl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#查询计费特征值；计费特征组名称：c2",
+            "answer": "START\nLST CCVALUE: CCGROUPNAME=\"c2\";\nEND"
+        },
+        "path": "GGSN和P-GW Proxy/计费特征值/lst_ccvalue.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "NF实例标识为SMF_Instance_1，服务实例标识为Service_Instance_1，APIURI版本号为v2，Api完整版本为2.0.0。",
+            "answer": "RMV PNFSERVICEVER: NFINSTANCEID=\"SMF_Instance_1\", SRVINSTANCEID=\"Service_Instance_1\", APIVERSIONINURI=\"v2\",APIFULLVERSION=\"2.0.0\";"
+        },
+        "path": "本地NRF功能管理/对端服务实例版本信息管理/rmv_pnfservicever.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：地址池名称：pool2；地址段号：1；IP地址类型：IPv4；IPv4起始地址：10.0.0.0；IPv4结束地址：10.0.1.255",
+            "answer": "START\nADD SECTION:POOLNAME=\"pool2\",SECTIONNUM=1,IPVERSION=IPv4,V4STARTIP=\"10.0.0.0\",V4ENDIP=\"10.0.1.255\";\nEND"
+        },
+        "path": "地址段管理/add_section.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#用户QoS索引：5；最高业务级别：INTERACTIVE；超过最高业务级别时的处理：REJECT",
+            "answer": "START\nADD PRER8SUBQOS: SUBQOSINDEX=5, HIGHESTTC=INTERACTIVE, ACTION=REJECT;\nEND"
+        },
+        "path": "QoS/PreR8 QoS配置/本地PreR8 QoS/add_prer8subqos.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：地址池组名称：poolgroup1；地址池名称：pool1；地址池优先级：15",
+            "answer": "START\nMOD POOLBINDGRP: POOLGRPNAME=\"poolgroup1\", POOLNAME=\"pool1\", PRIORITY=15;\nEND"
+        },
+        "path": "UE地址管理/UE地址池管理/地址池组管理/mod_poolbindgrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：QoS Profile名称为\"QoS_Profile_1\"，业务级别为\"STM_GBR_MORE25K\"，用户级别为\"NORMAL\"，标记类型为\"TOS\"，TOS值为5。",
+            "answer": "START\nADD PRER8REMARK: QOSPROFILENAME=\"QoS_Profile_1\", SERVICELEVEL=STM_GBR_MORE25K, USERPRIORITY=NORMAL, REMARKTYPE=TOS, TOSVALUE=5;\nEND"
+        },
+        "path": "QoS/PreR8 QoS配置/PreR8 Qos映射ToS/DSCP/add_prer8remark.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：服务节点组名称：\"huawei\"；服务节点IP地址段编号：2；",
+            "answer": "START\nRMV SRVNODEIP:GROUPNAME=\"huawei\",IPSECTIONID=2;\nEND"
+        },
+        "path": "虚拟APN映射管理/基于对接IP地址的虚拟APN映射管理/服务节点组的服务节点IP段/rmv_srvnodeip.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：example.com；有QoS Profile：DISABLE；QoS Profile名：NULL；AAA和PCRF共同协商QoS：DISABLE；带宽控制开关：INHERIT",
+            "answer": "START\nSET APNQOSATTR:APN=\"example.com\", HASQOSPROFILE=DISABLE, QOSPROFILENAME=NULL, RDSANDPCCNEGO=DISABLE, BWCTRL=INHERIT;\nEND"
+        },
+        "path": "QoS/APN的QoS属性/set_apnqosattr.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤区域组索引：2500；TAIMCC：460；TAIMNC：20；SST：1；SDSTART：010101；SDEND：01FFFF；MCC：460；MNC：03；AMFREGIONID：01；AMFSETID：001",
+            "answer": "START\nADD NSSFDFTAMFSET: INDEX=2500, TAIMCC=\"460\", TAIMNC=\"20\", SST=1, SDSTART=\"010101\", SDEND=\"01FFFF\", MCC=\"460\", MNC=\"03\", AMFREGIONID=\"01\", AMFSETID=\"001\";\nEND"
+        },
+        "path": "AMF集合配置管理/add_nssfdftamfset.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：REGIONSTARTBIT=10,REGIONENDBIT=15,PROVSTARTBIT=18,PROVENDBIT=23",
+            "answer": "START\nSET NFREGIONINFO: REGIONSTARTBIT=10,REGIONENDBIT=15,PROVSTARTBIT=18,PROVENDBIT=23;\nEND"
+        },
+        "path": "NF概述信息管理/set_nfregioninfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤区域组索引：1500；TAC区域起点值：000001；TAC区域结束值：000100",
+            "answer": "START\nADD TACRANGE: INDEX=1500, RANGESTART=\"000001\", RANGEEND=\"000100\";\nEND"
+        },
+        "path": "NF TAC区域信息管理/add_tacrange.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤NF实例号：a；话单处理容量：900",
+            "answer": "START\nADD NCGFUNCTION: INSTANCEID=\"a\", CDRPROCCAP=900;\nEND"
+        },
+        "path": "NCG性能对象管理/add_ncgfunction.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤区域组索引：3000；NFINSTANCEID：SMF_Instance_1；SST：2；SD：000002",
+            "answer": "START\nADD PNFNS: INDEX=3000, NFINSTANCEID=\"SMF_Instance_1\", SST=2, SD=\"000002\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF实例切片信息管理/add_pnfns.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "查询基于ARP的DDN消息优先级配置，参数：ARP数值=10",
+            "answer": "START\nLST DDNPRIORITYARP: ARP=10;\nEND"
+        },
+        "path": "接入管理运维/流控管理/基于ARP的DDN消息优先级管理/lst_ddnpriorityarp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：SGW-U实例名称：UPF1；S11口地址类型：IPv4；S11口IPv4地址：192.168.1.2；S11口优先级：2",
+            "answer": "START\nMOD UPBINDS11: NFINSTANCENAME=\"UPF1\",S11IPTYPE=Ipv4,S11IPV4=\"192.168.1.2\",PRIORITY=2;\nEND"
+        },
+        "path": "UPF选择管理/UPF绑定S11接口/mod_upbinds11.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "设置UP故障处理系统参数，故障迁移速率(个/秒)为2000",
+            "answer": "START\nSET UPFAULTOPERPARA: UPMIGRATE=2000;\nEND"
+        },
+        "path": "本地分流管理/辅锚点故障迁移/set_upfaultoperpara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：用户范围为MSISDN_PRE，前缀为13800，IP地址版本类型为IPV6，IPv6地址为2001:db8::1",
+            "answer": "START\nRMV HOMEPGWIP: SUBRANGE=MSISDN_PRE, PREFIX=\"13800\", IPVERSION=IPV6, HOMEIPV6=\"2001:db8::1\";\nEND"
+        },
+        "path": "Proxy SGW管理/归属地PGW-C IP地址/rmv_homepgwip.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：UPF实例名称：UPF2；DNN名称：example.com；过滤组ID：5",
+            "answer": "START\nRMV UPFILTER: NFINSTANCENAME=\"UPF2\", DNN=\"example.com\", FILTERGPID=5;\nEND"
+        },
+        "path": "UP过滤组绑定管理/rmv_upfilter.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：IPVERSION=IPV4, SRVNODESTARTV4=\"192.168.1.1\", SRVNODEENDV4=\"192.168.1.254\", RATTYPE=UTRAN",
+            "answer": "START\nADD SRVNODERAT: IPVERSION=IPV4, SRVNODESTARTV4=\"192.168.1.1\", SRVNODEENDV4=\"192.168.1.254\", RATTYPE=UTRAN;\nEND"
+        },
+        "path": "接入控制/获取RAT管理/IP地址映射RAT/add_srvnoderat.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤区域组索引：1024；TACGROUP名称：128-2C90B0；TAC区域段：123077-123077",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=1024, TACGROUPNAME=\"128-2C90B0\", TACSTART=\"123077\", TACEND=\"123077\";\nEND"
+        },
+        "path": "服务支持的切片配置管理/add_allowednfns.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：Patch更新缓存最大数量：8；Patch更新缓存定时器时长(分钟)：15",
+            "answer": "START\nSET NFUPDATE: CACHENUM=8, CACHETIMERLEN=15;\nEND"
+        },
+        "path": "本地NRF功能管理/NF更新管理/set_nfupdate.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：DNAI = \"example.com.dnai\" ",
+            "answer": "START\nRMV ISMFDNAI: DNAI=\"example.com.dnai\";\nEND"
+        },
+        "path": "DNAI管理/I-SMF DNAI管理/rmv_ismfdnai.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识为AMF_Instance_1，服务实例标识为Service_Instance_1，SST为2，SD为020202",
+            "answer": "START\nRMV PNFALLOWEDNFNS: NFINSTANCEID=\"AMF_Instance_1\", SRVINSTANCEID=\"Service_Instance_1\", SST=2, SD=\"020202\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF服务切片信息管理/rmv_pnfallowednfns.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤索引：100；切片业务类型：eMBB；切片细分标识：010101；地址池名称：pool1",
+            "answer": "START\nADD PERFSLCADDRPOOL: IDX=100, SST=\"1\", SD=\"010101\", POOLNAME=\"pool1\";\nEND"
+        },
+        "path": "SMF性能对象管理/add_perfslcaddrpool.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：exampleAPN，APN速率控制开关：ENABLE，上行时间单位：HOUR，最大上行速率：5000，下行时间单位：HOUR，最大下行速率：5000",
+            "answer": "START\nSET APNRATECTRL: APN=\"exampleAPN\", APNRATECTRLSW=ENABLE, ULTIMEUNIT=HOUR, MAXULRATE=5000, DLTIMEUNIT=HOUR, MAXDLRATE=5000;\nEND"
+        },
+        "path": "速率控制/APN速率控制/APN速率控制配置/set_apnratectrl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤修改NF订阅条件：目标NF类型为NfNSSF，订阅条件为NfInstanceId，通知事件为NF_REGISTERED。",
+            "answer": "MOD SUBCONDITION: NFTYPE=NfNSSF, CONDITION=NfInstanceId-1&NFType-0&ServiceName-0&AmfRegionId-0&AmfSetId-0&GuamiList-0&PlmnId-0&NetworkSlice-0&NfGroup-0&Rev1-0&Rev2-0&Rev3-0, REQNOTIFEVENT=NF_REGISTERED-1&NF_DEREGISTERED-0&NF_PROFILE_CHANGED-0;"
+        },
+        "path": "NRF管理/NRF参数管理/注册与订阅管理/mod_subcondition.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "运营商B需要在标识为AMF_Instance_1的NF实例下配置服务实例：服务实例名称为Service_Instance_1，服务名为NamfComm。",
+            "answer": "ADD NFSERVICE: NFINSTANCENAME=\"AMF_Instance_1\", SRVINSTANCEID=\"Service_Instance_1\", SERVICENAME=NamfComm, NFSERVICESTATUS=REGISTERED;"
+        },
+        "path": "NF服务配置管理/add_nfservice.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：最大通知重传次数：1000；通知重传执行周期(分钟)：50；重传响应码列表：\"429.500.503.504\"。",
+            "answer": "START\nSET NSSFNTRSDPARA: MAXRESENDTIMES=1000, RESENDPERIOD=50, RESENDCODELIST=\"429.500.503.504\";\nEND"
+        },
+        "path": "NSSF通知重传参数配置/set_nssfntrsdpara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2500；TACGROUP名称：128-3D80B0；TAC区域段：123077-123077",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2500, TACGROUPNAME=\"128-3D80B0\", TACSTART=\"123077\", TACEND=\"123077\";\nEND"
+        },
+        "path": "地址池组映射配置/rmv_poolgrpmap.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：DNAI=\"example.com\", SHAREDPRIFLAG=ENABLE, PRIORITYFLAG=DISABLE, LOADFLTFLAG=INHERIT",
+            "answer": "MOD DNAIUPSELPLY: DNAI=\"example.com\", SHAREDPRIFLAG=ENABLE, PRIORITYFLAG=DISABLE, LOADFLTFLAG=INHERIT;"
+        },
+        "path": "UPF选择管理/DNAI粒度的优选UPF开关控制/mod_dnaiupselply.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2510；TACGROUP名称：128-3D90A0；TAC区域段：123077-123077",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2510, TACGROUPNAME=\"128-3D90A0\", TACSTART=\"123077\", TACEND=\"123077\";\nEND"
+        },
+        "path": "地址分配位置区管理/地址分配S1TAC段/rmv_addrs1tacid.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：DNN数据网络名称：\"example.com\"，移动国家码MCC：\"123\"，移动网号MNC：\"01\"，网络切片SNSSAI：\"2-020202\"",
+            "answer": "START\nADD PERFDNN: DNN=\"example.com\", MCC=\"123\", MNC=\"01\", SNSSAI=\"2-020202\";\nEND"
+        },
+        "path": "SMF性能对象管理/add_perfdnn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤区域组索引：2435；TACGROUP名称：128-2C90A0；TAC区域段：123076-123076",
+            "answer": "START\nADD TACGROUPINNSSF:INDEX=2435, TACGROUPNAME=\"128-2C90A0\", TACSTART=\"123076\", TACEND=\"123076\";\nEND"
+        },
+        "path": "NSSF功能时长管理/set_nssffunctimer.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NFTYPE=NRF, NRFINSTANCENAME=\"NRF_Instance_0\", PRIORITY=50",
+            "answer": "START\nMOD NFREGNRF: NFTYPE=NRF, NRFINSTANCENAME=\"NRF_Instance_0\", PRIORITY=50;\nEND"
+        },
+        "path": "NRF管理/NRF配置管理/NF与NRF注册关系/mod_nfregnrf.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：用户范围为MSISDN_PRE，前缀为138，IP地址类型为IPV6，IPv6地址为2001:db8::1，描述信息为中国移动。",
+            "answer": "MOD HOMEPGWIP: SUBRANGE=MSISDN_PRE, PREFIX=\"138\", IPVERSION=IPV6, HOMEIPV6=\"2001:db8::1\", DESC=\"中国移动\";"
+        },
+        "path": "Proxy SGW管理/归属地PGW-C IP地址/mod_homepgwip.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#增加对端NF允许的PLMN信息；NF实例标识：SMF_Instance_1；服务实例标识：Service_Instance_1；移动国家码：460；移动网号：02",
+            "answer": "START\nADD PNFALLOWEDPLMN: NFINSTANCEID=\"SMF_Instance_1\", SRVINSTANCEID=\"Service_Instance_1\", MCC=\"460\", MNC=\"02\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF的PLMN信息管理/add_pnfallowedplmn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：地址池名称：pool2；地址段号：1",
+            "answer": "START\nRMV SECTION:POOLNAME=\"pool2\",SECTIONNUM=1;\nEND"
+        },
+        "path": "UE地址管理/UE地址池管理/地址段管理/rmv_section.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：地址池组名称：spoolgrp2，地址池组类型：Local，IPv4基于地址池优先级分配地址算法：Enable，IPv6基于地址池优先级分配地址算法：Disable",
+            "answer": "START\nADD ADDRPOOLGRP: POOLGRPNAME=\"spoolgrp2\", POOLGRPTYPE=Local, IPV4ALLOCPRIALG=Enable, IPV6ALLOCPRIALG=Disable;\nEND"
+        },
+        "path": "地址池组管理/add_addrpoolgrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：POOLNAME=lap, APN=huawei.com",
+            "answer": "START\nLST POOLBINDAPN:APN=\"huawei.com\", POOLNAME=\"lap\";\nEND"
+        },
+        "path": "UE地址管理/UE地址池管理/地址池绑定APN/lst_poolbindapn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：huawei.com；5G用户QoS索引：5",
+            "answer": "START\nADD APNQOSBYPASS:APN=\"huawei.com\",SUBQOSINDEX=5;\nEND"
+        },
+        "path": "QoS/5GC QoS配置/5GC UDM全故障Qos/add_apnqosbypass.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤目标NF组索引：456；",
+            "answer": "START\nRMV TNFGRP: TNFGRPINDEX=456;\nEND"
+        },
+        "path": "本地NRF功能管理/目标NF组管理/rmv_tnfgrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "#步骤网络切片索引：750；数据网络名称：example.com；EPS互操作默认切片指示：YES",
+            "answer": "START\nMOD NSDNN: NSIDX=750, DNN=\"example.com\", DEFIWKIND=YES;\nEND"
+        },
+        "path": "网络切片内DNN管理/mod_nsdnn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：UPF组名称：upfgrp2，APN类型：SPECIAL_APN，APN名称：myapn1",
+            "answer": "START\nRMV UEDNSBINDUPGRP: UPFGRPNAME=\"upfgrp2\",APNTYPE=\"SPECIAL_APN\",APN=\"myapn1\";\nEND"
+        },
+        "path": "接入控制/DN网络DNS/NBNS选择管理/DNS选择管理/UPF组DNS域名策略/rmv_uednsbindupgrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：DHCP服务器组名称：group2；是否是主DHCP服务器：ENABLE；IP地址类型：IPV4；DHCPv4服务器IP地址：10.1.1.2",
+            "answer": "START\nADD DHCPSERVER:GROUPNAME=\"group2\",ISPRIMARY=ENABLE,IPVERSION=IPV4,V4IPADDRESS=\"10.1.1.2\";\nEND"
+        },
+        "path": "UE地址管理/DHCP管理/DHCP服务器/add_dhcpserver.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "PSA UPF实例名称：upf_none；ATSSS UPF实例名称：upf_atsss_2",
+            "answer": "START\nMOD PSAUPFBINDATSSS: PSAUPFINSTNAME=\"upf_none\", ATSSSINSTNAME=\"upf_atsss_2\";\nEND"
+        },
+        "path": "UPF选择管理/PSA绑定ATSSS/mod_psaupfbindatsss.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#删除支持的S-NSSAI（RMV CFGSNSSAI）；索引：2；",
+            "answer": "START\nRMV CFGSNSSAI: INDEX=2;\nEND"
+        },
+        "path": "S-NSSAI配置管理/rmv_cfgsnssai.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：MCC为460，MNC为01",
+            "answer": "START\nRMV CACHEWHITELST: MCC=\"460\",MNC=\"01\";\nEND"
+        },
+        "path": "NF Cache管理/rmv_cachewhitelst.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "MCC=\"460\", MNC=\"00\", CTRLTYPE=GLOBAL_LEVEL, DNN=\"\", DFTQOSTYPE=NONGBR, QOS5QI=5, ARPPL=1, ARPPCI=NOT_PREEMPT, ARPPVI=PREEMPTABLE, AMBRUL=1000, AMBRDL=1000;",
+            "answer": "START\nADD VSMFDFTQOSCTRL: MCC=\"460\", MNC=\"00\", CTRLTYPE=GLOBAL_LEVEL, DNN=\"\", DFTQOSTYPE=NONGBR, QOS5QI=5, ARPPL=1, ARPPCI=NOT_PREEMPT, ARPPVI=PREEMPTABLE, AMBRUL=1000, AMBRDL=1000;\nEND"
+        },
+        "path": "VSMF QoS管理/VPLMN QoS协商/add_vsmfdftqosctrl.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "设置服务化接口负载控制参数，需要配置负载控制开关为开启状态，负载通知阈值为85%，负载通知步长为7%，负载获取间隔时长为10分钟。",
+            "answer": "START\nSET SBILCIPARA: SWITCH=ON, THRESHOLD=85, STEPS=7, INTERVAL=10;\nEND"
+        },
+        "path": "负载控制信息管理/set_sbilcipara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "NF实例标识为AMF_Instance_1，TAI为460001000002，对端NF的切片索引为100，优先级功能开关为SPECIFIC，优先级为10，容量功能开关为INHERIT。",
+            "answer": "START\nMOD PNFTAI: NFINSTANCEID=\"AMF_Instance_1\", TAI=\"460001000002\", PNFNSINDEX=100, PRISWITCH=\"SPECIFIC\", PRIORITY=10, CAPSWITCH=\"INHERIT\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端NF实例TAI信息/mod_pnftai.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：example.com；DNS服务器类型：DNS_IPV4，DNS_IPV6，DNS_64",
+            "answer": "START\nRTR UEDNSBINDAPN:APN=\"example.com\",DNSSERVERTYPE=DNS_IPV4-1&DNS_IPV6-1&DNS_64-1;\nEND"
+        },
+        "path": "接入控制/DN网络DNS/NBNS选择管理/DNS选择管理/APN DNS域名策略/rtr_uednsbindapn.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识：GMLC_Instance_1，外部客户端类型：VALUE_ADDED_SERVICES；",
+            "answer": "START\nADD PNFGMLCINFO: NFINSTANCEID=\"GMLC_Instance_1\", CLIENTTYPES=VALUE_ADDED_SERVICES-0;\nEND"
+        },
+        "path": "本地NRF功能管理/对端GMLC信息管理/add_pnfgmlcinfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NF实例标识为AMF_Instance_2，MCC为460，MNC为01，AMFID为00002。",
+            "answer": "START\nRMV PNFGUAMI: NFINSTANCEID=\"AMF_Instance_2\", MCC=\"460\", MNC=\"01\", AMFID=\"00002\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端GUAMI信息管理/rmv_pnfguami.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：本端NF类型：NRF；NRF实例名称：NRF_Instance_0；优先级：5；权重：150",
+            "answer": "START\nADD NFREGNRF: NFTYPE=NRF, NRFINSTANCENAME=\"NRF_Instance_0\", PRIORITY=5, CAPACITY=150;\nEND"
+        },
+        "path": "NRF管理/NRF配置管理/NF与NRF注册关系/add_nfregnrf.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：data1，数据网络访问标识：data2，DNAI服务区域名称：data3，ULCL部署模式：AUXSHUNTPREFER",
+            "answer": "START\nADD ULCLAREADPMODE:APN=\"data1\",DNAI=\"data2\",DNAREANAME=\"data3\",ULCLDEPLOYMODE=AUXSHUNTPREFER;\nEND"
+        },
+        "path": "UPF选择管理/ULCL分流部署策略/DNAI服务区域粒度的ULCL部署模式/add_ulclareadpmode.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NRF功能实体号：Instanceid02",
+            "answer": "START\nRMV NRFFUNCTION:INSTANCEID=\"Instanceid02\";\nEND"
+        },
+        "path": "NRF性能对象管理/rmv_nrffunction.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "删除对端GMLC信息，NF实例标识为GMLC_Instance_1234567890abcdef，写业务脚本",
+            "answer": "START\nRMV PNFGMLCINFO: NFINSTANCEID=\"GMLC_Instance_1234567890abcdef\";\nEND"
+        },
+        "path": "本地NRF功能管理/对端GMLC信息管理/rmv_pnfgmlcinfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：QoS Profile名称为\"qosprofile2\"，QCI为\"5\"，ArpPl为\"10\"，Remark type为\"DSCP\"，DSCP为\"AF\"，AF级别为\"3\"，AF丢弃优先级为\"2\"",
+            "answer": "MOD EPSREMARK: QOSPROFILENAME=\"qosprofile2\", QCI=5, ARPPL=10, REMARKTYPE=DSCP, DSCP=AF, AFCLASS=3, AFDROPPREC=2;"
+        },
+        "path": "QoS/EPS QoS配置/EPS Qos映射ToS/DSCP/mod_epsremark.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：APN名称：internet.com，UPF实例标识：upf2，UPF的位置特征：BOTH，主锚点与分流节点合设功能：ENABLE，UPF的锁定信息：UNLOCKED",
+            "answer": "START\nMOD APNUPFINFO:APN=\"internet.com\",UPFINSTANCEID=\"upf2\",LOCATION=BOTH,PSACOMBINEULCL=ENABLE,LOCKINFO=UNLOCKED;\nEND"
+        },
+        "path": "APN UPF信息管理/mod_apnupfinfo.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：DNAI服务区域名称：DNAREA123，DNAI服务区域类型：N2TAI",
+            "answer": "START\nADD DNAREA: AREANAME=\"DNAREA123\", AREATYPE=N2TAI;\nEND"
+        },
+        "path": "DNAI位置绑定区域管理/add_dnarea.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "IMSI=123456789012345,PDUSESSIONID=5,REPORTSTATUS=Stop",
+            "answer": "STOP LOCATEREPORT:IMSI=123456789012345,PDUSESSIONID=5,REPORTSTATUS=Stop;"
+        },
+        "path": "位置上报管理/会话位置上报管理/stop_locatereport.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：DHCP服务器组名称：testgrp，IP类型：IPV4，租约时间(小时)：25，绑定VPN：ENABLE，VPN实例名：testvpn",
+            "answer": "START\nMOD DHCPSERVERGRP:GROUPNAME=\"testgrp\",IPVERSION=IPV4,REQLEASETIME=25,HASVPN=ENABLE,VPNINSTANCE=\"testvpn\";\nEND"
+        },
+        "path": "UE地址管理/DHCP管理/DHCP服务器组/mod_dhcpservergrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "查询APN为\"huawei.com\"的NBNS属性",
+            "answer": "%%LST APNNBNS: APN=\"huawei.com\";%%"
+        },
+        "path": "接入控制/DN网络DNS/NBNS选择管理/NBNS选择管理/APN的NBNS属性/lst_apnnbns.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：NG PEI群组名称：phone_xx",
+            "answer": "START\nRMV PERFNGPEIGRP: NGPEIGPN=\"phone_xx\";\nEND"
+        },
+        "path": "AMF性能对象管理/rmv_perfngpeigrp.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：打开网关proxy功能，并且设置重启计数器值为1",
+            "answer": "START\nSET GWPROXYFUNC:PROXYSW=ENABLE,RECOVERY=1;\nEND"
+        },
+        "path": "GGSN和P-GW Proxy/网关Proxy功能/set_gwproxyfunc.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#查询对端NF的SUPI信息；NF实例标识：ausf_instance_0；输出类型：DETAIL；起始号段：460031700010001；终止号段：460031700010001",
+            "answer": "%%LST PNFSUPI: OUTPUTTYPE=DETAIL, NFINSTANCEID=\"ausf_instance_0\", RANGESTART=\"460031700010001\", RANGEEND=\"460031700010001\";%%"
+        },
+        "path": "本地NRF功能管理/对端NF实例SUPI信息管理/lst_pnfsupi.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：POOLNAME=testpool1, SECTIONNUM=1, IPVERSION=IPV4, V4AGENTIP=192.168.1.1",
+            "answer": "START\nADD AGENTIP:POOLNAME=\"testpool1\",SECTIONNUM=1,IPVERSION=IPV4,V4AGENTIP=\"192.168.1.1\";\nEND"
+        },
+        "path": "代理IP管理/add_agentip.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：#步骤目标NF实例索引：1024",
+            "answer": "START\nRMV TNFINS: TNFINSINDEX=1024;\nEND"
+        },
+        "path": "本地NRF功能管理/目标NF实例管理/rmv_tnfins.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：ITFNODEROLE=N16_HSMF, PROCTYPE=\"PduSessionEstAsHsmf\", PROCMSGID=\"PostPduSessionsParameters\", CTRLIE=\"PduSessionCreateData.RequestType\", IECTRLSW=ENABLE;",
+            "answer": "START\nADD SMFIEADAPTER: ITFNODEROLE=N16_HSMF, PROCTYPE=\"PduSessionEstAsHsmf\", PROCMSGID=\"PostPduSessionsParameters\", CTRLIE=\"PduSessionCreateData.RequestType\", IECTRLSW=ENABLE;\nEND"
+        },
+        "path": "接入控制/业务功能灵活控制/信元携带策略管理/add_smfieadapter.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "param_question": "参数：FCLEVEL = MEDIUM, FCRSP = ServiceUnavailable_503",
+            "answer": "START\nSET NSSFFCPARA: FCLEVEL=MEDIUM, FCRSP=ServiceUnavailable_503;\nEND"
+        },
+        "path": "NSSF流控管理/set_nssffcpara.txt",
+        "template": "你是系统工程师，需要根据参数写业务脚本\n\n根据参数，严格按例子中业务脚本格式，以START开始END结束，写业务脚本\n参数：{param_question}",
+        "version": "09021144"
+    }
+]

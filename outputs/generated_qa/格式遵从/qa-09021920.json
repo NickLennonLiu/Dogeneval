@@ -1,0 +1,332 @@
+[
+    {
+        "question": {
+            "processing_steps": "1. 在“MML命令行”窗口上执行：如下命令，查看该隧道组下是否配置隧道。[**DSP LBTN**](../MML/Document/dsp_lbtn.html):;     * 是 => 步骤 4     * 否 => 步骤 2\n2. 在“MML命令行”窗口上执行：如下命令，为该隧道组配置对应的隧道。**ADD GRDCIINFO**\n3. 等待10秒，在告警台上查看该隧道组告警是否恢复。     * 是 => 处理结束。     * 否 => 步骤 4\n4. 在“MML命令行”窗口上执行：如下命令，查询该隧道组下的所有隧道的“隧道状态”，是否隧道状态均为异常。[**DSP LBTN**](../MML/Document/dsp_lbtn.html):;     * 是 => 步骤 5     * 否 => 步骤 8\n5. 在本端网元OM Portal上创建CSLB的IP跟踪，查看本端网元是否向对端网元发送隧道心跳信息。     * 是 => 步骤 6     * 否 => 步骤 9\n6. 在对端网元OM Portal上创建CSLB的IP跟踪，查看对端网元是否收到本端网元发送隧道心跳信息。     * 是 => 步骤 9     * 否 => 步骤 7\n7. 联系设备维护人员，检查并解决本端和对端网元之间底层链路异常问题，等待10秒。\n8. 在告警台上查看该隧道组告警是否恢复。     * 是 => 处理结束。     * 否 => 步骤 9\n9. 请联系华为技术支持处理。",
+            "answer": "[{\"step\": 1,\"description\": \"在“MML命令行”窗口上执行：如下命令，查看该隧道组下是否配置隧道。[**DSP LBTN**](../MML/Document/dsp_lbtn.html):;\",\"choice\": \"是 => 步骤 4\\n否 => 步骤 2\"},{\"step\": 2,\"description\": \"在“MML命令行”窗口上执行：如下命令，为该隧道组配置对应的隧道。**ADD GRDCIINFO**\",\"choice\": \"\"},{\"step\": 3,\"description\": \"等待10秒，在告警台上查看该隧道组告警是否恢复。\",\"choice\": \"是 => 处理结束。\\n否 => 步骤 4\"},{\"step\": 4,\"description\": \"在“MML命令行”窗口上执行：如下命令，查询该隧道组下的所有隧道的“隧道状态”，是否隧道状态均为异常。[**DSP LBTN**](../MML/Document/dsp_lbtn.html):;\",\"choice\": \"是 => 步骤 5\\n否 => 步骤 8\"},{\"step\": 5,\"description\": \"在本端网元OM Portal上创建CSLB的IP跟踪，查看本端网元是否向对端网元发送隧道心跳信息。\",\"choice\": \"是 => 步骤 6\\n否 => 步骤 9\"},{\"step\": 6,\"description\": \"在对端网元OM Portal上创建CSLB的IP跟踪，查看对端网元是否收到本端网元发送隧道心跳信息。\",\"choice\": \"是 => 步骤 9\\n否 => 步骤 7\"},{\"step\": 7,\"description\": \"联系设备维护人员，检查并解决本端和对端网元之间底层链路异常问题，等待10秒。\",\"choice\": \"\"},{\"step\": 8,\"description\": \"在告警台上查看该隧道组告警是否恢复。\",\"choice\": \"是 => 处理结束。\\n否 => 步骤 9\"},{\"step\": 9,\"description\": \"请联系华为技术支持处理。\",\"choice\": \"\"}]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/82413.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/82413.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 输入SGsR接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“SGsR接口跟踪”后，单击“添加”，进入SGsR接口跟踪任务创建的界面，依次输入“任务名称”、“跟踪时长”和“定位条件”参数。2. 单击“确定”，启动跟踪任务。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"输入SGsR接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“SGsR接口跟踪”后，单击“添加”，进入SGsR接口跟踪任务创建的界面，依次输入“任务名称”、「跟踪时长」和「定位条件」参数。\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"单击“确定”，启动跟踪任务。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/创建消息跟踪/创建接口跟踪/zh-cn_opi_0000001380807844.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/创建消息跟踪/创建接口跟踪/zh-cn_opi_0000001380807844.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 通过**[EXP MML](../MML/Document/exp_mml.html)** 命令导出系统配置数据文件，并与运营商规划数据进行核对。\n预期结果：实际配置与运营商规划一致。\n2. 如果不一致，请对不一致的配置数据进行逐一确认和处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"通过**[EXP MML](../MML/Document/exp_mml.html)** 命令导出系统配置数据文件，并与运营商规划数据进行核对。\",\n        \"choice\": \"预期结果：实际配置与运营商规划一致。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"如果不一致，请对不一致的配置数据进行逐一确认和处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC例行维护/例行维护操作指导/季度维护/zh-cn_opi_0232536112.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC例行维护/例行维护操作指导/季度维护/zh-cn_opi_0232536112.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看活动告警。\n    1.1 选择“监控分析 > 告警管理 > 活动告警”。\n    1.2 单击该告警前的![](figure/zh-cn_image_0209574837.png)展开详情，查看其定位信息和附加信息。\n2. 选择“应用管理 > 应用License”，选择“定位信息”中，应用ID对应的应用名称。\n3. 查看激活信息里面的License文件到期日期，判断其有效期是否小于90天。\n    * 是 => 步骤 4\n    * 否 => 步骤 5\n4. 在License文件管理页面上传新的License文件，单击License管理页面中的“更新”按钮，更新并激活新的License文件，等待5分钟后，查看告警是否恢复。\n    * 是 => 处理完毕。\n    * 否 => 步骤 5\n5. 收集告警以及日志信息，提交技术支持处理。\n    5.1 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\n    5.2 收集日志信息：各场景收集步骤如图2所示，收集从产生告警前一天到目前的License的日志。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"查看活动告警。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.1,\n        \"description\": \"选择“监控分析 > 告警管理 > 活动告警”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.2,\n        \"description\": \"单击该告警前的![](figure/zh-cn_image_0209574837.png)展开详情，查看其定位信息和附加信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"选择“应用管理 > 应用License”，选择“定位信息”中，应用ID对应的应用名称。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"查看激活信息里面的License文件到期日期，判断其有效期是否小于90天。\",\n        \"choice\": \"是 => 步骤 4\\n否 => 步骤 5\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"在License文件管理页面上传新的License文件，单击License管理页面中的“更新”按钮，更新并激活新的License文件，等待5分钟后，查看告警是否恢复。\",\n        \"choice\": \"是 => 处理完毕。\\n否 => 步骤 5\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"收集告警以及日志信息，提交技术支持处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 5.1,\n        \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 5.2,\n        \"description\": \"收集日志信息：各场景收集步骤如图2所示，收集从产生告警前一天到目前的License的日志。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/135200.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/135200.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 建立用户跟踪，查看对应的接口跟踪或者用户跟踪中是否上报EMS-ACCT消息。2. 打开EMS-ACCT消息，根据Easy-Maintenance-System消息中字段获取对应的信息，例如[图1 Easy-Maintenance-System消息](zh-cn_topic_0000001146375027.html#ZH-CN_TOPIC_0000001146375027__fig1088795810494)。**图1** Easy-Maintenance-System消息示例![](../images/zh-cn_image_0000001102056758.png)**表1** Easy-Maintenance-System消息字段解释字段 | 取值说明---|---module | radiusacctMaintenance-Message： Service-Maintenance-Message | code：错误码。cause：原因描述。suggestion：根据处理建议进行操作。content：acct-service-content，标识用户信息。3. 根据原因和处理建议进行处理，处理完毕后，重新拨测。* 问题解决，关闭接口或者用户跟踪，处理完毕。* 否则联系华为技术支持。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"建立用户跟踪，查看对应的接口跟踪或者用户跟踪中是否上报EMS-ACCT消息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"打开EMS-ACCT消息，根据Easy-Maintenance-System消息中字段获取对应的信息，例如[图1 Easy-Maintenance-System消息](zh-cn_topic_0000001146375027.html#ZH-CN_TOPIC_0000001146375027__fig1088795810494)。**图1** Easy-Maintenance-System消息示例![](../images/zh-cn_image_0000001102056758.png)**表1** Easy-Maintenance-System消息字段解释字段 | 取值说明---|---module | radiusacctMaintenance-Message： Service-Maintenance-Message | code：错误码。cause：原因描述。suggestion：根据处理建议进行操作。content：acct-service-content，标识用户信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"根据原因和处理建议进行处理，处理完毕后，重新拨测。\",\n        \"choice\": \"问题解决，关闭接口或者用户跟踪，处理完毕。否则联系华为技术支持。\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/创建消息跟踪/跟踪免维护功能/zh-cn_topic_0000001101405598.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/创建消息跟踪/跟踪免维护功能/zh-cn_topic_0000001101405598.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 执行[**DSP RMSTATISTICS**](../MML/Document/dsp_rmstatistics.html)命令查看IPv6各协议的路由数量。使用[**LST IPV6THRESHOLD**](../MML/Document/lst_ipv6threshold.html)命令查看是否是[**SET IPV6THRESHOLD**](../MML/Document/set_ipv6threshold.html)命令配置的告警阈值过小。\n* 是，请执行[**SET IPV6THRESHOLD**](../MML/Document/set_ipv6threshold.html)命令配置合理的告警阈值，确认告警是否恢复。\n  * 是，则处理完毕。\n  * 否，请执行2。\n* 否，请执行2。\n2. 请收集告警信息和配置信息，并联系技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"执行[**DSP RMSTATISTICS**](../MML/Document/dsp_rmstatistics.html)命令查看IPv6各协议的路由数量。使用[**LST IPV6THRESHOLD**](../MML/Document/lst_ipv6threshold.html)命令查看是否是[**SET IPV6THRESHOLD**](../MML/Document/set_ipv6threshold.html)命令配置的告警阈值过小。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.1,\n        \"description\": \"是，请执行[**SET IPV6THRESHOLD**](../MML/Document/set_ipv6threshold.html)命令配置合理的告警阈值，确认告警是否恢复。\",\n        \"choice\": \"是，则处理完毕。否，请执行2。\"\n    },\n    {\n        \"step\": 1.2,\n        \"description\": \"否，请执行2。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"请收集告警信息和配置信息，并联系技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/137953287.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/137953287.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 选择“监控分析 > 运行日志”，在左侧导航栏中选择“OS日志收集”。2. 创建日志收集任务。\r\n\r\n**图1** 创建节点日志收集任务\r\n\r\n**表1** 日志类型参数含义\r\n日志类型 | 含义\r\n---|---\r\nMessage | 系统运行日志。\r\nOS info | 记录系统操作系统的指标信息。\r\nwtmp | 二进制文件，记录每个用户的登录次数和持续时间等信息。\r\ncontainerlogs | 记录容器日志。\r\nkbox | 提供一种记录内核信息的机制，在系统异常发生时，记录下内核的重要信息，并把这些信息保存到非易失存储介质中。维护人员可通过这些信息，得到发生异常时的具体情况，进而分析发生异常的原因，支撑问题定位。\r\ncspbootLog | Cspboot服务日志。\r\ncronLog | 定时任务日志。\r\nsysmonitor | 系统监控日志。\r\nopenvswitch | openvswitch日志。\r\novsmonitorLog | 记录Open vSwitch网桥上端口丢包的统计信息。\r\nauthlog | 记录系统用户登录日志\r\ncontainerenginelogs | 记录容器引擎的守护进程日志\r\n\r\n收集时长最大支持7天。\r\n\r\n收集过程中，可单击“停止收集”停止收集任务。\r\n\r\n收集完成后，单击“日志下载地址”右侧的压缩包名称，将结果保存至本地。",
+            "answer": "[\r\n    {\r\n        \"step\": 1,\r\n        \"description\": \"选择“监控分析 > 运行日志”，在左侧导航栏中选择“OS日志收集”。\",\r\n        \"choice\": \"\"\r\n    },\r\n    {\r\n        \"step\": 2,\r\n        \"description\": \"创建日志收集任务。\",\r\n        \"choice\": \"\"\r\n    }\r\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/获取日志/通过OM Portal获取不同类型日志信息/管理服务日志/systemInfo.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/获取日志/通过OM Portal获取不同类型日志信息/管理服务日志/systemInfo.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 用系统命令“netstat -an”查看当前系统中开放的所有端口。2. 参考通信矩阵中的端口列表，检查当前是否有多余开放的端口。3. 若存在多余端口，确认是否有必要开放，若无必要，则应关闭。",
+            "answer": "[{\n    \"step\": 1,\n    \"description\": \"用系统命令“netstat -an”查看当前系统中开放的所有端口。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 2,\n    \"description\": \"参考通信矩阵中的端口列表，检查当前是否有多余开放的端口。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 3,\n    \"description\": \"若存在多余端口，确认是否有必要开放，若无必要，则应关闭。\",\n    \"choice\": \"\"\n}]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/系统层安全/系统服务维护/zh-cn_topic_0000001175394334.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/系统层安全/系统服务维护/zh-cn_topic_0000001175394334.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 通过执行**[**DSP ACSPATCHINFO**](../MML/Document/dsp_acspatchinfo.html)** 命令查看当前系统中已有补丁的状态以及生效时间。预期结果：“补丁状态”为“运行”。2. 如果检查结果不符合预期，请查看是否存在补丁相关告警并处理。3. 如果告警处理完毕后，运行状态仍然不符合预期，请收集相关信息并联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"通过执行**[**DSP ACSPATCHINFO**](../MML/Document/dsp_acspatchinfo.html)** 命令查看当前系统中已有补丁的状态以及生效时间。\",\n        \"choice\": \"预期结果：\\\"补丁状态\\\"为\\\"运行\\\"。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"如果检查结果不符合预期，请查看是否存在补丁相关告警并处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"如果告警处理完毕后，运行状态仍然不符合预期，请收集相关信息并联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC例行维护/例行维护操作指导/月度维护/zh-cn_opi_0232105240.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC例行维护/例行维护操作指导/月度维护/zh-cn_opi_0232105240.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 单击该告警前的![](figure/zh-cn_image_0000001371461357.png)展开详情，查看其“定位信息”和“附加信息”，并依据告警原因进行处理：2. 处理外部时钟源配置的证书不满足安全要求。1. 首页，选择“应用管理>MML”2. 使用[**MOD NTPSVR**](../MML/Document/dsp_node.html)将已存在的NTP服务器密钥类型修改为SHA256。3. 单击“执行”，确认NTP服务器是否修改成功。若修改成功，界面会显示“操作成功”提示。* 是 => 步骤 3* 否 => 步骤 43. 在活动告警页面，确认此告警是否已清除。* 是 => 结束* 否 => 步骤 44. 请联系华为技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"单击该告警前的![](figure/zh-cn_image_0000001371461357.png)展开详情，查看其“定位信息”和“附加信息”，并依据告警原因进行处理：\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"处理外部时钟源配置的证书不满足安全要求。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2.1,\n        \"description\": \"首页，选择“应用管理>MML”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2.2,\n        \"description\": \"使用[**MOD NTPSVR**](../MML/Document/dsp_node.html)将已存在的NTP服务器密钥类型修改为SHA256。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2.3,\n        \"description\": \"单击“执行”，确认NTP服务器是否修改成功。若修改成功，界面会显示“操作成功”提示。\",\n        \"choice\": \"是 => 步骤 3\\n否 => 步骤 4\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"在活动告警页面，确认此告警是否已清除。\",\n        \"choice\": \"是 => 结束\\n否 => 步骤 4\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"请联系华为技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/135906.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/135906.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 执行MML命令**LST HTTPFIXEDFCMSG** ，查看配置的数据是否合适。\\n     * 是 => 2\\n     * 否 => 修改配置的数据。\\n2. 降低消息流量后观察告警是否恢复。\\n     * 是 => 恢复正常。\\n     * 否 => 请收集告警信息、日志信息和配置信息，并联系华为技术支持处理。",
+            "answer": "[\\n    {\\n        \"step\": 1,\\n        \"description\": \"执行MML命令**LST HTTPFIXEDFCMSG** ，查看配置的数据是否合适。\",\\n        \"choice\": \"是 => 2。否 => 修改配置的数据。\"\\n    },\\n    {\\n        \"step\": 2,\\n        \"description\": \"降低消息流量后观察告警是否恢复。\",\\n        \"choice\": \"是 => 恢复正常。否 => 请收集告警信息、日志信息和配置信息，并联系华为技术支持处理。\"\\n    }\\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100336.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100336.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 输入Diameter接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“Diameter接口跟踪”后，单击“添加”，进入Diameter接口跟踪任务创建的界面，依次填写“任务名称”、“跟踪时长”和“定位条件”参数。2. 单击“确定”，启动跟踪任务。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"输入Diameter接口跟踪任务参数：在左侧跟踪导航树界面选择“UNC”->“接口跟踪”->“Diameter接口跟踪”后，单击“添加”，进入Diameter接口跟踪任务创建的界面，依次填写“任务名称”、「跟踪时长」和「定位条件」参数。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"单击“确定”，启动跟踪任务。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/创建消息跟踪/创建接口跟踪/zh-cn_opi_0175188288.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC基础运维操作/创建消息跟踪/创建接口跟踪/zh-cn_opi_0175188288.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看活动告警。\\n    1.1 选择“监控分析 > 告警管理 > 活动告警”。\\n    1.2 单击该告警前的![](figure/zh-cn_image_0209574816.png)展开详情，查看其定位信息和附加信息。\\n2. 选择“应用管理 > 应用License”，选择“定位信息”中，应用ID对应的应用名称。\\n3. 查询控制项信息，计算当前日期已经超过控制项授权截止日期60天的控制项个数与附加信息中的个数是否一致。\\n    是 => 步骤 4\\n    否 => 步骤 5\\n4. 在License文件管理页面上传新的License文件，单击License管理页面中的“更新”按钮，更新并激活新的License文件，等待5分钟后，查看告警是否恢复。\\n    是 => 处理完毕。\\n    否 => 步骤 5\\n5. 收集告警以及日志信息，提交技术支持处理。\\n    5.1 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\\n    5.2 收集日志信息：各场景收集步骤如图2所示，收集从产生告警前一天到目前的License的日志。",
+            "answer": "[{\\n    \"step\": 1,\\n    \"description\": \"查看活动告警。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 1.1,\\n    \"description\": \"选择“监控分析 > 告警管理 > 活动告警”。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 1.2,\\n    \"description\": \"单击该告警前的![](figure/zh-cn_image_0209574816.png)展开详情，查看其定位信息和附加信息。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 2,\\n    \"description\": \"选择“应用管理 > 应用License”，选择“定位信息”中，应用ID对应的应用名称。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 3,\\n    \"description\": \"查询控制项信息，计算当前日期已经超过控制项授权截止日期60天的控制项个数与附加信息中的个数是否一致。\",\\n    \"choice\": \"是 => 步骤 4\\n    否 => 步骤 5\"\\n}, {\\n    \"step\": 4,\\n    \"description\": \"在License文件管理页面上传新的License文件，单击License管理页面中的“更新”按钮，更新并激活新的License文件，等待5分钟后，查看告警是否恢复。\",\\n    \"choice\": \"是 => 处理完毕。\\n    否 => 步骤 5\"\\n}, {\\n    \"step\": 5,\\n    \"description\": \"收集告警以及日志信息，提交技术支持处理。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 5.1,\\n    \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 5.2,\\n    \"description\": \"收集日志信息：各场景收集步骤如图2所示，收集从产生告警前一天到目前的License的日志。\",\\n    \"choice\": \"\"\\n}]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/5217.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/5217.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "检查告警台上根源告警\n    1. 在告警台上查看是否产生根源告警**ALM-135630 节点故障告警** 。\n\n       * 是 => 执行2\n       * 否 => 执行3\n\n    2. 按照根源告警对应的处理步骤消除告警，完成后检查告警是否恢复。\n\n       * 是 => 处理结束\n       * 否 => 执行3\n\n强制重启Pod\n    3. 登录FusionStage界面，查看故障集群选举实例所在Pod是否正常。\n\n       * 是 => 执行5\n       * 否 => 执行4\n\n    4. 在FusionStage界面复位Pod，完成后检查告警是否恢复。\n\n       * 是 => 处理结束\n       * 否 =>执行5\n\n    5. 请收集告警信息和配置信息，并联系华为技术支持处理。\n",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"在告警台上查看是否产生根源告警**ALM-135630 节点故障告警** 。\",\n        \"choice\": \"是 => 执行2。否 => 执行3。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"按照根源告警对应的处理步骤消除告警，完成后检查告警是否恢复。\",\n        \"choice\": \"是 => 处理结束。否 => 执行3。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"登录FusionStage界面，查看故障集群选举实例所在Pod是否正常。\",\n        \"choice\": \"是 => 执行5。否 => 执行4。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"在FusionStage界面复位Pod，完成后检查告警是否恢复。\",\n        \"choice\": \"是 => 处理结束。否 =>执行5。\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"请收集告警信息和配置信息，并联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100033.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100033.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 确定是否有“节点状态”是“故障”的存储节点。\n在“MML命令行”窗口上执行：\n[**DSP DBNODE**](../MML/Document/dsp_dbnode.html):CLUSTERID=告警上报的集群ID, NODETYPE=STORAGE;\n\n     * 是 => 步骤 2\n     * 否 => 步骤 5\n\n2. 根据节点关键信息“RU名称”、“节点类型”、“ 节点序号”，查找出对应的进程ID。进程类型选择DNP。然后进入步骤 3。\n在“MML命令行”窗口上执行：\n[**DSP PROCESSCSDB**](../MML/Document/dsp_processcsdb.html):RUNAME=RU名称,PROCESSTYPE=进程类型,SAMEPROCTYPEINS=节点序号;\n\n3. 查看是否有“进程ID”对应的**ALM-221257751 进程故障告警** 。\n\n     * 是 => 步骤 4\n     * 否 => 步骤 5\n\n4. 按照**ALM-221257751 进程故障告警** 的处理步骤处理，查看告警是否恢复。\n\n     * 是 => 处理结束。\n     * 否 => 步骤 5\n\n5. 请联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"确定是否有“节点状态”是“故障”的存储节点。\",\n        \"choice\": \"在“MML命令行”窗口上执行：\\n[**DSP DBNODE**](../MML/Document/dsp_dbnode.html):CLUSTERID=告警上报的集群ID, NODETYPE=STORAGE;\"\n    },\n    {\n        \"step\": 1.1,\n        \"description\": \"是 => 步骤 2\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.2,\n        \"description\": \"否 => 步骤 5\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"根据节点关键信息“RU名称”、“节点类型”、“ 节点序号”，查找出对应的进程ID。进程类型选择DNP。然后进入步骤 3。\",\n        \"choice\": \"在“MML命令行”窗口上执行：\\n[**DSP PROCESSCSDB**](../MML/Document/dsp_processcsdb.html):RUNAME=RU名称,PROCESSTYPE=进程类型,SAMEPROCTYPEINS=节点序号;\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"查看是否有“进程ID”对应的**ALM-221257751 进程故障告警** 。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3.1,\n        \"description\": \"是 => 步骤 4\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3.2,\n        \"description\": \"否 => 步骤 5\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"按照**ALM-221257751 进程故障告警** 的处理步骤处理，查看告警是否恢复。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 4.1,\n        \"description\": \"是 => 处理结束。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 4.2,\n        \"description\": \"否 => 步骤 5\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"请联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/82601.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/82601.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "原因1：VNFC上的某个资源单元与主OMU之间的通信链路故障\n    1. 发生故障的资源单元链路恢复之后一般都能够自动恢复。等待一段时间后，检查告警是否恢复。\n       * 是，处理完毕。\n       * 否，请执行2。\n    2. 请收集告警信息和日志信息，并联系技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"发生故障的资源单元链路恢复之后一般都能够自动恢复。等待一段时间后，检查告警是否恢复。\",\n        \"choice\": \"是，处理完毕。否，请执行2。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"请收集告警信息和日志信息，并联系技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/221257735.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/221257735.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 请收集告警信息，联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"请收集告警信息，联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100181.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100181.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "\n**检查网管密码是否被修改**\n\n  1. 在“安全 > 日志审计 > 操作日志”的操作名称框中搜索“修改SNMP用户密码”，查看是否有可疑的操作。\n     * 是 => 2\n     * 否 => 3\n  2. 在“系统 > SNMP管理”界面，单击“重置密码”设置新的密码并根据新密码重新对接网管。如果无此操作权限通知对应的管理员操作。完成以上操作之后查看网管是否恢复正常。\n     * 是 => 处理完毕\n     * 否 => 3\n\n**依次检查各依赖服务是否正常**\n\n  3. 在“应用配置> 服务治理”界面，检查模型管理（ModuleKeeper）服务实例、告警服务（FMService）实例、SNMP服务实例以及服务状态是否正常。\n     * 是 => 4\n     * 否 => 5\n  4. 在“应用配置> 服务治理”界面“复位”第三步检查有异常的服务，等待5分钟之后，重新对接网管，检查是否正常同步。\n     * 是 => 处理完毕\n     * 否 => 5\n\n**收集信息，联系技术支持处理**\n\n  5. 收集环境信息以及各对应服务日志，联系华为技术支持处理。\n",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"在“安全 > 日志审计 > 操作日志”的操作名称框中搜索“修改SNMP用户密码”，查看是否有可疑的操作。\",\n        \"choice\": \"是 => 2。否 => 3。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"在“系统 > SNMP管理”界面，单击“重置密码”设置新的密码并根据新密码重新对接网管。如果无此操作权限通知对应的管理员操作。完成以上操作之后查看网管是否恢复正常。\",\n        \"choice\": \"是 => 处理完毕。否 => 3。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"在“应用配置> 服务治理”界面，检查模型管理（ModuleKeeper）服务实例、告警服务（FMService）实例、SNMP服务实例以及服务状态是否正常。\",\n        \"choice\": \"是 => 4。否 => 5。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"在“应用配置> 服务治理”界面“复位”第三步检查有异常的服务，等待5分钟之后，重新对接网管，检查是否正常同步。\",\n        \"choice\": \"是 => 处理完毕。否 => 5。\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"收集环境信息以及各对应服务日志，联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC故障案例/OM故障/告警类故障/zh-cn_topic_0077678309.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC故障案例/OM故障/告警类故障/zh-cn_topic_0077678309.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 执行MML命令**DSP CNTRESSTAT** 查看告警阈值是否设置合理。\n     * 合理=>步骤 2\n     * 不合理=>调整告警阈值至合理值。\n2. 等待3分钟查看告警是否恢复\n     * 是=>处理完毕\n     * 否=>步骤 3\n3. 收集告警以及日志信息，提交华为技术支持处理。\n    1. 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\n    2. 收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集从产生告警前一天到目前的OpsAgent和告警信息中服务的日志。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"执行MML命令**DSP CNTRESSTAT** 查看告警阈值是否设置合理。\",\n        \"choice\": \"合理=>步骤 2\\n不合理=>调整告警阈值至合理值。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"等待3分钟查看告警是否恢复\",\n        \"choice\": \"是=>处理完毕\\n否=>步骤 3\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"收集告警以及日志信息，提交华为技术支持处理。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3.1,\n        \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3.2,\n        \"description\": \"收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集从产生告警前一天到目前的OpsAgent和告警信息中服务的日志。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/5525.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/5525.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 告警产生后，请耐心等待90秒，检查告警是否自行恢复。\n\t* 是，处理完毕。\n\t* 否，请执行2。\n2. 收集告警信息和日志信息，对故障进程所在的资源执行[**RST VNODE**](../MML/Document/rst_vnode.html)命令进行复位操作（复位操作可能导致资源承载的业务短暂中断），检查告警是否恢复。\n\t* 是，处理完毕。\n\t* 否，请执行3。\n3. 请收集告警信息和配置信息，并联系技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"告警产生后，请耐心等待90秒，检查告警是否自行恢复。\",\n        \"choice\": \"是，处理完毕。否，请执行2。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"收集告警信息和日志信息，对故障进程所在的资源执行[**RST VNODE**](../MML/Document/rst_vnode.html)命令进行复位操作（复位操作可能导致资源承载的业务短暂中断），检查告警是否恢复。\",\n        \"choice\": \"是，处理完毕。否，请执行3。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"请收集告警信息和配置信息，并联系技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/221257752.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/221257752.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 请使用运营商要求的安全漏洞扫描软件，对UNC进行安全漏洞扫描。",
+            "answer": "[{\n    \"step\": 1,\n    \"description\": \"请使用运营商要求的安全漏洞扫描软件，对UNC进行安全漏洞扫描。\",\n    \"choice\": \"\"\n}]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC例行维护/例行维护操作指导/月度维护/zh-cn_opi_0232535015.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC例行维护/例行维护操作指导/月度维护/zh-cn_opi_0232535015.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 执行MML命令**DSP PROCRESSTAT** 查看告警阈值是否设置合理。\\n     * 合理=>步骤 2\\n     * 不合理=>将告警阈值调至合理值。\\n2. 等待3分钟查看告警是否恢复。\\n     * 是=>处理完毕。\\n     * 否=>步骤 3\\n3. 收集告警以及日志信息，提交华为技术支持处理。\\n    1. 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\\n    2. 收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集从产生告警前一天到目前的OpsAgent和告警信息中服务的日志。",
+            "answer": "[{\\n    \"step\": 1,\\n    \"description\": \"执行MML命令**DSP PROCRESSTAT** 查看告警阈值是否设置合理。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 1.1,\\n    \"description\": \"合理=>步骤 2\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 1.2,\\n    \"description\": \"不合理=>将告警阈值调至合理值。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 2,\\n    \"description\": \"等待3分钟查看告警是否恢复。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 2.1,\\n    \"description\": \"是=>处理完毕。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 2.2,\\n    \"description\": \"否=>步骤 3\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 3,\\n    \"description\": \"收集告警以及日志信息，提交华为技术支持处理。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 3.1,\\n    \"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\\n    \"choice\": \"\"\\n}, {\\n    \"step\": 3.2,\\n    \"description\": \"收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集从产生告警前一天到目前的OpsAgent和告警信息中服务的日志。\",\\n    \"choice\": \"\"\\n}]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/5524.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/5524.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 创建HTTP接口跟踪，观察到NRF返回消息中是否提示''504 Gateway Time-out''或“500 Internal Server Error”。\n     * 是=>4\n     * 否=>2\n2. 查看NF发起的注册请求NF Profile中存在信元值**不符合** 协议要求，即在HTTP接口跟踪中观察到NRF的返回消息中提示校验失败的信元。\n3. 按照如下参考信息内容，对校验失败的信元进行修改，在NF侧重新执行**ACT NFONLINE** 触发注册，查看NF注册请求是否成功。\n     * 是：=>结束。\n     * 否：=>4\n4. 请收集日志信息和配置信息，并联系华为技术支持处理。",
+            "answer": "[{\n    \"step\": 1,\n    \"description\": \"创建HTTP接口跟踪，观察到NRF返回消息中是否提示'504 Gateway Time-out'或“500 Internal Server Error”。\",\n    \"choice\": \"是=>4\\n否=>2\"\n}, {\n    \"step\": 2,\n    \"description\": \"查看NF发起的注册请求NF Profile中存在信元值**不符合** 协议要求，即在HTTP接口跟踪中观察到NRF的返回消息中提示校验失败的信元。\",\n    \"choice\": \"\"\n}, {\n    \"step\": 3,\n    \"description\": \"按照如下参考信息内容，对校验失败的信元进行修改，在NF侧重新执行**ACT NFONLINE** 触发注册，查看NF注册请求是否成功。\",\n    \"choice\": \"是：=>结束。\\n否：=>4\"\n}, {\n    \"step\": 4,\n    \"description\": \"请收集日志信息和配置信息，并联系华为技术支持处理。\",\n    \"choice\": \"\"\n}]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC故障案例/NF自治理/zh-cn_trbcase_0225179034.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC故障案例/NF自治理/zh-cn_trbcase_0225179034.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 告警产生后，请耐心等待90秒，检查告警是否自行恢复。\n   * 是，处理完毕。\n   * 否，请执行2。\n2. 收集告警信息和日志信息，对故障进程所在的RU执行[**RST RU**](../MML/Document/rst_ru.html)命令进行复位操作（复位操作可能导致RU承载的业务短暂中断），检查告警是否恢复。\n   * 是，处理完毕。\n   * 否，请执行3。\n3. 请收集告警信息和配置信息，并联系技术支持工程师。",
+            "answer": "[{\n    \"step\": 1,\n    \"description\": \"告警产生后，请耐心等待90秒，检查告警是否自行恢复。\",\n    \"choice\": \"是，处理完毕。否，请执行2。\"\n}, {\n    \"step\": 2,\n    \"description\": \"收集告警信息和日志信息，对故障进程所在的RU执行[**RST RU**]((../MML/Document/rst_ru.html))命令进行复位操作（复位操作可能导致RU承载的业务短暂中断），检查告警是否恢复。\",\n    \"choice\": \"是，处理完毕。否，请执行3。\"\n}, {\n    \"step\": 3,\n    \"description\": \"请收集告警信息和配置信息，并联系技术支持工程师。\",\n    \"choice\": \"\"\n}]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/221257751.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/221257751.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看活动告警。\n    1.1 选择“监控分析 > 告警管理 > 活动告警”。\n    1.2 查看告警是否清除。\n       * 是 => 结束。\n       * 否 => 2\n    1.3 查看活动告警信息。\n\n2. 手动清除告警。\n进入活动告警页面，点击“清除”按钮，手动清除此告警。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"查看活动告警。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.1,\n        \"description\": \"选择“监控分析 > 告警管理 > 活动告警”。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 1.2,\n        \"description\": \"查看告警是否清除。\",\n        \"choice\": \"是 => 结束。否 => 2\"\n    },\n    {\n        \"step\": 1.3,\n        \"description\": \"查看活动告警信息。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"手动清除告警。\",\n        \"choice\": \"进入活动告警页面，点击“清除”按钮，手动清除此告警。\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/136074.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/136074.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看活动告警。\\n    1.1 选择“监控分析 > 告警管理 > 活动告警”。\\n    1.2 查看告警是否清除。\\n       * 是 => 结束。\\n       * 否 => 2\\n    1.3 查看活动告警信息。\\n2. 选择“安全 > 用户管理 ”，进入用户管理页面。\\n3. 在用户列表里找到对应的应用账号，单击“操作”列的“重置密码”。\\n4. 重置应用账号密码后，在活动告警页面，查看该告警是否已清除。\\n     * 是 => 结束。\\n     * 否 => 5\\n5. 收集告警信息和服务日志，联系技术支持处理。\\n    5.1 收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\\n    5.2 收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集Privilege/OM_MGR服务的日志。",
+            "answer": "[{\"step\": 1,\"description\": \"查看活动告警。\",\"choice\": \"\"},{\"step\": 1.1,\"description\": \"选择“监控分析 > 告警管理 > 活动告警”。\",\"choice\": \"\"},{\"step\": 1.2,\"description\": \"查看告警是否清除。\",\"choice\": \"是 => 结束。否 => 2\"},{\"step\": 1.3,\"description\": \"查看活动告警信息。\",\"choice\": \"\"},{\"step\": 2,\"description\": \"选择“安全 > 用户管理 ”，进入用户管理页面。\",\"choice\": \"\"},{\"step\": 3,\"description\": \"在用户列表里找到对应的应用账号，单击“操作”列的“重置密码”。\",\"choice\": \"\"},{\"step\": 4,\"description\": \"重置应用账号密码后，在活动告警页面，查看该告警是否已清除。\",\"choice\": \"是 => 结束。否 => 5\"},{\"step\": 5,\"description\": \"收集告警信息和服务日志，联系技术支持处理。\",\"choice\": \"\"},{\"step\": 5.1,\"description\": \"收集告警信息：选择“监控分析 > 告警管理 > 活动告警”，按照告警ID搜索出本告警后，单击“导出”导出本告警信息。\",\"choice\": \"\"},{\"step\": 5.2,\"description\": \"收集日志信息：选择“监控分析>运行日志>服务日志收集”，收集Privilege/OM_MGR服务的日志。\",\"choice\": \"\"}]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/136076.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/136076.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 确定是否有“节点状态”是“故障”的存储节点。\n在“MML命令行”窗口上执行：\n[**DSP DBNODE**](../MML/Document/dsp_dbnode.html):CLUSTERID=告警上报的集群ID, NODETYPE=STORAGE;\n\n     * 是 => 步骤 2\n     * 否 => 步骤 5\n\n2. 根据节点关键信息“RU名称”、“节点类型”、“ 节点序号”，查找出对应的进程ID。进程类型选择DNP。然后进入步骤 3。\n在“MML命令行”窗口上执行：\n[**DSP PROCESSCSDB**](../MML/Document/dsp_processcsdb.html):RUNAME=RU名称,PROCESSTYPE=进程类型,SAMEPROCTYPEINS=节点序号;\n\n3. 查看是否有“进程ID”对应的**ALM-221257751 进程故障告警** 。\n\n     * 是 => 步骤 4\n     * 否 => 步骤 5\n\n4. 按照**ALM-221257751 进程故障告警** 的处理步骤处理，查看告警是否恢复。\n\n     * 是 => 处理结束。\n     * 否 => 步骤 5\n\n5. 请联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"确定是否有“节点状态”是“故障”的存储节点。\",\n        \"choice\": \"是 => 步骤 2。否 => 步骤 5。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"根据节点关键信息“RU名称”、“节点类型”、“ 节点序号”，查找出对应的进程ID。进程类型选择DNP。然后进入步骤 3。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"查看是否有“进程ID”对应的**ALM-221257751 进程故障告警** 。\",\n        \"choice\": \"是 => 步骤 4。否 => 步骤 5。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"按照**ALM-221257751 进程故障告警** 的处理步骤处理，查看告警是否恢复。\",\n        \"choice\": \"是 => 处理结束。否 => 步骤 5。\"\n    },\n    {\n        \"step\": 5,\n        \"description\": \"请联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/82602.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/82602.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "强制重启节点\n    1. 告警产生后，请查看I层告警是否有存储问题。\n       * 是 => 执行2\n       * 否 => 执行3\n    2. 处理存储问题告警，待存储问题恢复后，耐心等待几分钟（默认为2分钟）查看告警是否恢复。\n       * 是 => 处理结束\n       * 否 => 执行3\n    3. 执行[**RST NODE**](../MML/Document/rst_node.html)命令复位处于D状态进程所在的节点。等待5分钟后，检查告警是否恢复。请注意：由于节点上可能存在其他业务进程，直接复位节点可能会导致故障扩散，请谨慎使用。\n       * 是 => 处理结束\n       * 否 => 执行4\n    4. 请收集告警信息和配置信息，并联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"告警产生后，请查看I层告警是否有存储问题。\",\n        \"choice\": \"是 => 执行2。否 => 执行3。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"处理存储问题告警，待存储问题恢复后，耐心等待几分钟（默认为2分钟）查看告警是否恢复。\",\n        \"choice\": \"是 => 处理结束。否 => 执行3。\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"执行[RST NODE]命令复位处于D状态进程所在的节点。等待5分钟后，检查告警是否恢复。请注意：由于节点上可能存在其他业务进程，直接复位节点可能会导致故障扩散，请谨慎使用。\",\n        \"choice\": \"是 => 处理结束。否 => 执行4。\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"请收集告警信息和配置信息，并联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100126.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100126.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. E-UTRAN决定将UE切换到NG-RAN，互发Handover initiation。2. E-UTRAN发送Handover Required消息到MME，通知有用户要进行切换。3. MME给目标AMF发送Forward Relocation Request，消息中包含Indirect Forwarding Flag，通知目标AMF数据是否可以直接传输(3->4->5)。4. AMF向SMF+PGW-C发送Nsmf_PDUSession_CreateSMContext Request消息，创建SM上下文（6->7->8->9）。5. SMF+PGW-C发送PFCP Session Modification Request Request给UPF+PGW-U，建立CN隧道（10->11）。6. SMF+PGW-C发送Nsmf_PDUSession_CreateSMContext Response给AMF（12->13->14）。7. AMF发送Handover Request消息给NG-RAN，请求建立无线网络资源。（15->16->17）。8. NG-RAN向AMF发送Handover Request Acknowledge消息。携带NG-RAN的AN隧道信息以及N3隧道信息。此时NG-RAN已经做好传输分组数据单元的准备（18->19->20）。",
+            "answer": "[    {        \"step\": 1,        \"description\": \"E-UTRAN决定将UE切换到NG-RAN，互发Handover initiation。\",        \"choice\": \"\"    },    {        \"step\": 2,        \"description\": \"E-UTRAN发送Handover Required消息到MME，通知有用户要进行切换。\",        \"choice\": \"\"    },    {        \"step\": 3,        \"description\": \"MME给目标AMF发送Forward Relocation Request，消息中包含Indirect Forwarding Flag，通知目标AMF数据是否可以直接传输(3->4->5)。\",        \"choice\": \"\"    },    {        \"step\": 4,        \"description\": \"AMF向SMF+PGW-C发送Nsmf_PDUSession_CreateSMContext Request消息，创建SM上下文（6->7->8->9）。\",        \"choice\": \"\"    },    {        \"step\": 5,        \"description\": \"SMF+PGW-C发送PFCP Session Modification Request Request给UPF+PGW-U，建立CN隧道（10->11）。\",        \"choice\": \"\"    },    {        \"step\": 6,        \"description\": \"SMF+PGW-C发送Nsmf_PDUSession_CreateSMContext Response给AMF（12->13->14）。\",        \"choice\": \"\"    },    {        \"step\": 7,        \"description\": \"AMF发送Handover Request消息给NG-RAN，请求建立无线网络资源。（15->16->17）。\",        \"choice\": \"\"    },    {        \"step\": 8,        \"description\": \"NG-RAN向AMF发送Handover Request Acknowledge消息。携带NG-RAN的AN隧道信息以及N3隧道信息。此时NG-RAN已经做好传输分组数据单元的准备（18->19->20）。\",        \"choice\": \"\"    }]"
+        },
+        "path": "UNC_20.9.5/快速入门/系统原理/UNC系统原理/软件架构/典型业务处理流程/zh-cn_topic_0268521993.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/快速入门/系统原理/UNC系统原理/软件架构/典型业务处理流程/zh-cn_topic_0268521993.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "设置账户密钥的步骤如下：\n\n1. 在服务器端，修改/etc/ssh/sshd_config配置文件如下字段的值：\n\nPubkeyAuthentication yes\nAuthorizedKeysFile .ssh/authorized_keys\nPasswordAuthentication no\nChallengeResponseAuthentication yes\nStrictModes yes\n\n2. 在客户端使用ssh-keygen生成公私密钥对，生成文件存放于/root/.ssh/id_rsa，密钥口令为空，如图1所示。\n\n**图1** 生成公私密钥对\n\n3. 在客户端使用ssh-copy-id将公钥传递至远程服务器，如图2所示。\n\n**图2** 传递公钥至远程服务器\n\n如果缺少ssh-copy-id命令请先安装ssh-copy-id工具，或者使用scp等将公钥拷贝至远程服务器\n\n4. 在客户端使用密钥认证，登录远程服务器，如图3所示。\n\n**图3** 使用密钥认证登录远程服务器",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"在服务器端，修改/etc/ssh/sshd_config配置文件如下字段的值：\",\n        \"choice\": \"PubkeyAuthentication yes\\nAuthorizedKeysFile .ssh/authorized_keys\\nPasswordAuthentication no\\nChallengeResponseAuthentication yes\\nStrictModes yes\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"在客户端使用ssh-keygen生成公私密钥对，生成文件存放于/root/.ssh/id_rsa，密钥口令为空，如图1所示。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 3,\n        \"description\": \"在客户端使用ssh-copy-id将公钥传递至远程服务器，如图2所示。\",\n        \"choice\": \"如果缺少ssh-copy-id命令请先安装ssh-copy-id工具，或者使用scp等将公钥拷贝至远程服务器\"\n    },\n    {\n        \"step\": 4,\n        \"description\": \"在客户端使用密钥认证，登录远程服务器，如图3所示。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/网络层安全/远程接入控制/zh-cn_topic_0000001221192557.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/网络层安全/远程接入控制/zh-cn_topic_0000001221192557.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "检查审计开关的状态\\n\\n    systemctl status auditd\\n\\n  * 输出为active (running)，则为开启状态。\\n  * 输出为inactive (dead)，则为关闭状态。审计服务用于对安全事件进行审计，建议用户使用如下命令开启审计服务：\\n\\n        systemctl start auditd\\n\\n![](../public_sys-resources/note_3.0-zh-cn.png)\\n\\n    * 审计服务异常关闭会通过systemd机制自动重启，若正常关闭则不会自动重启。systemd默认对服务重启次数有限制，10秒内最多重启5次，超出限制，服务将不再尝试自动重启。\\n    * systemctl命令只能用于启动或查询auditd服务的状态，不能用于关闭、重启服务。service命令可以用于启动、关闭、重启auditd服务，以及查询服务状态。",
+            "answer": "[\\n    {\\n        \"step\": 1,\\n        \"description\": \"检查审计开关的状态。\",\\n        \"choice\": \"\\n        systemctl status auditd\"\\n    },\\n    {\\n        \"step\": 1.1,\\n        \"description\": \"解析状态输出。\",\\n        \"choice\": \"\\n        输出为active (running)，则为开启状态。\\n        输出为inactive (dead)，则为关闭状态。\"\\n    },\\n    {\\n        \"step\": 1.2,\\n        \"description\": \"审计服务用于对安全事件进行审计，建议用户使用如下命令开启审计服务：\",\\n        \"choice\": \"\\n        systemctl start auditd\"\\n    },\\n    {\\n        \"step\": 2,\\n        \"description\": \"审计服务异常关闭会通过systemd机制自动重启，若正常关闭则不会自动重启。\",\\n        \"choice\": \"\\n        systemd默认对服务重启次数有限制，10秒内最多重启5次，超出限制，服务将不再尝试自动重启。\"\\n    },\\n    {\\n        \"step\": 3,\\n        \"description\": \"systemctl命令只能用于启动或查询auditd服务的状态，不能用于关闭、重启服务。\",\\n        \"choice\": \"\\n        service命令可以用于启动、关闭、重启auditd服务，以及查询服务状态。\"\\n    }\\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/系统层安全/日志审计系统维护/zh-cn_topic_0000001175554308.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/日常维护/UNC例行维护/维护操作系统安全/操作系统安全维护/系统层安全/日志审计系统维护/zh-cn_topic_0000001175554308.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 查看是否存在“ALM-100319 Base平面Pod级亚健康告警”，并记录。2. 请收集告警信息和配置信息，并联系华为技术支持处理。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"查看是否存在“ALM-100319 Base平面Pod级亚健康告警”，并记录。\",\n        \"choice\": \"\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"请收集告警信息和配置信息，并联系华为技术支持处理。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100479.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/100479.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    },
+    {
+        "question": {
+            "processing_steps": "1. 执行[**DSP RMSTATISTICS**](../MML/Document/dsp_rmstatistics.html)命令查看IPv6各协议的路由数量。执行[**LST PREFIXLIMIT**](../MML/Document/lst_prefixlimit.html)命令确认IPv6路由前缀的最大值设置是否过小。\n     * 是，请使用命令[**SET PREFIXLIMIT**](../MML/Document/set_prefixlimit.html)配置合理的路由前缀总数的最大值，确认告警是否恢复。\n       * 是，则处理完毕。\n       * 否，请执行2。\n     * 否，请执行2。\n2. 请收集告警信息和配置信息，并联系技术支持工程师。",
+            "answer": "[\n    {\n        \"step\": 1,\n        \"description\": \"执行[**DSP RMSTATISTICS**](../MML/Document/dsp_rmstatistics.html)命令查看IPv6各协议的路由数量。执行[**LST PREFIXLIMIT**](../MML/Document/lst_prefixlimit.html)命令确认IPv6路由前缀的最大值设置是否过小。\",\n        \"choice\": \"是 => 请使用命令[**SET PREFIXLIMIT**](../MML/Document/set_prefixlimit.html)配置合理的路由前缀总数的最大值，确认告警是否恢复。\\n       是 => 则处理完毕。否 => 请执行2。\\n     否 => 请执行2。\"\n    },\n    {\n        \"step\": 2,\n        \"description\": \"请收集告警信息和配置信息，并联系技术支持工程师。\",\n        \"choice\": \"\"\n    }\n]"
+        },
+        "path": "UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/137953285.txt",
+        "filename": "/home/junetheriver/datasets/huawei/processed/UNC_20.9.5/网络运维/故障处理/UNC告警处理/平台告警/137953285.txt",
+        "template": "你的任务是将以下处理步骤转换成step的形式，返回json格式的列表\n现在开始回答问题，将以下处理步骤转换成json格式，注意只回答json，不要回答其它内容：{processing_steps}",
+        "version": "09021920"
+    }
+]

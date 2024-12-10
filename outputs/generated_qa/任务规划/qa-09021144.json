@@ -1,0 +1,24 @@
+[
+    {
+        "question": {
+            "step_name": "步骤1：UserCheck0\n步骤2：UserCheck1\n步骤3：UserCheck2\n步骤4：UserCheck3\n步骤5：UserCheck4\n步骤6：UserCheck5\n步骤7：UserCheck6\n步骤8：UserCheck7\n步骤9：informationCollection8",
+            "current_step_desc": "进行人工操作，检查CloudCG和GSN之间是否有防火墙等。是 => 6。否 => 9。",
+            "current_step_output": "UserCheck4Result",
+            "answer": "{\n  \"next\": [\n   {\n    \"condition\": \"${UserCheck4Result.result == \\\"是\\\"}\",\n    \"action\": \"UserCheck5\"\n   },\n   {\n    \"condition\": \"${UserCheck4Result.result == \\\"否\\\"}\",\n    \"action\": \"informationCollection8\"\n   }\n  ]\n}"
+        },
+        "path": "zh-cn_cliref_0187233736.txt",
+        "template": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，以JSON格式生成下一步的所有分支情况。当下一步为诊断结束时，action请选择endNode。\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n{step_name}\n已知当前步骤描述为{current_step_desc}\n已知当前步骤的输出为{current_step_output}\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，以JSON格式生成下一步的所有分支情况。当下一步为诊断结束时，action请选择endNode。\n请先分析分支情况。你的输出应该为：",
+        "version": "09021144"
+    },
+    {
+        "question": {
+            "step_name": "步骤1：QueryGDSSStatus\n步骤2：AnalyzeGDSSData\n步骤3：CheckNodeRole\n步骤4：VerifyWorkerStatus\n步骤5：ReviewTaskNumbers\n步骤6：InspectUserDetails\n步骤7：FinalVerification\n步骤8：DiagnosticEnd",
+            "current_step_desc": "检查节点角色是否为汇聚节点。是 => 3。否 => 8。",
+            "current_step_output": "CheckNodeRoleResult",
+            "answer": "{  \"next\": [   {    \"condition\": \"${CheckNodeRoleResult.role == \\\"GROUP_NODE\\\"}\",    \"action\": \"AnalyzeGDSSData\"   },   {    \"condition\": \"${CheckNodeRoleResult.role != \\\"GROUP_NODE\\\"}\",    \"action\": \"DiagnosticEnd\"   }  ]}"
+        },
+        "path": "zh-cn_topic_0000001256866344.txt",
+        "template": "你的任务是根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，以JSON格式生成下一步的所有分支情况。当下一步为诊断结束时，action请选择endNode。\n现在请开始回答问题：\n已知所有步骤编号和步骤名为\n{step_name}\n已知当前步骤描述为{current_step_desc}\n已知当前步骤的输出为{current_step_output}\n请根据所有步骤名、当前步骤描述和当前步骤用于选择下一步分支的参数，以JSON格式生成下一步的所有分支情况。当下一步为诊断结束时，action请选择endNode。\n请先分析分支情况。你的输出应该为：",
+        "version": "09021144"
+    }
+]

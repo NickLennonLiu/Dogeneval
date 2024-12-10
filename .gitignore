@@ -4,3 +4,4 @@ data/**
 **/.pytest_cache/
 **/logs/
 **/*.hdx
+llama-factory
